@@ -9,4 +9,5 @@ package thweb.th_admin;
  */
 public class ThController {
 
+	private int a = 0;
 }
