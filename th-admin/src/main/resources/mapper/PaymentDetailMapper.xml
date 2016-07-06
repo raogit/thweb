@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ihome.payment.dao.IPaymentDetailDao">
+	<resultMap id="paymentDetail" type="com.ihome.payment.domain.PaymentDetail">
+	    <result column="id" jdbcType="BIGINT" property="id" />
+	    <result column="payment_sn" jdbcType="VARCHAR" property="paymentSn" />
+	    <result column="channel_sn" jdbcType="VARCHAR" property="channelSn" />
+	    <result column="biz_sn" jdbcType="VARCHAR" property="bizSn" />
+		<result column="channel_code" jdbcType="VARCHAR" property="channelCode" />
+		<result column="amount" jdbcType="BIGINT" property="amount" />
+		<result column="currency" jdbcType="VARCHAR" property="currency" />
+		<result column="pay_bank_code" jdbcType="VARCHAR" property="payBankCode" />
+		<result column="pay_bank_name" jdbcType="VARCHAR" property="payBankName" />
+		<result column="pay_op_no" jdbcType="VARCHAR" property="payOpBankCode" />
+		<result column="pay_op_name" jdbcType="VARCHAR" property="payOpBankName" />
+		<result column="pay_account_no" jdbcType="VARCHAR" property="payAccountNo" />
+		<result column="pay_account_name" jdbcType="VARCHAR" property="payAccountName" />
+		<result column="recv_bank_code" jdbcType="VARCHAR" property="recvBankCode" />
+		<result column="recv_bank_name" jdbcType="VARCHAR" property="recvBankName" />
+		<result column="recv_op_no" jdbcType="VARCHAR" property="recvOpBankNo" />
+		<result column="recv_op_name" jdbcType="VARCHAR" property="recvOpBankName" />
+		<result column="recv_account_no" jdbcType="VARCHAR" property="recvAccountNo" />
+		<result column="recv_account_name" jdbcType="VARCHAR" property="recvAccountName" />
+		<result column="recv_province_code" jdbcType="VARCHAR" property="recvProvinceCode" />
+		<result column="recv_province_name" jdbcType="VARCHAR" property="recvProvinceName" />
+		<result column="recv_city_code" jdbcType="VARCHAR" property="recvCityCode" />
+		<result column="recv_city_name" jdbcType="VARCHAR" property="recvCityName" />
+		<result column="bank_summary" jdbcType="VARCHAR" property="summary" />
+		<result column="status" jdbcType="VARCHAR" property="status" />
+		<result column="batch_sn" jdbcType="VARCHAR" property="batchSn" />
+		<result column="channel_req_time" jdbcType="TIMESTAMP" property="channelReqTime" />
+		<result column="channel_recv_time" jdbcType="TIMESTAMP" property="channelRecvTime" />
+		<result column="channel_rsp_code" jdbcType="VARCHAR" property="channelRspCode" />
+		<result column="channel_rsp_status" jdbcType="VARCHAR" property="channelRspStatus" />
+		<result column="channel_rsp_remark" jdbcType="VARCHAR" property="channelRspRemark" />
+		<result column="channel_rsp_sn" jdbcType="VARCHAR" property="channelRspSn" />
+		<result column="remark" jdbcType="VARCHAR" property="remark" />
+		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+	    <result column="recon_diff_flag" jdbcType="CHAR" property="reconDiffFlag" />
+	</resultMap>
+	
+	<select id="getNextId" resultType="java.lang.Long">
+		select allocate_record_id from payment_info
+	</select>
+	
+	<insert id="createPayment" parameterType="com.ihome.payment.domain.PaymentDetail" >
+		insert into payment_info(id,payment_sn,channel_code,biz_sn,biz_code,recv_bank_code,recv_bank_name,recv_op_no,recv_op_name,recv_account_no,
+ 								 recv_account_name,pay_bank_code,pay_bank_name,pay_op_no,pay_op_name,pay_account_no,pay_account_name,
+ 								 currency,amount,bank_summary,create_time,status,channel_sn
+ 								) 
+		values(#{id,jdbcType=BIGINT},#{paymentSn,jdbcType=VARCHAR},#{channelCode,jdbcType=VARCHAR},#{bizSn,jdbcType=VARCHAR},'',
+			   #{recvBankCode,jdbcType=VARCHAR},#{recvBankName,jdbcType=VARCHAR},#{recvOpBankNo,jdbcType=VARCHAR},#{recvOpBankName,jdbcType=VARCHAR},
+			   #{recvAccountNo,jdbcType=VARCHAR},#{recvAccountName,jdbcType=VARCHAR},#{payBankCode,jdbcType=VARCHAR},#{payBankName,jdbcType=VARCHAR},
+			   #{payOpBankCode,jdbcType=VARCHAR},#{payOpBankName,jdbcType=VARCHAR},#{payAccountNo,jdbcType=VARCHAR},#{payAccountName,jdbcType=VARCHAR},
+			   #{currency,jdbcType=VARCHAR},#{amount,jdbcType=BIGINT},#{summary,jdbcType=VARCHAR},#{createTime,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},
+			   #{channelSn,jdbcType=VARCHAR}
+			   )
+	</insert>	
+	<select id="getByBizSnAndCodeCnt"  resultType="int" parameterType="com.ihome.payment.domain.PaymentDetail" >
+		select count(1) from payment_info where biz_sn=#{bizSn,jdbcType=VARCHAR} 
+	</select>
+	
+	
+	<select id="getByBizSnAndCodeList" resultMap="paymentDetail" parameterType="com.ihome.payment.domain.PaymentDetail" >
+		select id, payment_sn, biz_sn, channel_code, amount, currency, pay_bank_code, pay_bank_name, pay_op_no, 
+			pay_op_name, pay_account_no, pay_account_name, recv_bank_code, recv_bank_name, recv_op_no, recv_op_name, recv_account_no, recv_account_name, recv_province_code, 
+      		recv_province_name, recv_city_code, recv_city_name, bank_summary, status, batch_sn, channel_req_time, channel_recv_time, channel_rsp_code, channel_rsp_status, 
+			channel_rsp_remark, channel_rsp_sn, remark, create_time, update_time, channel_sn 
+		from payment_info where biz_sn=#{bizSn,jdbcType=VARCHAR} 
+	</select>
+	
+	<select id="getById" resultMap="paymentDetail" parameterType="java.lang.Integer" >
+		select id, payment_sn, biz_sn, channel_code, amount, currency, pay_bank_code, pay_bank_name, pay_op_no, 
+			pay_op_name, pay_account_no, pay_account_name, recv_bank_code, recv_bank_name, recv_op_no, recv_op_name, recv_account_no, recv_account_name, recv_province_code, 
+      		recv_province_name, recv_city_code, recv_city_name, bank_summary, status, batch_sn, channel_req_time, channel_recv_time, channel_rsp_code, channel_rsp_status, 
+			channel_rsp_remark, channel_rsp_sn, remark, create_time, update_time, channel_sn 
+        from payment_info where id=#{id,jdbcType=BIGINT} 
+	</select>
+	
+	<select id="getBychannelSn" resultMap="paymentDetail" parameterType="java.lang.String" >
+		select id, payment_sn, biz_sn, channel_code, amount, currency, pay_bank_code, pay_bank_name, pay_op_no, 
+			pay_op_name, pay_account_no, pay_account_name, recv_bank_code, recv_bank_name, recv_op_no, recv_op_name, recv_account_no, recv_account_name, recv_province_code, 
+      		recv_province_name, recv_city_code, recv_city_name, bank_summary, status, batch_sn, channel_req_time, channel_recv_time, channel_rsp_code, channel_rsp_status, 
+			channel_rsp_remark, channel_rsp_sn, remark, create_time, update_time, channel_sn
+		from payment_info where channel_sn=#{channelSn,jdbcType=VARCHAR} 
+	</select>
+	
+	<select id="getByPaymentSn" resultMap="paymentDetail" parameterType="java.lang.String" >
+		select id, payment_sn, biz_sn, channel_code, amount, currency, pay_bank_code, pay_bank_name, pay_op_no, 
+			pay_op_name, pay_account_no, pay_account_name, recv_bank_code, recv_bank_name, recv_op_no, recv_op_name, recv_account_no, recv_account_name, recv_province_code, 
+      		recv_province_name, recv_city_code, recv_city_name, bank_summary, status, batch_sn, channel_req_time, channel_recv_time, channel_rsp_code, channel_rsp_status, 
+			channel_rsp_remark, channel_rsp_sn, remark, create_time, update_time, channel_sn 
+		from payment_info where payment_sn=#{paymentSn,jdbcType=VARCHAR} 
+	</select>
+	
+	
+	<update id="updateAfterPay" parameterType="com.ihome.payment.domain.PaymentDetail" >
+		update payment_info t
+		set
+		<if test="status != null and status != ''">
+			t.status=#{status, jdbcType=VARCHAR},
+		</if>
+		<if test="channelRspCode != null and channelRspCode != ''">
+			t.channel_rsp_code=#{channelRspCode, jdbcType=VARCHAR},
+		</if>
+		<if test="channelRspStatus != null and channelRspStatus != ''">
+			t.channel_rsp_status=#{channelRspStatus, jdbcType=VARCHAR},
+		</if>
+		<if test="channelRspRemark != null and channelRspRemark != ''">
+			t.channel_rsp_remark=#{channelRspRemark, jdbcType=VARCHAR},
+		</if>
+		<if test="channelRspSn != null and channelRspSn != ''">
+			t.channel_rsp_sn=#{channelRspSn, jdbcType=VARCHAR},
+		</if>
+		<if test="remark != null and remark != ''">
+			t.remark=#{remark, jdbcType=VARCHAR},
+		</if>
+		<if test="channelReqTime != null">
+			t.channel_req_time=#{channelReqTime, jdbcType=DATE},
+		</if>
+		<if test="channelRecvTime != null">
+			t.channel_recv_time=#{channelRecvTime, jdbcType=DATE},
+		</if>
+		<if test="reconDiffFlag != null and reconDiffFlag != ''">
+			t.recon_diff_flag = #{reconDiffFlag, jdbcType = CHAR},
+		</if>
+		update_time=now()
+		where id=#{id,jdbcType=BIGINT}
+	</update>
+	
+	<select id="getPaymentByCreateDate" resultMap="paymentDetail" parameterType="java.util.Map" >
+		select id, payment_sn, biz_sn, channel_code, amount, currency, pay_bank_code, pay_bank_name, pay_op_no, 
+			pay_op_name, pay_account_no, pay_account_name, recv_bank_code, recv_bank_name, recv_op_no, recv_op_name, recv_account_no, recv_account_name, recv_province_code, 
+      		recv_province_name, recv_city_code, recv_city_name, bank_summary, status, batch_sn, channel_req_time, channel_recv_time, channel_rsp_code, channel_rsp_status, 
+			channel_rsp_remark, channel_rsp_sn, remark, create_time, update_time, channel_sn
+		 from payment_info where 
+		 <![CDATA[ create_time >= #{reconDate,jdbcType=DATE}  and  create_time < #{nextDate,jdbcType=DATE}]]> 
+	</select>
+	
+	<select id="getQueryPayment" resultMap="paymentDetail" parameterType="java.util.Map" >
+		select id, payment_sn, biz_sn, channel_code, amount, currency, pay_bank_code, pay_bank_name, pay_op_no, 
+			pay_op_name, pay_account_no, pay_account_name, recv_bank_code, recv_bank_name, recv_op_no, recv_op_name, recv_account_no, recv_account_name, recv_province_code, 
+      		recv_province_name, recv_city_code, recv_city_name, bank_summary, status, batch_sn, channel_req_time, channel_recv_time, channel_rsp_code, channel_rsp_status, 
+			channel_rsp_remark, channel_rsp_sn, remark, create_time, update_time, channel_sn
+	    from payment_info where 
+		 <![CDATA[ create_time >= #{startDate}  
+		 		   and  create_time <= #{endDate}
+		 		   and status <> 'SUCCESS'
+		 		   and status <> 'FAILURE'
+		   ]]> 
+		 
+	</select>
+	
+	<update id="updateStatusAfterQuery" parameterType="com.ihome.payment.domain.PaymentDetail" >
+		update payment_info t
+		set
+		<if test="status != null and status != ''">
+			t.status=#{status, jdbcType=VARCHAR},
+		</if>
+		<if test="channelRspCode != null and channelRspCode != ''">
+			t.channel_rsp_code=#{channelRspCode, jdbcType=VARCHAR},
+		</if>
+		<if test="channelRspStatus != null and channelRspStatus != ''">
+			t.channel_rsp_status=#{channelRspStatus, jdbcType=VARCHAR},
+		</if>
+		<if test="channelRspRemark != null and channelRspRemark != ''">
+			t.channel_rsp_remark=#{channelRspRemark, jdbcType=VARCHAR},
+		</if>
+		<if test="channelRspSn != null and channelRspSn != ''">
+			t.channel_rsp_sn=#{channelRspSn, jdbcType=VARCHAR},
+		</if>
+		<if test="remark != null and remark != ''">
+			t.remark=#{remark, jdbcType=VARCHAR},
+		</if>
+		update_time=now()
+		where id=#{id,jdbcType=BIGINT}
+		<![CDATA[
+			and status <> 'SUCCESS'
+			and status <> 'FAILURE'
+		]]>
+	</update>
+</mapper>
