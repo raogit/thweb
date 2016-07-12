@@ -7,7 +7,7 @@
             <property name="suppressDate" value="false" /> <!-- 是否生成注释代时间戳-->  
         </commentGenerator>  
   
-     <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/mdw" userId="root" password="123456" />
+     <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/tianhong" userId="root" password="test123" />
      <!-- 类型转换 -->  
         <javaTypeResolver>  
             <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->  
@@ -15,22 +15,21 @@
         </javaTypeResolver> 
     
     	<!-- t_sys_menu -->  
-   		<javaModelGenerator targetPackage="com.lit.domain.phone"   targetProject="mdw-service" >                
+   		<javaModelGenerator targetPackage="com.tianhong.dao"   targetProject="th-admin" >                
             <property name="enableSubPackages" value="false"/>            
             <property name="trimStrings" value="true"/>  
         </javaModelGenerator>  
-        <sqlMapGenerator targetPackage="mybatis.mapper.phone"  targetProject="mdw-service" >  
+        <sqlMapGenerator targetPackage="com.tianhong.dao"  targetProject="th-admin" >  
             <property name="enableSubPackages" value="false" />  
         </sqlMapGenerator>  
-        <javaClientGenerator targetPackage="com.lit.mapper.phone"   targetProject="mdw-service" type="XMLMAPPER" >  
+        <javaClientGenerator targetPackage="com.tianhong.domain"   targetProject="th-admin" type="XMLMAPPER" >  
             <property name="enableSubPackages" value="false" />  
         </javaClientGenerator>
-       <table schema="mdw" tableName="t_phone_imei"  domainObjectName="PhoneImei"  enableCountByExample="false"  
+        <!-- 
+       <table schema="tianhong" tableName="t_phone_imei"  domainObjectName="PhoneImei"  enableCountByExample="false"  
             enableDeleteByExample="false" enableSelectByExample="false"  enableUpdateByExample="false" />
       
-      
-            
-       
+        -->
             
             
                 
