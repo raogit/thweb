@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.th.controller;
+package com.tianhong.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
