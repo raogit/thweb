@@ -32,7 +32,7 @@ public class LoginController {
 	@RequestMapping(value = "/login")
 	public Object login(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			List<Menu> menus = menuService.getRelativeMenus();
+			List<Menu> menus = menuService.getAllMenus();
 		} catch (Exception e) {
 			log.error("", e);
 		}

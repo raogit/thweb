@@ -9,8 +9,10 @@ package com.tianhong.service.menu.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.tianhong.dao.menu.MenuMapper;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.service.menu.MenuService;
 
@@ -23,10 +25,19 @@ import com.tianhong.service.menu.MenuService;
 @Service("menuService")
 public class MenuServiceImpl implements MenuService {
 
+	@Autowired
+	private MenuMapper menuMapper;
 	
 	public List<Menu> getAllMenus() throws Exception{
-		
-		return null;
+		List<Menu> menus = menuMapper.selectAllMenus();
+		for(Menu menu : menus){
+			for(Menu sub : menus){
+				if(menu.getId().intValue() == sub.getId().intValue()){
+					menu.getSubMenus().add(sub);
+				}
+			}
+		}
+		return menus;
 	}
 
 }
