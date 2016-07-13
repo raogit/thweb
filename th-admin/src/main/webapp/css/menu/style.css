@@ -147,7 +147,7 @@ a.remove-link:hover {
 #sidebar #main-nav li {
                 list-style: none;
                 padding-bottom: 10px;
-                text-align: right;
+                text-align: left;
                 }
 
 #sidebar #main-nav li a.nav-top-item {
