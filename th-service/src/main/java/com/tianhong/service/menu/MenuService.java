@@ -20,5 +20,5 @@ import com.tianhong.domain.menu.Menu;
  */
 public interface MenuService {
 
-	List<Menu> getAllMenus();
+	List<Menu> getAllMenus() throws Exception;
 }

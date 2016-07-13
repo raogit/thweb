@@ -9,6 +9,8 @@ package com.tianhong.service.menu.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.service.menu.MenuService;
 
@@ -18,13 +20,12 @@ import com.tianhong.service.menu.MenuService;
  * @author xing
  * @date 2016年7月13日 下午4:56:06
  */
+@Service("menuService")
 public class MenuServiceImpl implements MenuService {
 
-	/* (non-Javadoc)
-	 * @see com.tianhong.service.impl.MenuService#getAllMenus()
-	 */
-	public List<Menu> getAllMenus() {
-		// TODO Auto-generated method stub
+	
+	public List<Menu> getAllMenus() throws Exception{
+		
 		return null;
 	}
 
