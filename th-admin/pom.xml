@@ -221,5 +221,10 @@
 			<artifactId>commons-pool</artifactId>
 			<version>1.5.7</version>
 		</dependency>
+		<dependency>
+			<groupId>th-service</groupId>
+			<artifactId>th-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
