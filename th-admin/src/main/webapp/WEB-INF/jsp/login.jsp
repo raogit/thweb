@@ -25,7 +25,7 @@
 			<div>
 				<input type="password" name="password" class="password" placeholder="Password" oncontextmenu="return false" onpaste="return false"/>
 			</div>
-			<button id="submit" type="button">登录</button>
+			<button type="button" onclick="sub()">登录</button>
 		</form>
 		<div class="connect">
 			<p style="left: 0%;">If we can only encounter each other rather than stay with each

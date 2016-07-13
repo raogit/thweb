@@ -2,42 +2,44 @@ jQuery(document).ready(function() {
 	$(".btn").click(function() {
 		is_hide();
 	})
-	var u = $("input[name=username]");
-	var p = $("input[name=password]");
-	$("#submit").click(function() {
-		if (u.val() == '' || p.val() == '') {
-			$("#ts").html("用户名或密码不能为空~");
-			is_show();
-			return false;
-		} else {
-//			$.ajax({
-//				url: basePath + "/loginconfirm",
-//			    type: 'POST',
-//			    dataType: 'json',
-//			    data : {u:u.val(),p:p.val()},
-//			    timeout: 30000,
-//			    cache: false,
-//			    success: function(data){
-//			    	
-//			    	debugger
-//			    	if(data.status=="success"){
-//			    		 window.location = data.msg;
-//			    	}else{
-//			    		alert(data.msg);
-//			    	}
-//			    }
-//		    });
-			var form = $("#formId");
-			debugger;
-			form[0].submit();
-//			document.getElementById("formId").submit();
-			
-			
-		}
-	});
+	
+	
 	
 });
-
+function sub(){
+	var u = $("input[name=username]");
+	var p = $("input[name=password]");
+	if (u.val() == '' || p.val() == '') {
+		$("#ts").html("用户名或密码不能为空~");
+		is_show();
+		return false;
+	} else {
+//		$.ajax({
+//			url: basePath + "/loginconfirm",
+//		    type: 'POST',
+//		    dataType: 'json',
+//		    data : {u:u.val(),p:p.val()},
+//		    timeout: 30000,
+//		    cache: false,
+//		    success: function(data){
+//		    	
+//		    	debugger
+//		    	if(data.status=="success"){
+//		    		 window.location = data.msg;
+//		    	}else{
+//		    		alert(data.msg);
+//		    	}
+//		    }
+//	    });
+		var form = $("#formId");
+		debugger;
+//		jQuery(form).submit();
+		var a = document.getElementById("formId");
+		document.getElementById("formId").submit();
+		
+		
+	}
+}
 
 window.onload = function() {
 	$(".connect p").eq(0).animate({
