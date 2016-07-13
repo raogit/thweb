@@ -22,8 +22,7 @@ jQuery(function($){
         slides             : [    // Slideshow Images
                                  {image : basePath+'/img/login/1.jpg'},
                                  {image : basePath+'/img/login/2.jpg'},
-                                 {image : basePath+'/img/login/3.jpg'},
-                                 {image : basePath+'/img/login/4.jpg'}
+                                 {image : basePath+'/img/login/3.jpg'}
                              ]
 
     });

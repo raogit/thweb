@@ -30,12 +30,10 @@ import com.tianhong.constant.UserConstant;
 public class SessionFilter implements Filter {
 
 	// 忽略路径
-	private static final String[] IGNORE_URI = { "/login.jsp", "/login", "/verify/verifyCode",
-			"/activex/DongleOCX.exe" };
+	private static final String[] IGNORE_URI = { "/login.jsp", "/login", "/verify/verifyCode", "/loginconfirm","/activex/DongleOCX.exe" };
 
 	// 忽略后缀
-	private static final String[] SUFFIXS = { ".js", ".css", ".cur", ".jpg", ".gif", ".png", ".ico", ".swf", ".cab",
-			".cvs", "xl", ".html" };
+	private static final String[] SUFFIXS = { ".js", ".css", ".cur", ".jpg", ".gif", ".png", ".ico", ".swf", ".cab",".cvs", "xl", ".html" };
 
 	public void init(FilterConfig filterConfig) throws ServletException {
 		// TODO Auto-generated method stub

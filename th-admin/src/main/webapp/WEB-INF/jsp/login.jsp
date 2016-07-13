@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-	<title>wan</title>
+	<title>天虹</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -10,15 +10,15 @@
 	<link rel="stylesheet" href="${basePath}/css/login/reset.css">
 	<link rel="stylesheet" href="${basePath}/css/login/supersized.css">
 	<link rel="stylesheet" href="${basePath}/css/login/style.css">
-	<script src="${basePath}/js/login/supersized.3.2.7.min.js"></script>
-	<script src="${basePath}/js/login/supersized-init.js"></script>
-	<script src="${basePath}/js/login/login.js"></script>
+	<script src="${basePath}/js/login/supersized.3.2.7.min.js?ver=${ver}"></script>
+	<script src="${basePath}/js/login/supersized-init.js?ver=${ver}"></script>
+	<script src="${basePath}/js/login/login.js?ver=${ver}"></script>
 </head>
 
 <body id="by" style="overflow-y: hidden">
 	<div class="page-container">
 		<h1>一路向西</h1>
-		<form id="formId" name="formId"  action="${basePath}/loginValidate" method="post">
+		<form id="formId" name="formId"  action="${basePath}/loginconfirm" method="post">
 			<div>
 				<input type="text" name="username" class="username" placeholder="Username" autocomplete="off"/>
 			</div>

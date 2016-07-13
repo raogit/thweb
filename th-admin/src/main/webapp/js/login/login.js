@@ -10,22 +10,27 @@ jQuery(document).ready(function() {
 			is_show();
 			return false;
 		} else {
-			$.ajax({
-				url: basePath + "/loginValidate",
-			    type: 'POST',
-			    dataType: 'json',
-			    data : {u:u.val(),p:p.val()},
-			    timeout: 30000,
-			    cache: false,
-			    success: function(data){
-			    	if(data.status=="success"){
-			    		 window.location = data.msg;
-			    	}else{
-			    		alert(data.msg);
-			    	}
-			    }
-		    });
-//			$("#formId").submit();
+//			$.ajax({
+//				url: basePath + "/loginconfirm",
+//			    type: 'POST',
+//			    dataType: 'json',
+//			    data : {u:u.val(),p:p.val()},
+//			    timeout: 30000,
+//			    cache: false,
+//			    success: function(data){
+//			    	
+//			    	debugger
+//			    	if(data.status=="success"){
+//			    		 window.location = data.msg;
+//			    	}else{
+//			    		alert(data.msg);
+//			    	}
+//			    }
+//		    });
+			var form = $("#formId");
+			debugger;
+			form[0].submit();
+//			document.getElementById("formId").submit();
 			
 			
 		}
