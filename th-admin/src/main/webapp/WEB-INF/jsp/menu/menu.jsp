@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	
 	<jsp:include page="../base/base.jsp"></jsp:include>
 	<link rel="stylesheet" href="${basePath}/css/menu/invalid.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="${basePath}/css/menu/style.css" type="text/css" media="screen" />
@@ -25,7 +26,7 @@
 				<h1 id="sidebar-title">
 					<a href="#">Simpla Admin</a>
 				</h1>
-				<a href="#"><img id="logo" src="resources/images/logo.png" alt="Simpla Admin logo" /></a>
+				<a href="#"><img id="logo" src="${basePath}/img/menu/logo.png" alt="Simpla Admin logo" /></a>
 				<div id="profile-links">
 					Hello, <a href="#" title="Edit your profile">865171</a>, you have <a
 						href="#messages" rel="modal" title="3 Messages">3 Messages</a><br />
@@ -132,23 +133,23 @@
 			<p id="page-intro">What would you like to do?</p>
 			<ul class="shortcut-buttons-set">
 				<li><a class="shortcut-button" href="#"><span> <img
-							src="resources/images/icons/pencil_48.png" alt="icon" /><br />
+							src="${basePath}/img/menu/icons/pencil_48.png" alt="icon" /><br />
 							Write an Article
 					</span></a></li>
 				<li><a class="shortcut-button" href="#"><span> <img
-							src="resources/images/icons/paper_content_pencil_48.png"
+							src="${basePath}/img/menu/icons/paper_content_pencil_48.png"
 							alt="icon" /><br /> Create a New Page
 					</span></a></li>
 				<li><a class="shortcut-button" href="#"><span> <img
-							src="resources/images/icons/image_add_48.png" alt="icon" /><br />
+							src="${basePath}/img/menu/icons/image_add_48.png" alt="icon" /><br />
 							Upload an Image
 					</span></a></li>
 				<li><a class="shortcut-button" href="#"><span> <img
-							src="resources/images/icons/clock_48.png" alt="icon" /><br />
+							src="${basePath}/img/menu/icons/clock_48.png" alt="icon" /><br />
 							Add an Event
 					</span></a></li>
 				<li><a class="shortcut-button" href="#messages" rel="modal"><span>
-							<img src="resources/images/icons/comment_48.png" alt="icon" /><br />
+							<img src="${basePath}/img/menu/icons/comment_48.png" alt="icon" /><br />
 							Open Modal
 					</span></a></li>
 			</ul>
@@ -172,7 +173,7 @@
 						<!-- This is the target div. id must match the href of this div's tab -->
 						<div class="notification attention png_bg">
 							<a href="#" class="close"><img
-								src="resources/images/icons/cross_grey_small.png"
+								src="${basePath}/img/menu/icons/cross_grey_small.png"
 								title="Close this notification" alt="close" /></a>
 							<div>This is a Content Box. You can put whatever you want
 								in it. By the way, you can close this notification with the
@@ -221,11 +222,11 @@
 									<td>Donec tortor diam</td>
 									<td>
 										<!-- Icons --> <a href="#" title="Edit"><img
-											src="resources/images/icons/pencil.png" alt="Edit" /></a> <a
+											src="${basePath}/img/menu/icons/pencil.png" alt="Edit" /></a> <a
 										href="#" title="Delete"><img
-											src="resources/images/icons/cross.png" alt="Delete" /></a> <a
+											src="${basePath}/img/menu/icons/cross.png" alt="Delete" /></a> <a
 										href="#" title="Edit Meta"><img
-											src="resources/images/icons/hammer_screwdriver.png"
+											src="${basePath}/img/menu/icons/hammer_screwdriver.png"
 											alt="Edit Meta" /></a>
 									</td>
 								</tr>
@@ -237,11 +238,11 @@
 									<td>Donec tortor diam</td>
 									<td>
 										<!-- Icons --> <a href="#" title="Edit"><img
-											src="resources/images/icons/pencil.png" alt="Edit" /></a> <a
+											src="${basePath}/img/menu/icons/pencil.png" alt="Edit" /></a> <a
 										href="#" title="Delete"><img
-											src="resources/images/icons/cross.png" alt="Delete" /></a> <a
+											src="${basePath}/img/menu/icons/cross.png" alt="Delete" /></a> <a
 										href="#" title="Edit Meta"><img
-											src="resources/images/icons/hammer_screwdriver.png"
+											src="${basePath}/img/menu/icons/hammer_screwdriver.png"
 											alt="Edit Meta" /></a>
 									</td>
 								</tr>
@@ -253,11 +254,11 @@
 									<td>Donec tortor diam</td>
 									<td>
 										<!-- Icons --> <a href="#" title="Edit"><img
-											src="resources/images/icons/pencil.png" alt="Edit" /></a> <a
+											src="${basePath}/img/menu/icons/pencil.png" alt="Edit" /></a> <a
 										href="#" title="Delete"><img
-											src="resources/images/icons/cross.png" alt="Delete" /></a> <a
+											src="${basePath}/img/menu/icons/cross.png" alt="Delete" /></a> <a
 										href="#" title="Edit Meta"><img
-											src="resources/images/icons/hammer_screwdriver.png"
+											src="${basePath}/img/menu/icons/hammer_screwdriver.png"
 											alt="Edit Meta" /></a>
 									</td>
 								</tr>
@@ -269,11 +270,11 @@
 									<td>Donec tortor diam</td>
 									<td>
 										<!-- Icons --> <a href="#" title="Edit"><img
-											src="resources/images/icons/pencil.png" alt="Edit" /></a> <a
+											src="${basePath}/img/menu/icons/pencil.png" alt="Edit" /></a> <a
 										href="#" title="Delete"><img
-											src="resources/images/icons/cross.png" alt="Delete" /></a> <a
+											src="${basePath}/img/menu/icons/cross.png" alt="Delete" /></a> <a
 										href="#" title="Edit Meta"><img
-											src="resources/images/icons/hammer_screwdriver.png"
+											src="${basePath}/img/menu/icons/hammer_screwdriver.png"
 											alt="Edit Meta" /></a>
 									</td>
 								</tr>
@@ -285,11 +286,11 @@
 									<td>Donec tortor diam</td>
 									<td>
 										<!-- Icons --> <a href="#" title="Edit"><img
-											src="resources/images/icons/pencil.png" alt="Edit" /></a> <a
+											src="${basePath}/img/menu/icons/pencil.png" alt="Edit" /></a> <a
 										href="#" title="Delete"><img
-											src="resources/images/icons/cross.png" alt="Delete" /></a> <a
+											src="${basePath}/img/menu/icons/cross.png" alt="Delete" /></a> <a
 										href="#" title="Edit Meta"><img
-											src="resources/images/icons/hammer_screwdriver.png"
+											src="${basePath}/img/menu/icons/hammer_screwdriver.png"
 											alt="Edit Meta" /></a>
 									</td>
 								</tr>
@@ -301,11 +302,11 @@
 									<td>Donec tortor diam</td>
 									<td>
 										<!-- Icons --> <a href="#" title="Edit"><img
-											src="resources/images/icons/pencil.png" alt="Edit" /></a> <a
+											src="${basePath}/img/menu/icons/pencil.png" alt="Edit" /></a> <a
 										href="#" title="Delete"><img
-											src="resources/images/icons/cross.png" alt="Delete" /></a> <a
+											src="${basePath}/img/menu/icons/cross.png" alt="Delete" /></a> <a
 										href="#" title="Edit Meta"><img
-											src="resources/images/icons/hammer_screwdriver.png"
+											src="${basePath}/img/menu/icons/hammer_screwdriver.png"
 											alt="Edit Meta" /></a>
 									</td>
 								</tr>
@@ -317,11 +318,11 @@
 									<td>Donec tortor diam</td>
 									<td>
 										<!-- Icons --> <a href="#" title="Edit"><img
-											src="resources/images/icons/pencil.png" alt="Edit" /></a> <a
+											src="${basePath}/img/menu/icons/pencil.png" alt="Edit" /></a> <a
 										href="#" title="Delete"><img
-											src="resources/images/icons/cross.png" alt="Delete" /></a> <a
+											src="${basePath}/img/menu/icons/cross.png" alt="Delete" /></a> <a
 										href="#" title="Edit Meta"><img
-											src="resources/images/icons/hammer_screwdriver.png"
+											src="${basePath}/img/menu/icons/hammer_screwdriver.png"
 											alt="Edit Meta" /></a>
 									</td>
 								</tr>
@@ -333,11 +334,11 @@
 									<td>Donec tortor diam</td>
 									<td>
 										<!-- Icons --> <a href="#" title="Edit"><img
-											src="resources/images/icons/pencil.png" alt="Edit" /></a> <a
+											src="${basePath}/img/menu/icons/pencil.png" alt="Edit" /></a> <a
 										href="#" title="Delete"><img
-											src="resources/images/icons/cross.png" alt="Delete" /></a> <a
+											src="${basePath}/img/menu/icons/cross.png" alt="Delete" /></a> <a
 										href="#" title="Edit Meta"><img
-											src="resources/images/icons/hammer_screwdriver.png"
+											src="${basePath}/img/menu/icons/hammer_screwdriver.png"
 											alt="Edit Meta" /></a>
 									</td>
 								</tr>
@@ -449,7 +450,7 @@
 			<!-- Start Notifications -->
 			<div class="notification attention png_bg">
 				<a href="#" class="close"><img
-					src="resources/images/icons/cross_grey_small.png"
+					src="${basePath}/img/menu/icons/cross_grey_small.png"
 					title="Close this notification" alt="close" /></a>
 				<div>Attention notification. Lorem ipsum dolor sit amet,
 					consectetur adipiscing elit. Proin vulputate, sapien quis fermentum
@@ -457,7 +458,7 @@
 			</div>
 			<div class="notification information png_bg">
 				<a href="#" class="close"><img
-					src="resources/images/icons/cross_grey_small.png"
+					src="${basePath}/img/menu/icons/cross_grey_small.png"
 					title="Close this notification" alt="close" /></a>
 				<div>Information notification. Lorem ipsum dolor sit amet,
 					consectetur adipiscing elit. Proin vulputate, sapien quis fermentum
@@ -465,7 +466,7 @@
 			</div>
 			<div class="notification success png_bg">
 				<a href="#" class="close"><img
-					src="resources/images/icons/cross_grey_small.png"
+					src="${basePath}/img/menu/icons/cross_grey_small.png"
 					title="Close this notification" alt="close" /></a>
 				<div>Success notification. Lorem ipsum dolor sit amet,
 					consectetur adipiscing elit. Proin vulputate, sapien quis fermentum
@@ -473,7 +474,7 @@
 			</div>
 			<div class="notification error png_bg">
 				<a href="#" class="close"><img
-					src="resources/images/icons/cross_grey_small.png"
+					src="${basePath}/img/menu/icons/cross_grey_small.png"
 					title="Close this notification" alt="close" /></a>
 				<div>Error notification. Lorem ipsum dolor sit amet,
 					consectetur adipiscing elit. Proin vulputate, sapien quis fermentum

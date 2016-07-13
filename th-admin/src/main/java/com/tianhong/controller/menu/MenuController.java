@@ -41,4 +41,10 @@ public class MenuController {
 		}
 		return "";
 	}
+
+	@RequestMapping(value = "/menu")
+	public Object menu(HttpServletRequest request, HttpServletResponse response) {
+
+		return "/menu/menu";
+	}
 }

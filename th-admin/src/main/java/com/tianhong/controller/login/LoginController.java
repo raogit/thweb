@@ -30,12 +30,15 @@ public class LoginController {
 
 	@RequestMapping(value = "/loginconfirm")
 	public Object loginConfirm(HttpServletRequest request, HttpServletResponse response) {
+		String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+				+ request.getContextPath();
 		try {
 			User user = new User();
 			request.getSession().setAttribute(UserConstant.USER, user);
 
 		} catch (Exception e) {
 			log.error("", e);
+			return "/login";
 		}
 		return "/menu/menu";
 	}

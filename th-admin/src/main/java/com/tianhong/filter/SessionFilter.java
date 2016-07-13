@@ -16,8 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Component;
 
-import com.tianhong.constant.UserConstant;
-
 /**
  * 
  * ClassName: SessionFilter
@@ -30,10 +28,12 @@ import com.tianhong.constant.UserConstant;
 public class SessionFilter implements Filter {
 
 	// 忽略路径
-	private static final String[] IGNORE_URI = { "/login.jsp", "/login", "/verify/verifyCode", "/loginconfirm","/activex/DongleOCX.exe" };
+	private static final String[] IGNORE_URI = { "/login.jsp", "/login", "/verify/verifyCode", "/loginconfirm",
+			"/activex/DongleOCX.exe" };
 
 	// 忽略后缀
-	private static final String[] SUFFIXS = { ".js", ".css", ".cur", ".jpg", ".gif", ".png", ".ico", ".swf", ".cab",".cvs", "xl", ".html" };
+	private static final String[] SUFFIXS = { ".js", ".css", ".cur", ".jpg", ".gif", ".png", ".ico", ".swf", ".cab",
+			".cvs", "xl", ".html" };
 
 	public void init(FilterConfig filterConfig) throws ServletException {
 		// TODO Auto-generated method stub
@@ -62,21 +62,24 @@ public class SessionFilter implements Filter {
 				}
 			}
 		}
-		if (request.getSession().getAttribute(UserConstant.USER) != null) {
-			if (!flag) {
-				response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":"
-						+ request.getServerPort() + request.getContextPath() + "/chart/chart");
-				return;
-			}
-			chain.doFilter(request, response);
-		} else {
-			if (!flag) {
-				response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":"
-						+ request.getServerPort() + request.getContextPath() + "/login");
-			} else {
-				chain.doFilter(request, response);
-			}
-		}
+		chain.doFilter(request, response);
+		// if (request.getSession().getAttribute(UserConstant.USER) != null) {
+		// if (!flag) {
+		// response.sendRedirect(request.getScheme() + "://" +
+		// request.getServerName() + ":"
+		// + request.getServerPort() + request.getContextPath() + "/menu/menu");
+		// return;
+		// }
+		// chain.doFilter(request, response);
+		// } else {
+		// if (!flag) {
+		// response.sendRedirect(request.getScheme() + "://" +
+		// request.getServerName() + ":"
+		// + request.getServerPort() + request.getContextPath() + "/login");
+		// } else {
+		// chain.doFilter(request, response);
+		// }
+		// }
 
 	}
 
