@@ -33,10 +33,10 @@ public class LoginController {
 		try {
 			User user = new User();
 			request.getSession().setAttribute(UserConstant.USER, user);
-			return "";
+
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return "login";
+		return "/menu/menu";
 	}
 }

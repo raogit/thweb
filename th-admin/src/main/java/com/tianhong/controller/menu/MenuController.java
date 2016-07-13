@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.tianhong.controller;
+package com.tianhong.controller.menu;
 
 import java.util.List;
 
