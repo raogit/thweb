@@ -1,20 +1,11 @@
 package com.tianhong.dao.store;
 
+import com.tianhong.dao.base.BaseMapper;
 import com.tianhong.domain.store.StoreNews;
 import com.tianhong.domain.store.StoreNewsWithBLOBs;
 
-public interface StoreNewsMapper {
-    int deleteByPrimaryKey(Integer id);
+public interface StoreNewsMapper extends BaseMapper<StoreNews> {
 
-    int insert(StoreNewsWithBLOBs record);
+	int updateByPrimaryKeyWithBLOBs(StoreNewsWithBLOBs record);
 
-    int insertSelective(StoreNewsWithBLOBs record);
-
-    StoreNewsWithBLOBs selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(StoreNewsWithBLOBs record);
-
-    int updateByPrimaryKeyWithBLOBs(StoreNewsWithBLOBs record);
-
-    int updateByPrimaryKey(StoreNews record);
 }

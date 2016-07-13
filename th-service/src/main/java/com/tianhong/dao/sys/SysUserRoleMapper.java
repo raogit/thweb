@@ -1,17 +1,8 @@
 package com.tianhong.dao.sys;
 
+import com.tianhong.dao.base.BaseMapper;
 import com.tianhong.domain.sys.SysUserRole;
 
-public interface SysUserRoleMapper {
-    int deleteByPrimaryKey(Integer id);
+public interface SysUserRoleMapper extends BaseMapper<SysUserRole> {
 
-    int insert(SysUserRole record);
-
-    int insertSelective(SysUserRole record);
-
-    SysUserRole selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(SysUserRole record);
-
-    int updateByPrimaryKey(SysUserRole record);
 }

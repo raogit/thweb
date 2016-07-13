@@ -1,17 +1,8 @@
 package com.tianhong.dao.sys;
 
+import com.tianhong.dao.base.BaseMapper;
 import com.tianhong.domain.sys.SysRole;
 
-public interface SysRoleMapper {
-    int deleteByPrimaryKey(Integer id);
+public interface SysRoleMapper extends BaseMapper<SysRole> {
 
-    int insert(SysRole record);
-
-    int insertSelective(SysRole record);
-
-    SysRole selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(SysRole record);
-
-    int updateByPrimaryKey(SysRole record);
 }

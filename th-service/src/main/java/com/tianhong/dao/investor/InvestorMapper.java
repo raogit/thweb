@@ -1,19 +1,10 @@
 package com.tianhong.dao.investor;
 
+import com.tianhong.dao.base.BaseMapper;
 import com.tianhong.domain.investor.Investor;
 
-public interface InvestorMapper {
-    int deleteByPrimaryKey(Integer id);
+public interface InvestorMapper extends BaseMapper<Investor> {
 
-    int insert(Investor record);
+	int updateByPrimaryKeyWithBLOBs(Investor record);
 
-    int insertSelective(Investor record);
-
-    Investor selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Investor record);
-
-    int updateByPrimaryKeyWithBLOBs(Investor record);
-
-    int updateByPrimaryKey(Investor record);
 }

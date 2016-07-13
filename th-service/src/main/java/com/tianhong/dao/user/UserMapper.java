@@ -1,17 +1,8 @@
 package com.tianhong.dao.user;
 
+import com.tianhong.dao.base.BaseMapper;
 import com.tianhong.domain.user.User;
 
-public interface UserMapper {
-    int deleteByPrimaryKey(Integer id);
+public interface UserMapper extends BaseMapper<User> {
 
-    int insert(User record);
-
-    int insertSelective(User record);
-
-    User selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
 }

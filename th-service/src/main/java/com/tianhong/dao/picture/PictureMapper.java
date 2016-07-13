@@ -1,19 +1,10 @@
 package com.tianhong.dao.picture;
 
+import com.tianhong.dao.base.BaseMapper;
 import com.tianhong.domain.picture.Picture;
 
-public interface PictureMapper {
-    int deleteByPrimaryKey(Integer id);
+public interface PictureMapper extends BaseMapper<Picture> {
 
-    int insert(Picture record);
+	int updateByPrimaryKeyWithBLOBs(Picture record);
 
-    int insertSelective(Picture record);
-
-    Picture selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Picture record);
-
-    int updateByPrimaryKeyWithBLOBs(Picture record);
-
-    int updateByPrimaryKey(Picture record);
 }

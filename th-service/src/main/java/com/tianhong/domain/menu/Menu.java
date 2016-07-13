@@ -1,6 +1,8 @@
 package com.tianhong.domain.menu;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Menu {
     private Integer id;
@@ -33,6 +35,8 @@ public class Menu {
 
     private String backup3;
 
+    private List<Menu> subMenus;
+    
     public Integer getId() {
         return id;
     }
@@ -152,4 +156,16 @@ public class Menu {
     public void setBackup3(String backup3) {
         this.backup3 = backup3 == null ? null : backup3.trim();
     }
+
+	public List<Menu> getSubMenus() {
+		if(subMenus == null){
+			subMenus = new ArrayList<Menu>();
+		}
+		return subMenus;
+	}
+
+	public void setSubMenus(List<Menu> subMenus) {
+		this.subMenus = subMenus;
+	}
+    
 }

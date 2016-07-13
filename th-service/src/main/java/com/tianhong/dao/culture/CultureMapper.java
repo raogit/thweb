@@ -1,19 +1,9 @@
 package com.tianhong.dao.culture;
 
+import com.tianhong.dao.base.BaseMapper;
 import com.tianhong.domain.culture.Culture;
 
-public interface CultureMapper {
-    int deleteByPrimaryKey(Integer id);
-
-    int insert(Culture record);
-
-    int insertSelective(Culture record);
-
-    Culture selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Culture record);
+public interface CultureMapper extends BaseMapper<Culture>{
 
     int updateByPrimaryKeyWithBLOBs(Culture record);
-
-    int updateByPrimaryKey(Culture record);
 }
