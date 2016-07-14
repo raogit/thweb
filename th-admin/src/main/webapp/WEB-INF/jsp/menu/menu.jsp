@@ -18,9 +18,12 @@
 </head>
 
 <body id="by">
+	<div style="height:70px;background:#add; color:#FFF"></div>
+	<div>
+		<jsp:include page="menu-left.jsp"></jsp:include>
+		<jsp:include page="menu-right.jsp"></jsp:include>
+	</div>
 	
-	<jsp:include page="menu-left.jsp"></jsp:include>
-	<%-- <jsp:include page="menu-right.jsp"></jsp:include> --%>
 	
 </body>
 </html>

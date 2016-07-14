@@ -17,7 +17,8 @@ import com.tianhong.domain.menu.Menu;
 import com.tianhong.service.menu.MenuService;
 
 /**
- * ClassName: MenuServiceImpl 
+ * ClassName: MenuServiceImpl
+ * 
  * @Description: 描述
  * @author xing
  * @date 2016年7月13日 下午4:56:06
@@ -27,12 +28,12 @@ public class MenuServiceImpl implements MenuService {
 
 	@Autowired
 	private MenuMapper menuMapper;
-	
-	public List<Menu> getAllMenus() throws Exception{
+
+	public List<Menu> getAllMenus() throws Exception {
 		List<Menu> menus = menuMapper.selectAllMenus();
-		for(Menu menu : menus){
-			for(Menu sub : menus){
-				if(menu.getId().intValue() == sub.getId().intValue()){
+		for (Menu menu : menus) {
+			for (Menu sub : menus) {
+				if (menu.getId().intValue() == sub.getParentId().intValue()) {
 					menu.getSubMenus().add(sub);
 				}
 			}

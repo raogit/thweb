@@ -38,8 +38,10 @@ public class MenuController {
 		Result result = new Result();
 		try {
 			List<Menu> menus = menuService.getAllMenus();
+			log.info(JSONArray.toJSONString(menus));
 			result.setStatus(true);
 			result.setObj(JSONArray.toJSONString(menus));
+			return menus;
 		} catch (Exception e) {
 			log.error("", e);
 			result.setStatus(false);

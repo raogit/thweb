@@ -7,31 +7,48 @@ $(document).ready(function () {
         cache: false,
         success: function(data){
         	var json = eval(data);
-        	if(json.status){
-        		debugger;
-            	initMenu(json.obj);
+        	if(data!=null&&data!=""){
+            	initMenu(data);
+            	menuEvent();
         	}else{
         		alert(json.obj);
         	}
-        	
-        	menuEvent();
         }
     });
 });
 function initMenu(obj){
-	var array = new Array();
+	var array = obj;
 	var mainTree = $("#mainTree");
-	debugger;
-	
-	for(var i=0;i<obj.length;i++){
-		var menu = obj[i];
+	for(var i=0;i<array.length;i++){
+		var menu = array[i];
 		if(menu.level == 1){
-			var li = $("<li></li>");
-			var a = $("<a href=''>"+menu.name+"</a>");
-			li.append(a);
+			var li = document.createElement("li");
+			var a = document.createElement("a");// $("<a href=''>"+menu.name+"</a>");
+			a.href="#";
+            a.innerText = menu.name;
+			$(li).append(a);
 			mainTree.append(li);
+			subMenu(li,menu.id,menu.subMenus);
 		}
-		
+	}
+}
+function subMenu(obj,id,array){
+	var arr = eval(array);
+	if(arr!=null && arr.length>0){
+		var ul = document.createElement("ul");
+		$(obj).append(ul);
+		for(var i=0;i<arr.length;i++){
+			var menu = array[i];
+			if(menu.parentId == id){
+				var li = document.createElement("li");
+				var a = document.createElement("a");// $("<a href=''>"+menu.name+"</a>");
+				a.href="#";
+		        a.innerText = menu.name;
+				$(li).append(a);
+				$(ul).append(li);
+				subMenu(li,menu.id,menu.subMenus);
+			}
+		}
 	}
 }
 function menuEvent(){
