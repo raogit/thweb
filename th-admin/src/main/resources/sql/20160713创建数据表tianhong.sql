@@ -10,13 +10,13 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-07-13 16:23:34
+Date: 2016-07-14 22:48:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `t_culture`
+-- Table structure for t_culture
 -- ----------------------------
 DROP TABLE IF EXISTS `t_culture`;
 CREATE TABLE `t_culture` (
@@ -41,7 +41,7 @@ CREATE TABLE `t_culture` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_investor`
+-- Table structure for t_investor
 -- ----------------------------
 DROP TABLE IF EXISTS `t_investor`;
 CREATE TABLE `t_investor` (
@@ -66,7 +66,7 @@ CREATE TABLE `t_investor` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_login_log`
+-- Table structure for t_login_log
 -- ----------------------------
 DROP TABLE IF EXISTS `t_login_log`;
 CREATE TABLE `t_login_log` (
@@ -1940,7 +1940,7 @@ INSERT INTO `t_login_log` VALUES ('1959', '123', '127.0.0.1', '127.0.0.1', '2016
 INSERT INTO `t_login_log` VALUES ('1960', '123', '127.0.0.1', '127.0.0.1', '2016-07-13 14:25:47', '2016-07-13 14:25:47', null, null, null);
 
 -- ----------------------------
--- Table structure for `t_menu`
+-- Table structure for t_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `t_menu`;
 CREATE TABLE `t_menu` (
@@ -1960,23 +1960,23 @@ CREATE TABLE `t_menu` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_menu
 -- ----------------------------
-INSERT INTO `t_menu` VALUES ('1', '关于天虹', null, '1', null, '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('2', '企业文化', null, '1', null, '2', '1', '2016-07-13 16:03:40', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('3', '公司业务', null, '1', null, '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('4', '新闻中心', null, '1', null, '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('5', '人力资源', null, '1', null, '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('6', '招商采购', null, '1', null, '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('7', '投资者关系', null, '1', null, '7', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('1', '关于天虹', null, '1', '0', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('2', '企业文化', null, '1', '0', '2', '1', '2016-07-13 16:03:40', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('3', '公司业务', null, '1', '0', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('4', '新闻中心', null, '1', '0', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('5', '人力资源', null, '1', '0', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('6', '招商采购', null, '1', '0', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('7', '投资者关系', null, '1', '0', '7', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('8', '公司概况', null, '2', '1', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('9', '多元业务', null, '2', '1', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('10', '发展历程', null, '2', '1', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('11', '发展战略', null, '2', '1', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('12', '荣誉奖项', null, '2', '1', null, '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('12', '荣誉奖项', null, '2', '1', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('13', '天虹置业', null, '3', '9', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('14', '微喔便利店', null, '3', '9', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('15', '天虹红领巾', null, '3', '9', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
@@ -2007,9 +2007,10 @@ INSERT INTO `t_menu` VALUES ('39', '培训中心', null, '3', '34', '2', '1', '2
 INSERT INTO `t_menu` VALUES ('40', '创新中心', null, '3', '34', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('41', '同济大学MBA项目', null, '3', '34', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('42', '场地租赁', null, '3', '34', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('43', '用户组', null, '1', '0', '8', '0', '2016-07-14 22:20:02', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
--- Table structure for `t_news_center`
+-- Table structure for t_news_center
 -- ----------------------------
 DROP TABLE IF EXISTS `t_news_center`;
 CREATE TABLE `t_news_center` (
@@ -2034,7 +2035,7 @@ CREATE TABLE `t_news_center` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_picture`
+-- Table structure for t_picture
 -- ----------------------------
 DROP TABLE IF EXISTS `t_picture`;
 CREATE TABLE `t_picture` (
@@ -2062,7 +2063,7 @@ CREATE TABLE `t_picture` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_store`
+-- Table structure for t_store
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store`;
 CREATE TABLE `t_store` (
@@ -2089,7 +2090,7 @@ CREATE TABLE `t_store` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_store_news`
+-- Table structure for t_store_news
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store_news`;
 CREATE TABLE `t_store_news` (
@@ -2116,7 +2117,7 @@ CREATE TABLE `t_store_news` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_store_suggest`
+-- Table structure for t_store_suggest
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store_suggest`;
 CREATE TABLE `t_store_suggest` (
@@ -2146,7 +2147,7 @@ CREATE TABLE `t_store_suggest` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_sys_role`
+-- Table structure for t_sys_role
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_role`;
 CREATE TABLE `t_sys_role` (
@@ -2167,7 +2168,7 @@ CREATE TABLE `t_sys_role` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_sys_role_menu`
+-- Table structure for t_sys_role_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_role_menu`;
 CREATE TABLE `t_sys_role_menu` (
@@ -2182,7 +2183,7 @@ CREATE TABLE `t_sys_role_menu` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_sys_user_role`
+-- Table structure for t_sys_user_role
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_user_role`;
 CREATE TABLE `t_sys_user_role` (
@@ -2197,7 +2198,7 @@ CREATE TABLE `t_sys_user_role` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_user`
+-- Table structure for t_user
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
