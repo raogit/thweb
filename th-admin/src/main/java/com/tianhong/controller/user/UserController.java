@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tianhong.controller.menu.MenuController;
 import com.tianhong.domain.user.User;
+import com.tianhong.utils.AssertUtils;
 
 /**
  * ClassName: UserController
@@ -36,6 +37,9 @@ public class UserController {
 	@ResponseBody
 	public Object add(User user, HttpServletRequest request, HttpServletResponse response) {
 		try {
+			AssertUtils.notNull(user, "");
+			AssertUtils.isNotEmpty(user.getUserName(), message);
+			AssertUtils.isNotEmpty(user.getPassword(), message);
 
 		} catch (Exception e) {
 			log.error("", e);
