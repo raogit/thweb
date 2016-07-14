@@ -35,7 +35,7 @@ public class MenuServiceImpl implements MenuService {
 		List<Menu> menus = menuMapper.selectAllMenus();
 		for (Menu menu : menus) {
 			for (Menu sub : menus) {
-				if (menu.getId().intValue() == sub.getParentId().intValue()) {
+				if (sub.getParentId() != null && menu.getId().intValue() == sub.getParentId().intValue()) {
 					menu.getSubMenus().add(sub);
 				}
 			}
@@ -52,7 +52,8 @@ public class MenuServiceImpl implements MenuService {
 				Menu temp = null;
 				for (int j = i + 1; j < menus.size(); j++) {
 					Menu menuj = menus.get(j);
-					if (menui.getSort().byteValue() > menuj.getSort().byteValue()) {
+					if (menui.getSort() != null && menuj.getSort() != null
+							&& menui.getSort().byteValue() > menuj.getSort().byteValue()) {
 						temp = menui;
 						menui = menuj;
 						menuj = temp;
