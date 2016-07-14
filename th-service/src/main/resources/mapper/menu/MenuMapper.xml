@@ -215,5 +215,6 @@
     <include refid="Base_Column_List" />
     from t_menu
     where is_deleted = 0
+    order by level,sort
   </select>
 </mapper>

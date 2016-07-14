@@ -185,4 +185,12 @@
       backup3 = #{backup3,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="selectAllUsers" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where  is_deleted = 0
+    order by create_time desc
+  </select>
 </mapper>

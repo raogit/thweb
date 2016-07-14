@@ -12,12 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tianhong.controller.menu.MenuController;
 import com.tianhong.domain.user.User;
+import com.tianhong.service.user.UserService;
 import com.tianhong.utils.AssertUtils;
 
 /**
@@ -33,17 +35,31 @@ public class UserController {
 
 	private static final Log log = LogFactory.getLog(MenuController.class);
 
+	@Autowired
+	private UserService userService;
+
 	@RequestMapping(value = "/add")
 	@ResponseBody
 	public Object add(User user, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			AssertUtils.notNull(user, "");
-			AssertUtils.isNotEmpty(user.getUserName(), message);
-			AssertUtils.isNotEmpty(user.getPassword(), message);
+			AssertUtils.isNotEmpty(user.getUserName(), "用户名为空");
+			AssertUtils.isNotEmpty(user.getPassword(), "密码为空");
 
 		} catch (Exception e) {
 			log.error("", e);
 
+		}
+		return null;
+	}
+
+	@RequestMapping(value = "/alluser")
+	@ResponseBody
+	public Object getAllUsers(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return userService.getAllUsers();
+		} catch (Exception e) {
+			log.error("", e);
 		}
 		return null;
 	}
