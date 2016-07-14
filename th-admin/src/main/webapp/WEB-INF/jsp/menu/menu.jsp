@@ -6,7 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	
 	<jsp:include page="../base/base.jsp"></jsp:include>
 	<link rel="stylesheet" href="${basePath}/css/menu/invalid.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="${basePath}/css/menu/style.css" type="text/css" media="screen" />
@@ -15,8 +14,6 @@
 	<script type="text/javascript" src="${basePath}/js/menu/simpla.jquery.configuration.js"></script>
 	<script type="text/javascript" src="${basePath}/js/menu/facebox.js"></script>
 	<script type="text/javascript" src="${basePath}/js/menu/jquery.wysiwyg.js"></script>
-	<script type="text/javascript" src="${basePath}/js/menu/jquery.datePicker.js"></script>
-	<script type="text/javascript" src="${basePath}/js/menu/jquery.date.js"></script>
 </head>
 
 <body id="by">
