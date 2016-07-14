@@ -161,7 +161,7 @@ a.remove-link:hover {
                 }
 
 #sidebar #main-nav li a.current {
-                background-image: url('../../img/menu/bg-menu-item-current.gif') !important;
+/*                 background-image: url('../../img/menu/bg-menu-item-current.gif') !important; */
                 color: #333;
                 font-weight: bold;
                 }
@@ -179,10 +179,15 @@ a.remove-link:hover {
 #sidebar #main-nav ul li {
                 list-style: none;
                 margin: 0;
+                text-align: left;
+				padding: 0;
+                }
+.thirdmenu {
+                list-style: none;
+                margin: 0;
                 text-align: right;
 				padding: 0;
                 }
-
 #sidebar #main-nav ul li a {
                 padding: 8px 15px;
                 display: block;

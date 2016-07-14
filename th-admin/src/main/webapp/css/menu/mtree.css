@@ -1,4 +1,3 @@
-@charset "UTF-8";
 ul.mtree {
   opacity: 0;
   margin-left: 0;
@@ -38,7 +37,7 @@ ul.mtree.bubba li.mtree-node > a:after {
 }
 ul.mtree.bubba li.mtree-node > a {
   font-weight: bold;
-  /* text-transform: upperCase; */
+  text-transform: upperCase;
 }
 ul.mtree.bubba > li {
   border-bottom: 1px solid #DDD;
@@ -226,36 +225,4 @@ ul.mtree.nix ul > li {
 }
 ul.mtree.nix li {
   list-style: disc;
-}
-
-.mtree-demo .mtree {
-  background: #EEE;
-  margin: 20px auto;
-  max-width: 320px;
-  border-radius: 3px;
-}
-
-.mtree-skin-selector {
-  text-align: center;
-  background: #EEE;
-  padding: 10px 0 15px;
-}
-.mtree-skin-selector li {
-  display: inline-block;
-  float: none;
-}
-.mtree-skin-selector button {
-  padding: 5px 10px;
-  margin-bottom: 1px;
-  background: #BBB;
-}
-.mtree-skin-selector button:hover {
-  background: #999;
-}
-.mtree-skin-selector button.active {
-  background: #999;
-  font-weight: bold;
-}
-.mtree-skin-selector button.csl.active {
-  background: #FFC000;
 }

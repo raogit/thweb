@@ -38,7 +38,7 @@ ul.mtree.bubba li.mtree-node > a:after {
 }
 ul.mtree.bubba li.mtree-node > a {
   font-weight: bold;
-  /* text-transform: upperCase; */
+/*   text-transform: upperCase; */
 }
 ul.mtree.bubba > li {
   border-bottom: 1px solid #DDD;

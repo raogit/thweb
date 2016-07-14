@@ -7,21 +7,20 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<jsp:include page="../base/base.jsp"></jsp:include>
-	<link rel="stylesheet" href="${basePath}/css/menu/invalid.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="${basePath}/css/menu/style.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="${basePath}/css/menu/invalid.css" type="text/css" media="screen" />
-	<script type="text/javascript" src="${basePath}/js/menu/jquery-1.3.2.min.js"></script>
-	<script type="text/javascript" src="${basePath}/js/menu/simpla.jquery.configuration.js"></script>
-	<script type="text/javascript" src="${basePath}/js/menu/facebox.js"></script>
-	<script type="text/javascript" src="${basePath}/js/menu/jquery.wysiwyg.js"></script>
+	<link href="${basePath}/css/menu/normalize.css" rel="stylesheet" type="text/css" />
+	<link href="${basePath}/css/menu/default.css" rel="stylesheet" type="text/css" />
+	<link href='${basePath}/css/menu/foundation.css' rel='stylesheet prefetch' />
+	<link href="${basePath}/css/menu/styles.css" rel="stylesheet" type="text/css"/>
+	<script src='${basePath}/js/menu/stopExecutionOnTimeout.js?t=1'></script>
+	<script src='http://libs.useso.com/js/jquery/1.8.0/jquery.min.js'></script>
+	<script src="${basePath}/js/menu/jquery.velocity.min.js"></script>
+	<script src="${basePath}/js/menu/menu.js"></script>
 </head>
 
 <body id="by">
-	<div id="body-wrapper">
-		<jsp:include page="menu-left.jsp"></jsp:include>
-		<jsp:include page="menu-right.jsp"></jsp:include>
-		
-	</div>
-
+	
+	<jsp:include page="menu-left.jsp"></jsp:include>
+	<%-- <jsp:include page="menu-right.jsp"></jsp:include> --%>
+	
 </body>
 </html>

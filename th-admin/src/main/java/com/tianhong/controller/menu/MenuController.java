@@ -15,7 +15,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONArray;
 import com.tianhong.domain.menu.Menu;
+import com.tianhong.model.Result;
 import com.tianhong.service.menu.MenuService;
 
 /**
@@ -33,18 +35,21 @@ public class MenuController {
 	@RequestMapping(value = "/menulist")
 	@ResponseBody
 	public Object menuList(HttpServletRequest request, HttpServletResponse response) {
+		Result result = new Result();
 		try {
 			List<Menu> menus = menuService.getAllMenus();
-			return menus;
+			result.setStatus(true);
+			result.setObj(JSONArray.toJSONString(menus));
 		} catch (Exception e) {
 			log.error("", e);
+			result.setStatus(false);
+			result.setObj(e.getMessage());
 		}
-		return "";
+		return result;
 	}
 
 	@RequestMapping(value = "/menu")
 	public Object menu(HttpServletRequest request, HttpServletResponse response) {
-
 		return "/menu/menu";
 	}
 }
