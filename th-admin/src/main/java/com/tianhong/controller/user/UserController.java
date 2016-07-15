@@ -7,6 +7,8 @@
  */
 package com.tianhong.controller.user;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -53,14 +55,13 @@ public class UserController {
 		return null;
 	}
 
-	@RequestMapping(value = "/alluser")
-	@ResponseBody
-	public Object getAllUsers(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = "/list")
+	public Object list(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return userService.getAllUsers();
+			List<User> users = userService.getAllUsers();
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return null;
+		return "/user/list";
 	}
 }

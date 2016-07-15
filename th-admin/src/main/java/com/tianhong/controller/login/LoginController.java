@@ -42,4 +42,13 @@ public class LoginController {
 		}
 		return "/menu/menu";
 	}
+
+	@RequestMapping(value = "/logout")
+	public Object logout(HttpServletRequest request, HttpServletResponse response) {
+		request.getSession().removeAttribute(UserConstant.USER);
+		String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+				+ request.getContextPath();
+		return "redirect:" + url + "/login";
+
+	}
 }

@@ -1,4 +1,4 @@
-
+var reg = new RegExp("^http://");
 $(document).ready(function () {
 	$.ajax({
         url: basePath + "/menulist",
@@ -13,6 +13,12 @@ $(document).ready(function () {
         	}else{
         		alert(json.obj);
         	}
+//        	$(".menu").css("height", document.body.clientHeight-70+"px");
+        	$(".menu").height($(window).height()-71);  
+            //当文档窗口发生改变时 触发  
+            $(window).resize(function(){  
+                $(".menu").height($(window).height()-71);  
+            })  
         }
     });
 });
@@ -24,7 +30,16 @@ function initMenu(obj){
 		if(menu.level == 1){
 			var li = document.createElement("li");
 			var a = document.createElement("a");// $("<a href=''>"+menu.name+"</a>");
-			a.href="#";
+			if(menu.subMenus!=null && menu.subMenus.length>0){
+				a.href="javascript:void(0);";
+			}else{
+				a.target="myFrame";
+				if(menu.url!=null && reg.test(menu.url)){
+					a.href=menu.url;
+				}else{
+					a.href=basePath+menu.url;
+				}
+			}
             a.innerText = menu.name;
 			$(li).append(a);
 			mainTree.append(li);
@@ -42,7 +57,16 @@ function subMenu(obj,id,array){
 			if(menu.parentId == id){
 				var li = document.createElement("li");
 				var a = document.createElement("a");// $("<a href=''>"+menu.name+"</a>");
-				a.href="#";
+				if(menu.subMenus!=null && menu.subMenus.length>0){
+					a.href="javascript:void(0);";
+				}else{
+					a.target="myFrame";
+					if(menu.url!=null && reg.test(menu.url)){
+						a.href=menu.url;
+					}else{
+						a.href=basePath+menu.url;
+					}
+				}
 		        a.innerText = menu.name;
 				$(li).append(a);
 				$(ul).append(li);
