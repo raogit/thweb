@@ -30,7 +30,7 @@
 		<div class="connect">
 			<p style="left: 0%;">If we can only encounter each other rather than stay with each
 				other,then I wish we had never encountered.</p>
-			<p style="margin-top:20px;left: 0%;">如果只是遇见，不能停留，不如不遇见。</p>
+			<p style="margin-top:20px;left: 0%;text-align:center;">如果只是遇见，不能停留，不如不遇见。</p>
 		</div>
 	</div>
 	<div class="alert" style="display:none">
