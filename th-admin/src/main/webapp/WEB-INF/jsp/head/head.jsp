@@ -1,9 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <header>
-<h1 style="padding-top:25px;">
+<h1>
 	<img src="${basePath }/img/user/admin_logo.png" />
 </h1>
-<ul class="rt_nav" style="padding-top:25px;">
+<ul class="rt_nav">
 	<li><a href="${basePath }/menu" target="_self"
 		class="website_icon">站点首页</a></li>
 	<li><a href="#" class="admin_icon">DeathGhost</a></li>

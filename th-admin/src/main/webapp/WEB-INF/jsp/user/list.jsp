@@ -13,19 +13,12 @@
 	<script src="${basePath }/js/user/jquery.js"></script>
 	<script src="${basePath }/js/user/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="${basePath }/js/user/list.js"></script>
+	<script src="${basePath }/js/timer/timer.js"></script>
 </head>
 
 <body>
 	<section class="rt_wrap content mCustomScrollbar">
 	<div class="rt_content">
-		<!--开始：以下内容则可删除，仅为素材引用参考-->
-		<h1
-			style="color: red; font-size: 20px; font-weight: bold; text-align: center;">Example/Explanation</h1>
-		<p
-			style="color: red; font-size: 16px; font-weight: bold; text-align: center;">
-			这里是相关常用性样式预设，具体根据内容版块调整，列表添加字段注意考虑笔记本屏幕显示；<br />此页面仅为样式参考，程序对接可移除，具体布局根据项目内容而定<br />注意保留rt_content.parent
-		</p>
-		<!--点击加载-->
 		
 		<section class="loading_area">
 		<div class="loading_cont">
@@ -39,7 +32,6 @@
 		</section>
 		<!--结束加载-->
 		<!--弹出框效果-->
-		
 		<section class="pop_bg">
 		<div class="pop_cont">
 			<!--title-->
@@ -81,41 +73,40 @@
 			<button class="link_btn" id="showPopTxt">测试弹出框</button>
 			<input type="button" value="按钮input" class="link_btn" /> </section>
 			<section>
-			<h2>
-				<strong style="color: grey;">表单样式（组合）</strong>
-			</h2>
-			<input type="text" class="textbox" placeholder="默认宽度..." /> <input
-				type="text" class="textbox textbox_295" placeholder="class=295px..." />
-			<input type="text" class="textbox textbox_225"
-				placeholder="class=225px..." /> <select class="select">
-				<option>下拉菜单</option>
-				<option>菜单1</option>
-			</select> <input type="button" value="组合按钮" class="group_btn" /> </section>
+				<h2>
+					<strong style="color: grey;">表单样式（组合）</strong>
+				</h2>
+				<strong style="color: grey;">用户名:</strong>
+				<input id="username" type="text" class="textbox" placeholder="用户名..." /> 
+				<strong style="color: grey;">类型:</strong>
+				<select class="select">
+					<option>请选择</option>
+					<option value="1">前台用户</option>
+					<option value="0">后台用户</option>
+				</select> 
+				<input type="button" value="查询" class="group_btn" onclick="getUser(1)" /> 
+			</section>
 			<section>
-			<h2>
-				<strong style="color: grey;">页面标题及表格/分页（根据具体情况列入重点，切勿放置可扩展内容不定的数据）</strong>
-			</h2>
-			<div class="page_title">
-				<h2 class="fl">全部用户</h2>
-				<a class="fr top_rt_btn">右侧按钮</a>
-			</div>
-			<table class="table" id="userlist">
-				<thead>
-					<tr>
-						<th>序号</th>
-						<th>用户名</th>
-						<th>类型</th>
-						<th>邮箱</th>
-						<th>创建时间</th>
-						<th>操作</th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-				
-				
-			</table>
-			<aside class="paging"> <a>第一页</a> <a>1</a> <a>2</a> <a>3</a> <a>…</a><a>1004</a> <a>最后一页</a> </aside> </section>
+				<h1></h1>
+				<div class="page_title">
+					<h2 class="fl">全部用户</h2>
+				</div>
+				<table class="table" id="userlist">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>用户名</th>
+							<th>类型</th>
+							<th>邮箱</th>
+							<th>创建时间</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+				<aside class="paging"></aside> 
+			</section>
 		<section>
 		<h2>
 			<strong style="color: grey;">分列内容布局</strong>

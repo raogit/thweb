@@ -37,4 +37,15 @@ public class UserServiceImpl implements UserService {
 		return userMapper.selectCount();
 	}
 
+	public boolean deleteByPrimaryKey(int id) throws Exception {
+		User user = userMapper.selectByPrimaryKey(id);
+		user.setIsDeleted(true);
+		userMapper.updateByPrimaryKeySelective(user);
+		return true;
+	}
+
+	public User getByPrimaryKey(int id) throws Exception {
+		return userMapper.selectByPrimaryKey(id);
+	}
+
 }

@@ -81,4 +81,26 @@ public class UserController extends BaseController {
 		}
 		return page;
 	}
+
+	@RequestMapping(value = "/delete")
+	@ResponseBody
+	public Object delete(User user, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return userService.deleteByPrimaryKey(user.getId());
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return null;
+	}
+
+	@RequestMapping(value = "/get")
+	@ResponseBody
+	public Object get(User user, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return userService.getByPrimaryKey(user.getId());
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return null;
+	}
 }
