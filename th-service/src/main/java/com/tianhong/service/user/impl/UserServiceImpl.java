@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tianhong.dao.user.UserMapper;
 import com.tianhong.domain.user.User;
+import com.tianhong.page.Page;
 import com.tianhong.service.user.UserService;
 
 /**
@@ -26,6 +27,14 @@ public class UserServiceImpl implements UserService {
 
 	public List<User> getAllUsers() throws Exception {
 		return userMapper.selectAllUsers();
+	}
+
+	public List<User> getPageUsers(Page page) throws Exception {
+		return userMapper.selectPageUsers(page);
+	}
+
+	public int getCount() throws Exception {
+		return userMapper.selectCount();
 	}
 
 }

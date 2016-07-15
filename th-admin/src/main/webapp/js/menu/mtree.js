@@ -18,7 +18,7 @@
     
   
   // Set initial styles 
-  $('.mtree ul').css({'overflow':'hidden', 'height': (collapsed) ? 0 : 'auto', 'display': (collapsed) ? 'none' : 'block' });
+  $('.mtree ul').css({'overflow':'auto', 'height': (collapsed) ? 0 : 'auto', 'display': (collapsed) ? 'none' : 'block' });
   
   // Get node elements, and add classes for styling
   var node = $('.mtree li:has(ul)');  

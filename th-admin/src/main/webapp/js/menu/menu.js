@@ -14,10 +14,10 @@ $(document).ready(function () {
         		alert(json.obj);
         	}
 //        	$(".menu").css("height", document.body.clientHeight-70+"px");
-        	$(".menu").height($(window).height()-71);  
+        	$(".mainTree").height($(window).height()-71);  
             //当文档窗口发生改变时 触发  
             $(window).resize(function(){  
-                $(".menu").height($(window).height()-71);  
+                $(".mainTree").height($(window).height()-71);  
             })  
         }
     });

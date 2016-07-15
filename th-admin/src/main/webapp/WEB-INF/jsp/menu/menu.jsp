@@ -7,21 +7,13 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<jsp:include page="../base/base.jsp"></jsp:include>
-	<link href="${basePath}/css/menu/normalize.css" rel="stylesheet" type="text/css" />
-	<link href="${basePath}/css/menu/default.css" rel="stylesheet" type="text/css" />
-	<link href='${basePath}/css/menu/foundation.css' rel='stylesheet prefetch' />
-	<link href="${basePath}/css/menu/styles.css" rel="stylesheet" type="text/css"/>
-<%-- 	<script src='${basePath}/js/menu/stopExecutionOnTimeout.js?t=1'></script> --%>
-	<script src='http://libs.useso.com/js/jquery/1.8.0/jquery.min.js'></script>
-<script src="${basePath}/js/menu/jquery.velocity.min.js"></script>
-	<script src="${basePath}/js/menu/menu.js"></script>
+	
 </head>
 
 <body>
 	<jsp:include page="../head/head.jsp"></jsp:include>
-	<div class="menu" style="">
-		<jsp:include page="menu-left.jsp"></jsp:include>
-		<jsp:include page="menu-right.jsp"></jsp:include>
-	</div>
+	<jsp:include page="menu-left.jsp"></jsp:include>
+	<jsp:include page="menu-right.jsp"></jsp:include>
+	
 </body>
 </html>

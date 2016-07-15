@@ -1,5 +1,13 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<div style="height:70px;background:#add; color:#FFF;">
-	<dir style="width:70%;float:left;text-align:right"><label style="font-size:30px;color:#c73243;">欢迎登陆天虹后台</label></dir>
-	<dir style="width:30%;float:left;"><label>您好:${sessionScope.user.userName}<a href="${basePath}/logout" style="margin-left:20px;">退出系统</a></label></dir>
-</div>
+<header>
+<h1>
+	<img src="${basePath }/img/user/admin_logo.png" />
+</h1>
+<ul class="rt_nav">
+	<li><a href="http://www.baidu.com" target="_blank"
+		class="website_icon">站点首页</a></li>
+	<li><a href="#" class="admin_icon">DeathGhost</a></li>
+	<li><a href="#" class="set_icon">账号设置</a></li>
+	<li><a href="login.php" class="quit_icon">安全退出</a></li>
+</ul>
+</header>

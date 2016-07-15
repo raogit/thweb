@@ -19,8 +19,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tianhong.controller.base.BaseController;
 import com.tianhong.controller.menu.MenuController;
 import com.tianhong.domain.user.User;
+import com.tianhong.page.Page;
 import com.tianhong.service.user.UserService;
 import com.tianhong.utils.AssertUtils;
 
@@ -33,7 +35,7 @@ import com.tianhong.utils.AssertUtils;
  */
 @Controller
 @RequestMapping(value = "/user")
-public class UserController {
+public class UserController extends BaseController {
 
 	private static final Log log = LogFactory.getLog(MenuController.class);
 
@@ -56,12 +58,27 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/list")
+	@ResponseBody
 	public Object list(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			List<User> users = userService.getAllUsers();
+			return userService.getAllUsers();
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return "/user/list";
+		return null;
+	}
+
+	@RequestMapping(value = "/page")
+	@ResponseBody
+	public Object page(Page page, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			List<User> list = userService.getPageUsers(page);
+			int count = userService.getCount();
+			page.setObj(list);
+			page.setTotalRow(count);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return page;
 	}
 }

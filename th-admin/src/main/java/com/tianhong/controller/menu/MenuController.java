@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONArray;
+import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.model.Result;
 import com.tianhong.service.menu.MenuService;
@@ -25,7 +26,7 @@ import com.tianhong.service.menu.MenuService;
  *
  */
 @Controller
-public class MenuController {
+public class MenuController extends BaseController {
 
 	private static final Log log = LogFactory.getLog(MenuController.class);
 
@@ -53,5 +54,10 @@ public class MenuController {
 	@RequestMapping(value = "/menu")
 	public Object menu(HttpServletRequest request, HttpServletResponse response) {
 		return "/menu/menu";
+	}
+
+	@RequestMapping(value = "/user")
+	public Object user(HttpServletRequest request, HttpServletResponse response) {
+		return "/user/list";
 	}
 }

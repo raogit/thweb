@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tianhong.constant.UserConstant;
+import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.user.User;
 
 /**
@@ -19,7 +20,7 @@ import com.tianhong.domain.user.User;
  *
  */
 @Controller
-public class LoginController {
+public class LoginController extends BaseController {
 
 	private static final Log log = LogFactory.getLog(LoginController.class);
 
@@ -30,8 +31,6 @@ public class LoginController {
 
 	@RequestMapping(value = "/loginconfirm")
 	public Object loginConfirm(HttpServletRequest request, HttpServletResponse response) {
-		String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-				+ request.getContextPath();
 		try {
 			User user = new User();
 			request.getSession().setAttribute(UserConstant.USER, user);
@@ -46,8 +45,7 @@ public class LoginController {
 	@RequestMapping(value = "/logout")
 	public Object logout(HttpServletRequest request, HttpServletResponse response) {
 		request.getSession().removeAttribute(UserConstant.USER);
-		String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-				+ request.getContextPath();
+		String url = getUrl(request);
 		return "redirect:" + url + "/login";
 
 	}

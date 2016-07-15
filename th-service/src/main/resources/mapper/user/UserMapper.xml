@@ -193,4 +193,18 @@
     where  is_deleted = 0
     order by create_time desc
   </select>
+  <select id="selectPageUsers" resultMap="BaseResultMap" parameterType="com.tianhong.page.Page">
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where  is_deleted = 0
+    ORDER BY create_time desc
+    LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER} 
+  </select>
+  <select id="selectCount" resultType="java.lang.Integer" >
+    select 
+    	count(1)
+    from t_user
+    where  is_deleted = 0
+  </select>
 </mapper>

@@ -1,6 +1,15 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<div class="htmleaf-container" style="width: 20%;height:80%;">
-	<div class="htmleaf-content bgcolor-3">
-		<ul class="mtree" id="mainTree"></ul>
-	</div>
-</div>
+<link href="${basePath}/css/menu/normalize.css" rel="stylesheet" type="text/css" />
+<link href="${basePath}/css/menu/default.css" rel="stylesheet" type="text/css" />
+<link href='${basePath}/css/menu/foundation.css' rel='stylesheet prefetch' />
+<link href="${basePath}/css/menu/styles.css" rel="stylesheet" type="text/css"/>
+<script src='${basePath}/js/menu/stopExecutionOnTimeout.js?t=1'></script>
+<script src='http://libs.useso.com/js/jquery/1.8.0/jquery.min.js'></script>
+<script src="${basePath}/js/menu/jquery.velocity.min.js"></script>
+<script src="${basePath}/js/menu/menu.js"></script>
+<!--aside nav-->
+<aside class="lt_aside_nav content mCustomScrollbar">
+<!-- 	<div class="htmleaf-container" style="width: 10%;overflow:auto;"> -->
+<!-- 	</div> -->
+	<ul class="mtree" id="mainTree"></ul>
+</aside>
