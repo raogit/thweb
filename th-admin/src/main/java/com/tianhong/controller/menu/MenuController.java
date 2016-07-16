@@ -43,9 +43,9 @@ public class MenuController extends BaseController {
 		return null;
 	}
 
-	@RequestMapping(value = "/menufrontlist")
+	@RequestMapping(value = "/menulistbytype")
 	@ResponseBody
-	public Object menuFrontList(HttpServletRequest request, HttpServletResponse response) {
+	public Object menuListByType(HttpServletRequest request, HttpServletResponse response) {
 		try {
 			int type = Integer.parseInt(request.getParameter("type"));
 			List<Menu> menus = menuService.getMenusByType(type);
