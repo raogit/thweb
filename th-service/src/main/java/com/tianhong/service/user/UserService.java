@@ -25,4 +25,6 @@ public interface UserService {
 	User getByPrimaryKey(int id) throws Exception;
 
 	User insertUser(User user) throws Exception;
+
+	User updateUser(User user) throws Exception;
 }

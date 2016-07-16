@@ -64,4 +64,18 @@ public class MenuServiceImpl implements MenuService {
 			}
 		}
 	}
+
+	public List<Menu> getMenusByType(int type) throws Exception {
+		List<Menu> menus = menuMapper.selectMenusByType(type);
+		for (Menu menu : menus) {
+			for (Menu sub : menus) {
+				if (sub.getParentId() != null && menu.getId().intValue() == sub.getParentId().intValue()) {
+					menu.getSubMenus().add(sub);
+				}
+			}
+			sort(menu.getSubMenus());
+		}
+		sort(menus);
+		return menus;
+	}
 }

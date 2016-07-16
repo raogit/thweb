@@ -9,4 +9,6 @@ public interface MenuMapper extends BaseMapper<Menu> {
 
 	List<Menu> selectAllMenus() throws Exception;
 
+	List<Menu> selectMenusByType(int type) throws Exception;
+
 }

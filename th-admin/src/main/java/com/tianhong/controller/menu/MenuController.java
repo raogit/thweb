@@ -15,10 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSONArray;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.menu.Menu;
-import com.tianhong.model.Result;
 import com.tianhong.service.menu.MenuService;
 
 /**
@@ -36,19 +34,26 @@ public class MenuController extends BaseController {
 	@RequestMapping(value = "/menulist")
 	@ResponseBody
 	public Object menuList(HttpServletRequest request, HttpServletResponse response) {
-		Result result = new Result();
 		try {
 			List<Menu> menus = menuService.getAllMenus();
-			log.info(JSONArray.toJSONString(menus));
-			result.setStatus(true);
-			result.setObj(JSONArray.toJSONString(menus));
 			return menus;
 		} catch (Exception e) {
 			log.error("", e);
-			result.setStatus(false);
-			result.setObj(e.getMessage());
 		}
-		return result;
+		return null;
+	}
+
+	@RequestMapping(value = "/menufrontlist")
+	@ResponseBody
+	public Object menuFrontList(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			int type = Integer.parseInt(request.getParameter("type"));
+			List<Menu> menus = menuService.getMenusByType(type);
+			return menus;
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return null;
 	}
 
 	@RequestMapping(value = "/menu")

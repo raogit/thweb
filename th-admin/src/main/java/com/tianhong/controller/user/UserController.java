@@ -55,6 +55,19 @@ public class UserController extends BaseController {
 		return null;
 	}
 
+	@RequestMapping(value = "/update")
+	@ResponseBody
+	public Object update(User user, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			AssertUtils.notNull(user, "用户对象为空");
+			user.setUpdateId(getCurrentUser(request).getId());
+			return userService.updateUser(user);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return null;
+	}
+
 	@RequestMapping(value = "/list")
 	@ResponseBody
 	public Object list(HttpServletRequest request, HttpServletResponse response) {
@@ -101,4 +114,5 @@ public class UserController extends BaseController {
 		}
 		return null;
 	}
+
 }

@@ -217,4 +217,11 @@
     where is_deleted = 0
     order by level,sort
   </select>
+  
+   <select id="selectMenusByType" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_menu
+    where is_deleted = 0 and type = #{type,jdbcType=INTEGER}
+  </select>
 </mapper>

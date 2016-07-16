@@ -58,7 +58,13 @@ public class UserServiceImpl implements UserService {
 		user.setPassword(MD5.GetMD5Code(user.getPassword()));
 		user.setIsDeleted(false);
 		user.setCreateTime(new Date());
-		return null;
+		return userMapper.insertSelective(user);
+	}
+
+	public User updateUser(User user) throws Exception {
+		user.setUpdateTime(new Date());
+		userMapper.updateByPrimaryKeySelective(user);
+		return user;
 	}
 
 }
