@@ -10,10 +10,12 @@
 	<!--[if lt IE 9]>
 	<script src="js/html5.js"></script>
 	<![endif]-->
+	<script src="${basePath }/js/My97DatePicker/WdatePicker.js"></script>
 	<script src="${basePath }/js/user/jquery.js"></script>
 	<script src="${basePath }/js/user/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="${basePath }/js/user/list.js"></script>
 	<script src="${basePath }/js/timer/timer.js"></script>
+	<script src="${basePath }/js/utils/utils.js"></script>
 </head>
 
 <body>
@@ -35,23 +37,20 @@
 		<section class="pop_bg">
 		<div class="pop_cont">
 			<!--title-->
-			<h3>弹出提示标题</h3>
+			<h3 id="pupTitle">弹出提示标题</h3>
 			<!--content-->
+			<input type="hidden" value="0" id="popUserId" />
 			<div class="pop_cont_input">
 				<ul>
-					<li><span>标题</span> <input type="text" placeholder="定义提示语..."
-						class="textbox" /></li>
-					<li><span class="ttl">城市</span> <select class="select">
-							<option>选择省份</option>
-					</select> <select class="select">
-							<option>选择城市</option>
-					</select> <select class="select">
-							<option>选择区/县</option>
-					</select></li>
-					<li><span class="ttl">地址</span> <input type="text"
-						placeholder="定义提示语..." class="textbox" /></li>
-					<li><span class="ttl">地址</span> <textarea class="textarea"
-							style="height: 50px; width: 80%;"></textarea></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">用户名:</span> <input id="popUserName" style="width:140px;" type="text" placeholder="请输入用户名..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">密码:</span> <input id="popPassword"  style="width:140px;" type="text" placeholder="请输入密码..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">类型:</span> 
+						<select class="select" id="popType">
+							<option value="0" selected>后台用户</option>
+							<option value="1">前台用户</option>
+						</select> 
+					</li>
+					<li><span style="width:70px;text-align: right;" class="ttl">邮箱:</span><input id="popEmail"  style="width:140px;" type="text" placeholder="请输入邮箱..." class="textbox" /></li>
 				</ul>
 			</div>
 			<!--以pop_cont_text分界-->
@@ -80,7 +79,7 @@
 				<input id="username" type="text" class="textbox" placeholder="用户名..." /> 
 				<strong style="color: grey;">类型:</strong>
 				<select class="select" id="type">
-					<option>请选择</option>
+					<option value="-1" selected>请选择</option>
 					<option value="1">前台用户</option>
 					<option value="0">后台用户</option>
 				</select> 
@@ -88,6 +87,7 @@
 				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:150px;" />-
 				<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:150px;"/>
 				<input type="button" value="查询" class="group_btn" onclick="getUser(1)" /> 
+				<input type="button" value="添加" class="group_btn" onclick="showUser(0)" style="margin-left:20px;" /> 
 			</section>
 			<section>
 				<h1></h1>

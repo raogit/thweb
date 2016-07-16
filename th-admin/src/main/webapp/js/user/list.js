@@ -20,7 +20,7 @@ jQuery(document).ready(function() {
 	})(jQuery);
 	var curDate = new Date();
 	$("#startDate").val(curentTime(curDate.getTime() - 24*60*60*1000));
-	$("#endDate").val(curentTime(curDate.getTime()));
+	$("#endDate").val(curentTime(curDate.getTime()+ 60*60*1000));
 	loading();
 	btn();
 	tab();
@@ -31,7 +31,14 @@ function getUser(pageNum){
 	$(".loading_area").fadeIn();
 	debugger;
 	var userName = $("#username").val();
-	var type = $("#type option:selected").val();
+	var type = "";
+	var popType =  document.getElementById("type");
+	for(var i=0; i<popType.length; i++){  
+	    if(popType[i].selected){  
+	    	type = popType[i].value;
+	    	break;
+	    }  
+	}  
 	var startDate = $("#startDate").val();
 	var endDate = $("#endDate").val();
 	
@@ -54,7 +61,7 @@ function getUser(pageNum){
         	}else{
         		alert(json.obj);
         	}
-        	$(".loading_area").fadeOut(1500);
+        	$(".loading_area").fadeOut();
         }
     });
 }
@@ -71,7 +78,7 @@ function initTable(list){
 			+"<td>"+user.type+"</td>"
 			+"<td>"+user.email+"</td>"
 			+"<td>"+time+"</td>"
-			+"<td><a href='javascript:editUser("+user.id+")' class='inner_btn'>编辑</a><a href='' class='inner_btn'>权限</a><a href='javascript:deleteUser("+user.id+")' class='inner_btn'>删除</a></td>"
+			+"<td><a href='javascript:showUser("+user.id+")' class='inner_btn'>编辑</a><a href='' class='inner_btn'>权限</a><a href='javascript:deleteUser("+user.id+")' class='inner_btn'>删除</a></td>"
 			+"</tr>";
 		userlist.append(tr);
 	}
@@ -95,23 +102,96 @@ function initPage(page){
 	paging.append("<a href='javascript:void(0);' onclick='getUser("+(page.totalPage)+")' >>></a>");
 }
 
-function editUser(id){
-	$(".pop_bg").fadeIn();
+function showUser(id){
+	$(".pop_bg").fadeIn(200);
+	$("#popUserId").val(id);
+	$("#popUserName").val("");
+	$("#popPassword").val("");
+	$("#popType").val(0);
+	$("#popEmail").val("");
+	if(id<=0){
+		$("#pupTitle").html("添加用户");
+	}else{
+		$("#pupTitle").html("修改用户");
+		$.ajax({
+	        url: basePath + "/user/get",
+	        type: 'post',
+	        dataType: 'json',
+	        data : {
+	        	id : id
+	        },
+	        cache: false,
+	        success: function(data){
+	        	debugger;
+	        	if(data){
+	        		$("#popUserName").val(data.userName);
+		        	$("#popPassword").val(data.password);
+		        	$("#popType").val(data.type);
+		        	$("#popEmail").val(data.email);
+	        	}
+	        	
+	        }
+	    });
+	}
+}
+
+function addOrEdituser(){
+	var id = $("#popUserId").val();
+	var userName = $("#popUserName").val();
+	var password = $("#popPassword").val();
+	
+	var type = "";
+	var popType =  document.getElementById("popType");
+	for(var i=0; i<popType.length; i++){  
+	    if(popType[i].selected){  
+	    	type = popType[i].value;
+	    	break;
+	    }  
+	}  
+	
+	var email = $("#popEmail").val();
+	if(isEmpty(userName)){
+		alert("请输入用户名");
+		return ;
+	}
+	if(isEmpty(password)){
+		alert("请输入密码");
+		return ;
+	}
+	
+	var url = basePath + "/user/add";
+	if(id>0){
+		url = basePath + "/user/edit";
+	}
+	debugger;
 	$.ajax({
-        url: basePath + "/user/get",
+        url: url,
         type: 'post',
         dataType: 'json',
         data : {
-        	id : id
+        	id : id,
+        	userName : userName,
+        	password : password,
+        	type : type,
+        	email : email
         },
         cache: false,
         success: function(data){
-        	$(".loading_area").fadeOut(1500);
-        	
+        	if(data){
+        		alert("操作成功!");
+        	}else{
+        		alert("操作失败!");
+        	}
+        	getUser(1);
+        	$(".pop_bg").fadeOut(200);
         }
     });
 }
-
+function isEmpty(str){
+	if(str==null || str==""){
+		return true;
+	}
+}
 function deleteUser(id){
 	if(confirm("刪除将无法恢复?")){
 		$.ajax({
@@ -150,6 +230,7 @@ function btn(){
 	});
 	//弹出：确认按钮
 	$(".trueBtn").click(function(){
+		addOrEdituser();
 		 $(".pop_bg").fadeOut();
 	});
 	//弹出：取消或关闭按钮
