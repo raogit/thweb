@@ -24,6 +24,7 @@ import com.tianhong.service.menu.MenuService;
  *
  */
 @Controller
+@RequestMapping(value = "/menu")
 public class MenuController extends BaseController {
 
 	private static final Log log = LogFactory.getLog(MenuController.class);
@@ -31,7 +32,7 @@ public class MenuController extends BaseController {
 	@Autowired
 	private MenuService menuService;
 
-	@RequestMapping(value = "/menulist")
+	@RequestMapping(value = "/list")
 	@ResponseBody
 	public Object menuList(HttpServletRequest request, HttpServletResponse response) {
 		try {
@@ -43,7 +44,7 @@ public class MenuController extends BaseController {
 		return null;
 	}
 
-	@RequestMapping(value = "/menulistbytype")
+	@RequestMapping(value = "/listbytype")
 	@ResponseBody
 	public Object menuListByType(HttpServletRequest request, HttpServletResponse response) {
 		try {
@@ -63,6 +64,20 @@ public class MenuController extends BaseController {
 
 	@RequestMapping(value = "/user")
 	public Object user(HttpServletRequest request, HttpServletResponse response) {
+		return "/user/list";
+	}
+
+	@RequestMapping(value = "/addusermenu")
+	public Object add(HttpServletRequest request, HttpServletResponse response) {
+
+		try {
+			String roleIds = request.getParameter("roleIds");
+			String menuIds = request.getParameter("menuIds");
+			int userId = Integer.parseInt(request.getParameter("userId"));
+			return menuService.addUserAuth(userId, roleIds, menuIds);
+		} catch (Exception e) {
+			log.error("", e);
+		}
 		return "/user/list";
 	}
 }

@@ -23,4 +23,6 @@ public interface MenuService {
 	List<Menu> getAllMenus() throws Exception;
 
 	List<Menu> getMenusByType(int type) throws Exception;
+
+	boolean addUserAuth(int userId, String roleIds, String menuIds) throws Exception;
 }

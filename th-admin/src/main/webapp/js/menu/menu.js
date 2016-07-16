@@ -1,7 +1,7 @@
 var reg = new RegExp("^http://");
 $(document).ready(function () {
 	$.ajax({
-        url: basePath + "/menulist",
+        url: basePath + "/menu/list",
         type: 'GET',
         dataType: 'json',
         cache: false,
