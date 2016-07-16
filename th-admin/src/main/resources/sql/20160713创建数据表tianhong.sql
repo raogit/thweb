@@ -10,13 +10,13 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-07-16 11:51:11
+Date: 2016-07-16 14:19:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `t_culture`
+-- Table structure for t_culture
 -- ----------------------------
 DROP TABLE IF EXISTS `t_culture`;
 CREATE TABLE `t_culture` (
@@ -41,7 +41,7 @@ CREATE TABLE `t_culture` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_investor`
+-- Table structure for t_investor
 -- ----------------------------
 DROP TABLE IF EXISTS `t_investor`;
 CREATE TABLE `t_investor` (
@@ -66,7 +66,7 @@ CREATE TABLE `t_investor` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_login_log`
+-- Table structure for t_login_log
 -- ----------------------------
 DROP TABLE IF EXISTS `t_login_log`;
 CREATE TABLE `t_login_log` (
@@ -91,7 +91,7 @@ CREATE TABLE `t_login_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_menu`
+-- Table structure for t_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `t_menu`;
 CREATE TABLE `t_menu` (
@@ -161,7 +161,7 @@ INSERT INTO `t_menu` VALUES ('42', '场地租赁', null, '3', '34', '5', '1', '2
 INSERT INTO `t_menu` VALUES ('43', '用户组', '/user', '1', '0', '8', '0', '2016-07-14 22:20:02', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
--- Table structure for `t_news_center`
+-- Table structure for t_news_center
 -- ----------------------------
 DROP TABLE IF EXISTS `t_news_center`;
 CREATE TABLE `t_news_center` (
@@ -186,7 +186,7 @@ CREATE TABLE `t_news_center` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_picture`
+-- Table structure for t_picture
 -- ----------------------------
 DROP TABLE IF EXISTS `t_picture`;
 CREATE TABLE `t_picture` (
@@ -214,7 +214,264 @@ CREATE TABLE `t_picture` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_store`
+-- Table structure for t_recruit_interaction
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_interaction`;
+CREATE TABLE `t_recruit_interaction` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `question` varchar(1024) DEFAULT NULL COMMENT '����',
+  `answer` varchar(1024) DEFAULT NULL COMMENT '�ش�',
+  `create_time` datetime DEFAULT NULL COMMENT '����ʱ��',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '����ʱ��',
+  `is_show` int(1) DEFAULT NULL COMMENT '�Ƿ���ʾ��1��ʾ��0����ʾ',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='����';
+
+-- ----------------------------
+-- Records of t_recruit_interaction
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_recruit_job
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_job`;
+CREATE TABLE `t_recruit_job` (
+  `id` int(11) NOT NULL COMMENT '���',
+  `job_name` varchar(64) DEFAULT NULL COMMENT 'ְλ����',
+  `job_no` bigint(20) DEFAULT NULL COMMENT 'ְλ���',
+  `department` varchar(64) DEFAULT NULL COMMENT '����:ö��',
+  `area` varchar(64) DEFAULT NULL COMMENT '�����ص�:�����ص�',
+  `job_type` char(16) DEFAULT NULL COMMENT '��������:ö��',
+  `job_category` varchar(64) DEFAULT NULL COMMENT '��λ���:ö��',
+  `num` int(5) DEFAULT NULL COMMENT '��Ƹ����',
+  `salary_max` int(10) DEFAULT NULL COMMENT '��н����',
+  `salary_min` int(10) DEFAULT NULL COMMENT '��н����',
+  `publish_date` date DEFAULT NULL COMMENT '��������',
+  `recuit_type` varchar(64) DEFAULT NULL COMMENT '��Ƹ����:����,У��',
+  `job_descption` varchar(1024) DEFAULT NULL COMMENT 'ְλ����',
+  `require_age` int(5) DEFAULT NULL COMMENT 'Ҫ������',
+  `require_years` int(5) DEFAULT NULL COMMENT 'Ҫ������',
+  `require_en` varchar(32) DEFAULT NULL COMMENT 'Ҫ��Ӣ��ȼ�',
+  `require_cn` varchar(32) DEFAULT NULL COMMENT 'Ҫ����̶�',
+  `require_yy` varchar(32) DEFAULT NULL COMMENT 'Ҫ������̶�',
+  `require_other` varchar(64) DEFAULT NULL COMMENT 'Ҫ������',
+  `create_time` datetime DEFAULT NULL COMMENT '����ʱ��',
+  `create_user` int(11) DEFAULT NULL COMMENT '������',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '����ʱ��',
+  `update_user` int(11) DEFAULT NULL COMMENT '������',
+  `is_show` int(1) DEFAULT NULL COMMENT '�Ƿ���ʾ',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='��Ƹ-ְλ��';
+
+-- ----------------------------
+-- Records of t_recruit_job
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_recruit_qustion
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_qustion`;
+CREATE TABLE `t_recruit_qustion` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `question` varchar(258) DEFAULT NULL COMMENT '����',
+  `name` varchar(64) DEFAULT NULL COMMENT '����',
+  `email` varchar(64) DEFAULT NULL COMMENT '����',
+  `phone` varchar(32) DEFAULT NULL COMMENT '�ֻ�',
+  `orgrazation` varchar(128) DEFAULT NULL COMMENT '��˾����',
+  `detail` varchar(1024) DEFAULT NULL COMMENT '��������',
+  `create_time` datetime DEFAULT NULL COMMENT '����ʱ��',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='����';
+
+-- ----------------------------
+-- Records of t_recruit_qustion
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_recruit_resume
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_resume`;
+CREATE TABLE `t_recruit_resume` (
+  `id` int(11) NOT NULL COMMENT '���',
+  `user_id` int(11) DEFAULT NULL COMMENT '�û����',
+  `name` varchar(64) DEFAULT NULL COMMENT '����',
+  `sex` varchar(4) DEFAULT NULL COMMENT '�Ա��У�Ů',
+  `birth_date` date DEFAULT NULL COMMENT '��������',
+  `phone` int(16) DEFAULT NULL COMMENT '�ֻ�����',
+  `email` varchar(64) DEFAULT NULL COMMENT '����',
+  `school` varchar(128) DEFAULT NULL COMMENT '��ҵѧУ',
+  `major` varchar(64) DEFAULT NULL COMMENT 'רҵ',
+  `graduate_date` date DEFAULT NULL COMMENT '��ҵ����',
+  `oranazation` varchar(128) DEFAULT NULL COMMENT '��˾����',
+  `work_years` int(4) DEFAULT NULL COMMENT '��������',
+  `current_palace` varchar(64) DEFAULT NULL COMMENT 'Ŀǰ���ڵ�',
+  `degrees` varchar(64) DEFAULT NULL COMMENT 'ѧ��',
+  `spare_phone` int(16) DEFAULT NULL COMMENT '�����ֻ�����',
+  `nation` varchar(64) DEFAULT NULL COMMENT '����',
+  `id_card` varchar(32) DEFAULT NULL COMMENT '���֤����',
+  `id_card_add` varchar(128) DEFAULT NULL COMMENT '���֤��ַ',
+  `background` varchar(512) DEFAULT NULL COMMENT '����˵��',
+  `intention` varchar(512) DEFAULT NULL COMMENT '��ְ����',
+  `work_descption` varchar(512) DEFAULT NULL COMMENT '��������',
+  `project_history` varchar(512) DEFAULT NULL COMMENT '��Ŀ����',
+  `train_history` varchar(512) DEFAULT NULL COMMENT '��ѵ����',
+  `language_desc` varchar(512) DEFAULT NULL COMMENT '����˵��',
+  `reward` varchar(512) DEFAULT NULL COMMENT '����',
+  `ohter_info` varchar(512) DEFAULT NULL COMMENT '������Ϣ',
+  `certificate` varchar(512) DEFAULT NULL COMMENT '֤��',
+  `personal_like` varchar(512) DEFAULT NULL COMMENT '����',
+  `create_time` datetime DEFAULT NULL COMMENT '����ʱ��',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '�޸�ʱ��',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='������Ϣ';
+
+-- ----------------------------
+-- Records of t_recruit_resume
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_recruit_resume_delivery
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_resume_delivery`;
+CREATE TABLE `t_recruit_resume_delivery` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `resume_id` int(11) DEFAULT NULL COMMENT '�������',
+  `job_id` int(11) DEFAULT NULL,
+  `delivery_time` datetime DEFAULT NULL,
+  `status` varchar(16) DEFAULT NULL,
+  `job_name` varchar(64) DEFAULT NULL,
+  `deparment` varchar(64) DEFAULT NULL,
+  `area` varchar(64) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='����Ͷ��';
+
+-- ----------------------------
+-- Records of t_recruit_resume_delivery
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_recruit_user
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_user`;
+CREATE TABLE `t_recruit_user` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `username` varchar(64) DEFAULT NULL COMMENT '�û���',
+  `password` varchar(64) DEFAULT NULL COMMENT '����',
+  `source` varchar(16) DEFAULT NULL COMMENT '��Դ��qq,΢��,ע��',
+  `able` int(1) DEFAULT NULL COMMENT '�Ƿ���ã�1���ã�0������',
+  `create_time` datetime DEFAULT NULL COMMENT '����ʱ��',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='��Ƹ�û�';
+
+-- ----------------------------
+-- Records of t_recruit_user
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_resume_attachment
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_attachment`;
+CREATE TABLE `t_resume_attachment` (
+  `id` int(11) NOT NULL COMMENT '���',
+  `resume_id` int(11) DEFAULT NULL COMMENT '�������',
+  `file_path` varchar(64) DEFAULT NULL COMMENT '����',
+  `create_time` datetime DEFAULT NULL COMMENT '����ʱ��',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '�޸�ʱ��',
+  `able` varchar(16) DEFAULT NULL COMMENT '�Ƿ����:ö��',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='��������';
+
+-- ----------------------------
+-- Records of t_resume_attachment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_resume_education_history
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_education_history`;
+CREATE TABLE `t_resume_education_history` (
+  `id` int(11) NOT NULL COMMENT '���',
+  `resume_id` int(11) DEFAULT NULL COMMENT '�������',
+  `major` varchar(64) DEFAULT NULL COMMENT 'ѧ��',
+  `start_date` date DEFAULT NULL COMMENT '��ʼʱ��',
+  `end_date` date DEFAULT NULL COMMENT '����ʱ��',
+  `school` varchar(64) DEFAULT NULL COMMENT '��ҵԺУ',
+  `create_time` datetime DEFAULT NULL COMMENT '����ʱ��',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '�޸�ʱ��',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='��������';
+
+-- ----------------------------
+-- Records of t_resume_education_history
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_resume_language
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_language`;
+CREATE TABLE `t_resume_language` (
+  `id` int(11) NOT NULL COMMENT '���',
+  `resume_id` int(11) DEFAULT NULL COMMENT '�������',
+  `language` varchar(64) DEFAULT NULL COMMENT '����',
+  `level` varchar(16) DEFAULT NULL COMMENT '�ȼ�:ö��',
+  `create_time` datetime DEFAULT NULL COMMENT '����ʱ��',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '�޸�ʱ��',
+  `tan_level` varchar(16) DEFAULT NULL COMMENT '����ˮƽ',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='����';
+
+-- ----------------------------
+-- Records of t_resume_language
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_resume_skill
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_skill`;
+CREATE TABLE `t_resume_skill` (
+  `id` int(11) NOT NULL COMMENT '���',
+  `resume_id` int(11) DEFAULT NULL COMMENT '�������',
+  `skill` varchar(64) DEFAULT NULL COMMENT '����',
+  `level` varchar(16) DEFAULT NULL COMMENT '�����̶�:ö��',
+  `create_time` datetime DEFAULT NULL COMMENT '����ʱ��',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '�޸�ʱ��',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='����';
+
+-- ----------------------------
+-- Records of t_resume_skill
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_resume_work_history
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_work_history`;
+CREATE TABLE `t_resume_work_history` (
+  `id` int(11) NOT NULL COMMENT '���',
+  `resume_id` int(11) DEFAULT NULL COMMENT '�������',
+  `position` varchar(64) DEFAULT NULL COMMENT 'ְλ',
+  `start_date` date DEFAULT NULL COMMENT '��ʼʱ��',
+  `end_date` date DEFAULT NULL COMMENT '����ʱ��',
+  `address` varchar(64) DEFAULT NULL COMMENT '��ַ',
+  `industry_type` varchar(64) DEFAULT NULL COMMENT '��ҵ���ͣ�ö��',
+  `oranazation_type` varchar(32) DEFAULT NULL COMMENT '��˾���ʣ�ö��',
+  `report_obj` varchar(64) DEFAULT NULL COMMENT '�㱨����',
+  `subordinate_num` int(10) DEFAULT NULL COMMENT '��������',
+  `payment` varchar(128) DEFAULT NULL COMMENT 'ְλнˮ',
+  `work_duty` int(4) DEFAULT NULL COMMENT '����ְ��',
+  `achievement_desc` varchar(512) DEFAULT NULL COMMENT 'ҵ������',
+  `create_time` datetime DEFAULT NULL COMMENT '����ʱ��',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '�޸�ʱ��',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='��������';
+
+-- ----------------------------
+-- Records of t_resume_work_history
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_store
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store`;
 CREATE TABLE `t_store` (
@@ -241,7 +498,7 @@ CREATE TABLE `t_store` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_store_news`
+-- Table structure for t_store_news
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store_news`;
 CREATE TABLE `t_store_news` (
@@ -268,7 +525,7 @@ CREATE TABLE `t_store_news` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_store_suggest`
+-- Table structure for t_store_suggest
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store_suggest`;
 CREATE TABLE `t_store_suggest` (
@@ -298,7 +555,7 @@ CREATE TABLE `t_store_suggest` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_sys_role`
+-- Table structure for t_sys_role
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_role`;
 CREATE TABLE `t_sys_role` (
@@ -322,7 +579,7 @@ CREATE TABLE `t_sys_role` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_sys_role_menu`
+-- Table structure for t_sys_role_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_role_menu`;
 CREATE TABLE `t_sys_role_menu` (
@@ -345,7 +602,7 @@ CREATE TABLE `t_sys_role_menu` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_sys_user_menu`
+-- Table structure for t_sys_user_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_user_menu`;
 CREATE TABLE `t_sys_user_menu` (
@@ -368,7 +625,7 @@ CREATE TABLE `t_sys_user_menu` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_sys_user_role`
+-- Table structure for t_sys_user_role
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_user_role`;
 CREATE TABLE `t_sys_user_role` (
@@ -391,7 +648,7 @@ CREATE TABLE `t_sys_user_role` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_user`
+-- Table structure for t_user
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
