@@ -18,6 +18,6 @@ import com.tianhong.domain.sys.SysUserRole;
  */
 public interface SysUserRoleService {
 
-	SysUserRole addSysUserRole(int userId, int roleId) throws Exception;
+	SysUserRole addSysUserRole(int userId, int roleId, int createId) throws Exception;
 
 }

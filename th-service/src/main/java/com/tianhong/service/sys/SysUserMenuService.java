@@ -18,5 +18,5 @@ import com.tianhong.domain.sys.SysUserMenu;
  */
 public interface SysUserMenuService {
 
-	SysUserMenu addSysUserMenu(int userId, int menuId) throws Exception;
+	SysUserMenu addSysUserMenu(int userId, int menuId, int createId) throws Exception;
 }
