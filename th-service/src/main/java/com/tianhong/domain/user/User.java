@@ -2,7 +2,9 @@ package com.tianhong.domain.user;
 
 import java.util.Date;
 
-public class User {
+import com.tianhong.page.Page;
+
+public class User extends Page {
 	private Integer id;
 
 	private Byte type;

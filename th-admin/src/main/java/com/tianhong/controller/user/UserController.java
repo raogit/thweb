@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.controller.menu.MenuController;
 import com.tianhong.domain.user.User;
-import com.tianhong.page.Page;
 import com.tianhong.service.user.UserService;
 import com.tianhong.utils.AssertUtils;
 
@@ -45,9 +44,9 @@ public class UserController extends BaseController {
 	@RequestMapping(value = "/add")
 	@ResponseBody
 	public Object add(User user, HttpServletRequest request, HttpServletResponse response) {
+		// User user = new User();
 		try {
-			AssertUtils.notNull(user, "用户对象为空");
-			user.setCreateId(getCurrentUser(request).getId());
+			// user.setCreateId(getCurrentUser(request).getId());
 			return userService.insertUser(user);
 		} catch (Exception e) {
 			log.error("", e);
@@ -55,12 +54,12 @@ public class UserController extends BaseController {
 		return null;
 	}
 
-	@RequestMapping(value = "/update")
+	@RequestMapping(value = "/edit")
 	@ResponseBody
-	public Object update(User user, HttpServletRequest request, HttpServletResponse response) {
+	public Object edit(User user, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			AssertUtils.notNull(user, "用户对象为空");
-			user.setUpdateId(getCurrentUser(request).getId());
+			// user.setUpdateId(getCurrentUser(request).getId());
 			return userService.updateUser(user);
 		} catch (Exception e) {
 			log.error("", e);
@@ -81,16 +80,16 @@ public class UserController extends BaseController {
 
 	@RequestMapping(value = "/page")
 	@ResponseBody
-	public Object page(Page page, HttpServletRequest request, HttpServletResponse response) {
+	public Object page(User user, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			List<User> list = userService.getPageUsers(page);
-			int count = userService.getCount(page);
-			page.setObj(list);
-			page.setTotalRow(count);
+			List<User> list = userService.getPageUsers(user);
+			int count = userService.getCount(user);
+			user.setObj(list);
+			user.setTotalRow(count);
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return page;
+		return user;
 	}
 
 	@RequestMapping(value = "/delete")

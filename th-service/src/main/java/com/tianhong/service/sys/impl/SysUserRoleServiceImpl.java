@@ -38,7 +38,8 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
 		userRole.setCreateId(createId);
 		userRole.setCreateTime(new Date());
 		userRole.setIsDeleted(false);
-		return sysUserRoleMapper.insertSelective(userRole);
+		sysUserRoleMapper.insertSelective(userRole);
+		return userRole;
 	}
 
 }

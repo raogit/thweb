@@ -30,7 +30,7 @@
     delete from t_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tianhong.domain.user.User">
+  <insert id="insert" parameterType="com.tianhong.domain.user.User" useGeneratedKeys="true" keyProperty="id" >
     insert into t_user (id, type, user_name, 
       password, email, create_time, 
       create_id, update_time, update_id, 
@@ -42,7 +42,7 @@
       #{isDeleted,jdbcType=BIT}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, 
       #{backup3,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.tianhong.domain.user.User">
+  <insert id="insertSelective" parameterType="com.tianhong.domain.user.User" useGeneratedKeys="true" keyProperty="id" >
     insert into t_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -193,36 +193,36 @@
     where  is_deleted = 0
     order by create_time desc
   </select>
-  <select id="selectPageUsers" resultMap="BaseResultMap" parameterType="com.tianhong.page.Page">
+  <select id="selectPageUsers" resultMap="BaseResultMap" parameterType="com.tianhong.domain.user.User">
     select 
     <include refid="Base_Column_List" />
     from t_user
     where  is_deleted = 0
-		<if test="type != null">
+    	<if test="userName != null and userName != ''">
+	        AND user_name = #{userName,jdbcType=VARCHAR}
+	    </if>
+		<if test="type != null and type >0">
        		AND type = #{type,jdbcType=TINYINT}
 		</if>
-		<if test="userName != null">
-	        AND user_name = #{userName,jdbcType=VARCHAR}
-		</if>
-		<if test="startDate != null AND endDate!=null">
-	        AND BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
+		<if test="startDate != null and endDate!=null">
+	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
 		</if>
     ORDER BY create_time desc
     LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER} 
   </select>
-  <select id="selectCount" resultType="java.lang.Integer" parameterType="com.tianhong.page.Page">
+  <select id="selectCount" resultType="java.lang.Integer" parameterType="com.tianhong.domain.user.User">
     select 
     	count(1)
     from t_user
     where  is_deleted = 0
-    	<if test="type != null">
+	    <if test="userName != null and userName != ''">
+	        AND user_name = #{userName,jdbcType=VARCHAR}
+	    </if>
+    	<if test="type != null and type >0">
        		AND type = #{type,jdbcType=TINYINT}
 		</if>
-		<if test="userName != null">
-	        AND user_name = #{userName,jdbcType=VARCHAR}
-		</if>
-		<if test="startDate != null AND endDate!=null">
-	        AND BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
+		<if test="startDate != null and endDate!=null and startDate !='' and endDate!=''">
+	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
 		</if>
   </select>
 </mapper>

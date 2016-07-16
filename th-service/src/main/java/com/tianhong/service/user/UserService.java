@@ -6,7 +6,6 @@ package com.tianhong.service.user;
 import java.util.List;
 
 import com.tianhong.domain.user.User;
-import com.tianhong.page.Page;
 
 /**
  * @author Administrator
@@ -16,9 +15,9 @@ public interface UserService {
 
 	List<User> getAllUsers() throws Exception;
 
-	List<User> getPageUsers(Page page) throws Exception;
+	List<User> getPageUsers(User user) throws Exception;
 
-	int getCount(Page page) throws Exception;
+	int getCount(User user) throws Exception;
 
 	boolean deleteByPrimaryKey(int id) throws Exception;
 

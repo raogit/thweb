@@ -38,7 +38,8 @@ public class SysUserMenuServiceImpl implements SysUserMenuService {
 		userMenu.setCreateId(createId);
 		userMenu.setCreateTime(new Date());
 		userMenu.setIsDeleted(false);
-		return sysUserMenuMapper.insertSelective(userMenu);
+		sysUserMenuMapper.insertSelective(userMenu);
+		return userMenu;
 	}
 
 }

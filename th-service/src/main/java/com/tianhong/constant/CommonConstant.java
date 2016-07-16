@@ -7,8 +7,6 @@
  */
 package com.tianhong.constant;
 
-import com.tianhong.utils.LoadConfigUtil;
-
 /**
  * ClassName: CommonConstant
  * 
@@ -35,9 +33,6 @@ public class CommonConstant {
 
 	public static final byte YES = 1;
 	public static final byte NO = 0;
-
-	public static final String MDW_CLIENT_PATH = LoadConfigUtil.getString("client.path");// "MDW/release/";
-	public static final String MDW_EXE_PATH = LoadConfigUtil.getString("exe.path");// "MDW/exe/";
 
 	public static final String GB = "GB";// 一次下载大小1M
 

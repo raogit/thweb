@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tianhong.dao.user.UserMapper;
 import com.tianhong.domain.user.User;
-import com.tianhong.page.Page;
 import com.tianhong.service.user.UserService;
 import com.tianhong.utils.AssertUtils;
 import com.tianhong.utils.MD5;
@@ -32,12 +31,12 @@ public class UserServiceImpl implements UserService {
 		return userMapper.selectAllUsers();
 	}
 
-	public List<User> getPageUsers(Page page) throws Exception {
-		return userMapper.selectPageUsers(page);
+	public List<User> getPageUsers(User user) throws Exception {
+		return userMapper.selectPageUsers(user);
 	}
 
-	public int getCount(Page page) throws Exception {
-		return userMapper.selectCount(page);
+	public int getCount(User user) throws Exception {
+		return userMapper.selectCount(user);
 	}
 
 	public boolean deleteByPrimaryKey(int id) throws Exception {
@@ -58,7 +57,8 @@ public class UserServiceImpl implements UserService {
 		user.setPassword(MD5.GetMD5Code(user.getPassword()));
 		user.setIsDeleted(false);
 		user.setCreateTime(new Date());
-		return userMapper.insertSelective(user);
+		userMapper.insertSelective(user);
+		return user;
 	}
 
 	public User updateUser(User user) throws Exception {
