@@ -198,13 +198,31 @@
     <include refid="Base_Column_List" />
     from t_user
     where  is_deleted = 0
+		<if test="type != null">
+       		AND type = #{type,jdbcType=TINYINT}
+		</if>
+		<if test="userName != null">
+	        AND user_name = #{userName,jdbcType=VARCHAR}
+		</if>
+		<if test="startDate != null AND endDate!=null">
+	        AND BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
+		</if>
     ORDER BY create_time desc
     LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER} 
   </select>
-  <select id="selectCount" resultType="java.lang.Integer" >
+  <select id="selectCount" resultType="java.lang.Integer" parameterType="com.tianhong.page.Page">
     select 
     	count(1)
     from t_user
     where  is_deleted = 0
+    	<if test="type != null">
+       		AND type = #{type,jdbcType=TINYINT}
+		</if>
+		<if test="userName != null">
+	        AND user_name = #{userName,jdbcType=VARCHAR}
+		</if>
+		<if test="startDate != null AND endDate!=null">
+	        AND BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
+		</if>
   </select>
 </mapper>

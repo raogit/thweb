@@ -18,9 +18,11 @@ public interface UserService {
 
 	List<User> getPageUsers(Page page) throws Exception;
 
-	int getCount() throws Exception;
+	int getCount(Page page) throws Exception;
 
 	boolean deleteByPrimaryKey(int id) throws Exception;
 
 	User getByPrimaryKey(int id) throws Exception;
+
+	User insertUser(User user) throws Exception;
 }

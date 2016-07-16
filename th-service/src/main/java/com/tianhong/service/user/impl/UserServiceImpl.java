@@ -3,6 +3,7 @@
  */
 package com.tianhong.service.user.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import com.tianhong.dao.user.UserMapper;
 import com.tianhong.domain.user.User;
 import com.tianhong.page.Page;
 import com.tianhong.service.user.UserService;
+import com.tianhong.utils.AssertUtils;
+import com.tianhong.utils.MD5;
 
 /**
  * @author Administrator
@@ -33,8 +36,8 @@ public class UserServiceImpl implements UserService {
 		return userMapper.selectPageUsers(page);
 	}
 
-	public int getCount() throws Exception {
-		return userMapper.selectCount();
+	public int getCount(Page page) throws Exception {
+		return userMapper.selectCount(page);
 	}
 
 	public boolean deleteByPrimaryKey(int id) throws Exception {
@@ -46,6 +49,16 @@ public class UserServiceImpl implements UserService {
 
 	public User getByPrimaryKey(int id) throws Exception {
 		return userMapper.selectByPrimaryKey(id);
+	}
+
+	public User insertUser(User user) throws Exception {
+		AssertUtils.notNull(user, "用户对象为空");
+		AssertUtils.isNotEmpty(user.getUserName(), "用户名为空");
+		AssertUtils.isNotEmpty(user.getPassword(), "密码为空");
+		user.setPassword(MD5.GetMD5Code(user.getPassword()));
+		user.setIsDeleted(false);
+		user.setCreateTime(new Date());
+		return null;
 	}
 
 }

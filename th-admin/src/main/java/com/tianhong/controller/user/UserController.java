@@ -46,13 +46,11 @@ public class UserController extends BaseController {
 	@ResponseBody
 	public Object add(User user, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			AssertUtils.notNull(user, "");
-			AssertUtils.isNotEmpty(user.getUserName(), "用户名为空");
-			AssertUtils.isNotEmpty(user.getPassword(), "密码为空");
-
+			AssertUtils.notNull(user, "用户对象为空");
+			user.setCreateId(getCurrentUser(request).getId());
+			return userService.insertUser(user);
 		} catch (Exception e) {
 			log.error("", e);
-
 		}
 		return null;
 	}
@@ -73,7 +71,7 @@ public class UserController extends BaseController {
 	public Object page(Page page, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			List<User> list = userService.getPageUsers(page);
-			int count = userService.getCount();
+			int count = userService.getCount(page);
 			page.setObj(list);
 			page.setTotalRow(count);
 		} catch (Exception e) {

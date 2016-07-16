@@ -79,11 +79,14 @@
 				<strong style="color: grey;">用户名:</strong>
 				<input id="username" type="text" class="textbox" placeholder="用户名..." /> 
 				<strong style="color: grey;">类型:</strong>
-				<select class="select">
+				<select class="select" id="type">
 					<option>请选择</option>
 					<option value="1">前台用户</option>
 					<option value="0">后台用户</option>
 				</select> 
+				<strong style="color: grey;">创建时间:</strong>
+				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:150px;" />-
+				<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:150px;"/>
 				<input type="button" value="查询" class="group_btn" onclick="getUser(1)" /> 
 			</section>
 			<section>

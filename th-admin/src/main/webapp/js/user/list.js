@@ -18,6 +18,9 @@ jQuery(document).ready(function() {
 			
 		});
 	})(jQuery);
+	var curDate = new Date();
+	$("#startDate").val(curentTime(curDate.getTime() - 24*60*60*1000));
+	$("#endDate").val(curentTime(curDate.getTime()));
 	loading();
 	btn();
 	tab();
@@ -25,14 +28,22 @@ jQuery(document).ready(function() {
 });
 
 function getUser(pageNum){
-	debugger;
-	var username = $("#username").val();
 	$(".loading_area").fadeIn();
+	debugger;
+	var userName = $("#username").val();
+	var type = $("#type option:selected").val();
+	var startDate = $("#startDate").val();
+	var endDate = $("#endDate").val();
+	
 	$.ajax({
         url: basePath + "/user/page",
         type: 'post',
         dataType: 'json',
         data : {
+        	userName : userName,
+        	type : type,
+        	startDate : startDate,
+        	endDate : endDate,
         	curPage : pageNum
         },
         cache: false,
