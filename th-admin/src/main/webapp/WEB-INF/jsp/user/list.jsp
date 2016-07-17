@@ -10,12 +10,16 @@
 	<!--[if lt IE 9]>
 	<script src="js/html5.js"></script>
 	<![endif]-->
-	<script src="${basePath }/js/My97DatePicker/WdatePicker.js"></script>
-	<script src="${basePath }/js/user/jquery.js"></script>
-	<script src="${basePath }/js/user/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="${basePath }/js/user/list.js"></script>
-	<script src="${basePath }/js/timer/timer.js"></script>
-	<script src="${basePath }/js/utils/utils.js"></script>
+	<link href="${basePath }/css/dtree/dtree.css" type="text/css" rel="StyleSheet" />
+	<script src="${basePath }/js/My97DatePicker/WdatePicker.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath }/js/user/jquery.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath }/js/user/jquery.mCustomScrollbar.concat.min.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath }/js/user/list.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath }/js/timer/timer.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath }/js/utils/utils.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath }/js/dtree/dtree.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath }/js/jQuery/jstree.js?ver=${ver}" type="text/javascript" ></script>
+	
 </head>
 
 <body>
@@ -34,10 +38,10 @@
 		</section>
 		<!--结束加载-->
 		<!--弹出框效果-->
-		<section class="pop_bg">
+		<section class="pop_bg" id="pop_user">
 		<div class="pop_cont">
 			<!--title-->
-			<h3 id="pupTitle">弹出提示标题</h3>
+			<h3 id="pupTitle">修改用户</h3>
 			<!--content-->
 			<input type="hidden" value="0" id="popUserId" />
 			<div class="pop_cont_input">
@@ -57,13 +61,33 @@
 			<div class="pop_cont_text">这里是文字性提示信息！</div>
 			<!--bottom:operate->button-->
 			<div class="btm_btn">
-				<input type="button" value="确认" class="input_btn trueBtn" /> <input
-					type="button" value="关闭" class="input_btn falseBtn" />
+				<input type="button" value="确认" class="input_btn trueBtn" id="confirm_user"/> <input
+					type="button" value="关闭" class="input_btn falseBtn" id="close_user"/>
 			</div>
 		</div>
 		</section>
 		<!--结束：弹出框效果-->
 
+
+		<!--弹出框效果-->
+		<section class="pop_bg" id="pop_tree">
+			<div class="pop_cont">
+				<!--title-->
+				<h3>权限设置</h3>
+				<!--content-->
+				<div class="pop_cont_input" id="authTree">
+					
+				</div>
+				<!--bottom:operate->button-->
+				<div class="btm_btn">
+					<input type="button" value="确认" class="input_btn trueBtn" id="confirm_tree"/> <input
+						type="button" value="关闭" class="input_btn falseBtn" id="close_tree"/>
+				</div>
+			</div>
+		</section>
+		<!--结束：弹出框效果-->
+		
+		
 		<section>
 			<h2>
 				<strong style="color: grey;">常用按钮（水平块元素，无区域限制）</strong>
