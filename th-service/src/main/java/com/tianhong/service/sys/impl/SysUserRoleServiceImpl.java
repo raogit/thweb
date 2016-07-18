@@ -8,13 +8,20 @@
 package com.tianhong.service.sys.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tianhong.dao.sys.SysRoleMenuMapper;
+import com.tianhong.dao.sys.SysUserMenuMapper;
 import com.tianhong.dao.sys.SysUserRoleMapper;
+import com.tianhong.domain.menu.Menu;
+import com.tianhong.domain.sys.SysRoleMenu;
+import com.tianhong.domain.sys.SysUserMenu;
 import com.tianhong.domain.sys.SysUserRole;
+import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.sys.SysUserRoleService;
 
 /**
@@ -30,6 +37,12 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
 
 	@Autowired
 	private SysUserRoleMapper sysUserRoleMapper;
+	@Autowired
+	private SysUserMenuMapper sysUserMenuMapper;
+	@Autowired
+	private SysRoleMenuMapper sysRoleMenuMapper;
+	@Autowired
+	private MenuService menuService;
 
 	public SysUserRole addSysUserRole(int userId, int roleId, int createId) throws Exception {
 		SysUserRole userRole = new SysUserRole();
@@ -40,6 +53,21 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
 		userRole.setIsDeleted(false);
 		sysUserRoleMapper.insertSelective(userRole);
 		return userRole;
+	}
+
+	public List<SysUserRole> getSysUserRoles(int userId) throws Exception {
+		return sysUserRoleMapper.selectSysUserRoles(userId);
+	}
+
+	public List<Menu> getUserMenu(int userId) throws Exception {
+		List<Menu> menus = menuService.getAllMenus();
+		List<SysUserRole> sysUserRoles = this.getSysUserRoles(userId);
+		for (SysUserRole role : sysUserRoles) {
+			List<SysRoleMenu> roleMenus = sysRoleMenuMapper.selectSysRoleMenus(role.getId());
+
+		}
+		List<SysUserMenu> sysUserMenus = sysUserMenuMapper.selectSysUserMenus(userId);
+		return null;
 	}
 
 }

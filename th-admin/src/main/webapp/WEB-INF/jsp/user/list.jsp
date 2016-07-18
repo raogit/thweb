@@ -70,11 +70,11 @@
 
 		<!--弹出框效果-->
 		<section class="pop_bg" id="pop_tree">
-			<div class="pop_cont">
+			<div class="pop_cont" style="top:0;">
 				<!--title-->
 				<h3>权限设置</h3>
 				<!--content-->
-				<div class="pop_cont_input" id="dtreeid">
+				<div class="pop_cont_input" id="dtreeid" style="overflow: auto;height:400px;">
 					
 				</div>
 				<!--bottom:operate->button-->

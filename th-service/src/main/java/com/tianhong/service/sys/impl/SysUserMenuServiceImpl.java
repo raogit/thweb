@@ -8,6 +8,7 @@
 package com.tianhong.service.sys.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,10 @@ public class SysUserMenuServiceImpl implements SysUserMenuService {
 		userMenu.setIsDeleted(false);
 		sysUserMenuMapper.insertSelective(userMenu);
 		return userMenu;
+	}
+
+	public List<SysUserMenu> getSysUserMenus(int userId) throws Exception {
+		return sysUserMenuMapper.selectSysUserMenus(userId);
 	}
 
 }

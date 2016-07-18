@@ -4,7 +4,7 @@ function treePop(id){
 	debugger;
 	$("#pop_tree").fadeIn();
 	$.ajax({
-        url: basePath + "/user/get",
+        url: basePath + "/userrole/list",
         type: 'post',
         dataType: 'json',
         data : {
@@ -35,9 +35,16 @@ function treePop(id){
         	d.add(11,0,'authority','25','一级菜单3 ');
         	d.add(12,11,'authority','26','二级菜单3 ');
         	d.add(13,12,'authority','27','用户管理 ');
-        	d.add(14,12,'authority','27','用户组管理 ');		
+        	d.add(14,12,'authority','27','用户组管理 ');	
+        	d.add(15,12,'authority','27','用户管理 ');
+        	d.add(16,12,'authority','27','用户组管理 ');	
+        	d.add(17,12,'authority','27','用户管理 ');
+        	d.add(18,12,'authority','27','用户组管理 ');	
+        	d.add(19,12,'authority','27','用户管理 ');
+        	d.add(20,12,'authority','27','用户组管理 ');	
         	
-        	document.getElementById("dtreeid").innerHTML = "<p><a href='javascript: d.openAll();'>open all</a> | <a href='javascript: d.closeAll();'>close all</a></p>"+d.toString();
+//        	document.getElementById("dtreeid").innerHTML = "<p><a href='javascript: d.openAll();'>open all</a> | <a href='javascript: d.closeAll();'>close all</a></p>"+d.toString();
+        	document.getElementById("dtreeid").innerHTML = d.toString();
 			d.openAll();
         	
         }
