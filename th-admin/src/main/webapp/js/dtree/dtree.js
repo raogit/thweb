@@ -139,9 +139,8 @@ dTree.prototype.node = function(node, nodeId) {
 	}
 	else if ((!this.config.folderLinks || !node.url) && node._hc && node.pid != this.root.id)
 		str += '<a href="javascript: ' + this.obj + '.o(' + nodeId + ');" class="node">';
-	//===============================================
-	//2006-05-11 将原链接的节点修改为 checkbox
-	//===============================================
+
+	// 将原链接的节点修改为 checkbox
 	//str += node.name;
 	if(node.pid == this.root.id){
 		str += node.cname;
@@ -204,9 +203,6 @@ dTree.prototype.getSelected = function() {
 	return (sn) ? sn : null;
 };
 
-//===============================
-// luzhilin 2006-05-11
-//
 //作用：选中节点对象
 //参数：nobj node对象
 //      cobj checkbox对象
@@ -230,11 +226,7 @@ dTree.prototype.checkNode = function(id,pid,_hc,checked) {
 	
 }
 
-//===============================
-// luzhilin 2006-05-11
-//
-//作用：判断同级中有无被选中的
-//参数：id 节点id
+//作用：判断同级中有无被选中的,参数：id 节点id
 //      pid 节点的父节点id
 //===============================
 dTree.prototype.isHaveBNode = function(id,pid) {	
@@ -250,11 +242,7 @@ dTree.prototype.isHaveBNode = function(id,pid) {
 	return isChecked;
 };
 
-//===============================
-// luzhilin 2006-05-11
-//
-//作用：递归选中父节点对象
-//参数：pid 节点的父节点id
+//作用：递归选中父节点对象,参数：pid 节点的父节点id
 //      ischecked 是否被选中
 //===============================
 dTree.prototype.checkPNodeRecursion = function(pid,ischecked) {	
@@ -267,11 +255,7 @@ dTree.prototype.checkPNodeRecursion = function(pid,ischecked) {
 	}
 };
 
-//===============================
-// luzhilin 2006-05-11
-//
-//作用：递归选中子节点对象
-//参数：id 节点id
+//作用：递归选中子节点对象,参数：id 节点id
 //      ischecked 是否被选中
 //===============================
 dTree.prototype.checkSNodeRecursion = function(id,ischecked) {	
@@ -283,11 +267,7 @@ dTree.prototype.checkSNodeRecursion = function(id,ischecked) {
 	}
 };
 
-//===============================
-// luzhilin 2006-05-11
-//
-//作用：仅选中父节点对象
-//参数：pid 节点的父节点id
+//作用：仅选中父节点对象,参数：pid 节点的父节点id
 //      ischecked 是否被选中
 //===============================
 dTree.prototype.checkPNode = function(pid,ischecked) {	
