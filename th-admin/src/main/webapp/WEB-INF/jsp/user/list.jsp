@@ -10,16 +10,15 @@
 	<!--[if lt IE 9]>
 	<script src="js/html5.js"></script>
 	<![endif]-->
-	<link href="${basePath }/css/dtree/dtree.css" type="text/css" rel="StyleSheet" />
+	
 	<script src="${basePath }/js/My97DatePicker/WdatePicker.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/user/jquery.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/user/jquery.mCustomScrollbar.concat.min.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/user/list.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/timer/timer.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/utils/utils.js?ver=${ver}" type="text/javascript" ></script>
-	<script src="${basePath }/js/dtree/dtree.js?ver=${ver}" type="text/javascript" ></script>
-	<script src="${basePath }/js/jQuery/jstree.js?ver=${ver}" type="text/javascript" ></script>
-	
+
+	<link href="${basePath }/css/dtree/dtree.css" type="text/css" rel="StyleSheet" />
 </head>
 
 <body>
@@ -75,7 +74,7 @@
 				<!--title-->
 				<h3>权限设置</h3>
 				<!--content-->
-				<div class="pop_cont_input" id="authTree">
+				<div class="pop_cont_input" id="dtreeid">
 					
 				</div>
 				<!--bottom:operate->button-->
@@ -239,5 +238,8 @@
 		<!--结束：以下内容则可删除，仅为素材引用参考-->
 	</div>
 	</section>
+	<script src="${basePath }/js/dtree/dtree.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath }/js/user/list-dtree.js?ver=${ver}" type="text/javascript" ></script>
+	
 </body>
 </html>

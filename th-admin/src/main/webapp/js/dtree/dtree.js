@@ -1,4 +1,4 @@
-
+basePath = $("#basePath",parent.document).val();
 function Node(id, pid, cname, cvalue, cshow, cchecked, cdisabled, url, title, target, icon, iconOpen, open) {
 	this.id = id;
 	this.pid = pid;

@@ -1,3 +1,4 @@
+
 jQuery(document).ready(function() {
 	(function($){
 		$(window).load(function(){
@@ -241,43 +242,7 @@ function btn(){
 		 $("#pop_tree").fadeOut();
 	});
 }
-function treePop(id){
-	debugger;
-	$("#pop_tree").fadeIn();
-	
-	
-	var d = new dTree('dTree');
-	d.add(0,-1,'菜单权限树');
-	d.add(1,0,'authority','25','一级菜单1 ');
-	d.add(2,1,'authority','26','二级菜单1 ');
-	d.add(3,2,'authority','27','三级菜单1 ');
-	d.add(4,2,'authority','28','三级菜单2 ');
-	
-	d.add(32,3,'authority','26','二级菜单1 ');
-	d.add(33,32,'authority','27','用户管理 ');
-	d.add(34,32,'authority','28','用户组管理 ');
-	
-	d.add(22,1,'authority','26','二级菜单1 ');
-	d.add(23,22,'authority','27','用户管理 ');
-	d.add(24,22,'authority','28','用户组管理 ');
-			
-	d.add(6,0,'authority','25','一级菜单2 ',true,true);
-	d.add(7,6,'authority','26','二级菜单2 ',true,true);
-	d.add(8,7,'authority','27','用户管理 ',true,true);
-	d.add(9,7,'authority','28','用户组管理 ',true,true);
-	
-	
-	d.add(11,0,'authority','25','一级菜单3 ');
-	d.add(12,11,'authority','26','二级菜单3 ');
-	d.add(13,12,'authority','27','用户管理 ');
-	d.add(14,12,'authority','27','用户组管理 ');		
-	
-	debugger;
-	var a = d.toString();
-	//document.getElementById("authTree").write(d);
-	$("#authTree").append(a);
-	d.openAll();
-}
+
 function tab(){
 	//tab
 	$(".admin_tab li a").click(function(){
@@ -286,26 +251,3 @@ function tab(){
 		 $(".admin_tab_cont").eq(liindex).fadeIn(150).siblings(".admin_tab_cont").hide();
 	});
 }
-
-function createPermitTree(datastr) {  
-    //var datastr = eval("" + datastr + "");  
-    $('#authTree').jstree({  
-        'plugins' : [ "wholerow", "checkbox", "types" ],  
-        'core' : {  
-            "themes" : {  
-                "responsive" : false  
-            },  
-            'data' : [ { "id" : "1", "parent" : "#", "text" : "root" },  
-                       { "id" : "2", "parent" : "1", "text" : "child 1" },  
-                       { "id" : "3", "parent" : "1", "text" : "child 2" }  ]  
-        },  
-        "types" : {  
-            "default" : {  
-                "icon" : "fa fa-folder icon-state-warning icon-lg"  
-            },  
-            "file" : {  
-                "icon" : "fa fa-file icon-state-warning icon-lg"  
-            }  
-        }  
-    });  
-}  
