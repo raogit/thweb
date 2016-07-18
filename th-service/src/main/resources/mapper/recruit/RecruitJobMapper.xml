@@ -316,4 +316,31 @@
       is_show = #{isShow,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="searchJob" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_recruit_job
+    where job_name like CONCAT('%',#{jobName,jdbcType=VARCHAR},'%' )
+    and area=#{area,jdbcType=VARCHAR}
+    and jobCategory=#{jobCategory,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="searchMoreJob" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_recruit_job
+    where job_name like CONCAT('%',#{jobName,jdbcType=VARCHAR},'%' )
+    and area=#{area,jdbcType=VARCHAR}
+    and jobCategory=#{jobCategory,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="searchLastJob" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_recruit_job
+    where recuitType =#{jobName,jdbcType=VARCHAR}
+    limit #{limit,jdbcType=INTEGER}
+  </select>
+  
 </mapper>

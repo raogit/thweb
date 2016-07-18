@@ -19,47 +19,89 @@ public class RecruitJob {
      * 职位编号
      */
     private Long jobNo;
-
+    /**
+     * 部门
+     */
     private String department;
-
+    /**
+     * 工作地点
+     */
     private String area;
-
+    /**
+     * 招聘对象:全职，兼职，实习
+     */
     private String jobType;
-
+    /**
+     * 岗位类别
+     */
     private String jobCategory;
-
+    /**
+     * 招聘人数
+     */
     private Integer num;
-
+    /**
+     * 最高薪资
+     */
     private Integer salaryMax;
-
+    /**
+     * 最低薪资
+     */
     private Integer salaryMin;
-
+    /**
+     * 发布日期
+     */
     private Date publishDate;
-
+    /**
+     * 招聘类型:社招，校招
+     */
     private String recuitType;
-
+    /**
+     * 职位描述
+     */
     private String jobDescption;
-
+    /**
+     * 年龄
+     */
     private Integer requireAge;
-
+    /**
+     * 工作年限
+     */
     private Integer requireYears;
-
+    /**
+     * 英语等级
+     */
     private String requireEn;
-
+    /**
+     * 汉语
+     */
     private String requireCn;
-
+    /**
+     * 粤语
+     */
     private String requireYy;
-
+    /**
+     * 其他要求
+     */
     private String requireOther;
-
+    /**
+     * 创建时间
+     */
     private Date createTime;
-
+    /**
+     * 创建人
+     */
     private Integer createUser;
-
+    /**
+     * 更新时间
+     */
     private Date updateTime;
-
+    /**
+     * 更新人
+     */
     private Integer updateUser;
-
+    /**
+     * 是否发布
+     */
     private Integer isShow;
 
     public Integer getId() {

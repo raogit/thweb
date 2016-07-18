@@ -1,5 +1,7 @@
 package com.tianhong.dao.recruit;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.tianhong.domain.recruit.RecruitUser;
 
 public interface RecruitUserMapper {
@@ -14,4 +16,6 @@ public interface RecruitUserMapper {
     int updateByPrimaryKeySelective(RecruitUser record);
 
     int updateByPrimaryKey(RecruitUser record);
+    
+    int selectUser(@Param("userName") String userName, @Param("password") String password);
 }
