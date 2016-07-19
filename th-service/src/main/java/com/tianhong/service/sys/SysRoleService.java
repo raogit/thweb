@@ -20,4 +20,10 @@ public interface SysRoleService {
 
 	SysRole getPageRoles(SysRole role) throws Exception;
 
+	SysRole getByPrimaryKey(int id) throws Exception;
+
+	SysRole insertSelective(SysRole record) throws Exception;
+
+	boolean updateByPrimaryKeySelective(SysRole record) throws Exception;
+
 }

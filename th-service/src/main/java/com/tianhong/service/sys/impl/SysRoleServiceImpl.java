@@ -39,4 +39,18 @@ public class SysRoleServiceImpl implements SysRoleService {
 		return role;
 	}
 
+	public SysRole getByPrimaryKey(int id) throws Exception {
+		return sysRoleMapper.selectByPrimaryKey(id);
+	}
+
+	public SysRole insertSelective(SysRole role) throws Exception {
+		sysRoleMapper.insertSelective(role);
+		return role;
+	}
+
+	public boolean updateByPrimaryKeySelective(SysRole role) throws Exception {
+		sysRoleMapper.updateByPrimaryKeySelective(role);
+		return true;
+	}
+
 }

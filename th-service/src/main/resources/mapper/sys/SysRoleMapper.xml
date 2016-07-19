@@ -29,7 +29,7 @@
     delete from t_sys_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tianhong.domain.sys.SysRole">
+  <insert id="insert" parameterType="com.tianhong.domain.sys.SysRole" useGeneratedKeys="true" keyProperty="id">
     insert into t_sys_role (id, code, role_name, 
       role_description, create_time, create_id, 
       update_time, update_id, is_deleted, 
@@ -41,7 +41,7 @@
       #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, #{backup3,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.tianhong.domain.sys.SysRole">
+  <insert id="insertSelective" parameterType="com.tianhong.domain.sys.SysRole" useGeneratedKeys="true" keyProperty="id">
     insert into t_sys_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
