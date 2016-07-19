@@ -41,6 +41,11 @@ public class RoleController extends BaseController {
 	@Autowired
 	private SysRoleService sysRoleService;
 
+	@RequestMapping(value = "/rolelist")
+	public Object menu(HttpServletRequest request, HttpServletResponse response) {
+		return "/sys/role-list";
+	}
+
 	@RequestMapping(value = "/page")
 	@ResponseBody
 	public Object page(SysRole sysRole, HttpServletRequest request, HttpServletResponse response) {
