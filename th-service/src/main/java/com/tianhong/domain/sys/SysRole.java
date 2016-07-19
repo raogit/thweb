@@ -29,6 +29,8 @@ public class SysRole extends Page {
 
 	private String backup3;
 
+	private boolean selected;
+
 	public Integer getId() {
 		return id;
 	}
@@ -123,6 +125,14 @@ public class SysRole extends Page {
 
 	public void setBackup3(String backup3) {
 		this.backup3 = backup3 == null ? null : backup3.trim();
+	}
+
+	public boolean getSelected() {
+		return selected;
+	}
+
+	public void setSelected(boolean selected) {
+		this.selected = selected;
 	}
 
 }

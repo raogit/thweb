@@ -16,27 +16,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tianhong.domain.sys.SysRole;
-import com.tianhong.service.sys.SysUserRoleService;
+import com.tianhong.controller.base.BaseController;
+import com.tianhong.domain.menu.Menu;
+import com.tianhong.service.sys.SysUserMenuService;
 
 /**
  * @author Administrator
  *
  */
 @Controller
-@RequestMapping("/userrole")
-public class UserRoleController {
+@RequestMapping("/usermenu")
+public class UserMenuController extends BaseController {
 
-	private static final Log log = LogFactory.getLog(UserRoleController.class);
+	private static final Log log = LogFactory.getLog(UserMenuController.class);
+
 	@Autowired
-	private SysUserRoleService sysUserRoleService;
+	private SysUserMenuService sysUserMenuService;
 
 	@RequestMapping(value = "/list")
 	@ResponseBody
 	public Object list(@RequestParam("userId") int userId, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			List<SysRole> userRoles = sysUserRoleService.getUserRoles(userId);
-			return userRoles;
+			List<Menu> userMenus = sysUserMenuService.getUserMenus(userId);
+			return userMenus;
 		} catch (Exception e) {
 			log.error("", e);
 		}

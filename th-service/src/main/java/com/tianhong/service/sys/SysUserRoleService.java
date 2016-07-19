@@ -9,7 +9,7 @@ package com.tianhong.service.sys;
 
 import java.util.List;
 
-import com.tianhong.domain.menu.Menu;
+import com.tianhong.domain.sys.SysRole;
 import com.tianhong.domain.sys.SysUserRole;
 import com.tianhong.model.RoleMenu;
 
@@ -26,7 +26,7 @@ public interface SysUserRoleService {
 
 	List<SysUserRole> getSysUserRoles(int userId) throws Exception;
 
-	List<Menu> getUserMenu(int userId) throws Exception;
+	List<SysRole> getUserRoles(int userId) throws Exception;
 
 	List<RoleMenu> getRoleMenu(int userId) throws Exception;
 

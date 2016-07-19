@@ -202,4 +202,11 @@
 	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
 		</if>
   </select>
+  
+   <select id="selectAllRoles" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_role
+    where is_deleted = 0
+  </select>
 </mapper>

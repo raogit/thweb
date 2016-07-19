@@ -9,6 +9,7 @@ package com.tianhong.service.sys;
 
 import java.util.List;
 
+import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.sys.SysUserMenu;
 
 /**
@@ -22,5 +23,5 @@ public interface SysUserMenuService {
 
 	SysUserMenu addSysUserMenu(int userId, int menuId, int createId) throws Exception;
 
-	List<SysUserMenu> getSysUserMenus(int userId) throws Exception;
+	List<Menu> getUserMenus(int userId) throws Exception;
 }

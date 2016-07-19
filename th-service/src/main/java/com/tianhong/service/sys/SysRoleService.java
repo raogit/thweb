@@ -7,6 +7,8 @@
  */
 package com.tianhong.service.sys;
 
+import java.util.List;
+
 import com.tianhong.domain.sys.SysRole;
 
 /**
@@ -26,4 +28,5 @@ public interface SysRoleService {
 
 	boolean updateByPrimaryKeySelective(SysRole record) throws Exception;
 
+	List<SysRole> getAllRoles() throws Exception;
 }

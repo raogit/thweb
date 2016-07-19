@@ -15,7 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tianhong.dao.sys.SysUserMenuMapper;
+import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.sys.SysUserMenu;
+import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.sys.SysUserMenuService;
 
 /**
@@ -30,6 +32,8 @@ import com.tianhong.service.sys.SysUserMenuService;
 public class SysUserMenuServiceImpl implements SysUserMenuService {
 
 	@Autowired
+	private MenuService menuService;
+	@Autowired
 	private SysUserMenuMapper sysUserMenuMapper;
 
 	public SysUserMenu addSysUserMenu(int userId, int menuId, int createId) throws Exception {
@@ -43,8 +47,19 @@ public class SysUserMenuServiceImpl implements SysUserMenuService {
 		return userMenu;
 	}
 
-	public List<SysUserMenu> getSysUserMenus(int userId) throws Exception {
-		return sysUserMenuMapper.selectSysUserMenus(userId);
+	public List<Menu> getUserMenus(int userId) throws Exception {
+		List<Menu> menus = menuService.getAllMenus();
+		List<SysUserMenu> sysUserMenus = sysUserMenuMapper.selectSysUserMenus(userId);
+		for (Menu menu : menus) {
+			for (SysUserMenu userMenu : sysUserMenus) {
+				if (menu.getId().intValue() == userMenu.getMenuId()) {
+					menu.setSelected(true);
+					break;
+				}
+			}
+		}
+		return menus;
+
 	}
 
 }

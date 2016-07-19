@@ -53,4 +53,8 @@ public class SysRoleServiceImpl implements SysRoleService {
 		return true;
 	}
 
+	public List<SysRole> getAllRoles() throws Exception {
+		return sysRoleMapper.selectAllRoles();
+	}
+
 }
