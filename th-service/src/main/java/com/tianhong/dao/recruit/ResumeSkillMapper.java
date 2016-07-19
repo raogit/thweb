@@ -1,5 +1,7 @@
 package com.tianhong.dao.recruit;
 
+import java.util.List;
+
 import com.tianhong.domain.recruit.ResumeSkill;
 
 public interface ResumeSkillMapper {
@@ -14,4 +16,6 @@ public interface ResumeSkillMapper {
     int updateByPrimaryKeySelective(ResumeSkill record);
 
     int updateByPrimaryKey(ResumeSkill record);
+    
+    List<ResumeSkill> selectByResumeId(Integer resumeId);
 }

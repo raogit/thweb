@@ -1,6 +1,7 @@
 package com.tianhong.service.recruit.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tianhong.dao.recruit.RecruitUserMapper;
 import com.tianhong.domain.recruit.RecruitUser;
@@ -12,6 +13,7 @@ import com.tianhong.utils.MD5;
  * @author sky
  *
  */
+@Service
 public class RecruitUserServiceImpl implements RecruitUserService {
 	
 	@Autowired

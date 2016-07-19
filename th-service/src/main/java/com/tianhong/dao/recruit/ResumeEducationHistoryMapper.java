@@ -1,5 +1,7 @@
 package com.tianhong.dao.recruit;
 
+import java.util.List;
+
 import com.tianhong.domain.recruit.ResumeEducationHistory;
 
 public interface ResumeEducationHistoryMapper {
@@ -14,4 +16,6 @@ public interface ResumeEducationHistoryMapper {
     int updateByPrimaryKeySelective(ResumeEducationHistory record);
 
     int updateByPrimaryKey(ResumeEducationHistory record);
+    
+    List<ResumeEducationHistory> selectByResumeId(Integer resumeId);
 }

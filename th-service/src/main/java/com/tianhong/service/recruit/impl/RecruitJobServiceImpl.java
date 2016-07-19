@@ -3,6 +3,7 @@ package com.tianhong.service.recruit.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tianhong.dao.recruit.RecruitJobMapper;
 import com.tianhong.domain.recruit.RecruitJob;
@@ -12,6 +13,7 @@ import com.tianhong.service.recruit.RecruitJobService;
  * @author sky
  *
  */
+@Service
 public class RecruitJobServiceImpl implements RecruitJobService {
 	
 	@Autowired

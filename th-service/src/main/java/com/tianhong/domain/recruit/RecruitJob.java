@@ -29,6 +29,7 @@ public class RecruitJob {
     private String area;
     /**
      * 招聘对象:全职，兼职，实习
+     * see @SkillLevel
      */
     private String jobType;
     /**
@@ -53,6 +54,7 @@ public class RecruitJob {
     private Date publishDate;
     /**
      * 招聘类型:社招，校招
+     * see @RecruitType
      */
     private String recuitType;
     /**

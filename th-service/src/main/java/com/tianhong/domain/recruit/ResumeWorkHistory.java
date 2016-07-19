@@ -1,36 +1,68 @@
 package com.tianhong.domain.recruit;
 
 import java.util.Date;
-
+/**
+ * 工作经历
+ * @author sky
+ *
+ */
 public class ResumeWorkHistory {
     private Integer id;
-
+    /**
+     * 简历编号
+     */
     private Integer resumeId;
-
+    /**
+     * 工作职位
+     */
     private String position;
-
+    /**
+     * 开始时间
+     */
     private Date startDate;
-
+    /**
+     * 结束时间
+     */
     private Date endDate;
-
+    /**
+     * 工作地点
+     */
     private String address;
-
+    /**
+     * 所属行业：枚举
+     */
     private String industryType;
-
+    /**
+     * 公司性质：枚举
+     */
     private String oranazationType;
-
+    /**
+     * 汇报对象
+     */
     private String reportObj;
-
+    /**
+     * 下属人数
+     */
     private Integer subordinateNum;
-
+    /**
+     * 薪资
+     */
     private String payment;
-
+    /**
+     * 工作职责
+     */
     private Integer workDuty;
-
+    /**
+     * 业绩描述
+     */
     private String achievementDesc;
-
+    /**
+     * 创建时间
+     */
     private Date createTime;
-
+    /**
+     * 修改时间
+     */
     private Date updateTime;
 
     public Integer getId() {

@@ -1,14 +1,25 @@
 package com.tianhong.domain.recruit;
 
 import java.util.Date;
-
+/**
+ * 技能
+ * @author sky
+ *
+ */
 public class ResumeSkill {
     private Integer id;
-
+    /**
+     * 简历编号
+     */
     private Integer resumeId;
-
+    /**
+     * 技能
+     */
     private String skill;
-
+    /**
+     * 技能等级：一般，良好，熟练，精通
+     * see @SkillLevel
+     */
     private String level;
 
     private Date createTime;

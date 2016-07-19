@@ -1,66 +1,128 @@
 package com.tianhong.domain.recruit;
 
 import java.util.Date;
-
+/**
+ * 简历基本信息
+ * @author sky
+ *
+ */
 public class RecruitResume {
     private Integer id;
-
+    /**
+     * 用户编号
+     */
     private Integer userId;
-
+    /**
+     * 名称
+     */
     private String name;
-
+    /**
+     * 性别：男，女
+     */
     private String sex;
-
+    /**
+     * 生日
+     */
     private Date birthDate;
-
+    /**
+     * 手机号码
+     */
     private Integer phone;
-
+    /**
+     * 邮箱地址
+     */
     private String email;
-
+    /**
+     * 毕业学校
+     */
     private String school;
-
+    /**
+     * 专业
+     */
     private String major;
-
+    /**
+     * 毕业日期
+     */
     private Date graduateDate;
-
+    /**
+     * 工作单位
+     */
     private String oranazation;
-
+    /**
+     * 工作年限
+     */
     private Integer workYears;
-
+    /**
+     * 现居住地
+     */
     private String currentPalace;
-
+    /**
+     * 学历
+     */
     private String degrees;
-
+    /**
+     * 备用手机号码
+     */
     private Integer sparePhone;
-
+    /**
+     * 民族
+     */
     private String nation;
-
+    /**
+     * 身份证
+     */
     private String idCard;
-
+    /**
+     * 身份证地址
+     */
     private String idCardAdd;
-
+    /**
+     * 背景描述
+     */
     private String background;
-
+    /**
+     * 求职意向
+     */
     private String intention;
-
+    /**
+     * 工作描述
+     */
     private String workDescption;
-
+    /**
+     * 工作经历
+     */
     private String projectHistory;
-
+    /**
+     * 培训经历
+     */
     private String trainHistory;
-
+    /**
+     * 语言描述
+     */
     private String languageDesc;
-
+    /**
+     * 奖励
+     */
     private String reward;
-
+    /**
+     * 其他信息
+     */
     private String ohterInfo;
-
+    /**
+     * 证书
+     */
     private String certificate;
-
+    /**
+     * 个人爱好
+     */
     private String personalLike;
-
+    /**
+     * 创建时间
+     */
     private Date createTime;
-
+    /**
+     * 修改时间
+     */
     private Date updateTime;
 
     public Integer getId() {

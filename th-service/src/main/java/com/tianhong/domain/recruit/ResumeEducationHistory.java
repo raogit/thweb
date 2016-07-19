@@ -1,22 +1,41 @@
 package com.tianhong.domain.recruit;
 
 import java.util.Date;
-
+/**
+ * 教育经历
+ * @author sky
+ *
+ */
 public class ResumeEducationHistory {
     private Integer id;
-
+    /**
+     * 简历编号
+     */
     private Integer resumeId;
-
+    /**
+     * 学历：高中及以下，大专，本科，硕士，博士，MBA
+     * @DegreesType
+     */
     private String major;
-
+    /**
+     * 开始日期
+     */
     private Date startDate;
-
+    /**
+     * 结束日期
+     */
     private Date endDate;
-
+    /**
+     * 学校
+     */
     private String school;
-
+    /**
+     * 创建时间
+     */
     private Date createTime;
-
+    /**
+     * 更新时间
+     */
     private Date updateTime;
 
     public Integer getId() {

@@ -103,4 +103,11 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="selectByResumeId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_resume_skill
+    where resume_id = #{resumeId,jdbcType=INTEGER}
+  </select>
 </mapper>

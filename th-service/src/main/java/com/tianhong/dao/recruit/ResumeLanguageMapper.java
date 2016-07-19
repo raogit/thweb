@@ -1,5 +1,7 @@
 package com.tianhong.dao.recruit;
 
+import java.util.List;
+
 import com.tianhong.domain.recruit.ResumeLanguage;
 
 public interface ResumeLanguageMapper {
@@ -14,4 +16,6 @@ public interface ResumeLanguageMapper {
     int updateByPrimaryKeySelective(ResumeLanguage record);
 
     int updateByPrimaryKey(ResumeLanguage record);
+    
+    List<ResumeLanguage> selectByResumeId(Integer resumeId);
 }

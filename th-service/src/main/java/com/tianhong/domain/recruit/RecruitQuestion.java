@@ -1,7 +1,11 @@
 package com.tianhong.domain.recruit;
 
 import java.util.Date;
-
+/**
+ * 
+ * @author sky
+ *
+ */
 public class RecruitQuestion {
     private Integer id;
 

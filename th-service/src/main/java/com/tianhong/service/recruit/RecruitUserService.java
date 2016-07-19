@@ -19,6 +19,7 @@ public interface RecruitUserService {
 	 * @param id
 	 * @param oldPassword
 	 * @param newPassword
+	 * @return see @ChangePasswordMsg
 	 */
 	public String changePassword(Integer id,String oldPassword,String newPassword);
 	

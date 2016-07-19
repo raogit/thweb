@@ -1,7 +1,11 @@
 package com.tianhong.domain.recruit;
 
 import java.util.Date;
-
+/**
+ * 附件
+ * @author sky
+ *
+ */
 public class ResumeAttachment {
     private Integer id;
 
