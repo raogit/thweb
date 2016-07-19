@@ -10,13 +10,13 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-07-19 15:06:15
+Date: 2016-07-19 21:55:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `t_culture`
+-- Table structure for t_culture
 -- ----------------------------
 DROP TABLE IF EXISTS `t_culture`;
 CREATE TABLE `t_culture` (
@@ -41,7 +41,7 @@ CREATE TABLE `t_culture` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_investor`
+-- Table structure for t_investor
 -- ----------------------------
 DROP TABLE IF EXISTS `t_investor`;
 CREATE TABLE `t_investor` (
@@ -66,7 +66,7 @@ CREATE TABLE `t_investor` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_login_log`
+-- Table structure for t_login_log
 -- ----------------------------
 DROP TABLE IF EXISTS `t_login_log`;
 CREATE TABLE `t_login_log` (
@@ -91,7 +91,7 @@ CREATE TABLE `t_login_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_menu`
+-- Table structure for t_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `t_menu`;
 CREATE TABLE `t_menu` (
@@ -159,11 +159,11 @@ INSERT INTO `t_menu` VALUES ('40', '创新中心', null, '3', '34', '3', '1', '2
 INSERT INTO `t_menu` VALUES ('41', '同济大学MBA项目', null, '3', '34', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('42', '场地租赁', null, '3', '34', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('43', '用户管理', '/menu/user', '1', '0', '8', '0', '2016-07-14 22:20:02', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('44', '权限管理', null, '1', '0', null, '0', '2016-07-19 14:57:01', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('44', '权限管理', null, '1', '0', '8', '0', '2016-07-19 14:57:01', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('45', '角色管理', '/menu/role', '2', '44', '1', '0', '2016-07-19 14:58:09', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
--- Table structure for `t_news_center`
+-- Table structure for t_news_center
 -- ----------------------------
 DROP TABLE IF EXISTS `t_news_center`;
 CREATE TABLE `t_news_center` (
@@ -188,7 +188,7 @@ CREATE TABLE `t_news_center` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_picture`
+-- Table structure for t_picture
 -- ----------------------------
 DROP TABLE IF EXISTS `t_picture`;
 CREATE TABLE `t_picture` (
@@ -216,7 +216,7 @@ CREATE TABLE `t_picture` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_recruit_interaction`
+-- Table structure for t_recruit_interaction
 -- ----------------------------
 DROP TABLE IF EXISTS `t_recruit_interaction`;
 CREATE TABLE `t_recruit_interaction` (
@@ -234,7 +234,7 @@ CREATE TABLE `t_recruit_interaction` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_recruit_job`
+-- Table structure for t_recruit_job
 -- ----------------------------
 DROP TABLE IF EXISTS `t_recruit_job`;
 CREATE TABLE `t_recruit_job` (
@@ -270,7 +270,7 @@ CREATE TABLE `t_recruit_job` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_recruit_qustion`
+-- Table structure for t_recruit_qustion
 -- ----------------------------
 DROP TABLE IF EXISTS `t_recruit_qustion`;
 CREATE TABLE `t_recruit_qustion` (
@@ -290,7 +290,7 @@ CREATE TABLE `t_recruit_qustion` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_recruit_resume`
+-- Table structure for t_recruit_resume
 -- ----------------------------
 DROP TABLE IF EXISTS `t_recruit_resume`;
 CREATE TABLE `t_recruit_resume` (
@@ -332,7 +332,7 @@ CREATE TABLE `t_recruit_resume` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_recruit_resume_delivery`
+-- Table structure for t_recruit_resume_delivery
 -- ----------------------------
 DROP TABLE IF EXISTS `t_recruit_resume_delivery`;
 CREATE TABLE `t_recruit_resume_delivery` (
@@ -353,7 +353,7 @@ CREATE TABLE `t_recruit_resume_delivery` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_recruit_user`
+-- Table structure for t_recruit_user
 -- ----------------------------
 DROP TABLE IF EXISTS `t_recruit_user`;
 CREATE TABLE `t_recruit_user` (
@@ -371,7 +371,7 @@ CREATE TABLE `t_recruit_user` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_resume_attachment`
+-- Table structure for t_resume_attachment
 -- ----------------------------
 DROP TABLE IF EXISTS `t_resume_attachment`;
 CREATE TABLE `t_resume_attachment` (
@@ -389,7 +389,7 @@ CREATE TABLE `t_resume_attachment` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_resume_education_history`
+-- Table structure for t_resume_education_history
 -- ----------------------------
 DROP TABLE IF EXISTS `t_resume_education_history`;
 CREATE TABLE `t_resume_education_history` (
@@ -409,7 +409,7 @@ CREATE TABLE `t_resume_education_history` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_resume_language`
+-- Table structure for t_resume_language
 -- ----------------------------
 DROP TABLE IF EXISTS `t_resume_language`;
 CREATE TABLE `t_resume_language` (
@@ -428,7 +428,7 @@ CREATE TABLE `t_resume_language` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_resume_skill`
+-- Table structure for t_resume_skill
 -- ----------------------------
 DROP TABLE IF EXISTS `t_resume_skill`;
 CREATE TABLE `t_resume_skill` (
@@ -446,7 +446,7 @@ CREATE TABLE `t_resume_skill` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_resume_work_history`
+-- Table structure for t_resume_work_history
 -- ----------------------------
 DROP TABLE IF EXISTS `t_resume_work_history`;
 CREATE TABLE `t_resume_work_history` (
@@ -473,7 +473,7 @@ CREATE TABLE `t_resume_work_history` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_store`
+-- Table structure for t_store
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store`;
 CREATE TABLE `t_store` (
@@ -500,7 +500,7 @@ CREATE TABLE `t_store` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_store_news`
+-- Table structure for t_store_news
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store_news`;
 CREATE TABLE `t_store_news` (
@@ -527,7 +527,7 @@ CREATE TABLE `t_store_news` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_store_suggest`
+-- Table structure for t_store_suggest
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store_suggest`;
 CREATE TABLE `t_store_suggest` (
@@ -557,7 +557,7 @@ CREATE TABLE `t_store_suggest` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_sys_role`
+-- Table structure for t_sys_role
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_role`;
 CREATE TABLE `t_sys_role` (
@@ -574,14 +574,16 @@ CREATE TABLE `t_sys_role` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='角色表';
 
 -- ----------------------------
 -- Records of t_sys_role
 -- ----------------------------
+INSERT INTO `t_sys_role` VALUES ('1', 'test', '测试', '测试人员专用', '2016-07-19 20:37:25', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_role` VALUES ('2', 'develop', '开发', '开发人员专用', '2016-07-19 20:37:58', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
--- Table structure for `t_sys_role_menu`
+-- Table structure for t_sys_role_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_role_menu`;
 CREATE TABLE `t_sys_role_menu` (
@@ -604,7 +606,7 @@ CREATE TABLE `t_sys_role_menu` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_sys_user_menu`
+-- Table structure for t_sys_user_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_user_menu`;
 CREATE TABLE `t_sys_user_menu` (
@@ -620,14 +622,19 @@ CREATE TABLE `t_sys_user_menu` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_sys_user_menu
 -- ----------------------------
+INSERT INTO `t_sys_user_menu` VALUES ('21', '1', '1', '2016-07-19 21:53:37', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_user_menu` VALUES ('22', '8', '1', '2016-07-19 21:53:37', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_user_menu` VALUES ('23', '10', '1', '2016-07-19 21:53:37', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_user_menu` VALUES ('24', '12', '1', '2016-07-19 21:53:37', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_user_menu` VALUES ('25', '3', '1', '2016-07-19 21:53:37', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
--- Table structure for `t_sys_user_role`
+-- Table structure for t_sys_user_role
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_user_role`;
 CREATE TABLE `t_sys_user_role` (
@@ -643,14 +650,16 @@ CREATE TABLE `t_sys_user_role` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='用户-角色关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='用户-角色关系表';
 
 -- ----------------------------
 -- Records of t_sys_user_role
 -- ----------------------------
+INSERT INTO `t_sys_user_role` VALUES ('6', '1', '1', '2016-07-19 21:53:37', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_user_role` VALUES ('7', '1', '2', '2016-07-19 21:53:37', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
--- Table structure for `t_user`
+-- Table structure for t_user
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
