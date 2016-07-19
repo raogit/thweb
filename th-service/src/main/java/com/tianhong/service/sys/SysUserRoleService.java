@@ -11,6 +11,7 @@ import java.util.List;
 
 import com.tianhong.domain.sys.SysRole;
 import com.tianhong.domain.sys.SysUserRole;
+import com.tianhong.domain.user.User;
 import com.tianhong.model.RoleMenu;
 
 /**
@@ -30,4 +31,5 @@ public interface SysUserRoleService {
 
 	List<RoleMenu> getRoleMenu(int userId) throws Exception;
 
+	boolean saveRoleAndMenu(int userId, String roleIds, String menuIds, User currUser) throws Exception;
 }

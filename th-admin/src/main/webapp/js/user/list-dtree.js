@@ -1,14 +1,32 @@
 var d = new dTree('d');
-
-function treePop(id){
-	debugger;
+var r = new dTree('r');
+function treePop(userId){
 	$("#pop_tree").fadeIn();
+	$("#treeUserId").val(userId);
 	$.ajax({
         url: basePath + "/userrole/list",
         type: 'post',
         dataType: 'json',
         data : {
-        	id : 2
+        	userId : userId
+        },
+        cache: false,
+        success: function(data){
+        	r.add(0,-1,'角色管理');
+        	for(var i=0;i<data.length;i++){
+        		var role = data[i];
+        		r.add(role.id,0,'authrole',role.id,role.roleName,role.selected);
+        	}
+        	document.getElementById("droleid").innerHTML = r.toString();
+        	r.openAll();
+        }
+    });
+	$.ajax({
+        url: basePath + "/usermenu/list",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	userId : userId
         },
         cache: false,
         success: function(data){
@@ -16,38 +34,10 @@ function treePop(id){
         	for(var i=0;i<data.length;i++){
         		var menu = data[i];
         		if(menu.level == 1){
-        			d.add(menu.id,0, menu.name,menu.id,menu.name,menu.selected);
+        			d.add(menu.id,0,'authority',menu.id,menu.name,menu.selected);
         			initDtree(menu,menu.subMenus);
         		}
         	}
-//        	d.add(2,1,'authority','26','二级菜单1 ');
-//        	d.add(3,2,'authority','27','三级菜单1 ');
-//        	d.add(4,2,'authority','28','三级菜单2 ');
-//        	
-//        	d.add(32,3,'authority','26','二级菜单1 ');
-//        	d.add(33,32,'authority','27','用户管理 ');
-//        	d.add(34,32,'authority','28','用户组管理 ');
-//        	
-//        	d.add(22,1,'authority','26','二级菜单1 ');
-//        	d.add(23,22,'authority','27','用户管理 ');
-//        	d.add(24,22,'authority','28','用户组管理 ');
-//        			
-//        	d.add(6,0,'authority','25','一级菜单2 ',true,true);
-//        	d.add(7,6,'authority','26','二级菜单2 ',true,true);
-//        	d.add(8,7,'authority','27','用户管理 ',true,true);
-//        	d.add(9,7,'authority','28','用户组管理 ',true,true);
-//        	
-//        	
-//        	d.add(11,0,'authority','25','一级菜单3 ');
-//        	d.add(12,11,'authority','26','二级菜单3 ');
-//        	d.add(13,12,'authority','27','用户管理 ');
-//        	d.add(14,12,'authority','27','用户组管理 ');	
-//        	d.add(15,12,'authority','27','用户管理 ');
-//        	d.add(16,12,'authority','27','用户组管理 ');	
-//        	d.add(17,12,'authority','27','用户管理 ');
-//        	d.add(18,12,'authority','27','用户组管理 ');	
-//        	d.add(19,12,'authority','27','用户管理 ');
-//        	d.add(20,12,'authority','27','用户组管理 ');	
 //        	document.getElementById("dtreeid").innerHTML = "<p><a href='javascript: d.openAll();'>open all</a> | <a href='javascript: d.closeAll();'>close all</a></p>"+d.toString();
         	document.getElementById("dtreeid").innerHTML = d.toString();
 			d.openAll();
@@ -59,6 +49,49 @@ function treePop(id){
 function initDtree(menu,data){
 	for(var i=0;i<data.length;i++){
 		var m = data[i];
-		d.add(m.id,menu.id,m.name,m.id,m.name,m.selected);
+		d.add(m.id,menu.id,'authority',m.id,m.name,m.selected);
 	}
 }
+
+function saveUserRoleAndMenu(){
+	var userId = $("#treeUserId").val();
+	var menuIds = new Array();
+	var roleIds = new Array();
+	var authmenu = document.all.authority;	
+	for(i=0;i<authmenu.length;i++){
+		if(authmenu[i].checked){					
+			menuIds.push(authmenu[i].value);
+		}
+	}	
+	var authrole = document.all.authrole;	
+	for(i=0;i<authrole.length;i++){
+		if(authrole[i].checked){					
+			roleIds.push(authrole[i].value);
+		}
+	}	
+	debugger;
+	$.ajax({
+        url: basePath + "/userrole/save",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	userId : userId,
+        	roleIds : roleIds.toString(),
+        	menuIds : menuIds.toString()
+        },
+        cache: false,
+        success: function(data){
+        	debugger;
+        	if(data!=null && data == true){
+        		alert("操作成功");
+        		getUser(1);
+        		$("#pop_tree").fadeOut();
+        	}else{
+        		alert("操作失败");
+        	}
+        	
+        }
+    });
+	
+}
+

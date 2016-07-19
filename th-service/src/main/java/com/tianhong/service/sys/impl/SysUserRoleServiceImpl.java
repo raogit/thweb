@@ -14,9 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tianhong.constant.CommonConstant;
+import com.tianhong.dao.sys.SysUserMenuMapper;
 import com.tianhong.dao.sys.SysUserRoleMapper;
 import com.tianhong.domain.sys.SysRole;
+import com.tianhong.domain.sys.SysUserMenu;
 import com.tianhong.domain.sys.SysUserRole;
+import com.tianhong.domain.user.User;
 import com.tianhong.model.RoleMenu;
 import com.tianhong.service.sys.SysRoleService;
 import com.tianhong.service.sys.SysUserRoleService;
@@ -34,6 +38,8 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
 
 	@Autowired
 	private SysUserRoleMapper sysUserRoleMapper;
+	@Autowired
+	private SysUserMenuMapper sysUserMenuMapper;
 
 	@Autowired
 	private SysRoleService sysRoleService;
@@ -59,15 +65,6 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
 
 	public List<SysRole> getUserRoles(int userId) throws Exception {
 		List<SysRole> roles = sysRoleService.getAllRoles();
-		// List<RoleMenu> roleMenus = this.getRoleMenu(userId);
-		// for (Menu menu : menus) {
-		// for (RoleMenu roleMenu : roleMenus) {
-		// if (menu.getId().intValue() == roleMenu.getMenuId()) {
-		// menu.setSelected(true);
-		// break;
-		// }
-		// }
-		// }
 		List<SysUserRole> sysUserRoles = sysUserRoleMapper.selectSysUserRoles(userId);
 		for (SysRole role : roles) {
 			for (SysUserRole userRole : sysUserRoles) {
@@ -78,6 +75,36 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
 			}
 		}
 		return roles;
+	}
+
+	public boolean saveRoleAndMenu(int userId, String roleIds, String menuIds, User currUser) throws Exception {
+		String[] roles = roleIds.split(CommonConstant.COMMA);
+		String[] menus = menuIds.split(CommonConstant.COMMA);
+		if (roleIds != null && roles.length > 0) {
+			sysUserRoleMapper.deleteUserRoles(userId);
+			for (String roleId : roles) {
+				int rId = Integer.parseInt(roleId);
+				SysUserRole userRole = new SysUserRole();
+				userRole.setUserId(userId);
+				userRole.setRoleId(rId);
+				userRole.setCreateId(currUser.getId());
+				userRole.setCreateTime(new Date());
+				sysUserRoleMapper.insertSelective(userRole);
+			}
+		}
+		if (menuIds != null && menus.length > 0) {
+			sysUserMenuMapper.deleteUserMenus(userId);
+			for (String menuId : menus) {
+				int mId = Integer.parseInt(menuId);
+				SysUserMenu userMenu = new SysUserMenu();
+				userMenu.setUserId(userId);
+				userMenu.setMenuId(mId);
+				userMenu.setCreateId(currUser.getId());
+				userMenu.setCreateTime(new Date());
+				sysUserMenuMapper.insertSelective(userMenu);
+			}
+		}
+		return true;
 	}
 
 }

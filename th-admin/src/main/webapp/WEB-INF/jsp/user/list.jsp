@@ -10,14 +10,12 @@
 	<!--[if lt IE 9]>
 	<script src="js/html5.js"></script>
 	<![endif]-->
-	
 	<script src="${basePath }/js/My97DatePicker/WdatePicker.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/user/jquery.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/user/jquery.mCustomScrollbar.concat.min.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/user/list.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/timer/timer.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/utils/utils.js?ver=${ver}" type="text/javascript" ></script>
-
 	<link href="${basePath }/css/dtree/dtree.css" type="text/css" rel="StyleSheet" />
 </head>
 
@@ -67,16 +65,20 @@
 		</section>
 		<!--结束：弹出框效果-->
 
-
+		
 		<!--弹出框效果-->
 		<section class="pop_bg" id="pop_tree">
-			<div class="pop_cont" style="top:0;">
+			<div class="pop_cont" style="top:0;height:530px;">
+				<input type="hidden" value="0" id="treeUserId" />
 				<!--title-->
 				<h3>权限设置</h3>
-				<!--content-->
-				<div class="pop_cont_input" id="dtreeid" style="overflow: auto;height:400px;">
-					
+				<div style="overflow: auto;height:420px; width: 380px;">
+					<!--content-->
+					<div class="pop_cont_input" id="droleid" style="float:left;overflow: auto;height:400px;width: 160px; background-color: #eae8e8;"></div>
+					<!--content-->
+					<div class="pop_cont_input" id="dtreeid" style="float:left;overflow: auto;height:400px;width: 180px;"></div>
 				</div>
+				
 				<!--bottom:operate->button-->
 				<div class="btm_btn">
 					<input type="button" value="确认" class="input_btn trueBtn" id="confirm_tree"/> <input

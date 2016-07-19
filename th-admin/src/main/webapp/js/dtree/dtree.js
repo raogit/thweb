@@ -13,7 +13,7 @@ function Node(id, pid, cname, cvalue, cshow, cchecked, cdisabled, url, title, ta
 	//chechbox是否可用，默认是可用
 	this.cdisabled = cdisabled||false;
 	//节点链接，默认是虚链接
-	this.url = url||'#';
+	this.url = url||'javascript:void(0);';
 	this.title = title;
 	this.target = target;
 	this.icon = icon;

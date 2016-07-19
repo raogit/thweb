@@ -9,7 +9,6 @@ package com.tianhong.controller.base;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.tianhong.constant.UserConstant;
 import com.tianhong.domain.user.User;
 
 /**
@@ -22,7 +21,12 @@ import com.tianhong.domain.user.User;
 public class BaseController {
 
 	public static User getCurrentUser(HttpServletRequest request) {
-		return (User) request.getSession().getAttribute(UserConstant.USER);
+
+		User user = new User();
+		user.setId(1);
+		user.setUserName("admin");
+		return user;
+		// return (User) request.getSession().getAttribute(UserConstant.USER);
 	}
 
 	public static String getUrl(HttpServletRequest request) {

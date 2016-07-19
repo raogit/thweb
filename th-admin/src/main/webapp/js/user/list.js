@@ -163,7 +163,6 @@ function addOrEdituser(){
 	if(id>0){
 		url = basePath + "/user/edit";
 	}
-	debugger;
 	$.ajax({
         url: url,
         type: 'post',
@@ -241,6 +240,10 @@ function btn(){
 	$("#close_tree").click(function(){
 		 $("#pop_tree").fadeOut();
 	});
+	$("#confirm_tree").click(function(){
+		saveUserRoleAndMenu();
+	});
+	
 }
 
 function tab(){
