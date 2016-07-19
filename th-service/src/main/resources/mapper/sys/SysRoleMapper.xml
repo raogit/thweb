@@ -174,4 +174,32 @@
       backup3 = #{backup3,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+   <select id="selectPageRoles" parameterType="com.tianhong.domain.sys.SysRole" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_role
+    where is_deleted = 0
+    	<if test="roleName != null and roleName != ''">
+	        AND role_name = #{roleName,jdbcType=VARCHAR}
+	    </if>
+		<if test="startDate != null and endDate!=null">
+	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
+		</if>
+    ORDER BY create_time desc
+    LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER} 
+  </select>
+  
+  <select id="selectCount" resultType="java.lang.Integer" parameterType="com.tianhong.domain.sys.SysRole">
+    select 
+    	count(1)
+    from t_sys_role
+    where  is_deleted = 0
+	    <if test="roleName != null and roleName != ''">
+	        AND role_name = #{roleName,jdbcType=VARCHAR}
+	    </if>
+		<if test="startDate != null and endDate!=null">
+	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
+		</if>
+  </select>
 </mapper>

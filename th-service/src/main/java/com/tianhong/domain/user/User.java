@@ -30,8 +30,6 @@ public class User extends Page {
 	private String backup2;
 
 	private String backup3;
-	private String startDate;
-	private String endDate;
 
 	public Integer getId() {
 		return id;
@@ -135,22 +133,6 @@ public class User extends Page {
 
 	public void setBackup3(String backup3) {
 		this.backup3 = backup3 == null ? null : backup3.trim();
-	}
-
-	public String getStartDate() {
-		return startDate;
-	}
-
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
-	}
-
-	public String getEndDate() {
-		return endDate;
-	}
-
-	public void setEndDate(String endDate) {
-		this.endDate = endDate;
 	}
 
 }

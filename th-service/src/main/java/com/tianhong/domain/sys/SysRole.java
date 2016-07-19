@@ -2,124 +2,127 @@ package com.tianhong.domain.sys;
 
 import java.util.Date;
 
-public class SysRole {
-    private Integer id;
+import com.tianhong.page.Page;
 
-    private String code;
+public class SysRole extends Page {
+	private Integer id;
 
-    private String roleName;
+	private String code;
 
-    private String roleDescription;
+	private String roleName;
 
-    private Date createTime;
+	private String roleDescription;
 
-    private Integer createId;
+	private Date createTime;
 
-    private Date updateTime;
+	private Integer createId;
 
-    private Integer updateId;
+	private Date updateTime;
 
-    private Boolean isDeleted;
+	private Integer updateId;
 
-    private String backup1;
+	private Boolean isDeleted;
 
-    private String backup2;
+	private String backup1;
 
-    private String backup3;
+	private String backup2;
 
-    public Integer getId() {
-        return id;
-    }
+	private String backup3;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public String getCode() {
-        return code;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
-    }
+	public String getCode() {
+		return code;
+	}
 
-    public String getRoleName() {
-        return roleName;
-    }
+	public void setCode(String code) {
+		this.code = code == null ? null : code.trim();
+	}
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName == null ? null : roleName.trim();
-    }
+	public String getRoleName() {
+		return roleName;
+	}
 
-    public String getRoleDescription() {
-        return roleDescription;
-    }
+	public void setRoleName(String roleName) {
+		this.roleName = roleName == null ? null : roleName.trim();
+	}
 
-    public void setRoleDescription(String roleDescription) {
-        this.roleDescription = roleDescription == null ? null : roleDescription.trim();
-    }
+	public String getRoleDescription() {
+		return roleDescription;
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public void setRoleDescription(String roleDescription) {
+		this.roleDescription = roleDescription == null ? null : roleDescription.trim();
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public Integer getCreateId() {
-        return createId;
-    }
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
-    public void setCreateId(Integer createId) {
-        this.createId = createId;
-    }
+	public Integer getCreateId() {
+		return createId;
+	}
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
+	public void setCreateId(Integer createId) {
+		this.createId = createId;
+	}
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
+	public Date getUpdateTime() {
+		return updateTime;
+	}
 
-    public Integer getUpdateId() {
-        return updateId;
-    }
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
 
-    public void setUpdateId(Integer updateId) {
-        this.updateId = updateId;
-    }
+	public Integer getUpdateId() {
+		return updateId;
+	}
 
-    public Boolean getIsDeleted() {
-        return isDeleted;
-    }
+	public void setUpdateId(Integer updateId) {
+		this.updateId = updateId;
+	}
 
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
+	public Boolean getIsDeleted() {
+		return isDeleted;
+	}
 
-    public String getBackup1() {
-        return backup1;
-    }
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
 
-    public void setBackup1(String backup1) {
-        this.backup1 = backup1 == null ? null : backup1.trim();
-    }
+	public String getBackup1() {
+		return backup1;
+	}
 
-    public String getBackup2() {
-        return backup2;
-    }
+	public void setBackup1(String backup1) {
+		this.backup1 = backup1 == null ? null : backup1.trim();
+	}
 
-    public void setBackup2(String backup2) {
-        this.backup2 = backup2 == null ? null : backup2.trim();
-    }
+	public String getBackup2() {
+		return backup2;
+	}
 
-    public String getBackup3() {
-        return backup3;
-    }
+	public void setBackup2(String backup2) {
+		this.backup2 = backup2 == null ? null : backup2.trim();
+	}
 
-    public void setBackup3(String backup3) {
-        this.backup3 = backup3 == null ? null : backup3.trim();
-    }
+	public String getBackup3() {
+		return backup3;
+	}
+
+	public void setBackup3(String backup3) {
+		this.backup3 = backup3 == null ? null : backup3.trim();
+	}
+
 }

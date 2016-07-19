@@ -23,6 +23,8 @@ public class Page {
 	private int totalPage; // 共多少页
 
 	private Object obj;
+	private String startDate;
+	private String endDate;
 
 	public int getCurPage() {
 		return curPage;
@@ -78,4 +80,21 @@ public class Page {
 	public void setObj(Object obj) {
 		this.obj = obj;
 	}
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
+
 }
