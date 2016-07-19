@@ -14,13 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.tianhong.dao.sys.SysRoleMenuMapper;
 import com.tianhong.dao.sys.SysUserMenuMapper;
 import com.tianhong.dao.sys.SysUserRoleMapper;
 import com.tianhong.domain.menu.Menu;
-import com.tianhong.domain.sys.SysRoleMenu;
 import com.tianhong.domain.sys.SysUserMenu;
 import com.tianhong.domain.sys.SysUserRole;
+import com.tianhong.model.RoleMenu;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.sys.SysUserRoleService;
 
@@ -40,8 +39,6 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
 	@Autowired
 	private SysUserMenuMapper sysUserMenuMapper;
 	@Autowired
-	private SysRoleMenuMapper sysRoleMenuMapper;
-	@Autowired
 	private MenuService menuService;
 
 	public SysUserRole addSysUserRole(int userId, int roleId, int createId) throws Exception {
@@ -59,15 +56,31 @@ public class SysUserRoleServiceImpl implements SysUserRoleService {
 		return sysUserRoleMapper.selectSysUserRoles(userId);
 	}
 
+	public List<RoleMenu> getRoleMenu(int userId) throws Exception {
+		return sysUserRoleMapper.selectRoleMenu(userId);
+	}
+
 	public List<Menu> getUserMenu(int userId) throws Exception {
 		List<Menu> menus = menuService.getAllMenus();
-		List<SysUserRole> sysUserRoles = this.getSysUserRoles(userId);
-		for (SysUserRole role : sysUserRoles) {
-			List<SysRoleMenu> roleMenus = sysRoleMenuMapper.selectSysRoleMenus(role.getId());
-
+		List<RoleMenu> roleMenus = this.getRoleMenu(userId);
+		for (Menu menu : menus) {
+			for (RoleMenu roleMenu : roleMenus) {
+				if (menu.getId().intValue() == roleMenu.getMenuId()) {
+					menu.setSelected(true);
+					break;
+				}
+			}
 		}
 		List<SysUserMenu> sysUserMenus = sysUserMenuMapper.selectSysUserMenus(userId);
-		return null;
+		for (Menu menu : menus) {
+			for (SysUserMenu userMenu : sysUserMenus) {
+				if (menu.getId().intValue() == userMenu.getMenuId()) {
+					menu.setSelected(true);
+					break;
+				}
+			}
+		}
+		return menus;
 	}
 
 }

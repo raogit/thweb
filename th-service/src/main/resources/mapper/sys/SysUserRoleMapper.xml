@@ -169,5 +169,20 @@
     where user_id = #{userId,jdbcType=INTEGER}
     and  is_deleted = 0
   </select>
-  
+   <resultMap id="RoleMenuResultMap" type="com.tianhong.model.RoleMenu">
+   
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="role_id" jdbcType="INTEGER" property="roleId" />
+    <result column="menu_id" jdbcType="INTEGER" property="menuId" />
+  </resultMap>
+  <select id="selectRoleMenu" parameterType="java.lang.Integer" resultMap="RoleMenuResultMap">
+   SELECT tr.user_id,
+   			tr.role_id,
+   			tm.menu_id 
+   from t_sys_user_role tr,t_sys_role_menu tm
+	where tr.role_id=tm.role_id
+	AND tr.is_deleted=0
+	AND tm.is_deleted=0
+	AND user_id = #{userId,jdbcType=INTEGER}
+  </select>
 </mapper>

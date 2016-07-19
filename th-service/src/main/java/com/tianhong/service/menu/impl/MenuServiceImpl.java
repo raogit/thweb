@@ -17,8 +17,6 @@ import com.tianhong.constant.CommonConstant;
 import com.tianhong.dao.menu.MenuMapper;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.service.menu.MenuService;
-import com.tianhong.service.sys.SysUserMenuService;
-import com.tianhong.service.sys.SysUserRoleService;
 
 /**
  * ClassName: MenuServiceImpl
@@ -33,12 +31,6 @@ public class MenuServiceImpl implements MenuService {
 
 	@Autowired
 	private MenuMapper menuMapper;
-
-	@Autowired
-	private SysUserMenuService sysUserMenuService;
-
-	@Autowired
-	private SysUserRoleService sysUserRoleService;
 
 	public List<Menu> getAllMenus() throws Exception {
 		List<Menu> menus = menuMapper.selectAllMenus();
