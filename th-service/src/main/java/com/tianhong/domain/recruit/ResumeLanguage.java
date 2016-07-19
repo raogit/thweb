@@ -31,7 +31,8 @@ public class ResumeLanguage {
      */
     private Date updateTime;
     /**
-     * 简历编号
+     * 口语等级
+     * @SkillLevel
      */
     private String tanLevel;
 
