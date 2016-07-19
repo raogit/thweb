@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-07-18 14:43:01
+Date: 2016-07-19 15:06:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -111,7 +111,7 @@ CREATE TABLE `t_menu` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_menu
@@ -158,7 +158,9 @@ INSERT INTO `t_menu` VALUES ('39', '培训中心', null, '3', '34', '2', '1', '2
 INSERT INTO `t_menu` VALUES ('40', '创新中心', null, '3', '34', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('41', '同济大学MBA项目', null, '3', '34', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('42', '场地租赁', null, '3', '34', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('43', '用户组', '/menu/user', '1', '0', '8', '0', '2016-07-14 22:20:02', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('43', '用户管理', '/menu/user', '1', '0', '8', '0', '2016-07-14 22:20:02', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('44', '权限管理', null, '1', '0', null, '0', '2016-07-19 14:57:01', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('45', '角色管理', '/menu/role', '2', '44', '1', '0', '2016-07-19 14:58:09', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_news_center`
