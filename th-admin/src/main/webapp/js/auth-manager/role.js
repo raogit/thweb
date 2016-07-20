@@ -1,4 +1,4 @@
-
+var curPage=1;
 jQuery(document).ready(function() {
 	(function($){
 		$(window).load(function(){
@@ -25,30 +25,22 @@ jQuery(document).ready(function() {
 	loading();
 	btn();
 	tab();
-	getUser(1);
+	tableData(curPage);
 });
 
-function getUser(pageNum){
+function tableData(pageNum){
+	curPage = pageNum;
 	$(".loading_area").fadeIn();
-	var userName = $("#username").val();
-	var type = "";
-	var popType =  document.getElementById("type");
-	for(var i=0; i<popType.length; i++){  
-	    if(popType[i].selected){  
-	    	type = popType[i].value;
-	    	break;
-	    }  
-	}  
+	var roleName = $("#rolename").val();
 	var startDate = $("#startDate").val();
 	var endDate = $("#endDate").val();
 	
 	$.ajax({
-        url: basePath + "/user/page",
+        url: basePath + "/role/page",
         type: 'post',
         dataType: 'json',
         data : {
-        	userName : userName,
-        	type : type,
+        	roleName : roleName,
         	startDate : startDate,
         	endDate : endDate,
         	curPage : pageNum
@@ -67,18 +59,18 @@ function getUser(pageNum){
 }
 
 function initTable(list){
+	 
 	var userlist = $("#userlist tbody");
 	userlist.empty();
 	for(var i=0;i<list.length;i++){
-		var user = list[i];
-		var time = curentTime(user.createTime);
+		var item = list[i];
+		var time = curentTime(item.createTime);
 		var tr = "<tr>"
-			+"<td>"+user.id+"</td>"
-			+"<td>"+user.userName+"</td>"
-			+"<td>"+user.type+"</td>"
-			+"<td>"+user.email+"</td>"
+			+"<td>"+item.id+"</td>"
+			+"<td>"+item.roleName+"</td>"
+			+"<td>"+item.roleDescription+"</td>"
 			+"<td>"+time+"</td>"
-			+"<td><a href='javascript:showUser("+user.id+")' class='inner_btn'>编辑</a><a href='javascript:treePop("+user.id+")' class='inner_btn'>权限</a><a href='javascript:deleteUser("+user.id+")' class='inner_btn'>删除</a></td>"
+			+"<td style='text-align: center;'><a href='javascript:showUser("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:treePop("+item.id+")' class='inner_btn'>权限</a><a href='javascript:deleteUser("+item.id+")' class='inner_btn'>删除</a></td>"
 			+"</tr>";
 		userlist.append(tr);
 	}
@@ -89,32 +81,30 @@ function initPage(page){
 	paging.empty();
 	var prePage = page.curPage-1 < 1 ? 1 : page.curPage-1;
 	var nextPage = page.curPage+1 > page.totalPage ? page.totalPage : page.curPage+1;
-	paging.append("<a href='javascript:void(0);' onclick='getUser(1)' ><<</a>");
-	paging.append("<a href='javascript:void(0);' onclick='getUser("+prePage+")' ><</a>");
+	paging.append("<a href='javascript:void(0);' onclick='tableData(1)' ><<</a>");
+	paging.append("<a href='javascript:void(0);' onclick='tableData("+prePage+")' ><</a>");
 	for(var i=0;i<page.totalPage;i++){
 		if((i+1) == page.curPage){
-			paging.append("<a href='javascript:void(0);' onclick='getUser("+(i+1)+")' style='background: #ff99ff;'>"+(i+1)+"</a>");
+			paging.append("<a href='javascript:void(0);' onclick='tableData("+(i+1)+")' style='background: #ff99ff;'>"+(i+1)+"</a>");
 		}else{
-			paging.append("<a href='javascript:void(0);' onclick='getUser("+(i+1)+")' >"+(i+1)+"</a>");
+			paging.append("<a href='javascript:void(0);' onclick='tableData("+(i+1)+")' >"+(i+1)+"</a>");
 		}
 	}
-	paging.append("<a href='javascript:void(0);' onclick='getUser("+nextPage+")' >></a>");
-	paging.append("<a href='javascript:void(0);' onclick='getUser("+(page.totalPage)+")' >>></a>");
+	paging.append("<a href='javascript:void(0);' onclick='tableData("+nextPage+")' >></a>");
+	paging.append("<a href='javascript:void(0);' onclick='tableData("+(page.totalPage)+")' >>></a>");
 }
 
 function showUser(id){
 	$("#pop_user").fadeIn(200);
-	$("#popUserId").val(id);
-	$("#popUserName").val("");
-	$("#popPassword").val("");
-	$("#popType").val(0);
-	$("#popEmail").val("");
+	$("#popRoleId").val(id);
+	$("#popRoleName").val("");
+	$("#popDescription").val("");
 	if(id<=0){
-		$("#pupTitle").html("添加用户");
+		$("#pupTitle").html("添加角色");
 	}else{
-		$("#pupTitle").html("修改用户");
+		$("#pupTitle").html("修改角色");
 		$.ajax({
-	        url: basePath + "/user/get",
+	        url: basePath + "/role/get",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -124,10 +114,8 @@ function showUser(id){
 	        success: function(data){
 	        	 
 	        	if(data){
-	        		$("#popUserName").val(data.userName);
-		        	$("#popPassword").val(data.password);
-		        	$("#popType").val(data.type);
-		        	$("#popEmail").val(data.email);
+	        		$("#popRoleName").val(data.roleName);
+		        	$("#popDescription").val(data.roleDescription);
 	        	}
 	        	
 	        }
@@ -136,32 +124,17 @@ function showUser(id){
 }
 
 function addOrEdituser(){
-	var id = $("#popUserId").val();
-	var userName = $("#popUserName").val();
-	var password = $("#popPassword").val();
-	
-	var type = "";
-	var popType =  document.getElementById("popType");
-	for(var i=0; i<popType.length; i++){  
-	    if(popType[i].selected){  
-	    	type = popType[i].value;
-	    	break;
-	    }  
-	}  
-	
-	var email = $("#popEmail").val();
-	if(isEmpty(userName)){
-		alert("请输入用户名");
-		return ;
-	}
-	if(isEmpty(password)){
-		alert("请输入密码");
+	var id = $("#popRoleId").val();
+	var roleName = $("#popRoleName").val();
+	var roleDescription = $("#popDescription").val();
+	if(isEmpty(roleName)){
+		alert("请输入角色名");
 		return ;
 	}
 	
-	var url = basePath + "/user/add";
+	var url = basePath + "/role/add";
 	if(id>0){
-		url = basePath + "/user/edit";
+		url = basePath + "/role/edit";
 	}
 	$.ajax({
         url: url,
@@ -169,10 +142,8 @@ function addOrEdituser(){
         dataType: 'json',
         data : {
         	id : id,
-        	userName : userName,
-        	password : password,
-        	type : type,
-        	email : email
+        	roleName : roleName,
+        	roleDescription : roleDescription
         },
         cache: false,
         success: function(data){
@@ -181,7 +152,7 @@ function addOrEdituser(){
         	}else{
         		alert("操作失败!");
         	}
-        	getUser(1);
+        	tableData(curPage);
         	$("#pop_user").fadeOut(200);
         }
     });
@@ -194,7 +165,7 @@ function isEmpty(str){
 function deleteUser(id){
 	if(confirm("刪除将无法恢复?")){
 		$.ajax({
-	        url: basePath + "/user/delete",
+	        url: basePath + "/role/delete",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -204,7 +175,7 @@ function deleteUser(id){
 	        success: function(data){
 	        	if(data!=null && data){
 	        		alert("删除成功!");
-	        		getUser(1);
+	        		tableData(curPage);
 	        	}else{
 	        		alert("删除失败!");
 	        	}

@@ -92,7 +92,7 @@ public class RoleController extends BaseController {
 			role.setIsDeleted(false);
 			role.setUpdateTime(new Date());
 			role.setUpdateId(user.getId());
-			return sysRoleService.getByPrimaryKey(id);
+			return sysRoleService.updateByPrimaryKeySelective(role);
 		} catch (Exception e) {
 			log.error("", e);
 		}
