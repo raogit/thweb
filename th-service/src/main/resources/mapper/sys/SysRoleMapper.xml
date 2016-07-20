@@ -23,7 +23,7 @@
     select 
     <include refid="Base_Column_List" />
     from t_sys_role
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER} and is_deleted = 0
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_sys_role
@@ -208,5 +208,12 @@
     <include refid="Base_Column_List" />
     from t_sys_role
     where is_deleted = 0
+  </select>
+  
+   <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_role
+    where role_name = #{roleName,jdbcType=VARCHAR} and is_deleted = 0
   </select>
 </mapper>

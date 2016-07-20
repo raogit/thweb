@@ -12,4 +12,6 @@ public interface UserMapper extends BaseMapper<User> {
 	List<User> selectPageUsers(User user) throws Exception;
 
 	int selectCount(User user) throws Exception;
+
+	User selectByName(String userName) throws Exception;
 }

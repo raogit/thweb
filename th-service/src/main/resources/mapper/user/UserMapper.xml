@@ -24,7 +24,7 @@
     select 
     <include refid="Base_Column_List" />
     from t_user
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER} and is_deleted = 0
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_user
@@ -224,5 +224,11 @@
 		<if test="startDate != null and endDate!=null and startDate !='' and endDate!=''">
 	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
 		</if>
+  </select>
+   <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_role
+    where user_name = #{userName,jdbcType=VARCHAR} and is_deleted = 0
   </select>
 </mapper>

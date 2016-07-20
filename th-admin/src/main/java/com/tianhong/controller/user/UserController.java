@@ -44,9 +44,8 @@ public class UserController extends BaseController {
 	@RequestMapping(value = "/add")
 	@ResponseBody
 	public Object add(User user, HttpServletRequest request, HttpServletResponse response) {
-		// User user = new User();
 		try {
-			// user.setCreateId(getCurrentUser(request).getId());
+			user.setCreateId(getCurrentUser(request).getId());
 			return userService.insertUser(user);
 		} catch (Exception e) {
 			log.error("", e);

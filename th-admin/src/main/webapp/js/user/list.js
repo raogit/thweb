@@ -73,7 +73,7 @@ function initTable(list){
 		var user = list[i];
 		var time = curentTime(user.createTime);
 		var tr = "<tr>"
-			+"<td>"+user.id+"</td>"
+			+"<td>"+(i+1)+"</td>"
 			+"<td>"+user.userName+"</td>"
 			+"<td>"+user.type+"</td>"
 			+"<td>"+user.email+"</td>"

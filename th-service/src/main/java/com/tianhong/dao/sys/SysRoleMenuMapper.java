@@ -8,4 +8,6 @@ import com.tianhong.domain.sys.SysRoleMenu;
 public interface SysRoleMenuMapper extends BaseMapper<SysRoleMenu> {
 
 	List<SysRoleMenu> selectSysRoleMenus(int roleId) throws Exception;
+
+	int deleteByRoleId(int roleId) throws Exception;
 }

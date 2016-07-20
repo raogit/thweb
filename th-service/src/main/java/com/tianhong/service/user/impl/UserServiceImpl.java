@@ -41,7 +41,9 @@ public class UserServiceImpl implements UserService {
 
 	public boolean deleteByPrimaryKey(int id) throws Exception {
 		User user = userMapper.selectByPrimaryKey(id);
+		AssertUtils.notNull(user, "用户不存在");
 		user.setIsDeleted(true);
+		user.setUpdateTime(new Date());
 		userMapper.updateByPrimaryKeySelective(user);
 		return true;
 	}
@@ -51,6 +53,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public User insertUser(User user) throws Exception {
+		User u = userMapper.selectByName(user.getUserName());
+		AssertUtils.isNull(u, "用户名已存在");
 		AssertUtils.notNull(user, "用户对象为空");
 		AssertUtils.isNotEmpty(user.getUserName(), "用户名为空");
 		AssertUtils.isNotEmpty(user.getPassword(), "密码为空");
@@ -65,6 +69,10 @@ public class UserServiceImpl implements UserService {
 		user.setUpdateTime(new Date());
 		userMapper.updateByPrimaryKeySelective(user);
 		return user;
+	}
+
+	public User getByName(String userName) throws Exception {
+		return userMapper.selectByName(userName);
 	}
 
 }

@@ -9,7 +9,9 @@ package com.tianhong.service.sys;
 
 import java.util.List;
 
+import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.sys.SysRole;
+import com.tianhong.domain.user.User;
 
 /**
  * ClassName: SysRoleService
@@ -29,4 +31,10 @@ public interface SysRoleService {
 	boolean updateByPrimaryKeySelective(SysRole record) throws Exception;
 
 	List<SysRole> getAllRoles() throws Exception;
+
+	SysRole getByName(String roleName) throws Exception;
+
+	List<Menu> getRoleMenus(int roleId) throws Exception;
+
+	boolean insertRoleMenus(int roleId, String menuIds, User currUser) throws Exception;
 }

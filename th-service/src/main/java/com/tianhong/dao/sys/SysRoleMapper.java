@@ -12,4 +12,6 @@ public interface SysRoleMapper extends BaseMapper<SysRole> {
 	List<SysRole> selectPageRoles(SysRole role) throws Exception;
 
 	int selectCount(SysRole role) throws Exception;
+
+	SysRole selectByName(String roleName) throws Exception;
 }

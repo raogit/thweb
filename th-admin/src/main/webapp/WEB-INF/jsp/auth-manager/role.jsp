@@ -49,8 +49,6 @@
 					<li><span style="width:70px;text-align: right;" class="ttl">描述:</span><input id="popDescription"  style="width:140px;" type="text" placeholder="请填写描述..." class="textbox" /></li>
 				</ul>
 			</div>
-			<!--以pop_cont_text分界-->
-			<div class="pop_cont_text">这里是文字性提示信息！</div>
 			<!--bottom:operate->button-->
 			<div class="btm_btn">
 				<input type="button" value="确认" class="input_btn trueBtn" id="confirm_user"/> <input
@@ -64,14 +62,12 @@
 		<!--弹出框效果-->
 		<section class="pop_bg" id="pop_tree">
 			<div class="pop_cont" style="top:0;height:530px;">
-				<input type="hidden" value="0" id="treeUserId" />
+				<input type="hidden" value="0" id="treeRoleId" />
 				<!--title-->
 				<h3>权限设置</h3>
-				<div style="overflow: auto;height:420px; width: 380px;">
+				<div style="overflow: auto;height:420px; width: 300px;">
 					<!--content-->
-					<div class="pop_cont_input" id="droleid" style="float:left;overflow: auto;height:400px;width: 160px; background-color: #eae8e8;"></div>
-					<!--content-->
-					<div class="pop_cont_input" id="dtreeid" style="float:left;overflow: auto;height:400px;width: 180px;"></div>
+					<div class="pop_cont_input" id="dtreeid" style="overflow: auto;height:400px;width: 280px;"></div>
 				</div>
 				
 				<!--bottom:operate->button-->
@@ -93,8 +89,8 @@
 				<input id="rolename" type="text" class="textbox" placeholder="角色名..." /> 
 				
 				<strong style="color: grey;">创建时间:</strong>
-				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:150px;" />-
-				<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:150px;"/>
+				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" />-
+				<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:160px;"/>
 				<input type="button" value="查询" class="group_btn" onclick="getUser(1)" /> 
 				<input type="button" value="添加" class="group_btn" onclick="showUser(0)" style="margin-left:20px;" /> 
 			</section>

@@ -66,7 +66,7 @@ function initTable(list){
 		var item = list[i];
 		var time = curentTime(item.createTime);
 		var tr = "<tr>"
-			+"<td>"+item.id+"</td>"
+			+"<td>"+(i+1)+"</td>"
 			+"<td>"+item.roleName+"</td>"
 			+"<td>"+item.roleDescription+"</td>"
 			+"<td>"+time+"</td>"
@@ -112,7 +112,6 @@ function showUser(id){
 	        },
 	        cache: false,
 	        success: function(data){
-	        	 
 	        	if(data){
 	        		$("#popRoleName").val(data.roleName);
 		        	$("#popDescription").val(data.roleDescription);
@@ -124,6 +123,7 @@ function showUser(id){
 }
 
 function addOrEdituser(){
+	debugger;
 	var id = $("#popRoleId").val();
 	var roleName = $("#popRoleName").val();
 	var roleDescription = $("#popDescription").val();
@@ -147,13 +147,15 @@ function addOrEdituser(){
         },
         cache: false,
         success: function(data){
+        	debugger;
         	if(data){
         		alert("操作成功!");
+        		tableData(curPage);
+            	$("#pop_user").fadeOut(200);
         	}else{
         		alert("操作失败!");
         	}
-        	tableData(curPage);
-        	$("#pop_user").fadeOut(200);
+        	
         }
     });
 }
@@ -201,7 +203,7 @@ function btn(){
 	//弹出：确认按钮
 	$("#confirm_user").click(function(){
 		addOrEdituser();
-		 $("#pop_user").fadeOut();
+		
 	});
 	//弹出：取消或关闭按钮
 	$("#close_user").click(function(){

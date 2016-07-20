@@ -26,4 +26,6 @@ public interface UserService {
 	User insertUser(User user) throws Exception;
 
 	User updateUser(User user) throws Exception;
+
+	User getByName(String userName) throws Exception;
 }
