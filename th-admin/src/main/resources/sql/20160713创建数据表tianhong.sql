@@ -10,13 +10,13 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-07-19 21:55:11
+Date: 2016-07-20 18:06:14
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for t_culture
+-- Table structure for `t_culture`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_culture`;
 CREATE TABLE `t_culture` (
@@ -41,7 +41,7 @@ CREATE TABLE `t_culture` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_investor
+-- Table structure for `t_investor`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_investor`;
 CREATE TABLE `t_investor` (
@@ -66,7 +66,7 @@ CREATE TABLE `t_investor` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_login_log
+-- Table structure for `t_login_log`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_login_log`;
 CREATE TABLE `t_login_log` (
@@ -91,7 +91,7 @@ CREATE TABLE `t_login_log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_menu
+-- Table structure for `t_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_menu`;
 CREATE TABLE `t_menu` (
@@ -111,31 +111,31 @@ CREATE TABLE `t_menu` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_menu
 -- ----------------------------
 INSERT INTO `t_menu` VALUES ('1', '关于天虹', null, '1', '0', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('2', '企业文化', null, '1', '0', '2', '1', '2016-07-13 16:03:40', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('3', '公司业务', null, '1', '0', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('3', '集团业务', null, '1', '0', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('4', '新闻中心', null, '1', '0', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('5', '人力资源', null, '1', '0', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('6', '招商采购', null, '1', '0', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('7', '投资者关系', null, '1', '0', '7', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('8', '公司概况', null, '2', '1', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('8', '公司概况', '/menu/rich?menuId=8', '2', '1', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('9', '多元业务', null, '2', '1', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('10', '发展历程', null, '2', '1', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('11', '发展战略', null, '2', '1', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('12', '荣誉奖项', null, '2', '1', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('13', '天虹置业', null, '3', '9', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('14', '微喔便利店', null, '3', '9', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('15', '天虹红领巾', null, '3', '9', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('16', '天虹小额贷', null, '3', '9', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('17', '天虹商场', null, '3', '9', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('18', '君尚百货', null, '3', '9', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('13', '天虹置业', null, '3', '52', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('14', '微喔便利店', null, '3', '50', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('15', '天虹虹领巾', null, '3', '50', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('16', '天虹小额贷', null, '3', '51', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('17', '天虹商场', null, '3', '50', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('18', '君尚百货', null, '3', '50', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('19', '天虹商学院', null, '3', '9', '7', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('20', '购物中心', null, '3', '9', '8', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('20', '购物中心', null, '3', '50', '8', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('21', '企业文化', null, '2', '2', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('22', '宣传片', null, '2', '2', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('23', '电子期刊', null, '2', '2', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
@@ -160,10 +160,70 @@ INSERT INTO `t_menu` VALUES ('41', '同济大学MBA项目', null, '3', '34', '4'
 INSERT INTO `t_menu` VALUES ('42', '场地租赁', null, '3', '34', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('43', '用户管理', '/menu/user', '1', '0', '8', '0', '2016-07-14 22:20:02', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('44', '权限管理', null, '1', '0', '8', '0', '2016-07-19 14:57:01', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('45', '角色管理', '/menu/role', '2', '44', '1', '0', '2016-07-19 14:58:09', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('45', '角色管理', '/authmanager/role', '2', '44', '1', '0', '2016-07-19 14:58:09', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('46', '自有品牌', null, '2', '1', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('47', '菲尔芙', null, '3', '46', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('48', '天优', null, '3', '46', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('49', '奥百思', null, '3', '46', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('50', '商业零售', null, '3', '9', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('51', '投资与金融', null, '3', '9', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('52', '地产开发与经营', null, '3', '9', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('53', '人才理念', null, '3', '35', '1', '1', '2016-07-20 15:09:25', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('54', '职位搜索', null, '3', '36', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('55', '在招职位', null, '3', '36', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('56', '常见问题', null, '3', '36', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('57', '登陆注册', null, '3', '36', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('58', '宣讲安排', null, '3', '37', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('59', '最新公告', null, '3', '37', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('60', '职位分类', null, '3', '37', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('61', '在线交流', null, '3', '37', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('62', '登陆注册', null, '3', '37', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('63', '招商中心', null, '2', '6', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('64', '成果展示', null, '2', '6', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('65', '品牌自荐', null, '2', '6', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('66', '职能简介', null, '3', '63', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('67', '招商信息', null, '3', '63', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('68', '招商流程', null, '3', '63', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('69', '招商动态', null, '3', '63', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('70', '招商热线', null, '3', '63', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('71', '品牌展示', null, '3', '64', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('72', '项目展示', null, '3', '64', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('73', '界面登陆', null, '3', '65', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('74', '自荐表', null, '3', '65', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('75', '展示图', null, '2', '7', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('76', '公司基本资料', null, '2', '7', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('77', '公司治理', null, '2', '7', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('78', '定期报告', null, '2', '7', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('79', '临时公告', null, '2', '7', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('80', '股东回报', null, '2', '7', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('81', '宣传与保护', null, '2', '7', '7', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('82', '互动交流', null, '2', '7', '8', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('83', '公司治理架构图', null, '3', '77', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('84', '公司高管', null, '3', '77', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('85', '公司章程', null, '3', '77', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('86', '公司制度', null, '3', '77', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('87', '外链', null, '3', '78', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('88', '外链', null, '3', '79', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('89', '利润分配', null, '3', '80', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('90', '分红动态', null, '3', '80', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('91', '热点关注', null, '3', '81', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('92', '法律法规', null, '3', '81', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('93', '公益教育', null, '3', '81', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('94', '联系方式', null, '3', '82', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('95', '投资者交流', null, '3', '82', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('96', '商业零售', null, '2', '3', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('97', '投资与金融', null, '2', '3', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('98', '地产开发与投资', null, '2', '3', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('99', '天虹商场', null, '3', '96', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('100', '君尚百货', null, '3', '96', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('101', '购物中心', null, '3', '96', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('102', '微喔便利店', null, '3', '96', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('103', '天虹虹领巾', null, '3', '96', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('104', '天虹小额贷', null, '3', '97', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('105', '天虹置业', null, '3', '98', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
--- Table structure for t_news_center
+-- Table structure for `t_news_center`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_news_center`;
 CREATE TABLE `t_news_center` (
@@ -188,7 +248,7 @@ CREATE TABLE `t_news_center` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_picture
+-- Table structure for `t_picture`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_picture`;
 CREATE TABLE `t_picture` (
@@ -216,29 +276,30 @@ CREATE TABLE `t_picture` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_recruit_interaction
+-- Table structure for `t_recruit_interaction`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_recruit_interaction`;
 CREATE TABLE `t_recruit_interaction` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `id` int(11) NOT NULL COMMENT 'id',
   `question` varchar(1024) DEFAULT NULL COMMENT '问题',
   `answer` varchar(1024) DEFAULT NULL COMMENT '回答',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `is_show` int(1) DEFAULT NULL COMMENT '是否显示，1显示，0不显示',
+  `faq_type` char(10) DEFAULT NULL COMMENT '互动类型：',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='互动';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='互动FAQ';
 
 -- ----------------------------
 -- Records of t_recruit_interaction
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_recruit_job
+-- Table structure for `t_recruit_job`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_recruit_job`;
 CREATE TABLE `t_recruit_job` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `id` int(11) NOT NULL COMMENT '编号',
   `job_name` varchar(64) DEFAULT NULL COMMENT '职位名称',
   `job_no` bigint(20) DEFAULT NULL COMMENT '职位编号',
   `department` varchar(64) DEFAULT NULL COMMENT '部门:枚举',
@@ -270,11 +331,11 @@ CREATE TABLE `t_recruit_job` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_recruit_qustion
+-- Table structure for `t_recruit_qustion`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_recruit_qustion`;
 CREATE TABLE `t_recruit_qustion` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `id` int(11) NOT NULL COMMENT 'id',
   `question` varchar(258) DEFAULT NULL COMMENT '问题',
   `name` varchar(64) DEFAULT NULL COMMENT '姓名',
   `email` varchar(64) DEFAULT NULL COMMENT '邮箱',
@@ -290,11 +351,11 @@ CREATE TABLE `t_recruit_qustion` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_recruit_resume
+-- Table structure for `t_recruit_resume`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_recruit_resume`;
 CREATE TABLE `t_recruit_resume` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `id` int(11) NOT NULL COMMENT '编号',
   `user_id` int(11) DEFAULT NULL COMMENT '用户编号',
   `name` varchar(64) DEFAULT NULL COMMENT '姓名',
   `sex` varchar(4) DEFAULT NULL COMMENT '性别：男，女',
@@ -332,15 +393,126 @@ CREATE TABLE `t_recruit_resume` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `t_recruit_resume_delivery`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_resume_delivery`;
+CREATE TABLE `t_recruit_resume_delivery` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `resume_id` int(11) DEFAULT NULL COMMENT '简历编号',
+  `job_id` int(11) DEFAULT NULL,
+  `delivery_time` datetime DEFAULT NULL,
+  `status` varchar(16) DEFAULT NULL,
+  `job_name` varchar(64) DEFAULT NULL,
+  `deparment` varchar(64) DEFAULT NULL,
+  `area` varchar(64) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='简历投递';
+
+-- ----------------------------
+-- Records of t_recruit_resume_delivery
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_recruit_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_user`;
+CREATE TABLE `t_recruit_user` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `username` varchar(64) DEFAULT NULL COMMENT '用户名',
+  `password` varchar(64) DEFAULT NULL COMMENT '密码',
+  `source` varchar(16) DEFAULT NULL COMMENT '来源：qq,微信,注册',
+  `able` int(1) DEFAULT NULL COMMENT '是否可用，1可用，0不可用',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='招聘用户';
+
+-- ----------------------------
+-- Records of t_recruit_user
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_resume_attachment`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_attachment`;
+CREATE TABLE `t_resume_attachment` (
+  `id` int(11) NOT NULL COMMENT '编号',
+  `resume_id` int(11) DEFAULT NULL COMMENT '简历编号',
+  `file_path` varchar(64) DEFAULT NULL COMMENT '技能',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `able` varchar(16) DEFAULT NULL COMMENT '是否可用:枚举',
+  `file_name` varchar(64) DEFAULT NULL COMMENT '文件名',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='简历附件';
+
+-- ----------------------------
+-- Records of t_resume_attachment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_resume_education_history`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_education_history`;
+CREATE TABLE `t_resume_education_history` (
+  `id` int(11) NOT NULL COMMENT '编号',
+  `resume_id` int(11) DEFAULT NULL COMMENT '简历编号',
+  `major` varchar(64) DEFAULT NULL COMMENT '学历',
+  `start_date` date DEFAULT NULL COMMENT '开始时间',
+  `end_date` date DEFAULT NULL COMMENT '结束时间',
+  `school` varchar(64) DEFAULT NULL COMMENT '毕业院校',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='教育经历';
+
+-- ----------------------------
+-- Records of t_resume_education_history
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_resume_language`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_language`;
+CREATE TABLE `t_resume_language` (
+  `id` int(11) NOT NULL COMMENT '编号',
+  `resume_id` int(11) DEFAULT NULL COMMENT '简历编号',
+  `language` varchar(64) DEFAULT NULL COMMENT '技能',
+  `level` varchar(16) DEFAULT NULL COMMENT '等级:枚举',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `tan_level` varchar(16) DEFAULT NULL COMMENT '口语水平',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='语言';
+
+-- ----------------------------
+-- Records of t_resume_language
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_resume_skill`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_skill`;
+CREATE TABLE `t_resume_skill` (
+  `id` int(11) NOT NULL COMMENT '编号',
+  `resume_id` int(11) DEFAULT NULL COMMENT '简历编号',
+  `skill` varchar(64) DEFAULT NULL COMMENT '技能',
+  `level` varchar(16) DEFAULT NULL COMMENT '熟练程度:枚举',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='技能';
+
+-- ----------------------------
 -- Records of t_resume_skill
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_resume_work_history
+-- Table structure for `t_resume_work_history`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_resume_work_history`;
 CREATE TABLE `t_resume_work_history` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `id` int(11) NOT NULL COMMENT '编号',
   `resume_id` int(11) DEFAULT NULL COMMENT '简历编号',
   `position` varchar(64) DEFAULT NULL COMMENT '职位',
   `start_date` date DEFAULT NULL COMMENT '开始时间',
@@ -355,6 +527,7 @@ CREATE TABLE `t_resume_work_history` (
   `achievement_desc` varchar(512) DEFAULT NULL COMMENT '业绩描述',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `orgnazation` varchar(64) DEFAULT NULL COMMENT '工作单位',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='工作经历';
 
@@ -363,7 +536,7 @@ CREATE TABLE `t_resume_work_history` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_store
+-- Table structure for `t_store`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store`;
 CREATE TABLE `t_store` (
@@ -390,7 +563,7 @@ CREATE TABLE `t_store` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_store_news
+-- Table structure for `t_store_news`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store_news`;
 CREATE TABLE `t_store_news` (
@@ -417,7 +590,7 @@ CREATE TABLE `t_store_news` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_store_suggest
+-- Table structure for `t_store_suggest`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store_suggest`;
 CREATE TABLE `t_store_suggest` (
@@ -447,7 +620,7 @@ CREATE TABLE `t_store_suggest` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for t_sys_role
+-- Table structure for `t_sys_role`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_role`;
 CREATE TABLE `t_sys_role` (
@@ -464,16 +637,18 @@ CREATE TABLE `t_sys_role` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='角色表';
 
 -- ----------------------------
 -- Records of t_sys_role
 -- ----------------------------
-INSERT INTO `t_sys_role` VALUES ('1', 'test', '测试', '测试人员专用', '2016-07-19 20:37:25', '1', null, null, '0', null, null, null);
-INSERT INTO `t_sys_role` VALUES ('2', 'develop', '开发', '开发人员专用', '2016-07-19 20:37:58', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_role` VALUES ('1', 'test', '测试', '测试人员专用', '2016-07-19 20:37:25', '1', '2016-07-20 10:48:25', '1', '1', null, null, null);
+INSERT INTO `t_sys_role` VALUES ('2', 'develop', '开发', '开发人员专用11', '2016-07-19 20:37:58', '1', '2016-07-20 10:02:08', '1', '0', null, null, null);
+INSERT INTO `t_sys_role` VALUES ('3', null, '营销部', '', '2016-07-20 10:01:20', null, '2016-07-20 10:06:19', '1', '1', null, null, null);
+INSERT INTO `t_sys_role` VALUES ('4', null, '测试', '测试专用', '2016-07-20 10:48:37', null, null, null, '0', null, null, null);
 
 -- ----------------------------
--- Table structure for t_sys_role_menu
+-- Table structure for `t_sys_role_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_role_menu`;
 CREATE TABLE `t_sys_role_menu` (
@@ -489,14 +664,22 @@ CREATE TABLE `t_sys_role_menu` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色-权限/菜单关系表';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='角色-权限/菜单关系表';
 
 -- ----------------------------
 -- Records of t_sys_role_menu
 -- ----------------------------
+INSERT INTO `t_sys_role_menu` VALUES ('7', '1', '2', '2016-07-20 10:48:17', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_role_menu` VALUES ('8', '8', '2', '2016-07-20 10:48:17', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_role_menu` VALUES ('9', '9', '2', '2016-07-20 10:48:17', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_role_menu` VALUES ('10', '10', '2', '2016-07-20 10:48:17', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_role_menu` VALUES ('11', '11', '2', '2016-07-20 10:48:17', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_role_menu` VALUES ('12', '12', '2', '2016-07-20 10:48:17', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_role_menu` VALUES ('13', '2', '2', '2016-07-20 10:48:17', '1', null, null, '0', null, null, null);
+INSERT INTO `t_sys_role_menu` VALUES ('14', '21', '2', '2016-07-20 10:48:17', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
--- Table structure for t_sys_user_menu
+-- Table structure for `t_sys_user_menu`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_user_menu`;
 CREATE TABLE `t_sys_user_menu` (
@@ -524,7 +707,7 @@ INSERT INTO `t_sys_user_menu` VALUES ('24', '12', '1', '2016-07-19 21:53:37', '1
 INSERT INTO `t_sys_user_menu` VALUES ('25', '3', '1', '2016-07-19 21:53:37', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
--- Table structure for t_sys_user_role
+-- Table structure for `t_sys_user_role`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_sys_user_role`;
 CREATE TABLE `t_sys_user_role` (
@@ -549,7 +732,7 @@ INSERT INTO `t_sys_user_role` VALUES ('6', '1', '1', '2016-07-19 21:53:37', '1',
 INSERT INTO `t_sys_user_role` VALUES ('7', '1', '2', '2016-07-19 21:53:37', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
--- Table structure for t_user
+-- Table structure for `t_user`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE `t_user` (
