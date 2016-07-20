@@ -43,7 +43,8 @@ public class UploadController {
 		JSONObject json = new JSONObject();
 		try {
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = FileToolUtils.getPathMkdir(request.getRealPath("/"), "/img/upload");
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
+					"/img/upload");
 			String fileName = FileToolUtils.saveFile(file[0], path);
 			String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 					+ request.getContextPath();
@@ -59,16 +60,18 @@ public class UploadController {
 
 	@RequestMapping(value = "/file")
 	@ResponseBody
-	public Object file(HttpServletRequest request, ModelMap model) {
+	public Object file(@RequestParam MultipartFile[] file, HttpServletRequest request, ModelMap model) {
 		Result result = new Result();
 		JSONObject json = new JSONObject();
 		try {
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = request.getSession().getServletContext().getRealPath("/") + "img/upload/";
-			String fileName = FileToolUtils.saveInputStream(request.getInputStream(), path);
+			String path = request.getSession().getServletContext().getRealPath("/") + "upload/";
+			String fileName = FileToolUtils.saveImage(file[0], path);
+
 			String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 					+ request.getContextPath();
-			json.put("link", url + "/img/upload/" + fileName);
+			log.info("上传图片路径:" + url + "/img/upload/" + fileName);
+			json.put("link", url + "/upload/" + fileName);
 			return json;
 		} catch (Exception e) {
 			log.error("", e);

@@ -98,8 +98,7 @@ button {
 }
 .froala-element {
   min-height: 35px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: auto;
   position: relative;
   word-wrap: break-word;
   line-height: 140%;

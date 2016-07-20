@@ -355,19 +355,15 @@ public class FileToolUtils extends FileUtils {
 		}
 	}
 
-	public static String saveInputStream(InputStream inputStream, String path) throws Exception {
+	public static String saveImage(MultipartFile file, String path) throws Exception {
 		BufferedInputStream input = null;
-		FileOutputStream fileOut = null;
+		OutputStream fileOut = null;
 		BufferedOutputStream output = null;
 		try {
-
 			StringBuffer sb = new StringBuffer();
 			sb.append(System.currentTimeMillis()).append(".png");
-			FileToolUtils.deleteFile(path + sb.toString());
-			FileToolUtils.mkDir(path);
-			input = new BufferedInputStream(inputStream);
+			input = new BufferedInputStream(file.getInputStream());
 			File f = new File(path + sb.toString());
-			FileToolUtils.deleteFile(f);
 			fileOut = new FileOutputStream(f);
 			output = new BufferedOutputStream(fileOut);
 			byte[] b = new byte[1024];
