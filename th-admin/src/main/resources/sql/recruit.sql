@@ -6,15 +6,15 @@ drop table if exists t_recruit_user;
 create table t_recruit_user
 (
    id                   int(11) not null comment 'id',
-   username             varchar(64) comment 'ÓÃ»§Ãû',
-   password             varchar(64) comment 'ÃÜÂë',
-   source               varchar(16) comment 'À´Ô´£ºqq,Î¢ĞÅ,×¢²á',
-   able                 int(1) comment 'ÊÇ·ñ¿ÉÓÃ£¬1¿ÉÓÃ£¬0²»¿ÉÓÃ',
-   create_time          datetime comment '´´½¨Ê±¼ä',
+   username             varchar(64) comment 'ç”¨æˆ·å',
+   password             varchar(64) comment 'å¯†ç ',
+   source               varchar(16) comment 'æ¥æºï¼šqq,å¾®ä¿¡,æ³¨å†Œ',
+   able                 int(1) comment 'æ˜¯å¦å¯ç”¨ï¼Œ1å¯ç”¨ï¼Œ0ä¸å¯ç”¨',
+   create_time          datetime comment 'åˆ›å»ºæ—¶é—´',
    primary key (id)
 );
 
-alter table t_recruit_user comment 'ÕĞÆ¸ÓÃ»§';
+alter table t_recruit_user comment 'æ‹›è˜ç”¨æˆ·';
 
 
 
@@ -27,16 +27,16 @@ drop table if exists t_recruit_interaction;
 create table t_recruit_interaction
 (
    id                   int(11) not null comment 'id',
-   question             varchar(1024) comment 'ÎÊÌâ',
-   answer               varchar(1024) comment '»Ø´ğ',
-   create_time          datetime comment '´´½¨Ê±¼ä',
-   update_time          timestamp comment '¸üĞÂÊ±¼ä',
-   is_show              int(1) comment 'ÊÇ·ñÏÔÊ¾£¬1ÏÔÊ¾£¬0²»ÏÔÊ¾',
-   faq_type             char(10) comment '»¥¶¯ÀàĞÍ£º',
+   question             varchar(1024) comment 'é—®é¢˜',
+   answer               varchar(1024) comment 'å›ç­”',
+   create_time          datetime comment 'åˆ›å»ºæ—¶é—´',
+   update_time          timestamp comment 'æ›´æ–°æ—¶é—´',
+   is_show              int(1) comment 'æ˜¯å¦æ˜¾ç¤ºï¼Œ1æ˜¾ç¤ºï¼Œ0ä¸æ˜¾ç¤º',
+   faq_type             char(10) comment 'äº’åŠ¨ç±»å‹ï¼š',
    primary key (id)
 );
 
-alter table t_recruit_interaction comment '»¥¶¯FAQ';
+alter table t_recruit_interaction comment 'äº’åŠ¨FAQ';
 
 
 
@@ -50,17 +50,17 @@ drop table if exists t_recruit_qustion;
 create table t_recruit_qustion
 (
    id                   int(11) not null comment 'id',
-   question             varchar(258) comment 'ÎÊÌâ',
-   name                 varchar(64) comment 'ĞÕÃû',
-   email                varchar(64) comment 'ÓÊÏä',
-   phone                varchar(32) comment 'ÊÖ»ú',
-   orgrazation          varchar(128) comment '¹«Ë¾»ú¹¹',
-   detail               varchar(1024) comment 'ÎÊÌâÃèÊö',
-   create_time          datetime comment '´´½¨Ê±¼ä',
+   question             varchar(258) comment 'é—®é¢˜',
+   name                 varchar(64) comment 'å§“å',
+   email                varchar(64) comment 'é‚®ç®±',
+   phone                varchar(32) comment 'æ‰‹æœº',
+   orgrazation          varchar(128) comment 'å…¬å¸æœºæ„',
+   detail               varchar(1024) comment 'é—®é¢˜æè¿°',
+   create_time          datetime comment 'åˆ›å»ºæ—¶é—´',
    primary key (id)
 );
 
-alter table t_recruit_qustion comment 'ÌáÎÊ';
+alter table t_recruit_qustion comment 'æé—®';
 
 
 
@@ -72,34 +72,34 @@ drop table if exists t_recruit_job;
 /*==============================================================*/
 create table t_recruit_job
 (
-   id                   int(11) not null comment '±àºÅ',
-   job_name             varchar(64) comment 'Ö°Î»Ãû³Æ',
-   job_no               bigint comment 'Ö°Î»±àºÅ',
-   department           varchar(64) comment '²¿ÃÅ:Ã¶¾Ù',
-   area                 varchar(64) comment '¹¤×÷µØµã:¹ØÁªµØµã',
-   job_type             char(16) comment '¹¤×÷ÀàĞÍ:Ã¶¾Ù',
-   job_category         varchar(64) comment '¸ÚÎ»Àà±ğ:Ã¶¾Ù',
-   num                  int(5) comment 'ÕĞÆ¸ÈËÊı',
-   salary_max           int(10) comment 'ÔÂĞ½ÉÏÏŞ',
-   salary_min           int(10) comment 'ÔÂĞ½ÏÂÏŞ',
-   publish_date         date comment '·¢²¼ÈÕÆÚ',
-   recuit_type          varchar(64) comment 'ÕĞÆ¸ÀàĞÍ:ÉçÕĞ,Ğ£ÕĞ',
-   job_descption        varchar(1024) comment 'Ö°Î»ÃèÊö',
-   require_age          int(5) comment 'ÒªÇóÄêÁä',
-   require_years        int(5) comment 'ÒªÇóÄêÏŞ',
-   require_en           varchar(32) comment 'ÒªÇóÓ¢ÓïµÈ¼¶',
-   require_cn           varchar(32) comment 'ÒªÇóººÓï³Ì¶È',
-   require_yy           varchar(32) comment 'ÒªÇóÔÁÓï³Ì¶È',
-   require_other        varchar(64) comment 'ÒªÇóÆäËû',
-   create_time          datetime comment '´´½¨Ê±¼ä',
-   create_user          int(11) comment '´´½¨Õß',
-   update_time          timestamp comment '¸üĞÂÊ±¼ä',
-   update_user          int(11) comment '¸üĞÂÕß',
-   is_show              int(1) comment 'ÊÇ·ñÏÔÊ¾',
+   id                   int(11) not null comment 'ç¼–å·',
+   job_name             varchar(64) comment 'èŒä½åç§°',
+   job_no               bigint comment 'èŒä½ç¼–å·',
+   department           varchar(64) comment 'éƒ¨é—¨:æšä¸¾',
+   area                 varchar(64) comment 'å·¥ä½œåœ°ç‚¹:å…³è”åœ°ç‚¹',
+   job_type             char(16) comment 'å·¥ä½œç±»å‹:æšä¸¾',
+   job_category         varchar(64) comment 'å²—ä½ç±»åˆ«:æšä¸¾',
+   num                  int(5) comment 'æ‹›è˜äººæ•°',
+   salary_max           int(10) comment 'æœˆè–ªä¸Šé™',
+   salary_min           int(10) comment 'æœˆè–ªä¸‹é™',
+   publish_date         date comment 'å‘å¸ƒæ—¥æœŸ',
+   recuit_type          varchar(64) comment 'æ‹›è˜ç±»å‹:ç¤¾æ‹›,æ ¡æ‹›',
+   job_descption        varchar(1024) comment 'èŒä½æè¿°',
+   require_age          int(5) comment 'è¦æ±‚å¹´é¾„',
+   require_years        int(5) comment 'è¦æ±‚å¹´é™',
+   require_en           varchar(32) comment 'è¦æ±‚è‹±è¯­ç­‰çº§',
+   require_cn           varchar(32) comment 'è¦æ±‚æ±‰è¯­ç¨‹åº¦',
+   require_yy           varchar(32) comment 'è¦æ±‚ç²¤è¯­ç¨‹åº¦',
+   require_other        varchar(64) comment 'è¦æ±‚å…¶ä»–',
+   create_time          datetime comment 'åˆ›å»ºæ—¶é—´',
+   create_user          int(11) comment 'åˆ›å»ºè€…',
+   update_time          timestamp comment 'æ›´æ–°æ—¶é—´',
+   update_user          int(11) comment 'æ›´æ–°è€…',
+   is_show              int(1) comment 'æ˜¯å¦æ˜¾ç¤º',
    primary key (id)
 );
 
-alter table t_recruit_job comment 'ÕĞÆ¸-Ö°Î»±í';
+alter table t_recruit_job comment 'æ‹›è˜-èŒä½è¡¨';
 
 
 
@@ -111,40 +111,40 @@ drop table if exists t_recruit_resume;
 /*==============================================================*/
 create table t_recruit_resume
 (
-   id                   int(11) not null comment '±àºÅ',
-   user_id              int(11) comment 'ÓÃ»§±àºÅ',
-   name                 varchar(64) comment 'ĞÕÃû',
-   sex                  varchar(4) comment 'ĞÔ±ğ£ºÄĞ£¬Å®',
-   birth_date           date comment '³öÉúÈÕÆÚ',
-   phone                int(16) comment 'ÊÖ»úºÅÂë',
-   email                varchar(64) comment 'ÓÊÏä',
-   school               varchar(128) comment '±ÏÒµÑ§Ğ£',
-   major                varchar(64) comment '×¨Òµ',
-   graduate_date        date comment '±ÏÒµÈÕÆÚ',
-   oranazation          varchar(128) comment '¹«Ë¾»ú¹¹',
-   work_years           int(4) comment '¹¤×÷ÄêÏŞ',
-   current_palace       varchar(64) comment 'Ä¿Ç°ËùÔÚµØ',
-   degrees              varchar(64) comment 'Ñ§Àú',
-   spare_phone          int(16) comment '±¸ÓÃÊÖ»úºÅÂë',
-   nation               varchar(64) comment 'Ãñ×å',
-   id_card              varchar(32) comment 'Éí·İÖ¤ºÅÂë',
-   id_card_add          varchar(128) comment 'Éí·İÖ¤µØÖ·',
-   background           varchar(512) comment '±³¾°ËµÃ÷',
-   intention            varchar(512) comment 'ÇóÖ°ÒâÏò',
-   work_descption       varchar(512) comment '¹¤×÷ÃèÊö',
-   project_history      varchar(512) comment 'ÏîÄ¿ÃèÊö',
-   train_history        varchar(512) comment 'ÅàÑµ¾­Àú',
-   language_desc        varchar(512) comment 'ÓïÑÔËµÃ÷',
-   reward               varchar(512) comment '½±Àø',
-   ohter_info           varchar(512) comment 'ÆäËûĞÅÏ¢',
-   certificate          varchar(512) comment 'Ö¤Êé',
-   personal_like        varchar(512) comment '°®ºÃ',
-   create_time          datetime comment '´´½¨Ê±¼ä',
-   update_time          timestamp comment 'ĞŞ¸ÄÊ±¼ä',
+   id                   int(11) not null comment 'ç¼–å·',
+   user_id              int(11) comment 'ç”¨æˆ·ç¼–å·',
+   name                 varchar(64) comment 'å§“å',
+   sex                  varchar(4) comment 'æ€§åˆ«ï¼šç”·ï¼Œå¥³',
+   birth_date           date comment 'å‡ºç”Ÿæ—¥æœŸ',
+   phone                int(16) comment 'æ‰‹æœºå·ç ',
+   email                varchar(64) comment 'é‚®ç®±',
+   school               varchar(128) comment 'æ¯•ä¸šå­¦æ ¡',
+   major                varchar(64) comment 'ä¸“ä¸š',
+   graduate_date        date comment 'æ¯•ä¸šæ—¥æœŸ',
+   oranazation          varchar(128) comment 'å…¬å¸æœºæ„',
+   work_years           int(4) comment 'å·¥ä½œå¹´é™',
+   current_palace       varchar(64) comment 'ç›®å‰æ‰€åœ¨åœ°',
+   degrees              varchar(64) comment 'å­¦å†',
+   spare_phone          int(16) comment 'å¤‡ç”¨æ‰‹æœºå·ç ',
+   nation               varchar(64) comment 'æ°‘æ—',
+   id_card              varchar(32) comment 'èº«ä»½è¯å·ç ',
+   id_card_add          varchar(128) comment 'èº«ä»½è¯åœ°å€',
+   background           varchar(512) comment 'èƒŒæ™¯è¯´æ˜',
+   intention            varchar(512) comment 'æ±‚èŒæ„å‘',
+   work_descption       varchar(512) comment 'å·¥ä½œæè¿°',
+   project_history      varchar(512) comment 'é¡¹ç›®æè¿°',
+   train_history        varchar(512) comment 'åŸ¹è®­ç»å†',
+   language_desc        varchar(512) comment 'è¯­è¨€è¯´æ˜',
+   reward               varchar(512) comment 'å¥–åŠ±',
+   ohter_info           varchar(512) comment 'å…¶ä»–ä¿¡æ¯',
+   certificate          varchar(512) comment 'è¯ä¹¦',
+   personal_like        varchar(512) comment 'çˆ±å¥½',
+   create_time          datetime comment 'åˆ›å»ºæ—¶é—´',
+   update_time          timestamp comment 'ä¿®æ”¹æ—¶é—´',
    primary key (id)
 );
 
-alter table t_recruit_resume comment '¼òÀúĞÅÏ¢';
+alter table t_recruit_resume comment 'ç®€å†ä¿¡æ¯';
 
 
 
@@ -157,26 +157,26 @@ drop table if exists t_resume_work_history;
 /*==============================================================*/
 create table t_resume_work_history
 (
-   id                   int(11) not null comment '±àºÅ',
-   resume_id            int(11) comment '¼òÀú±àºÅ',
-   position             varchar(64) comment 'Ö°Î»',
-   start_date           date comment '¿ªÊ¼Ê±¼ä',
-   end_date             date comment '½áÊøÊ±¼ä',
-   address              varchar(64) comment 'µØÖ·',
-   industry_type        varchar(64) comment 'ĞĞÒµÀàĞÍ£ºÃ¶¾Ù',
-   oranazation_type     varchar(32) comment '¹«Ë¾ĞÔÖÊ£ºÃ¶¾Ù',
-   report_obj           varchar(64) comment '»ã±¨¶ÔÏó',
-   subordinate_num      int(10) comment 'ÏÂÊôÈËÊı',
-   payment              varchar(128) comment 'Ö°Î»Ğ½Ë®',
-   work_duty            int(4) comment '¹¤×÷Ö°Ôğ',
-   achievement_desc     varchar(512) comment 'Òµ¼¨ÃèÊö',
-   create_time          datetime comment '´´½¨Ê±¼ä',
-   update_time          timestamp comment 'ĞŞ¸ÄÊ±¼ä',
-   orgnazation          varchar(64) comment '¹¤×÷µ¥Î»',
+   id                   int(11) not null comment 'ç¼–å·',
+   resume_id            int(11) comment 'ç®€å†ç¼–å·',
+   position             varchar(64) comment 'èŒä½',
+   start_date           date comment 'å¼€å§‹æ—¶é—´',
+   end_date             date comment 'ç»“æŸæ—¶é—´',
+   address              varchar(64) comment 'åœ°å€',
+   industry_type        varchar(64) comment 'è¡Œä¸šç±»å‹ï¼šæšä¸¾',
+   oranazation_type     varchar(32) comment 'å…¬å¸æ€§è´¨ï¼šæšä¸¾',
+   report_obj           varchar(64) comment 'æ±‡æŠ¥å¯¹è±¡',
+   subordinate_num      int(10) comment 'ä¸‹å±äººæ•°',
+   payment              varchar(128) comment 'èŒä½è–ªæ°´',
+   work_duty            int(4) comment 'å·¥ä½œèŒè´£',
+   achievement_desc     varchar(512) comment 'ä¸šç»©æè¿°',
+   create_time          datetime comment 'åˆ›å»ºæ—¶é—´',
+   update_time          timestamp comment 'ä¿®æ”¹æ—¶é—´',
+   orgnazation          varchar(64) comment 'å·¥ä½œå•ä½',
    primary key (id)
 );
 
-alter table t_resume_work_history comment '¹¤×÷¾­Àú';
+alter table t_resume_work_history comment 'å·¥ä½œç»å†';
 
 
 
@@ -188,16 +188,16 @@ drop table if exists t_resume_shill;
 /*==============================================================*/
 create table t_resume_skill
 (
-   id                   int(11) not null comment '±àºÅ',
-   resume_id            int(11) comment '¼òÀú±àºÅ',
-   skill                varchar(64) comment '¼¼ÄÜ',
-   level                varchar(16) comment 'ÊìÁ·³Ì¶È:Ã¶¾Ù',
-   create_time          datetime comment '´´½¨Ê±¼ä',
-   update_time          timestamp comment 'ĞŞ¸ÄÊ±¼ä',
+   id                   int(11) not null comment 'ç¼–å·',
+   resume_id            int(11) comment 'ç®€å†ç¼–å·',
+   skill                varchar(64) comment 'æŠ€èƒ½',
+   level                varchar(16) comment 'ç†Ÿç»ƒç¨‹åº¦:æšä¸¾',
+   create_time          datetime comment 'åˆ›å»ºæ—¶é—´',
+   update_time          timestamp comment 'ä¿®æ”¹æ—¶é—´',
    primary key (id)
 );
 
-alter table t_resume_skill comment '¼¼ÄÜ';
+alter table t_resume_skill comment 'æŠ€èƒ½';
 
 
 
@@ -210,18 +210,18 @@ drop table if exists t_resume_education_history;
 /*==============================================================*/
 create table t_resume_education_history
 (
-   id                   int(11) not null comment '±àºÅ',
-   resume_id            int(11) comment '¼òÀú±àºÅ',
-   major                varchar(64) comment 'Ñ§Àú',
-   start_date           date comment '¿ªÊ¼Ê±¼ä',
-   end_date             date comment '½áÊøÊ±¼ä',
-   school               varchar(64) comment '±ÏÒµÔºĞ£',
-   create_time          datetime comment '´´½¨Ê±¼ä',
-   update_time          timestamp comment 'ĞŞ¸ÄÊ±¼ä',
+   id                   int(11) not null comment 'ç¼–å·',
+   resume_id            int(11) comment 'ç®€å†ç¼–å·',
+   major                varchar(64) comment 'å­¦å†',
+   start_date           date comment 'å¼€å§‹æ—¶é—´',
+   end_date             date comment 'ç»“æŸæ—¶é—´',
+   school               varchar(64) comment 'æ¯•ä¸šé™¢æ ¡',
+   create_time          datetime comment 'åˆ›å»ºæ—¶é—´',
+   update_time          timestamp comment 'ä¿®æ”¹æ—¶é—´',
    primary key (id)
 );
 
-alter table t_resume_education_history comment '½ÌÓı¾­Àú';
+alter table t_resume_education_history comment 'æ•™è‚²ç»å†';
 
 
 
@@ -233,17 +233,17 @@ drop table if exists t_resume_language;
 /*==============================================================*/
 create table t_resume_language
 (
-   id                   int(11) not null comment '±àºÅ',
-   resume_id            int(11) comment '¼òÀú±àºÅ',
-   language             varchar(64) comment '¼¼ÄÜ',
-   level                varchar(16) comment 'µÈ¼¶:Ã¶¾Ù',
-   create_time          datetime comment '´´½¨Ê±¼ä',
-   update_time          timestamp comment 'ĞŞ¸ÄÊ±¼ä',
-   tan_level            varchar(16) comment '¿ÚÓïË®Æ½',
+   id                   int(11) not null comment 'ç¼–å·',
+   resume_id            int(11) comment 'ç®€å†ç¼–å·',
+   language             varchar(64) comment 'æŠ€èƒ½',
+   level                varchar(16) comment 'ç­‰çº§:æšä¸¾',
+   create_time          datetime comment 'åˆ›å»ºæ—¶é—´',
+   update_time          timestamp comment 'ä¿®æ”¹æ—¶é—´',
+   tan_level            varchar(16) comment 'å£è¯­æ°´å¹³',
    primary key (id)
 );
 
-alter table t_resume_language comment 'ÓïÑÔ';
+alter table t_resume_language comment 'è¯­è¨€';
 
 
 
@@ -254,17 +254,17 @@ drop table if exists t_resume_attachment;
 /*==============================================================*/
 create table t_resume_attachment
 (
-   id                   int(11) not null comment '±àºÅ',
-   resume_id            int(11) comment '¼òÀú±àºÅ',
-   file_path            varchar(64) comment '¼¼ÄÜ',
-   create_time          datetime comment '´´½¨Ê±¼ä',
-   update_time          timestamp comment 'ĞŞ¸ÄÊ±¼ä',
-   able                 varchar(16) comment 'ÊÇ·ñ¿ÉÓÃ:Ã¶¾Ù',
-   file_name            varchar(64) comment 'ÎÄ¼şÃû',
+   id                   int(11) not null comment 'ç¼–å·',
+   resume_id            int(11) comment 'ç®€å†ç¼–å·',
+   file_path            varchar(64) comment 'æŠ€èƒ½',
+   create_time          datetime comment 'åˆ›å»ºæ—¶é—´',
+   update_time          timestamp comment 'ä¿®æ”¹æ—¶é—´',
+   able                 varchar(16) comment 'æ˜¯å¦å¯ç”¨:æšä¸¾',
+   file_name            varchar(64) comment 'æ–‡ä»¶å',
    primary key (id)
 );
 
-alter table t_resume_attachment comment '¼òÀú¸½¼ş';
+alter table t_resume_attachment comment 'ç®€å†é™„ä»¶';
 
 
 
@@ -280,7 +280,7 @@ drop table if exists t_recruit_resume_delivery;
 create table t_recruit_resume_delivery
 (
    id                   int(11) not null comment 'id',
-   resume_id            int(11) comment '¼òÀú±àºÅ',
+   resume_id            int(11) comment 'ç®€å†ç¼–å·',
    job_id               int(11),
    delivery_time        datetime,
    status               varchar(16),
@@ -291,7 +291,7 @@ create table t_recruit_resume_delivery
    primary key (id)
 );
 
-alter table t_recruit_resume_delivery comment '¼òÀúÍ¶µİ';
+alter table t_recruit_resume_delivery comment 'ç®€å†æŠ•é€’';
 
 
 
