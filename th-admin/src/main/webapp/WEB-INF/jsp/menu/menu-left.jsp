@@ -8,6 +8,6 @@
 <script src="${basePath}/js/menu/jquery.velocity.min.js"></script>
 <script src="${basePath}/js/menu/menu.js"></script>
 <!--aside nav-->
-<aside class="lt_aside_nav content mCustomScrollbar" style="width:20%;">
+<aside class="lt_aside_nav content mCustomScrollbar" style="width:20%; overflow: auto;height: 90%;">
 	<ul class="mtree" style="margin-top:0;" id="mainTree"></ul>
 </aside>
