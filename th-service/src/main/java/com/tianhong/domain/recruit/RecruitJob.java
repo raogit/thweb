@@ -90,7 +90,7 @@ public class RecruitJob {
      */
     private Date createTime;
     /**
-     * 创建人
+     * 创建者
      */
     private Integer createUser;
     /**
@@ -98,7 +98,7 @@ public class RecruitJob {
      */
     private Date updateTime;
     /**
-     * 更新人
+     * 更新者
      */
     private Integer updateUser;
     /**

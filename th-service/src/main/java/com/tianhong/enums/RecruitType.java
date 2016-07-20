@@ -24,8 +24,8 @@ public enum RecruitType {
 	
 	public static String getTexts() {
 		String result="";
-		JobType[] jobs=JobType.values();
-		for(JobType job : jobs){
+		RecruitType[] jobs=RecruitType.values();
+		for(RecruitType job : jobs){
 			result+=job.getText()+SymbolConstant.COMMA;
 		}
 		return result.substring(0, result.length()-1);

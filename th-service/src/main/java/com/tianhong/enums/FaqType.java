@@ -3,21 +3,21 @@ package com.tianhong.enums;
 import com.tianhong.constant.SymbolConstant;
 
 /**
- * 学历：高中及以下，大专，本科，硕士，博士，MBA
+ * FAQ类型
  * @author sky
  *
  */
-public enum DegreesType {
-	junior("高中及以下"),
-	college("大专"),
-	university("本科"),
-	master("硕士"),
-	doctor("博士"),
-	MBA("MBA");
+public enum FaqType {
+	GY_ZP("关于招聘"),
+	GY_PX("关于培训"),
+	GY_XCFZ("关于薪酬与发展"),
+	GY_BD("关于报到"),
+	SZ_XZ("社会招聘须知"),
+	HD_WD("互动问答");
 	
 	private String text;
 	
-	private DegreesType(String text){
+	private FaqType(String text){
 		this.text=text;
 	}
 
@@ -27,8 +27,8 @@ public enum DegreesType {
 	
 	public static String getTexts() {
 		String result="";
-		DegreesType[] jobs=DegreesType.values();
-		for(DegreesType job : jobs){
+		FaqType[] jobs=FaqType.values();
+		for(FaqType job : jobs){
 			result+=job.getText()+SymbolConstant.COMMA;
 		}
 		return result.substring(0, result.length()-1);

@@ -7,7 +7,7 @@ import java.util.Date;
  *
  */
 public class RecruitResume {
-    private Integer id;
+	private Integer id;
     /**
      * 用户编号
      */
@@ -18,6 +18,7 @@ public class RecruitResume {
     private String name;
     /**
      * 性别：男，女
+     * @Sex
      */
     private String sex;
     /**

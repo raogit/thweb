@@ -7,7 +7,8 @@ import java.util.Date;
  *
  */
 public class ResumeLanguage {
-    private Integer id;
+
+	private Integer id;
     /**
      * 简历编号
      */

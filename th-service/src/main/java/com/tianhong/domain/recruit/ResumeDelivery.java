@@ -1,95 +1,117 @@
 package com.tianhong.domain.recruit;
 
 import java.util.Date;
-
+/**
+ * 简历投递
+ * @author Administrator
+ *
+ */
 public class ResumeDelivery {
     private Integer id;
+    /**
+     * 简历编号
+     */
+	private Integer resumeId;
+	/**
+     * 工作编号
+     */
+	private Integer jobId;
+	/**
+     * 投递时间
+     */
+	private Date deliveryTime;
+	/**
+     * 状态
+     * @Status
+     */
+	private String status;
+	/**
+     * 职位名称
+     */
+	private String jobName;
+	/**
+     * 部门
+     */
+	private String deparment;
+	/**
+     * 地区
+     */
+	private String area;
+	/**
+     * 创建时间
+     */
+	private Date createTime;
 
-    private Integer resumeId;
+	public Integer getId() {
+		return id;
+	}
 
-    private Integer jobId;
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    private Date deliveryTime;
+	public Integer getResumeId() {
+		return resumeId;
+	}
 
-    private String status;
+	public void setResumeId(Integer resumeId) {
+		this.resumeId = resumeId;
+	}
 
-    private String jobName;
+	public Integer getJobId() {
+		return jobId;
+	}
 
-    private String deparment;
+	public void setJobId(Integer jobId) {
+		this.jobId = jobId;
+	}
 
-    private String area;
+	public Date getDeliveryTime() {
+		return deliveryTime;
+	}
 
-    private Date createTime;
+	public void setDeliveryTime(Date deliveryTime) {
+		this.deliveryTime = deliveryTime;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public String getStatus() {
+		return status;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setStatus(String status) {
+		this.status = status == null ? null : status.trim();
+	}
 
-    public Integer getResumeId() {
-        return resumeId;
-    }
+	public String getJobName() {
+		return jobName;
+	}
 
-    public void setResumeId(Integer resumeId) {
-        this.resumeId = resumeId;
-    }
+	public void setJobName(String jobName) {
+		this.jobName = jobName == null ? null : jobName.trim();
+	}
 
-    public Integer getJobId() {
-        return jobId;
-    }
+	public String getDeparment() {
+		return deparment;
+	}
 
-    public void setJobId(Integer jobId) {
-        this.jobId = jobId;
-    }
+	public void setDeparment(String deparment) {
+		this.deparment = deparment == null ? null : deparment.trim();
+	}
 
-    public Date getDeliveryTime() {
-        return deliveryTime;
-    }
+	public String getArea() {
+		return area;
+	}
 
-    public void setDeliveryTime(Date deliveryTime) {
-        this.deliveryTime = deliveryTime;
-    }
+	public void setArea(String area) {
+		this.area = area == null ? null : area.trim();
+	}
 
-    public String getStatus() {
-        return status;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
-    }
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
-    public String getJobName() {
-        return jobName;
-    }
-
-    public void setJobName(String jobName) {
-        this.jobName = jobName == null ? null : jobName.trim();
-    }
-
-    public String getDeparment() {
-        return deparment;
-    }
-
-    public void setDeparment(String deparment) {
-        this.deparment = deparment == null ? null : deparment.trim();
-    }
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area == null ? null : area.trim();
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 }

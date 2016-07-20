@@ -8,62 +8,86 @@ import java.util.Date;
  */
 public class ResumeAttachment {
     private Integer id;
+    /**
+     * 简历编号
+     */
+	private Integer resumeId;
+	/**
+     * 附件路径
+     */
+	private String filePath;
+	/**
+     * 创建时间
+     */
+	private Date createTime;
+	/**
+     * 更新时间
+     */
+	private Date updateTime;
+	/**
+     * 是否可用
+     * @AbleFlag
+     */
+	private String able;
+	/**
+     * 文件名
+     */
+	private String fileName;
 
-    private Integer resumeId;
+	public Integer getId() {
+		return id;
+	}
 
-    private String filePath;
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    private Date createTime;
+	public Integer getResumeId() {
+		return resumeId;
+	}
 
-    private Date updateTime;
+	public void setResumeId(Integer resumeId) {
+		this.resumeId = resumeId;
+	}
 
-    private String able;
+	public String getFilePath() {
+		return filePath;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public void setFilePath(String filePath) {
+		this.filePath = filePath == null ? null : filePath.trim();
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public Integer getResumeId() {
-        return resumeId;
-    }
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
-    public void setResumeId(Integer resumeId) {
-        this.resumeId = resumeId;
-    }
+	public Date getUpdateTime() {
+		return updateTime;
+	}
 
-    public String getFilePath() {
-        return filePath;
-    }
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
 
-    public void setFilePath(String filePath) {
-        this.filePath = filePath == null ? null : filePath.trim();
-    }
+	public String getAble() {
+		return able;
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public void setAble(String able) {
+		this.able = able == null ? null : able.trim();
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public String getFileName() {
+		return fileName;
+	}
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
+	public void setFileName(String fileName) {
+		this.fileName = fileName == null ? null : fileName.trim();
+	}
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getAble() {
-        return able;
-    }
-
-    public void setAble(String able) {
-        this.able = able == null ? null : able.trim();
-    }
 }

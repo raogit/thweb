@@ -2,12 +2,12 @@ package com.tianhong.domain.recruit;
 
 import java.util.Date;
 /**
- * 技能
+ * 简历技能
  * @author sky
  *
  */
 public class ResumeSkill {
-    private Integer id;
+	private Integer id;
     /**
      * 简历编号
      */
@@ -21,9 +21,13 @@ public class ResumeSkill {
      * see @SkillLevel
      */
     private String level;
-
+    /**
+     * 创建时间
+     */
     private Date createTime;
-
+    /**
+     * 更新时间
+     */
     private Date updateTime;
 
     public Integer getId() {

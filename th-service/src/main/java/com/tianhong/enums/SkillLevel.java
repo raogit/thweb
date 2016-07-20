@@ -25,8 +25,8 @@ public enum SkillLevel {
 	
 	public static String getTexts() {
 		String result="";
-		JobType[] jobs=JobType.values();
-		for(JobType job : jobs){
+		SkillLevel[] jobs=SkillLevel.values();
+		for(SkillLevel job : jobs){
 			result+=job.getText()+SymbolConstant.COMMA;
 		}
 		return result.substring(0, result.length()-1);

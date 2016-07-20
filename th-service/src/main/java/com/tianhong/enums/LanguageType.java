@@ -30,8 +30,8 @@ public enum LanguageType {
 	
 	public static String getTexts() {
 		String result="";
-		JobType[] jobs=JobType.values();
-		for(JobType job : jobs){
+		LanguageType[] jobs=LanguageType.values();
+		for(LanguageType job : jobs){
 			result+=job.getText()+SymbolConstant.COMMA;
 		}
 		return result.substring(0, result.length()-1);
