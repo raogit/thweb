@@ -7,17 +7,6 @@ import org.apache.ibatis.annotations.Param;
 import com.tianhong.domain.recruit.RecruitJob;
 
 public interface RecruitJobMapper {
-    int deleteByPrimaryKey(Integer id);
-
-	int insert(RecruitJob record);
-
-	int insertSelective(RecruitJob record);
-
-	RecruitJob selectByPrimaryKey(Integer id);
-
-	int updateByPrimaryKeySelective(RecruitJob record);
-
-	int updateByPrimaryKey(RecruitJob record);
 
 	int deleteByPrimaryKey(Integer id);
 
