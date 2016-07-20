@@ -13,6 +13,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tianhong.controller.base.BaseController;
@@ -31,6 +32,12 @@ public class MenuController extends BaseController {
 
 	@Autowired
 	private MenuService menuService;
+
+	@RequestMapping(value = "/rich")
+	public Object rich(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("menuId", menuId);
+		return "/text/rich-text";
+	}
 
 	@RequestMapping(value = "/list")
 	@ResponseBody
