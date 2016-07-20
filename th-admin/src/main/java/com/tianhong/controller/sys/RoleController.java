@@ -51,6 +51,7 @@ public class RoleController extends BaseController {
 	@ResponseBody
 	public Object page(SysRole sysRole, HttpServletRequest request, HttpServletResponse response) {
 		try {
+			sysRole.setRoleName(sysRole.getRoleName().trim());
 			return sysRoleService.getPageRoles(sysRole);
 		} catch (Exception e) {
 			log.error("", e);

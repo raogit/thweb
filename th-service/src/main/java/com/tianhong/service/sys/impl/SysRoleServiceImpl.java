@@ -57,11 +57,15 @@ public class SysRoleServiceImpl implements SysRoleService {
 	}
 
 	public SysRole insertSelective(SysRole role) throws Exception {
+		role.setRoleName(role.getRoleName().trim());
+		role.setRoleDescription(role.getRoleDescription().trim());
 		sysRoleMapper.insertSelective(role);
 		return role;
 	}
 
 	public boolean updateByPrimaryKeySelective(SysRole role) throws Exception {
+		role.setRoleName(role.getRoleName().trim());
+		role.setRoleDescription(role.getRoleDescription().trim());
 		sysRoleMapper.updateByPrimaryKeySelective(role);
 		return true;
 	}

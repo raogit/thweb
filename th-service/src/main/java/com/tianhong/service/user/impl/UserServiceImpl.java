@@ -58,7 +58,8 @@ public class UserServiceImpl implements UserService {
 		AssertUtils.notNull(user, "用户对象为空");
 		AssertUtils.isNotEmpty(user.getUserName(), "用户名为空");
 		AssertUtils.isNotEmpty(user.getPassword(), "密码为空");
-		user.setPassword(MD5.GetMD5Code(user.getPassword()));
+		user.setUserName(user.getUserName().trim());
+		user.setPassword(MD5.GetMD5Code(user.getPassword().trim()));
 		user.setIsDeleted(false);
 		user.setCreateTime(new Date());
 		userMapper.insertSelective(user);
@@ -66,6 +67,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public User updateUser(User user) throws Exception {
+		user.setUserName(user.getUserName().trim());
 		user.setUpdateTime(new Date());
 		userMapper.updateByPrimaryKeySelective(user);
 		return user;

@@ -81,6 +81,7 @@ public class UserController extends BaseController {
 	@ResponseBody
 	public Object page(User user, HttpServletRequest request, HttpServletResponse response) {
 		try {
+			user.setUserName(user.getUserName().trim());
 			List<User> list = userService.getPageUsers(user);
 			int count = userService.getCount(user);
 			user.setObj(list);
