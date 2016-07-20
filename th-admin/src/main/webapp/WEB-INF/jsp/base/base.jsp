@@ -11,4 +11,6 @@
 	<script src="${basePath}/js/jQuery/jquery.min.js?ver=${ver}" type="text/javascript"></script>
 	<script src="${basePath}/js/jQuery/jquery.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/header/header.js?ver=${ver}" type="text/javascript" ></script>
-	
+	<input type="hidden" value="${basePath }" id="basePath" name="basePath"/>
+	<input type="hidden" value="${path }" id="path" name="path" />
+	<input type="hidden" value="${sessionScope.user.id}" id="userId" name="userId" />

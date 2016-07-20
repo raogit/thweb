@@ -1,8 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <header>
-	<input type="hidden" value="${basePath }" id="basePath" name="basePath"/>
-	<input type="hidden" value="${path }" id="path" name="path" />
-	<input type="hidden" value="${sessionScope.user.id}" id="userId" name="userId" />
+	
 	<h1>
 		<img src="${basePath }/img/user/admin_logo.png" />
 	</h1>

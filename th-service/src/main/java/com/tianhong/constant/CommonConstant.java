@@ -16,6 +16,10 @@ package com.tianhong.constant;
  */
 public class CommonConstant {
 
+	public static final String UTF_8 = "UTF-8";
+	public static final String GBK = "GBK";
+
+	public static final String POINT = ".";
 	public static final String BAR = "-";
 	public static final String COMMA = ",";
 

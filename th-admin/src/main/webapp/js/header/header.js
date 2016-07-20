@@ -18,11 +18,12 @@ if(isIE){
     }
 }
 var basePath;
-//var urlPath;
+var urlPath;
 jQuery(document).ready(function() {
 	var location = (window.location+'').split('/'); 
 	basePath = location[0]+'//'+location[2]+'/'+location[3]; 
-//	urlPath = $("#path").val();
+	urlPath = $("#path").val();
+	basePath = $("#basePath").val();
 });
 function clearCache(){
 	$.ajax({

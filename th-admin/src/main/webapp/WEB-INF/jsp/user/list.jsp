@@ -7,6 +7,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<jsp:include page="../base/base.jsp"></jsp:include>
+	<jsp:include page="../head/head-iframe.jsp"></jsp:include>
 	<!--[if lt IE 9]>
 	<script src="js/html5.js"></script>
 	<![endif]-->

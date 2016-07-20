@@ -30,7 +30,7 @@
 	<input type="hidden" value="${menuId}" id="menuId" name="menuId" />
 	<section id="editor">
       <div id='edit' style="margin-top: 30px;">
-          <img class="fr-fir" src="img/old_clock.jpg" alt="Old Clock" width="300"/>
+          <img class="fr-fir" src="${basePath}/img/old_clock.jpg" alt="Old Clock" width="300"/>
 
           <h1>Click and edit</h1>
 
@@ -41,7 +41,7 @@
           <p>Nullam laoreet imperdiet orci ac euismod. Curabitur vel lectus nisi. Phasellus accumsan aliquet augue, eu rutrum tellus iaculis in. Nunc viverra ultrices mollis. Curabitur malesuada nunc massa, ut imperdiet arcu lobortis sed. Cras ac arcu mauris. Maecenas id lectus nisl. Donec consectetur scelerisque quam at ultricies. Nam quis magna iaculis, condimentum metus ut, elementum metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus id tempus nisi.</p>
       </div>
   </section>
- 
+  <script src="${basePath}/js/jQuery/jquery-1.11.1.min.js"></script>
   <script src="${basePath}/js/richtext/froala_editor.min.js"></script>
   <script src="${basePath}/js/richtext/tables.min.js"></script>
   <script src="${basePath}/js/richtext/lists.min.js"></script>
