@@ -181,7 +181,7 @@ alter table t_resume_work_history comment '工作经历';
 
 
 
-drop table if exists t_resume_shill;
+drop table if exists t_resume_skill;
 
 /*==============================================================*/
 /* Table: t_resume_shill                                        */
