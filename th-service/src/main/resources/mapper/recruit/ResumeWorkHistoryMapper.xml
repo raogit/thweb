@@ -210,7 +210,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByResumeId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_resume_work_history
