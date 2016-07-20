@@ -14,4 +14,6 @@ public interface ResumeAttachmentMapper {
     int updateByPrimaryKeySelective(ResumeAttachment record);
 
     int updateByPrimaryKey(ResumeAttachment record);
+    
+    
 }
