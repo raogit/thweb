@@ -34,7 +34,7 @@
     ,
     <include refid="Blob_Column_List" />
     from t_picture
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER} and is_deleted = 0
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_picture
@@ -245,4 +245,13 @@
       backup3 = #{backup3,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="selectByMenuId" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_picture
+    where menu_id = #{menuId,jdbcType=INTEGER} and is_deleted = 0
+  </select>
 </mapper>

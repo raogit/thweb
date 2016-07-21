@@ -7,4 +7,6 @@ public interface PictureMapper extends BaseMapper<Picture> {
 
 	int updateByPrimaryKeyWithBLOBs(Picture record);
 
+	Picture selectByMenuId(Integer menuId) throws Exception;
+
 }

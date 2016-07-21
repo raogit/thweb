@@ -31,13 +31,13 @@
     ,
     <include refid="Blob_Column_List" />
     from t_culture
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER} and is_deleted = 0
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_culture
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tianhong.domain.culture.Culture">
+  <insert id="insert" parameterType="com.tianhong.domain.culture.Culture"  useGeneratedKeys="true" keyProperty="id">
     insert into t_culture (id, menu_id, title, 
       path, create_time, create_id, 
       update_time, update_id, is_deleted, 
@@ -49,7 +49,7 @@
       #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, #{backup3,jdbcType=VARCHAR}, 
       #{content,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.tianhong.domain.culture.Culture">
+  <insert id="insertSelective" parameterType="com.tianhong.domain.culture.Culture" useGeneratedKeys="true" keyProperty="id">
     insert into t_culture
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -207,4 +207,13 @@
       backup3 = #{backup3,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="selectByMenuId" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_culture
+    where menu_id = #{menuId,jdbcType=INTEGER} and is_deleted = 0
+  </select>
 </mapper>

@@ -4,16 +4,16 @@
 package com.tianhong.controller.download;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.alibaba.fastjson.JSONObject;
 import com.tianhong.constant.CommonConstant;
-import com.tianhong.model.Result;
 import com.tianhong.utils.FileToolUtils;
 
 /**
@@ -23,25 +23,33 @@ import com.tianhong.utils.FileToolUtils;
 @Controller
 @RequestMapping(value = "/download")
 public class DownloadController {
+
+	private static final Log log = LogFactory.getLog(DownloadController.class);
+
 	@RequestMapping(value = "/png")
 	@ResponseBody
-	public Object png(@RequestParam("fileName") String fileName, HttpServletRequest request, ModelMap model) {
-		Result result = new Result();
-		JSONObject json = new JSONObject();
+	public Object png(@RequestParam("fileName") String fileName, HttpServletRequest request,
+			HttpServletResponse response) {
 		try {
 			request.setCharacterEncoding(CommonConstant.UTF_8);
 			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					"/img/upload");
-
-			String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-					+ request.getContextPath();
-			json.put("link", url + "/img/upload" + fileName);
-			return json;
+					CommonConstant.UPLOAD_IMG_PATH);
+			FileToolUtils.downLoad(response, path + fileName, false);
 		} catch (Exception e) {
 			log.error("", e);
-			result.setStatus(false);
-			result.setObj(e.getMessage());
 		}
-		return result;
+		return null;
+	}
+
+	@RequestMapping(value = "/file")
+	@ResponseBody
+	public Object file(@RequestParam("path") String path, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			request.setCharacterEncoding(CommonConstant.UTF_8);
+			FileToolUtils.downLoad(response, path, false);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return null;
 	}
 }

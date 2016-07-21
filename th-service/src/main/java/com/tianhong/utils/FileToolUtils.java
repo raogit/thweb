@@ -156,7 +156,7 @@ public class FileToolUtils extends FileUtils {
 			separator = "\\\\";
 		}
 		String path[] = realPath.split(separator);
-		for (int i = 0; i < path.length - 4; i++) {
+		for (int i = 0; i < path.length - 3; i++) {
 			pathBuffer.append(path[i]);
 			pathBuffer.append(separator);
 		}

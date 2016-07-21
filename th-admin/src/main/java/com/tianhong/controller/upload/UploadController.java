@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.alibaba.fastjson.JSONObject;
 import com.tianhong.constant.CommonConstant;
 import com.tianhong.model.Result;
+import com.tianhong.service.picture.PictureService;
 import com.tianhong.utils.FileToolUtils;
 
 /**
@@ -36,6 +38,9 @@ public class UploadController {
 
 	private static final Log log = LogFactory.getLog(UploadController.class);
 
+	@Autowired
+	private PictureService pictureService;
+
 	@RequestMapping(value = "/multipartFile")
 	@ResponseBody
 	public Object multipartFile(@RequestParam MultipartFile[] file, HttpServletRequest request, ModelMap model) {
@@ -44,11 +49,11 @@ public class UploadController {
 		try {
 			request.setCharacterEncoding(CommonConstant.UTF_8);
 			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					"/img/upload");
+					CommonConstant.UPLOAD_IMG_PATH);
 			String fileName = FileToolUtils.saveFile(file[0], path);
 			String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 					+ request.getContextPath();
-			json.put("link", url + "/img/upload" + fileName);
+			json.put("link", url + "/download/png?fileName=" + fileName);
 			return json;
 		} catch (Exception e) {
 			log.error("", e);
@@ -65,13 +70,40 @@ public class UploadController {
 		JSONObject json = new JSONObject();
 		try {
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = request.getSession().getServletContext().getRealPath("/") + "upload/";
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
+					CommonConstant.UPLOAD_IMG_PATH);
 			String fileName = FileToolUtils.saveImage(file[0], path);
 
 			String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 					+ request.getContextPath();
+			log.info("上传图片路径:" + path + fileName);
+			json.put("link", url + "/download/png?fileName=" + fileName);
+			return json;
+		} catch (Exception e) {
+			log.error("", e);
+			result.setStatus(false);
+			result.setObj(e.getMessage());
+		}
+		return result;
+	}
+
+	@RequestMapping(value = "/picture")
+	@ResponseBody
+	public Object picture(@RequestParam MultipartFile[] file, HttpServletRequest request, ModelMap model) {
+		Result result = new Result();
+		JSONObject json = new JSONObject();
+		try {
+			request.setCharacterEncoding(CommonConstant.UTF_8);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
+					CommonConstant.UPLOAD_IMG_PATH);
+			String fileName = FileToolUtils.saveImage(file[0], path);
+
+			pictureService.insertSelective(menuId, title, url, pictureType, path, user);
+
+			String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+					+ request.getContextPath();
 			log.info("上传图片路径:" + url + "/img/upload/" + fileName);
-			json.put("link", url + "/upload/" + fileName);
+			json.put("link", url + "/download/png?fileName=" + fileName);
 			return json;
 		} catch (Exception e) {
 			log.error("", e);

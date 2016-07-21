@@ -13,34 +13,41 @@
         body {
             text-align: center;
         }
-
         section {
             width: 80%;
             margin: auto;
             text-align: left;
         }
     </style>
-    
+    <script src="${basePath }/js/upload/ajaxfileupload.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/timer/timer.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/utils/utils.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath }/js/richtext/rich-text.js?ver=${ver}" type="text/javascript" ></script>
+	
+	
 </head>
 
 <body>
 	<jsp:include page="../head/head-iframe.jsp"></jsp:include>
 	<input type="hidden" value="${menuId}" id="menuId" name="menuId" />
+	<input type="hidden" value="0" id="id" name="id" />
+	<div>
+		<ul class="ulColumn2" style="text-align: left;">
+			<li><span class="item_name" style="width: 120px;">上传图片：</span> <label
+				class="uploadImg" style="padding: 0px;"> <input type="file" id="fileId" name="file"/> <span>上传图片</span>
+			</label></li>
+			<li><span class="item_name" style="width: 120px;"></span> <input
+				type="button" class="link_btn" onclick="upload('fileId')"/></li>
+		</ul>
+	</div>
+	<div style="height:30px;border-bottom:2px solid #19a97b;"></div>
 	<section id="editor">
-      <div id='edit' style="margin-top: 30px;">
-          <img class="fr-fir" src="${basePath}/img/old_clock.jpg" alt="Old Clock" width="300"/>
-
-          <h1>Click and edit</h1>
-
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis diam in odio iaculis blandit. Nunc eu mauris sit amet purus viverra gravida ut a dui. Vivamus nec rutrum augue, pharetra faucibus purus. Maecenas non orci sagittis, vehicula lorem et, dignissim nunc. Suspendisse suscipit, diam non varius facilisis, enim libero tincidunt magna, sit amet iaculis eros libero sit amet eros. Vestibulum a rhoncus felis. Nam lacus nulla, consequat ac lacus sit amet, accumsan pellentesque risus. Aenean viverra mi at urna mattis fermentum. Curabitur porta metus in tortor elementum, in semper nulla ullamcorper. Vestibulum mattis tempor tortor quis gravida. In rhoncus risus nibh. Nullam condimentum dapibus massa vel fringilla. Sed hendrerit sed est quis facilisis. Ut sit amet nibh sem. Pellentesque imperdiet mollis libero.</p>
-
-          <p><a href="http://google.com" title="Aenean sed hendrerit">Aenean sed hendrerit</a> velit. Nullam eu mi dolor. Maecenas et erat risus. Nulla ac auctor diam, non aliquet ante. Fusce ullamcorper, ipsum id tempor lacinia, sem tellus malesuada libero, quis ornare sem massa in orci. Sed dictum dictum tristique. Proin eros turpis, ultricies eu sapien eget, ornare rutrum ipsum. Pellentesque eros nisl, ornare nec ipsum sed, aliquet sollicitudin erat. Nulla tincidunt porta vehicula.</p>
-
-          <p>Nullam laoreet imperdiet orci ac euismod. Curabitur vel lectus nisi. Phasellus accumsan aliquet augue, eu rutrum tellus iaculis in. Nunc viverra ultrices mollis. Curabitur malesuada nunc massa, ut imperdiet arcu lobortis sed. Cras ac arcu mauris. Maecenas id lectus nisl. Donec consectetur scelerisque quam at ultricies. Nam quis magna iaculis, condimentum metus ut, elementum metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus id tempus nisi.</p>
-      </div>
-  </section>
+		<div id='edit' style="margin-top: 30px;"> </div>
+	</section>
+	<div class="btm_btn" style="margin-top: 30px;height: 30px;">
+		<input type="button" value="保存" style="width: 70px;height: 30px;background-color: #19a97b;" id="saveContent"/> 
+		<input type="button" value="清空" style="width: 70px;height: 30px;background-color: #19a97b;" id="clearContent"/>
+	</div>
   <script src="${basePath}/js/jQuery/jquery-1.11.1.min.js"></script>
   <script src="${basePath}/js/richtext/froala_editor.min.js"></script>
   <script src="${basePath}/js/richtext/tables.min.js"></script>
