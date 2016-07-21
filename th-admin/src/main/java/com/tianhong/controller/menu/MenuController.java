@@ -39,6 +39,12 @@ public class MenuController extends BaseController {
 		return "/text/rich-text";
 	}
 
+	@RequestMapping(value = "/news")
+	public Object news(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+		request.setAttribute("menuId", menuId);
+		return "/news/list";
+	}
+
 	@RequestMapping(value = "/list")
 	@ResponseBody
 	public Object menuList(HttpServletRequest request, HttpServletResponse response) {
