@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tianhong.dao.recruit.RecruitResumeMapper">
-  
   <resultMap id="BaseResultMap" type="com.tianhong.domain.recruit.RecruitResume">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
@@ -33,12 +32,13 @@
     <result column="personal_like" jdbcType="VARCHAR" property="personalLike" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="resume_type" jdbcType="VARCHAR" property="resumeType" />
   </resultMap>
   <sql id="Base_Column_List">
     id, user_id, name, sex, birth_date, phone, email, school, major, graduate_date, oranazation, 
     work_years, current_palace, degrees, spare_phone, nation, id_card, id_card_add, background, 
     intention, work_descption, project_history, train_history, language_desc, reward, 
-    ohter_info, certificate, personal_like, create_time, update_time
+    ohter_info, certificate, personal_like, create_time, update_time, resume_type
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -60,8 +60,8 @@
       background, intention, work_descption, 
       project_history, train_history, language_desc, 
       reward, ohter_info, certificate, 
-      personal_like, create_time, update_time
-      )
+      personal_like, create_time, update_time, 
+      resume_type)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{sex,jdbcType=VARCHAR}, #{birthDate,jdbcType=DATE}, #{phone,jdbcType=INTEGER}, 
       #{email,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, 
@@ -71,8 +71,8 @@
       #{background,jdbcType=VARCHAR}, #{intention,jdbcType=VARCHAR}, #{workDescption,jdbcType=VARCHAR}, 
       #{projectHistory,jdbcType=VARCHAR}, #{trainHistory,jdbcType=VARCHAR}, #{languageDesc,jdbcType=VARCHAR}, 
       #{reward,jdbcType=VARCHAR}, #{ohterInfo,jdbcType=VARCHAR}, #{certificate,jdbcType=VARCHAR}, 
-      #{personalLike,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+      #{personalLike,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{resumeType,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.tianhong.domain.recruit.RecruitResume">
     insert into t_recruit_resume
@@ -167,6 +167,9 @@
       <if test="updateTime != null">
         update_time,
       </if>
+      <if test="resumeType != null">
+        resume_type,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -258,6 +261,9 @@
       </if>
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="resumeType != null">
+        #{resumeType,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -351,6 +357,9 @@
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="resumeType != null">
+        resume_type = #{resumeType,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -384,7 +393,15 @@
       certificate = #{certificate,jdbcType=VARCHAR},
       personal_like = #{personalLike,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      resume_type = #{resumeType,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <select id="queryRecruitResumeByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_recruit_resume
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
 </mapper>

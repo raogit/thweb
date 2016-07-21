@@ -2,11 +2,12 @@ package com.tianhong.domain.recruit;
 
 import java.util.Date;
 /**
- * 简历基本信息
+ * �?��基本信息
  * @author sky
  *
  */
 public class RecruitResume {
+
 	private Integer id;
     /**
      * 用户编号
@@ -74,7 +75,7 @@ public class RecruitResume {
      */
     private String idCard;
     /**
-     * 身份证地址
+     * 身份证地址   
      */
     private String idCardAdd;
     /**
@@ -125,6 +126,11 @@ public class RecruitResume {
      * 修改时间
      */
     private Date updateTime;
+    /**
+     * 简历类型：汉字，英文
+     * @ResumeType
+     */
+    private String resumeType;
 
     public Integer getId() {
         return id;
@@ -365,4 +371,13 @@ public class RecruitResume {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+	public String getResumeType() {
+		return resumeType;
+	}
+
+	public void setResumeType(String resumeType) {
+		this.resumeType = resumeType;
+	}
+    
 }

@@ -1,10 +1,11 @@
 package com.tianhong.dao.recruit;
 
+import java.util.List;
+
 import com.tianhong.domain.recruit.RecruitResume;
 
 public interface RecruitResumeMapper {
-
-	int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(RecruitResume record);
 
@@ -15,4 +16,6 @@ public interface RecruitResumeMapper {
     int updateByPrimaryKeySelective(RecruitResume record);
 
     int updateByPrimaryKey(RecruitResume record);
+    
+    List<RecruitResume> queryRecruitResumeByUserId(Integer userId);
 }

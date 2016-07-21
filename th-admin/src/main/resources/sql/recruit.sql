@@ -141,11 +141,11 @@ create table t_recruit_resume
    personal_like        varchar(512) comment '爱好',
    create_time          datetime comment '创建时间',
    update_time          timestamp comment '修改时间',
+   resume_type          varchar(8) comment '简历类型：英文，汉字',
    primary key (id)
 );
 
 alter table t_recruit_resume comment '简历信息';
-
 
 
 
