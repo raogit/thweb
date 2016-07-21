@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tianhong.constant.CommonConstant;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.service.picture.PictureService;
 
@@ -43,6 +44,39 @@ public class PictureController extends BaseController {
 			HttpServletResponse response) {
 		try {
 			return pictureService.findByMenuId(menuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/left")
+	@ResponseBody
+	public Object left(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return pictureService.updateLeftOrRight(id, CommonConstant.LEFT);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/right")
+	@ResponseBody
+	public Object right(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return pictureService.updateLeftOrRight(id, CommonConstant.RIGHT);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/delete")
+	@ResponseBody
+	public Object delete(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return pictureService.delete(id);
 		} catch (Exception e) {
 			log.error("", e);
 		}

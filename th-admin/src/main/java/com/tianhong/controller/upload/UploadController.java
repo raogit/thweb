@@ -25,6 +25,7 @@ import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.user.User;
 import com.tianhong.model.Result;
 import com.tianhong.service.picture.PictureService;
+import com.tianhong.utils.AssertUtils;
 import com.tianhong.utils.FileToolUtils;
 
 /**
@@ -49,6 +50,7 @@ public class UploadController extends BaseController {
 		Result result = new Result();
 		JSONObject json = new JSONObject();
 		try {
+			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			request.setCharacterEncoding(CommonConstant.UTF_8);
 			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
 					CommonConstant.UPLOAD_IMG_PATH);
@@ -71,6 +73,7 @@ public class UploadController extends BaseController {
 		Result result = new Result();
 		JSONObject json = new JSONObject();
 		try {
+			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			request.setCharacterEncoding(CommonConstant.UTF_8);
 			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
 					CommonConstant.UPLOAD_IMG_PATH);
@@ -94,6 +97,7 @@ public class UploadController extends BaseController {
 	public Object picture(@RequestParam("fileId") MultipartFile[] file, HttpServletRequest request, ModelMap model) {
 
 		try {
+			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			User user = getCurrentUser(request);
 			int menuId = Integer.parseInt(request.getParameter("menuId"));
 			byte type = Byte.parseByte(request.getParameter("type"));

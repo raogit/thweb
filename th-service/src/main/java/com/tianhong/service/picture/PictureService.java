@@ -34,4 +34,7 @@ public interface PictureService {
 
 	byte getMaxSort(int menuId, byte pictureType) throws Exception;
 
+	List<Picture> updateLeftOrRight(int id, String flag) throws Exception;
+
+	List<Picture> delete(int id) throws Exception;
 }

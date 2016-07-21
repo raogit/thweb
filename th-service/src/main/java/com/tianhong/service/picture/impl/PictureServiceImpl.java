@@ -14,10 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tianhong.constant.CommonConstant;
 import com.tianhong.dao.picture.PictureMapper;
 import com.tianhong.domain.picture.Picture;
 import com.tianhong.domain.user.User;
 import com.tianhong.service.picture.PictureService;
+import com.tianhong.utils.AssertUtils;
 
 /**
  * ClassName: PictureServiceImpl
@@ -68,6 +70,63 @@ public class PictureServiceImpl implements PictureService {
 
 	public byte getMaxSort(int menuId, byte pictureType) throws Exception {
 		return pictureMapper.selectMaxSort(menuId, pictureType);
+	}
+
+	public List<Picture> updateLeftOrRight(int id, String flag) throws Exception {
+		Picture picture = pictureMapper.selectByPrimaryKey(id);
+		AssertUtils.notNull(picture, "对应的图片不存在");
+		List<Picture> pictures = pictureMapper.findByMenuId(picture.getMenuId());
+		Picture leftPicture = null;
+		Picture rightPicture = null;
+		byte left = 0;
+		byte right = 0;
+		if (CommonConstant.LEFT.equals(flag)) {// 左移
+			left = 0;
+			right = picture.getSort();
+			rightPicture = picture;
+			for (int i = 0; i < pictures.size(); i++) {
+				Picture p = pictures.get(i);
+				if (p.getId().intValue() == picture.getId().intValue()) {
+					AssertUtils.isTrue((i - 1) >= 0, "已是最左边了");
+					leftPicture = pictures.get(i - 1);
+					left = leftPicture.getSort();
+					break;
+				}
+			}
+		} else {// 右移
+			left = picture.getSort();
+			right = 0;
+			leftPicture = picture;
+			for (int i = 0; i < pictures.size(); i++) {
+				Picture p = pictures.get(i);
+				if (p.getId().intValue() == picture.getId().intValue()) {
+					AssertUtils.isTrue((i + 1) < pictures.size(), "已是最右边了");
+					rightPicture = pictures.get(i + 1);
+					right = rightPicture.getSort();
+					break;
+				}
+			}
+
+		}
+		rightPicture.setSort(left);
+		leftPicture.setSort(right);
+		pictureMapper.updateByPrimaryKeySelective(rightPicture);
+		pictureMapper.updateByPrimaryKeySelective(leftPicture);
+		return pictureMapper.findByMenuId(picture.getMenuId());
+	}
+
+	public List<Picture> delete(int id) throws Exception {
+		Picture picture = pictureMapper.selectByPrimaryKey(id);
+		AssertUtils.notNull(picture, "对应的图片不存在");
+		List<Picture> pictures = pictureMapper.findByMenuId(picture.getMenuId());
+		pictureMapper.deleteByPrimaryKey(picture.getId());
+		for (Picture p : pictures) {
+			if (p.getId().intValue() == picture.getId().intValue()) {
+				pictures.remove(p);
+				break;
+			}
+		}
+		return pictures;
 	}
 
 }

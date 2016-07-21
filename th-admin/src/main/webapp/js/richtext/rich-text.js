@@ -38,8 +38,6 @@ function initRich(menuId){
     });
 }
 function initPicture(menuId){
-	var bannerpicture = $("#bannerpicture");
-	bannerpicture.empty();
 	$.ajax({
         url: basePath + "/picture/listbymenuid",
         type: 'post',
@@ -48,18 +46,28 @@ function initPicture(menuId){
         	menuId : menuId
         },
         cache: false,
-        success: function(data){
-        	debugger;
-        	for(var i=0;i<data.length;i++){
-        		var picture = data[i];
-        		var html = "<div class='bannerdiv'><img src='"+basePath+"/download/png?fileName="+picture.path+"'></div>";
-        		bannerpicture.append(html);
-        	}
-        	
-        }
+        success: picture
     });
 }
-
+function picture(data){
+	if(data!=null && data!="" && data!=false){
+		var bannerpicture = $("#bannerpicture");
+		bannerpicture.empty();
+		for(var i=0;i<data.length;i++){
+			var picture = data[i];
+			var html;
+			if(i==0){
+				html = "<div class='bannerdiv'><div style='width: 150px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:left("+picture.id+");'>左移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
+			}else if(i==data.length-1){
+				html = "<div class='bannerdiv'><div style='width: 150px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:right("+picture.id+");'>右移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
+			}else{
+				html = "<div class='bannerdiv'><div style='width: 150px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:left("+picture.id+");'>左移</a> | <a style='color: black;' href='javascript:right("+picture.id+");'>右移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
+			}
+			bannerpicture.append(html);
+		}
+	}
+	
+}
 function save(){
 	var menuId = $("#menuId").val();
 	var content = $("#contentId").html();
@@ -88,6 +96,11 @@ function clear(){
 	$("#contentId").html("");
 }
 function upload(fileId){
+	var file = $("#fileId").val();
+	if(!file){
+		alert("请选择图片");
+		return;
+	}
 	var menuId = $("#menuId").val();
 	var url=basePath + "/upload/picture?type=1&menuId="+menuId;
 	//执行上传文件操作的函数
@@ -97,7 +110,6 @@ function upload(fileId){
         fileElementId:fileId,
         dataType:'text',
         success:function(data,status){
-        	debugger;
         	data = data.replace(/<pre.*">/, '');
             data = data.replace("<PRE>", ''); //ajaxFileUpload会对服务器响应回来的text内容加上<pre>text</pre>前后缀
             data = data.replace("</PRE>", '');
@@ -110,5 +122,44 @@ function upload(fileId){
 				alert("操作失败");
 			}
         }
+    });
+}
+
+function left(id){
+	$.ajax({
+        url: basePath + "/picture/left",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	id : id
+        },
+        cache: false,
+        success: picture
+    });
+}
+
+function right(id){
+	$.ajax({
+        url: basePath + "/picture/right",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	id : id
+        },
+        cache: false,
+        success: picture
+    });
+}
+
+function del(id){
+	$.ajax({
+        url: basePath + "/picture/delete",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	id : id
+        },
+        cache: false,
+        success: picture
     });
 }
