@@ -246,12 +246,20 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   
-  <select id="selectByMenuId" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+  <select id="findByMenuId" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
     from t_picture
     where menu_id = #{menuId,jdbcType=INTEGER} and is_deleted = 0
+  </select>
+  
+  <select id="selectMaxSort" resultType="java.lang.Byte">
+    select 
+	   IFNULL(max(sort),0)+1
+    from t_picture
+    where menu_id = #{menuId,jdbcType=INTEGER} and is_deleted = 0 and picture_type = #{pictureType,jdbcType=TINYINT}
+    order by sort
   </select>
 </mapper>

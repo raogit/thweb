@@ -1,18 +1,24 @@
 
 jQuery(document).ready(function() {	
 	init();
-	//弹出文本性提示框
 	$("#saveContent").click(function(){
 		save();
 	});
-	//弹出：确认按钮
 	$("#clearContent").click(function(){
 		clear();
 	});
+	
 });
 
 function init(){
 	var menuId = $("#menuId").val();
+	
+	initRich(menuId);
+	initPicture(menuId);
+	
+}
+function initRich(menuId){
+	clear();
 	$.ajax({
         url: basePath + "/rich/get",
         type: 'post',
@@ -28,6 +34,28 @@ function init(){
         	}else{
         		$("#contentId").html("");
         	}
+        }
+    });
+}
+function initPicture(menuId){
+	var bannerpicture = $("#bannerpicture");
+	bannerpicture.empty();
+	$.ajax({
+        url: basePath + "/picture/listbymenuid",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	menuId : menuId
+        },
+        cache: false,
+        success: function(data){
+        	debugger;
+        	for(var i=0;i<data.length;i++){
+        		var picture = data[i];
+        		var html = "<div class='bannerdiv'><img src='"+basePath+"/download/png?fileName="+picture.path+"'></div>";
+        		bannerpicture.append(html);
+        	}
+        	
         }
     });
 }
@@ -60,38 +88,27 @@ function clear(){
 	$("#contentId").html("");
 }
 function upload(fileId){
-	var url=basePath + "/upload/png";
+	var menuId = $("#menuId").val();
+	var url=basePath + "/upload/picture?type=1&menuId="+menuId;
 	//执行上传文件操作的函数
-    $.ajaxFileUpload({
+	$.ajaxFileUpload({
         url:url,
         secureuri:false, //是否启用安全提交,默认为false
         fileElementId:fileId,
         dataType:'text',
         success:function(data,status){
+        	debugger;
         	data = data.replace(/<pre.*">/, '');
             data = data.replace("<PRE>", ''); //ajaxFileUpload会对服务器响应回来的text内容加上<pre>text</pre>前后缀
             data = data.replace("</PRE>", '');
             data = data.replace("<pre>", '');
             data = data.replace("</pre>", '');
             var reqParam = eval("(" +data+ ")");
-        	if (reqParam.status == 'success') {
-        		$("#"+bar).css("width","100%");
-        		if(flag=='zip'){
-        			$("#zipFontId").html("Upload success");
-        		}else{
-        			$("#exeFontId").html("Upload success");
-        		}
+        	if (reqParam == true) {
+        		initPicture(menuId);	
 			} else {
-				$(".filename").val("No file selected...");
-				alert(reqParam.msg);
+				alert("操作失败");
 			}
-//        	$(".filename").val("No file selected...");
-        	window.clearInterval(intId);  
-        },
-        error:function(data, status, e){ //服务器响应失败时的处理函数
-        	alert("Upload failed, please try again");
-//        	$(".filename").val("No file selected...");
-        	window.clearInterval(intId);  
         }
     });
 }

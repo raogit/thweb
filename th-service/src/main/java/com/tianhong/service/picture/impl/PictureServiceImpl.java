@@ -8,6 +8,7 @@
 package com.tianhong.service.picture.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,22 +46,28 @@ public class PictureServiceImpl implements PictureService {
 		return pictureMapper.updateByPrimaryKeySelective(picture);
 	}
 
-	public Picture getByMenuId(Integer menuId) throws Exception {
-		return pictureMapper.selectByMenuId(menuId);
+	public List<Picture> findByMenuId(Integer menuId) throws Exception {
+		return pictureMapper.findByMenuId(menuId);
 	}
 
 	public Picture insertSelective(int menuId, String title, String url, byte pictureType, String path, User user)
 			throws Exception {
+		byte sort = pictureMapper.selectMaxSort(menuId, pictureType);
 		Picture picture = new Picture();
 		picture.setMenuId(menuId);
 		picture.setTitle(title);
 		picture.setUrl(url);
 		picture.setPictureType(pictureType);
 		picture.setPath(path);
+		picture.setSort(sort);
 		picture.setCreateId(user.getId());
 		picture.setCreateTime(new Date());
 		pictureMapper.insertSelective(picture);
 		return picture;
+	}
+
+	public byte getMaxSort(int menuId, byte pictureType) throws Exception {
+		return pictureMapper.selectMaxSort(menuId, pictureType);
 	}
 
 }

@@ -21,6 +21,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.alibaba.fastjson.JSONObject;
 import com.tianhong.constant.CommonConstant;
+import com.tianhong.controller.base.BaseController;
+import com.tianhong.domain.user.User;
 import com.tianhong.model.Result;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.utils.FileToolUtils;
@@ -34,7 +36,7 @@ import com.tianhong.utils.FileToolUtils;
  */
 @Controller
 @RequestMapping(value = "/upload")
-public class UploadController {
+public class UploadController extends BaseController {
 
 	private static final Log log = LogFactory.getLog(UploadController.class);
 
@@ -89,27 +91,22 @@ public class UploadController {
 
 	@RequestMapping(value = "/picture")
 	@ResponseBody
-	public Object picture(@RequestParam MultipartFile[] file, HttpServletRequest request, ModelMap model) {
-		Result result = new Result();
-		JSONObject json = new JSONObject();
+	public Object picture(@RequestParam("fileId") MultipartFile[] file, HttpServletRequest request, ModelMap model) {
+
 		try {
+			User user = getCurrentUser(request);
+			int menuId = Integer.parseInt(request.getParameter("menuId"));
+			byte type = Byte.parseByte(request.getParameter("type"));
 			request.setCharacterEncoding(CommonConstant.UTF_8);
 			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
 					CommonConstant.UPLOAD_IMG_PATH);
 			String fileName = FileToolUtils.saveImage(file[0], path);
-
-			pictureService.insertSelective(menuId, title, url, pictureType, path, user);
-
-			String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-					+ request.getContextPath();
-			log.info("上传图片路径:" + url + "/img/upload/" + fileName);
-			json.put("link", url + "/download/png?fileName=" + fileName);
-			return json;
+			pictureService.insertSelective(menuId, "", "", type, fileName, user);
+			return true;
 		} catch (Exception e) {
 			log.error("", e);
-			result.setStatus(false);
-			result.setObj(e.getMessage());
+
 		}
-		return result;
+		return false;
 	}
 }

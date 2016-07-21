@@ -7,6 +7,8 @@
  */
 package com.tianhong.service.picture;
 
+import java.util.List;
+
 import com.tianhong.domain.picture.Picture;
 import com.tianhong.domain.user.User;
 
@@ -26,8 +28,10 @@ public interface PictureService {
 
 	Picture getByPrimaryKey(Integer id) throws Exception;
 
-	Picture getByMenuId(Integer menuId) throws Exception;
+	List<Picture> findByMenuId(Integer menuId) throws Exception;
 
 	int updateByPrimaryKeySelective(Picture picture) throws Exception;
+
+	byte getMaxSort(int menuId, byte pictureType) throws Exception;
 
 }
