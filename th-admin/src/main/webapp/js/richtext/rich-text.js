@@ -71,6 +71,10 @@ function picture(data){
 function save(){
 	var menuId = $("#menuId").val();
 	var content = $("#contentId").html();
+	if(isEmpty(content)){
+		alert("请填写内容");
+		return ;
+	}
 	var id = $("#id").val();
 	$.ajax({
         url: basePath + "/rich/save",

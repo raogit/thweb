@@ -21,6 +21,10 @@ import com.tianhong.domain.user.User;
  */
 public interface CultureService {
 
+	boolean deleteByPrimaryKey(Integer id, User user) throws Exception;
+
+	Culture getByPrimaryKey(Integer id) throws Exception;
+
 	Culture insertSelective(Culture culture) throws Exception;
 
 	int updateByPrimaryKeySelective(Culture culture) throws Exception;
@@ -31,4 +35,8 @@ public interface CultureService {
 
 	List<Culture> insertSelective(int menuId, String title, String content, List<String> paths, User user)
 			throws Exception;
+
+	List<Culture> findPage(Culture culture) throws Exception;
+
+	int getCount(Culture culture) throws Exception;
 }

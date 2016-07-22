@@ -6,3 +6,9 @@ function selectValue(id){
 	    }  
 	}  
 }
+
+function isEmpty(str){
+	if(str==null || str==""){
+		return true;
+	}
+}

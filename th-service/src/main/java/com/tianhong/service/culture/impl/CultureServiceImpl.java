@@ -76,4 +76,25 @@ public class CultureServiceImpl implements CultureService {
 		return cultures;
 	}
 
+	public boolean deleteByPrimaryKey(Integer id, User user) throws Exception {
+		Culture culture = cultureMapper.selectByPrimaryKey(id);
+		culture.setIsDeleted(false);
+		culture.setUpdateId(user.getId());
+		culture.setUpdateTime(new Date());
+		cultureMapper.updateByPrimaryKeySelective(culture);
+		return true;
+	}
+
+	public Culture getByPrimaryKey(Integer id) throws Exception {
+		return cultureMapper.selectByPrimaryKey(id);
+	}
+
+	public List<Culture> findPage(Culture culture) throws Exception {
+		return cultureMapper.findPage(culture);
+	}
+
+	public int getCount(Culture culture) throws Exception {
+		return cultureMapper.getCount(culture);
+	}
+
 }

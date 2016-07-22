@@ -4,7 +4,6 @@
 <link href='${basePath}/css/menu/foundation.css' rel='stylesheet prefetch' />
 <link href="${basePath}/css/menu/styles.css" rel="stylesheet" type="text/css"/>
 <script src='${basePath}/js/menu/stopExecutionOnTimeout.js?t=1'></script>
-<script src='http://libs.useso.com/js/jquery/1.8.0/jquery.min.js'></script>
 <script src="${basePath}/js/menu/jquery.velocity.min.js"></script>
 <script src="${basePath}/js/menu/menu.js"></script>
 <!--aside nav-->

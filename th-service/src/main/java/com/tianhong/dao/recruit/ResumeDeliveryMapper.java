@@ -1,7 +1,5 @@
 package com.tianhong.dao.recruit;
 
-import java.util.List;
-
 import com.tianhong.domain.recruit.ResumeDelivery;
 
 public interface ResumeDeliveryMapper {
@@ -17,6 +15,4 @@ public interface ResumeDeliveryMapper {
     int updateByPrimaryKeySelective(ResumeDelivery record);
 
     int updateByPrimaryKey(ResumeDelivery record);
-    
-    List<ResumeDelivery> selectByStatus(String status);
 }

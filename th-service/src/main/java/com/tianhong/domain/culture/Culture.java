@@ -2,12 +2,16 @@ package com.tianhong.domain.culture;
 
 import java.util.Date;
 
-public class Culture {
+import com.tianhong.page.Page;
+
+public class Culture extends Page {
 	private Integer id;
 
 	private Integer menuId;
 
 	private String title;
+
+	private String source;
 
 	private String path;
 
@@ -51,6 +55,14 @@ public class Culture {
 
 	public void setTitle(String title) {
 		this.title = title == null ? null : title.trim();
+	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source == null ? null : source.trim();
 	}
 
 	public String getPath() {

@@ -186,11 +186,7 @@ function addOrEdituser(){
         }
     });
 }
-function isEmpty(str){
-	if(str==null || str==""){
-		return true;
-	}
-}
+
 function deleteUser(id){
 	if(confirm("刪除将无法恢复?")){
 		$.ajax({

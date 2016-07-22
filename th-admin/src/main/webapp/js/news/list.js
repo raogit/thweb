@@ -1,77 +1,31 @@
-
+var curPage=1;
 jQuery(document).ready(function() {	
-	init();
-	$("#saveContent").click(function(){
-		save();
-	});
-	$("#clearContent").click(function(){
-		clear();
-	});
+	var curDate = new Date();
+	$("#startDate").val(curentTime(curDate.getTime() - 30*24*60*60*1000));
+	$("#endDate").val(curentTime(curDate.getTime()+ 60*60*1000));
+	btn();
+	tableData(curPage);
 	
 });
 
-function init(){
-	var menuId = $("#menuId").val();
-	
-	initRich(menuId);
-	initPicture(menuId);
-	
-}
-function initRich(menuId){
-	clear();
-	$.ajax({
-        url: basePath + "/rich/get",
-        type: 'post',
-        dataType: 'json',
-        data : {
-        	menuId : menuId
-        },
-        cache: false,
-        success: function(data){
-        	if(data!=null && data!=""){
-        		$("#contentId").html(data.content);
-            	$("#id").val(data.id);
-        	}else{
-        		$("#contentId").html("");
-        	}
-        }
-    });
-}
-function initPicture(menuId){
-	$.ajax({
-        url: basePath + "/picture/listbymenuid",
-        type: 'post',
-        dataType: 'json',
-        data : {
-        	menuId : menuId
-        },
-        cache: false,
-        success: picture
-    });
-}
-function picture(data){
-	if(data!=null && data!="" && data!=false){
-		var bannerpicture = $("#bannerpicture");
-		bannerpicture.empty();
-		for(var i=0;i<data.length;i++){
-			var picture = data[i];
-			var html;
-			if(i==0){
-				html = "<div class='bannerdiv'><div style='width: 120px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:right("+picture.id+");'>右移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
-			}else if(i==data.length-1){
-				html = "<div class='bannerdiv'><div style='width: 120px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:left("+picture.id+");'>左移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
-			}else{
-				html = "<div class='bannerdiv'><div style='width: 120px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:left("+picture.id+");'>左移</a> | <a style='color: black;' href='javascript:right("+picture.id+");'>右移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
-			}
-			bannerpicture.append(html);
-		}
-	}
-	
-}
 function save(){
 	var menuId = $("#menuId").val();
+	var title = $("#poptitle").val();
+	var source = $("#popsource").val();
 	var content = $("#contentId").html();
 	var id = $("#id").val();
+	if(isEmpty(content)){
+		alert("请填写内容");
+		return ;
+	}
+	if(isEmpty(source)){
+		alert("请填写来源");
+		return ;
+	}
+	if(isEmpty(title)){
+		alert("请填写标题");
+		return ;
+	}
 	$.ajax({
         url: basePath + "/rich/save",
         type: 'post',
@@ -79,12 +33,16 @@ function save(){
         data : {
         	id : id,
         	menuId : menuId,
+        	title : title,
+        	source : source,
         	content : content
         },
         cache: false,
         success: function(data){
         	if(data!=null&&data==true){
         		alert("操作成功");
+        		tableData(curPage);
+        		$("#pop_obj").fadeOut();
         	}else{
         		alert(json.obj);
         	}
@@ -92,75 +50,137 @@ function save(){
     });
 }
 
-function clear(){
-	$("#contentId").html("");
-}
-function upload(fileId){
-	var file = $("#fileId").val();
-	if(!file){
-		alert("请选择图片");
-		return;
-	}
+function tableData(pageNum){
+	curPage = pageNum;
+	$(".loading_area").fadeIn();
 	var menuId = $("#menuId").val();
-	var uri = $("#uri").val();
-	var url=basePath + uri+"?type=1&menuId="+menuId;
-	//执行上传文件操作的函数
-	$.ajaxFileUpload({
-        url:url,
-        secureuri:false, //是否启用安全提交,默认为false
-        fileElementId:fileId,
-        dataType:'text',
-        success:function(data,status){
-        	data = data.replace(/<pre.*">/, '');
-            data = data.replace("<PRE>", ''); //ajaxFileUpload会对服务器响应回来的text内容加上<pre>text</pre>前后缀
-            data = data.replace("</PRE>", '');
-            data = data.replace("<pre>", '');
-            data = data.replace("</pre>", '');
-            var reqParam = eval("(" +data+ ")");
-        	if (reqParam == true) {
-        		initPicture(menuId);	
-			} else {
-				alert("操作失败");
-			}
+	var title = $("#title").val();
+	var source = $("#source").val();
+	var startDate = $("#startDate").val();
+	var endDate = $("#endDate").val();
+	
+	$.ajax({
+        url: basePath + "/cultrue/page",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	menuId : menuId,
+        	title : title,
+        	source : source,
+        	endDate : endDate,
+        	curPage : pageNum
+        },
+        cache: false,
+        success: function(data){
+        	if(data!=null&&data!=""){
+        		initTable(data.obj);
+        		initPage(data);
+        	}else{
+        		alert(json.obj);
+        	}
+        	$(".loading_area").fadeOut();
         }
     });
 }
 
-function left(id){
-	$.ajax({
-        url: basePath + "/picture/left",
-        type: 'post',
-        dataType: 'json',
-        data : {
-        	id : id
-        },
-        cache: false,
-        success: picture
-    });
+function initTable(list){
+	var datalist = $("#datalist tbody");
+	datalist.empty();
+	for(var i=0;i<list.length;i++){
+		var item = list[i];
+		var time = curentTime(item.createTime);
+		var tr = "<tr>"
+			+"<td>"+(i+1)+"</td>"
+			+"<td>"+item.title+"</td>"
+			+"<td>"+item.source+"</td>"
+			+"<td>"+time+"</td>"
+			+"<td style='text-align: center;'><a href='javascript:showPop("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:del("+item.id+")' class='inner_btn'>删除</a></td>"
+			+"</tr>";
+		datalist.append(tr);
+	}
 }
 
-function right(id){
-	$.ajax({
-        url: basePath + "/picture/right",
-        type: 'post',
-        dataType: 'json',
-        data : {
-        	id : id
-        },
-        cache: false,
-        success: picture
-    });
+function initPage(page){
+	var paging = $(".paging");
+	paging.empty();
+	var prePage = page.curPage-1 < 1 ? 1 : page.curPage-1;
+	var nextPage = page.curPage+1 > page.totalPage ? page.totalPage : page.curPage+1;
+	paging.append("<a href='javascript:void(0);' onclick='tableData(1)' ><<</a>");
+	paging.append("<a href='javascript:void(0);' onclick='tableData("+prePage+")' ><</a>");
+	for(var i=0;i<page.totalPage;i++){
+		if((i+1) == page.curPage){
+			paging.append("<a href='javascript:void(0);' onclick='tableData("+(i+1)+")' style='background: #ff99ff;'>"+(i+1)+"</a>");
+		}else{
+			paging.append("<a href='javascript:void(0);' onclick='tableData("+(i+1)+")' >"+(i+1)+"</a>");
+		}
+	}
+	paging.append("<a href='javascript:void(0);' onclick='tableData("+nextPage+")' >></a>");
+	paging.append("<a href='javascript:void(0);' onclick='tableData("+(page.totalPage)+")' >>></a>");
+}
+
+function showPop(id){
+	$("#pop_obj").fadeIn();
+	$("#id").val(id);
+	$("#poptitle").val("");
+	$("#popsource").val("");
+	clear();
+	if(id>0){
+		$.ajax({
+	        url: basePath + "/cultrue/get",
+	        type: 'post',
+	        dataType: 'json',
+	        data : {
+	        	id : id
+	        },
+	        cache: false,
+	        success: function(data){
+	        	if(data){
+	        		$("#poptitle").val(data.title);
+	        		$("#popsource").val(data.source);
+	        		$("#contentId").html(data.content);
+	        	}
+	        }
+	    });
+	}
 }
 
 function del(id){
-	$.ajax({
-        url: basePath + "/picture/delete",
-        type: 'post',
-        dataType: 'json',
-        data : {
-        	id : id
-        },
-        cache: false,
-        success: picture
-    });
+	if(confirm("刪除将无法恢复?")){
+		$.ajax({
+	        url: basePath + "/cultrue/delete",
+	        type: 'post',
+	        dataType: 'json',
+	        data : {
+	        	id : id
+	        },
+	        cache: false,
+	        success: function(data){
+	        	if(data!=null && data){
+	        		alert("删除成功!");
+	        		tableData(curPage);
+	        	}else{
+	        		alert("删除失败!");
+	        	}
+	        }
+	    });
+	}
+}
+
+function btn(){
+	//弹出:保存
+	$("#savePop").click(function(){
+		save();
+	});
+	//弹出：清空
+	$("#clearPop").click(function(){
+		clear();
+	});
+	//弹出：关闭
+	$("#closePop").click(function(){
+		 $("#pop_obj").fadeOut();
+	});
+}
+
+function clear(){
+	$("#contentId").html("");
 }

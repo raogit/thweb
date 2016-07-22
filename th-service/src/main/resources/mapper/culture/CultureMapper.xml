@@ -5,6 +5,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="menu_id" jdbcType="INTEGER" property="menuId" />
     <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
     <result column="path" jdbcType="VARCHAR" property="path" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="create_id" jdbcType="INTEGER" property="createId" />
@@ -19,8 +20,8 @@
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, menu_id, title, path, create_time, create_id, update_time, update_id, is_deleted, 
-    backup1, backup2, backup3
+    id, menu_id, title, source, path, create_time, create_id, update_time, update_id, 
+    is_deleted, backup1, backup2, backup3
   </sql>
   <sql id="Blob_Column_List">
     content
@@ -31,23 +32,23 @@
     ,
     <include refid="Blob_Column_List" />
     from t_culture
-    where id = #{id,jdbcType=INTEGER} and is_deleted = 0
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_culture
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tianhong.domain.culture.Culture"  useGeneratedKeys="true" keyProperty="id">
+  <insert id="insert" parameterType="com.tianhong.domain.culture.Culture" useGeneratedKeys="true" keyProperty="id">
     insert into t_culture (id, menu_id, title, 
-      path, create_time, create_id, 
-      update_time, update_id, is_deleted, 
-      backup1, backup2, backup3, 
-      content)
+      source, path, create_time, 
+      create_id, update_time, update_id, 
+      is_deleted, backup1, backup2, 
+      backup3, content)
     values (#{id,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
-      #{path,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, #{isDeleted,jdbcType=BIT}, 
-      #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, #{backup3,jdbcType=VARCHAR}, 
-      #{content,jdbcType=LONGVARCHAR})
+      #{source,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=BIT}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, 
+      #{backup3,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.tianhong.domain.culture.Culture" useGeneratedKeys="true" keyProperty="id">
     insert into t_culture
@@ -60,6 +61,9 @@
       </if>
       <if test="title != null">
         title,
+      </if>
+      <if test="source != null">
+        source,
       </if>
       <if test="path != null">
         path,
@@ -102,6 +106,9 @@
       <if test="title != null">
         #{title,jdbcType=VARCHAR},
       </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
       <if test="path != null">
         #{path,jdbcType=VARCHAR},
       </if>
@@ -143,6 +150,9 @@
       <if test="title != null">
         title = #{title,jdbcType=VARCHAR},
       </if>
+      <if test="source != null">
+        source = #{source,jdbcType=VARCHAR},
+      </if>
       <if test="path != null">
         path = #{path,jdbcType=VARCHAR},
       </if>
@@ -180,6 +190,7 @@
     update t_culture
     set menu_id = #{menuId,jdbcType=INTEGER},
       title = #{title,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
       path = #{path,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       create_id = #{createId,jdbcType=INTEGER},
@@ -196,6 +207,7 @@
     update t_culture
     set menu_id = #{menuId,jdbcType=INTEGER},
       title = #{title,jdbcType=VARCHAR},
+      source = #{source,jdbcType=VARCHAR},
       path = #{path,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       create_id = #{createId,jdbcType=INTEGER},
@@ -208,12 +220,51 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   
-  <select id="selectByMenuId" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+   <select id="selectByMenuId" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
     from t_culture
     where menu_id = #{menuId,jdbcType=INTEGER} and is_deleted = 0
+  </select>
+  
+   <select id="findPage" resultMap="BaseResultMap" parameterType="com.tianhong.domain.culture.Culture">
+    select 
+    <include refid="Base_Column_List" />
+    from t_culture
+    where  is_deleted = 0
+		<if test="menuId != null and  menuId>0">
+        	AND menu_id = #{menuId,jdbcType=INTEGER}
+      	</if>
+      	<if test="title != null and title!=''">
+        	AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' ) 
+      	</if>
+      	<if test="source != null and source!=''">
+        	AND source like CONCAT('%',#{source,jdbcType=VARCHAR},'%' )
+      	</if>
+		<if test="startDate != null and endDate!=null">
+	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
+		</if>
+    ORDER BY create_time desc
+    LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER} 
+  </select>
+  <select id="getCount" resultType="java.lang.Integer" parameterType="com.tianhong.domain.culture.Culture">
+    select 
+    	count(1)
+    from t_culture
+    where  is_deleted = 0
+	    <if test="menuId != null and  menuId>0">
+        	AND menu_id = #{menuId,jdbcType=INTEGER}
+      	</if>
+      		<if test="title != null and title!=''">
+        	AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' ) 
+      	</if>
+      	<if test="source != null and source!=''">
+        	AND source like CONCAT('%',#{source,jdbcType=VARCHAR},'%' )
+      	</if>
+      	<if test="startDate != null and endDate!=null">
+	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
+		</if>
   </select>
 </mapper>
