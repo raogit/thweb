@@ -33,13 +33,13 @@ public class MenuController extends BaseController {
 	@Autowired
 	private MenuService menuService;
 
-	@RequestMapping(value = "/rich")
+	@RequestMapping(value = "/news/detail")
 	public Object rich(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("menuId", menuId);
-		return "/text/rich-text";
+		return "/news/detail";
 	}
 
-	@RequestMapping(value = "/news")
+	@RequestMapping(value = "/news/list")
 	public Object news(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("menuId", menuId);
 		return "/news/list";
