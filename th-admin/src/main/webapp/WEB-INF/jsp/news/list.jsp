@@ -29,6 +29,7 @@
   	<script src="${basePath}/js/richtext/font_size.min.js"></script>
   	<script src="${basePath}/js/richtext/block_styles.min.js"></script>
   	<script src="${basePath}/js/richtext/video.min.js"></script>
+  	<script src="${basePath }/js/My97DatePicker/WdatePicker.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath}/js/timer/timer.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath}/js/utils/utils.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath}/js/news/list.js?ver=${ver}" type="text/javascript" ></script>
@@ -86,8 +87,8 @@
 				<strong style="color: grey;">来源:</strong>
 				<input id="source" type="text" class="textbox" placeholder="来源..." /> 
 				<strong style="color: grey;">创建时间:</strong>
-				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" />-
-				<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:160px;"/>
+				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'zh-cn',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" />-
+				<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'zh-cn',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:160px;"/>
 				<input type="button" value="查询" class="group_btn" onclick="tableData(1)" /> 
 				<input type="button" value="添加" class="group_btn" onclick="showPop(0)" style="margin-left:20px;" /> 
 			</section>
