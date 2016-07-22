@@ -138,4 +138,10 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectByStatus" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_recruit_resume_delivery
+    where status = #{status,jdbcType=VARCHAR}
+  </select>
 </mapper>
