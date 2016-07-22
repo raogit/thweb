@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-07-21 18:11:04
+Date: 2016-07-22 15:30:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,6 +23,7 @@ CREATE TABLE `t_culture` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `menu_id` int(11) DEFAULT NULL COMMENT '菜单ID',
   `title` varchar(1024) DEFAULT NULL COMMENT '标题',
+  `source` varchar(1024) DEFAULT NULL,
   `content` text COMMENT '企业文化内容',
   `path` varchar(1024) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT NULL,
@@ -34,12 +35,18 @@ CREATE TABLE `t_culture` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='企业文化';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='企业文化';
 
 -- ----------------------------
 -- Records of t_culture
 -- ----------------------------
-INSERT INTO `t_culture` VALUES ('1', '8', null, '<h1><p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8880/th-admin/download/png?fileName=1469089658972.png\" width=\"300\"></p><p><br></p><p>\n\n<span data-fr-verified=\"true\" style=\"color: rgb(51, 51, 51); font-family: &quot; Microsoft YaHei&quot;; font-size: 36px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 50.76px; orphans: auto; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);\">&nbsp;</span><span data-fr-verified=\"true\" style=\"font-size: 12px; color: rgb(51, 51, 51); font-family: &quot; Microsoft YaHei&quot;; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 50.76px; orphans: auto; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; float: none; display: inline !important; background-color: rgb(255, 255, 255);\">天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。</span><span data-fr-verified=\"true\" style=\"font-size: 12px;\">\n\n<br></span></p>  <p><span style=\"font-family: 宋体; color: rgb(51, 51, 51); font-size: 10.5pt;\" data-fr-verified=\"true\">1984年成立以来，通过人本、科学的管理，专业、高效的运营，公司取得了卓越的业绩，已连续多年入围中国连锁百强企业。公司根据目标顾客需求的不同，以百货店、大型购物中心、便利店的实体零售业态，打造以“亲和、信赖、享受生活”为核心价值的品牌，旗下拥有“天虹”、“君尚”两大零售品牌。截止5月16日，天虹品牌在北京、广东、福建、江西、湖南、江苏、浙江、四川等8省20市开设了61家直营分店及以特许经营方式管理2家分店，君尚品牌在深圳、东莞、惠州共开设了3家直营分店；天虹微喔便利店在深圳、厦门、南昌等地共开设了96家直营分店，38家加盟店；天虹跨境电商体验店在深圳、东莞、惠州、厦门、福州、成都、长沙、株洲、吉安、赣州、杭州、苏州等地开店34家。</span></p>  <p><span style=\"font-family: 宋体; color: rgb(51, 51, 51); font-size: 10.5pt;\" data-fr-verified=\"true\">公司在行业内率先突破传统百货购物模式，从实体店走向线上线下融合的全渠道，率先打造出全国首家拥有“自定义菜单”的零售微信服务号“天虹”，随后逐步创新，现已形成实体店、PC网店、移动端（天虹微信、天虹微品、虹领巾）的全渠道零售生活平台。</span></p>  <p><span style=\"font-family: 宋体; font-size: 10.5pt;\" data-fr-verified=\"true\">天虹将始终坚持“有效益扩张”和“可持续发展”的原则，立志将公司塑造成全国一流的零售企业，与顾客分享生活之美。</span></p><br></h1><p><br></p><p><br></p>', null, null, null, '2016-07-21 16:27:40', '1', '0', null, null, null);
+INSERT INTO `t_culture` VALUES ('1', '8', null, null, '<h1><p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8880/th-admin/download/png?fileName=1469089658972.png\" width=\"300\"></p><p><br></p><p>\n\n<span data-fr-verified=\"true\" style=\"color: rgb(51, 51, 51); font-family: &quot; Microsoft YaHei&quot;; font-size: 36px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 50.76px; orphans: auto; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);\">&nbsp;</span><span data-fr-verified=\"true\" style=\"font-size: 12px; color: rgb(51, 51, 51); font-family: &quot; Microsoft YaHei&quot;; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 50.76px; orphans: auto; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; float: none; display: inline !important; background-color: rgb(255, 255, 255);\">天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。</span><span data-fr-verified=\"true\" style=\"font-size: 12px;\">\n\n<br></span></p>  <p><span style=\"font-family: 宋体; color: rgb(51, 51, 51); font-size: 10.5pt;\" data-fr-verified=\"true\">1984年成立以来，通过人本、科学的管理，专业、高效的运营，公司取得了卓越的业绩，已连续多年入围中国连锁百强企业。公司根据目标顾客需求的不同，以百货店、大型购物中心、便利店的实体零售业态，打造以“亲和、信赖、享受生活”为核心价值的品牌，旗下拥有“天虹”、“君尚”两大零售品牌。截止5月16日，天虹品牌在北京、广东、福建、江西、湖南、江苏、浙江、四川等8省20市开设了61家直营分店及以特许经营方式管理2家分店，君尚品牌在深圳、东莞、惠州共开设了3家直营分店；天虹微喔便利店在深圳、厦门、南昌等地共开设了96家直营分店，38家加盟店；天虹跨境电商体验店在深圳、东莞、惠州、厦门、福州、成都、长沙、株洲、吉安、赣州、杭州、苏州等地开店34家。</span></p>  <p><span style=\"font-family: 宋体; color: rgb(51, 51, 51); font-size: 10.5pt;\" data-fr-verified=\"true\">公司在行业内率先突破传统百货购物模式，从实体店走向线上线下融合的全渠道，率先打造出全国首家拥有“自定义菜单”的零售微信服务号“天虹”，随后逐步创新，现已形成实体店、PC网店、移动端（天虹微信、天虹微品、虹领巾）的全渠道零售生活平台。</span></p>  <p><span style=\"font-family: 宋体; font-size: 10.5pt;\" data-fr-verified=\"true\">天虹将始终坚持“有效益扩张”和“可持续发展”的原则，立志将公司塑造成全国一流的零售企业，与顾客分享生活之美。</span></p><br></h1><p><br></p><p><br></p>', null, null, null, '2016-07-21 16:27:40', '1', '0', null, null, null);
+INSERT INTO `t_culture` VALUES ('2', '32', '111', '222', '<p>4444</p>', null, '2016-07-22 11:02:16', '1', '2016-07-22 14:20:44', '1', '0', null, null, null);
+INSERT INTO `t_culture` VALUES ('3', '32', '厦门再添新店——天虹进驻厦门市枋湖社区发展中心项目签约', '天虹', '<p style=\"color: rgb(89, 88, 93); font-family: 宋体; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\"><span data-fr-verified=\"true\">&nbsp; &nbsp;&nbsp;</span>2016年4月28日，天虹进驻厦门市枋湖社区发展中心项目的签约仪式在厦门市举行，公司东南区总经理李森、拓展部总监张友耘，业主方代表苏辉明等出席了签约仪式。</p><p style=\"color: rgb(89, 88, 93); font-family: 宋体; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">&nbsp;&nbsp;&nbsp; 项目所在的五缘湾新片区，是厦门市新的经济增长点和未来城市经济圈的重要连接点，发展潜力巨大。项目位于厦门市湖里区云顶北路及金湖路交汇处东南角，交通便捷，显现性好，中高档楼盘密集，且周边将兴起多个大型购物中心，可形成商业聚集，未来将成为厦门市又一商业中心。项目为集商业、写字楼、公寓、商铺等于一体的城市综合体，我司租赁面积约7.1万平方米，将致力于打造为海西首席高性价比的生活体验中心，创造社交、休闲、生活第三空间。</p><p style=\"color: rgb(89, 88, 93); font-family: 宋体; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">&nbsp;&nbsp;&nbsp; 厦门市枋湖社区发展中心项目的签约，将进一步提升我司在厦门市场的品牌知名度，可与东南区的其他门店形成更具规模的协同效应，进一步完善我司在厦门的门店布局。</p><p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8880/th-admin/download/png?fileName=1469168862280.png\" width=\"300\"></p><p style=\"color: rgb(89, 88, 93); font-family: 宋体; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\"><br></p>', null, '2016-07-22 14:26:27', '1', '2016-07-22 14:40:08', '1', '0', null, null, null);
+INSERT INTO `t_culture` VALUES ('4', '86', '51CTO下载-Lucene实战(第2版)PDF高清中文版.pdf', null, '', '51CTO下载-Lucene实战(第2版)PDF高清中文版.pdf', '2016-07-22 15:16:46', '1', null, null, '0', null, null, null);
+INSERT INTO `t_culture` VALUES ('5', '86', 'Spring技术内幕 深入解析Spring架构与设计原理 第2版 .计文柯.扫描版.pdf', null, '', 'Spring技术内幕 深入解析Spring架构与设计原理 第2版 .计文柯.扫描版.pdf', '2016-07-22 15:18:46', '1', '2016-07-22 15:25:50', '1', '0', null, null, null);
+INSERT INTO `t_culture` VALUES ('6', '86', '手机属性表.xlsx', null, '', '手机属性表.xlsx', '2016-07-22 15:27:13', '1', '2016-07-22 15:27:37', '1', '1', null, null, null);
+INSERT INTO `t_culture` VALUES ('7', '86', '工作簿1.xlsx', null, '', '工作簿1.xlsx', '2016-07-22 15:27:42', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_investor`
@@ -124,7 +131,7 @@ INSERT INTO `t_menu` VALUES ('4', '新闻中心', null, '1', '0', '4', '1', '201
 INSERT INTO `t_menu` VALUES ('5', '人力资源', null, '1', '0', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('6', '招商采购', null, '1', '0', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('7', '投资者关系', null, '1', '0', '7', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('8', '公司概况', '/menu/rich?menuId=8', '2', '1', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('8', '公司概况', '/menu/news/detail?menuId=8', '2', '1', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('9', '多元业务', null, '2', '1', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('10', '发展历程', null, '2', '1', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('11', '发展战略', null, '2', '1', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
@@ -148,7 +155,7 @@ INSERT INTO `t_menu` VALUES ('28', '企业价值观', null, '3', '21', '3', '1',
 INSERT INTO `t_menu` VALUES ('29', '社会公益', null, '3', '25', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('30', '员工活动', null, '3', '25', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('31', '环境保护', null, '3', '25', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('32', '公司新闻', null, '2', '4', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('32', '公司新闻', '/menu/news/list?menuId=32', '2', '4', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('33', '媒体视角', null, '2', '4', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('34', '天虹商学院', null, '2', '5', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('35', '人在天虹', null, '2', '5', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
@@ -202,7 +209,7 @@ INSERT INTO `t_menu` VALUES ('82', '互动交流', null, '2', '7', '8', '1', '20
 INSERT INTO `t_menu` VALUES ('83', '公司治理架构图', null, '3', '77', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('84', '公司高管', null, '3', '77', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('85', '公司章程', null, '3', '77', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('86', '公司制度', null, '3', '77', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('86', '公司制度', '/menu/file/list?menuId=86', '3', '77', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('87', '外链', null, '3', '78', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('88', '外链', null, '3', '79', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('89', '利润分配', null, '3', '80', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
