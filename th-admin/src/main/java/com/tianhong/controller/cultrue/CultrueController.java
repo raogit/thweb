@@ -13,6 +13,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,8 +68,12 @@ public class CultrueController extends BaseController {
 	@ResponseBody
 	public Object page(Culture culture, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			culture.setTitle(culture.getTitle().trim());
-			culture.setSource(culture.getSource().trim());
+			if (StringUtils.isNotEmpty(culture.getTitle())) {
+				culture.setTitle(culture.getTitle().trim());
+			}
+			if (StringUtils.isNotEmpty(culture.getSource())) {
+				culture.setSource(culture.getSource().trim());
+			}
 			List<Culture> list = cultureService.findPage(culture);
 			int count = cultureService.getCount(culture);
 			culture.setObj(list);

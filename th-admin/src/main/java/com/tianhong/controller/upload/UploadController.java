@@ -50,11 +50,10 @@ public class UploadController extends BaseController {
 	@Autowired
 	private CultureService cultureService;
 
-	@RequestMapping(value = "/news")
+	@RequestMapping(value = "/file")
 	@ResponseBody
-	public Object multipartFile(@RequestParam MultipartFile[] file, @RequestParam("menuId") int menuId,
-			@RequestParam("title") String title, HttpServletRequest request, ModelMap model) {
-
+	public Object file(@RequestParam("fileId") MultipartFile[] file, @RequestParam("menuId") int menuId,
+			HttpServletRequest request, ModelMap model) {
 		try {
 			User user = getCurrentUser(request);
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
@@ -66,7 +65,7 @@ public class UploadController extends BaseController {
 				String fileName = FileToolUtils.saveFile(f, path);
 				paths.add(fileName);
 			}
-			cultureService.insertSelective(menuId, title, "", paths, user);
+			cultureService.insertSelective(menuId, file[0].getOriginalFilename(), "", paths, user);
 			return true;
 		} catch (Exception e) {
 			log.error("", e);
@@ -74,9 +73,9 @@ public class UploadController extends BaseController {
 		return false;
 	}
 
-	@RequestMapping(value = "/file")
+	@RequestMapping(value = "/image/rich")
 	@ResponseBody
-	public Object file(@RequestParam MultipartFile[] file, HttpServletRequest request, ModelMap model) {
+	public Object imageRich(@RequestParam MultipartFile[] file, HttpServletRequest request, ModelMap model) {
 		Result result = new Result();
 		JSONObject json = new JSONObject();
 		try {

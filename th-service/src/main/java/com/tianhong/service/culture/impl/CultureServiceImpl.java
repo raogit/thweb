@@ -78,7 +78,7 @@ public class CultureServiceImpl implements CultureService {
 
 	public boolean deleteByPrimaryKey(Integer id, User user) throws Exception {
 		Culture culture = cultureMapper.selectByPrimaryKey(id);
-		culture.setIsDeleted(false);
+		culture.setIsDeleted(true);
 		culture.setUpdateId(user.getId());
 		culture.setUpdateTime(new Date());
 		cultureMapper.updateByPrimaryKeySelective(culture);

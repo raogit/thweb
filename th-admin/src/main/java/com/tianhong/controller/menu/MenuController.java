@@ -34,15 +34,24 @@ public class MenuController extends BaseController {
 	private MenuService menuService;
 
 	@RequestMapping(value = "/news/detail")
-	public Object rich(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+	public Object newsDetail(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
 		request.setAttribute("menuId", menuId);
 		return "/news/detail";
 	}
 
 	@RequestMapping(value = "/news/list")
-	public Object news(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+	public Object newsList(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
 		request.setAttribute("menuId", menuId);
 		return "/news/list";
+	}
+
+	@RequestMapping(value = "/file/list")
+	public Object fileList(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		request.setAttribute("menuId", menuId);
+		return "/file/list";
 	}
 
 	@RequestMapping(value = "/list")
