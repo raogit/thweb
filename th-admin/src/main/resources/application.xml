@@ -75,4 +75,5 @@
 	<mvc:resources mapping="/activex/**" location="/activex/" />
 
 	<import resource="classpath:spring-service.xml"/>
+	<import resource="classpath:spring-quartz.xml"/>
 </beans>
