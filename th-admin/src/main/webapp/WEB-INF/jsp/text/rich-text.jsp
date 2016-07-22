@@ -39,6 +39,7 @@
 	<jsp:include page="../head/head-iframe.jsp"></jsp:include>
 	<input type="hidden" value="${menuId}" id="menuId" name="menuId" />
 	<input type="hidden" value="0" id="id" name="id" />
+	<input type="hidden" value="/upload/picture" id="uri" name="uri" />
 	<div>
 		<form action="${basePath }/upload/picture" encType="multipart/form-data" method="post">
 			<ul class="ulColumn2" style="text-align: left;">

@@ -47,4 +47,5 @@ public class CommonConstant {
 	public static final String REQUEST_METHOD_GET = "get";
 
 	public static final String UPLOAD_IMG_PATH = "upload/";
+	public static final String UPLOAD_FILE_PATH = "file/";
 }

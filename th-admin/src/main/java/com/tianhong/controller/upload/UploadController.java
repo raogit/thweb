@@ -7,6 +7,9 @@
  */
 package com.tianhong.controller.upload;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
@@ -24,6 +27,7 @@ import com.tianhong.constant.CommonConstant;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.user.User;
 import com.tianhong.model.Result;
+import com.tianhong.service.culture.CultureService;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.utils.AssertUtils;
 import com.tianhong.utils.FileToolUtils;
@@ -43,28 +47,31 @@ public class UploadController extends BaseController {
 
 	@Autowired
 	private PictureService pictureService;
+	@Autowired
+	private CultureService cultureService;
 
-	@RequestMapping(value = "/multipartFile")
+	@RequestMapping(value = "/news")
 	@ResponseBody
-	public Object multipartFile(@RequestParam MultipartFile[] file, HttpServletRequest request, ModelMap model) {
-		Result result = new Result();
-		JSONObject json = new JSONObject();
+	public Object multipartFile(@RequestParam MultipartFile[] file, @RequestParam("menuId") int menuId,
+			@RequestParam("title") String title, HttpServletRequest request, ModelMap model) {
+
 		try {
+			User user = getCurrentUser(request);
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			request.setCharacterEncoding(CommonConstant.UTF_8);
 			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					CommonConstant.UPLOAD_IMG_PATH);
-			String fileName = FileToolUtils.saveFile(file[0], path);
-			String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-					+ request.getContextPath();
-			json.put("link", url + "/download/png?fileName=" + fileName);
-			return json;
+					CommonConstant.UPLOAD_FILE_PATH);
+			List<String> paths = new ArrayList<String>();
+			for (MultipartFile f : file) {
+				String fileName = FileToolUtils.saveFile(f, path);
+				paths.add(fileName);
+			}
+			cultureService.insertSelective(menuId, title, "", paths, user);
+			return true;
 		} catch (Exception e) {
 			log.error("", e);
-			result.setStatus(false);
-			result.setObj(e.getMessage());
 		}
-		return result;
+		return false;
 	}
 
 	@RequestMapping(value = "/file")

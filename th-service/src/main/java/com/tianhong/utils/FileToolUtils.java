@@ -320,15 +320,12 @@ public class FileToolUtils extends FileUtils {
 		FileOutputStream fileOut = null;
 		BufferedOutputStream output = null;
 		try {
-
 			String fileName = file.getOriginalFilename();
-			String[] splits = fileName.split(CommonConstant.POINT);
-			StringBuffer sb = new StringBuffer();
-			sb.append(System.currentTimeMillis()).append(CommonConstant.POINT).append(splits[splits.length - 1]);
-			FileToolUtils.deleteFile(path + sb.toString());
+
+			FileToolUtils.deleteFile(path + fileName);
 			FileToolUtils.mkDir(path);
 			input = new BufferedInputStream(file.getInputStream());
-			File f = new File(path + sb.toString());
+			File f = new File(path + fileName);
 			FileToolUtils.deleteFile(f);
 			fileOut = new FileOutputStream(f);
 			output = new BufferedOutputStream(fileOut);
@@ -337,7 +334,7 @@ public class FileToolUtils extends FileUtils {
 				output.write(b);
 			}
 			output.flush();
-			return sb.toString();
+			return fileName;
 		} finally {
 			try {
 				if (input != null) {
