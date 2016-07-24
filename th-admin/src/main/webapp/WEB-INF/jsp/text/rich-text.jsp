@@ -12,6 +12,7 @@
     <style>
         body {
             text-align: center;
+            overflow: auto;
         }
         section {
             width: 80%;
@@ -35,7 +36,7 @@
 	<script src="${basePath}/js/richtext/rich-text.js?ver=${ver}" type="text/javascript" ></script>
 </head>
 
-<body>
+<body style="overflow: auto;">
 	<jsp:include page="../head/head-iframe.jsp"></jsp:include>
 	<input type="hidden" value="${menuId}" id="menuId" name="menuId" />
 	<input type="hidden" value="0" id="id" name="id" />

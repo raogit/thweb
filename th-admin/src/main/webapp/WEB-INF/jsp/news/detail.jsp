@@ -12,6 +12,7 @@
     <style>
         body {
             text-align: center;
+            overflow: auto;
         }
         section {
             width: 80%;

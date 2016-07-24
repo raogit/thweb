@@ -14,7 +14,7 @@
             text-align: center;
         }
         section {
-            width: 80%;
+            width: 95%;
             margin: auto;
             text-align: left;
         }
