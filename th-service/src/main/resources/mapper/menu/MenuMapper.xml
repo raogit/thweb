@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.tianhong.domain.menu.Menu">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="link" jdbcType="VARCHAR" property="link" />
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="level" jdbcType="TINYINT" property="level" />
     <result column="parent_id" jdbcType="INTEGER" property="parentId" />
@@ -19,7 +20,7 @@
     <result column="backup3" jdbcType="VARCHAR" property="backup3" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, name, url, level, parent_id, sort, is_show, create_time, create_id, update_time, 
+    id, name, link, url, level, parent_id, sort, is_show, create_time, create_id, update_time, 
     update_id, is_deleted, backup1, backup2, backup3
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -33,18 +34,18 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.tianhong.domain.menu.Menu">
-    insert into t_menu (id, name, url, 
-      level, parent_id, sort, 
-      is_show, create_time, create_id, 
-      update_time, update_id, is_deleted, 
-      backup1, backup2, backup3
-      )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
-      #{level,jdbcType=TINYINT}, #{parentId,jdbcType=INTEGER}, #{sort,jdbcType=TINYINT}, 
-      #{isShow,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, #{isDeleted,jdbcType=BIT}, 
-      #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, #{backup3,jdbcType=VARCHAR}
-      )
+    insert into t_menu (id, name, link, 
+      url, level, parent_id, 
+      sort, is_show, create_time, 
+      create_id, update_time, update_id, 
+      is_deleted, backup1, backup2, 
+      backup3)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{link,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{level,jdbcType=TINYINT}, #{parentId,jdbcType=INTEGER}, 
+      #{sort,jdbcType=TINYINT}, #{isShow,jdbcType=TINYINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=BIT}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, 
+      #{backup3,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.tianhong.domain.menu.Menu">
     insert into t_menu
@@ -54,6 +55,9 @@
       </if>
       <if test="name != null">
         name,
+      </if>
+      <if test="link != null">
+        link,
       </if>
       <if test="url != null">
         url,
@@ -102,6 +106,9 @@
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
+      <if test="link != null">
+        #{link,jdbcType=VARCHAR},
+      </if>
       <if test="url != null">
         #{url,jdbcType=VARCHAR},
       </if>
@@ -149,6 +156,9 @@
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
+      <if test="link != null">
+        link = #{link,jdbcType=VARCHAR},
+      </if>
       <if test="url != null">
         url = #{url,jdbcType=VARCHAR},
       </if>
@@ -194,6 +204,7 @@
   <update id="updateByPrimaryKey" parameterType="com.tianhong.domain.menu.Menu">
     update t_menu
     set name = #{name,jdbcType=VARCHAR},
+      link = #{link,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},
       level = #{level,jdbcType=TINYINT},
       parent_id = #{parentId,jdbcType=INTEGER},
