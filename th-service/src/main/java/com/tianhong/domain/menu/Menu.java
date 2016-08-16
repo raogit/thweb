@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Menu {
+import com.tianhong.page.Page;
+
+public class Menu extends Page {
 	private Integer id;
 
 	private String name;

@@ -235,4 +235,43 @@
     from t_menu
     where is_deleted = 0 and type = #{type,jdbcType=INTEGER}
   </select>
+  
+  
+  
+  
+  
+    <select id="selectPage" parameterType="com.tianhong.domain.menu.Menu" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_menu
+    where is_deleted = 0
+    	 <if test="name != null and name != ''">
+	        AND name = #{name,jdbcType=VARCHAR}
+	    </if>
+		<if test="startDate != null and endDate!=null">
+	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
+		</if>
+    ORDER BY create_time desc
+    LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER} 
+  </select>
+  
+  <select id="selectCount" resultType="java.lang.Integer" parameterType="com.tianhong.domain.menu.Menu">
+    select 
+    	count(1)
+    from t_menu
+    where  is_deleted = 0
+	    <if test="name != null and name != ''">
+	        AND name = #{name,jdbcType=VARCHAR}
+	    </if>
+		<if test="startDate != null and endDate!=null">
+	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
+		</if>
+  </select>
+  
+   <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_menu
+    where name = #{name,jdbcType=VARCHAR} and is_deleted = 0
+  </select>
 </mapper>
