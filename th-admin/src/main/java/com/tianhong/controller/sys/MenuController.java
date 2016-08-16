@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -33,8 +32,8 @@ import com.tianhong.utils.AssertUtils;
  * @author xing
  * @date 2016年7月19日 下午2:25:17
  */
-@Controller
-@RequestMapping("/menu")
+// @Controller
+// @RequestMapping("/menu")
 public class MenuController extends BaseController {
 
 	private static final Log log = LogFactory.getLog(MenuController.class);
@@ -43,7 +42,7 @@ public class MenuController extends BaseController {
 
 	@RequestMapping(value = "/list")
 	public Object menu(HttpServletRequest request, HttpServletResponse response) {
-		return "/sys/menu-list";
+		return "/auth-manager/menu";
 	}
 
 	@RequestMapping(value = "/page")

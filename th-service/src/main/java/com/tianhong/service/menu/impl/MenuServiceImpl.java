@@ -90,4 +90,27 @@ public class MenuServiceImpl implements MenuService {
 		String[] menuIdArray = menuIds.split(CommonConstant.COMMA);
 		return false;
 	}
+
+	public List<Menu> getPageRoles(Menu menu) throws Exception {
+		return menuMapper.selectPage(menu);
+	}
+
+	public Menu getByPrimaryKey(int id) throws Exception {
+		return menuMapper.selectByPrimaryKey(id);
+	}
+
+	public Menu insertSelective(Menu record) throws Exception {
+		menuMapper.insertSelective(record);
+		return record;
+	}
+
+	public boolean updateByPrimaryKeySelective(Menu record) throws Exception {
+		record.setName(record.getName().trim());
+		menuMapper.updateByPrimaryKeySelective(record);
+		return true;
+	}
+
+	public Menu getByName(String name) throws Exception {
+		return menuMapper.selectByName(name);
+	}
 }

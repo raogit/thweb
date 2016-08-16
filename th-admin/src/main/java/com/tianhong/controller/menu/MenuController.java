@@ -3,6 +3,7 @@
  */
 package com.tianhong.controller.menu;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.menu.Menu;
+import com.tianhong.domain.user.User;
 import com.tianhong.service.menu.MenuService;
+import com.tianhong.utils.AssertUtils;
 
 /**
  * @author Administrator
@@ -101,5 +104,76 @@ public class MenuController extends BaseController {
 			log.error("", e);
 		}
 		return "/user/list";
+	}
+
+	@RequestMapping(value = "/page")
+	@ResponseBody
+	public Object page(Menu menu, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			menu.setName(menu.getName().trim());
+			return menuService.getPageRoles(menu);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/get")
+	@ResponseBody
+	public Object get(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return menuService.getByPrimaryKey(id);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/add")
+	@ResponseBody
+	public Object add(Menu menu, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			Menu m = menuService.getByName(menu.getName());
+			AssertUtils.isNull(m, "角色已存在");
+			User user = getCurrentUser(request);
+			menu.setCreateId(user.getCreateId());
+			menu.setCreateTime(new Date());
+			return menuService.insertSelective(menu);
+		} catch (Exception e) {
+			log.error("", e);
+
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/delete")
+	@ResponseBody
+	public Object delete(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			User user = getCurrentUser(request);
+			Menu menu = menuService.getByPrimaryKey(id);
+			AssertUtils.notNull(menu, "角色不存在");
+			menu.setIsDeleted(true);
+			menu.setUpdateTime(new Date());
+			menu.setUpdateId(user.getId());
+			return menuService.updateByPrimaryKeySelective(menu);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/edit")
+	@ResponseBody
+	public Object edit(Menu menu, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			User user = getCurrentUser(request);
+			menu.setUpdateTime(new Date());
+			menu.setUpdateId(user.getId());
+			return menuService.updateByPrimaryKeySelective(menu);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
 	}
 }

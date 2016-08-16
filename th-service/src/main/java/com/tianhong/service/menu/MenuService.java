@@ -19,6 +19,15 @@ import com.tianhong.domain.menu.Menu;
  * @date 2016年7月13日 下午4:55:23
  */
 public interface MenuService {
+	List<Menu> getPageRoles(Menu menu) throws Exception;
+
+	Menu getByPrimaryKey(int id) throws Exception;
+
+	Menu insertSelective(Menu record) throws Exception;
+
+	boolean updateByPrimaryKeySelective(Menu record) throws Exception;
+
+	Menu getByName(String name) throws Exception;
 
 	List<Menu> getAllMenus() throws Exception;
 
