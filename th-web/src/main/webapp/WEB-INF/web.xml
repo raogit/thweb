@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.4">
+  <javaee:display-name>th-web</javaee:display-name>
+  <context-param>
+    <javaee:param-name>contextConfigLocation</javaee:param-name>
+    <javaee:param-value>classpath:application.xml</javaee:param-value>
+  </context-param>
+  <listener>
+    <javaee:listener-class>org.springframework.web.context.ContextLoaderListener</javaee:listener-class>
+  </listener>
+  <listener>
+    <javaee:listener-class>org.springframework.web.util.Log4jConfigListener</javaee:listener-class>
+  </listener>
+  <servlet>
+    <javaee:display-name>contextConfig</javaee:display-name>
+    <servlet-name>contextConfig</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <javaee:param-name>contextConfigLocation</javaee:param-name>
+      <javaee:param-value>classpath:application.xml</javaee:param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>contextConfig</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <javaee:param-name>encoding</javaee:param-name>
+      <javaee:param-value>UTF-8</javaee:param-value>
+    </init-param>
+    <init-param>
+      <javaee:param-name>forceEncoding</javaee:param-name>
+      <javaee:param-value>true</javaee:param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>characterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+</web-app>
