@@ -39,14 +39,15 @@
 		<section class="pop_bg" id="pop_user">
 		<div class="pop_cont">
 			<!--title-->
-			<h3 id="pupTitle">修改角色</h3>
+			<h3 id="pupTitle">修改菜单</h3>
 			<!--content-->
-			<input type="hidden" value="0" id="popRoleId" />
+			<input type="hidden" value="0" id="popMenuId" />
+			<input type="hidden" value="0" id="popParentMenuId" />
 			<div class="pop_cont_input">
 				<ul>
-					<li><span style="width:70px;text-align: right;" class="ttl">角色名:</span> <input id="popRoleName" style="width:140px;" type="text" placeholder="请输入角色名..." class="textbox" /></li>
-					
-					<li><span style="width:70px;text-align: right;" class="ttl">描述:</span><input id="popDescription"  style="width:140px;" type="text" placeholder="请填写描述..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">菜单名:</span> <input id="popName" style="width:140px;" type="text" placeholder="请输入菜单名..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">link:</span><input id="popLink"  style="width:140px;" type="text" placeholder="请填写link..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">url:</span><input id="popUrl"  style="width:140px;" type="text" placeholder="请填写url..." class="textbox" /></li>
 				</ul>
 			</div>
 			<!--bottom:operate->button-->
@@ -57,36 +58,14 @@
 		</div>
 		</section>
 		<!--结束：弹出框效果-->
-
-		
-		<!--弹出框效果-->
-		<section class="pop_bg" id="pop_tree">
-			<div class="pop_cont" style="top:0;height:530px;">
-				<input type="hidden" value="0" id="treeRoleId" />
-				<!--title-->
-				<h3>权限设置</h3>
-				<div style="overflow: auto;height:420px; width: 300px;">
-					<!--content-->
-					<div class="pop_cont_input" id="dtreeid" style="overflow: auto;height:400px;width: 280px;"></div>
-				</div>
-				
-				<!--bottom:operate->button-->
-				<div class="btm_btn">
-					<input type="button" value="确认" class="input_btn trueBtn" id="confirm_tree"/> <input
-						type="button" value="关闭" class="input_btn falseBtn" id="close_tree"/>
-				</div>
-			</div>
-		</section>
-		<!--结束：弹出框效果-->
-		
 		
 		<section>
 			<section>
 				<h2>
 					<strong style="color: grey;"></strong>
 				</h2>
-				<strong style="color: grey;">角色名:</strong>
-				<input id="rolename" type="text" class="textbox" placeholder="角色名..." /> 
+				<strong style="color: grey;">菜单名:</strong>
+				<input id="name" type="text" class="textbox" placeholder="菜单名..." /> 
 				
 				<strong style="color: grey;">创建时间:</strong>
 				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" />-
@@ -97,14 +76,16 @@
 			<section>
 				<h1></h1>
 				<div class="page_title">
-					<h2 class="fl">全部角色</h2>
+					<h2 class="fl">全部菜单</h2>
 				</div>
 				<table class="table" id="userlist">
 					<thead>
 						<tr>
 							<th>序号</th>
-							<th>角色名</th>	
-							<th>描述</th>						
+							<th>level</th>
+							<th>菜单名</th>	
+							<th>link</th>
+							<th>url</th>						
 							<th>创建时间</th>
 							<th>操作</th>
 						</tr>
@@ -116,8 +97,6 @@
 			</section>
 	</div>
 	</section>
-	<script src="${basePath }/js/dtree/dtree.js?ver=${ver}" type="text/javascript" ></script>
-	<script src="${basePath }/js/auth-manager/role-dtree.js?ver=${ver}" type="text/javascript" ></script>
 	
 </body>
 </html>

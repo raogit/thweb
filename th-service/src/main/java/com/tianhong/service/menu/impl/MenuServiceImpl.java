@@ -91,8 +91,12 @@ public class MenuServiceImpl implements MenuService {
 		return false;
 	}
 
-	public List<Menu> getPageRoles(Menu menu) throws Exception {
-		return menuMapper.selectPage(menu);
+	public Menu getPage(Menu menu) throws Exception {
+		List<Menu> roles = menuMapper.selectPage(menu);
+		int count = menuMapper.selectCount(menu);
+		menu.setObj(roles);
+		menu.setTotalRow(count);
+		return menu;
 	}
 
 	public Menu getByPrimaryKey(int id) throws Exception {
@@ -112,5 +116,9 @@ public class MenuServiceImpl implements MenuService {
 
 	public Menu getByName(String name) throws Exception {
 		return menuMapper.selectByName(name);
+	}
+
+	public byte getSort(int parentId) throws Exception {
+		return menuMapper.selectSort(parentId);
 	}
 }

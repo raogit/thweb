@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.user.User;
+import com.tianhong.enums.UserLevelEnum;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.utils.AssertUtils;
 
@@ -111,7 +112,7 @@ public class MenuController extends BaseController {
 	public Object page(Menu menu, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			menu.setName(menu.getName().trim());
-			return menuService.getPageRoles(menu);
+			return menuService.getPage(menu);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -136,12 +137,18 @@ public class MenuController extends BaseController {
 			Menu m = menuService.getByName(menu.getName());
 			AssertUtils.isNull(m, "角色已存在");
 			User user = getCurrentUser(request);
+			Menu parentMenu = menuService.getByPrimaryKey(menu.getParentId());
+			byte userLevel = UserLevelEnum.getUserLevel(parentMenu.getLevel());
+			menu.setSort(menuService.getSort(menu.getParentId()));
+			menu.setLevel(userLevel);
 			menu.setCreateId(user.getCreateId());
+			menu.setCreateTime(new Date());
+			menu.setIsDeleted(false);
+			menu.setCreateId(user.getId());
 			menu.setCreateTime(new Date());
 			return menuService.insertSelective(menu);
 		} catch (Exception e) {
 			log.error("", e);
-
 		}
 		return false;
 	}

@@ -16,4 +16,6 @@ public interface MenuMapper extends BaseMapper<Menu> {
 	List<Menu> selectPage(Menu menu) throws Exception;
 
 	int selectCount(Menu menu) throws Exception;
+
+	byte selectSort(int parentId) throws Exception;
 }

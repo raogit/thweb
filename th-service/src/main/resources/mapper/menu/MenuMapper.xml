@@ -274,4 +274,11 @@
     from t_menu
     where name = #{name,jdbcType=VARCHAR} and is_deleted = 0
   </select>
+  
+  <select id="selectSort" parameterType="java.lang.Integer" resultType="java.lang.Byte">
+    select 
+   	 max(sort) +1
+    from t_menu
+    where parent_id = #{parentId,jdbcType=INTEGER} and is_deleted = 0
+  </select>
 </mapper>

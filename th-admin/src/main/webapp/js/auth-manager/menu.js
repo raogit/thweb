@@ -19,9 +19,7 @@ jQuery(document).ready(function() {
 			
 		});
 	})(jQuery);
-	var curDate = new Date();
-	$("#startDate").val(curentTime(curDate.getTime() - 30*24*60*60*1000));
-	$("#endDate").val(curentTime(curDate.getTime()+ 60*60*1000));
+	refreshTime();
 	loading();
 	btn();
 	tab();
@@ -29,24 +27,26 @@ jQuery(document).ready(function() {
 });
 
 function tableData(pageNum){
+	debugger;
 	curPage = pageNum;
 	$(".loading_area").fadeIn();
-	var roleName = $("#rolename").val();
+	var name = $("#name").val();
 	var startDate = $("#startDate").val();
 	var endDate = $("#endDate").val();
 	
 	$.ajax({
-        url: basePath + "/role/page",
+        url: basePath + "/menu/page",
         type: 'post',
         dataType: 'json',
         data : {
-        	roleName : roleName,
+        	name : name,
         	startDate : startDate,
         	endDate : endDate,
         	curPage : pageNum
         },
         cache: false,
         success: function(data){
+        	debugger;
         	if(data!=null&&data!=""){
         		initTable(data.obj);
         		initPage(data);
@@ -67,10 +67,12 @@ function initTable(list){
 		var time = curentTime(item.createTime);
 		var tr = "<tr>"
 			+"<td>"+(i+1)+"</td>"
-			+"<td>"+item.roleName+"</td>"
-			+"<td>"+item.roleDescription+"</td>"
+			+"<td>"+item.level+"</td>"
+			+"<td>"+item.name+"</td>"
+			+"<td>"+item.link+"</td>"
+			+"<td>"+item.url+"</td>"
 			+"<td>"+time+"</td>"
-			+"<td style='text-align: center;'><a href='javascript:showUser("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:treePop("+item.id+")' class='inner_btn'>权限</a><a href='javascript:deleteUser("+item.id+")' class='inner_btn'>删除</a></td>"
+			+"<td style='text-align: center;'><a href='javascript:showUser("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:addSub("+item.id+")' class='inner_btn'>增加子菜单</a><a href='javascript:deleteUser("+item.id+")' class='inner_btn'>删除</a></td>"
 			+"</tr>";
 		userlist.append(tr);
 	}
@@ -96,15 +98,16 @@ function initPage(page){
 
 function showUser(id){
 	$("#pop_user").fadeIn(200);
-	$("#popRoleId").val(id);
-	$("#popRoleName").val("");
-	$("#popDescription").val("");
+	$("#popMenuId").val(id);
+	$("#popName").val("");
+	$("#popLink").val("");
+	$("#popUrl").val("");
 	if(id<=0){
-		$("#pupTitle").html("添加角色");
+		$("#pupTitle").html("添加菜单");
 	}else{
-		$("#pupTitle").html("修改角色");
+		$("#pupTitle").html("修改菜单");
 		$.ajax({
-	        url: basePath + "/role/get",
+	        url: basePath + "/menu/get",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -113,28 +116,39 @@ function showUser(id){
 	        cache: false,
 	        success: function(data){
 	        	if(data){
-	        		$("#popRoleName").val(data.roleName);
-		        	$("#popDescription").val(data.roleDescription);
+	        		$("#popName").val(data.name);
+		        	$("#popLink").val(data.link);
+		        	$("#popUrl").val(data.url);
 	        	}
 	        	
 	        }
 	    });
 	}
 }
-
+function addSub(parentMenuId){
+	$("#popParentMenuId").val(parentMenuId);
+	$("#pupTitle").html("添加子菜单");
+	$("#pop_user").fadeIn(200);
+	$("#popMenuId").val(0);
+	$("#popName").val("");
+	$("#popLink").val("");
+	$("#popUrl").val("");
+}
 function addOrEdituser(){
 	debugger;
-	var id = $("#popRoleId").val();
-	var roleName = $("#popRoleName").val();
-	var roleDescription = $("#popDescription").val();
-	if(isEmpty(roleName)){
-		alert("请输入角色名");
+	var id = $("#popMenuId").val();
+	var name = $("#popName").val();
+	var link = $("#popLink").val();
+	var popUrl = $("#popUrl").val();
+	var parentId = $("#popParentMenuId").val();
+	if(isEmpty(name)){
+		alert("请输入菜单名");
 		return ;
 	}
-	
-	var url = basePath + "/role/add";
+	debugger;
+	var url = basePath + "/menu/add";
 	if(id>0){
-		url = basePath + "/role/edit";
+		url = basePath + "/menu/edit";
 	}
 	$.ajax({
         url: url,
@@ -142,13 +156,16 @@ function addOrEdituser(){
         dataType: 'json',
         data : {
         	id : id,
-        	roleName : roleName,
-        	roleDescription : roleDescription
+        	parentId : parentId,
+        	name : name,
+        	link : link,
+        	url : popUrl
         },
         cache: false,
         success: function(data){
         	debugger;
         	if(data){
+        		refreshTime();
         		alert("操作成功!");
         		tableData(curPage);
             	$("#pop_user").fadeOut(200);
@@ -167,7 +184,7 @@ function isEmpty(str){
 function deleteUser(id){
 	if(confirm("刪除将无法恢复?")){
 		$.ajax({
-	        url: basePath + "/role/delete",
+	        url: basePath + "/menu/delete",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -226,4 +243,9 @@ function tab(){
 		 $(this).addClass("active").parent().siblings().find("a").removeClass("active");
 		 $(".admin_tab_cont").eq(liindex).fadeIn(150).siblings(".admin_tab_cont").hide();
 	});
+}
+function refreshTime(){
+	var curDate = new Date();
+	$("#startDate").val(curentTime(curDate.getTime() - 12*30*24*60*60*1000));
+	$("#endDate").val(curentTime(curDate.getTime()+ 60*60*1000));
 }
