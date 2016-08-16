@@ -1,5 +1,4 @@
-﻿<!--
-/* PCAS (Province City Area Selector 省、市、地区联动选择JS封装类) Ver 2.01 完整版 www.002pc.com *\
+﻿/* PCAS (Province City Area Selector 省、市、地区联动选择JS封装类) Ver 2.01 完整版 www.002pc.com *\
 
 　制作时间:2005-12-30
 　更新时间:2006-01-24
@@ -52,4 +51,3 @@ function PCAS(){
 	for(i=1;i<PCAA[PI][CI].length;i++){PCAAT=PCAAV=PCAA[PI][CI][i];
 	if(PCAAT==SAT)PCAAV="";PCA.SelA.options.add(new Option(PCAAT,PCAAV));
 	if(PCA.DefA==PCAAV)PCA.SelA[i-1].selected=true}}
-//-->
