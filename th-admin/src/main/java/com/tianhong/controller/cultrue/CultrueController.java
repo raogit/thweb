@@ -23,9 +23,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tianhong.controller.base.BaseController;
-import com.tianhong.domain.culture.Culture;
+import com.tianhong.domain.content.Content;
 import com.tianhong.domain.user.User;
-import com.tianhong.service.culture.CultureService;
+import com.tianhong.service.content.ContentService;
 
 /**
  * ClassName: CultrueController
@@ -40,22 +40,22 @@ public class CultrueController extends BaseController {
 	private static final Log log = LogFactory.getLog(CultrueController.class);
 
 	@Autowired
-	private CultureService cultureService;
+	private ContentService contentService;
 
 	@RequestMapping(value = "/save")
 	@ResponseBody
-	public Object save(Culture culture, HttpServletRequest request, HttpServletResponse response) {
+	public Object save(Content content, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			User user = getCurrentUser(request);
-			if (culture != null && culture.getId() > 0) {
-				culture.setUpdateId(user.getId());
-				culture.setUpdateTime(new Date());
-				cultureService.updateByPrimaryKeySelective(culture);
+			if (content != null && content.getId() > 0) {
+				content.setUpdateId(user.getId());
+				content.setUpdateTime(new Date());
+				contentService.updateByPrimaryKeySelective(content);
 			} else {
-				culture.setIsDeleted(false);
-				culture.setCreateId(user.getId());
-				culture.setCreateTime(new Date());
-				cultureService.insertSelective(culture);
+				content.setIsDeleted(false);
+				content.setCreateId(user.getId());
+				content.setCreateTime(new Date());
+				contentService.insertSelective(content);
 			}
 			return true;
 		} catch (Exception e) {
@@ -66,22 +66,22 @@ public class CultrueController extends BaseController {
 
 	@RequestMapping(value = "/page")
 	@ResponseBody
-	public Object page(Culture culture, HttpServletRequest request, HttpServletResponse response) {
+	public Object page(Content content, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			if (StringUtils.isNotEmpty(culture.getTitle())) {
-				culture.setTitle(culture.getTitle().trim());
+			if (StringUtils.isNotEmpty(content.getTitle())) {
+				content.setTitle(content.getTitle().trim());
 			}
-			if (StringUtils.isNotEmpty(culture.getSource())) {
-				culture.setSource(culture.getSource().trim());
+			if (StringUtils.isNotEmpty(content.getSource())) {
+				content.setSource(content.getSource().trim());
 			}
-			List<Culture> list = cultureService.findPage(culture);
-			int count = cultureService.getCount(culture);
-			culture.setObj(list);
-			culture.setTotalRow(count);
+			List<Content> list = contentService.findPage(content);
+			int count = contentService.getCount(content);
+			content.setObj(list);
+			content.setTotalRow(count);
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return culture;
+		return content;
 	}
 
 	@RequestMapping(value = "/delete")
@@ -89,7 +89,7 @@ public class CultrueController extends BaseController {
 	public Object delete(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			User user = getCurrentUser(request);
-			return cultureService.deleteByPrimaryKey(id, user);
+			return contentService.deleteByPrimaryKey(id, user);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -100,7 +100,7 @@ public class CultrueController extends BaseController {
 	@ResponseBody
 	public Object get(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return cultureService.getByPrimaryKey(id);
+			return contentService.getByPrimaryKey(id);
 		} catch (Exception e) {
 			log.error("", e);
 		}

@@ -27,7 +27,7 @@ import com.tianhong.service.content.ContentService;
  * @author xing
  * @date 2016年7月21日 上午11:17:24
  */
-@Service("ContentService")
+@Service("contentService")
 @Transactional
 public class ContentServiceImpl implements ContentService {
 

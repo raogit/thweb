@@ -27,7 +27,7 @@ import com.tianhong.constant.CommonConstant;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.user.User;
 import com.tianhong.model.Result;
-import com.tianhong.service.culture.CultureService;
+import com.tianhong.service.content.ContentService;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.utils.AssertUtils;
 import com.tianhong.utils.FileToolUtils;
@@ -48,7 +48,7 @@ public class UploadController extends BaseController {
 	@Autowired
 	private PictureService pictureService;
 	@Autowired
-	private CultureService cultureService;
+	private ContentService contentService;
 
 	@RequestMapping(value = "/file")
 	@ResponseBody
@@ -65,7 +65,7 @@ public class UploadController extends BaseController {
 				String fileName = FileToolUtils.saveFile(f, path);
 				paths.add(fileName);
 			}
-			cultureService.insertSelective(menuId, file[0].getOriginalFilename(), "", paths, user);
+			contentService.insertSelective(menuId, file[0].getOriginalFilename(), "", paths, user);
 			return true;
 		} catch (Exception e) {
 			log.error("", e);

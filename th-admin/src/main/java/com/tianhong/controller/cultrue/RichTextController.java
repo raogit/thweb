@@ -1,5 +1,5 @@
 /**  
- * @Title: CultureController.java
+ * @Title: contentController.java
  * @Package com.tianhong.controller
  * @Description: 描述
  * @author xing
@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tianhong.controller.base.BaseController;
-import com.tianhong.domain.culture.Culture;
+import com.tianhong.domain.content.Content;
 import com.tianhong.domain.user.User;
-import com.tianhong.service.culture.CultureService;
+import com.tianhong.service.content.ContentService;
 
 /**
  * ClassName: CultureController
@@ -39,22 +39,22 @@ public class RichTextController extends BaseController {
 	private static final Log log = LogFactory.getLog(RichTextController.class);
 
 	@Autowired
-	private CultureService cultureService;
+	private ContentService contentService;
 
 	@RequestMapping(value = "/save")
 	@ResponseBody
-	public Object save(Culture culture, HttpServletRequest request, HttpServletResponse response) {
+	public Object save(Content content, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			User user = getCurrentUser(request);
-			if (culture != null && culture.getId() > 0) {
-				culture.setUpdateId(user.getId());
-				culture.setUpdateTime(new Date());
-				cultureService.updateByPrimaryKeySelective(culture);
+			if (content != null && content.getId() > 0) {
+				content.setUpdateId(user.getId());
+				content.setUpdateTime(new Date());
+				contentService.updateByPrimaryKeySelective(content);
 			} else {
-				culture.setIsDeleted(false);
-				culture.setCreateId(user.getId());
-				culture.setCreateTime(new Date());
-				cultureService.insertSelective(culture);
+				content.setIsDeleted(false);
+				content.setCreateId(user.getId());
+				content.setCreateTime(new Date());
+				contentService.insertSelective(content);
 			}
 			return true;
 		} catch (Exception e) {
@@ -67,8 +67,8 @@ public class RichTextController extends BaseController {
 	@ResponseBody
 	public Object edit(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			Culture culture = cultureService.getByMenuId(menuId);
-			return culture;
+			Content content = contentService.getByMenuId(menuId);
+			return content;
 		} catch (Exception e) {
 			log.error("", e);
 		}
