@@ -1,165 +1,189 @@
 package com.tianhong.domain.menu;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Menu {
-    private Integer id;
+	private Integer id;
 
-    private String name;
+	private String name;
 
-    private String link;
+	private String link;
 
-    private String url;
+	private String url;
 
-    private Byte level;
+	private Byte level;
 
-    private Integer parentId;
+	private Integer parentId;
 
-    private Byte sort;
+	private Byte sort;
 
-    private Byte isShow;
+	private Byte isShow;
 
-    private Date createTime;
+	private Date createTime;
 
-    private Integer createId;
+	private Integer createId;
 
-    private Date updateTime;
+	private Date updateTime;
 
-    private Integer updateId;
+	private Integer updateId;
 
-    private Boolean isDeleted;
+	private Boolean isDeleted;
 
-    private String backup1;
+	private String backup1;
 
-    private String backup2;
+	private String backup2;
 
-    private String backup3;
+	private String backup3;
+	private List<Menu> subMenus;
 
-    public Integer getId() {
-        return id;
-    }
+	private boolean selected;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getLink() {
-        return link;
-    }
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
 
-    public void setLink(String link) {
-        this.link = link == null ? null : link.trim();
-    }
+	public String getLink() {
+		return link;
+	}
 
-    public String getUrl() {
-        return url;
-    }
+	public void setLink(String link) {
+		this.link = link == null ? null : link.trim();
+	}
 
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
-    }
+	public String getUrl() {
+		return url;
+	}
 
-    public Byte getLevel() {
-        return level;
-    }
+	public void setUrl(String url) {
+		this.url = url == null ? null : url.trim();
+	}
 
-    public void setLevel(Byte level) {
-        this.level = level;
-    }
+	public Byte getLevel() {
+		return level;
+	}
 
-    public Integer getParentId() {
-        return parentId;
-    }
+	public void setLevel(Byte level) {
+		this.level = level;
+	}
 
-    public void setParentId(Integer parentId) {
-        this.parentId = parentId;
-    }
+	public Integer getParentId() {
+		return parentId;
+	}
 
-    public Byte getSort() {
-        return sort;
-    }
+	public void setParentId(Integer parentId) {
+		this.parentId = parentId;
+	}
 
-    public void setSort(Byte sort) {
-        this.sort = sort;
-    }
+	public Byte getSort() {
+		return sort;
+	}
 
-    public Byte getIsShow() {
-        return isShow;
-    }
+	public void setSort(Byte sort) {
+		this.sort = sort;
+	}
 
-    public void setIsShow(Byte isShow) {
-        this.isShow = isShow;
-    }
+	public Byte getIsShow() {
+		return isShow;
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public void setIsShow(Byte isShow) {
+		this.isShow = isShow;
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public Integer getCreateId() {
-        return createId;
-    }
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
-    public void setCreateId(Integer createId) {
-        this.createId = createId;
-    }
+	public Integer getCreateId() {
+		return createId;
+	}
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
+	public void setCreateId(Integer createId) {
+		this.createId = createId;
+	}
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
+	public Date getUpdateTime() {
+		return updateTime;
+	}
 
-    public Integer getUpdateId() {
-        return updateId;
-    }
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
 
-    public void setUpdateId(Integer updateId) {
-        this.updateId = updateId;
-    }
+	public Integer getUpdateId() {
+		return updateId;
+	}
 
-    public Boolean getIsDeleted() {
-        return isDeleted;
-    }
+	public void setUpdateId(Integer updateId) {
+		this.updateId = updateId;
+	}
 
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
+	public Boolean getIsDeleted() {
+		return isDeleted;
+	}
 
-    public String getBackup1() {
-        return backup1;
-    }
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
 
-    public void setBackup1(String backup1) {
-        this.backup1 = backup1 == null ? null : backup1.trim();
-    }
+	public String getBackup1() {
+		return backup1;
+	}
 
-    public String getBackup2() {
-        return backup2;
-    }
+	public void setBackup1(String backup1) {
+		this.backup1 = backup1 == null ? null : backup1.trim();
+	}
 
-    public void setBackup2(String backup2) {
-        this.backup2 = backup2 == null ? null : backup2.trim();
-    }
+	public String getBackup2() {
+		return backup2;
+	}
 
-    public String getBackup3() {
-        return backup3;
-    }
+	public void setBackup2(String backup2) {
+		this.backup2 = backup2 == null ? null : backup2.trim();
+	}
 
-    public void setBackup3(String backup3) {
-        this.backup3 = backup3 == null ? null : backup3.trim();
-    }
+	public String getBackup3() {
+		return backup3;
+	}
+
+	public void setBackup3(String backup3) {
+		this.backup3 = backup3 == null ? null : backup3.trim();
+	}
+
+	public List<Menu> getSubMenus() {
+		if (subMenus == null) {
+			subMenus = new ArrayList<Menu>();
+		}
+		return subMenus;
+	}
+
+	public void setSubMenus(List<Menu> subMenus) {
+		this.subMenus = subMenus;
+	}
+
+	public boolean getSelected() {
+		return selected;
+	}
+
+	public void setSelected(boolean selected) {
+		this.selected = selected;
+	}
 }
