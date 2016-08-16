@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tianhong.dao.content.ContentMapper">
+  <resultMap id="BaseResultMap" type="com.tianhong.domain.content.Content">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="menu_id" jdbcType="INTEGER" property="menuId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="create_id" jdbcType="INTEGER" property="createId" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="update_id" jdbcType="INTEGER" property="updateId" />
+    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+    <result column="backup1" jdbcType="VARCHAR" property="backup1" />
+    <result column="backup2" jdbcType="VARCHAR" property="backup2" />
+    <result column="backup3" jdbcType="VARCHAR" property="backup3" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.tianhong.domain.content.Content">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <insert id="insert" parameterType="com.tianhong.domain.content.Content">
+    insert into t_content (id, menu_id, title, 
+      source, path, create_time, 
+      create_id, update_time, update_id, 
+      is_deleted, backup1, backup2, 
+      backup3, content)
+    values (#{id,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=BIT}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, 
+      #{backup3,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tianhong.domain.content.Content">
+    insert into t_content
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="menuId != null">
+        menu_id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="source != null">
+        source,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="createId != null">
+        create_id,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updateId != null">
+        update_id,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+      <if test="backup1 != null">
+        backup1,
+      </if>
+      <if test="backup2 != null">
+        backup2,
+      </if>
+      <if test="backup3 != null">
+        backup3,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="menuId != null">
+        #{menuId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateId != null">
+        #{updateId,jdbcType=INTEGER},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=BIT},
+      </if>
+      <if test="backup1 != null">
+        #{backup1,jdbcType=VARCHAR},
+      </if>
+      <if test="backup2 != null">
+        #{backup2,jdbcType=VARCHAR},
+      </if>
+      <if test="backup3 != null">
+        #{backup3,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

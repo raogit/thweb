@@ -35,9 +35,9 @@ function initMenu(obj){
 			}else{
 				a.target="myFrame";
 				if(menu.url!=null && reg.test(menu.url)){
-					a.href=menu.url;
+					a.href=menu.url+"?menuId="+menu.id;
 				}else{
-					a.href=basePath+menu.url;
+					a.href=basePath+menu.url+"?menuId="+menu.id;
 				}
 			}
             a.innerText = menu.name;
@@ -62,9 +62,9 @@ function subMenu(obj,id,array){
 				}else{
 					a.target="myFrame";
 					if(menu.url!=null && reg.test(menu.url)){
-						a.href=menu.url;
+						a.href=menu.url+"?menuId="+menu.id;
 					}else{
-						a.href=basePath+menu.url;
+						a.href=basePath+menu.url+"?menuId="+menu.id;
 					}
 				}
 		        a.innerText = menu.name;
