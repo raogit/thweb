@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-07-22 15:30:12
+Date: 2016-08-16 13:48:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -47,6 +47,28 @@ INSERT INTO `t_culture` VALUES ('4', '86', '51CTO下载-Lucene实战(第2版)PDF
 INSERT INTO `t_culture` VALUES ('5', '86', 'Spring技术内幕 深入解析Spring架构与设计原理 第2版 .计文柯.扫描版.pdf', null, '', 'Spring技术内幕 深入解析Spring架构与设计原理 第2版 .计文柯.扫描版.pdf', '2016-07-22 15:18:46', '1', '2016-07-22 15:25:50', '1', '0', null, null, null);
 INSERT INTO `t_culture` VALUES ('6', '86', '手机属性表.xlsx', null, '', '手机属性表.xlsx', '2016-07-22 15:27:13', '1', '2016-07-22 15:27:37', '1', '1', null, null, null);
 INSERT INTO `t_culture` VALUES ('7', '86', '工作簿1.xlsx', null, '', '工作簿1.xlsx', '2016-07-22 15:27:42', '1', null, null, '0', null, null, null);
+
+-- ----------------------------
+-- Table structure for `t_home_project`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_home_project`;
+CREATE TABLE `t_home_project` (
+  `id` int(11) NOT NULL DEFAULT '0',
+  `project_name` varchar(1024) DEFAULT NULL,
+  `create_time` timestamp NULL DEFAULT NULL,
+  `create_id` int(11) DEFAULT NULL,
+  `update_time` timestamp NULL DEFAULT NULL,
+  `update_id` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(1) DEFAULT '0',
+  `backup1` varchar(1024) DEFAULT NULL,
+  `backup2` varchar(1024) DEFAULT NULL,
+  `backup3` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_home_project
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `t_investor`
@@ -105,6 +127,7 @@ DROP TABLE IF EXISTS `t_menu`;
 CREATE TABLE `t_menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` varchar(255) DEFAULT NULL COMMENT '菜单名',
+  `link` varchar(1024) DEFAULT NULL,
   `url` varchar(1024) DEFAULT NULL COMMENT '菜单URL',
   `level` tinyint(4) DEFAULT NULL COMMENT '菜单等级',
   `parent_id` int(11) DEFAULT NULL COMMENT '父菜单',
@@ -119,116 +142,126 @@ CREATE TABLE `t_menu` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_menu
 -- ----------------------------
-INSERT INTO `t_menu` VALUES ('1', '关于天虹', null, '1', '0', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('2', '企业文化', null, '1', '0', '2', '1', '2016-07-13 16:03:40', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('3', '集团业务', null, '1', '0', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('4', '新闻中心', null, '1', '0', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('5', '人力资源', null, '1', '0', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('6', '招商采购', null, '1', '0', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('7', '投资者关系', null, '1', '0', '7', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('8', '公司概况', '/menu/news/detail?menuId=8', '2', '1', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('9', '多元业务', null, '2', '1', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('10', '发展历程', null, '2', '1', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('11', '发展战略', null, '2', '1', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('12', '荣誉奖项', null, '2', '1', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('13', '天虹置业', null, '3', '52', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('14', '微喔便利店', null, '3', '50', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('15', '天虹虹领巾', null, '3', '50', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('16', '天虹小额贷', null, '3', '51', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('17', '天虹商场', null, '3', '50', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('18', '君尚百货', null, '3', '50', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('19', '天虹商学院', null, '3', '9', '7', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('20', '购物中心', null, '3', '50', '8', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('21', '企业文化', null, '2', '2', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('22', '宣传片', null, '2', '2', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('23', '电子期刊', null, '2', '2', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('24', '视频中心', null, '2', '2', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('25', '社会责任', null, '2', '2', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('26', '企业使命', null, '3', '21', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('27', '企业愿景', null, '3', '21', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('28', '企业价值观', null, '3', '21', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('29', '社会公益', null, '3', '25', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('30', '员工活动', null, '3', '25', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('31', '环境保护', null, '3', '25', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('32', '公司新闻', '/menu/news/list?menuId=32', '2', '4', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('33', '媒体视角', null, '2', '4', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('34', '天虹商学院', null, '2', '5', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('35', '人在天虹', null, '2', '5', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('36', '社会招聘', null, '2', '5', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('37', '校园招聘', null, '2', '5', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('38', '商学院简介', null, '3', '34', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('39', '培训中心', null, '3', '34', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('40', '创新中心', null, '3', '34', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('41', '同济大学MBA项目', null, '3', '34', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('42', '场地租赁', null, '3', '34', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('43', '用户管理', '/menu/user', '1', '0', '8', '0', '2016-07-14 22:20:02', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('44', '权限管理', null, '1', '0', '8', '0', '2016-07-19 14:57:01', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('45', '角色管理', '/authmanager/role', '2', '44', '1', '0', '2016-07-19 14:58:09', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('46', '自有品牌', null, '2', '1', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('47', '菲尔芙', null, '3', '46', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('48', '天优', null, '3', '46', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('49', '奥百思', null, '3', '46', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('50', '商业零售', null, '3', '9', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('51', '投资与金融', null, '3', '9', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('52', '地产开发与经营', null, '3', '9', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('53', '人才理念', null, '3', '35', '1', '1', '2016-07-20 15:09:25', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('54', '职位搜索', null, '3', '36', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('55', '在招职位', null, '3', '36', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('56', '常见问题', null, '3', '36', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('57', '登陆注册', null, '3', '36', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('58', '宣讲安排', null, '3', '37', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('59', '最新公告', null, '3', '37', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('60', '职位分类', null, '3', '37', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('61', '在线交流', null, '3', '37', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('62', '登陆注册', null, '3', '37', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('63', '招商中心', null, '2', '6', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('64', '成果展示', null, '2', '6', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('65', '品牌自荐', null, '2', '6', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('66', '职能简介', null, '3', '63', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('67', '招商信息', null, '3', '63', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('68', '招商流程', null, '3', '63', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('69', '招商动态', null, '3', '63', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('70', '招商热线', null, '3', '63', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('71', '品牌展示', null, '3', '64', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('72', '项目展示', null, '3', '64', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('73', '界面登陆', null, '3', '65', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('74', '自荐表', null, '3', '65', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('75', '展示图', null, '2', '7', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('76', '公司基本资料', null, '2', '7', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('77', '公司治理', null, '2', '7', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('78', '定期报告', null, '2', '7', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('79', '临时公告', null, '2', '7', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('80', '股东回报', null, '2', '7', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('81', '宣传与保护', null, '2', '7', '7', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('82', '互动交流', null, '2', '7', '8', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('83', '公司治理架构图', null, '3', '77', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('84', '公司高管', null, '3', '77', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('85', '公司章程', null, '3', '77', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('86', '公司制度', '/menu/file/list?menuId=86', '3', '77', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('87', '外链', null, '3', '78', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('88', '外链', null, '3', '79', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('89', '利润分配', null, '3', '80', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('90', '分红动态', null, '3', '80', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('91', '热点关注', null, '3', '81', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('92', '法律法规', null, '3', '81', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('93', '公益教育', null, '3', '81', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('94', '联系方式', null, '3', '82', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('95', '投资者交流', null, '3', '82', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('96', '商业零售', null, '2', '3', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('97', '投资与金融', null, '2', '3', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('98', '地产开发与投资', null, '2', '3', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('99', '天虹商场', null, '3', '96', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('100', '君尚百货', null, '3', '96', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('101', '购物中心', null, '3', '96', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('102', '微喔便利店', null, '3', '96', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('103', '天虹虹领巾', null, '3', '96', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('104', '天虹小额贷', null, '3', '97', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
-INSERT INTO `t_menu` VALUES ('105', '天虹置业', null, '3', '98', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('1', '关于天虹', null, null, '1', '0', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('2', '企业文化', null, null, '1', '0', '2', '1', '2016-07-13 16:03:40', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('3', '集团业务', null, null, '1', '0', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('4', '新闻中心', null, null, '1', '0', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('5', '人力资源', null, null, '1', '0', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('6', '招商采购', null, null, '1', '0', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('7', '投资者关系', null, null, '1', '0', '7', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('8', '公司概况', null, '/menu/news/detail?menuId=8', '2', '1', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('9', '多元业务', null, null, '2', '1', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('10', '发展历程', null, null, '2', '1', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('11', '发展战略', null, null, '2', '1', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('12', '荣誉奖项', null, null, '2', '1', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('13', '天虹置业', null, null, '1', '0', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('14', '微喔便利店', null, null, '3', '50', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('15', '天虹虹领巾', null, null, '3', '50', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('16', '天虹小额贷', null, null, '3', '51', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('17', '天虹商场', null, null, '3', '50', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('18', '君尚百货', null, null, '3', '50', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('19', '天虹商学院', null, null, '3', '9', '7', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('20', '购物中心', null, null, '3', '50', '8', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('21', '企业文化', null, null, '2', '2', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('22', '宣传片', null, null, '2', '2', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('23', '电子期刊', null, null, '2', '2', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('24', '视频中心', null, null, '2', '2', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('25', '社会责任', null, null, '2', '2', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('26', '企业使命', null, null, '3', '21', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('27', '企业愿景', null, null, '3', '21', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('28', '企业价值观', null, null, '3', '21', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('29', '社会公益', null, null, '3', '25', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('30', '员工活动', null, null, '3', '25', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('31', '环境保护', null, null, '3', '25', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('32', '公司新闻', null, '/menu/news/list?menuId=32', '2', '4', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('33', '媒体视角', null, null, '2', '4', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('34', '天虹商学院', null, null, '2', '5', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('35', '人在天虹', null, null, '2', '5', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('36', '社会招聘', null, null, '2', '5', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('37', '校园招聘', null, null, '2', '5', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('38', '商学院简介', null, null, '3', '34', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('39', '培训中心', null, null, '3', '34', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('40', '创新中心', null, null, '3', '34', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('41', '同济大学MBA项目', null, null, '3', '34', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('42', '场地租赁', null, null, '3', '34', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('43', '用户管理', null, '/menu/user', '1', '0', '8', '0', '2016-07-14 22:20:02', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('44', '权限管理', null, '', '1', '0', '8', '0', '2016-07-19 14:57:01', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('45', '角色管理', null, '/authmanager/role', '2', '44', '1', '0', '2016-07-19 14:58:09', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('46', '自有品牌', null, null, '2', '1', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('47', '菲尔芙', null, null, '3', '46', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('48', '天优', null, null, '3', '46', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('49', '奥百思', null, null, '3', '46', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('50', '商业零售', null, null, '3', '9', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('51', '投资与金融', null, null, '3', '9', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('52', '地产开发与经营', null, null, '3', '9', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('53', '人才理念', null, null, '3', '35', '1', '1', '2016-07-20 15:09:25', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('54', '职位搜索', null, null, '3', '36', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('55', '在招职位', null, null, '3', '36', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('56', '常见问题', null, null, '3', '36', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('57', '登陆注册', null, null, '3', '36', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('58', '宣讲安排', null, null, '3', '37', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('59', '最新公告', null, null, '3', '37', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('60', '职位分类', null, null, '3', '37', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('61', '在线交流', null, null, '3', '37', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('62', '登陆注册', null, null, '3', '37', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('63', '招商中心', null, null, '2', '6', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('64', '成果展示', null, null, '2', '6', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('65', '品牌自荐', null, null, '2', '6', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('66', '职能简介', null, null, '3', '63', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('67', '招商信息', null, null, '3', '63', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('68', '招商流程', null, null, '3', '63', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('69', '招商动态', null, null, '3', '63', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('70', '招商热线', null, null, '3', '63', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('71', '品牌展示', null, null, '3', '64', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('72', '项目展示', null, null, '3', '64', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('73', '界面登陆', null, null, '3', '65', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('74', '自荐表', null, null, '3', '65', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('75', '展示图', null, null, '2', '7', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('76', '公司基本资料', null, null, '2', '7', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('77', '公司治理', null, null, '2', '7', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('78', '定期报告', null, null, '2', '7', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('79', '临时公告', null, null, '2', '7', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('80', '股东回报', null, null, '2', '7', '6', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('81', '宣传与保护', null, null, '2', '7', '7', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('82', '互动交流', null, null, '2', '7', '8', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('83', '公司治理架构图', null, null, '3', '77', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('84', '公司高管', null, null, '3', '77', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('85', '公司章程', null, null, '3', '77', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('86', '公司制度', null, '/menu/file/list?menuId=86', '3', '77', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('87', '外链', null, null, '3', '78', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('88', '外链', null, null, '3', '79', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('89', '利润分配', null, null, '3', '80', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('90', '分红动态', null, null, '3', '80', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('91', '热点关注', null, null, '3', '81', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('92', '法律法规', null, null, '3', '81', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('93', '公益教育', null, null, '3', '81', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('94', '联系方式', null, null, '3', '82', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('95', '投资者交流', null, null, '3', '82', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('96', '商业零售', null, null, '2', '3', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('97', '投资与金融', null, null, '2', '3', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('98', '地产开发与投资', null, null, '2', '3', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('99', '天虹商场', null, null, '3', '96', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('100', '君尚百货', null, null, '3', '96', '2', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('101', '购物中心', null, null, '3', '96', '3', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('102', '微喔便利店', null, null, '3', '96', '4', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('103', '天虹虹领巾', null, null, '3', '96', '5', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('104', '天虹小额贷', null, null, '3', '97', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('105', '天虹置业', null, null, '3', '98', '1', '1', '2016-07-13 16:03:05', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('106', '首页', null, '/menu/news/detail?menuId=106', '2', '13', '1', '1', '2016-08-16 09:48:15', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('107', '案例展示', null, null, '2', '13', '2', '1', '2016-08-16 09:48:15', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('108', '在建项目', null, null, '2', '13', '3', '1', '2016-08-16 09:48:15', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('109', '项目合作', null, null, '2', '13', '4', '1', '2016-08-16 09:48:15', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('110', '联系我们', null, null, '2', '13', '5', '1', '2016-08-16 09:48:15', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('111', '菜单管理', null, '/authmanager/menu', '2', '44', '2', '0', '2016-08-16 10:30:31', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('113', 'tets', '', 'http://localhost:8880/th-admin/menu/add', null, null, null, null, '2016-08-16 11:25:31', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('114', '南昌·九洲天虹广场', '', 'http://localhost:8880/th-admin/menu/add', '3', '107', '1', '1', '2016-08-16 11:57:26', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('115', '苏州·天虹品上中心', '', 'http://localhost:8880/th-admin/menu/add', '3', '107', null, null, '2016-08-16 12:00:56', '1', null, null, '0', null, null, null);
+INSERT INTO `t_menu` VALUES ('116', '吉安·天虹购物中心', '', 'http://localhost:8880/th-admin/menu/add', '3', '107', '2', null, '2016-08-16 12:12:29', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_news_center`
@@ -277,13 +310,15 @@ CREATE TABLE `t_picture` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_picture
 -- ----------------------------
 INSERT INTO `t_picture` VALUES ('6', '8', '1', '', '', null, '1', '1469089904769.png', '2016-07-21 16:31:44', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('10', '8', '2', '', '', null, '1', '1469095612417.png', '2016-07-21 18:06:52', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('11', '106', '1', '', '', null, '1', '1471312220474.png', '2016-08-16 09:50:20', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('12', '106', '2', '', '', null, '1', '1471312874198.png', '2016-08-16 10:01:14', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_recruit_interaction`
