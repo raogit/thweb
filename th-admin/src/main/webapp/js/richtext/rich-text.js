@@ -20,7 +20,7 @@ function init(){
 function initRich(menuId){
 	clear();
 	$.ajax({
-        url: basePath + "/rich/get",
+        url: basePath + "/content/get",
         type: 'post',
         dataType: 'json',
         data : {
@@ -77,7 +77,7 @@ function save(){
 	}
 	var id = $("#id").val();
 	$.ajax({
-        url: basePath + "/rich/save",
+        url: basePath + "/content/save",
         type: 'post',
         dataType: 'json',
         data : {

@@ -7,7 +7,7 @@ function initList(){
 	var menuId = $("#menuId").val();
 	clear();
 	$.ajax({
-        url: basePath + "/rich/get",
+        url: basePath + "/content/get",
         type: 'post',
         dataType: 'json',
         data : {

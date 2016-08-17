@@ -11,6 +11,8 @@ public class Content extends Page {
 
 	private String title;
 
+	private String slogan;
+
 	private String source;
 
 	private String path;
@@ -143,5 +145,13 @@ public class Content extends Page {
 
 	public void setContent(String content) {
 		this.content = content == null ? null : content.trim();
+	}
+
+	public String getSlogan() {
+		return slogan;
+	}
+
+	public void setSlogan(String slogan) {
+		this.slogan = slogan == null ? null : slogan.trim();
 	}
 }

@@ -5,6 +5,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="menu_id" jdbcType="INTEGER" property="menuId" />
     <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="slogan" jdbcType="VARCHAR" property="slogan" />
     <result column="source" jdbcType="VARCHAR" property="source" />
     <result column="path" jdbcType="VARCHAR" property="path" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -20,7 +21,7 @@
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, menu_id, title, source, path, create_time, create_id, update_time, update_id, 
+    id, menu_id, title, slogan, source, path, create_time, create_id, update_time, update_id, 
     is_deleted, backup1, backup2, backup3
   </sql>
   <sql id="Blob_Column_List">
@@ -40,15 +41,17 @@
   </delete>
   <insert id="insert" parameterType="com.tianhong.domain.content.Content">
     insert into t_content (id, menu_id, title, 
-      source, path, create_time, 
-      create_id, update_time, update_id, 
-      is_deleted, backup1, backup2, 
-      backup3, content)
+      slogan, source, path, 
+      create_time, create_id, update_time, 
+      update_id, is_deleted, backup1, 
+      backup2, backup3, content
+      )
     values (#{id,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
-      #{source,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, 
-      #{isDeleted,jdbcType=BIT}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, 
-      #{backup3,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
+      #{slogan,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateId,jdbcType=INTEGER}, #{isDeleted,jdbcType=BIT}, #{backup1,jdbcType=VARCHAR}, 
+      #{backup2,jdbcType=VARCHAR}, #{backup3,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.tianhong.domain.content.Content">
     insert into t_content
@@ -61,6 +64,9 @@
       </if>
       <if test="title != null">
         title,
+      </if>
+      <if test="slogan != null">
+        slogan,
       </if>
       <if test="source != null">
         source,
@@ -106,6 +112,9 @@
       <if test="title != null">
         #{title,jdbcType=VARCHAR},
       </if>
+      <if test="slogan != null">
+        #{slogan,jdbcType=VARCHAR},
+      </if>
       <if test="source != null">
         #{source,jdbcType=VARCHAR},
       </if>
@@ -150,6 +159,9 @@
       <if test="title != null">
         title = #{title,jdbcType=VARCHAR},
       </if>
+      <if test="slogan != null">
+        slogan = #{slogan,jdbcType=VARCHAR},
+      </if>
       <if test="source != null">
         source = #{source,jdbcType=VARCHAR},
       </if>
@@ -190,6 +202,7 @@
     update t_content
     set menu_id = #{menuId,jdbcType=INTEGER},
       title = #{title,jdbcType=VARCHAR},
+      slogan = #{slogan,jdbcType=VARCHAR},
       source = #{source,jdbcType=VARCHAR},
       path = #{path,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -207,6 +220,7 @@
     update t_content
     set menu_id = #{menuId,jdbcType=INTEGER},
       title = #{title,jdbcType=VARCHAR},
+      slogan = #{slogan,jdbcType=VARCHAR},
       source = #{source,jdbcType=VARCHAR},
       path = #{path,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -229,12 +243,12 @@
     where menu_id = #{menuId,jdbcType=INTEGER} and is_deleted = 0
   </select>
   
-   <select id="findPage" resultMap="BaseResultMap" parameterType="com.tianhong.domain.content.Content">
+   <select id="findPage" parameterType="com.tianhong.domain.content.Content" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_content
     where  is_deleted = 0
-		<if test="menuId != null and  menuId>0">
+		<if test="menuId != null and  menuId&gt;0">
         	AND menu_id = #{menuId,jdbcType=INTEGER}
       	</if>
       	<if test="title != null and title!=''">
@@ -249,12 +263,12 @@
     ORDER BY create_time desc
     LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER} 
   </select>
-  <select id="getCount" resultType="java.lang.Integer" parameterType="com.tianhong.domain.content.Content">
+  <select id="getCount" parameterType="com.tianhong.domain.content.Content" resultType="java.lang.Integer">
     select 
     	count(1)
     from t_content
     where  is_deleted = 0
-	    <if test="menuId != null and  menuId>0">
+	    <if test="menuId != null and  menuId&gt;0">
         	AND menu_id = #{menuId,jdbcType=INTEGER}
       	</if>
       		<if test="title != null and title!=''">

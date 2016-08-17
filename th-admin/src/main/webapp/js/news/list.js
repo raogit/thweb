@@ -27,7 +27,7 @@ function save(){
 		return ;
 	}
 	$.ajax({
-        url: basePath + "/rich/save",
+        url: basePath + "/content/save",
         type: 'post',
         dataType: 'json',
         data : {

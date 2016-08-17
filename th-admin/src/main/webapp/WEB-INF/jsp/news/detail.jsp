@@ -48,8 +48,7 @@
 					<span class="item_name" style="width: 120px;">上传banner图片：</span><input type="file" id="fileId" name="fileId"/> 
 				</li>
 				<li><span class="item_name" style="width: 120px;"></span> <input
-					type="button" class="link_btn" onclick="upload('fileId')" value="上传"/></li>
-					
+					type="button" class="link_btn" onclick="upload('fileId')" value="上传"/></li>					
 				<li id="bannerpicture"> </li>
 			</ul>
 		</form>
