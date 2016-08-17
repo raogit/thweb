@@ -27,7 +27,7 @@ import com.tianhong.service.picture.PictureService;
  */
 @Controller
 @RequestMapping(value = "/home")
-public class IndexController {
+public class HomeController {
 
 	private static final Log log = LogFactory.getLog(MenuController.class);
 
