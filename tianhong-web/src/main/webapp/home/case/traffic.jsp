@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -11,7 +13,8 @@
 <jsp:include page="../head/head.jsp"></jsp:include>
 <div id="webbox">
     <div class="wrap padd">
-        <jsp:include page="left.jsp"></jsp:include>
+<%--         <jsp:include page="${basePath}/menu/left?menuId=107"></jsp:include> --%>
+ 		<c:import url="${basePath}/menu/left?leftMenuId=107"></c:import>
         <div class="rt right-box">
             <div class="right-box-nav">
                 <h1>${content.title }<em>/</em>${menu.name }</h1>

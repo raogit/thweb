@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -11,7 +13,7 @@
 <jsp:include page="../head/head.jsp"></jsp:include>
 <div id="webbox">
     <div class="wrap padd">
-        <jsp:include page="left.jsp"></jsp:include>
+        <c:import url="${basePath}/menu/left?leftMenuId=107"></c:import>
         <div class="rt right-box">
             <div class="right-box-nav">
                 <h1>${content.title }<em>/</em>${menu.name }</h1>
@@ -19,7 +21,7 @@
             </div>
             <div class="right-infor">
                 <div class="profile-img lt">
-                <c:forEach var="item" items="${pictures }" begin="0" step="1" end="1" varStatus="status">
+                <c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="status">
 	       			<img src="${basePath}/download/png?fileName=${item.path }" />
 	       		</c:forEach>
                 </div>

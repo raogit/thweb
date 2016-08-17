@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -11,7 +13,7 @@
 <jsp:include page="../head/head.jsp"></jsp:include>
 <div id="webbox">
     <div class="wrap padd">
-        <jsp:include page="left.jsp"></jsp:include>
+        <c:import url="${basePath}/menu/left?leftMenuId=107"></c:import>
         <div class="rt right-box">
             <div class="right-box-nav">
                 <h1>九洲天虹广场<em>/</em>项目图片</h1>
@@ -20,30 +22,15 @@
             <div class="picture-list">
                 <div class="moveBox">
                     <ul>
-                        <li>
-                           <a href="${basePath}/home/images/img/img3.jpg" rel="group"><img src="${basePath}/home/images/img/img3.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img4.jpg" rel="group"><img src="${basePath}/home/images/img/img4.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img5.jpg" rel="group"><img src="${basePath}/home/images/img/img5.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img6.jpg" rel="group"><img src="${basePath}/home/images/img/img6.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img7.jpg" rel="group"><img src="${basePath}/home/images/img/img7.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img8.jpg" rel="group"><img src="${basePath}/home/images/img/img8.jpg" /></a>
-                        </li> 
-                        <li>
-                           <a href="${basePath}/home/images/img/img3.jpg" rel="group"><img src="${basePath}/home/images/img/img3.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img4.jpg" rel="group"><img src="${basePath}/home/images/img/img4.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img5.jpg" rel="group"><img src="${basePath}/home/images/img/img5.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img6.jpg" rel="group"><img src="${basePath}/home/images/img/img6.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img7.jpg" rel="group"><img src="${basePath}/home/images/img/img7.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img8.jpg" rel="group"><img src="${basePath}/home/images/img/img8.jpg" /></a>
-                        </li> 
-                        <li>
-                           <a href="${basePath}/home/images/img/img3.jpg" rel="group"><img src="${basePath}/home/images/img/img3.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img4.jpg" rel="group"><img src="${basePath}/home/images/img/img4.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img5.jpg" rel="group"><img src="${basePath}/home/images/img/img5.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img6.jpg" rel="group"><img src="${basePath}/home/images/img/img6.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img7.jpg" rel="group"><img src="${basePath}/home/images/img/img7.jpg" /></a> 
-                           <a href="${basePath}/home/images/img/img8.jpg" rel="group"><img src="${basePath}/home/images/img/img8.jpg" /></a>
-                        </li> 
+	                    <c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="status">
+		                    <c:if test="${status.index%6==0 }">
+		                    	 <li>
+		                    </c:if>
+	                           <a href="javascript:void(0);" rel="group"><img src="${basePath}/download/png?fileName=${item.path }" /></a> 
+	                        <c:if test="${status.index%6==5 }">
+		                    	 </li>
+		                    </c:if>
+						</c:forEach>
                     </ul> 
                 </div>
             </div>

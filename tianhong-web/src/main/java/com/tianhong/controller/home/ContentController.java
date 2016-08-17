@@ -54,6 +54,9 @@ public class ContentController extends BaseController {
 	public Object edit(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
+			List<Menu> headMenus = menuService.getSubMenus(13);
+			model.put("headMenus", headMenus);
+
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			Content content = contentService.getByMenuId(menuId);
 			Menu menu = menuService.getByPrimaryKey(menuId);
@@ -63,6 +66,6 @@ public class ContentController extends BaseController {
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/home/case/traffic", model);
+		return new ModelAndView("/home/case/profile", model);
 	}
 }

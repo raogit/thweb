@@ -48,14 +48,45 @@ public class MenuController extends BaseController {
 		try {
 			List<Menu> subMenus = menuService.getSubMenus(menuId);
 			List<Menu> headMenus = menuService.getSubMenus(13);
-			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("headMenus", headMenus);
 			model.put("subMenus", subMenus);
+
+			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("pictures", pictures);
 		} catch (Exception e) {
 			log.error("", e);
 		}
 		return new ModelAndView(link, model);
+	}
+
+	@RequestMapping(value = "/left")
+	public Object left(@RequestParam("leftMenuId") int leftMenuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+
+			List<Menu> headMenus = menuService.getSubMenus(13);
+
+			List<Menu> subMenus = menuService.getSubMenus(leftMenuId);
+			model.put("headMenus", headMenus);
+			model.put("subMenus", subMenus);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/case/left", model);
+	}
+
+	@RequestMapping(value = "/head")
+	public Object head(@RequestParam("headMenuId") int headMenuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			List<Menu> headMenus = menuService.getSubMenus(headMenuId);
+			model.put("headMenus", headMenus);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/head/head", model);
 	}
 
 	@RequestMapping(value = "/news/detail")

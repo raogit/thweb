@@ -16,17 +16,17 @@
         </javaTypeResolver> 
     	
     	<!-- t_sys_menu -->  
-   		<javaModelGenerator targetPackage="com.tianhong.domain.user"   targetProject="th-service/src/main/java" >                
+   		<javaModelGenerator targetPackage="com.tianhong.domain.content"   targetProject="th-service/src/main/java" >                
             <property name="enableSubPackages" value="false"/>            
             <property name="trimStrings" value="true"/>  
         </javaModelGenerator>  
-        <sqlMapGenerator targetPackage="mapper.user"  targetProject="th-service/src/main/resources" >  
+        <sqlMapGenerator targetPackage="mapper.content"  targetProject="th-service/src/main/resources" >  
             <property name="enableSubPackages" value="false" />  
         </sqlMapGenerator>  
-        <javaClientGenerator targetPackage="com.tianhong.dao.user"   targetProject="th-service/src/main/java" type="XMLMAPPER" >  
+        <javaClientGenerator targetPackage="com.tianhong.dao.content"   targetProject="th-service/src/main/java" type="XMLMAPPER" >  
             <property name="enableSubPackages" value="false" />  
         </javaClientGenerator>
-       <table schema="tianhong" tableName="t_user"  domainObjectName="User"  enableCountByExample="false"  
+       <table schema="tianhong" tableName="t_content"  domainObjectName="Content"  enableCountByExample="false"  
             enableDeleteByExample="false" enableSelectByExample="false"  enableUpdateByExample="false" />
       
       

@@ -15,6 +15,10 @@ public class Content extends Page {
 
 	private String source;
 
+	public String phone;
+
+	public String address;
+
 	private String path;
 
 	private Date createTime;
@@ -65,6 +69,22 @@ public class Content extends Page {
 
 	public void setSource(String source) {
 		this.source = source == null ? null : source.trim();
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone == null ? null : phone.trim();
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address == null ? null : address.trim();
 	}
 
 	public String getPath() {
