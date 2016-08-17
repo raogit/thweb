@@ -21,7 +21,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.menu.Menu;
+import com.tianhong.domain.picture.Picture;
 import com.tianhong.service.menu.MenuService;
+import com.tianhong.service.picture.PictureService;
 
 /**
  * @author Administrator
@@ -36,14 +38,20 @@ public class MenuController extends BaseController {
 	@Autowired
 	private MenuService menuService;
 
+	@Autowired
+	private PictureService pictureService;
+
 	@RequestMapping(value = "/sub")
 	public Object subList(@RequestParam("menuId") int menuId, @RequestParam("link") String link,
 			HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			List<Menu> subMenus = menuService.getSubMenus(menuId);
-
+			List<Menu> headMenus = menuService.getSubMenus(13);
+			List<Picture> pictures = pictureService.findByMenuId(menuId);
+			model.put("headMenus", headMenus);
 			model.put("subMenus", subMenus);
+			model.put("pictures", pictures);
 		} catch (Exception e) {
 			log.error("", e);
 		}

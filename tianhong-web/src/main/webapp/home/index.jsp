@@ -28,9 +28,9 @@
    </div>
    <div class="inlet-link">
        <ul>
-           <li class="case"><a href="${basePath}/home/case/index.jsp"><em></em><span><i>项目案例</i><i>项目案例</i></span></a></li>
-           <li class="item"><a href="${basePath}/home/project/index.jsp"><em></em><span><i>在建项目</i><i>在建项目</i></span></a></li>
-           <li class="team"><a href="${basePath}/home/item/index.jsp"><em></em><span><i>项目合作</i><i>项目合作</i></span></a></li>
+           <li class="case"><a href="${basePath}/menu/sub?menuId=107&link=/home/case/index"><em></em><span><i>项目案例</i><i>项目案例</i></span></a></li>
+           <li class="item"><a href="${basePath}/menu/sub?menuId=108&link=/home/project/index"><em></em><span><i>在建项目</i><i>在建项目</i></span></a></li>
+           <li class="team"><a href="${basePath}/menu/sub?menuId=109&link=/home/item/index"><em></em><span><i>项目合作</i><i>项目合作</i></span></a></li>
        </ul>
    </div>
 </div>

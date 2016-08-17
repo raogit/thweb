@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.controller.menu.MenuController;
+import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.picture.Picture;
+import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.picture.PictureService;
 
 /**
@@ -33,13 +35,17 @@ public class HomeController {
 
 	@Autowired
 	private PictureService pictureService;
+	@Autowired
+	private MenuService menuService;
 
 	@RequestMapping(value = "/index")
 	public Object index(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			List<Picture> pictures = pictureService.findByMenuId(106);
+			List<Menu> headMenus = menuService.getSubMenus(13);
 			model.put("pictures", pictures);
+			model.put("headMenus", headMenus);
 		} catch (Exception e) {
 			log.error("", e);
 		}
