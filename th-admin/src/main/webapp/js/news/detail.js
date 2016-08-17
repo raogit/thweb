@@ -31,6 +31,8 @@ function initRich(menuId){
         	if(data!=null && data!=""){
         		$("#contentId").html(data.content);
             	$("#id").val(data.id);
+            	$("#title").val(data.title);
+            	$("#slogan").val(data.slogan);
         	}else{
         		$("#contentId").html("");
         	}
@@ -71,8 +73,18 @@ function picture(data){
 function save(){
 	var menuId = $("#menuId").val();
 	var content = $("#contentId").html();
+	var title = $("#title").val();
+	var slogan = $("#slogan").val();
 	if(isEmpty(content)){
 		alert("请填写内容");
+		return ;
+	}
+	if(isEmpty(title)){
+		alert("请填写标题");
+		return ;
+	}
+	if(isEmpty(slogan)){
+		alert("请填写标语");
 		return ;
 	}
 	var id = $("#id").val();
@@ -82,6 +94,8 @@ function save(){
         dataType: 'json',
         data : {
         	id : id,
+        	title : title,
+        	slogan : slogan,
         	menuId : menuId,
         	content : content
         },

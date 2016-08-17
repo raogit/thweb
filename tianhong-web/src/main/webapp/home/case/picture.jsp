@@ -11,40 +11,7 @@
 <jsp:include page="../head/head.jsp"></jsp:include>
 <div id="webbox">
     <div class="wrap padd">
-        <div class="lt menu-left">
-            <div class="menu-left-page">
-                <p>项目楼盘</p>
-                <span>Project development</span>
-            </div>
-            <div class="menu-left-item">
-                <ul id="item-menu">
-                    <li>
-                        <a href="javascript:void(0);" class="f"><span>南昌·九洲天虹广场</span><em></em></a>
-                        <dl>
-                            <dd><a href="${basePath}/home/case/profile.jsp?item=0&p=0">项目简介</a></dd>
-                            <dd><a href="${basePath}/home/case/picture.jsp?item=0&p=1">项目图片</a></dd>
-                            <dd><a href="${basePath}/home/case/traffic.jsp?item=0&p=2">区位交通</a></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="f"><span>苏州·天虹品上中心</span><em></em></a>
-                        <dl>
-                            <dd><a href="${basePath}/home/case/profile.jsp?item=1&p=0">项目简介</a></dd>
-                            <dd><a href="${basePath}/home/case/picture.jsp?item=1&p=1">项目图片</a></dd>
-                            <dd><a href="${basePath}/home/case/traffic.jsp?item=1&p=2">区位交通</a></dd>
-                        </dl>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);" class="f"><span>吉安·天虹购物中心</span><em></em></a>
-                        <dl>
-                            <dd><a href="${basePath}/home/case/profile.jsp?item=2&p=0">项目简介</a></dd>
-                            <dd><a href="${basePath}/home/case/picture.jsp?item=2&p=1">项目图片</a></dd>
-                            <dd><a href="${basePath}/home/case/traffic.jsp?item=2&p=2">区位交通</a></dd>
-                        </dl>
-                    </li>
-                </ul>
-            </div>
-        </div> 
+        <jsp:include page="left.jsp"></jsp:include>
         <div class="rt right-box">
             <div class="right-box-nav">
                 <h1>九洲天虹广场<em>/</em>项目图片</h1>

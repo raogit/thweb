@@ -54,6 +54,12 @@
 		</form>
 	</div>
 	<div style="height:30px;border-bottom:2px solid #19a97b;"></div>
+	<div style="height:30px;width:500px; margin: 0 auto;padding-top:5px;">
+		<ul>
+			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标题:</span> <input id="title" style="width:140px;" type="text" placeholder="请输入标题..." class="textbox" /></li>
+			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标语:</span> <input id="slogan" style="width:240px;" type="text" placeholder="请输入标语..." class="textbox" /></li>
+		</ul>
+	</div>
 	<section id="editor">
 		<div id='edit' style="margin-top: 30px;"> </div>
 	</section>
