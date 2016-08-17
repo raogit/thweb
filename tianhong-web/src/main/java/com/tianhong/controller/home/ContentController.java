@@ -51,7 +51,7 @@ public class ContentController extends BaseController {
 	private MenuService menuService;
 
 	@RequestMapping(value = "/get")
-	public Object edit(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+	public Object get(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			String leftMenuId = request.getParameter("leftMenuId");
@@ -75,5 +75,26 @@ public class ContentController extends BaseController {
 			log.error("", e);
 		}
 		return new ModelAndView("/home/case/profile", model);
+	}
+
+	@RequestMapping(value = "/item/get")
+	public Object itemGet(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			String leftMenuId = request.getParameter("leftMenuId");
+			String item = request.getParameter("item");
+			String p = request.getParameter("p");
+			List<Menu> headMenus = menuService.getSubMenus(13);
+
+			model.put("headMenus", headMenus);
+			model.put("item", item);
+			model.put("p", p);
+			model.put("leftMenuId", leftMenuId);
+			model.put("rightMenuId", menuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/item/index", model);
 	}
 }

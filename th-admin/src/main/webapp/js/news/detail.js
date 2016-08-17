@@ -82,14 +82,6 @@ function save(){
 		alert("请填写内容");
 		return ;
 	}
-	if(isEmpty(title)){
-		alert("请填写标题");
-		return ;
-	}
-	if(isEmpty(slogan)){
-		alert("请填写标语");
-		return ;
-	}
 	var id = $("#id").val();
 	$.ajax({
         url: basePath + "/content/save",
@@ -118,7 +110,7 @@ function save(){
 function clear(){
 	$("#contentId").html("");
 }
-function upload(fileId){
+function upload(fileId,uri,type){
 	var file = $("#fileId").val();
 	if(!file){
 		alert("请选择图片");
@@ -126,7 +118,7 @@ function upload(fileId){
 	}
 	var menuId = $("#menuId").val();
 	var uri = $("#uri").val();
-	var url=basePath + uri+"?type=1&menuId="+menuId;
+	var url=basePath + uri+"?type="+type+"&menuId="+menuId;
 	//执行上传文件操作的函数
 	$.ajaxFileUpload({
         url:url,

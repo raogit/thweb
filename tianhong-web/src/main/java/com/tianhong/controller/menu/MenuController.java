@@ -20,8 +20,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.controller.base.BaseController;
+import com.tianhong.domain.content.Content;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.picture.Picture;
+import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.picture.PictureService;
 
@@ -40,6 +42,8 @@ public class MenuController extends BaseController {
 
 	@Autowired
 	private PictureService pictureService;
+	@Autowired
+	private ContentService contentService;
 
 	@RequestMapping(value = "/sub")
 	public Object subList(@RequestParam("menuId") int menuId, @RequestParam("link") String link,
@@ -56,6 +60,7 @@ public class MenuController extends BaseController {
 			model.put("pictures", pictures);
 
 			model.put("leftMenuId", menuId);
+			model.put("rightMenuId", subMenus.get(0).getId());
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -79,6 +84,49 @@ public class MenuController extends BaseController {
 			log.error("", e);
 		}
 		return new ModelAndView("/home/case/left", model);
+	}
+
+	@RequestMapping(value = "/itemleft")
+	public Object itemLeft(@RequestParam("leftMenuId") int leftMenuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(leftMenuId);
+			List<Menu> headMenus = menuService.getSubMenus(13);
+			List<Menu> subMenus = menuService.getSubMenus(leftMenuId);
+
+			model.put("menu", menu);
+			model.put("headMenus", headMenus);
+			model.put("subMenus", subMenus);
+			model.put("leftMenuId", leftMenuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/item/left", model);
+	}
+
+	@RequestMapping(value = "/itemright")
+	public Object itemRight(@RequestParam("rightMenuId") int rightMenuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(rightMenuId);
+			Menu parentMenu = menuService.getByPrimaryKey(menu.getParentId());
+			List<Picture> pictures = pictureService.findByMenuId(rightMenuId);
+			Content content = contentService.getByMenuId(rightMenuId);
+			List<Menu> headMenus = menuService.getSubMenus(13);
+			List<Menu> subMenus = menuService.getSubMenus(rightMenuId);
+			model.put("parentMenu", parentMenu);
+			model.put("menu", menu);
+			model.put("pictures", pictures);
+			model.put("content", content);
+			model.put("headMenus", headMenus);
+			model.put("subMenus", subMenus);
+			model.put("rightMenuId", rightMenuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/item/right", model);
 	}
 
 	@RequestMapping(value = "/head")

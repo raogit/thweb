@@ -135,7 +135,9 @@ public class MenuController extends BaseController {
 	public Object add(Menu menu, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			Menu m = menuService.getByName(menu.getName());
-			AssertUtils.isNull(m, "角色已存在");
+			if (m != null) {
+				AssertUtils.isTrue(m.getParentId().intValue() != menu.getParentId().intValue(), "角色已存在");
+			}
 			User user = getCurrentUser(request);
 			Menu parentMenu = menuService.getByPrimaryKey(menu.getParentId());
 			byte userLevel = UserLevelEnum.getUserLevel(parentMenu.getLevel());
