@@ -75,6 +75,9 @@ function save(){
 	var content = $("#contentId").html();
 	var title = $("#title").val();
 	var slogan = $("#slogan").val();
+	
+	var phone = $("#phone").val();
+	var address = $("#address").val();
 	if(isEmpty(content)){
 		alert("请填写内容");
 		return ;
@@ -96,6 +99,8 @@ function save(){
         	id : id,
         	title : title,
         	slogan : slogan,
+        	phone : phone,
+        	address : address,
         	menuId : menuId,
         	content : content
         },

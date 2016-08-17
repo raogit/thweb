@@ -55,14 +55,17 @@ public class ContentController extends BaseController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			List<Menu> headMenus = menuService.getSubMenus(13);
-			model.put("headMenus", headMenus);
-
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			Content content = contentService.getByMenuId(menuId);
 			Menu menu = menuService.getByPrimaryKey(menuId);
+
+			Menu parentMenu = menuService.getByPrimaryKey(menu.getParentId());
+
+			model.put("headMenus", headMenus);
 			model.put("content", content);
 			model.put("menu", menu);
 			model.put("pictures", pictures);
+			model.put("parentMenu", parentMenu);
 		} catch (Exception e) {
 			log.error("", e);
 		}

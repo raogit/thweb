@@ -16,7 +16,8 @@
         <c:import url="${basePath}/menu/left?leftMenuId=107"></c:import>
         <div class="rt right-box">
             <div class="right-box-nav">
-                <h1>九洲天虹广场<em>/</em>项目图片</h1>
+               
+                <h1>${parentMenu.name }<em>/</em>${menu.name }</h1>
                 <a href="javascript:history.go(-1);" class="return ui-link">返回列表</a> 
             </div>
             <div class="picture-list">

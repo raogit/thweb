@@ -25,8 +25,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.constant.CommonConstant;
 import com.tianhong.controller.base.BaseController;
+import com.tianhong.domain.content.Content;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.picture.Picture;
+import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.picture.PictureService;
 
@@ -47,6 +49,8 @@ public class PictureController extends BaseController {
 	private PictureService pictureService;
 	@Autowired
 	private MenuService menuService;
+	@Autowired
+	private ContentService contentService;
 
 	@RequestMapping(value = "/get")
 	public Object edit(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
@@ -54,11 +58,14 @@ public class PictureController extends BaseController {
 		try {
 			List<Menu> headMenus = menuService.getSubMenus(13);
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
+			Content content = contentService.getByMenuId(menuId);
 			Menu menu = menuService.getByPrimaryKey(menuId);
-
+			Menu parentMenu = menuService.getByPrimaryKey(menu.getParentId());
 			model.put("headMenus", headMenus);
 			model.put("pictures", pictures);
+			model.put("content", content);
 			model.put("menu", menu);
+			model.put("parentMenu", parentMenu);
 		} catch (Exception e) {
 			log.error("", e);
 		}

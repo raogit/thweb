@@ -56,6 +56,8 @@ public class ContentController extends BaseController {
 				if (con != null) {
 					con.setTitle(content.getTitle());
 					con.setSlogan(content.getSlogan());
+					con.setPhone(content.getPhone());
+					con.setAddress(content.getAddress());
 					con.setContent(content.getContent());
 					con.setUpdateId(user.getId());
 					con.setUpdateTime(new Date());
