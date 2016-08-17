@@ -5,10 +5,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>天虹官网</title>
 	<jsp:include page="/base/base.jsp"></jsp:include>
-	<link  href="${basePath}/home/css/common.css" rel="stylesheet" type="text/css">
-	<script src="${basePath}/home/Scripts/jquery.min.js?ver=${ver}"></script>
-	<script src="${basePath}/home/Scripts/Common.js?ver=${ver}"></script>
-	<script src="${basePath}/home/Scripts/jQuery.pluges.js?ver=${ver}"></script>
 </head>
 
 <body>
@@ -22,12 +18,12 @@
             </div>
             <div class="menu-left-item">
                 <ul id="item-menu">
-                    <li><a href="Index.html?item=0" class="m">南昌·九洲天虹广场</a></li> 
-                    <li><a href="Index.html?item=1" class="m">苏州·天虹品上中心</a> </li>
-                    <li><a href="Index.html?item=2" class="m">吉安·天虹购物中心</a></li>
-                    <li><a href="Index.html?item=3" class="m">联发广场</a></li>
-                    <li><a href="Index.html?item=4" class="m">厦门会展北商务综合体</a> </li>
-                    <li><a href="Index.html?item=5" class="m">鹰潭·天虹购物中心</a></li>
+                    <li><a href="index.jsp?item=0" class="m">南昌·九洲天虹广场</a></li> 
+                    <li><a href="index.jsp?item=1" class="m">苏州·天虹品上中心</a> </li>
+                    <li><a href="index.jsp?item=2" class="m">吉安·天虹购物中心</a></li>
+                    <li><a href="index.jsp?item=3" class="m">联发广场</a></li>
+                    <li><a href="index.jsp?item=4" class="m">厦门会展北商务综合体</a> </li>
+                    <li><a href="index.jsp?item=5" class="m">鹰潭·天虹购物中心</a></li>
                 </ul>
             </div>
         </div> 
@@ -40,10 +36,10 @@
                 </div>
             </div>
             <div class="items-infor">
-                <div class="items-img lt"><img src="../images/img/img14.jpg" /></div>
+                <div class="items-img lt"><img src="${basePath}/images/img/img14.jpg" /></div>
                 <div class="items-desc rt">
                     <div class="desc-title">南昌· 九洲天虹广场</div>
-                    <div class="tel-number"><img src="../Images/tel-number.png" /></div>
+                    <div class="tel-number"><img src="${basePath}/images/tel-number.png" /></div>
                     <div class="desc-text">
                         <p><b>2万方购物中心</b>——以“天虹百货+精致超市+餐饮+休闲+娱乐+X”的购物中心业态，打造一站式吃喝玩乐购的南昌商业新中心。</p>
                         <p>&nbsp;</p>

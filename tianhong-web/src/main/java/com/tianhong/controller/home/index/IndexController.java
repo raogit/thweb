@@ -48,21 +48,45 @@ public class IndexController {
 
 	@RequestMapping(value = "/case/index")
 	public Object caseIndex(HttpServletRequest request, HttpServletResponse response) {
-		return "/home/case/index";
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/case/index", model);
 	}
 
 	@RequestMapping(value = "/project/index")
 	public Object projectIndex(HttpServletRequest request, HttpServletResponse response) {
-		return "/home/project/index";
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/project/index", model);
 	}
 
 	@RequestMapping(value = "/item/index")
 	public Object itemIndex(HttpServletRequest request, HttpServletResponse response) {
-		return "/home/item/index";
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/item/index", model);
 	}
 
 	@RequestMapping(value = "/contact/index")
 	public Object contactIndex(HttpServletRequest request, HttpServletResponse response) {
-		return "/home/contact/index";
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/contact/index", model);
 	}
 }
