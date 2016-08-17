@@ -54,11 +54,13 @@ public class ContentController extends BaseController {
 	public Object edit(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
+			String leftMenuId = request.getParameter("leftMenuId");
+			String item = request.getParameter("item");
+			String p = request.getParameter("p");
 			List<Menu> headMenus = menuService.getSubMenus(13);
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			Content content = contentService.getByMenuId(menuId);
 			Menu menu = menuService.getByPrimaryKey(menuId);
-
 			Menu parentMenu = menuService.getByPrimaryKey(menu.getParentId());
 
 			model.put("headMenus", headMenus);
@@ -66,6 +68,9 @@ public class ContentController extends BaseController {
 			model.put("menu", menu);
 			model.put("pictures", pictures);
 			model.put("parentMenu", parentMenu);
+			model.put("item", item);
+			model.put("p", p);
+			model.put("leftMenuId", leftMenuId);
 		} catch (Exception e) {
 			log.error("", e);
 		}

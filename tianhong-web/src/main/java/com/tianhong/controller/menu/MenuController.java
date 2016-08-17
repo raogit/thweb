@@ -48,11 +48,14 @@ public class MenuController extends BaseController {
 		try {
 			List<Menu> subMenus = menuService.getSubMenus(menuId);
 			List<Menu> headMenus = menuService.getSubMenus(13);
+
 			model.put("headMenus", headMenus);
 			model.put("subMenus", subMenus);
 
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("pictures", pictures);
+
+			model.put("leftMenuId", menuId);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -64,12 +67,14 @@ public class MenuController extends BaseController {
 			HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-
+			Menu menu = menuService.getByPrimaryKey(leftMenuId);
 			List<Menu> headMenus = menuService.getSubMenus(13);
-
 			List<Menu> subMenus = menuService.getSubMenus(leftMenuId);
+
+			model.put("menu", menu);
 			model.put("headMenus", headMenus);
 			model.put("subMenus", subMenus);
+			model.put("leftMenuId", leftMenuId);
 		} catch (Exception e) {
 			log.error("", e);
 		}

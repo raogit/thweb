@@ -9,17 +9,17 @@
 	%>
 <div class="lt menu-left">
 	<div class="menu-left-page">
-		<p>项目楼盘</p>
-		<span>Project development</span>
+		<p>${menu.name }</p>
+<!-- 		<span>Project development</span> -->
 	</div>
 	<div class="menu-left-item">
 		<ul id="item-menu">
-			<c:forEach var="item" items="${subMenus }" begin="0" step="1">
+			<c:forEach var="item" items="${subMenus }" begin="0" step="1" varStatus="itemStatus">
 				<li><a href="javascript:void(0);" class="f"><span>${item.name }</span><em></em></a>
 					<dl>
-						<c:forEach var="sub" items="${item.subMenus }" begin="0" step="1">
+						<c:forEach var="sub" items="${item.subMenus }" begin="0" step="1"  varStatus="subStatus">
 							<dd>
-								<a href="${basePath}${sub.link }?menuId=${sub.id}">${sub.name }</a>
+								<a href="${basePath}${sub.link }?menuId=${sub.id}&leftMenuId=${leftMenuId }&item=${itemStatus.index }&p=${subStatus.index}">${sub.name }</a>
 							</dd>
 						</c:forEach>
 					</dl></li>

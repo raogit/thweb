@@ -246,7 +246,7 @@
     from t_menu
     where is_deleted = 0
     	 <if test="name != null and name != ''">
-	        AND name = #{name,jdbcType=VARCHAR}
+	        AND name like CONCAT(#{name,jdbcType=VARCHAR},'%' )
 	    </if>
 		<if test="startDate != null and endDate!=null">
 	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
@@ -261,7 +261,7 @@
     from t_menu
     where  is_deleted = 0
 	    <if test="name != null and name != ''">
-	        AND name = #{name,jdbcType=VARCHAR}
+	        AND name like CONCAT(#{name,jdbcType=VARCHAR},'%' )
 	    </if>
 		<if test="startDate != null and endDate!=null">
 	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
@@ -272,7 +272,7 @@
     select 
     <include refid="Base_Column_List" />
     from t_menu
-    where name = #{name,jdbcType=VARCHAR} and is_deleted = 0
+    where name like CONCAT(#{name,jdbcType=VARCHAR},'%' ) and is_deleted = 0
   </select>
   
   <select id="selectSort" parameterType="java.lang.Integer" resultType="java.lang.Byte">

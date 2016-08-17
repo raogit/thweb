@@ -13,7 +13,7 @@
 <jsp:include page="../head/head.jsp"></jsp:include>
 <div id="webbox">
     <div class="wrap padd">
-         <c:import url="${basePath}/menu/left?leftMenuId=107"></c:import>
+         <c:import url="${basePath}/menu/left?leftMenuId=${leftMenuId }"></c:import>
         <div class="rt right-box">
             <div class="right-box-nav">
                 <h1>Project development  /  项目楼盘</h1>
