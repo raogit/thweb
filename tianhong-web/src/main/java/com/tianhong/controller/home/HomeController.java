@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.tianhong.controller.home.index;
+package com.tianhong.controller.home;
 
 import java.util.HashMap;
 import java.util.List;
