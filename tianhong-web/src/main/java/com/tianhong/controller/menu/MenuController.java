@@ -3,7 +3,9 @@
  */
 package com.tianhong.controller.menu;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.menu.Menu;
@@ -32,6 +35,20 @@ public class MenuController extends BaseController {
 
 	@Autowired
 	private MenuService menuService;
+
+	@RequestMapping(value = "/sub")
+	public Object subList(@RequestParam("menuId") int menuId, @RequestParam("link") String link,
+			HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			List<Menu> subMenus = menuService.getSubMenus(menuId);
+
+			model.put("subMenus", subMenus);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView(link, model);
+	}
 
 	@RequestMapping(value = "/news/detail")
 	public Object newsDetail(@RequestParam("menuId") int menuId, HttpServletRequest request,
@@ -91,7 +108,6 @@ public class MenuController extends BaseController {
 
 	@RequestMapping(value = "/addusermenu")
 	public Object add(HttpServletRequest request, HttpServletResponse response) {
-
 		try {
 			String roleIds = request.getParameter("roleIds");
 			String menuIds = request.getParameter("menuIds");

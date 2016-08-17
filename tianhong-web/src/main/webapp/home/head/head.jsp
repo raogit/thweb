@@ -12,7 +12,7 @@
             <div class="menu-nav">
                 <ul id="nav">
                     <li><a href="${basePath}/home/index">首页<i></i></a></li>
-                    <li><a href="${basePath}/home/case/index">案例展示<i></i></a></li>
+                    <li><a href="${basePath}/menu/sub?menuId=107&link=/home/case/index">案例展示<i></i></a></li>
                     <li><a href="${basePath}/home/project/index">在建项目<i></i></a></li> 
                     <li><a href="${basePath}/home/item/index">项目合作<i></i></a></li>
                     <li><a href="${basePath}/home/contact/index">联系我们<i></i></a></li>

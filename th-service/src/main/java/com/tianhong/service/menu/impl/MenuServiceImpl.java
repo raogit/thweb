@@ -122,4 +122,14 @@ public class MenuServiceImpl implements MenuService {
 		byte sort = menuMapper.selectSort(parentId);
 		return (byte) (sort + 1);
 	}
+
+	public List<Menu> getSubMenus(int menuId) throws Exception {
+		List<Menu> menus = this.getAllMenus();
+		for (Menu menu : menus) {
+			if (menu.getId().intValue() == menuId) {
+				return menu.getSubMenus();
+			}
+		}
+		return null;
+	}
 }

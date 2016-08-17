@@ -15,7 +15,8 @@ package com.tianhong.enums;
  * @date 2016-6-7 下午3:24:11
  */
 public enum UserLevelEnum {
-	ADMIN_COM((byte) 0, (byte) 1), COM_STATION((byte) 1, (byte) 2), STATION_OPERATOR((byte) 2, (byte) 3);
+	ZERO((byte) 0, (byte) 1), ONE((byte) 1, (byte) 2), TWO((byte) 2, (byte) 3), THREE((byte) 3, (byte) 4), FORE(
+			(byte) 4, (byte) 5), FIRE((byte) 5, (byte) 6), SIX((byte) 6, (byte) 7), SEVEN((byte) 7, (byte) 8);
 	private byte parentLevel;
 	private byte userLevel;
 
