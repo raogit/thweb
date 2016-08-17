@@ -119,6 +119,7 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	public byte getSort(int parentId) throws Exception {
-		return menuMapper.selectSort(parentId);
+		byte sort = menuMapper.selectSort(parentId);
+		return (byte) (sort + 1);
 	}
 }

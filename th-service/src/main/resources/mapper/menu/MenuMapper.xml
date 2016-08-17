@@ -277,7 +277,7 @@
   
   <select id="selectSort" parameterType="java.lang.Integer" resultType="java.lang.Byte">
     select 
-   	 max(sort) +1
+   	  IFNULL(max(sort),0)      
     from t_menu
     where parent_id = #{parentId,jdbcType=INTEGER} and is_deleted = 0
   </select>
