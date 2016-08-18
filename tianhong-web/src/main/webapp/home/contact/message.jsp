@@ -32,17 +32,17 @@
                     <div class="online">
                        <form>
                         <dl>
-                            <dt><label>姓名：</label><input type="text" class="user"></dt>
-                            <dt><label>邮箱：</label><input type="text" class="Email"></dt>
+                            <dt><label>姓名：</label><input type="text" class="user" id="name"></dt>
+                            <dt><label>邮箱：</label><input type="text" class="Email" id="email"></dt>
                         </dl>
                         <dl>
-                            <dd><label>联系电话：</label><input type="text" class="input-tel"></dd>
-                            <dd><label>单位名称：</label><input type="text" class="input-name"></dd>
-                            <dd><label>联系地址：</label><input type="text" class="input-adder"></dd>
-                            <dd class="heig"><label>留言内容：</label><textarea class="textarea"></textarea></dd>
+                            <dd><label>联系电话：</label><input type="text" class="input-tel" id="phone"></dd>
+                            <dd><label>单位名称：</label><input type="text" class="input-name" id="company"></dd>
+                            <dd><label>联系地址：</label><input type="text" class="input-adder" id="address"></dd>
+                            <dd class="heig"><label>留言内容：</label><textarea class="textarea" id="message"></textarea></dd>
                         </dl>
                         <div class="btnInput">
-                            <input type="submit" class="submit" value="提交">
+                            <input type="button" class="submit" value="提交" onclick="commit()">
                             <input type="reset" class="reset" value="重置">
                         </div>
                         </form>
@@ -60,6 +60,36 @@ $(function(){
     $("#item-menu li a.m").eq(1).addClass('mActino');  
      
 })
+function commit(){
+	var name = $("#name").val();
+	var email = $("#email").val();
+	var phone = $("#phone").val();
+	var company = $("#company").val();
+	var address = $("#address").val();
+	var message = $("#message").val(); 
+	
+	$.ajax({
+        url: $("#basePath").val() + "/contact/save",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	name : name,
+        	email : email,
+        	phone : phone,
+        	company : company,
+        	address : address,
+        	message : message
+        },
+        cache: false,
+        success: function(data){
+        	if(data!=null&&data==true){
+        		alert("提交成功");
+        	}else{
+        		alert("请重试");
+        	}
+        }
+    });
+}
 </script>
 </body>
 </html>
