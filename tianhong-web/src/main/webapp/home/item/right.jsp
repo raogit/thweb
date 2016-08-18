@@ -17,15 +17,16 @@
 	</div>
 	<div class="items-infor">
 		<div class="items-img lt">
-			<c:forEach var="item" items="${pictures }" begin="0" step="1"
-				varStatus="status">
+			<c:forEach var="item" items="${pictures }" begin="0" step="1" end="0" varStatus="status">
 				<img src="${basePath}/download/png?fileName=${item.path }" />
 			</c:forEach>
 		</div>
 		<div class="items-desc rt">
 			<div class="desc-title">${content.title }</div>
 			<div class="tel-number">
-				<img src="${basePath}/images/tel-number.png" />
+				<c:forEach var="item" items="${pictures }" begin="1" step="1" end="1" varStatus="status">
+					<img src="${basePath}/download/png?fileName=${item.path }" />
+				</c:forEach>
 			</div>
 			<div class="desc-text">${content.content }</div>
 		</div>

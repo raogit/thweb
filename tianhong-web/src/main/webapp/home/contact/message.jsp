@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -15,18 +17,7 @@
 <jsp:include page="../head/head.jsp"></jsp:include>
 <div id="webbox">
     <div class="wrap padd">
-        <div class="lt menu-left">
-            <div class="menu-left-page contact-page">
-                <p>联系我们</p>
-                <span>contact us</span>
-            </div>
-            <div class="menu-left-item">
-                <ul id="item-menu">
-                    <li><a href="index.jsp" class="m">联系方式</a></li> 
-                    <li><a href="message.jsp" class="m mActino">在线留言</a> </li> 
-                </ul>
-            </div>
-        </div> 
+        <c:import url="${basePath}/menu/contactleft?leftMenuId=${leftMenuId }"></c:import>
         <div class="rt right-box">
             <div class="right-box-nav">
                 <h1>contact us<em>/</em>在线留言</h1> 
@@ -63,5 +54,12 @@
     </div>
 </div>
 <jsp:include page="../foot/foot.jsp"></jsp:include>
+<script type="text/javascript">
+$(function(){
+    
+    $("#item-menu li a.m").eq(1).addClass('mActino');  
+     
+})
+</script>
 </body>
 </html>

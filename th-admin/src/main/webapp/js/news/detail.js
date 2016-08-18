@@ -110,7 +110,7 @@ function save(){
 function clear(){
 	$("#contentId").html("");
 }
-function upload(fileId,uri,type){
+function upload(fileId,type){
 	var file = $("#fileId").val();
 	if(!file){
 		alert("请选择图片");

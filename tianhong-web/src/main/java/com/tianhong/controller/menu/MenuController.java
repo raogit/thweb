@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,12 +54,18 @@ public class MenuController extends BaseController {
 			List<Menu> subMenus = menuService.getSubMenus(menuId);
 			List<Menu> headMenus = menuService.getSubMenus(13);
 
-			model.put("headMenus", headMenus);
-			model.put("subMenus", subMenus);
-
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("pictures", pictures);
+			if (!CollectionUtils.isEmpty(subMenus)) {
+				List<Picture> subPictures = pictureService.findByMenuId(subMenus.get(0).getId());
+				model.put("subPictures", subPictures);
 
+				Content content = contentService.getByMenuId(subMenus.get(0).getId());
+				model.put("content", content);
+			}
+
+			model.put("headMenus", headMenus);
+			model.put("subMenus", subMenus);
 			model.put("leftMenuId", menuId);
 			model.put("rightMenuId", subMenus.get(0).getId());
 		} catch (Exception e) {
@@ -103,6 +110,27 @@ public class MenuController extends BaseController {
 			log.error("", e);
 		}
 		return new ModelAndView("/home/item/left", model);
+	}
+
+	@RequestMapping(value = "/contactleft")
+	public Object contactLeft(@RequestParam("leftMenuId") int leftMenuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(leftMenuId);
+			List<Menu> headMenus = menuService.getSubMenus(13);
+			List<Menu> subMenus = menuService.getSubMenus(leftMenuId);
+			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			model.put("pictures", pictures);
+
+			model.put("menu", menu);
+			model.put("headMenus", headMenus);
+			model.put("subMenus", subMenus);
+			model.put("leftMenuId", leftMenuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/contact/left", model);
 	}
 
 	@RequestMapping(value = "/itemright")

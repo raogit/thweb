@@ -97,4 +97,48 @@ public class ContentController extends BaseController {
 		}
 		return new ModelAndView("/home/item/index", model);
 	}
+
+	@RequestMapping(value = "/contact/index")
+	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			String leftMenuId = request.getParameter("leftMenuId");
+			String item = request.getParameter("item");
+			String p = request.getParameter("p");
+			List<Menu> headMenus = menuService.getSubMenus(13);
+			Content content = contentService.getByMenuId(menuId);
+			model.put("content", content);
+			List<Picture> pictures = pictureService.findByMenuId(menuId);
+			model.put("subPictures", pictures);
+			model.put("headMenus", headMenus);
+			model.put("item", item);
+			model.put("p", p);
+			model.put("leftMenuId", leftMenuId);
+			model.put("rightMenuId", menuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/contact/index", model);
+	}
+
+	@RequestMapping(value = "/contact/message")
+	public Object message(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			String leftMenuId = request.getParameter("leftMenuId");
+			String item = request.getParameter("item");
+			String p = request.getParameter("p");
+			List<Menu> headMenus = menuService.getSubMenus(13);
+
+			model.put("headMenus", headMenus);
+			model.put("item", item);
+			model.put("p", p);
+			model.put("leftMenuId", leftMenuId);
+			model.put("rightMenuId", menuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/contact/message", model);
+	}
 }
