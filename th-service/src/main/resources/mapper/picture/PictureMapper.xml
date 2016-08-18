@@ -40,7 +40,7 @@
     delete from t_picture
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tianhong.domain.picture.Picture">
+  <insert id="insert" parameterType="com.tianhong.domain.picture.Picture" useGeneratedKeys="true" keyProperty="id">
     insert into t_picture (id, menu_id, sort, 
       title, url, picture_type, 
       path, create_time, create_id, 
@@ -54,7 +54,7 @@
       #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, #{backup3,jdbcType=VARCHAR}, 
       #{content,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.tianhong.domain.picture.Picture">
+  <insert id="insertSelective" parameterType="com.tianhong.domain.picture.Picture" useGeneratedKeys="true" keyProperty="id">
     insert into t_picture
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

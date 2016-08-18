@@ -44,7 +44,7 @@
 		delete from t_content
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.tianhong.domain.content.Content">
+	<insert id="insert" parameterType="com.tianhong.domain.content.Content" useGeneratedKeys="true" keyProperty="id">
 		insert into t_content (id, menu_id, title,
 		slogan, phone, address,
 		source, path, create_time,
@@ -61,7 +61,7 @@
 		#{backup2,jdbcType=VARCHAR},
 		#{backup3,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
 	</insert>
-	<insert id="insertSelective" parameterType="com.tianhong.domain.content.Content">
+	<insert id="insertSelective" parameterType="com.tianhong.domain.content.Content" useGeneratedKeys="true" keyProperty="id">
 		insert into t_content
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
