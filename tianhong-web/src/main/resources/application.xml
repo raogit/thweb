@@ -63,8 +63,13 @@
 		<property name="maxUploadSize" value="629145600" />
 		<property name="maxInMemorySize" value="4096" />
 	</bean>
+	
+	<mvc:resources mapping="/app/**" location="/app/" />
+	<mvc:resources mapping="/brand/**" location="/brand/" />
 	<mvc:resources mapping="/home/**" location="/home/" />
 	<mvc:resources mapping="/home/contact/**" location="/home/contact/" />
+	<mvc:resources mapping="/shopping-center/**" location="/shopping-center/" />
+	<mvc:resources mapping="/store/**" location="/store/" />
 	<mvc:resources mapping="/common/**" location="/common/" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/images/**" location="/images/" />
