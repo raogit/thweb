@@ -59,7 +59,7 @@ public class ContentController extends BaseController {
 			String leftMenuId = request.getParameter("leftMenuId");
 			String item = request.getParameter("item");
 			String p = request.getParameter("p");
-			List<Menu> headMenus = menuService.getSubMenus(13);
+			List<Menu> headMenus = menuService.getSubMenus(13, true);
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			Content content = contentService.getByMenuId(menuId);
 			Menu menu = menuService.getByPrimaryKey(menuId);
@@ -87,7 +87,7 @@ public class ContentController extends BaseController {
 			String leftMenuId = request.getParameter("leftMenuId");
 			String item = request.getParameter("item");
 			String p = request.getParameter("p");
-			List<Menu> headMenus = menuService.getSubMenus(13);
+			List<Menu> headMenus = menuService.getSubMenus(13, true);
 
 			model.put("headMenus", headMenus);
 			model.put("item", item);
@@ -107,7 +107,7 @@ public class ContentController extends BaseController {
 			String leftMenuId = request.getParameter("leftMenuId");
 			String item = request.getParameter("item");
 			String p = request.getParameter("p");
-			List<Menu> headMenus = menuService.getSubMenus(13);
+			List<Menu> headMenus = menuService.getSubMenus(13, true);
 			Content content = contentService.getByMenuId(menuId);
 			model.put("content", content);
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
@@ -131,7 +131,7 @@ public class ContentController extends BaseController {
 			String leftMenuId = request.getParameter("leftMenuId");
 			String item = request.getParameter("item");
 			String p = request.getParameter("p");
-			List<Menu> headMenus = menuService.getSubMenus(13);
+			List<Menu> headMenus = menuService.getSubMenus(13, true);
 
 			model.put("headMenus", headMenus);
 			model.put("item", item);
@@ -149,10 +149,10 @@ public class ContentController extends BaseController {
 			HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-			List<Menu> subMenus = menuService.getSubMenus(leftMenuId);
+			List<Menu> subMenus = menuService.getSubMenus(leftMenuId, true);
 			List<Content> contents = new ArrayList<Content>();
 			for (Menu menu : subMenus) {
-				List<Menu> subs = menuService.getSubMenus(menu.getId());
+				List<Menu> subs = menuService.getSubMenus(menu.getId(), true);
 				if (!CollectionUtils.isEmpty(subs)) {
 					Content content = contentService.getByMenuId(subs.get(0).getId());
 					List<Picture> pictures = pictureService.findByMenuId(subs.get(0).getId());

@@ -51,8 +51,8 @@ public class MenuController extends BaseController {
 			HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-			List<Menu> subMenus = menuService.getSubMenus(menuId);
-			List<Menu> headMenus = menuService.getSubMenus(13);
+			List<Menu> subMenus = menuService.getSubMenus(menuId, true);
+			List<Menu> headMenus = menuService.getSubMenus(13, true);
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("pictures", pictures);
 			if (!CollectionUtils.isEmpty(subMenus)) {
@@ -79,8 +79,8 @@ public class MenuController extends BaseController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(leftMenuId);
-			List<Menu> headMenus = menuService.getSubMenus(13);
-			List<Menu> subMenus = menuService.getSubMenus(leftMenuId);
+			List<Menu> headMenus = menuService.getSubMenus(13, true);
+			List<Menu> subMenus = menuService.getSubMenus(leftMenuId, true);
 
 			model.put("menu", menu);
 			model.put("headMenus", headMenus);
@@ -98,8 +98,8 @@ public class MenuController extends BaseController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(leftMenuId);
-			List<Menu> headMenus = menuService.getSubMenus(13);
-			List<Menu> subMenus = menuService.getSubMenus(leftMenuId);
+			List<Menu> headMenus = menuService.getSubMenus(13, true);
+			List<Menu> subMenus = menuService.getSubMenus(leftMenuId, true);
 
 			model.put("menu", menu);
 			model.put("headMenus", headMenus);
@@ -117,8 +117,8 @@ public class MenuController extends BaseController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(leftMenuId);
-			List<Menu> headMenus = menuService.getSubMenus(13);
-			List<Menu> subMenus = menuService.getSubMenus(leftMenuId);
+			List<Menu> headMenus = menuService.getSubMenus(13, true);
+			List<Menu> subMenus = menuService.getSubMenus(leftMenuId, true);
 			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
 			model.put("pictures", pictures);
 
@@ -141,8 +141,8 @@ public class MenuController extends BaseController {
 			Menu parentMenu = menuService.getByPrimaryKey(menu.getParentId());
 			List<Picture> pictures = pictureService.findByMenuId(rightMenuId);
 			Content content = contentService.getByMenuId(rightMenuId);
-			List<Menu> headMenus = menuService.getSubMenus(13);
-			List<Menu> subMenus = menuService.getSubMenus(rightMenuId);
+			List<Menu> headMenus = menuService.getSubMenus(13, true);
+			List<Menu> subMenus = menuService.getSubMenus(rightMenuId, true);
 			model.put("parentMenu", parentMenu);
 			model.put("menu", menu);
 			model.put("pictures", pictures);
@@ -161,7 +161,7 @@ public class MenuController extends BaseController {
 			HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-			List<Menu> headMenus = menuService.getSubMenus(headMenuId);
+			List<Menu> headMenus = menuService.getSubMenus(headMenuId, true);
 			model.put("headMenus", headMenus);
 		} catch (Exception e) {
 			log.error("", e);

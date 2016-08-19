@@ -33,7 +33,7 @@ public interface MenuService {
 
 	List<Menu> getAllMenus() throws Exception;
 
-	List<Menu> getSubMenus(int menuId) throws Exception;
+	List<Menu> getSubMenus(int menuId, boolean show) throws Exception;
 
 	List<Menu> getMenusByType(int type) throws Exception;
 

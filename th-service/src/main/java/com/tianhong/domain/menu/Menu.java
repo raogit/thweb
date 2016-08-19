@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.tianhong.domain.content.Content;
+import com.tianhong.domain.picture.Picture;
 import com.tianhong.page.Page;
 
 public class Menu extends Page {
@@ -41,6 +43,10 @@ public class Menu extends Page {
 	private List<Menu> subMenus;
 
 	private boolean selected;
+
+	private List<Picture> pictures;
+
+	private Content content;
 
 	public Integer getId() {
 		return id;
@@ -188,4 +194,24 @@ public class Menu extends Page {
 	public void setSelected(boolean selected) {
 		this.selected = selected;
 	}
+
+	public Content getContent() {
+		return content;
+	}
+
+	public void setContent(Content content) {
+		this.content = content;
+	}
+
+	public List<Picture> getPictures() {
+		if (pictures == null) {
+			pictures = new ArrayList<Picture>();
+		}
+		return pictures;
+	}
+
+	public void setPictures(List<Picture> pictures) {
+		this.pictures = pictures;
+	}
+
 }

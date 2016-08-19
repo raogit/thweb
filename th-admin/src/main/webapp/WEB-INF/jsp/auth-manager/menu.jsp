@@ -46,6 +46,7 @@
 			<div class="pop_cont_input">
 				<ul>
 					<li><span style="width:70px;text-align: right;" class="ttl">菜单名:</span> <input id="popName" style="width:140px;" type="text" placeholder="请输入菜单名..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">英文名:</span> <input id="popEnglishName" style="width:140px;" type="text" placeholder="请输入菜单名..." class="textbox" /></li>
 					<li><span style="width:70px;text-align: right;" class="ttl">link:</span><input id="popLink"  style="width:140px;" type="text" placeholder="请填写link..." class="textbox" /></li>
 					<li><span style="width:70px;text-align: right;" class="ttl">url:</span><input id="popUrl"  style="width:140px;" type="text" placeholder="请填写url..." class="textbox" /></li>
 				</ul>
@@ -71,7 +72,7 @@
 				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" />-
 				<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:160px;"/>
 				<input type="button" value="查询" class="group_btn" onclick="tableData(1)" /> 
-				<input type="button" value="添加" class="group_btn" onclick="showUser(0)" style="margin-left:20px;" /> 
+				<input type="button" value="添加" class="group_btn" onclick="addSub(0)" style="margin-left:20px;" /> 
 			</section>
 			<section>
 				<h1></h1>

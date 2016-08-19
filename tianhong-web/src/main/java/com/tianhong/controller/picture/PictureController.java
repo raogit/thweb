@@ -59,7 +59,7 @@ public class PictureController extends BaseController {
 			String leftMenuId = request.getParameter("leftMenuId");
 			String item = request.getParameter("item");
 			String p = request.getParameter("p");
-			List<Menu> headMenus = menuService.getSubMenus(13);
+			List<Menu> headMenus = menuService.getSubMenus(13, true);
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			Content content = contentService.getByMenuId(menuId);
 			Menu menu = menuService.getByPrimaryKey(menuId);

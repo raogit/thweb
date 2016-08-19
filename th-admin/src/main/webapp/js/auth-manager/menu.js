@@ -100,6 +100,7 @@ function showUser(id){
 	$("#pop_user").fadeIn(200);
 	$("#popMenuId").val(id);
 	$("#popName").val("");
+	$("#popEnglishName").val("");
 	$("#popLink").val("");
 	$("#popUrl").val("");
 	if(id<=0){
@@ -119,6 +120,7 @@ function showUser(id){
 	        		$("#popName").val(data.name);
 		        	$("#popLink").val(data.link);
 		        	$("#popUrl").val(data.url);
+		        	$("#popEnglishName").val(data.backup1);
 	        	}
 	        	
 	        }
@@ -131,6 +133,7 @@ function addSub(parentMenuId){
 	$("#pop_user").fadeIn(200);
 	$("#popMenuId").val(0);
 	$("#popName").val("");
+	$("#popEnglishName").val("");
 	$("#popLink").val("");
 	$("#popUrl").val("");
 }
@@ -138,6 +141,7 @@ function addOrEdituser(){
 	debugger;
 	var id = $("#popMenuId").val();
 	var name = $("#popName").val();
+	var englishName = $("#popEnglishName").val();
 	var link = $("#popLink").val();
 	var popUrl = $("#popUrl").val();
 	var parentId = $("#popParentMenuId").val();
@@ -159,7 +163,8 @@ function addOrEdituser(){
         	parentId : parentId,
         	name : name,
         	link : link,
-        	url : popUrl
+        	url : popUrl,
+        	backup1 : englishName
         },
         cache: false,
         success: function(data){

@@ -7,6 +7,7 @@
  */
 package com.tianhong.service.menu.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -123,13 +124,23 @@ public class MenuServiceImpl implements MenuService {
 		return (byte) (sort + 1);
 	}
 
-	public List<Menu> getSubMenus(int menuId) throws Exception {
+	public List<Menu> getSubMenus(int menuId, boolean show) throws Exception {
 		List<Menu> menus = this.getAllMenus();
+		List<Menu> list = new ArrayList<Menu>();
 		for (Menu menu : menus) {
 			if (menu.getId().intValue() == menuId) {
-				return menu.getSubMenus();
+				if (!show) {
+					list.addAll(menu.getSubMenus());
+				} else {
+					for (Menu sub : menu.getSubMenus()) {
+						if (sub.getIsShow() != null && sub.getIsShow().byteValue() == 1) {
+							list.add(sub);
+						}
+					}
+				}
 			}
 		}
-		return null;
+		return list;
 	}
+
 }

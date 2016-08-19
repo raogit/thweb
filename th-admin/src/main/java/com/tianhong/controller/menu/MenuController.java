@@ -139,10 +139,19 @@ public class MenuController extends BaseController {
 				AssertUtils.isTrue(m.getParentId().intValue() != menu.getParentId().intValue(), "角色已存在");
 			}
 			User user = getCurrentUser(request);
-			Menu parentMenu = menuService.getByPrimaryKey(menu.getParentId());
-			byte userLevel = UserLevelEnum.getUserLevel(parentMenu.getLevel());
+
+			if (menu.getParentId() != null && menu.getParentId().intValue() > 0) {
+				Menu parentMenu = menuService.getByPrimaryKey(menu.getParentId());
+				AssertUtils.notNull(parentMenu, "parentMenu 不存在");
+				byte userLevel = UserLevelEnum.getUserLevel(parentMenu.getLevel());
+				menu.setLevel(userLevel);
+			} else {
+				menu.setParentId(0);
+				menu.setLevel((byte) 1);
+			}
+
 			menu.setSort(menuService.getSort(menu.getParentId()));
-			menu.setLevel(userLevel);
+
 			menu.setCreateId(user.getCreateId());
 			menu.setCreateTime(new Date());
 			menu.setIsDeleted(false);

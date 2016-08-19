@@ -43,7 +43,7 @@ public class HomeController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			List<Picture> pictures = pictureService.findByMenuId(106);
-			List<Menu> headMenus = menuService.getSubMenus(13);
+			List<Menu> headMenus = menuService.getSubMenus(13, true);
 			model.put("pictures", pictures);
 			model.put("headMenus", headMenus);
 		} catch (Exception e) {
