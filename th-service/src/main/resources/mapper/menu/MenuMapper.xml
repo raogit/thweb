@@ -248,10 +248,13 @@
     	 <if test="name != null and name != ''">
 	        AND name like CONCAT(#{name,jdbcType=VARCHAR},'%' )
 	    </if>
+	    <if test="parentId != null and parentId >=0">
+	        AND parent_id = #{parentId,jdbcType=INTEGER}
+	    </if>
 		<if test="startDate != null and endDate!=null">
 	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
 		</if>
-    ORDER BY create_time desc
+    ORDER BY sort 
     LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER} 
   </select>
   
@@ -262,6 +265,9 @@
     where  is_deleted = 0
 	    <if test="name != null and name != ''">
 	        AND name like CONCAT(#{name,jdbcType=VARCHAR},'%' )
+	    </if>
+	    <if test="parentId != null and parentId >=0">
+	        AND parent_id = #{parentId,jdbcType=INTEGER}
 	    </if>
 		<if test="startDate != null and endDate!=null">
 	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
@@ -281,4 +287,13 @@
     from t_menu
     where parent_id = #{parentId,jdbcType=INTEGER} and is_deleted = 0
   </select>
+  
+  
+   <select id="selectSameParent" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+   	   <include refid="Base_Column_List" />
+    from t_menu
+    where parent_id = #{parentId,jdbcType=INTEGER} and is_deleted = 0 order by sort 
+  </select>
+  
 </mapper>

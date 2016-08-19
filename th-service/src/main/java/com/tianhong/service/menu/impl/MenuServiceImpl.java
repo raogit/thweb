@@ -143,4 +143,33 @@ public class MenuServiceImpl implements MenuService {
 		return list;
 	}
 
+	public boolean moveSort(int menuId, String move) throws Exception {
+		Menu menu = menuMapper.selectByPrimaryKey(menuId);
+		if (menu != null) {
+			List<Menu> list = menuMapper.selectSameParent(menu.getParentId());
+			Menu exchangeMenu = null;
+			for (int i = 0; i < list.size(); i++) {
+				Menu m = list.get(i);
+				if (m.getId().intValue() == menuId) {
+					if (move.equals("up")) {
+						exchangeMenu = list.get(i - 1);
+					} else {
+						exchangeMenu = list.get(i + 1);
+					}
+				}
+			}
+			if (exchangeMenu != null) {
+				byte menuSort = menu.getSort();
+				byte exchangeSort = exchangeMenu.getSort();
+				menu.setSort(exchangeSort);
+				exchangeMenu.setSort(menuSort);
+				menuMapper.updateByPrimaryKeySelective(menu);
+				menuMapper.updateByPrimaryKeySelective(exchangeMenu);
+			} else {
+				return false;
+			}
+		}
+		return true;
+	}
+
 }

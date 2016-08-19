@@ -194,4 +194,16 @@ public class MenuController extends BaseController {
 		}
 		return false;
 	}
+
+	@RequestMapping(value = "/move")
+	@ResponseBody
+	public Object move(@RequestParam("menuId") int menuId, @RequestParam("move") String move,
+			HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return menuService.moveSort(menuId, move);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
 }

@@ -42,7 +42,6 @@
 			<h3 id="pupTitle">修改菜单</h3>
 			<!--content-->
 			<input type="hidden" value="0" id="popMenuId" />
-			<input type="hidden" value="0" id="popParentMenuId" />
 			<div class="pop_cont_input">
 				<ul>
 					<li><span style="width:70px;text-align: right;" class="ttl">菜单名:</span> <input id="popName" style="width:140px;" type="text" placeholder="请输入菜单名..." class="textbox" /></li>
@@ -67,12 +66,13 @@
 				</h2>
 				<strong style="color: grey;">菜单名:</strong>
 				<input id="name" type="text" class="textbox" placeholder="菜单名..." /> 
-				
+				<input type="hidden" value="0" id="parentMenuId" name="parentMenuId" />
 				<strong style="color: grey;">创建时间:</strong>
 				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" />-
 				<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:160px;"/>
 				<input type="button" value="查询" class="group_btn" onclick="tableData(1)" /> 
-				<input type="button" value="添加" class="group_btn" onclick="addSub(0)" style="margin-left:20px;" /> 
+				<input type="button" value="添加" class="group_btn" onclick="addSub()" style="margin-left:20px;" /> 
+				<input type="button" value="返回" class="group_btn" onclick="goBack()" style="margin-left:20px;" /> 
 			</section>
 			<section>
 				<h1></h1>
@@ -83,7 +83,7 @@
 					<thead>
 						<tr>
 							<th>序号</th>
-							<th>level</th>
+							<th>排序</th>
 							<th>菜单名</th>	
 							<th>link</th>
 							<th>url</th>						

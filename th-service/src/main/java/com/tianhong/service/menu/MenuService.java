@@ -19,6 +19,9 @@ import com.tianhong.domain.menu.Menu;
  * @date 2016年7月13日 下午4:55:23
  */
 public interface MenuService {
+
+	boolean moveSort(int menuId, String move) throws Exception;
+
 	byte getSort(int parentId) throws Exception;
 
 	Menu getPage(Menu menu) throws Exception;

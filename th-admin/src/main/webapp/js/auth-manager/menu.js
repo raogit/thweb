@@ -27,55 +27,113 @@ jQuery(document).ready(function() {
 });
 
 function tableData(pageNum){
-	debugger;
 	curPage = pageNum;
-	$(".loading_area").fadeIn();
+	$(".loading_area").fadeIn(10);
 	var name = $("#name").val();
 	var startDate = $("#startDate").val();
 	var endDate = $("#endDate").val();
-	
+	var parentMenuId = $("#parentMenuId").val();
 	$.ajax({
         url: basePath + "/menu/page",
         type: 'post',
         dataType: 'json',
         data : {
         	name : name,
+        	parentId : parentMenuId,
         	startDate : startDate,
         	endDate : endDate,
         	curPage : pageNum
         },
         cache: false,
         success: function(data){
-        	debugger;
         	if(data!=null&&data!=""){
-        		initTable(data.obj);
+        		initTable(data);
         		initPage(data);
         	}else{
         		alert(json.obj);
         	}
-        	$(".loading_area").fadeOut();
+        	$(".loading_area").fadeOut(10);
         }
     });
 }
 
-function initTable(list){
-	 
+function initTable(data){
 	var userlist = $("#userlist tbody");
 	userlist.empty();
+	var list = data.obj;
+	var totalRow = data.totalRow;
 	for(var i=0;i<list.length;i++){
 		var item = list[i];
 		var time = curentTime(item.createTime);
 		var tr = "<tr>"
 			+"<td>"+(i+1)+"</td>"
-			+"<td>"+item.level+"</td>"
+			+"<td>"+item.sort+"</td>"
 			+"<td>"+item.name+"</td>"
 			+"<td>"+item.link+"</td>"
 			+"<td>"+item.url+"</td>"
-			+"<td>"+time+"</td>"
-			+"<td style='text-align: center;'><a href='javascript:showUser("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:addSub("+item.id+")' class='inner_btn'>增加子菜单</a><a href='javascript:deleteUser("+item.id+")' class='inner_btn'>删除</a></td>"
-			+"</tr>";
-		userlist.append(tr);
+			+"<td>"+time+"</td>";
+		var operation = "";
+		if(i==0){
+			operation ="<td style='text-align: center;'><a href='javascript:down("+item.id+")' class='inner_btn'>下移</a><a href='javascript:subMenu("+item.id+")' class='inner_btn'>子菜单</a><a href='javascript:showUser("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteUser("+item.id+")' class='inner_btn'>删除</a></td>"
+		}else if(i==totalRow-1){
+			operation ="<td style='text-align: center;'><a href='javascript:up("+item.id+")' class='inner_btn'>上移</a><a href='javascript:subMenu("+item.id+")' class='inner_btn'>子菜单</a><a href='javascript:showUser("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteUser("+item.id+")' class='inner_btn'>删除</a></td>"
+		}else{
+			operation ="<td style='text-align: center;'><a href='javascript:up("+item.id+")' class='inner_btn'>上移</a><a href='javascript:down("+item.id+")' class='inner_btn'>下移</a><a href='javascript:subMenu("+item.id+")' class='inner_btn'>子菜单</a><a href='javascript:showUser("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteUser("+item.id+")' class='inner_btn'>删除</a></td>"
+		}
+		var end_tr = "</tr>";
+		userlist.append(tr+operation+end_tr);
 	}
+}
+function down(menuId){
+	debugger;
+	$(".loading_area").fadeIn(10);
+	$.ajax({
+        url: basePath + "/menu/move",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	menuId : menuId,
+        	move : "down"
+        },
+        cache: false,
+        success: function(data){
+        	if(data!=null&&data==true){
+        		tableData(curPage);
+        	}else{
+        		alert("操作失败");
+        	}
+        	$(".loading_area").fadeOut(10);
+        }
+    });
+	
+}
+function up(menuId){
+	$(".loading_area").fadeIn(10);
+	$.ajax({
+        url: basePath + "/menu/move",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	menuId : menuId,
+        	move : "up"
+        },
+        cache: false,
+        success: function(data){
+        	if(data!=null&&data==true){
+        		tableData(curPage);
+        	}else{
+        		alert("操作失败");
+        	}
+        	$(".loading_area").fadeOut(10);
+        }
+    });
+	
+}
+
+
+function subMenu(menuId){
+	$("#parentMenuId").val(menuId);
+	tableData(1);
 }
 
 function initPage(page){
@@ -127,10 +185,9 @@ function showUser(id){
 	    });
 	}
 }
-function addSub(parentMenuId){
-	$("#popParentMenuId").val(parentMenuId);
+function addSub(){
 	$("#pupTitle").html("添加子菜单");
-	$("#pop_user").fadeIn(200);
+	$("#pop_user").fadeIn(10);
 	$("#popMenuId").val(0);
 	$("#popName").val("");
 	$("#popEnglishName").val("");
@@ -138,18 +195,17 @@ function addSub(parentMenuId){
 	$("#popUrl").val("");
 }
 function addOrEdituser(){
-	debugger;
 	var id = $("#popMenuId").val();
 	var name = $("#popName").val();
 	var englishName = $("#popEnglishName").val();
 	var link = $("#popLink").val();
 	var popUrl = $("#popUrl").val();
-	var parentId = $("#popParentMenuId").val();
+	var parentId = $("#parentMenuId").val();
+	debugger;
 	if(isEmpty(name)){
 		alert("请输入菜单名");
 		return ;
 	}
-	debugger;
 	var url = basePath + "/menu/add";
 	if(id>0){
 		url = basePath + "/menu/edit";
@@ -168,7 +224,6 @@ function addOrEdituser(){
         },
         cache: false,
         success: function(data){
-        	debugger;
         	if(data){
         		refreshTime();
         		alert("操作成功!");
@@ -212,15 +267,15 @@ function deleteUser(id){
 
 function loading(){
 	$("#loading").click(function(){
-		$(".loading_area").fadeIn();
-		$(".loading_area").fadeOut(1500);
+//		$(".loading_area").fadeIn(10);
+//		$(".loading_area").fadeOut(10);
 	});
 }
 
 function btn(){
 	//弹出文本性提示框
 	$("#showPopTxt").click(function(){
-		$("#pop_user").fadeIn();
+		$("#pop_user").fadeIn(10);
 	});
 	//弹出：确认按钮
 	$("#confirm_user").click(function(){
@@ -229,16 +284,15 @@ function btn(){
 	});
 	//弹出：取消或关闭按钮
 	$("#close_user").click(function(){
-		 $("#pop_user").fadeOut();
+		 $("#pop_user").fadeOut(10);
 	});
 	//弹出：取消或关闭按钮
 	$("#close_tree").click(function(){
-		 $("#pop_tree").fadeOut();
+		 $("#pop_tree").fadeOut(10);
 	});
 	$("#confirm_tree").click(function(){
 		saveUserRoleAndMenu();
 	});
-	
 }
 
 function tab(){
@@ -253,4 +307,29 @@ function refreshTime(){
 	var curDate = new Date();
 	$("#startDate").val(curentTime(curDate.getTime() - 12*30*24*60*60*1000));
 	$("#endDate").val(curentTime(curDate.getTime()+ 60*60*1000));
+}
+function goBack(){
+	var parentMenuId = $("#parentMenuId").val();
+	if(parentMenuId>0){
+		$.ajax({
+	        url: basePath + "/menu/get",
+	        type: 'post',
+	        dataType: 'json',
+	        data : {
+	        	id : parentMenuId
+	        },
+	        cache: false,
+	        success: function(data){
+	        	if(data && data.parentId>=0){
+	        		$("#parentMenuId").val(data.parentId);
+	        		tableData(1);
+	        	}else{
+	        		alert("不能再返回了");
+	        	}
+	        }
+	    });
+	}else{
+		alert("不能再返回了");
+	}
+	
 }
