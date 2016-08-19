@@ -48,7 +48,10 @@
 					<span class="item_name" style="width: 120px;">上传图片：</span><input type="file" id="fileId" name="fileId"/> 
 				</li>
 				<li>
-					<span class="item_name" style="width: 120px;">图片名称：</span><input type="text" id="title" name="title"/> 
+					<span class="item_name" style="width: 120px;">图片名称：</span><input type="text" id="picTitle" name="picTitle"/> 
+				</li>
+				<li>
+					<span class="item_name" style="width: 120px;">图片URL：</span><input type="text" id="url" name="url"/> 
 				</li>
 				<li><span class="item_name" style="width: 120px;"></span> <input
 					type="button" class="link_btn" onclick="upload('fileId',1)" value="上传"/></li>					
