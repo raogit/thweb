@@ -20,4 +20,6 @@ public interface ContactService {
 	Contact insertSelective(Contact contact) throws Exception;
 
 	Contact getPage(Contact contact) throws Exception;
+
+	boolean deleteByPrimaryKey(Integer id) throws Exception;
 }

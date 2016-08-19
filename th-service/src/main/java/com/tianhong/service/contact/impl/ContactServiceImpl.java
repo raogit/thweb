@@ -7,6 +7,8 @@
  */
 package com.tianhong.service.contact.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,8 +37,16 @@ public class ContactServiceImpl implements ContactService {
 	}
 
 	public Contact getPage(Contact contact) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<Contact> list = contactMapper.findPage(contact);
+		int count = contactMapper.getCount(contact);
+		contact.setObj(list);
+		contact.setTotalRow(count);
+		return contact;
+	}
+
+	public boolean deleteByPrimaryKey(Integer id) throws Exception {
+		contactMapper.deleteByPrimaryKey(id);
+		return true;
 	}
 
 }
