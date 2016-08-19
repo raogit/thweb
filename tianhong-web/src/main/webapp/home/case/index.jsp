@@ -19,10 +19,6 @@
     </div>
 </div>
 <jsp:include page="../foot/foot.jsp"></jsp:include>
-<script type="text/javascript">
-$(function(){
-   
-})
-</script>
+
 </body>
 </html>

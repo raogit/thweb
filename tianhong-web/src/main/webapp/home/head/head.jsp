@@ -30,8 +30,6 @@
 			var li = lis[i];
 			$(li).removeClass("curr");
 		}
-		
-		
 		$("#head_"+$("#headMenuId").val()).addClass('curr');
 	})
 </script>

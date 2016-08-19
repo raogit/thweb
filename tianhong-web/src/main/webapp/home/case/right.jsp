@@ -1,13 +1,21 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
-<jsp:include page="/base/base.jsp"></jsp:include>
 <%String path = request.getContextPath();
 	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
 	request.setAttribute("path", path);
 	request.setAttribute("basePath", basePath);
 	request.setAttribute("ver", Math.random());
 	%>
+	<input type="hidden" value="${basePath }" id="basePath" name="basePath"/>
+	<input type="hidden" value="${path }" id="path" name="path" />
+	<link href="${basePath}/home/css/common.css" rel="stylesheet" type="text/css">
+	<link href="${basePath}/home/Scripts/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+	<link href="${basePath}/home/Scripts/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" /> 
+	<script src="${basePath}/home/Scripts/jquery.min.js?ver=${ver}"></script>
+	<script src="${basePath}/home/Scripts/jQuery.pluges.js?ver=${ver}"></script>
+	<script src="${basePath}/home/Scripts/jquery.mCustomScrollbar.js?ver=${ver}"></script>
+	<script src="${basePath}/home/Scripts/fancybox/jquery.fancybox-1.3.4.js" type="text/javascript"></script>
 <div class="rt right-box">
 	<div class="right-box-nav">
 		<h1>Project development / 项目楼盘</h1>
@@ -51,3 +59,9 @@
 		<div class="btnButton"><span class="curr">0</span><span>1</span></div>
 	</div>
 </div>
+<script type="text/javascript">
+$(function(){
+    $("#forms").formTip();
+    $(".item-list").slideList();
+})
+</script>
