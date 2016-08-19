@@ -7,6 +7,7 @@
  */
 package com.tianhong.controller.home;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -140,5 +142,34 @@ public class ContentController extends BaseController {
 			log.error("", e);
 		}
 		return new ModelAndView("/home/contact/message", model);
+	}
+
+	@RequestMapping(value = "/right")
+	public Object right(@RequestParam("leftMenuId") int leftMenuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			List<Menu> subMenus = menuService.getSubMenus(leftMenuId);
+			List<Content> contents = new ArrayList<Content>();
+			for (Menu menu : subMenus) {
+				List<Menu> subs = menuService.getSubMenus(menu.getId());
+				if (!CollectionUtils.isEmpty(subs)) {
+					Content content = contentService.getByMenuId(subs.get(0).getId());
+					List<Picture> pictures = pictureService.findByMenuId(subs.get(0).getId());
+					if (!CollectionUtils.isEmpty(pictures)) {
+						content.getPictures().addAll(pictures);
+					}
+					if (content != null) {
+						content.setMenu(subs.get(0));
+					}
+					contents.add(content);
+				}
+			}
+			model.put("contents", contents);
+			model.put("leftMenuId", leftMenuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/home/case/right", model);
 	}
 }

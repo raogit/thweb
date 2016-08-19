@@ -14,16 +14,24 @@
             <div class="menu-nav">
                 <ul id="nav">
                 	<c:forEach var="item" items="${headMenus }" begin="0" step="1">
-		       			<li><a href="${basePath}/menu/sub?menuId=${item.id }&link=${item.link}">${item.name }<i></i></a></li>
+		       			<li id="head_${item.id }"><a href="${basePath}/menu/sub?menuId=${item.id }&link=${item.link}">${item.name }<i></i></a></li>
 		       		</c:forEach>
-                   <%--  <li><a href="${basePath}/menu/sub?menuId=106&link=/home/index">首页<i></i></a></li>
-                    <li><a href="${basePath}/menu/sub?menuId=107&link=/home/case/index">案例展示<i></i></a></li>
-                    <li><a href="${basePath}/menu/sub?menuId=108&link=/home/project/index">在建项目<i></i></a></li> 
-                    <li><a href="${basePath}/menu/sub?menuId=107&link=/home/item/index">项目合作<i></i></a></li>
-                    <li><a href="${basePath}/menu/sub?menuId=107&link=/home/contact/index">联系我们<i></i></a></li> --%>
                 </ul>
             </div>
         </div>
     </div>
+    <input type="hidden" value="${leftMenuId }" id="headMenuId"/>
 </div>
-
+<script type="text/javascript">
+	$(function(){
+		
+		var lis = $("#nav li");
+		for(var i=0;i<lis.length;i++){
+			var li = lis[i];
+			$(li).removeClass("curr");
+		}
+		
+		
+		$("#head_"+$("#headMenuId").val()).addClass('curr');
+	})
+</script>

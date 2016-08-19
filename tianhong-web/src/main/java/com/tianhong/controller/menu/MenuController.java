@@ -53,21 +53,20 @@ public class MenuController extends BaseController {
 		try {
 			List<Menu> subMenus = menuService.getSubMenus(menuId);
 			List<Menu> headMenus = menuService.getSubMenus(13);
-
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("pictures", pictures);
 			if (!CollectionUtils.isEmpty(subMenus)) {
 				List<Picture> subPictures = pictureService.findByMenuId(subMenus.get(0).getId());
-				model.put("subPictures", subPictures);
-
 				Content content = contentService.getByMenuId(subMenus.get(0).getId());
+				model.put("subPictures", subPictures);
 				model.put("content", content);
+				model.put("rightMenuId", subMenus.get(0).getId());
 			}
 
 			model.put("headMenus", headMenus);
 			model.put("subMenus", subMenus);
 			model.put("leftMenuId", menuId);
-			model.put("rightMenuId", subMenus.get(0).getId());
+
 		} catch (Exception e) {
 			log.error("", e);
 		}

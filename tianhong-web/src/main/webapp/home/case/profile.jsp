@@ -21,7 +21,7 @@
             </div>
             <div class="right-infor">
                 <div class="profile-img lt">
-                <c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="status">
+                <c:forEach var="item" items="${pictures }" begin="0" step="1" end="0" varStatus="status">
 	       			<img src="${basePath}/download/png?fileName=${item.path }" />
 	       		</c:forEach>
                 </div>

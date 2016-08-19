@@ -1,7 +1,11 @@
 package com.tianhong.domain.content;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import com.tianhong.domain.menu.Menu;
+import com.tianhong.domain.picture.Picture;
 import com.tianhong.page.Page;
 
 public class Content extends Page {
@@ -38,6 +42,10 @@ public class Content extends Page {
 	private String backup3;
 
 	private String content;
+
+	private List<Picture> pictures;
+
+	private Menu menu;
 
 	public Integer getId() {
 		return id;
@@ -174,4 +182,24 @@ public class Content extends Page {
 	public void setSlogan(String slogan) {
 		this.slogan = slogan == null ? null : slogan.trim();
 	}
+
+	public List<Picture> getPictures() {
+		if (pictures == null) {
+			pictures = new ArrayList<Picture>();
+		}
+		return pictures;
+	}
+
+	public void setPictures(List<Picture> pictures) {
+		this.pictures = pictures;
+	}
+
+	public Menu getMenu() {
+		return menu;
+	}
+
+	public void setMenu(Menu menu) {
+		this.menu = menu;
+	}
+
 }
