@@ -118,7 +118,8 @@ function upload(fileId,type){
 	}
 	var menuId = $("#menuId").val();
 	var uri = $("#uri").val();
-	var url=basePath + uri+"?type="+type+"&menuId="+menuId;
+	var title = $("#title").val();
+	var url=basePath + uri+"?type="+type+"&menuId="+menuId+"&title="+title;
 	//执行上传文件操作的函数
 	$.ajaxFileUpload({
         url:url,

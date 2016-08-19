@@ -20,7 +20,7 @@
                 <a href="javascript:history.go(-1);" class="return ui-link">返回列表</a> 
             </div>
             <div class="right-infor">
-                <div class="profile-img lt"><c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="status">
+                <div class="profile-img lt"><c:forEach var="item" items="${pictures }" begin="0" step="1" end="0" varStatus="status">
 	       			<img src="${basePath}/download/png?fileName=${item.path }" />
 	       		</c:forEach> </div>
                 <div class="profile-infor rt">

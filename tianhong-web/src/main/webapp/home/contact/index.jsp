@@ -43,7 +43,7 @@
                     <div class="phone-number"><span>${content.phone }</span></div>
                     <div class="contact-adder">公司地址：${content.address }</div>
                     <ul class="two-code">
-	                    <c:forEach var="item" items="${pictures }" begin="1" step="1" end="2" varStatus="status">
+	                    <c:forEach var="item" items="${subPictures }" begin="1" step="1" end="2" varStatus="status">
 							<li><img src="${basePath}/download/png?fileName=${item.path }"><p>${item.title }</p></li>
 						</c:forEach>
                     </ul> 

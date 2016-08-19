@@ -45,22 +45,13 @@
 		<form action="${basePath }/upload/picture" encType="multipart/form-data" method="post">
 			<ul class="ulColumn2" style="text-align: left;">
 				<li>
-					<span class="item_name" style="width: 120px;">上传主图：</span><input type="file" id="fileId" name="fileId"/> 
+					<span class="item_name" style="width: 120px;">上传图片：</span><input type="file" id="fileId" name="fileId"/> 
+				</li>
+				<li>
+					<span class="item_name" style="width: 120px;">图片名称：</span><input type="text" id="title" name="title"/> 
 				</li>
 				<li><span class="item_name" style="width: 120px;"></span> <input
 					type="button" class="link_btn" onclick="upload('fileId',1)" value="上传"/></li>					
-				<li id="bannerpicture"> </li>
-			</ul>
-		</form>
-	</div>
-	<div>
-		<form action="${basePath }/upload/picture" encType="multipart/form-data" method="post">
-			<ul class="ulColumn2" style="text-align: left;">
-				<li>
-					<span class="item_name" style="width: 120px;">上传普通图：</span><input type="file" id="commFileId" name="commFileId"/> 
-				</li>
-				<li><span class="item_name" style="width: 120px;"></span> <input
-					type="button" class="link_btn" onclick="upload('commFileId',2)" value="上传"/></li>					
 				<li id="bannerpicture"> </li>
 			</ul>
 		</form>
