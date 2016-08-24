@@ -29,14 +29,14 @@
 			</div>
 			<a href="" class="h-c-back">返回天虹</a>
 			<ul class="h-c-title">
-				<c:forEach var="item" items="${subMenus }" begin="0" step="1">
+				<%-- <c:forEach var="item" items="${subMenus }" begin="0" step="1">
 					<li>${item.name }</li>
-				</c:forEach>
-				<!-- <li>首页</li>
+				</c:forEach> --%>
+				<li>首页</li>
 				<li>关于我们</li>
 				<li>APP下载专区</li>
 				<li>商务合作</li>
-				<li>联系我们</li> -->
+				<li>联系我们</li>
 			</ul>
 		</div>
 	</div>
@@ -44,31 +44,16 @@
 		<div class="cont-in">
 			<div class="c-in-cont">
 				<div class="c-in-txt">
-					<div class="c-in-ti"><c:forEach var="item" items="${subMenus }" begin="0" step="1" end="0">
-							<c:forEach var="picture" items="${item.pictures }" begin="0" step="1" end="0">
-								<img src="${basePath}/download/png?fileName=${picture.path }" alt="">
-							</c:forEach>
-						</c:forEach></div>
+					<div class="c-in-ti"><img src="${basePath}/app/Images/p_9.png" alt=""></div>
 					<div class="c-in-tt">本地生活服务平台</div>
 					<div class="c-in-tc">革命你的生活 成就懒人梦</div>
 					<ul class="c-in-tb">
-						<c:forEach var="item" items="${subMenus }" begin="0" step="1" end="0">
-							<c:forEach var="picture" items="${item.pictures }" begin="1" step="1" end="3">
-								<li><a href="${picture.url }" target="_block">
-									<img src="${basePath}/download/png?fileName=${picture.path }" alt=""><p>${picture.title }</p>
-									</a>
-								</li>
-							</c:forEach>
-						</c:forEach>
-					</ul>
+	                    <li><a href="http://www.honglingjin.cn/" target="_block"><img src="${basePath}/app/Images/p_6.png" alt=""><p>虹领巾APP</p></a></li>
+	                    <li><a href="http://www.tianhong.cn/app_off_download.html" target="_block"><img src="${basePath}/app/Images/p_7.png" alt=""><p>虹领巾PC</p></a></li>
+	                    <li><a href="http://m.honglingjin.cn/" target="_block"><img src="${basePath}/app/Images/p_8.png" alt=""><p>虹领巾wap</p></a></li>
+	                </ul>
 				</div>
-				<div class="c-in-img">
-					<c:forEach var="item" items="${subMenus }" begin="0" step="1" end="0">
-							<c:forEach var="picture" items="${item.pictures }" begin="4" step="1" end="4">
-								<img src="${basePath}/download/png?fileName=${picture.path }" alt="">
-							</c:forEach>
-					</c:forEach>
-				</div>
+				<div class="c-in-img"><img src="${basePath}/app/Images/p_1.png" alt=""></div>
 			</div>
 			<div class="c-in-btm"></div>
 		</div>
