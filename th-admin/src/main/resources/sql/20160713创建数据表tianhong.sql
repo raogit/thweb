@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-08-24 21:23:13
+Date: 2016-08-24 22:00:10
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -186,6 +186,90 @@ CREATE TABLE `t_login_log` (
 
 -- ----------------------------
 -- Records of t_login_log
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_market`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_market`;
+CREATE TABLE `t_market` (
+  `id` int(11) NOT NULL,
+  `menu_id` int(11) DEFAULT NULL,
+  `name` varchar(1024) DEFAULT NULL COMMENT '门店名称',
+  `describe` text COMMENT '门店描述',
+  `area` varchar(1024) DEFAULT NULL COMMENT '门店所属区域',
+  `bus_picture_id` int(11) DEFAULT NULL COMMENT '门店公车图片ID',
+  `bus_url` varchar(1024) DEFAULT NULL COMMENT '图片utl',
+  `create_time` timestamp NULL DEFAULT NULL,
+  `create_id` int(11) DEFAULT NULL,
+  `update_time` timestamp NULL DEFAULT NULL,
+  `update_id` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(1) DEFAULT '0',
+  `backup1` varchar(1024) DEFAULT NULL,
+  `backup2` varchar(1024) DEFAULT NULL,
+  `backup3` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='天虹门店';
+
+-- ----------------------------
+-- Records of t_market
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_market_news`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_market_news`;
+CREATE TABLE `t_market_news` (
+  `id` int(11) NOT NULL,
+  `market_id` int(11) DEFAULT NULL,
+  `title` varchar(1024) DEFAULT NULL COMMENT '标题',
+  `type` tinyint(4) DEFAULT NULL COMMENT '门店描述、商城新闻、促销信息',
+  `content` text COMMENT '门店展示内容',
+  `source` varchar(1024) DEFAULT NULL COMMENT '新闻来源',
+  `path` varchar(1024) DEFAULT NULL,
+  `create_time` timestamp NULL DEFAULT NULL,
+  `create_id` int(11) DEFAULT NULL,
+  `update_time` timestamp NULL DEFAULT NULL,
+  `update_id` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(1) DEFAULT '0',
+  `backup1` varchar(1024) DEFAULT NULL,
+  `backup2` varchar(1024) DEFAULT NULL,
+  `backup3` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_market_news
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_market_suggest`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_market_suggest`;
+CREATE TABLE `t_market_suggest` (
+  `id` int(11) NOT NULL,
+  `market_id` int(11) DEFAULT NULL COMMENT '门店ID',
+  `market_name` varchar(255) DEFAULT NULL COMMENT '门店名称',
+  `type` varchar(255) DEFAULT NULL COMMENT '建议类型',
+  `user_name` varchar(1024) DEFAULT NULL COMMENT '用户名称',
+  `com_name` varchar(1024) DEFAULT NULL COMMENT '公司名称',
+  `phone` varchar(1024) DEFAULT NULL COMMENT '电话',
+  `city` varchar(255) DEFAULT NULL COMMENT '城市',
+  `email` varchar(1024) DEFAULT NULL COMMENT '邮件',
+  `content` text COMMENT '内容',
+  `create_time` timestamp NULL DEFAULT NULL,
+  `create_id` int(11) DEFAULT NULL,
+  `update_time` timestamp NULL DEFAULT NULL,
+  `update_id` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(1) DEFAULT '0',
+  `backup1` varchar(1024) DEFAULT NULL,
+  `backup2` varchar(1024) DEFAULT NULL,
+  `backup3` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='意见反馈';
+
+-- ----------------------------
+-- Records of t_market_suggest
 -- ----------------------------
 
 -- ----------------------------
@@ -472,6 +556,267 @@ INSERT INTO `t_picture` VALUES ('68', '140', '1', '', 'undefined', null, '1', '1
 INSERT INTO `t_picture` VALUES ('69', '140', '2', '海外购', 'undefined', null, '1', '1471596151251.png', '2016-08-19 16:42:31', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('70', '140', '3', '天虹到家', 'undefined', null, '1', '1471596160440.png', '2016-08-19 16:42:40', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('71', '140', '4', '优惠券', 'undefined', null, '1', '1471596167802.png', '2016-08-19 16:42:47', '1', null, null, '0', null, null, null);
+
+-- ----------------------------
+-- Table structure for `t_recruit_interaction`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_interaction`;
+CREATE TABLE `t_recruit_interaction` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `question` varchar(1024) DEFAULT NULL COMMENT '问题',
+  `answer` varchar(1024) DEFAULT NULL COMMENT '回答',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `is_show` int(1) DEFAULT NULL COMMENT '是否显示，1显示，0不显示',
+  `faq_type` char(10) DEFAULT NULL COMMENT '互动类型：',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='互动FAQ';
+
+-- ----------------------------
+-- Records of t_recruit_interaction
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_recruit_job`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_job`;
+CREATE TABLE `t_recruit_job` (
+  `id` int(11) NOT NULL COMMENT '编号',
+  `job_name` varchar(64) DEFAULT NULL COMMENT '职位名称',
+  `job_no` bigint(20) DEFAULT NULL COMMENT '职位编号',
+  `department` varchar(64) DEFAULT NULL COMMENT '部门:枚举',
+  `area` varchar(64) DEFAULT NULL COMMENT '工作地点:关联地点',
+  `job_type` char(16) DEFAULT NULL COMMENT '工作类型:枚举',
+  `job_category` varchar(64) DEFAULT NULL COMMENT '岗位类别:枚举',
+  `num` int(5) DEFAULT NULL COMMENT '招聘人数',
+  `salary_max` int(10) DEFAULT NULL COMMENT '月薪上限',
+  `salary_min` int(10) DEFAULT NULL COMMENT '月薪下限',
+  `publish_date` date DEFAULT NULL COMMENT '发布日期',
+  `recuit_type` varchar(64) DEFAULT NULL COMMENT '招聘类型:社招,校招',
+  `job_descption` varchar(1024) DEFAULT NULL COMMENT '职位描述',
+  `require_age` int(5) DEFAULT NULL COMMENT '要求年龄',
+  `require_years` int(5) DEFAULT NULL COMMENT '要求年限',
+  `require_en` varchar(32) DEFAULT NULL COMMENT '要求英语等级',
+  `require_cn` varchar(32) DEFAULT NULL COMMENT '要求汉语程度',
+  `require_yy` varchar(32) DEFAULT NULL COMMENT '要求粤语程度',
+  `require_other` varchar(64) DEFAULT NULL COMMENT '要求其他',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `create_user` int(11) DEFAULT NULL COMMENT '创建者',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `update_user` int(11) DEFAULT NULL COMMENT '更新者',
+  `is_show` int(1) DEFAULT NULL COMMENT '是否显示',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='招聘-职位表';
+
+-- ----------------------------
+-- Records of t_recruit_job
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_recruit_qustion`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_qustion`;
+CREATE TABLE `t_recruit_qustion` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `question` varchar(258) DEFAULT NULL COMMENT '问题',
+  `name` varchar(64) DEFAULT NULL COMMENT '姓名',
+  `email` varchar(64) DEFAULT NULL COMMENT '邮箱',
+  `phone` varchar(32) DEFAULT NULL COMMENT '手机',
+  `orgrazation` varchar(128) DEFAULT NULL COMMENT '公司机构',
+  `detail` varchar(1024) DEFAULT NULL COMMENT '问题描述',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='提问';
+
+-- ----------------------------
+-- Records of t_recruit_qustion
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_recruit_resume`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_resume`;
+CREATE TABLE `t_recruit_resume` (
+  `id` int(11) NOT NULL COMMENT '编号',
+  `user_id` int(11) DEFAULT NULL COMMENT '用户编号',
+  `name` varchar(64) DEFAULT NULL COMMENT '姓名',
+  `sex` varchar(4) DEFAULT NULL COMMENT '性别：男，女',
+  `birth_date` date DEFAULT NULL COMMENT '出生日期',
+  `phone` int(16) DEFAULT NULL COMMENT '手机号码',
+  `email` varchar(64) DEFAULT NULL COMMENT '邮箱',
+  `school` varchar(128) DEFAULT NULL COMMENT '毕业学校',
+  `major` varchar(64) DEFAULT NULL COMMENT '专业',
+  `graduate_date` date DEFAULT NULL COMMENT '毕业日期',
+  `oranazation` varchar(128) DEFAULT NULL COMMENT '公司机构',
+  `work_years` int(4) DEFAULT NULL COMMENT '工作年限',
+  `current_palace` varchar(64) DEFAULT NULL COMMENT '目前所在地',
+  `degrees` varchar(64) DEFAULT NULL COMMENT '学历',
+  `spare_phone` int(16) DEFAULT NULL COMMENT '备用手机号码',
+  `nation` varchar(64) DEFAULT NULL COMMENT '民族',
+  `id_card` varchar(32) DEFAULT NULL COMMENT '身份证号码',
+  `id_card_add` varchar(128) DEFAULT NULL COMMENT '身份证地址',
+  `background` varchar(512) DEFAULT NULL COMMENT '背景说明',
+  `intention` varchar(512) DEFAULT NULL COMMENT '求职意向',
+  `work_descption` varchar(512) DEFAULT NULL COMMENT '工作描述',
+  `project_history` varchar(512) DEFAULT NULL COMMENT '项目描述',
+  `train_history` varchar(512) DEFAULT NULL COMMENT '培训经历',
+  `language_desc` varchar(512) DEFAULT NULL COMMENT '语言说明',
+  `reward` varchar(512) DEFAULT NULL COMMENT '奖励',
+  `ohter_info` varchar(512) DEFAULT NULL COMMENT '其他信息',
+  `certificate` varchar(512) DEFAULT NULL COMMENT '证书',
+  `personal_like` varchar(512) DEFAULT NULL COMMENT '爱好',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `resume_type` varchar(8) DEFAULT NULL COMMENT '简历类型：英文，汉字',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='简历信息';
+
+-- ----------------------------
+-- Records of t_recruit_resume
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_recruit_resume_delivery`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_resume_delivery`;
+CREATE TABLE `t_recruit_resume_delivery` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `resume_id` int(11) DEFAULT NULL COMMENT '简历编号',
+  `job_id` int(11) DEFAULT NULL,
+  `delivery_time` datetime DEFAULT NULL,
+  `status` varchar(16) DEFAULT NULL,
+  `job_name` varchar(64) DEFAULT NULL,
+  `deparment` varchar(64) DEFAULT NULL,
+  `area` varchar(64) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='简历投递';
+
+-- ----------------------------
+-- Records of t_recruit_resume_delivery
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_recruit_user`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_recruit_user`;
+CREATE TABLE `t_recruit_user` (
+  `id` int(11) NOT NULL COMMENT 'id',
+  `username` varchar(64) DEFAULT NULL COMMENT '用户名',
+  `password` varchar(64) DEFAULT NULL COMMENT '密码',
+  `source` varchar(16) DEFAULT NULL COMMENT '来源：qq,微信,注册',
+  `able` int(1) DEFAULT NULL COMMENT '是否可用，1可用，0不可用',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='招聘用户';
+
+-- ----------------------------
+-- Records of t_recruit_user
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_resume_attachment`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_attachment`;
+CREATE TABLE `t_resume_attachment` (
+  `id` int(11) NOT NULL COMMENT '编号',
+  `resume_id` int(11) DEFAULT NULL COMMENT '简历编号',
+  `file_path` varchar(64) DEFAULT NULL COMMENT '技能',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `able` varchar(16) DEFAULT NULL COMMENT '是否可用:枚举',
+  `file_name` varchar(64) DEFAULT NULL COMMENT '文件名',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='简历附件';
+
+-- ----------------------------
+-- Records of t_resume_attachment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_resume_education_history`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_education_history`;
+CREATE TABLE `t_resume_education_history` (
+  `id` int(11) NOT NULL COMMENT '编号',
+  `resume_id` int(11) DEFAULT NULL COMMENT '简历编号',
+  `major` varchar(64) DEFAULT NULL COMMENT '学历',
+  `start_date` date DEFAULT NULL COMMENT '开始时间',
+  `end_date` date DEFAULT NULL COMMENT '结束时间',
+  `school` varchar(64) DEFAULT NULL COMMENT '毕业院校',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='教育经历';
+
+-- ----------------------------
+-- Records of t_resume_education_history
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_resume_language`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_language`;
+CREATE TABLE `t_resume_language` (
+  `id` int(11) NOT NULL COMMENT '编号',
+  `resume_id` int(11) DEFAULT NULL COMMENT '简历编号',
+  `language` varchar(64) DEFAULT NULL COMMENT '技能',
+  `level` varchar(16) DEFAULT NULL COMMENT '等级:枚举',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `tan_level` varchar(16) DEFAULT NULL COMMENT '口语水平',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='语言';
+
+-- ----------------------------
+-- Records of t_resume_language
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_resume_skill`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_skill`;
+CREATE TABLE `t_resume_skill` (
+  `id` int(11) NOT NULL COMMENT '编号',
+  `resume_id` int(11) DEFAULT NULL COMMENT '简历编号',
+  `skill` varchar(64) DEFAULT NULL COMMENT '技能',
+  `level` varchar(16) DEFAULT NULL COMMENT '熟练程度:枚举',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='技能';
+
+-- ----------------------------
+-- Records of t_resume_skill
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_resume_work_history`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_resume_work_history`;
+CREATE TABLE `t_resume_work_history` (
+  `id` int(11) NOT NULL COMMENT '编号',
+  `resume_id` int(11) DEFAULT NULL COMMENT '简历编号',
+  `position` varchar(64) DEFAULT NULL COMMENT '职位',
+  `start_date` date DEFAULT NULL COMMENT '开始时间',
+  `end_date` date DEFAULT NULL COMMENT '结束时间',
+  `address` varchar(64) DEFAULT NULL COMMENT '地址',
+  `industry_type` varchar(64) DEFAULT NULL COMMENT '行业类型：枚举',
+  `oranazation_type` varchar(32) DEFAULT NULL COMMENT '公司性质：枚举',
+  `report_obj` varchar(64) DEFAULT NULL COMMENT '汇报对象',
+  `subordinate_num` int(10) DEFAULT NULL COMMENT '下属人数',
+  `payment` varchar(128) DEFAULT NULL COMMENT '职位薪水',
+  `work_duty` int(4) DEFAULT NULL COMMENT '工作职责',
+  `achievement_desc` varchar(512) DEFAULT NULL COMMENT '业绩描述',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `orgnazation` varchar(64) DEFAULT NULL COMMENT '工作单位',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='工作经历';
+
+-- ----------------------------
+-- Records of t_resume_work_history
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `t_store`

@@ -33,4 +33,9 @@ public class AuthmanagerController {
 	public Object menuList(HttpServletRequest request, HttpServletResponse response) {
 		return "/auth-manager/menu";
 	}
+
+	@RequestMapping(value = "/market")
+	public Object market(HttpServletRequest request, HttpServletResponse response) {
+		return "/market/list";
+	}
 }
