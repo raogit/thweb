@@ -68,6 +68,11 @@
 	<mvc:resources mapping="/brand/**" location="/brand/" />
 	<mvc:resources mapping="/home/**" location="/home/" />
 	<mvc:resources mapping="/home/contact/**" location="/home/contact/" />
+	<mvc:resources mapping="/market/**" location="/market/" />
+	<mvc:resources mapping="/market/images/**" location="/market/images/" />
+	<mvc:resources mapping="/market/Scripts/**" location="/market/Scripts/" />
+	<mvc:resources mapping="/market/style/**" location="/market/style/" />
+	
 	<mvc:resources mapping="/shopping-center/**" location="/shopping-center/" />
 	<mvc:resources mapping="/store/**" location="/store/" />
 	<mvc:resources mapping="/common/**" location="/common/" />
