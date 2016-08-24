@@ -31,6 +31,7 @@ import com.tianhong.domain.picture.Picture;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.picture.PictureService;
+import com.tianhong.utils.FileToolUtils;
 
 /**
  * ClassName: PictureController
@@ -117,7 +118,9 @@ public class PictureController extends BaseController {
 	@ResponseBody
 	public Object delete(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return pictureService.delete(id);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
+					CommonConstant.UPLOAD_IMG_PATH);
+			return pictureService.delete(id, path);
 		} catch (Exception e) {
 			log.error("", e);
 		}
