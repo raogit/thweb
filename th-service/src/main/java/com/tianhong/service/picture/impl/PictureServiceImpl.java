@@ -20,6 +20,7 @@ import com.tianhong.domain.picture.Picture;
 import com.tianhong.domain.user.User;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.utils.AssertUtils;
+import com.tianhong.utils.FileToolUtils;
 
 /**
  * ClassName: PictureServiceImpl
@@ -115,8 +116,10 @@ public class PictureServiceImpl implements PictureService {
 		return pictureMapper.findByMenuId(picture.getMenuId());
 	}
 
-	public List<Picture> delete(int id) throws Exception {
+	public List<Picture> delete(int id, String path) throws Exception {
 		Picture picture = pictureMapper.selectByPrimaryKey(id);
+
+		FileToolUtils.deleteFile(path + picture.getPath());
 		AssertUtils.notNull(picture, "对应的图片不存在");
 		List<Picture> pictures = pictureMapper.findByMenuId(picture.getMenuId());
 		pictureMapper.deleteByPrimaryKey(picture.getId());

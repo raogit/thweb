@@ -36,5 +36,5 @@ public interface PictureService {
 
 	List<Picture> updateLeftOrRight(int id, String flag) throws Exception;
 
-	List<Picture> delete(int id) throws Exception;
+	List<Picture> delete(int id, String path) throws Exception;
 }
