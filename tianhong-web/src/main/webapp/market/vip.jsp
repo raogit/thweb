@@ -10,19 +10,7 @@
 </head>
 
 <body>
-<div class="header_mk">
-    <div class="h-cont clearfix">
-        <ul class="h-c-right">
-            <li class="h-c-rli rli5"><a href="Introduction.html">门店介绍</a></li>
-            <li class="h-c-rli rli2 rli5"><a href="Management.html">品质管理</a></li>
-            <li class="h-c-rli rli3 rli5"><a href="Vip.html">会员专区</a></li>
-            <li class="h-c-rli rli4 rli5"><a href="Default.html">集团首页</a></li>
-        </ul>
-        <a href="Default.html" class="h-c-left">
-            <img src="${basePath}/market/images/logo2.png" alt="">
-        </a>
-    </div>
-</div>
+
 <div class="c-in-cont">
     <div class="c-in-vt">
         <div class="c-in-vti">
