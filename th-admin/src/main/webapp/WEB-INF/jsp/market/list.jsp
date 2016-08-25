@@ -62,7 +62,7 @@
 				<h2>
 					<strong style="color: grey;"></strong>
 				</h2>
-				<strong style="color: grey;">菜单名:</strong>
+				<strong style="color: grey;">门店名:</strong>
 				<input id="name" type="text" class="textbox" placeholder="菜单名..." /> 
 				<input type="hidden" value="0" id="parentMenuId" name="parentMenuId" />
 				<strong style="color: grey;">创建时间:</strong>
@@ -81,10 +81,7 @@
 					<thead>
 						<tr>
 							<th>序号</th>
-							<th>排序</th>
-							<th>菜单名</th>	
-							<th>link</th>
-							<th>url</th>						
+							<th>门店名</th>	
 							<th>创建时间</th>
 							<th>操作</th>
 						</tr>

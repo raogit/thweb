@@ -31,15 +31,13 @@ function tableData(pageNum){
 	$(".loading_area").fadeIn(10);
 	var name = $("#name").val();
 	var startDate = $("#startDate").val();
-	var endDate = $("#endDate").val();
-	var parentMenuId = $("#parentMenuId").val();
+	var endDate = $("#endDate").val();	
 	$.ajax({
-        url: basePath + "/menu/page",
+        url: basePath + "/market/page",
         type: 'post',
         dataType: 'json',
         data : {
-        	name : name,
-        	parentId : parentMenuId,
+        	name : name,       	
         	startDate : startDate,
         	endDate : endDate,
         	curPage : pageNum
@@ -67,69 +65,14 @@ function initTable(data){
 		var time = curentTime(item.createTime);
 		var tr = "<tr>"
 			+"<td>"+(i+1)+"</td>"
-			+"<td>"+item.sort+"</td>"
 			+"<td>"+item.name+"</td>"
-			+"<td>"+item.link+"</td>"
-			+"<td>"+item.url+"</td>"
 			+"<td>"+time+"</td>";
-		var operation = "";
-		if(i==0){
-			operation ="<td style='text-align: center;'><a href='javascript:down("+item.id+")' class='inner_btn'>下移</a><a href='javascript:subMenu("+item.id+")' class='inner_btn'>子菜单</a><a href='javascript:showUser("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteUser("+item.id+")' class='inner_btn'>删除</a></td>"
-		}else if(i==totalRow-1){
-			operation ="<td style='text-align: center;'><a href='javascript:up("+item.id+")' class='inner_btn'>上移</a><a href='javascript:subMenu("+item.id+")' class='inner_btn'>子菜单</a><a href='javascript:showUser("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteUser("+item.id+")' class='inner_btn'>删除</a></td>"
-		}else{
-			operation ="<td style='text-align: center;'><a href='javascript:up("+item.id+")' class='inner_btn'>上移</a><a href='javascript:down("+item.id+")' class='inner_btn'>下移</a><a href='javascript:subMenu("+item.id+")' class='inner_btn'>子菜单</a><a href='javascript:showUser("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteUser("+item.id+")' class='inner_btn'>删除</a></td>"
-		}
+		var operation = "<td style='text-align: center;'><a href='javascript:showObj("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteObj("+item.id+")' class='inner_btn'>删除</a></td>"
+		
 		var end_tr = "</tr>";
 		userlist.append(tr+operation+end_tr);
 	}
 }
-function down(menuId){
-	debugger;
-	$(".loading_area").fadeIn(10);
-	$.ajax({
-        url: basePath + "/menu/move",
-        type: 'post',
-        dataType: 'json',
-        data : {
-        	menuId : menuId,
-        	move : "down"
-        },
-        cache: false,
-        success: function(data){
-        	if(data!=null&&data==true){
-        		tableData(curPage);
-        	}else{
-        		alert("操作失败");
-        	}
-        	$(".loading_area").fadeOut(10);
-        }
-    });
-	
-}
-function up(menuId){
-	$(".loading_area").fadeIn(10);
-	$.ajax({
-        url: basePath + "/menu/move",
-        type: 'post',
-        dataType: 'json',
-        data : {
-        	menuId : menuId,
-        	move : "up"
-        },
-        cache: false,
-        success: function(data){
-        	if(data!=null&&data==true){
-        		tableData(curPage);
-        	}else{
-        		alert("操作失败");
-        	}
-        	$(".loading_area").fadeOut(10);
-        }
-    });
-	
-}
-
 
 function subMenu(menuId){
 	$("#parentMenuId").val(menuId);
@@ -154,7 +97,7 @@ function initPage(page){
 	paging.append("<a href='javascript:void(0);' onclick='tableData("+(page.totalPage)+")' >>></a>");
 }
 
-function showUser(id){
+function showObj(id){
 	$("#pop_user").fadeIn(200);
 	$("#popMenuId").val(id);
 	$("#popName").val("");
@@ -166,7 +109,7 @@ function showUser(id){
 	}else{
 		$("#pupTitle").html("修改菜单");
 		$.ajax({
-	        url: basePath + "/menu/get",
+	        url: basePath + "/market/get",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -197,30 +140,20 @@ function addSub(){
 function addOrEdituser(){
 	var id = $("#popMenuId").val();
 	var name = $("#popName").val();
-	var englishName = $("#popEnglishName").val();
-	var link = $("#popLink").val();
-	var popUrl = $("#popUrl").val();
-	var parentId = $("#parentMenuId").val();
-	debugger;
+	
 	if(isEmpty(name)){
 		alert("请输入菜单名");
 		return ;
 	}
-	var url = basePath + "/menu/add";
-	if(id>0){
-		url = basePath + "/menu/edit";
-	}
+	var url = basePath + "/market/save";
+	
 	$.ajax({
         url: url,
         type: 'post',
         dataType: 'json',
         data : {
         	id : id,
-        	parentId : parentId,
-        	name : name,
-        	link : link,
-        	url : popUrl,
-        	backup1 : englishName
+        	name : name
         },
         cache: false,
         success: function(data){
@@ -241,10 +174,10 @@ function isEmpty(str){
 		return true;
 	}
 }
-function deleteUser(id){
+function deleteObj(id){
 	if(confirm("刪除将无法恢复?")){
 		$.ajax({
-	        url: basePath + "/menu/delete",
+	        url: basePath + "/market/delete",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -307,29 +240,4 @@ function refreshTime(){
 	var curDate = new Date();
 	$("#startDate").val(curentTime(curDate.getTime() - 12*30*24*60*60*1000));
 	$("#endDate").val(curentTime(curDate.getTime()+ 60*60*1000));
-}
-function goBack(){
-	var parentMenuId = $("#parentMenuId").val();
-	if(parentMenuId>0){
-		$.ajax({
-	        url: basePath + "/menu/get",
-	        type: 'post',
-	        dataType: 'json',
-	        data : {
-	        	id : parentMenuId
-	        },
-	        cache: false,
-	        success: function(data){
-	        	if(data && data.parentId>=0){
-	        		$("#parentMenuId").val(data.parentId);
-	        		tableData(1);
-	        	}else{
-	        		alert("不能再返回了");
-	        	}
-	        }
-	    });
-	}else{
-		alert("不能再返回了");
-	}
-	
 }
