@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.market.Market;
+import com.tianhong.domain.user.User;
 import com.tianhong.service.market.MarketService;
 
 /**
@@ -23,7 +25,7 @@ import com.tianhong.service.market.MarketService;
  */
 @Controller
 @RequestMapping("/market")
-public class MarketController {
+public class MarketController extends BaseController {
 
 	private static final Log log = LogFactory.getLog(MarketController.class);
 
@@ -46,7 +48,8 @@ public class MarketController {
 	@ResponseBody
 	public Object save(Market market, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return marketService.saveOrUpdate(market);
+			User user = getCurrentUser(request);
+			return marketService.saveOrUpdate(market, user);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -73,6 +76,11 @@ public class MarketController {
 			log.error("", e);
 		}
 		return false;
+	}
+
+	@RequestMapping(value = "/jsp")
+	public Object jsp(Market market, HttpServletRequest request, HttpServletResponse response) {
+		return "/market/list";
 	}
 
 	@RequestMapping(value = "/list")

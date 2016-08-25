@@ -10,6 +10,7 @@ package com.tianhong.service.market;
 import java.util.List;
 
 import com.tianhong.domain.market.Market;
+import com.tianhong.domain.user.User;
 
 /**
  * ClassName: MarketService
@@ -26,7 +27,7 @@ public interface MarketService {
 
 	List<Market> list(Market market) throws Exception;
 
-	Market saveOrUpdate(Market market) throws Exception;
+	Market saveOrUpdate(Market market, User user) throws Exception;
 
 	boolean delete(int id) throws Exception;
 

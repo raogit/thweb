@@ -7,6 +7,7 @@
  */
 package com.tianhong.service.market.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tianhong.dao.market.MarketMapper;
 import com.tianhong.domain.market.Market;
+import com.tianhong.domain.user.User;
 import com.tianhong.service.market.MarketService;
 
 /**
@@ -47,15 +49,21 @@ public class MarketServiceImpl implements MarketService {
 		return marketMapper.list(market);
 	}
 
-	public Market saveOrUpdate(Market market) throws Exception {
+	public Market saveOrUpdate(Market market, User user) throws Exception {
 		if (market != null && market.getId() != null) {
 			Market m = marketMapper.selectByPrimaryKey(market.getId());
 			if (m != null) {
+				market.setUpdateId(user.getId());
+				market.setUpdateTime(new Date());
 				marketMapper.updateByPrimaryKeySelective(market);
 			} else {
+				market.setCreateId(user.getId());
+				market.setCreateTime(new Date());
 				marketMapper.insertSelective(market);
 			}
 		} else {
+			market.setCreateId(user.getId());
+			market.setCreateTime(new Date());
 			marketMapper.insertSelective(market);
 		}
 		return market;

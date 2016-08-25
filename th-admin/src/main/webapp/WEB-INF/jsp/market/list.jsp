@@ -37,13 +37,13 @@
 		<section class="pop_bg" id="pop_user">
 		<div class="pop_cont">
 			<!--title-->
-			<h3 id="pupTitle">修改菜单</h3>
+			<h3 id="pupTitle">修改</h3>
 			<!--content-->
-			<input type="hidden" value="0" id="popMenuId" />
+			<input type="hidden" value="0" id="popMarketId" />
 			<div class="pop_cont_input">
 				<ul>
-					<li><span style="width:70px;text-align: right;" class="ttl">菜单名:</span> <input id="popName" style="width:140px;" type="text" placeholder="请输入菜单名..." class="textbox" /></li>
-					<li><span style="width:70px;text-align: right;" class="ttl">英文名:</span> <input id="popEnglishName" style="width:140px;" type="text" placeholder="请输入菜单名..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">门店名字:</span> <input id="popName" style="width:140px;" type="text" placeholder="请输入门店名..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">门店介绍:</span> <textarea id="popDescribe" rows="10" cols="40"></textarea></li>
 					<li><span style="width:70px;text-align: right;" class="ttl">link:</span><input id="popLink"  style="width:140px;" type="text" placeholder="请填写link..." class="textbox" /></li>
 					<li><span style="width:70px;text-align: right;" class="ttl">url:</span><input id="popUrl"  style="width:140px;" type="text" placeholder="请填写url..." class="textbox" /></li>
 				</ul>
@@ -69,7 +69,7 @@
 				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" />-
 				<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:160px;"/>
 				<input type="button" value="查询" class="group_btn" onclick="tableData(1)" /> 
-				<input type="button" value="添加" class="group_btn" onclick="addSub()" style="margin-left:20px;" /> 
+				<input type="button" value="添加" class="group_btn" onclick="add()" style="margin-left:20px;" /> 
 				<input type="button" value="返回" class="group_btn" onclick="goBack()" style="margin-left:20px;" /> 
 			</section>
 			<section>

@@ -105,9 +105,9 @@ function showObj(id){
 	$("#popLink").val("");
 	$("#popUrl").val("");
 	if(id<=0){
-		$("#pupTitle").html("添加菜单");
+		$("#pupTitle").html("添加");
 	}else{
-		$("#pupTitle").html("修改菜单");
+		$("#pupTitle").html("修改");
 		$.ajax({
 	        url: basePath + "/market/get",
 	        type: 'post',
@@ -128,21 +128,23 @@ function showObj(id){
 	    });
 	}
 }
-function addSub(){
-	$("#pupTitle").html("添加子菜单");
+function add(){
+	$("#pupTitle").html("添加");
 	$("#pop_user").fadeIn(10);
-	$("#popMenuId").val(0);
+	$("#popMarketId").val(0);
 	$("#popName").val("");
-	$("#popEnglishName").val("");
+	$("#popDescribe").val("");
 	$("#popLink").val("");
 	$("#popUrl").val("");
 }
 function addOrEdituser(){
-	var id = $("#popMenuId").val();
+	var id = $("#popMarketId").val();
 	var name = $("#popName").val();
+	var describe = $("#popDescribe").val();
+	debugger;
 	
 	if(isEmpty(name)){
-		alert("请输入菜单名");
+		alert("请输入门店名");
 		return ;
 	}
 	var url = basePath + "/market/save";
@@ -153,7 +155,8 @@ function addOrEdituser(){
         dataType: 'json',
         data : {
         	id : id,
-        	name : name
+        	name : name,
+        	describe : describe
         },
         cache: false,
         success: function(data){
