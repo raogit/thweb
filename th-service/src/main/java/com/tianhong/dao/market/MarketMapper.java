@@ -1,19 +1,12 @@
 package com.tianhong.dao.market;
 
+import com.tianhong.dao.base.BaseMapper;
 import com.tianhong.domain.market.Market;
 
-public interface MarketMapper {
-    int deleteByPrimaryKey(Integer id);
+public interface MarketMapper extends BaseMapper<Market> {
 
-    int insert(Market record);
+	int updateByPrimaryKeyWithBLOBs(Market record) throws Exception;
 
-    int insertSelective(Market record);
+	Market selectByPrimaryKeyWithBLOBs(Integer id) throws Exception;
 
-    Market selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Market record);
-
-    int updateByPrimaryKeyWithBLOBs(Market record);
-
-    int updateByPrimaryKey(Market record);
 }

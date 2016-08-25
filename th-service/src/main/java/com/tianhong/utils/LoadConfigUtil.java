@@ -14,17 +14,19 @@ import org.springframework.stereotype.Component;
 
 /**
  * 
- * ClassName: LoadConfigUtil 
+ * ClassName: LoadConfigUtil
+ * 
  * @Description: 描述
  * @author raowenxing
  * @date 2016-6-6 下午4:12:39
  */
+@SuppressWarnings("restriction")
 @Component
 @Scope("singleton")
 public class LoadConfigUtil {
 
 	private static Log log = LogFactory.getLog(LoadConfigUtil.class);
-	
+
 	private static Properties configProperties;
 
 	// 单例实现
@@ -32,7 +34,7 @@ public class LoadConfigUtil {
 
 	@PostConstruct
 	public static LoadConfigUtil getInstance() {
-		if(lc == null){
+		if (lc == null) {
 			lc = new LoadConfigUtil();
 		}
 		return lc;
@@ -44,27 +46,27 @@ public class LoadConfigUtil {
 			inputStreamConfig = getClass().getClassLoader().getResourceAsStream("mdw-config.properties");
 			getConfigProperties().load(inputStreamConfig);
 		} catch (Exception e) {
-			log.error("",e);
+			log.error("", e);
 		} finally {
-			if (inputStreamConfig!=null) {
+			if (inputStreamConfig != null) {
 				try {
 					inputStreamConfig.close();
 				} catch (IOException e) {
-					log.error("",e);
+					log.error("", e);
 				}
 			}
 		}
 	}
 
-
 	/**
 	 * 
 	 * @Description: 描述
-	 * @param @param key
-	 * @param @return   
-	 * @return String  
-	 * @throws
-	 * @author raowenxing
+	 * @param @param
+	 *            key
+	 * @param @return
+	 * @return String
+	 * @throws @author
+	 *             raowenxing
 	 * @date 2016-6-6 下午4:13:23
 	 */
 	public static String getString(String key) {
@@ -77,7 +79,7 @@ public class LoadConfigUtil {
 			}
 			tmp = new String(tmp.getBytes("iso-8859-1"), "utf8");
 		} catch (Exception e) {
-			log.error("",e);
+			log.error("", e);
 		}
 		return tmp;
 	}
@@ -85,11 +87,12 @@ public class LoadConfigUtil {
 	/**
 	 * 
 	 * @Description: 描述
-	 * @param @param key
-	 * @param @return   
-	 * @return String  
-	 * @throws
-	 * @author raowenxing
+	 * @param @param
+	 *            key
+	 * @param @return
+	 * @return String
+	 * @throws @author
+	 *             raowenxing
 	 * @date 2016-6-6 下午4:13:32
 	 */
 	public static String getStringForConfig(String key) {
@@ -102,7 +105,7 @@ public class LoadConfigUtil {
 			}
 			tmp = new String(tmp.getBytes("iso-8859-1"), "utf8");
 		} catch (Exception e) {
-			log.error("",e);
+			log.error("", e);
 		}
 		return tmp;
 	}
@@ -110,11 +113,12 @@ public class LoadConfigUtil {
 	/**
 	 * 
 	 * @Description: 描述
-	 * @param @param key
-	 * @param @return   
-	 * @return Integer  
-	 * @throws
-	 * @author raowenxing
+	 * @param @param
+	 *            key
+	 * @param @return
+	 * @return Integer
+	 * @throws @author
+	 *             raowenxing
 	 * @date 2016-6-6 下午4:13:36
 	 */
 	public static Integer getInteger(String key) {
@@ -138,11 +142,12 @@ public class LoadConfigUtil {
 	/**
 	 * 
 	 * @Description: 描述
-	 * @param @param str
-	 * @param @return   
-	 * @return boolean  
-	 * @throws
-	 * @author raowenxing
+	 * @param @param
+	 *            str
+	 * @param @return
+	 * @return boolean
+	 * @throws @author
+	 *             raowenxing
 	 * @date 2016-6-6 下午4:13:41
 	 */
 	public static boolean isNumeric(String str) {
@@ -160,9 +165,9 @@ public class LoadConfigUtil {
 	}
 
 	public static Properties getConfigProperties() {
-		if(configProperties==null){
-			 configProperties = new Properties();
-			 getInstance();
+		if (configProperties == null) {
+			configProperties = new Properties();
+			getInstance();
 		}
 		return configProperties;
 	}

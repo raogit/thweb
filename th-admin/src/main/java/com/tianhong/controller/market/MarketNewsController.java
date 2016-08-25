@@ -1,5 +1,9 @@
-/**
- * 
+/**  
+ * @Title: MarketNewsController.java
+ * @Package com.tianhong.controller.market
+ * @Description: 描述
+ * @author xing
+ * @date 2016年8月25日 上午9:58:33
  */
 package com.tianhong.controller.market;
 
@@ -14,28 +18,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tianhong.domain.market.Market;
-import com.tianhong.service.market.MarketService;
+import com.tianhong.domain.market.MarketNews;
+import com.tianhong.service.market.MarketNewsService;
 
 /**
- * @author Administrator
- *
+ * ClassName: MarketNewsController
+ * 
+ * @Description: 描述
+ * @author xing
+ * @date 2016年8月25日 上午9:58:33
  */
 @Controller
-@RequestMapping("/market")
-public class MarketController {
-
-	private static final Log log = LogFactory.getLog(MarketController.class);
-
+@RequestMapping("/marketnews")
+public class MarketNewsController {
+	private static final Log log = LogFactory.getLog(MarketNewsController.class);
 	@Autowired
-	private MarketService marketService;
+	private MarketNewsService marketNewsService;
 
 	@RequestMapping(value = "/get")
 	@ResponseBody
 	public Object edit(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			Market market = marketService.getByPrimaryKeyWithBLOBs(id);
-			return market;
+			MarketNews marketNews = marketNewsService.getByPrimaryKeyWithBLOBs(id);
+			return marketNews;
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -44,9 +49,9 @@ public class MarketController {
 
 	@RequestMapping(value = "/save")
 	@ResponseBody
-	public Object save(Market market, HttpServletRequest request, HttpServletResponse response) {
+	public Object save(MarketNews marketNews, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return marketService.saveOrUpdate(market);
+			return marketNewsService.saveOrUpdate(marketNews);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -57,7 +62,7 @@ public class MarketController {
 	@ResponseBody
 	public Object delete(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return marketService.delete(id);
+			return marketNewsService.delete(id);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -66,9 +71,9 @@ public class MarketController {
 
 	@RequestMapping(value = "/page")
 	@ResponseBody
-	public Object page(Market market, HttpServletRequest request, HttpServletResponse response) {
+	public Object page(MarketNews marketNews, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return marketService.page(market);
+			return marketNewsService.page(marketNews);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -77,9 +82,9 @@ public class MarketController {
 
 	@RequestMapping(value = "/list")
 	@ResponseBody
-	public Object list(Market market, HttpServletRequest request, HttpServletResponse response) {
+	public Object list(MarketNews marketNews, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return marketService.list(market);
+			return marketNewsService.list(marketNews);
 		} catch (Exception e) {
 			log.error("", e);
 		}

@@ -2,154 +2,156 @@ package com.tianhong.domain.market;
 
 import java.util.Date;
 
-public class Market {
-    private Integer id;
+import com.tianhong.page.Page;
 
-    private Integer menuId;
+public class Market extends Page {
+	private Integer id;
 
-    private String name;
+	private Integer menuId;
 
-    private String area;
+	private String name;
 
-    private Integer busPictureId;
+	private String area;
 
-    private String busUrl;
+	private Integer busPictureId;
 
-    private Date createTime;
+	private String busUrl;
 
-    private Integer createId;
+	private Date createTime;
 
-    private Date updateTime;
+	private Integer createId;
 
-    private Integer updateId;
+	private Date updateTime;
 
-    private Boolean isDeleted;
+	private Integer updateId;
 
-    private String backup1;
+	private Boolean isDeleted;
 
-    private String backup2;
+	private String backup1;
 
-    private String backup3;
+	private String backup2;
 
-    private String describe;
+	private String backup3;
 
-    public Integer getId() {
-        return id;
-    }
+	private String describe;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public Integer getMenuId() {
-        return menuId;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setMenuId(Integer menuId) {
-        this.menuId = menuId;
-    }
+	public Integer getMenuId() {
+		return menuId;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setMenuId(Integer menuId) {
+		this.menuId = menuId;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getArea() {
-        return area;
-    }
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
 
-    public void setArea(String area) {
-        this.area = area == null ? null : area.trim();
-    }
+	public String getArea() {
+		return area;
+	}
 
-    public Integer getBusPictureId() {
-        return busPictureId;
-    }
+	public void setArea(String area) {
+		this.area = area == null ? null : area.trim();
+	}
 
-    public void setBusPictureId(Integer busPictureId) {
-        this.busPictureId = busPictureId;
-    }
+	public Integer getBusPictureId() {
+		return busPictureId;
+	}
 
-    public String getBusUrl() {
-        return busUrl;
-    }
+	public void setBusPictureId(Integer busPictureId) {
+		this.busPictureId = busPictureId;
+	}
 
-    public void setBusUrl(String busUrl) {
-        this.busUrl = busUrl == null ? null : busUrl.trim();
-    }
+	public String getBusUrl() {
+		return busUrl;
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+	public void setBusUrl(String busUrl) {
+		this.busUrl = busUrl == null ? null : busUrl.trim();
+	}
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+	public Date getCreateTime() {
+		return createTime;
+	}
 
-    public Integer getCreateId() {
-        return createId;
-    }
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 
-    public void setCreateId(Integer createId) {
-        this.createId = createId;
-    }
+	public Integer getCreateId() {
+		return createId;
+	}
 
-    public Date getUpdateTime() {
-        return updateTime;
-    }
+	public void setCreateId(Integer createId) {
+		this.createId = createId;
+	}
 
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
-    }
+	public Date getUpdateTime() {
+		return updateTime;
+	}
 
-    public Integer getUpdateId() {
-        return updateId;
-    }
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
 
-    public void setUpdateId(Integer updateId) {
-        this.updateId = updateId;
-    }
+	public Integer getUpdateId() {
+		return updateId;
+	}
 
-    public Boolean getIsDeleted() {
-        return isDeleted;
-    }
+	public void setUpdateId(Integer updateId) {
+		this.updateId = updateId;
+	}
 
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
+	public Boolean getIsDeleted() {
+		return isDeleted;
+	}
 
-    public String getBackup1() {
-        return backup1;
-    }
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
 
-    public void setBackup1(String backup1) {
-        this.backup1 = backup1 == null ? null : backup1.trim();
-    }
+	public String getBackup1() {
+		return backup1;
+	}
 
-    public String getBackup2() {
-        return backup2;
-    }
+	public void setBackup1(String backup1) {
+		this.backup1 = backup1 == null ? null : backup1.trim();
+	}
 
-    public void setBackup2(String backup2) {
-        this.backup2 = backup2 == null ? null : backup2.trim();
-    }
+	public String getBackup2() {
+		return backup2;
+	}
 
-    public String getBackup3() {
-        return backup3;
-    }
+	public void setBackup2(String backup2) {
+		this.backup2 = backup2 == null ? null : backup2.trim();
+	}
 
-    public void setBackup3(String backup3) {
-        this.backup3 = backup3 == null ? null : backup3.trim();
-    }
+	public String getBackup3() {
+		return backup3;
+	}
 
-    public String getDescribe() {
-        return describe;
-    }
+	public void setBackup3(String backup3) {
+		this.backup3 = backup3 == null ? null : backup3.trim();
+	}
 
-    public void setDescribe(String describe) {
-        this.describe = describe == null ? null : describe.trim();
-    }
+	public String getDescribe() {
+		return describe;
+	}
+
+	public void setDescribe(String describe) {
+		this.describe = describe == null ? null : describe.trim();
+	}
 }

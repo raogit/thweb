@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.tianhong.constant.CommonConstant;
 import com.tianhong.dao.menu.MenuMapper;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.service.menu.MenuService;
@@ -82,13 +81,13 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	public boolean addUserAuth(int userId, String roleIds, String menuIds) throws Exception {
-		String[] roleIdArray = roleIds.split(CommonConstant.COMMA);
-		for (String roleId : roleIdArray) {
-			int roId = Integer.parseInt(roleId);
+		// String[] roleIdArray = roleIds.split(CommonConstant.COMMA);
+		// for (String roleId : roleIdArray) {
+		// int roId = Integer.parseInt(roleId);
+		//
+		// }
 
-		}
-
-		String[] menuIdArray = menuIds.split(CommonConstant.COMMA);
+		// String[] menuIdArray = menuIds.split(CommonConstant.COMMA);
 		return false;
 	}
 
