@@ -28,6 +28,7 @@ import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.user.User;
 import com.tianhong.model.Result;
 import com.tianhong.service.content.ContentService;
+import com.tianhong.service.market.MarketNewsService;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.utils.AssertUtils;
 import com.tianhong.utils.FileToolUtils;
@@ -49,6 +50,8 @@ public class UploadController extends BaseController {
 	private PictureService pictureService;
 	@Autowired
 	private ContentService contentService;
+	@Autowired
+	private MarketNewsService marketNewsService;
 
 	@RequestMapping(value = "/file")
 	@ResponseBody
@@ -114,6 +117,28 @@ public class UploadController extends BaseController {
 					CommonConstant.UPLOAD_IMG_PATH);
 			String fileName = FileToolUtils.saveImage(file[0], path);
 			pictureService.insertSelective(menuId, title, url, type, fileName, user);
+			return true;
+		} catch (Exception e) {
+			log.error("", e);
+
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/marketnews/picture")
+	@ResponseBody
+	public Object marketNewsPicture(@RequestParam("fileId") MultipartFile[] file,
+			@RequestParam("marketNewsId") int marketNewsId, HttpServletRequest request, ModelMap model) {
+		try {
+			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
+			User user = getCurrentUser(request);
+			int marketId = Integer.parseInt(request.getParameter("marketId"));
+			byte type = Byte.parseByte(request.getParameter("type"));
+			request.setCharacterEncoding(CommonConstant.UTF_8);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
+					CommonConstant.UPLOAD_IMG_PATH);
+			String fileName = FileToolUtils.saveImage(file[0], path);
+			marketNewsService.saveOrUpdate(marketNewsId, marketId, fileName, type, user);
 			return true;
 		} catch (Exception e) {
 			log.error("", e);

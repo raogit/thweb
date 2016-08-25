@@ -7,6 +7,7 @@
  */
 package com.tianhong.service.market.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tianhong.dao.market.MarketNewsMapper;
 import com.tianhong.domain.market.MarketNews;
+import com.tianhong.domain.user.User;
 import com.tianhong.service.market.MarketNewsService;
 
 /**
@@ -47,9 +49,17 @@ public class MarketNewsServiceImpl implements MarketNewsService {
 		return marketNewsMapper.list(marketNews);
 	}
 
-	public MarketNews saveOrUpdate(MarketNews marketNews) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public MarketNews saveOrUpdate(MarketNews marketNews, User user) throws Exception {
+		if (marketNews.getId() != null && marketNews.getId() > 0) {
+			marketNews.setUpdateId(user.getId());
+			marketNews.setUpdateTime(new Date());
+			marketNewsMapper.updateByPrimaryKeySelective(marketNews);
+		} else {
+			marketNews.setCreateId(user.getId());
+			marketNews.setCreateTime(new Date());
+			marketNewsMapper.insertSelective(marketNews);
+		}
+		return marketNews;
 	}
 
 	public boolean delete(int id) throws Exception {
@@ -67,6 +77,28 @@ public class MarketNewsServiceImpl implements MarketNewsService {
 
 	public MarketNews getByPrimaryKeyWithBLOBs(Integer id) throws Exception {
 		return marketNewsMapper.selectByPrimaryKeyWithBLOBs(id);
+	}
+
+	public MarketNews saveOrUpdate(int marketNewsId, int marketId, String fileName, byte type, User user)
+			throws Exception {
+		MarketNews news = marketNewsMapper.selectByPrimaryKeyWithBLOBs(marketNewsId);
+		if (news == null) {
+			news = new MarketNews();
+			news.setMarketId(marketId);
+			news.setPath(fileName);
+			news.setType(type);
+			news.setCreateId(user.getId());
+			news.setCreateTime(new Date());
+			marketNewsMapper.insertSelective(news);
+		} else {
+			news.setMarketId(marketId);
+			news.setPath(fileName);
+			news.setType(type);
+			news.setUpdateId(user.getId());
+			news.setUpdateTime(new Date());
+			marketNewsMapper.updateByPrimaryKeySelective(news);
+		}
+		return news;
 	}
 
 }

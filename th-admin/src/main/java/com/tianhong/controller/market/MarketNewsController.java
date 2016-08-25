@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tianhong.controller.base.BaseController;
+import com.tianhong.domain.market.Market;
 import com.tianhong.domain.market.MarketNews;
+import com.tianhong.domain.user.User;
 import com.tianhong.service.market.MarketNewsService;
 
 /**
@@ -30,7 +33,7 @@ import com.tianhong.service.market.MarketNewsService;
  */
 @Controller
 @RequestMapping("/marketnews")
-public class MarketNewsController {
+public class MarketNewsController extends BaseController {
 	private static final Log log = LogFactory.getLog(MarketNewsController.class);
 	@Autowired
 	private MarketNewsService marketNewsService;
@@ -51,7 +54,8 @@ public class MarketNewsController {
 	@ResponseBody
 	public Object save(MarketNews marketNews, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return marketNewsService.saveOrUpdate(marketNews);
+			User user = getCurrentUser(request);
+			return marketNewsService.saveOrUpdate(marketNews, user);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -89,5 +93,10 @@ public class MarketNewsController {
 			log.error("", e);
 		}
 		return false;
+	}
+
+	@RequestMapping(value = "/jsp")
+	public Object jsp(Market market, HttpServletRequest request, HttpServletResponse response) {
+		return "/market/news/list";
 	}
 }
