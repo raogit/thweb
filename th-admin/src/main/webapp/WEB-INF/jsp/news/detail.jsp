@@ -36,7 +36,7 @@
 	<script src="${basePath}/js/news/detail.js?ver=${ver}" type="text/javascript" ></script>
 </head>
 
-<body>
+<body style="overflow: auto;">
 	<jsp:include page="../head/head-iframe.jsp"></jsp:include>
 	<input type="hidden" value="${menuId}" id="menuId" name="menuId" />
 	<input type="hidden" value="0" id="id" name="id" />
@@ -75,7 +75,7 @@
 		<input type="button" value="保存" style="width: 70px;height: 30px;background-color: #19a97b;" id="saveContent"/> 
 		<input type="button" value="清空" style="width: 70px;height: 30px;background-color: #19a97b;" id="clearContent"/>
 	</div>
-
+	<div class="btm_btn" style="margin-top: 30px;height: 30px;"> </div>
 
   <script>
       $(function(){

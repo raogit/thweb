@@ -98,10 +98,10 @@ function initPage(page){
 }
 
 function showObj(id){
-	$("#pop_user").fadeIn(200);
-	$("#popMenuId").val(id);
+	$("#pop_user").fadeIn(10);
+	$("#popMarketId").val(id);
 	$("#popName").val("");
-	$("#popEnglishName").val("");
+	$("#popIntroduce").val("");
 	$("#popLink").val("");
 	$("#popUrl").val("");
 	if(id<=0){
@@ -118,10 +118,9 @@ function showObj(id){
 	        cache: false,
 	        success: function(data){
 	        	if(data){
+	        		$("#popMarketId").val(data.id);
 	        		$("#popName").val(data.name);
-		        	$("#popLink").val(data.link);
-		        	$("#popUrl").val(data.url);
-		        	$("#popEnglishName").val(data.backup1);
+	        		$("#popIntroduce").val(data.introduce);
 	        	}
 	        	
 	        }
@@ -133,14 +132,14 @@ function add(){
 	$("#pop_user").fadeIn(10);
 	$("#popMarketId").val(0);
 	$("#popName").val("");
-	$("#popDescribe").val("");
+	$("#popIntroduce").val("");
 	$("#popLink").val("");
 	$("#popUrl").val("");
 }
 function addOrEdituser(){
 	var id = $("#popMarketId").val();
 	var name = $("#popName").val();
-	var describe = $("#popDescribe").val();
+	var introduce = $("#popIntroduce").val();
 	debugger;
 	
 	if(isEmpty(name)){
@@ -156,7 +155,7 @@ function addOrEdituser(){
         data : {
         	id : id,
         	name : name,
-        	describe : describe
+        	introduce : introduce
         },
         cache: false,
         success: function(data){

@@ -43,7 +43,7 @@
 			<div class="pop_cont_input">
 				<ul>
 					<li><span style="width:70px;text-align: right;" class="ttl">门店名字:</span> <input id="popName" style="width:140px;" type="text" placeholder="请输入门店名..." class="textbox" /></li>
-					<li><span style="width:70px;text-align: right;" class="ttl">门店介绍:</span> <textarea id="popDescribe" rows="10" cols="40"></textarea></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">门店介绍:</span> <textarea id="popIntroduce" rows="10" cols="40"></textarea></li>
 					<li><span style="width:70px;text-align: right;" class="ttl">link:</span><input id="popLink"  style="width:140px;" type="text" placeholder="请填写link..." class="textbox" /></li>
 					<li><span style="width:70px;text-align: right;" class="ttl">url:</span><input id="popUrl"  style="width:140px;" type="text" placeholder="请填写url..." class="textbox" /></li>
 				</ul>
