@@ -18,6 +18,7 @@ import com.tianhong.dao.market.MarketNewsMapper;
 import com.tianhong.domain.market.MarketNews;
 import com.tianhong.domain.user.User;
 import com.tianhong.service.market.MarketNewsService;
+import com.tianhong.utils.FileToolUtils;
 
 /**
  * ClassName: MarketNewsServiceImpl
@@ -79,7 +80,7 @@ public class MarketNewsServiceImpl implements MarketNewsService {
 		return marketNewsMapper.selectByPrimaryKeyWithBLOBs(id);
 	}
 
-	public MarketNews saveOrUpdate(int marketNewsId, int marketId, String fileName, byte type, User user)
+	public MarketNews saveOrUpdate(int marketNewsId, int marketId, String path, String fileName, byte type, User user)
 			throws Exception {
 		MarketNews news = marketNewsMapper.selectByPrimaryKeyWithBLOBs(marketNewsId);
 		if (news == null) {
@@ -96,6 +97,9 @@ public class MarketNewsServiceImpl implements MarketNewsService {
 			news.setType(type);
 			news.setUpdateId(user.getId());
 			news.setUpdateTime(new Date());
+
+			FileToolUtils.deleteFile(path + fileName);
+
 			marketNewsMapper.updateByPrimaryKeySelective(news);
 		}
 		return news;

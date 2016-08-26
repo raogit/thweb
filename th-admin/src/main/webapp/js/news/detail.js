@@ -15,7 +15,28 @@ function init(){
 	
 	initRich(menuId);
 	initPicture(menuId);
-	
+	initMarket();
+}
+
+function initMarket(){
+	$.ajax({
+        url: basePath + "/market/list",
+        type: 'post',
+        dataType: 'json',
+        cache: false,
+        success: function(data){
+        	if(data!=null && data!=""){
+        		var marketSelect = $("#marketSelect");
+        		for(var i=0;i<data.length;i++){
+        			var item = data[i];
+        			marketSelect.append("<option value='"+item.id+"'>"+item.name+"</option>");
+        			if(i==0){
+        				$("#marketId").val(item.id);
+        			}
+        		}
+        	}
+        }
+    });
 }
 function initRich(menuId){
 	clear();

@@ -55,7 +55,6 @@
 			<div class="pop_cont_input">
 				<input type="hidden" value="1" id="type" name="type" />
 				<input type="hidden" value="0" id="marketNewsId" name="marketNewsId" />
-				<input type="hidden" value="0" id="marketId" name="marketId" />
 				<input type="hidden" value="/upload/marketnews/picture" id="uri" name="uri" />
 				<div>
 					<form action="${basePath }/upload/picture" encType="multipart/form-data" method="post">
@@ -101,10 +100,7 @@
 			  </script>
 			</div>
 			<!--bottom:operate->button-->
-			<div class="btm_btn">
-				<input type="button" value="确认" class="input_btn trueBtn" id="confirm_user"/> <input
-					type="button" value="关闭" class="input_btn falseBtn" id="close_user"/>
-			</div>
+			
 		</div>
 		</section>
 		<!--结束：弹出框效果-->
@@ -114,9 +110,11 @@
 				<h2>
 					<strong style="color: grey;"></strong>
 				</h2>
+				<input type="hidden" value="0" id="marketId" name="marketId" />
 				<strong style="color: grey;">新闻标题:</strong>
 				<input id="name" type="text" class="textbox" placeholder="菜单名..." /> 
-				<input type="hidden" value="0" id="parentMenuId" name="parentMenuId" />
+				<strong style="color: grey;">门店:</strong>
+				<select class="select" id="marketSelect"></select>
 				<strong style="color: grey;">创建时间:</strong>
 				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" />-
 				<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:160px;"/>

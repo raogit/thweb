@@ -29,7 +29,8 @@ public interface MarketNewsService {
 
 	MarketNews saveOrUpdate(MarketNews marketNews, User user) throws Exception;
 
-	MarketNews saveOrUpdate(int marketNewsId, int marketId, String fileName, byte type, User user) throws Exception;
+	MarketNews saveOrUpdate(int marketNewsId, int marketId, String path, String fileName, byte type, User user)
+			throws Exception;
 
 	boolean delete(int id) throws Exception;
 
