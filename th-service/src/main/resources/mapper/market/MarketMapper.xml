@@ -265,7 +265,7 @@
 			AND menu_id = #{menuId,jdbcType=INTEGER}
 		</if>
 		<if test="name != null and name!=''">
-			AND name = #{name,jdbcType=VARCHAR}
+			AND like CONCAT('%',#{name,jdbcType=VARCHAR},'%' )
 		</if>
 		<if test="area != null">
 			AND area = #{area,jdbcType=VARCHAR}
@@ -317,7 +317,7 @@
 			AND menu_id = #{menuId,jdbcType=INTEGER}
 		</if>
 		<if test="name != null and name!=''">
-			AND name = #{name,jdbcType=VARCHAR}
+			AND name like CONCAT('%',#{name,jdbcType=VARCHAR},'%' )
 		</if>
 		<if test="area != null">
 			AND area = #{area,jdbcType=VARCHAR}
@@ -365,7 +365,7 @@
 			AND menu_id = #{menuId,jdbcType=INTEGER}
 		</if>
 		<if test="name != null and name!=''">
-			AND name = #{name,jdbcType=VARCHAR}
+			AND name like CONCAT('%',#{name,jdbcType=VARCHAR},'%' )
 		</if>
 		<if test="area != null">
 			AND area = #{area,jdbcType=VARCHAR}

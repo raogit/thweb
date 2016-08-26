@@ -6,30 +6,56 @@ jQuery(document).ready(function() {
 				e.preventDefault();
 				var url=$(this).attr("href");
 				$.get(url,function(data){
-					$(".content .mCSB_container").append(data); //load new content inside .mCSB_container
-					//scroll-to appended content 
+					$(".content .mCSB_container").append(data);
 					$(".content").mCustomScrollbar("scrollTo","h2:last");
 				});
 			});
-			
 			$(".content").delegate("a[href='top']","click",function(e){
 				e.preventDefault();
 				$(".content").mCustomScrollbar("scrollTo",$(this).attr("href"));
 			});
-			
 		});
 	})(jQuery);
 	refreshTime();
-	loading();
 	btn();
 	tab();
-	tableData(curPage);
+	initMarket();
 });
-
+ 
+function initMarket(){
+	$(".loading_area").fadeIn(10);
+	var marketSelect = $("#marketSelect");
+	marketSelect.html("");
+	$.ajax({
+        url: basePath + "/market/list",
+        type: 'post',
+        dataType: 'json',
+        cache: false,
+        success: function(data){
+        	if(data!=null&&data!=""){
+        		for(var i=0; i<data.length;i++){
+        			var item = data[i];
+        			marketSelect.append('<option value="'+item.id+'">'+item.name+'</option>');
+        			if(i==0){
+        				$("#marketId").val(item.id);
+        			}
+        		}
+        		tableData(curPage);
+        	}
+        	$(".loading_area").fadeOut(10);
+        }
+    });
+}
+function changeSelect(val){
+	$("#marketId").val(val);
+	tableData(curPage);
+}
 function tableData(pageNum){
 	curPage = pageNum;
 	$(".loading_area").fadeIn(10);
 	var name = $("#name").val();
+	var type = $("#type").val();
+	var marketId = $("#marketId").val();
 	var startDate = $("#startDate").val();
 	var endDate = $("#endDate").val();	
 	$.ajax({
@@ -37,7 +63,9 @@ function tableData(pageNum){
         type: 'post',
         dataType: 'json',
         data : {
-        	name : name,       	
+        	name : name,
+        	type : type,
+        	marketId : marketId,
         	startDate : startDate,
         	endDate : endDate,
         	curPage : pageNum
@@ -65,18 +93,13 @@ function initTable(data){
 		var time = curentTime(item.createTime);
 		var tr = "<tr>"
 			+"<td>"+(i+1)+"</td>"
-			+"<td>"+item.name+"</td>"
+			+"<td>"+item.title+"</td>"
+			+"<td>"+item.path+"</td>"
 			+"<td>"+time+"</td>";
 		var operation = "<td style='text-align: center;'><a href='javascript:showObj("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteObj("+item.id+")' class='inner_btn'>删除</a></td>"
-		
 		var end_tr = "</tr>";
 		userlist.append(tr+operation+end_tr);
 	}
-}
-
-function subMenu(menuId){
-	$("#parentMenuId").val(menuId);
-	tableData(1);
 }
 
 function initPage(page){
@@ -99,11 +122,12 @@ function initPage(page){
 
 function showObj(id){
 	$("#pop_user").fadeIn(10);
-	$("#popMarketId").val(id);
+	$("#marketNewsId").val(id);
 	$("#popName").val("");
 	$("#popIntroduce").val("");
 	$("#popLink").val("");
 	$("#popUrl").val("");
+	initPicture(id);
 	if(id<=0){
 		$("#pupTitle").html("添加");
 	}else{
@@ -118,56 +142,54 @@ function showObj(id){
 	        cache: false,
 	        success: function(data){
 	        	if(data){
-	        		$("#popMarketId").val(data.id);
-	        		$("#popName").val(data.name);
-	        		$("#popIntroduce").val(data.introduce);
+	        		$("#marketId").val(data.marketId);
+	        		$("#marketNewsId").val(data.id);
+	        		$("#contentId").html(data.content);
+	        		$("#title").val(data.title);
 	        	}
-	        	
 	        }
 	    });
 	}
 }
-function add(){
+function add(marketNewsId){
+	$("#bannerpicture").empty();
 	$("#pupTitle").html("添加");
 	$("#pop_user").fadeIn(10);
-	$("#popMarketId").val(0);
+	$("#marketNewsId").val(0);
 	$("#popName").val("");
 	$("#popIntroduce").val("");
 	$("#popLink").val("");
 	$("#popUrl").val("");
 }
 function addOrEdituser(){
-	var id = $("#popMarketId").val();
-	var name = $("#popName").val();
-	var introduce = $("#popIntroduce").val();
-	debugger;
-	
-	if(isEmpty(name)){
-		alert("请输入门店名");
+	var marketId = $("#marketId").val();
+	var marketNewsId = $("#marketNewsId").val();
+	var content = $("#contentId").html();
+	var title = $("#title").val();
+	var type = $("#type").val();
+	if(isEmpty(content)){
+		alert("请填写内容");
 		return ;
 	}
-	var url = basePath + "/marketnews/save";
-	
 	$.ajax({
-        url: url,
+        url: basePath + "/marketnews/save",
         type: 'post',
         dataType: 'json',
         data : {
-        	id : id,
-        	name : name,
-        	introduce : introduce
+        	id : marketNewsId,
+        	type : type,
+        	title : title,
+        	marketId : marketId,
+        	content : content
         },
         cache: false,
         success: function(data){
-        	if(data){
-        		refreshTime();
-        		alert("操作成功!");
-        		tableData(curPage);
-            	$("#pop_user").fadeOut(200);
+        	if(data!=null&&data!=false){
+        		alert("操作成功");
+        		$("#pop_user").fadeOut(10);
         	}else{
-        		alert("操作失败!");
+        		alert("操作失败");
         	}
-        	
         }
     });
 }
@@ -193,11 +215,9 @@ function deleteObj(id){
 	        	}else{
 	        		alert("删除失败!");
 	        	}
-	        	
 	        }
 	    });
 	}
-	
 }
 
 function loading(){
@@ -213,7 +233,7 @@ function btn(){
 		$("#pop_user").fadeIn(10);
 	});
 	//弹出：确认按钮
-	$("#confirm_user").click(function(){
+	$("#saveContent").click(function(){
 		addOrEdituser();
 		
 	});
@@ -242,4 +262,78 @@ function refreshTime(){
 	var curDate = new Date();
 	$("#startDate").val(curentTime(curDate.getTime() - 12*30*24*60*60*1000));
 	$("#endDate").val(curentTime(curDate.getTime()+ 60*60*1000));
+}
+
+function initPicture(marketNewsId){
+	$.ajax({
+        url: basePath + "/marketnews/get",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	id : marketNewsId
+        },
+        cache: false,
+        success: picture
+    });
+}
+function picture(data){
+	if(data!=null && data!="" && data!=false){
+		var bannerpicture = $("#bannerpicture");
+		bannerpicture.empty();
+		var picture = data;
+		$("#marketNewsId").val(data.id);
+		if(data.path!=null){
+			var html = "<div class='bannerdiv'><div style='width: 120px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
+			bannerpicture.append(html);
+		}
+	}
+}
+
+function clear(){
+	$("#contentId").html("");
+}
+function upload(fileId){
+	var file = $("#fileId").val();
+	if(!file){
+		alert("请选择图片");
+		return;
+	}
+	var marketId = $("#marketId").val();
+	var marketNewsId = $("#marketNewsId").val();
+	var type = $("#type").val();
+	var uri = $("#uri").val();
+	var url=basePath + uri+"?type="+type+"&marketId="+marketId+"&marketNewsId="+marketNewsId;
+	//执行上传文件操作的函数
+	$.ajaxFileUpload({
+        url:url,
+        secureuri:false, //是否启用安全提交,默认为false
+        fileElementId:fileId,
+        dataType:'text',
+        success:function(data,status){
+        	data = data.replace(/<pre.*">/, '');
+            data = data.replace("<PRE>", ''); //ajaxFileUpload会对服务器响应回来的text内容加上<pre>text</pre>前后缀
+            data = data.replace("</PRE>", '');
+            data = data.replace("<pre>", '');
+            data = data.replace("</pre>", '');
+            var reqParam = eval("(" +data+ ")");
+        	if (reqParam != "" && reqParam!=false) {
+        		initPicture(reqParam.id);	
+			} else {
+				alert("操作失败");
+			}
+        }
+    });
+}
+
+function del(id){
+	$.ajax({
+        url: basePath + "/marketnews/deletepicture",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	id : id
+        },
+        cache: false,
+        success: picture
+    });
 }

@@ -53,7 +53,7 @@
 			<!--content-->
 			<input type="hidden" value="0" id="popMarketId" />
 			<div class="pop_cont_input">
-				<input type="hidden" value="1" id="type" name="type" />
+				<input type="hidden" value="${type }" id="type" name="type" />
 				<input type="hidden" value="0" id="marketNewsId" name="marketNewsId" />
 				<input type="hidden" value="/upload/marketnews/picture" id="uri" name="uri" />
 				<div>
@@ -74,24 +74,22 @@
 						</ul>
 					</form>
 				</div>
-				<div style="height:30px;border-bottom:2px solid #19a97b;"></div>
-				<div class="btm_btn" style="margin-top: 30px;height: 30px;">
+				<div style="height:5px;border-bottom:2px solid #19a97b;"></div>
+				<div class="btm_btn" style="height: 30px;">
 					<input type="button" value="保存" style="width: 70px;height: 30px;background-color: #19a97b;" id="saveContent"/> 
 					<input type="button" value="清空" style="width: 70px;height: 30px;background-color: #19a97b;" id="clearContent"/>
+					<input type="button" value="关闭" style="width: 70px;height: 30px;background-color: #19a97b;" id="close_user"/>
 				</div>
-				<div style="height:100px;width:500px; margin: 0 auto;padding-top:5px;">
+				<div style="height:30px;width:500px; margin: 0 auto;padding-top:5px;">
 					<ul>
 						<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标题:</span> <input id="title" style="width:140px;" type="text" placeholder="请输入标题..." class="textbox" /></li>
-						<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标语:</span> <input id="slogan" style="width:240px;" type="text" placeholder="请输入标语..." class="textbox" /></li>
-						<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">电话:</span> <input id="phone" style="width:140px;" type="text" placeholder="请输入电话..." class="textbox" /></li>
-						<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">地址:</span> <input id="address" style="width:240px;" type="text" placeholder="请输入地址..." class="textbox" /></li>
 					</ul>
 				</div>
 				<section id="editor">
 					<div id='edit' style="margin-top: 30px;"> </div>
 				</section>
 				
-				<div class="btm_btn" style="margin-top: 30px;height: 30px;"> </div>
+				<div class="btm_btn" style="height: 30px;"> </div>
 			
 			  <script>
 			      $(function(){
@@ -112,15 +110,14 @@
 				</h2>
 				<input type="hidden" value="0" id="marketId" name="marketId" />
 				<strong style="color: grey;">新闻标题:</strong>
-				<input id="name" type="text" class="textbox" placeholder="菜单名..." /> 
+				<input id="name" type="text" class="textbox" placeholder="新闻标题..." /> 
 				<strong style="color: grey;">门店:</strong>
-				<select class="select" id="marketSelect"></select>
+				<select class="select" id="marketSelect" onchange="changeSelect(this.value)" style=" width: 120px;"></select>
 				<strong style="color: grey;">创建时间:</strong>
 				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" />-
 				<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:160px;"/>
 				<input type="button" value="查询" class="group_btn" onclick="tableData(1)" /> 
-				<input type="button" value="添加" class="group_btn" onclick="add()" style="margin-left:20px;" /> 
-				<input type="button" value="返回" class="group_btn" onclick="goBack()" style="margin-left:20px;" /> 
+				<input type="button" value="添加" class="group_btn" onclick="add(0)" style="margin-left:20px;" /> 
 			</section>
 			<section>
 				<h1></h1>
@@ -131,7 +128,8 @@
 					<thead>
 						<tr>
 							<th>序号</th>
-							<th>门店名</th>	
+							<th>新闻标题</th>	
+							<th>图片名</th>	
 							<th>创建时间</th>
 							<th>操作</th>
 						</tr>

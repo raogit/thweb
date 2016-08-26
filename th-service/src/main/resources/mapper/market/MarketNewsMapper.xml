@@ -267,7 +267,7 @@
 			AND market_id = #{marketId,jdbcType=INTEGER}
 		</if>
 		<if test="title != null">
-			AND title = #{title,jdbcType=VARCHAR}
+			AND like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
 		</if>
 		<if test="type != null">
 			AND type = #{type,jdbcType=TINYINT}
@@ -317,7 +317,7 @@
 			AND market_id = #{marketId,jdbcType=INTEGER}
 		</if>
 		<if test="title != null">
-			AND title = #{title,jdbcType=VARCHAR}
+			AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
 		</if>
 		<if test="type != null">
 			AND type = #{type,jdbcType=TINYINT}
@@ -363,7 +363,7 @@
 			AND market_id = #{marketId,jdbcType=INTEGER}
 		</if>
 		<if test="title != null">
-			AND title = #{title,jdbcType=VARCHAR}
+			AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
 		</if>
 		<if test="type != null">
 			AND type = #{type,jdbcType=TINYINT}

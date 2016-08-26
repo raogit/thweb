@@ -138,8 +138,7 @@ public class UploadController extends BaseController {
 			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
 					CommonConstant.UPLOAD_IMG_PATH);
 			String fileName = FileToolUtils.saveImage(file[0], path);
-			marketNewsService.saveOrUpdate(marketNewsId, marketId, path, fileName, type, user);
-			return true;
+			return marketNewsService.saveOrUpdate(marketNewsId, marketId, path, fileName, type, user);
 		} catch (Exception e) {
 			log.error("", e);
 

@@ -7,6 +7,9 @@
  */
 package com.tianhong.controller.market;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.market.Market;
@@ -95,8 +99,32 @@ public class MarketNewsController extends BaseController {
 		return false;
 	}
 
-	@RequestMapping(value = "/jsp")
+	@RequestMapping(value = "/news")
 	public Object jsp(Market market, HttpServletRequest request, HttpServletResponse response) {
-		return "/market/news/list";
+
+		Map<String, Object> model = new HashMap<String, Object>();
+		model.put("type", 1);
+
+		return new ModelAndView("/market/news/list", model);
+	}
+
+	@RequestMapping(value = "/activity")
+	public Object activity(Market market, HttpServletRequest request, HttpServletResponse response) {
+
+		Map<String, Object> model = new HashMap<String, Object>();
+		model.put("type", 2);
+
+		return new ModelAndView("/market/news/list", model);
+	}
+
+	@RequestMapping(value = "/deletepicture")
+	@ResponseBody
+	public Object deletePicture(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return marketNewsService.deletePicture(id);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
 	}
 }

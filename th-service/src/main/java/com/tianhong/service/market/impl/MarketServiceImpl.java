@@ -46,7 +46,8 @@ public class MarketServiceImpl implements MarketService {
 	}
 
 	public List<Market> list(Market market) throws Exception {
-		return marketMapper.list(market);
+		List<Market> list = marketMapper.list(market);
+		return list;
 	}
 
 	public Market saveOrUpdate(Market market, User user) throws Exception {

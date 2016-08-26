@@ -47,7 +47,8 @@ public class MarketNewsServiceImpl implements MarketNewsService {
 	}
 
 	public List<MarketNews> list(MarketNews marketNews) throws Exception {
-		return marketNewsMapper.list(marketNews);
+		List<MarketNews> list = marketNewsMapper.list(marketNews);
+		return list;
 	}
 
 	public MarketNews saveOrUpdate(MarketNews marketNews, User user) throws Exception {
@@ -103,6 +104,13 @@ public class MarketNewsServiceImpl implements MarketNewsService {
 			marketNewsMapper.updateByPrimaryKeySelective(news);
 		}
 		return news;
+	}
+
+	public MarketNews deletePicture(int id) throws Exception {
+		MarketNews marketNews = marketNewsMapper.selectByPrimaryKeyWithBLOBs(id);
+		marketNews.setPath(null);
+		marketNewsMapper.updateByPrimaryKeySelective(marketNews);
+		return marketNews;
 	}
 
 }

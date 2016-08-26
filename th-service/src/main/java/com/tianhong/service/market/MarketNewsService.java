@@ -34,6 +34,8 @@ public interface MarketNewsService {
 
 	boolean delete(int id) throws Exception;
 
+	MarketNews deletePicture(int id) throws Exception;
+
 	int updateByPrimaryKeySelective(MarketNews marketNews) throws Exception;
 
 	MarketNews getByPrimaryKey(int id) throws Exception;
