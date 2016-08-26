@@ -1,234 +1,246 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tianhong.dao.user.UserMapper">
-  <resultMap id="BaseResultMap" type="com.tianhong.domain.user.User">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="type" jdbcType="TINYINT" property="type" />
-    <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="create_id" jdbcType="INTEGER" property="createId" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="update_id" jdbcType="INTEGER" property="updateId" />
-    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
-    <result column="backup1" jdbcType="VARCHAR" property="backup1" />
-    <result column="backup2" jdbcType="VARCHAR" property="backup2" />
-    <result column="backup3" jdbcType="VARCHAR" property="backup3" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, type, user_name, password, email, create_time, create_id, update_time, update_id, 
-    is_deleted, backup1, backup2, backup3
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_user
-    where id = #{id,jdbcType=INTEGER} and is_deleted = 0
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_user
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.tianhong.domain.user.User" useGeneratedKeys="true" keyProperty="id" >
-    insert into t_user (id, type, user_name, 
-      password, email, create_time, 
-      create_id, update_time, update_id, 
-      is_deleted, backup1, backup2, 
-      backup3)
-    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=TINYINT}, #{userName,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, 
-      #{isDeleted,jdbcType=BIT}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, 
-      #{backup3,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.tianhong.domain.user.User" useGeneratedKeys="true" keyProperty="id" >
-    insert into t_user
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="type != null">
-        type,
-      </if>
-      <if test="userName != null">
-        user_name,
-      </if>
-      <if test="password != null">
-        password,
-      </if>
-      <if test="email != null">
-        email,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="createId != null">
-        create_id,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-      <if test="updateId != null">
-        update_id,
-      </if>
-      <if test="isDeleted != null">
-        is_deleted,
-      </if>
-      <if test="backup1 != null">
-        backup1,
-      </if>
-      <if test="backup2 != null">
-        backup2,
-      </if>
-      <if test="backup3 != null">
-        backup3,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="type != null">
-        #{type,jdbcType=TINYINT},
-      </if>
-      <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createId != null">
-        #{createId,jdbcType=INTEGER},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateId != null">
-        #{updateId,jdbcType=INTEGER},
-      </if>
-      <if test="isDeleted != null">
-        #{isDeleted,jdbcType=BIT},
-      </if>
-      <if test="backup1 != null">
-        #{backup1,jdbcType=VARCHAR},
-      </if>
-      <if test="backup2 != null">
-        #{backup2,jdbcType=VARCHAR},
-      </if>
-      <if test="backup3 != null">
-        #{backup3,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.tianhong.domain.user.User">
-    update t_user
-    <set>
-      <if test="type != null">
-        type = #{type,jdbcType=TINYINT},
-      </if>
-      <if test="userName != null">
-        user_name = #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null">
-        password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="email != null">
-        email = #{email,jdbcType=VARCHAR},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createId != null">
-        create_id = #{createId,jdbcType=INTEGER},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateId != null">
-        update_id = #{updateId,jdbcType=INTEGER},
-      </if>
-      <if test="isDeleted != null">
-        is_deleted = #{isDeleted,jdbcType=BIT},
-      </if>
-      <if test="backup1 != null">
-        backup1 = #{backup1,jdbcType=VARCHAR},
-      </if>
-      <if test="backup2 != null">
-        backup2 = #{backup2,jdbcType=VARCHAR},
-      </if>
-      <if test="backup3 != null">
-        backup3 = #{backup3,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.tianhong.domain.user.User">
-    update t_user
-    set type = #{type,jdbcType=TINYINT},
-      user_name = #{userName,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      create_id = #{createId,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      update_id = #{updateId,jdbcType=INTEGER},
-      is_deleted = #{isDeleted,jdbcType=BIT},
-      backup1 = #{backup1,jdbcType=VARCHAR},
-      backup2 = #{backup2,jdbcType=VARCHAR},
-      backup3 = #{backup3,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  
-  <select id="selectAllUsers" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_user
-    where  is_deleted = 0
-    order by create_time desc
-  </select>
-  <select id="selectPageUsers" resultMap="BaseResultMap" parameterType="com.tianhong.domain.user.User">
-    select 
-    <include refid="Base_Column_List" />
-    from t_user
-    where  is_deleted = 0
-    	<if test="userName != null and userName != ''">
-	        AND user_name = #{userName,jdbcType=VARCHAR}
-	    </if>
+	<resultMap id="BaseResultMap" type="com.tianhong.domain.user.User">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="type" jdbcType="TINYINT" property="type" />
+		<result column="user_name" jdbcType="VARCHAR" property="userName" />
+		<result column="password" jdbcType="VARCHAR" property="password" />
+		<result column="email" jdbcType="VARCHAR" property="email" />
+		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="create_id" jdbcType="INTEGER" property="createId" />
+		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+		<result column="update_id" jdbcType="INTEGER" property="updateId" />
+		<result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+		<result column="backup1" jdbcType="VARCHAR" property="backup1" />
+		<result column="backup2" jdbcType="VARCHAR" property="backup2" />
+		<result column="backup3" jdbcType="VARCHAR" property="backup3" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, type, user_name, password, email, create_time, create_id,
+		update_time, update_id,
+		is_deleted, backup1, backup2, backup3
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_user
+		where id = #{id,jdbcType=INTEGER} and is_deleted = 0
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from t_user
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.tianhong.domain.user.User"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into t_user (id, type, user_name,
+		password, email, create_time,
+		create_id, update_time, update_id,
+		is_deleted, backup1, backup2,
+		backup3)
+		values (#{id,jdbcType=INTEGER}, #{type,jdbcType=TINYINT},
+		#{userName,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+		#{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP},
+		#{updateId,jdbcType=INTEGER},
+		#{isDeleted,jdbcType=BIT}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR},
+		#{backup3,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.tianhong.domain.user.User"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into t_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="type != null">
+				type,
+			</if>
+			<if test="userName != null">
+				user_name,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="createId != null">
+				create_id,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+			<if test="updateId != null">
+				update_id,
+			</if>
+			<if test="isDeleted != null">
+				is_deleted,
+			</if>
+			<if test="backup1 != null">
+				backup1,
+			</if>
+			<if test="backup2 != null">
+				backup2,
+			</if>
+			<if test="backup3 != null">
+				backup3,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="type != null">
+				#{type,jdbcType=TINYINT},
+			</if>
+			<if test="userName != null">
+				#{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createId != null">
+				#{createId,jdbcType=INTEGER},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateId != null">
+				#{updateId,jdbcType=INTEGER},
+			</if>
+			<if test="isDeleted != null">
+				#{isDeleted,jdbcType=BIT},
+			</if>
+			<if test="backup1 != null">
+				#{backup1,jdbcType=VARCHAR},
+			</if>
+			<if test="backup2 != null">
+				#{backup2,jdbcType=VARCHAR},
+			</if>
+			<if test="backup3 != null">
+				#{backup3,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.tianhong.domain.user.User">
+		update t_user
+		<set>
+			<if test="type != null">
+				type = #{type,jdbcType=TINYINT},
+			</if>
+			<if test="userName != null">
+				user_name = #{userName,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createId != null">
+				create_id = #{createId,jdbcType=INTEGER},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateId != null">
+				update_id = #{updateId,jdbcType=INTEGER},
+			</if>
+			<if test="isDeleted != null">
+				is_deleted = #{isDeleted,jdbcType=BIT},
+			</if>
+			<if test="backup1 != null">
+				backup1 = #{backup1,jdbcType=VARCHAR},
+			</if>
+			<if test="backup2 != null">
+				backup2 = #{backup2,jdbcType=VARCHAR},
+			</if>
+			<if test="backup3 != null">
+				backup3 = #{backup3,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.tianhong.domain.user.User">
+		update t_user
+		set type = #{type,jdbcType=TINYINT},
+		user_name = #{userName,jdbcType=VARCHAR},
+		password = #{password,jdbcType=VARCHAR},
+		email = #{email,jdbcType=VARCHAR},
+		create_time = #{createTime,jdbcType=TIMESTAMP},
+		create_id = #{createId,jdbcType=INTEGER},
+		update_time = #{updateTime,jdbcType=TIMESTAMP},
+		update_id = #{updateId,jdbcType=INTEGER},
+		is_deleted = #{isDeleted,jdbcType=BIT},
+		backup1 = #{backup1,jdbcType=VARCHAR},
+		backup2 = #{backup2,jdbcType=VARCHAR},
+		backup3 = #{backup3,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="selectAllUsers" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_user
+		where is_deleted = 0
+		order by create_time desc
+	</select>
+	<select id="selectPageUsers" resultMap="BaseResultMap"
+		parameterType="com.tianhong.domain.user.User">
+		select
+		<include refid="Base_Column_List" />
+		from t_user
+		where is_deleted = 0
+		<if test="userName != null and userName != ''">
+			AND user_name = #{userName,jdbcType=VARCHAR}
+		</if>
 		<if test="type != null and type >0">
-       		AND type = #{type,jdbcType=TINYINT}
+			AND type = #{type,jdbcType=TINYINT}
 		</if>
 		<if test="startDate != null and endDate!=null">
-	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
+			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND
+			#{endDate,jdbcType=VARCHAR}
 		</if>
-    ORDER BY create_time desc
-    LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER} 
-  </select>
-  <select id="selectCount" resultType="java.lang.Integer" parameterType="com.tianhong.domain.user.User">
-    select 
-    	count(1)
-    from t_user
-    where  is_deleted = 0
-	    <if test="userName != null and userName != ''">
-	        AND user_name = #{userName,jdbcType=VARCHAR}
-	    </if>
-    	<if test="type != null and type >0">
-       		AND type = #{type,jdbcType=TINYINT}
+		ORDER BY create_time desc
+		LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER}
+	</select>
+	<select id="selectCount" resultType="java.lang.Integer"
+		parameterType="com.tianhong.domain.user.User">
+		select
+		count(1)
+		from t_user
+		where is_deleted = 0
+		<if test="userName != null and userName != ''">
+			AND user_name = #{userName,jdbcType=VARCHAR}
 		</if>
-		<if test="startDate != null and endDate!=null and startDate !='' and endDate!=''">
-	        AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
+		<if test="type != null and type >0">
+			AND type = #{type,jdbcType=TINYINT}
 		</if>
-  </select>
-   <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_sys_role
-    where user_name = #{userName,jdbcType=VARCHAR} and is_deleted = 0
-  </select>
+		<if
+			test="startDate != null and endDate!=null and startDate !='' and endDate!=''">
+			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND
+			#{endDate,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<select id="selectByName" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_sys_role
+		where user_name = #{userName,jdbcType=VARCHAR} and is_deleted = 0
+	</select>
 </mapper>

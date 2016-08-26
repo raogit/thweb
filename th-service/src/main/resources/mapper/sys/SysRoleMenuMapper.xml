@@ -1,178 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tianhong.dao.sys.SysRoleMenuMapper">
-  <resultMap id="BaseResultMap" type="com.tianhong.domain.sys.SysRoleMenu">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="menu_id" jdbcType="INTEGER" property="menuId" />
-    <result column="role_id" jdbcType="INTEGER" property="roleId" />
-    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-    <result column="create_id" jdbcType="INTEGER" property="createId" />
-    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="update_id" jdbcType="INTEGER" property="updateId" />
-    <result column="is_deleted" jdbcType="BIT" property="isDeleted" />
-    <result column="backup1" jdbcType="VARCHAR" property="backup1" />
-    <result column="backup2" jdbcType="VARCHAR" property="backup2" />
-    <result column="backup3" jdbcType="VARCHAR" property="backup3" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, menu_id, role_id, create_time, create_id, update_time, update_id, is_deleted, 
-    backup1, backup2, backup3
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_sys_role_menu
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_sys_role_menu
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.tianhong.domain.sys.SysRoleMenu">
-    insert into t_sys_role_menu (id, menu_id, role_id, 
-      create_time, create_id, update_time, 
-      update_id, is_deleted, backup1, 
-      backup2, backup3)
-    values (#{id,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER}, #{roleId,jdbcType=INTEGER}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{updateId,jdbcType=INTEGER}, #{isDeleted,jdbcType=BIT}, #{backup1,jdbcType=VARCHAR}, 
-      #{backup2,jdbcType=VARCHAR}, #{backup3,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.tianhong.domain.sys.SysRoleMenu">
-    insert into t_sys_role_menu
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="menuId != null">
-        menu_id,
-      </if>
-      <if test="roleId != null">
-        role_id,
-      </if>
-      <if test="createTime != null">
-        create_time,
-      </if>
-      <if test="createId != null">
-        create_id,
-      </if>
-      <if test="updateTime != null">
-        update_time,
-      </if>
-      <if test="updateId != null">
-        update_id,
-      </if>
-      <if test="isDeleted != null">
-        is_deleted,
-      </if>
-      <if test="backup1 != null">
-        backup1,
-      </if>
-      <if test="backup2 != null">
-        backup2,
-      </if>
-      <if test="backup3 != null">
-        backup3,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="menuId != null">
-        #{menuId,jdbcType=INTEGER},
-      </if>
-      <if test="roleId != null">
-        #{roleId,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null">
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createId != null">
-        #{createId,jdbcType=INTEGER},
-      </if>
-      <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateId != null">
-        #{updateId,jdbcType=INTEGER},
-      </if>
-      <if test="isDeleted != null">
-        #{isDeleted,jdbcType=BIT},
-      </if>
-      <if test="backup1 != null">
-        #{backup1,jdbcType=VARCHAR},
-      </if>
-      <if test="backup2 != null">
-        #{backup2,jdbcType=VARCHAR},
-      </if>
-      <if test="backup3 != null">
-        #{backup3,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.tianhong.domain.sys.SysRoleMenu">
-    update t_sys_role_menu
-    <set>
-      <if test="menuId != null">
-        menu_id = #{menuId,jdbcType=INTEGER},
-      </if>
-      <if test="roleId != null">
-        role_id = #{roleId,jdbcType=INTEGER},
-      </if>
-      <if test="createTime != null">
-        create_time = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="createId != null">
-        create_id = #{createId,jdbcType=INTEGER},
-      </if>
-      <if test="updateTime != null">
-        update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="updateId != null">
-        update_id = #{updateId,jdbcType=INTEGER},
-      </if>
-      <if test="isDeleted != null">
-        is_deleted = #{isDeleted,jdbcType=BIT},
-      </if>
-      <if test="backup1 != null">
-        backup1 = #{backup1,jdbcType=VARCHAR},
-      </if>
-      <if test="backup2 != null">
-        backup2 = #{backup2,jdbcType=VARCHAR},
-      </if>
-      <if test="backup3 != null">
-        backup3 = #{backup3,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.tianhong.domain.sys.SysRoleMenu">
-    update t_sys_role_menu
-    set menu_id = #{menuId,jdbcType=INTEGER},
-      role_id = #{roleId,jdbcType=INTEGER},
-      create_time = #{createTime,jdbcType=TIMESTAMP},
-      create_id = #{createId,jdbcType=INTEGER},
-      update_time = #{updateTime,jdbcType=TIMESTAMP},
-      update_id = #{updateId,jdbcType=INTEGER},
-      is_deleted = #{isDeleted,jdbcType=BIT},
-      backup1 = #{backup1,jdbcType=VARCHAR},
-      backup2 = #{backup2,jdbcType=VARCHAR},
-      backup3 = #{backup3,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  
-   <select id="selectSysRoleMenus" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from t_sys_role_menu
-    where role_id = #{roleId,jdbcType=INTEGER}
-    and is_deleted = 0
-  </select>
-  
-  
-  <delete id="deleteByRoleId" parameterType="java.lang.Integer">
-    delete from t_sys_role_menu
-    where role_id = #{roleId,jdbcType=INTEGER}
-  </delete>
+	<resultMap id="BaseResultMap" type="com.tianhong.domain.sys.SysRoleMenu">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="menu_id" jdbcType="INTEGER" property="menuId" />
+		<result column="role_id" jdbcType="INTEGER" property="roleId" />
+		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="create_id" jdbcType="INTEGER" property="createId" />
+		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+		<result column="update_id" jdbcType="INTEGER" property="updateId" />
+		<result column="is_deleted" jdbcType="BIT" property="isDeleted" />
+		<result column="backup1" jdbcType="VARCHAR" property="backup1" />
+		<result column="backup2" jdbcType="VARCHAR" property="backup2" />
+		<result column="backup3" jdbcType="VARCHAR" property="backup3" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, menu_id, role_id, create_time, create_id, update_time, update_id,
+		is_deleted,
+		backup1, backup2, backup3
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_sys_role_menu
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from t_sys_role_menu
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.tianhong.domain.sys.SysRoleMenu">
+		insert into t_sys_role_menu (id, menu_id, role_id,
+		create_time, create_id, update_time,
+		update_id, is_deleted, backup1,
+		backup2, backup3)
+		values (#{id,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER},
+		#{roleId,jdbcType=INTEGER},
+		#{createTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP},
+		#{updateId,jdbcType=INTEGER}, #{isDeleted,jdbcType=BIT},
+		#{backup1,jdbcType=VARCHAR},
+		#{backup2,jdbcType=VARCHAR}, #{backup3,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.tianhong.domain.sys.SysRoleMenu">
+		insert into t_sys_role_menu
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="menuId != null">
+				menu_id,
+			</if>
+			<if test="roleId != null">
+				role_id,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="createId != null">
+				create_id,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+			<if test="updateId != null">
+				update_id,
+			</if>
+			<if test="isDeleted != null">
+				is_deleted,
+			</if>
+			<if test="backup1 != null">
+				backup1,
+			</if>
+			<if test="backup2 != null">
+				backup2,
+			</if>
+			<if test="backup3 != null">
+				backup3,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="menuId != null">
+				#{menuId,jdbcType=INTEGER},
+			</if>
+			<if test="roleId != null">
+				#{roleId,jdbcType=INTEGER},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createId != null">
+				#{createId,jdbcType=INTEGER},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateId != null">
+				#{updateId,jdbcType=INTEGER},
+			</if>
+			<if test="isDeleted != null">
+				#{isDeleted,jdbcType=BIT},
+			</if>
+			<if test="backup1 != null">
+				#{backup1,jdbcType=VARCHAR},
+			</if>
+			<if test="backup2 != null">
+				#{backup2,jdbcType=VARCHAR},
+			</if>
+			<if test="backup3 != null">
+				#{backup3,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.tianhong.domain.sys.SysRoleMenu">
+		update t_sys_role_menu
+		<set>
+			<if test="menuId != null">
+				menu_id = #{menuId,jdbcType=INTEGER},
+			</if>
+			<if test="roleId != null">
+				role_id = #{roleId,jdbcType=INTEGER},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="createId != null">
+				create_id = #{createId,jdbcType=INTEGER},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateId != null">
+				update_id = #{updateId,jdbcType=INTEGER},
+			</if>
+			<if test="isDeleted != null">
+				is_deleted = #{isDeleted,jdbcType=BIT},
+			</if>
+			<if test="backup1 != null">
+				backup1 = #{backup1,jdbcType=VARCHAR},
+			</if>
+			<if test="backup2 != null">
+				backup2 = #{backup2,jdbcType=VARCHAR},
+			</if>
+			<if test="backup3 != null">
+				backup3 = #{backup3,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.tianhong.domain.sys.SysRoleMenu">
+		update t_sys_role_menu
+		set menu_id = #{menuId,jdbcType=INTEGER},
+		role_id = #{roleId,jdbcType=INTEGER},
+		create_time = #{createTime,jdbcType=TIMESTAMP},
+		create_id = #{createId,jdbcType=INTEGER},
+		update_time = #{updateTime,jdbcType=TIMESTAMP},
+		update_id = #{updateId,jdbcType=INTEGER},
+		is_deleted = #{isDeleted,jdbcType=BIT},
+		backup1 = #{backup1,jdbcType=VARCHAR},
+		backup2 = #{backup2,jdbcType=VARCHAR},
+		backup3 = #{backup3,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<select id="selectSysRoleMenus" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from t_sys_role_menu
+		where role_id = #{roleId,jdbcType=INTEGER}
+		and is_deleted = 0
+	</select>
+
+
+	<delete id="deleteByRoleId" parameterType="java.lang.Integer">
+		delete from t_sys_role_menu
+		where role_id = #{roleId,jdbcType=INTEGER}
+	</delete>
 </mapper>

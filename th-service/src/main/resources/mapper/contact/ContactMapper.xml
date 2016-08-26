@@ -17,7 +17,8 @@
 		<result column="message" jdbcType="LONGVARCHAR" property="message" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, name, email, phone, company, address, create_time, back_up1, back_up2
+		id, name, email, phone, company, address, create_time,
+		back_up1, back_up2
 	</sql>
 	<sql id="Blob_Column_List">
 		message
@@ -32,18 +33,21 @@
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-		delete from t_contact
+		delete from
+		t_contact
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
 	<insert id="insert" parameterType="com.tianhong.domain.contact.Contact"
 		useGeneratedKeys="true" keyProperty="id">
-		insert into t_contact (id, name, email,
+		insert into t_contact (id, name,
+		email,
 		phone, company, address,
 		create_time, back_up1, back_up2,
 		message)
 		values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},
 		#{email,jdbcType=VARCHAR},
-		#{phone,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+		#{phone,jdbcType=VARCHAR},
+		#{company,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
 		#{createTime,jdbcType=TIMESTAMP}, #{backUp1,jdbcType=VARCHAR},
 		#{backUp2,jdbcType=VARCHAR},
 		#{message,jdbcType=LONGVARCHAR})
@@ -150,27 +154,34 @@
 		where id = #{id,jdbcType=INTEGER}
 	</update>
 	<update id="updateByPrimaryKeyWithBLOBs" parameterType="com.tianhong.domain.contact.Contact">
-		update t_contact
+		update
+		t_contact
 		set name = #{name,jdbcType=VARCHAR},
-		email = #{email,jdbcType=VARCHAR},
+		email =
+		#{email,jdbcType=VARCHAR},
 		phone = #{phone,jdbcType=VARCHAR},
-		company = #{company,jdbcType=VARCHAR},
+		company =
+		#{company,jdbcType=VARCHAR},
 		address = #{address,jdbcType=VARCHAR},
 		create_time = #{createTime,jdbcType=TIMESTAMP},
-		back_up1 = #{backUp1,jdbcType=VARCHAR},
+		back_up1 =
+		#{backUp1,jdbcType=VARCHAR},
 		back_up2 = #{backUp2,jdbcType=VARCHAR},
 		message = #{message,jdbcType=LONGVARCHAR}
-		where id = #{id,jdbcType=INTEGER}
+		where id =
+		#{id,jdbcType=INTEGER}
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.tianhong.domain.contact.Contact">
 		update t_contact
 		set name = #{name,jdbcType=VARCHAR},
 		email = #{email,jdbcType=VARCHAR},
 		phone = #{phone,jdbcType=VARCHAR},
-		company = #{company,jdbcType=VARCHAR},
+		company =
+		#{company,jdbcType=VARCHAR},
 		address = #{address,jdbcType=VARCHAR},
 		create_time = #{createTime,jdbcType=TIMESTAMP},
-		back_up1 = #{backUp1,jdbcType=VARCHAR},
+		back_up1 =
+		#{backUp1,jdbcType=VARCHAR},
 		back_up2 = #{backUp2,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>

@@ -24,9 +24,11 @@
 		<result column="content" jdbcType="LONGVARCHAR" property="content" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, menu_id, title, slogan, phone, address, source, path, create_time,
+		id, menu_id, title, slogan, phone, address, source, path,
+		create_time,
 		create_id,
-		update_time, update_id, is_deleted, backup1, backup2, backup3
+		update_time, update_id, is_deleted, backup1,
+		backup2, backup3
 	</sql>
 	<sql id="Blob_Column_List">
 		content
@@ -41,27 +43,36 @@
 		where id = #{id,jdbcType=INTEGER}
 	</select>
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-		delete from t_content
+		delete from
+		t_content
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.tianhong.domain.content.Content" useGeneratedKeys="true" keyProperty="id">
-		insert into t_content (id, menu_id, title,
+	<insert id="insert" parameterType="com.tianhong.domain.content.Content"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into t_content (id,
+		menu_id, title,
 		slogan, phone, address,
 		source, path, create_time,
 		create_id, update_time, update_id,
 		is_deleted, backup1, backup2,
 		backup3, content)
-		values (#{id,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER},
+		values (#{id,jdbcType=INTEGER},
+		#{menuId,jdbcType=INTEGER},
 		#{title,jdbcType=VARCHAR},
-		#{slogan,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
-		#{source,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR},
+		#{slogan,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR},
+		#{source,jdbcType=VARCHAR},
+		#{path,jdbcType=VARCHAR},
 		#{createTime,jdbcType=TIMESTAMP},
-		#{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER},
-		#{isDeleted,jdbcType=BIT}, #{backup1,jdbcType=VARCHAR},
+		#{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP},
+		#{updateId,jdbcType=INTEGER},
+		#{isDeleted,jdbcType=BIT},
+		#{backup1,jdbcType=VARCHAR},
 		#{backup2,jdbcType=VARCHAR},
 		#{backup3,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
 	</insert>
-	<insert id="insertSelective" parameterType="com.tianhong.domain.content.Content" useGeneratedKeys="true" keyProperty="id">
+	<insert id="insertSelective" parameterType="com.tianhong.domain.content.Content"
+		useGeneratedKeys="true" keyProperty="id">
 		insert into t_content
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -225,41 +236,55 @@
 		where id = #{id,jdbcType=INTEGER}
 	</update>
 	<update id="updateByPrimaryKeyWithBLOBs" parameterType="com.tianhong.domain.content.Content">
-		update t_content
+		update
+		t_content
 		set menu_id = #{menuId,jdbcType=INTEGER},
-		title = #{title,jdbcType=VARCHAR},
+		title =
+		#{title,jdbcType=VARCHAR},
 		slogan = #{slogan,jdbcType=VARCHAR},
-		phone = #{phone,jdbcType=VARCHAR},
+		phone =
+		#{phone,jdbcType=VARCHAR},
 		address = #{address,jdbcType=VARCHAR},
 		source = #{source,jdbcType=VARCHAR},
 		path = #{path,jdbcType=VARCHAR},
 		create_time = #{createTime,jdbcType=TIMESTAMP},
-		create_id = #{createId,jdbcType=INTEGER},
-		update_time = #{updateTime,jdbcType=TIMESTAMP},
-		update_id = #{updateId,jdbcType=INTEGER},
+		create_id =
+		#{createId,jdbcType=INTEGER},
+		update_time =
+		#{updateTime,jdbcType=TIMESTAMP},
+		update_id =
+		#{updateId,jdbcType=INTEGER},
 		is_deleted = #{isDeleted,jdbcType=BIT},
 		backup1 = #{backup1,jdbcType=VARCHAR},
-		backup2 = #{backup2,jdbcType=VARCHAR},
+		backup2 =
+		#{backup2,jdbcType=VARCHAR},
 		backup3 = #{backup3,jdbcType=VARCHAR},
 		content = #{content,jdbcType=LONGVARCHAR}
-		where id = #{id,jdbcType=INTEGER}
+		where id =
+		#{id,jdbcType=INTEGER}
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.tianhong.domain.content.Content">
 		update t_content
 		set menu_id = #{menuId,jdbcType=INTEGER},
-		title = #{title,jdbcType=VARCHAR},
+		title =
+		#{title,jdbcType=VARCHAR},
 		slogan = #{slogan,jdbcType=VARCHAR},
-		phone = #{phone,jdbcType=VARCHAR},
+		phone =
+		#{phone,jdbcType=VARCHAR},
 		address = #{address,jdbcType=VARCHAR},
 		source = #{source,jdbcType=VARCHAR},
 		path = #{path,jdbcType=VARCHAR},
 		create_time = #{createTime,jdbcType=TIMESTAMP},
-		create_id = #{createId,jdbcType=INTEGER},
-		update_time = #{updateTime,jdbcType=TIMESTAMP},
-		update_id = #{updateId,jdbcType=INTEGER},
+		create_id =
+		#{createId,jdbcType=INTEGER},
+		update_time =
+		#{updateTime,jdbcType=TIMESTAMP},
+		update_id =
+		#{updateId,jdbcType=INTEGER},
 		is_deleted = #{isDeleted,jdbcType=BIT},
 		backup1 = #{backup1,jdbcType=VARCHAR},
-		backup2 = #{backup2,jdbcType=VARCHAR},
+		backup2 =
+		#{backup2,jdbcType=VARCHAR},
 		backup3 = #{backup3,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
@@ -272,7 +297,8 @@
 		,
 		<include refid="Blob_Column_List" />
 		from t_content
-		where menu_id = #{menuId,jdbcType=INTEGER} and is_deleted = 0
+		where menu_id = #{menuId,jdbcType=INTEGER} and
+		is_deleted = 0
 	</select>
 
 	<select id="findPage" parameterType="com.tianhong.domain.content.Content"
@@ -288,14 +314,16 @@
 			AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
 		</if>
 		<if test="source != null and source!=''">
-			AND source like CONCAT('%',#{source,jdbcType=VARCHAR},'%' )
+			AND source like CONCAT('%',#{source,jdbcType=VARCHAR},'%'
+			)
 		</if>
 		<if test="startDate != null and endDate!=null">
 			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND
 			#{endDate,jdbcType=VARCHAR}
 		</if>
 		ORDER BY create_time desc
-		LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER}
+		LIMIT #{start, jdbcType=INTEGER}, #{pageSize,
+		jdbcType=INTEGER}
 	</select>
 	<select id="getCount" parameterType="com.tianhong.domain.content.Content"
 		resultType="java.lang.Integer">
@@ -310,7 +338,8 @@
 			AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
 		</if>
 		<if test="source != null and source!=''">
-			AND source like CONCAT('%',#{source,jdbcType=VARCHAR},'%' )
+			AND source like CONCAT('%',#{source,jdbcType=VARCHAR},'%'
+			)
 		</if>
 		<if test="startDate != null and endDate!=null">
 			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND
