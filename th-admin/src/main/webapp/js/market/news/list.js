@@ -186,6 +186,7 @@ function addOrEdituser(){
         success: function(data){
         	if(data!=null&&data!=false){
         		alert("操作成功");
+        		tableData(curPage);
         		$("#pop_user").fadeOut(10);
         	}else{
         		alert("操作失败");
