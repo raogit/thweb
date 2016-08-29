@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-08-29 14:43:20
+Date: 2016-08-29 22:46:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -215,7 +215,7 @@ CREATE TABLE `t_market` (
 -- ----------------------------
 -- Records of t_market
 -- ----------------------------
-INSERT INTO `t_market` VALUES ('1', null, '厦门汇腾天虹1', '厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。\n汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。\n商场一直致力于保持服务领先的优势，免费提供多项便民服务，同时提供钟表维修、机器修鞋、改缝裤脚等专业服务，送货服务范围更广、更便捷了', null, null, null, '2016-08-25 21:16:50', '1', '2016-08-25 21:22:29', '1', '0', null, null, null);
+INSERT INTO `t_market` VALUES ('1', null, '厦门天虹123', '厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。\n汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。\n商场一直致力于保持服务领先的优势，免费提供多项便民服务，同时提供钟表维修、机器修鞋、改缝裤脚等专业服务，送货服务范围更广、更便捷了', null, null, '1472481595919.png', '2016-08-25 21:16:50', '1', '2016-08-25 21:22:29', '1', '0', '0755-21548965', '南山登良路天虹总部', null);
 INSERT INTO `t_market` VALUES ('3', null, '常兴天虹', '常兴天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。\n汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。\n商场一直致力于保持服务领先的优势，免费提供多项便民服务，同时提供钟表维修、机器修鞋、改缝裤脚等专业服务，送货服务范围更广、更便捷了。', null, null, null, '2016-08-26 20:49:36', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
@@ -245,12 +245,10 @@ CREATE TABLE `t_market_news` (
 -- Records of t_market_news
 -- ----------------------------
 INSERT INTO `t_market_news` VALUES ('1', '1', '兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华', '1', '<p>兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。</p><p style=\"padding: 0px; margin: 0px; position: relative; font-size: 16px; color: rgb(89, 87, 87); line-height: 28px; font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。</p>', null, '1472216031782.png', '2016-08-26 20:53:51', '1', '2016-08-27 10:07:50', '1', '0', null, null, null);
-INSERT INTO `t_market_news` VALUES ('4', '1', null, '1', null, null, '1472217683624.png', '2016-08-26 21:21:23', '1', null, null, '0', null, null, null);
-INSERT INTO `t_market_news` VALUES ('6', '1', null, '1', null, null, '1472217829032.png', '2016-08-26 21:23:49', '1', null, null, '0', null, null, null);
 INSERT INTO `t_market_news` VALUES ('15', '1', '第一次门店活动厦门', '2', '<p>第一次门店活动厦门\n\n<span style=\"color: rgb(89, 87, 87); font-family: &quot; Microsoft Yahei&quot;, Arial, Simsun; font-size: 16px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 28px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none;\" data-fr-verified=\"true\">汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。</span>\n\n<br></p>', null, '1472220621483.png', '2016-08-26 22:10:21', '1', '2016-08-27 10:08:31', '1', '0', null, null, null);
-INSERT INTO `t_market_news` VALUES ('16', '1', '第二', '1', '<p>第二个</p>', null, '1472263397987.png', '2016-08-27 10:03:18', '1', '2016-08-27 10:03:34', '1', '0', null, null, null);
-INSERT INTO `t_market_news` VALUES ('17', '1', '第三次', '1', '<p>第三次<br></p>', null, '1472263495119.png', '2016-08-27 10:04:55', '1', '2016-08-27 10:05:03', '1', '0', null, null, null);
-INSERT INTO `t_market_news` VALUES ('18', '3', '常兴天虹一', '2', '<p>常兴天虹<br></p>', null, '1472263519023.png', '2016-08-27 10:05:19', '1', '2016-08-27 10:05:36', '1', '0', null, null, null);
+INSERT INTO `t_market_news` VALUES ('16', '1', '第二', '1', '<p>fr兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。</p><p style=\"padding: 0px; margin: 0px; position: relative; font-size: 16px; color: rgb(89, 87, 87); line-height: 28px; font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。</p>', null, '1472263397987.png', '2016-08-27 10:03:18', '1', '2016-08-27 10:03:34', '1', '0', null, null, null);
+INSERT INTO `t_market_news` VALUES ('17', '1', '第三次', '1', '<p>123兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。</p><p style=\"padding: 0px; margin: 0px; position: relative; font-size: 16px; color: rgb(89, 87, 87); line-height: 28px; font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。</p>', null, '1472263495119.png', '2016-08-27 10:04:55', '1', '2016-08-27 10:05:03', '1', '0', null, null, null);
+INSERT INTO `t_market_news` VALUES ('18', '1', '常兴天虹一', '2', '<p>ABC兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。</p><p style=\"padding: 0px; margin: 0px; position: relative; font-size: 16px; color: rgb(89, 87, 87); line-height: 28px; font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。</p>', null, '1472263519023.png', '2016-08-27 10:05:19', '1', '2016-08-27 10:05:36', '1', '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_market_suggest`
@@ -450,7 +448,7 @@ INSERT INTO `t_menu` VALUES ('140', '关于我们', '', '/menu/news/detail', '3'
 INSERT INTO `t_menu` VALUES ('141', 'APP下载专区', '', '/menu/news/detail', '4', '138', '3', '1', '2016-08-19 15:53:17', '1', null, null, '1', '', null, null);
 INSERT INTO `t_menu` VALUES ('142', '商务合作', '', '/menu/news/detail', '5', '138', '4', '1', '2016-08-19 15:53:29', '1', null, null, '1', '', null, null);
 INSERT INTO `t_menu` VALUES ('143', '联系我们', '', '/menu/news/detail', '6', '138', '5', '1', '2016-08-19 15:53:39', '1', null, null, '1', '', null, null);
-INSERT INTO `t_menu` VALUES ('149', '门店管理', '/market/index', '', '1', '0', '13', null, '2016-08-25 20:38:58', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('149', '门店管理', '', '', '1', '0', '13', null, '2016-08-25 20:38:58', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('150', '门店介绍', '', '', '2', '149', '1', null, '2016-08-25 20:39:17', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('151', '品质管理', '', '', '2', '149', '2', null, '2016-08-25 20:39:25', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('152', '会员专区', '', '', '2', '149', '3', null, '2016-08-25 20:39:39', '1', null, null, '1', '', null, null);
