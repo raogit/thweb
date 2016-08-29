@@ -18,8 +18,8 @@
                       http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
 	<!-- 使用disConf的话,scanPackage需要加上com.baidu -->
-	<context:component-scan base-package="com.tianhong" />
-	<mvc:annotation-driven />
+	<context:component-scan base-package="com.tianhong"></context:component-scan>
+	<mvc:annotation-driven></mvc:annotation-driven>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
