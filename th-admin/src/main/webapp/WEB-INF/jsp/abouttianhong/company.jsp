@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<jsp:include page="base/base.jsp"></jsp:include>
+	<jsp:include page="../base/base.jsp"></jsp:include>
 	<link rel="stylesheet" href="${basePath}/css/login/reset.css">
 	<link rel="stylesheet" href="${basePath}/css/login/supersized.css">
 	<link rel="stylesheet" href="${basePath}/css/login/style.css">
