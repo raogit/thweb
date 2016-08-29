@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-08-29 09:52:13
+Date: 2016-08-29 14:43:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -450,7 +450,7 @@ INSERT INTO `t_menu` VALUES ('140', '关于我们', '', '/menu/news/detail', '3'
 INSERT INTO `t_menu` VALUES ('141', 'APP下载专区', '', '/menu/news/detail', '4', '138', '3', '1', '2016-08-19 15:53:17', '1', null, null, '1', '', null, null);
 INSERT INTO `t_menu` VALUES ('142', '商务合作', '', '/menu/news/detail', '5', '138', '4', '1', '2016-08-19 15:53:29', '1', null, null, '1', '', null, null);
 INSERT INTO `t_menu` VALUES ('143', '联系我们', '', '/menu/news/detail', '6', '138', '5', '1', '2016-08-19 15:53:39', '1', null, null, '1', '', null, null);
-INSERT INTO `t_menu` VALUES ('149', '门店管理', '', '', '1', '0', '13', null, '2016-08-25 20:38:58', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('149', '门店管理', '/market/index', '', '1', '0', '13', null, '2016-08-25 20:38:58', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('150', '门店介绍', '', '', '2', '149', '1', null, '2016-08-25 20:39:17', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('151', '品质管理', '', '', '2', '149', '2', null, '2016-08-25 20:39:25', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('152', '会员专区', '', '', '2', '149', '3', null, '2016-08-25 20:39:39', '1', null, null, '1', '', null, null);
