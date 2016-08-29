@@ -4,7 +4,7 @@
 <div class="header_mk">
     <div class="h-cont clearfix">
         <ul class="h-c-right">
-            <li class="h-c-rli rli5"><a href="${basePath}/market/introduction.jsp">门店介绍</a></li>
+            <li class="h-c-rli rli5"><a href="${basePath}/market/introduction">门店介绍</a></li>
             <li class="h-c-rli rli2 rli5"><a href="${basePath}/market/management.jsp">品质管理</a></li>
             <li class="h-c-rli rli3 rli5"><a href="${basePath}/market/vip.jsp">会员专区</a></li>
             <li class="h-c-rli rli4 rli5"><a href="${basePath}/market/default.jsp">集团首页</a></li>

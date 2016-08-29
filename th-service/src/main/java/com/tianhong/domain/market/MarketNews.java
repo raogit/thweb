@@ -2,7 +2,9 @@ package com.tianhong.domain.market;
 
 import java.util.Date;
 
+import com.tianhong.constant.CommonConstant;
 import com.tianhong.page.Page;
+import com.tianhong.utils.DateUtils;
 
 public class MarketNews extends Page {
 	private Integer id;
@@ -34,6 +36,8 @@ public class MarketNews extends Page {
 	private String backup3;
 
 	private String content;
+
+	private String createTimeStr;
 
 	public Integer getId() {
 		return id;
@@ -154,4 +158,18 @@ public class MarketNews extends Page {
 	public void setContent(String content) {
 		this.content = content == null ? null : content.trim();
 	}
+
+	public String getCreateTimeStr() {
+		try {
+			return DateUtils.parseString(createTime, CommonConstant.YYYY_MM_dd);
+		} catch (Exception e) {
+
+		}
+		return "";
+	}
+
+	public void setCreateTimeStr(String createTimeStr) {
+		this.createTimeStr = createTimeStr;
+	}
+
 }

@@ -58,9 +58,10 @@ public class MarketController {
 			model.put("list", list);
 			model.put("first", list.get(0));
 
-			List<MarketNews> newsList = marketNewsService.list(list.get(0).getId(), CommonConstant.TYPE__NEWS_1);
-
+			List<MarketNews> newsList = marketNewsService.list(list.get(0).getId(), CommonConstant.TYPE_NEWS_1);
+			List<MarketNews> activityList = marketNewsService.list(list.get(0).getId(), CommonConstant.TYPE_ACTIVITY_2);
 			model.put("newsList", newsList);
+			model.put("activityList", activityList);
 		} catch (Exception e) {
 			log.error("", e);
 		}

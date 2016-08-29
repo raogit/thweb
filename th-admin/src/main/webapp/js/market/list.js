@@ -102,8 +102,9 @@ function showObj(id){
 	$("#popMarketId").val(id);
 	$("#popName").val("");
 	$("#popIntroduce").val("");
-	$("#popLink").val("");
-	$("#popUrl").val("");
+	$("#popPhone").val("");
+	$("#popAddress").val("");
+	$("#popUpPicture").css("display","block");
 	if(id<=0){
 		$("#pupTitle").html("添加");
 	}else{
@@ -121,6 +122,12 @@ function showObj(id){
 	        		$("#popMarketId").val(data.id);
 	        		$("#popName").val(data.name);
 	        		$("#popIntroduce").val(data.introduce);
+	        		$("#popPhone").val(data.backup1);
+	        		$("#popAddress").val(data.backup2);
+	        		if(data.busUrl!=null && data.busUrl!=""){
+	        			$("#bannerpicture").attr("src",basePath+"/download/png?fileName="+data.busUrl);
+	        		}
+	        		
 	        	}
 	        	
 	        }
@@ -133,15 +140,16 @@ function add(){
 	$("#popMarketId").val(0);
 	$("#popName").val("");
 	$("#popIntroduce").val("");
-	$("#popLink").val("");
-	$("#popUrl").val("");
+	$("#popPhone").val("");
+	$("#popAddress").val("");
+	$("#popUpPicture").css("display","none");
 }
 function addOrEdituser(){
 	var id = $("#popMarketId").val();
 	var name = $("#popName").val();
 	var introduce = $("#popIntroduce").val();
-	debugger;
-	
+	var phone = $("#popPhone").val();
+	var address = $("#popAddress").val();
 	if(isEmpty(name)){
 		alert("请输入门店名");
 		return ;
@@ -155,7 +163,9 @@ function addOrEdituser(){
         data : {
         	id : id,
         	name : name,
-        	introduce : introduce
+        	introduce : introduce,
+        	backup1 : phone,
+        	backup2 : address
         },
         cache: false,
         success: function(data){
@@ -242,4 +252,36 @@ function refreshTime(){
 	var curDate = new Date();
 	$("#startDate").val(curentTime(curDate.getTime() - 12*30*24*60*60*1000));
 	$("#endDate").val(curentTime(curDate.getTime()+ 60*60*1000));
+}
+
+function upload(fileId,type){
+	var file = $("#fileId").val();
+	if(!file){
+		alert("请选择图片");
+		return;
+	}
+	var popMarketId = $("#popMarketId").val();
+	var uri = $("#uri").val();
+	
+	var url=basePath + "/upload/marketpicture?marketId="+popMarketId;
+	//执行上传文件操作的函数
+	$.ajaxFileUpload({
+        url:url,
+        secureuri:false, //是否启用安全提交,默认为false
+        fileElementId:fileId,
+        dataType:'text',
+        success:function(data,status){
+        	data = data.replace(/<pre.*">/, '');
+            data = data.replace("<PRE>", ''); //ajaxFileUpload会对服务器响应回来的text内容加上<pre>text</pre>前后缀
+            data = data.replace("</PRE>", '');
+            data = data.replace("<pre>", '');
+            data = data.replace("</pre>", '');
+            var reqParam = eval("(" +data+ ")");
+        	if (reqParam != "" && reqParam!=false) {
+        		$("#bannerpicture").attr("src",basePath+"/download/png?fileName="+reqParam.busUrl);
+			} else {
+				alert("操作失败");
+			}
+        }
+    });
 }

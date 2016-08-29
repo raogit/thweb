@@ -14,12 +14,12 @@
 
 	<div class="c-in-cont">
 		<div class="c-in-right"></div>
-		<div class="c-in-left"
-			style="background:url(${basePath}/market/images/p_4.jpg) no-repeat;background-size:cover;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(${basePath}/market/images/p_4.jpg,sizingMethod='scale');">
+		<div class="c-in-left" 
+			style="background:url(${basePath}/download/png?fileName=${first.busUrl }) no-repeat;background-size:cover;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(${basePath}/download/png?fileName=${first.busUrl },sizingMethod='scale');">
 			<div class="c-in-lt">
 				<div class="c-in-lti">
 					<div class="c-in-lip">
-						<input type="text" class="tsr-ip c-lip" value="厦门汇腾天虹">
+						<input type="text" class="tsr-ip c-lip" value="${first.name }">
 					</div>
 					<div class="c-in-ltx fr">${first.name }</div>
 				</div>
@@ -63,46 +63,39 @@
 							<div class="c-rct-en">Shop news</div>
 						</div>
 						<div class="c-in-rcc">
-							<div class="rcc-in">
-								<div class="rcc-ir">
-									<img src="${basePath}/market/images/p_7.jpg" alt="">
-								</div>
-								<div class="rcc-il">
-									<div class="rcc-ilt">兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华</div>
-									<div class="rcc-ilc">活动主题：兰芝“父亲节”特别优惠
-										活动内容：一楼兰芝本柜台购买兰芝两支男士产品，可获8折优惠。1、买满480元送抗皱精粹霜5g+透明雨伞；2、买满720元送时光锁中样3件+时尚拎包</div>
-									<a href="javascript:;" class="rcc-btn">Learn more<img
-										src="${basePath}/market/images/p_8.png" alt="" class="rcc-br"></a>
-									<div class="rcc-line"></div>
-									<div class="rcc-time">2016.10.22</div>
-								</div>
-							</div>
-							<a href="javascript:;" class="rcc-in rci2">
-								<div class="rcc-ir2 clearfix">
-									<div class="rcc-ird">16</div>
-									<div class="rcc-irr">
-										<div class="rcc-irm">Jun</div>
-										<div class="rcc-iry">2016</div>
+							<c:forEach var="item" items="${newsList }" begin="0" step="1" end="0" varStatus="itemStatus">
+								<div class="rcc-in">
+									<div class="rcc-ir">
+										<img src="${basePath}/download/png?fileName=${item.path }" alt="" width="194px" height="209px">
+									</div>
+									<div class="rcc-il">
+										<div class="rcc-ilt">${item.title }</div>
+										<div class="rcc-ilc" style="height:66px;overflow: hidden;">${item.content }</div>
+										<a href="javascript:;" class="rcc-btn">Learn more<img
+											src="${basePath}/market/images/p_8.png" alt="" class="rcc-br"></a>
+										<div class="rcc-line"></div>
+										<div class="rcc-time">${item.createTimeStr }</div>
 									</div>
 								</div>
-								<div class="rcc-il ril2">
-									<div class="rcc-ilt ilt2">厦门汇腾天虹：我的炫魅春色！——专柜POP涂鸦比赛</div>
-									<div class="rcc-ilc ilc2">春天来了，我们总会幻想着许多浪漫的事情在这个美丽的季节发生。4月底，厦门汇腾天虹举办了“炫魅春色”专柜POP涂鸦大赛，所有员工都参与了调颜色，勾轮廓，描虚影……彩笔潇洒的游走于底稿之上，一幅幅或时尚、或艺术或另类的作</div>
-								</div>
-							</a> <a href="javascript:;" class="rcc-in rci2">
-								<div class="rcc-ir2 rir3 clearfix">
-									<div class="rcc-ird">22</div>
-									<div class="rcc-irr">
-										<div class="rcc-irm">Jun</div>
-										<div class="rcc-iry">2016</div>
+							</c:forEach>
+							
+							<c:forEach var="item" items="${newsList }" begin="1" step="1" end="2" varStatus="itemStatus">
+								<a href="javascript:;" class="rcc-in rci2">
+									<div class="rcc-ir2 clearfix">
+										<div class="rcc-ird">${fn:substring(item.createTimeStr,8,10)}</div>
+										<div class="rcc-irr">
+											<div class="rcc-irm">${fn:substring(item.createTimeStr,5,7)}</div>
+											<div class="rcc-iry">${fn:substring(item.createTimeStr,0,4)}</div>
+										</div>
 									</div>
-								</div>
-								<div class="rcc-il ril2">
-									<div class="rcc-ilt ilt3">厦门汇腾天虹：我的炫魅春色！——专柜POP涂鸦比赛</div>
-									<div class="rcc-ilc ilc2">春天来了，我们总会幻想着许多浪漫的事情在这个美丽的季节发生。4月底，厦门汇腾天虹举办了“炫魅春色”专柜POP涂鸦大赛，所有员工都参与了调颜色，勾轮廓，描虚影……彩笔潇洒的游走于底稿之上，一幅幅或时尚、或艺术或另类的作</div>
-								</div>
-							</a>
-							<div class="rcc-more">更多新闻</div>
+									<div class="rcc-il ril2">
+										<div class="rcc-ilt ilt2">${item.title }</div>
+										<div class="rcc-ilc ilc2" style="height:22px;overflow: hidden;">${item.content }</div>
+									</div>
+								</a> 
+							</c:forEach>
+							
+<!-- 							<div class="rcc-more">更多新闻</div> -->
 						</div>
 					</div>
 					<!-- 新闻内页 -->
@@ -151,50 +144,30 @@
 							<div class="c-rct-en">Shop event</div>
 						</div>
 						<div class="c-in-rcc">
-							<div class="rcc-in2">
-								<div class="rcc-imgL">
-									<img src="${basePath}/market/images/p_10.jpg" alt="">
-								</div>
-								<div class="rcc-imgR">
-									<img src="${basePath}/market/images/p_11.jpg" alt="">
-								</div>
-							</div>
-							<div class="rcc-in3">
-								<div class="rcc-imgL">
-									<img src="${basePath}/market/images/p_12.jpg" alt="">
-								</div>
-								<div class="rcc-imgR rcR2">
-									<div class="rcc-Rm">
-										<div class="rcc-Rmt">促销活动</div>
-										<div class="rcc-Rmc">
-											<p>2013-11-22 全场8折,免费标准配送。</p>
-											<p>2013-11-22 全场8折,免费标准配送。</p>
-										</div>
-										<div class="rcc-Rmb">阿玛尼是世界著名时装品牌，1975年由时尚设计大师乔治·阿玛尼（Giorgio
-											Armani）创立于意大利米兰，乔治·阿玛尼是在美国销量最大的欧洲设计师品牌，他以使用新型面料及优良制作而闻名。</div>
+							
+							
+							<c:forEach var="item" items="${activityList }" begin="0" step="1" end="2" varStatus="itemStatus">
+								<div class="rcc-in3">
+									<div class="rcc-imgL">
+										<img src="${basePath}/download/png?fileName=${item.path }" alt="">
 									</div>
-									<div class="rcc-Rr">
-										<div class="rcc-Rrt">
-											<img src="${basePath}/market/images/p_13.png" alt="">
-										</div>
-										<div class="rcc-Rrm">
-											<p>l2-2054</p>
-											<p>800000889</p>
-											<p>www.armani.com</p>
-										</div>
-										<div class="rcc-Rrb">
-											<a href="javascript:;" class="Rrb-in">店铺位置</a> <a
-												href="javascript:;" class="Rrb-in Rbi">对我关注</a>
+									<div class="rcc-imgR rcR2">
+										<div class="rcc-Rm">
+											<div class="rcc-Rmc">
+												<p>${item.title }</p>
+											</div>
+											<div class="rcc-Rmb" style="height:110px;overflow: hidden;">${item.content }</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="rcc-more">更多活动</div>
+							
+							</c:forEach>
+<!-- 							<div class="rcc-more">更多活动</div> -->
 							<div class="rcc-btm">
 								<p>
-									顾客专线：<strong>5391315</strong>
+									顾客专线：<strong>${first.backup1 }</strong>
 								</p>
-								<p>地 址：厦门市嘉禾路323号汇腾大厦1-4楼</p>
+								<p>地 址：${first.backup2 }</p>
 							</div>
 						</div>
 					</div>

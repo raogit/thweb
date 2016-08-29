@@ -12,6 +12,7 @@
 	<script src="${basePath }/js/My97DatePicker/WdatePicker.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/user/jquery.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/user/jquery.mCustomScrollbar.concat.min.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath }/js/upload/ajaxfileupload.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/timer/timer.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/utils/utils.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/market/list.js?ver=${ver}" type="text/javascript" ></script>
@@ -35,7 +36,8 @@
 		<!--结束加载-->
 		<!--弹出框效果-->
 		<section class="pop_bg" id="pop_user">
-		<div class="pop_cont">
+		
+		<div class="pop_cont" style="top:5%">
 			<!--title-->
 			<h3 id="pupTitle">修改</h3>
 			<!--content-->
@@ -44,9 +46,20 @@
 				<ul>
 					<li><span style="width:70px;text-align: right;" class="ttl">门店名字:</span> <input id="popName" style="width:140px;" type="text" placeholder="请输入门店名..." class="textbox" /></li>
 					<li><span style="width:70px;text-align: right;" class="ttl">门店介绍:</span> <textarea id="popIntroduce" rows="10" cols="40"></textarea></li>
-					<li><span style="width:70px;text-align: right;" class="ttl">link:</span><input id="popLink"  style="width:140px;" type="text" placeholder="请填写link..." class="textbox" /></li>
-					<li><span style="width:70px;text-align: right;" class="ttl">url:</span><input id="popUrl"  style="width:140px;" type="text" placeholder="请填写url..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">电话:</span><input id="popPhone"  style="width:140px;" type="text" placeholder="请填写link..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">地址:</span><input id="popAddress"  style="width:140px;" type="text" placeholder="请填写url..." class="textbox" /></li>
 				</ul>
+				<div id="popUpPicture">
+					<form action="${basePath }/upload/marketpicture" encType="multipart/form-data" method="post">
+						<ul class="ulColumn2" style="text-align: left;">
+							<li>
+								<span class="item_name" style="width: 120px;">上传图片：</span><input type="file" id="fileId" name="fileId"/> 
+							</li>
+							<li><span class="item_name" style="width: 120px;"></span> <input
+								type="button" class="link_btn" onclick="upload('fileId',1)" value="上传"/><img id="bannerpicture" alt="" src="" width="100px" height="50px" style="padding-left: 10px;"></li>					
+						</ul>
+					</form>
+				</div>
 			</div>
 			<!--bottom:operate->button-->
 			<div class="btm_btn">

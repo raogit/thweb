@@ -12,6 +12,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +26,12 @@ import org.springframework.web.multipart.MultipartFile;
 import com.alibaba.fastjson.JSONObject;
 import com.tianhong.constant.CommonConstant;
 import com.tianhong.controller.base.BaseController;
+import com.tianhong.domain.market.Market;
 import com.tianhong.domain.user.User;
 import com.tianhong.model.Result;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.market.MarketNewsService;
+import com.tianhong.service.market.MarketService;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.utils.AssertUtils;
 import com.tianhong.utils.FileToolUtils;
@@ -52,6 +55,8 @@ public class UploadController extends BaseController {
 	private ContentService contentService;
 	@Autowired
 	private MarketNewsService marketNewsService;
+	@Autowired
+	private MarketService marketService;
 
 	@RequestMapping(value = "/file")
 	@ResponseBody
@@ -142,6 +147,31 @@ public class UploadController extends BaseController {
 		} catch (Exception e) {
 			log.error("", e);
 
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/marketpicture")
+	@ResponseBody
+	public Object marketPicture(@RequestParam("fileId") MultipartFile[] file, @RequestParam("marketId") int marketId,
+			HttpServletRequest request, ModelMap model) {
+		try {
+			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
+			request.setCharacterEncoding(CommonConstant.UTF_8);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
+					CommonConstant.UPLOAD_IMG_PATH);
+			String fileName = FileToolUtils.saveImage(file[0], path);
+			Market market = marketService.getByPrimaryKey(marketId);
+			if (market != null) {
+				if (StringUtils.isNotEmpty(market.getBusUrl())) {
+					FileToolUtils.deleteFile(path + market.getBusUrl());
+				}
+				market.setBusUrl(fileName);
+				marketService.updateByPrimaryKeySelective(market);
+			}
+			return market;
+		} catch (Exception e) {
+			log.error("", e);
 		}
 		return false;
 	}

@@ -16,8 +16,8 @@ package com.tianhong.constant;
  */
 public class CommonConstant {
 
-	public static final byte TYPE__NEWS_1 = 1;
-	public static final byte TYPE_ACTIVITY_0 = 0;
+	public static final byte TYPE_NEWS_1 = 1;
+	public static final byte TYPE_ACTIVITY_2 = 2;
 
 	public static final String LEFT = "left";
 	public static final String RIGHT = "right";
@@ -38,6 +38,7 @@ public class CommonConstant {
 
 	public static final String YYYY_MM_dd_T_HH_mm_ss_Z = "yyyy-MM-dd'T'hh:ss:mm'Z'";
 	public static final String YYYY_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
+	public static final String YYYY_MM_dd = "yyyy-MM-dd";
 	public static final String YYYYMMddHHmmss = "yyyyMMddHHmmss";
 	public static final String YYYYMM = "yyyyMM";
 
