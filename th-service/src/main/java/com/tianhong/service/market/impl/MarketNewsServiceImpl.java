@@ -113,4 +113,11 @@ public class MarketNewsServiceImpl implements MarketNewsService {
 		return marketNews;
 	}
 
+	public List<MarketNews> list(int marketId, byte type) throws Exception {
+		MarketNews marketNews = new MarketNews();
+		marketNews.setMarketId(marketId);
+		marketNews.setType(type);
+		return list(marketNews);
+	}
+
 }

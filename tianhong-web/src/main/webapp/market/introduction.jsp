@@ -21,7 +21,7 @@
 					<div class="c-in-lip">
 						<input type="text" class="tsr-ip c-lip" value="厦门汇腾天虹">
 					</div>
-					<div class="c-in-ltx fr">厦门汇腾天虹</div>
+					<div class="c-in-ltx fr">${first.name }</div>
 				</div>
 			</div>
 			<!-- <img src="${basePath}/market/images/p_4.jpg" alt=""> -->
@@ -48,16 +48,12 @@
 						<div class="c-rct-top">
 							<img src="${basePath}/market/images/p_5.png" alt="">
 						</div>
-						<div class="c-rct-title">厦门汇腾天虹</div>
+						<div class="c-rct-title">${first.name }</div>
 						<div class="c-rct-line"></div>
 						<div class="c-rct-ch">门店介绍</div>
 						<div class="c-rct-en">Shop introduction</div>
 					</div>
-					<div class="c-in-rcc">
-						<p class="c-in-rcp">厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。</p>
-						<p class="c-in-rcp">汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。</p>
-						<p class="c-in-rcp">商场一直致力于保持服务领先的优势，免费提供多项便民服务，同时提供钟表维修、机器修鞋、改缝裤脚等专业服务，送货服务范围更广、更便捷了。</p>
-					</div>
+					<div class="c-in-rcc">${first.introduce }</div>
 					<!-- <div class="c-in-rar"><img src="${basePath}/market/images/p_6.png" alt=""></div> -->
 				</div>
 				<div class="c-in-rc">

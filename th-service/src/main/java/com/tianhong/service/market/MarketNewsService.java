@@ -25,6 +25,8 @@ public interface MarketNewsService {
 
 	int count(MarketNews marketNews) throws Exception;
 
+	List<MarketNews> list(int marketId, byte type) throws Exception;
+
 	List<MarketNews> list(MarketNews marketNews) throws Exception;
 
 	MarketNews saveOrUpdate(MarketNews marketNews, User user) throws Exception;

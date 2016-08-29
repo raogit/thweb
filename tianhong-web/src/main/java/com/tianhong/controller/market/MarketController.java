@@ -4,6 +4,7 @@
 package com.tianhong.controller.market;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,9 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.tianhong.constant.CommonConstant;
+import com.tianhong.domain.market.Market;
+import com.tianhong.domain.market.MarketNews;
+import com.tianhong.service.market.MarketNewsService;
+import com.tianhong.service.market.MarketService;
 
 /**
  * @author Administrator
@@ -23,6 +31,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/market")
 public class MarketController {
 	private static final Log log = LogFactory.getLog(MarketController.class);
+
+	@Autowired
+	private MarketService marketService;
+
+	@Autowired
+	private MarketNewsService marketNewsService;
 
 	@RequestMapping(value = "/index")
 	public Object index(HttpServletRequest request, HttpServletResponse response) {
@@ -34,4 +48,23 @@ public class MarketController {
 		}
 		return new ModelAndView("/market/default", model);
 	}
+
+	@RequestMapping(value = "/introduction")
+	public Object introduction(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Market market = new Market();
+			List<Market> list = marketService.list(market);
+			model.put("list", list);
+			model.put("first", list.get(0));
+
+			List<MarketNews> newsList = marketNewsService.list(list.get(0).getId(), CommonConstant.TYPE__NEWS_1);
+
+			model.put("newsList", newsList);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/market/introduction", model);
+	}
+
 }

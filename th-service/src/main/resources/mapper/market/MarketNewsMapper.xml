@@ -299,7 +299,7 @@
 		<if test="content != null">
 			AND content = #{content,jdbcType=LONGVARCHAR}
 		</if>
-		ORDER BY create_time
+		ORDER BY type create_time
 		LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER}
 	</select>
 
@@ -395,6 +395,6 @@
 		<if test="content != null">
 			AND content = #{content,jdbcType=LONGVARCHAR}
 		</if>
-		ORDER BY create_time
+		ORDER BY type create_time
 	</select>
 </mapper>
