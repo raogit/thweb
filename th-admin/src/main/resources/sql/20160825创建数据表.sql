@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-08-31 18:06:13
+Date: 2016-08-31 21:06:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -302,7 +302,7 @@ CREATE TABLE `t_menu` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=172 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_menu
@@ -461,15 +461,16 @@ INSERT INTO `t_menu` VALUES ('158', '会员入会', '', '', '3', '152', '1', nul
 INSERT INTO `t_menu` VALUES ('159', '会员升降级制度', '', '', '3', '152', '2', null, '2016-08-25 21:25:33', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('160', 'VIP卡积分使用有效期', '', '', '3', '152', '3', null, '2016-08-25 21:25:42', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('161', '会员权益', '', '', '3', '152', '4', null, '2016-08-25 21:25:50', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('162', '天虹O2OStore', '', '', '1', '0', '14', null, '2016-08-31 17:24:00', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('163', '首页', '', '', '2', '162', '1', null, '2016-08-31 17:24:15', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('164', '商品', '', '', '2', '162', '2', null, '2016-08-31 17:25:16', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('165', '最新活动', '', '', '2', '162', '3', null, '2016-08-31 17:25:54', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('166', '新品上市', '', '', '2', '162', '4', null, '2016-08-31 17:26:02', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('167', '预购专区', '', '', '2', '162', '5', null, '2016-08-31 17:26:11', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('168', '便利服务', '', '', '2', '162', '6', null, '2016-08-31 17:26:21', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('169', '加盟我们', '', '', '2', '162', '7', null, '2016-08-31 17:26:31', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('170', '关于我们', '', '', '2', '162', '8', null, '2016-08-31 17:26:40', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('162', '天虹O2OStore', '', '', '1', '0', '14', '1', '2016-08-31 17:24:00', '1', '2016-08-31 20:42:50', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('163', '首页', '', '', '2', '162', '1', '1', '2016-08-31 17:24:15', '1', '2016-08-31 20:43:14', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('164', '商品', '', '', '2', '162', '2', '1', '2016-08-31 17:25:16', '1', '2016-08-31 20:43:19', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('165', '最新活动', '', '', '2', '162', '3', '1', '2016-08-31 17:25:54', '1', '2016-08-31 20:43:27', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('166', '新品上市', '', '', '2', '162', '4', '1', '2016-08-31 17:26:02', '1', '2016-08-31 20:43:24', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('167', '预购专区', '', '', '2', '162', '5', '1', '2016-08-31 17:26:11', '1', '2016-08-31 20:44:19', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('168', '便利服务', '', '', '2', '162', '6', '1', '2016-08-31 17:26:21', '1', '2016-08-31 20:44:15', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('169', '加盟我们', '', '', '2', '162', '7', '1', '2016-08-31 17:26:31', '1', '2016-08-31 20:44:24', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('170', '关于我们', '', '', '2', '162', '8', '1', '2016-08-31 17:26:40', '1', '2016-08-31 20:44:27', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('171', '分类', '', '', '2', '162', '9', '0', '2016-08-31 20:45:47', '1', null, null, '0', '', null, null);
 
 -- ----------------------------
 -- Table structure for `t_news_center`
@@ -851,7 +852,7 @@ CREATE TABLE `t_resume_work_history` (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store_category`;
 CREATE TABLE `t_store_category` (
-  `int` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` tinyint(4) DEFAULT NULL COMMENT '1商品；2最新活动；3新品上市；4预购专区；5便利服务；6加盟我们；7关于我们',
   `name` varchar(1024) DEFAULT NULL,
   `en_name` varchar(1024) DEFAULT NULL,
@@ -863,8 +864,8 @@ CREATE TABLE `t_store_category` (
   `backup1` varchar(1024) DEFAULT NULL,
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
-  PRIMARY KEY (`int`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='分类';
 
 -- ----------------------------
 -- Records of t_store_category
@@ -888,7 +889,7 @@ CREATE TABLE `t_store_new_activity` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='最新活动';
 
 -- ----------------------------
 -- Records of t_store_new_activity
@@ -912,7 +913,7 @@ CREATE TABLE `t_store_new_product` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='新品上市';
 
 -- ----------------------------
 -- Records of t_store_new_product
@@ -939,7 +940,7 @@ CREATE TABLE `t_store_pre_buy` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='预购专区';
 
 -- ----------------------------
 -- Records of t_store_pre_buy
@@ -964,7 +965,7 @@ CREATE TABLE `t_store_product` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='天虹门店';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='商品';
 
 -- ----------------------------
 -- Records of t_store_product
@@ -975,7 +976,7 @@ CREATE TABLE `t_store_product` (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store_service_join_about`;
 CREATE TABLE `t_store_service_join_about` (
-  `id` int(11) NOT NULL DEFAULT '0' COMMENT '主键',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `category_id` int(11) DEFAULT NULL COMMENT '菜单ID',
   `content` text COMMENT '企业文化内容',
   `create_time` timestamp NULL DEFAULT NULL,
@@ -985,8 +986,9 @@ CREATE TABLE `t_store_service_join_about` (
   `is_deleted` tinyint(1) DEFAULT '0',
   `backup1` varchar(1024) DEFAULT NULL,
   `backup2` varchar(1024) DEFAULT NULL,
-  `backup3` varchar(1024) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `backup3` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COMMENT='便利服务、加盟招聘、关于我们';
 
 -- ----------------------------
 -- Records of t_store_service_join_about
