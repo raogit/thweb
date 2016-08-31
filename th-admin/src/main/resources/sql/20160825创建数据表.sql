@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-08-29 22:46:52
+Date: 2016-08-31 18:06:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -302,7 +302,7 @@ CREATE TABLE `t_menu` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=171 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_menu
@@ -461,6 +461,15 @@ INSERT INTO `t_menu` VALUES ('158', '会员入会', '', '', '3', '152', '1', nul
 INSERT INTO `t_menu` VALUES ('159', '会员升降级制度', '', '', '3', '152', '2', null, '2016-08-25 21:25:33', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('160', 'VIP卡积分使用有效期', '', '', '3', '152', '3', null, '2016-08-25 21:25:42', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('161', '会员权益', '', '', '3', '152', '4', null, '2016-08-25 21:25:50', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('162', '天虹O2OStore', '', '', '1', '0', '14', null, '2016-08-31 17:24:00', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('163', '首页', '', '', '2', '162', '1', null, '2016-08-31 17:24:15', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('164', '商品', '', '', '2', '162', '2', null, '2016-08-31 17:25:16', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('165', '最新活动', '', '', '2', '162', '3', null, '2016-08-31 17:25:54', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('166', '新品上市', '', '', '2', '162', '4', null, '2016-08-31 17:26:02', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('167', '预购专区', '', '', '2', '162', '5', null, '2016-08-31 17:26:11', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('168', '便利服务', '', '', '2', '162', '6', null, '2016-08-31 17:26:21', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('169', '加盟我们', '', '', '2', '162', '7', null, '2016-08-31 17:26:31', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('170', '关于我们', '', '', '2', '162', '8', null, '2016-08-31 17:26:40', '1', null, null, '0', '', null, null);
 
 -- ----------------------------
 -- Table structure for `t_news_center`
@@ -838,17 +847,14 @@ CREATE TABLE `t_resume_work_history` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_store`
+-- Table structure for `t_store_category`
 -- ----------------------------
-DROP TABLE IF EXISTS `t_store`;
-CREATE TABLE `t_store` (
-  `id` int(11) NOT NULL,
-  `menu_id` int(11) DEFAULT NULL,
-  `name` varchar(1024) DEFAULT NULL COMMENT '门店名称',
-  `describe` text COMMENT '门店描述',
-  `area` varchar(1024) DEFAULT NULL COMMENT '门店所属区域',
-  `bus_picture_id` int(11) DEFAULT NULL COMMENT '门店公车图片ID',
-  `bus_url` varchar(1024) DEFAULT NULL COMMENT '图片utl',
+DROP TABLE IF EXISTS `t_store_category`;
+CREATE TABLE `t_store_category` (
+  `int` int(11) NOT NULL AUTO_INCREMENT,
+  `type` tinyint(4) DEFAULT NULL COMMENT '1商品；2最新活动；3新品上市；4预购专区；5便利服务；6加盟我们；7关于我们',
+  `name` varchar(1024) DEFAULT NULL,
+  `en_name` varchar(1024) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT NULL,
   `create_id` int(11) DEFAULT NULL,
   `update_time` timestamp NULL DEFAULT NULL,
@@ -857,25 +863,22 @@ CREATE TABLE `t_store` (
   `backup1` varchar(1024) DEFAULT NULL,
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='天虹门店';
+  PRIMARY KEY (`int`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of t_store
+-- Records of t_store_category
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_store_news`
+-- Table structure for `t_store_new_activity`
 -- ----------------------------
-DROP TABLE IF EXISTS `t_store_news`;
-CREATE TABLE `t_store_news` (
-  `id` int(11) NOT NULL,
-  `store_id` int(11) DEFAULT NULL,
-  `title` varchar(1024) DEFAULT NULL COMMENT '标题',
-  `type` tinyint(4) DEFAULT NULL COMMENT '门店描述、商城新闻、促销信息',
-  `content` text COMMENT '门店展示内容',
-  `source` varchar(1024) DEFAULT NULL COMMENT '新闻来源',
-  `layout` text COMMENT '门店布局描述(1F,2F,3F,4F,5F)',
+DROP TABLE IF EXISTS `t_store_new_activity`;
+CREATE TABLE `t_store_new_activity` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) DEFAULT NULL,
+  `name` varchar(1024) DEFAULT NULL,
+  `picture` varchar(1024) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT NULL,
   `create_id` int(11) DEFAULT NULL,
   `update_time` timestamp NULL DEFAULT NULL,
@@ -888,24 +891,18 @@ CREATE TABLE `t_store_news` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of t_store_news
+-- Records of t_store_new_activity
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `t_store_suggest`
+-- Table structure for `t_store_new_product`
 -- ----------------------------
-DROP TABLE IF EXISTS `t_store_suggest`;
-CREATE TABLE `t_store_suggest` (
-  `id` int(11) NOT NULL,
-  `store_id` int(11) DEFAULT NULL COMMENT '门店ID',
-  `store_name` varchar(255) DEFAULT NULL COMMENT '门店名称',
-  `type` varchar(255) DEFAULT NULL COMMENT '建议类型',
-  `user_name` varchar(1024) DEFAULT NULL COMMENT '用户名称',
-  `com_name` varchar(1024) DEFAULT NULL COMMENT '公司名称',
-  `phone` varchar(1024) DEFAULT NULL COMMENT '电话',
-  `city` varchar(255) DEFAULT NULL COMMENT '城市',
-  `email` varchar(1024) DEFAULT NULL COMMENT '邮件',
-  `content` text COMMENT '内容',
+DROP TABLE IF EXISTS `t_store_new_product`;
+CREATE TABLE `t_store_new_product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` tinyint(4) DEFAULT NULL COMMENT '类型:1新品推荐,2进口新品推荐',
+  `name` varchar(1024) DEFAULT NULL,
+  `describer` varchar(1024) DEFAULT NULL,
   `create_time` timestamp NULL DEFAULT NULL,
   `create_id` int(11) DEFAULT NULL,
   `update_time` timestamp NULL DEFAULT NULL,
@@ -915,11 +912,102 @@ CREATE TABLE `t_store_suggest` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='意见反馈';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of t_store_suggest
+-- Records of t_store_new_product
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_store_pre_buy`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_store_pre_buy`;
+CREATE TABLE `t_store_pre_buy` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) DEFAULT NULL,
+  `name` varchar(1024) DEFAULT NULL,
+  `end_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `weight` varchar(1024) DEFAULT NULL,
+  `price` varchar(1024) DEFAULT NULL,
+  `picture` varchar(1024) DEFAULT NULL,
+  `create_time` timestamp NULL DEFAULT NULL,
+  `create_id` int(11) DEFAULT NULL,
+  `update_time` timestamp NULL DEFAULT NULL,
+  `update_id` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(1) DEFAULT '0',
+  `backup1` varchar(1024) DEFAULT NULL,
+  `backup2` varchar(1024) DEFAULT NULL,
+  `backup3` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_store_pre_buy
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_store_product`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_store_product`;
+CREATE TABLE `t_store_product` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) DEFAULT NULL,
+  `name` varchar(1024) DEFAULT NULL COMMENT '门店名称',
+  `price` varchar(1024) DEFAULT NULL COMMENT '门店描述',
+  `picture` varchar(1024) DEFAULT NULL COMMENT '门店所属区域',
+  `create_time` timestamp NULL DEFAULT NULL,
+  `create_id` int(11) DEFAULT NULL,
+  `update_time` timestamp NULL DEFAULT NULL,
+  `update_id` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(1) DEFAULT '0',
+  `backup1` varchar(1024) DEFAULT NULL,
+  `backup2` varchar(1024) DEFAULT NULL,
+  `backup3` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='天虹门店';
+
+-- ----------------------------
+-- Records of t_store_product
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_store_service_join_about`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_store_service_join_about`;
+CREATE TABLE `t_store_service_join_about` (
+  `id` int(11) NOT NULL DEFAULT '0' COMMENT '主键',
+  `category_id` int(11) DEFAULT NULL COMMENT '菜单ID',
+  `content` text COMMENT '企业文化内容',
+  `create_time` timestamp NULL DEFAULT NULL,
+  `create_id` int(11) DEFAULT NULL,
+  `update_time` timestamp NULL DEFAULT NULL,
+  `update_id` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(1) DEFAULT '0',
+  `backup1` varchar(1024) DEFAULT NULL,
+  `backup2` varchar(1024) DEFAULT NULL,
+  `backup3` varchar(1024) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_store_service_join_about
+-- ----------------------------
+INSERT INTO `t_store_service_join_about` VALUES ('1', '8', '<p>第一次</p>', null, null, '2016-08-26 21:46:46', '1', '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('2', '32', '<p>4444</p>', '2016-07-22 11:02:16', '1', '2016-07-22 14:20:44', '1', '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('3', '32', '<p style=\"color: rgb(89, 88, 93); font-family: 宋体; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\"><span data-fr-verified=\"true\">&nbsp; &nbsp;&nbsp;</span>2016年4月28日，天虹进驻厦门市枋湖社区发展中心项目的签约仪式在厦门市举行，公司东南区总经理李森、拓展部总监张友耘，业主方代表苏辉明等出席了签约仪式。</p><p style=\"color: rgb(89, 88, 93); font-family: 宋体; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">&nbsp;&nbsp;&nbsp; 项目所在的五缘湾新片区，是厦门市新的经济增长点和未来城市经济圈的重要连接点，发展潜力巨大。项目位于厦门市湖里区云顶北路及金湖路交汇处东南角，交通便捷，显现性好，中高档楼盘密集，且周边将兴起多个大型购物中心，可形成商业聚集，未来将成为厦门市又一商业中心。项目为集商业、写字楼、公寓、商铺等于一体的城市综合体，我司租赁面积约7.1万平方米，将致力于打造为海西首席高性价比的生活体验中心，创造社交、休闲、生活第三空间。</p><p style=\"color: rgb(89, 88, 93); font-family: 宋体; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">&nbsp;&nbsp;&nbsp; 厦门市枋湖社区发展中心项目的签约，将进一步提升我司在厦门市场的品牌知名度，可与东南区的其他门店形成更具规模的协同效应，进一步完善我司在厦门的门店布局。</p><p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8880/th-admin/download/png?fileName=1469168862280.png\" width=\"300\"></p><p style=\"color: rgb(89, 88, 93); font-family: 宋体; font-size: 12px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 20px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\"><br></p>', '2016-07-22 14:26:27', '1', '2016-07-22 14:40:08', '1', '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('4', '86', '', '2016-07-22 15:16:46', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('5', '86', '', '2016-07-22 15:18:46', '1', '2016-07-22 15:25:50', '1', '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('6', '86', '', '2016-07-22 15:27:13', '1', '2016-07-22 15:27:37', '1', '1', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('7', '86', '', '2016-07-22 15:27:42', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('8', '117', '<p>\n\n<h1>九洲天虹广场</h1>\n\n  <p>一站式吃喝玩乐购全生活都市综合体</p>\n\n<p>九洲天虹广场，是由天虹商场股份有限公司打造的城市综合体项目，位于朝阳新城滨江商务核心区、九洲大街与抚生南路交汇处。项目总建面约32万方，集商务、商业、居住于一体。位于抚生南路与九洲大街交汇处（九洲大街666号）,销售热线：0791-88819999。</p>\n\n  <p><strong>项目总体参数</strong></p>\n\n  <p>总占地面积43444㎡，建筑面积323522㎡，项目总体布局由一条南北蜿蜒的内街分为两个区，位于东南区的得二期规划142米高的写字楼和主体6层，局部7或8层的裙房商业。西北区为一期住宅九洲上郡由4栋高层住宅和底商组成。</p>\n\n  <p>住宅：层高分别为T1#29层、T2#29层、T3#29层、T4#30层，住宅总户数380户；规划了有727个停车位（地下727、地上0）车位全部在地下，车位配比近2:1，容积率3.98，绿地率31%。小区在金环路和秋实路2个主入口，人车分流。</p>\n\n  <p>一期商业：沿街底商可售物业共66套，面积段75-249㎡一拖二产品。其中，独栋商铺：共11套；T1、T2底商：共24套；T3底商：共6套；T4底商：共26套；</p>\n\n  <p>九洲天虹广场，是由天虹商场股份有限公司打造的城市综合体项目，位于朝阳新城滨江商务核心区、九洲大街与抚生南路交汇处。项目总建面约32万方，集商务、商业、居住于一体。位于抚生南路与九洲大街交汇处（九洲大街666号）,销售热线：0791-88819999。</p>\n\n  <p><strong>项目总体参数</strong></p>\n\n  <p>总占地面积43444㎡，建筑面积323522㎡，项目总体布局由一条南北蜿蜒的内街分为两个区，位于东南区的得二期规划142米高的写字楼和主体6层，局部7或8层的裙房商业。西北区为一期住宅九洲上郡由4栋高层住宅和底商组成。</p>\n\n  <p>住宅：层高分别为T1#29层、T2#29层、T3#29层、T4#30层，住宅总户数380户；规划了有727个停车位（地下727、地上0）车位全部在地下，车位配比近2:1，容积率3.98，绿地率31%。小区在金环路和秋实路2个主入口，人车分流。</p>\n\n  <p>一期商业：沿街底商可售物业共66套，面积段75-249㎡一拖二产品。其中，独栋商铺：共11套；T1、T2底商：共24套；T3底商：共6套；T4底商：共26套；</p>\n\n  <p>九洲天虹广场，是由天虹商场股份有限公司打造的城市综合体项目，位于朝阳新城滨江商务核心区、九洲大街与抚生南路交汇处。项目总建面约32万方，集商务、商业、居住于一体。位于抚生南路与九洲大街交汇处（九洲大街666号）,销售热线：0791-88819999。</p>\n\n  <p><strong>项目总体参数</strong></p>\n\n  <p>总占地面积43444㎡，建筑面积323522㎡，项目总体布局由一条南北蜿蜒的内街分为两个区，位于东南区的得二期规划142米高的写字楼和主体6层，局部7或8层的裙房商业。西北区为一期住宅九洲上郡由4栋高层住宅和底商组成。</p>\n\n  <p>住宅：层高分别为T1#29层、T2#29层、T3#29层、T4#30层，住宅总户数380户；规划了有727个停车位（地下727、地上0）车位全部在地下，车位配比近2:1，容积率3.98，绿地率31%。小区在金环路和秋实路2个主入口，人车分流。</p>\n\n  <p>一期商业：沿街底商可售物业共66套，面积段75-249㎡一拖二产品。其中，独栋商铺：共11套；T1、T2底商：共24套；T3底商：共6套；T4底商：共26套；</p>\n\n  <p>九洲天虹广场，是由天虹商场股份有限公司打造的城市综合体项目，位于朝阳新城滨江商务核心区、九洲大街与抚生南路交汇处。项目总建面约32万方，集商务、商业、居住于一体。位于抚生南路与九洲大街交汇处（九洲大街666号）,销售热线：0791-88819999。</p>\n\n  <p><strong>项目总体参数</strong></p>\n\n  <p>总占地面积43444㎡，建筑面积323522㎡，项目总体布局由一条南北蜿蜒的内街分为两个区，位于东南区的得二期规划142米高的写字楼和主体6层，局部7或8层的裙房商业。西北区为一期住宅九洲上郡由4栋高层住宅和底商组成。</p>\n\n  <p>住宅：层高分别为T1#29层、T2#29层、T3#29层、T4#30层，住宅总户数380户；规划了有727个停车位（地下727、地上0）车位全部在地下，车位配比近2:1，容积率3.98，绿地率31%。小区在金环路和秋实路2个主入口，人车分流。</p>\n\n  <p>一期商业：沿街底商可售物业共66套，面积段75-249㎡一拖二产品。其中，独栋商铺：共11套；T1、T2底商：共24套；T3底商：共6套；T4底商：共26套；</p>\n\n\n<br>\n\n<br></p>', '2016-08-17 14:47:10', '1', '2016-08-17 18:53:56', '1', '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('9', '119', '<p>\n\n<h1>九洲天虹广场</h1>\n\n  <p>一站式吃喝玩乐购全生活都市综合体</p>\n\n<p>九洲天虹广场，是由天虹商场股份有限公司打造的城市综合体项目，位于朝阳新城滨江商务核心区、九洲大街与抚生南路交汇处。项目总建面约32万方，集商务、商业、居住于一体。位于抚生南路与九洲大街交汇处（九洲大街666号）,销售热线：0791-88819999。</p>\n\n  <p><strong>项目总体参数</strong></p>\n\n  <p>总占地面积43444㎡，建筑面积323522㎡，项目总体布局由一条南北蜿蜒的内街分为两个区，位于东南区的得二期规划142米高的写字楼和主体6层，局部7或8层的裙房商业。西北区为一期住宅九洲上郡由4栋高层住宅和底商组成。</p>\n\n  <p>住宅：层高分别为T1#29层、T2#29层、T3#29层、T4#30层，住宅总户数380户；规划了有727个停车位（地下727、地上0）车位全部在地下，车位配比近2:1，容积率3.98，绿地率31%。小区在金环路和秋实路2个主入口，人车分流。</p>\n\n  <p>一期商业：沿街底商可售物业共66套，面积段75-249㎡一拖二产品。其中，独栋商铺：共11套；T1、T2底商：共24套；T3底商：共6套；T4底商：共26套；</p>\n\n  <p>九洲天虹广场，是由天虹商场股份有限公司打造的城市综合体项目，位于朝阳新城滨江商务核心区、九洲大街与抚生南路交汇处。项目总建面约32万方，集商务、商业、居住于一体。位于抚生南路与九洲大街交汇处（九洲大街666号）,销售热线：0791-88819999。</p>\n\n  <p><strong>项目总体参数</strong></p>\n\n  <p>总占地面积43444㎡，建筑面积323522㎡，项目总体布局由一条南北蜿蜒的内街分为两个区，位于东南区的得二期规划142米高的写字楼和主体6层，局部7或8层的裙房商业。西北区为一期住宅九洲上郡由4栋高层住宅和底商组成。</p>\n\n  <p>住宅：层高分别为T1#29层、T2#29层、T3#29层、T4#30层，住宅总户数380户；规划了有727个停车位（地下727、地上0）车位全部在地下，车位配比近2:1，容积率3.98，绿地率31%。小区在金环路和秋实路2个主入口，人车分流。</p>\n\n  <p>一期商业：沿街底商可售物业共66套，面积段75-249㎡一拖二产品。其中，独栋商铺：共11套；T1、T2底商：共24套；T3底商：共6套；T4底商：共26套；</p>\n\n  <p>九洲天虹广场，是由天虹商场股份有限公司打造的城市综合体项目，位于朝阳新城滨江商务核心区、九洲大街与抚生南路交汇处。项目总建面约32万方，集商务、商业、居住于一体。位于抚生南路与九洲大街交汇处（九洲大街666号）,销售热线：0791-88819999。</p>\n\n  <p><strong>项目总体参数</strong></p>\n\n  <p>总占地面积43444㎡，建筑面积323522㎡，项目总体布局由一条南北蜿蜒的内街分为两个区，位于东南区的得二期规划142米高的写字楼和主体6层，局部7或8层的裙房商业。西北区为一期住宅九洲上郡由4栋高层住宅和底商组成。</p>\n\n  <p>住宅：层高分别为T1#29层、T2#29层、T3#29层、T4#30层，住宅总户数380户；规划了有727个停车位（地下727、地上0）车位全部在地下，车位配比近2:1，容积率3.98，绿地率31%。小区在金环路和秋实路2个主入口，人车分流。</p>\n\n  <p>一期商业：沿街底商可售物业共66套，面积段75-249㎡一拖二产品。其中，独栋商铺：共11套；T1、T2底商：共24套；T3底商：共6套；T4底商：共26套；</p>\n\n  <p>九洲天虹广场，是由天虹商场股份有限公司打造的城市综合体项目，位于朝阳新城滨江商务核心区、九洲大街与抚生南路交汇处。项目总建面约32万方，集商务、商业、居住于一体。位于抚生南路与九洲大街交汇处（九洲大街666号）,销售热线：0791-88819999。</p>\n\n  <p><strong>项目总体参数</strong></p>\n\n  <p>总占地面积43444㎡，建筑面积323522㎡，项目总体布局由一条南北蜿蜒的内街分为两个区，位于东南区的得二期规划142米高的写字楼和主体6层，局部7或8层的裙房商业。西北区为一期住宅九洲上郡由4栋高层住宅和底商组成。</p>\n\n  <p>住宅：层高分别为T1#29层、T2#29层、T3#29层、T4#30层，住宅总户数380户；规划了有727个停车位（地下727、地上0）车位全部在地下，车位配比近2:1，容积率3.98，绿地率31%。小区在金环路和秋实路2个主入口，人车分流。</p>\n\n  <p>一期商业：沿街底商可售物业共66套，面积段75-249㎡一拖二产品。其中，独栋商铺：共11套；T1、T2底商：共24套；T3底商：共6套；T4底商：共26套；</p>\n\n\n<br>\n\n<br></p>', '2016-08-17 17:53:43', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('10', '120', '<p>\n\n<h1>九洲天虹广场</h1>\n\n  <p>一站式吃喝玩乐购全生活都市综合体</p>\n\n<p>九洲天虹广场，是由天虹商场股份有限公司打造的城市综合体项目，位于朝阳新城滨江商务核心区、九洲大街与抚生南路交汇处。项目总建面约32万方，集商务、商业、居住于一体。位于抚生南路与九洲大街交汇处（九洲大街666号）,销售热线：0791-88819999。</p>\n\n  <p><strong>项目总体参数</strong></p>\n\n  <p>总占地面积43444㎡，建筑面积323522㎡，项目总体布局由一条南北蜿蜒的内街分为两个区，位于东南区的得二期规划142米高的写字楼和主体6层，局部7或8层的裙房商业。西北区为一期住宅九洲上郡由4栋高层住宅和底商组成。</p>\n\n  <p>住宅：层高分别为T1#29层、T2#29层、T3#29层、T4#30层，住宅总户数380户；规划了有727个停车位（地下727、地上0）车位全部在地下，车位配比近2:1，容积率3.98，绿地率31%。小区在金环路和秋实路2个主入口，人车分流。</p>\n\n  <p>一期商业：沿街底商可售物业共66套，面积段75-249㎡一拖二产品。其中，独栋商铺：共11套；T1、T2底商：共24套；T3底商：共6套；T4底商：共26套；</p>\n\n  <p>九洲天虹广场，是由天虹商场股份有限公司打造的城市综合体项目，位于朝阳新城滨江商务核心区、九洲大街与抚生南路交汇处。项目总建面约32万方，集商务、商业、居住于一体。位于抚生南路与九洲大街交汇处（九洲大街666号）,销售热线：0791-88819999。</p>\n\n  <p><strong>项目总体参数</strong></p>\n\n  <p>总占地面积43444㎡，建筑面积323522㎡，项目总体布局由一条南北蜿蜒的内街分为两个区，位于东南区的得二期规划142米高的写字楼和主体6层，局部7或8层的裙房商业。西北区为一期住宅九洲上郡由4栋高层住宅和底商组成。</p>\n\n  <p>住宅：层高分别为T1#29层、T2#29层、T3#29层、T4#30层，住宅总户数380户；规划了有727个停车位（地下727、地上0）车位全部在地下，车位配比近2:1，容积率3.98，绿地率31%。小区在金环路和秋实路2个主入口，人车分流。</p>\n\n  <p>一期商业：沿街底商可售物业共66套，面积段75-249㎡一拖二产品。其中，独栋商铺：共11套；T1、T2底商：共24套；T3底商：共6套；T4底商：共26套；</p>\n\n  <p>九洲天虹广场，是由天虹商场股份有限公司打造的城市综合体项目，位于朝阳新城滨江商务核心区、九洲大街与抚生南路交汇处。项目总建面约32万方，集商务、商业、居住于一体。位于抚生南路与九洲大街交汇处（九洲大街666号）,销售热线：0791-88819999。</p>\n\n  <p><strong>项目总体参数</strong></p>\n\n  <p>总占地面积43444㎡，建筑面积323522㎡，项目总体布局由一条南北蜿蜒的内街分为两个区，位于东南区的得二期规划142米高的写字楼和主体6层，局部7或8层的裙房商业。西北区为一期住宅九洲上郡由4栋高层住宅和底商组成。</p>\n\n  <p>住宅：层高分别为T1#29层、T2#29层、T3#29层、T4#30层，住宅总户数380户；规划了有727个停车位（地下727、地上0）车位全部在地下，车位配比近2:1，容积率3.98，绿地率31%。小区在金环路和秋实路2个主入口，人车分流。</p>\n\n  <p>一期商业：沿街底商可售物业共66套，面积段75-249㎡一拖二产品。其中，独栋商铺：共11套；T1、T2底商：共24套；T3底商：共6套；T4底商：共26套；</p>\n\n  <p>九洲天虹广场，是由天虹商场股份有限公司打造的城市综合体项目，位于朝阳新城滨江商务核心区、九洲大街与抚生南路交汇处。项目总建面约32万方，集商务、商业、居住于一体。位于抚生南路与九洲大街交汇处（九洲大街666号）,销售热线：0791-88819999。</p>\n\n  <p><strong>项目总体参数</strong></p>\n\n  <p>总占地面积43444㎡，建筑面积323522㎡，项目总体布局由一条南北蜿蜒的内街分为两个区，位于东南区的得二期规划142米高的写字楼和主体6层，局部7或8层的裙房商业。西北区为一期住宅九洲上郡由4栋高层住宅和底商组成。</p>\n\n  <p>住宅：层高分别为T1#29层、T2#29层、T3#29层、T4#30层，住宅总户数380户；规划了有727个停车位（地下727、地上0）车位全部在地下，车位配比近2:1，容积率3.98，绿地率31%。小区在金环路和秋实路2个主入口，人车分流。</p>\n\n  <p>一期商业：沿街底商可售物业共66套，面积段75-249㎡一拖二产品。其中，独栋商铺：共11套；T1、T2底商：共24套；T3底商：共6套；T4底商：共26套；</p>\n\n\n<br>\n\n<br></p>', '2016-08-17 18:35:12', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('11', '123', '<p style=\"border: none; margin: 0px 0px 5px; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">联发广场为毗邻市政府的临江项目，位于行政金融中心核心区，占地47亩，总建筑面积约为21万平方米，主体建筑超200米，总投资10亿元人民币。作为南昌城市地标建筑，联发广场项目是集5A级摩天写字楼、时尚购物中心、高档奢装公寓为一体的大型综合体。</p><p style=\"border: none; margin: 0px 0px 5px; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">&nbsp;<br></p><p style=\"border: none; margin: 0px 0px 5px; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">联发广场为毗邻市政府的临江项目，位于行政金融中心核心区，占地47亩，总建筑面积约为21万平方米，主体建筑超200米，总投资10亿元人民币。作为南昌城市地标建筑，联发广场项目是集5A级摩天写字楼、时尚购物中心、高档奢装公寓为一体的大型综合体。</p><p style=\"border: none; margin: 0px 0px 5px; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">&nbsp;<br></p><p style=\"border: none; margin: 0px 0px 5px; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">联发广场为毗邻市政府的临江项目，位于行政金融中心核心区，占地47亩，总建筑面积约为21万平方米，主体建筑超200米，总投资10亿元人民币。作为南昌城市地标建筑，联发广场项目是集5A级摩天写字楼、时尚购物中心、高档奢装公寓为一体的大型综合体。</p><p style=\"border: none; margin: 0px 0px 5px; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">&nbsp;<br></p>', '2016-08-17 18:56:06', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('12', '126', '<h1 style=\"border: none; margin: 0px; padding: 0px; outline: 0px; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; color: rgb(232, 161, 113); background-color: rgb(254, 254, 254);\"><br></h1><h1 style=\"font-weight: 400; line-height: 24px; margin: 0px; font-size: 14px; box-sizing: content-box; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; border: none; padding: 0px; outline: 0px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; text-align: justify; color: rgb(232, 161, 113); background-color: rgb(254, 254, 254);\">12万㎡天虹购物中心、75-249㎡天虹金街商铺</h1><p style=\"line-height: 24px; text-align: justify; margin: 0px 0px 5px; word-break: break-all; box-sizing: content-box; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; border: none; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; background-color: rgb(254, 254, 254);\">&nbsp;<br></p><p style=\"line-height: 24px; text-align: justify; margin: 0px 0px 5px; word-break: break-all; box-sizing: content-box; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; border: none; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; background-color: rgb(254, 254, 254);\">联发广场为毗邻市政府的临江项目，位于行政金融中心核心区，占地47亩，总建筑面积约为21万平方米，主体建筑超200米，总投资10亿元人民币。作为南昌城市地标建筑，联发广场项目是集5A级摩天写字楼、时尚购物中心、高档奢装公寓为一体的大型综合体。</p><p style=\"line-height: 24px; text-align: justify; margin: 0px 0px 5px; word-break: break-all; box-sizing: content-box; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; border: none; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; background-color: rgb(254, 254, 254);\">&nbsp;<br></p><p style=\"line-height: 24px; text-align: justify; margin: 0px 0px 5px; word-break: break-all; box-sizing: content-box; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; border: none; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; background-color: rgb(254, 254, 254);\">联发广场为毗邻市政府的临江项目，位于行政金融中心核心区，占地47亩，总建筑面积约为21万平方米，主体建筑超200米，总投资10亿元人民币。作为南昌城市地标建筑，联发广场项目是集5A级摩天写字楼、时尚购物中心、高档奢装公寓为一体的大型综合体。</p><h1 style=\"border: none; margin: 0px; padding: 0px; outline: 0px; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; color: rgb(232, 161, 113); background-color: rgb(254, 254, 254);\">12万㎡天虹购物中心、75-249㎡天虹金街商铺</h1><p style=\"border: none; margin: 0px 0px 5px; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">&nbsp;<br></p><p style=\"border: none; margin: 0px 0px 5px; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">联发广场为毗邻市政府的临江项目，位于行政金融中心核心区，占地47亩，总建筑面积约为21万平方米，主体建筑超200米，总投资10亿元人民币。作为南昌城市地标建筑，联发广场项目是集5A级摩天写字楼、时尚购物中心、高档奢装公寓为一体的大型综合体。</p><p style=\"border: none; margin: 0px 0px 5px; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">&nbsp;<br></p><p style=\"border: none; margin: 0px 0px 5px; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">联发广场为毗邻市政府的临江项目，位于行政金融中心核心区，占地47亩，总建筑面积约为21万平方米，主体建筑超200米，总投资10亿元人民币。作为南昌城市地标建筑，联发广场项目是集5A级摩天写字楼、时尚购物中心、高档奢装公寓为一体的大型综合体。</p><h1 style=\"font-weight: 400; line-height: 24px; margin: 0px; font-size: 14px; box-sizing: content-box; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; border: none; padding: 0px; outline: 0px; font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; text-align: justify; color: rgb(232, 161, 113); background-color: rgb(254, 254, 254);\">12万㎡天虹购物中心、75-249㎡天虹金街商铺</h1><p style=\"line-height: 24px; text-align: justify; margin: 0px 0px 5px; word-break: break-all; box-sizing: content-box; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; border: none; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; background-color: rgb(254, 254, 254);\">&nbsp;<br></p><p style=\"line-height: 24px; text-align: justify; margin: 0px 0px 5px; word-break: break-all; box-sizing: content-box; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; border: none; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; background-color: rgb(254, 254, 254);\">联发广场为毗邻市政府的临江项目，位于行政金融中心核心区，占地47亩，总建筑面积约为21万平方米，主体建筑超200米，总投资10亿元人民币。作为南昌城市地标建筑，联发广场项目是集5A级摩天写字楼、时尚购物中心、高档奢装公寓为一体的大型综合体。</p><p style=\"line-height: 24px; text-align: justify; margin: 0px 0px 5px; word-break: break-all; box-sizing: content-box; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; border: none; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; background-color: rgb(254, 254, 254);\">&nbsp;<br></p><p style=\"line-height: 24px; text-align: justify; margin: 0px 0px 5px; word-break: break-all; box-sizing: content-box; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; border: none; padding: 0px; outline: 0px; color: rgb(101, 101, 101); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; background-color: rgb(254, 254, 254);\">联发广场为毗邻市政府的临江项目，位于行政金融中心核心区，占地47亩，总建筑面积约为21万平方米，主体建筑超200米，总投资10亿元人民币。作为南昌城市地标建筑，联发广场项目是集5A级摩天写字楼、时尚购物中心、高档奢装公寓为一体的大型综合体。</p>', '2016-08-17 19:13:24', '1', '2016-08-17 19:15:12', '1', '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('13', '127', '<p style=\"border: none; margin: 0px; padding: 0px; outline: 0px; color: rgb(51, 51, 51); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\"><strong>2万方购物中心</strong>——以“天虹百货+精致超市+餐饮+休闲+娱乐+X”的购物中心业态，打造一站式吃喝玩乐购的南昌商业新中心。</p><p style=\"border: none; margin: 0px; padding: 0px; outline: 0px; color: rgb(51, 51, 51); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">&nbsp;<br></p><p style=\"border: none; margin: 0px; padding: 0px; outline: 0px; color: rgb(51, 51, 51); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\"><b>天虹·金街商铺</b>——整座天虹广场，仅66席，75-249㎡可售街铺，其稀缺价值不言而喻</p><p style=\"border: none; margin: 0px; padding: 0px; outline: 0px; color: rgb(51, 51, 51); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">&nbsp;<br></p><p style=\"border: none; margin: 0px; padding: 0px; outline: 0px; color: rgb(51, 51, 51); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\"><b>LOFT-SOHO全功能空间</b>——4.45万㎡高端商务，屹立于九洲天虹购物中心之上，建筑高度达142米，华中区天虹总部将落户于此，建成后将成为朝阳新城滨江金融商务区又一商务地标。</p><p style=\"border: none; margin: 0px; padding: 0px; outline: 0px; color: rgb(51, 51, 51); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\">&nbsp;<br></p><p style=\"border: none; margin: 0px; padding: 0px; outline: 0px; color: rgb(51, 51, 51); font-family: &quot;Microsoft YaHei&quot;, Helvetica, Arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(254, 254, 254);\"><b>招商地址：</b>江西省·南昌市·西湖区九洲大街与抚生南路交汇处（九洲大街666号）二楼招商部</p>', '2016-08-17 19:43:38', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('14', '130', '<p><br></p>', '2016-08-18 17:18:40', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('15', '133', '<p>\n\n<span style=\"color: rgb(0, 0, 0); font-family: &quot; Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none;\" data-fr-verified=\"true\">菲尔芙是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。<br style=\"color: rgb(0, 0, 0); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\"><br style=\"color: rgb(0, 0, 0); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">1984年成立以来，通过人本、科学的管理，专业、高效的运营，公司取得了卓越的业绩，已连续多年入围中国连锁百强企业。公司根据目标顾客需求的不同，以百货店、大型购物中心、便利店的实体零售业态，打造以“亲和、信赖、享受生活”为核心价值的品牌，旗下拥有“天虹”、“君尚”两大零售品牌。截止5月16日，天虹品牌在北京、广东、福建、江西、湖南、江苏、浙江、四川等8省20市开设了61家直营分店及以特许经营方式管理2家分店，君尚品牌在深圳、东莞、惠州共开设了3家直营分店；天虹微喔便利店在深圳、厦门、南昌等地共开设了96家直营分店，38家加盟店；天虹跨境电商体验店在深圳、东莞、惠州、厦门、福州、成都、长沙、株洲、吉安、赣州、杭州、苏州等地开店34家。<br style=\"color: rgb(0, 0, 0); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\"><br style=\"color: rgb(0, 0, 0); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">公司在行业内率先突破传统百货购物模式，从实体店走向线上线下融合的全渠道，率先打造出全国首家拥有“自定义菜单”的零售微信服务号“天虹”，随后逐步创新，现已形成实体店、PC网店、移动端（天虹微信、天虹微品、虹领巾）的全渠道零售生活平台。<br style=\"color: rgb(0, 0, 0); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\"><br style=\"color: rgb(0, 0, 0); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">天虹将始终坚持“有效益扩张”和“可持续发展”的原则，立志将公司塑造成全国一流的零售企业，与顾客分享生活之美。</span>\n\n<br></p>', '2016-08-19 15:23:02', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('16', '134', '<p>\n\n<span style=\"color: rgb(0, 0, 0); font-family: &quot; Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none;\" data-fr-verified=\"true\">1984年成立以来，通过人本、科学的管理，专业、高效的运营，公司取得了卓越的业绩，已连续多年入围中国连锁百强企业。公司根据目标顾客需求的不同，以百货店、大型购物中心、便利店的实体零售业态，打造以“亲和、信赖、享受生活”为核心价值的品牌，旗下拥有“天虹”、“君尚”两大零售品牌。截止5月16日，天虹品牌在北京、广东、福建、江西、湖南、江苏、浙江、四川等8省20市开设了61家直营分店及以特许经营方式管理2家分店，君尚品牌在深圳、东莞、惠州共开设了3家直营分店；天虹微喔便利店在深圳、厦门、南昌等地共开设了96家直营分店，38家加盟店；天虹跨境电商体验店在深圳、东莞、惠州、厦门、福州、成都、长沙、株洲、吉安、赣州、杭州、苏州等地开店34家。<br style=\"color: rgb(0, 0, 0); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\"><br style=\"color: rgb(0, 0, 0); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">公司在行业内率先突破传统百货购物模式，从实体店走向线上线下融合的全渠道，率先打造出全国首家拥有“自定义菜单”的零售微信服务号“天虹”，随后逐步创新，现已形成实体店、PC网店、移动端（天虹微信、天虹微品、虹领巾）的全渠道零售生活平台。</span>\n\n<br></p>', '2016-08-19 15:23:31', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_service_join_about` VALUES ('17', '156', '<p style=\"padding: 0px; margin: 20px 0px 0px; line-height: 24px; text-align: justify; color: rgb(51, 51, 51); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">品质管理介绍厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。</p><p style=\"padding: 0px; margin: 20px 0px 0px; line-height: 24px; text-align: justify; color: rgb(51, 51, 51); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。</p><p style=\"padding: 0px; margin: 20px 0px 0px; line-height: 24px; text-align: justify; color: rgb(51, 51, 51); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">商场一直致力于保持服务领先的优势，免费提供多项便民服务，同时提供钟表维修、机器修鞋、改缝裤脚等专业服务，送货服务范围更广、更便捷了</p>', '2016-08-25 21:35:45', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_sys_role`
