@@ -85,7 +85,6 @@ function initTable(data){
 	}
 }
 function down(menuId){
-	debugger;
 	$(".loading_area").fadeIn(10);
 	$.ajax({
         url: basePath + "/menu/move",
@@ -158,6 +157,7 @@ function showUser(id){
 	$("#pop_user").fadeIn(200);
 	$("#popMenuId").val(id);
 	$("#popName").val("");
+	$("#isShow").val(1);
 	$("#popEnglishName").val("");
 	$("#popLink").val("");
 	$("#popUrl").val("");
@@ -177,6 +177,7 @@ function showUser(id){
 	        	if(data){
 	        		$("#popName").val(data.name);
 		        	$("#popLink").val(data.link);
+		        	$("#isShow").val(data.isShow);
 		        	$("#popUrl").val(data.url);
 		        	$("#popEnglishName").val(data.backup1);
 	        	}
@@ -190,6 +191,7 @@ function addSub(){
 	$("#pop_user").fadeIn(10);
 	$("#popMenuId").val(0);
 	$("#popName").val("");
+	$("#isShow").val(1);
 	$("#popEnglishName").val("");
 	$("#popLink").val("");
 	$("#popUrl").val("");
@@ -201,6 +203,7 @@ function addOrEdituser(){
 	var link = $("#popLink").val();
 	var popUrl = $("#popUrl").val();
 	var parentId = $("#parentMenuId").val();
+	var isShow = $("#isShow").val();
 	debugger;
 	if(isEmpty(name)){
 		alert("请输入菜单名");
@@ -220,6 +223,7 @@ function addOrEdituser(){
         	name : name,
         	link : link,
         	url : popUrl,
+        	isShow : isShow,
         	backup1 : englishName
         },
         cache: false,

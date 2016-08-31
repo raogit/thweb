@@ -46,8 +46,13 @@
 				<ul>
 					<li><span style="width:70px;text-align: right;" class="ttl">菜单名:</span> <input id="popName" style="width:140px;" type="text" placeholder="请输入菜单名..." class="textbox" /></li>
 					<li><span style="width:70px;text-align: right;" class="ttl">英文名:</span> <input id="popEnglishName" style="width:140px;" type="text" placeholder="请输入菜单名..." class="textbox" /></li>
-					<li><span style="width:70px;text-align: right;" class="ttl">link:</span><input id="popLink"  style="width:140px;" type="text" placeholder="请填写link..." class="textbox" /></li>
-					<li><span style="width:70px;text-align: right;" class="ttl">url:</span><input id="popUrl"  style="width:140px;" type="text" placeholder="请填写url..." class="textbox" /></li>
+					<strong style="color: grey;">前台是否显示:</strong>
+					<select class="select" id="isShow" name="isShow" onchange="changeSelect(this.value)" style="width: 120px;">
+						<option value="1">是</option>
+						<option value="0">否</option>
+					</select>
+					<li><span style="width:70px;text-align: right;" class="ttl">前台链接:</span><input id="popLink"  style="width:140px;" type="text" placeholder="请填写link..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">后台链接:</span><input id="popUrl"  style="width:140px;" type="text" placeholder="请填写url..." class="textbox" /></li>
 				</ul>
 			</div>
 			<!--bottom:operate->button-->

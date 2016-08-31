@@ -16,17 +16,17 @@
         </javaTypeResolver> 
     	
     	<!-- t_sys_menu -->  
-   		<javaModelGenerator targetPackage="com.tianhong.domain.market"   targetProject="th-service/src/main/java" >                
+   		<javaModelGenerator targetPackage="com.tianhong.domain.store"   targetProject="th-service/src/main/java" >                
             <property name="enableSubPackages" value="false"/>            
             <property name="trimStrings" value="true"/>  
         </javaModelGenerator>  
-        <sqlMapGenerator targetPackage="mapper.market"  targetProject="th-service/src/main/resources" >  
+        <sqlMapGenerator targetPackage="mapper.store"  targetProject="th-service/src/main/resources" >  
             <property name="enableSubPackages" value="false" />  
         </sqlMapGenerator>  
-        <javaClientGenerator targetPackage="com.tianhong.dao.market"   targetProject="th-service/src/main/java" type="XMLMAPPER" >  
+        <javaClientGenerator targetPackage="com.tianhong.dao.store"   targetProject="th-service/src/main/java" type="XMLMAPPER" >  
             <property name="enableSubPackages" value="false" />  
         </javaClientGenerator>
-       <table schema="tianhong" tableName="t_market_news"  domainObjectName="MarketNews"  enableCountByExample="false"  
+       <table schema="tianhong" tableName="t_store_category"  domainObjectName="StoreCategory"  enableCountByExample="false"  
             enableDeleteByExample="false" enableSelectByExample="false"  enableUpdateByExample="false" />
       
   </context>
