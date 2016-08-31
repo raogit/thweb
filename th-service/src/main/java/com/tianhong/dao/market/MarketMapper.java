@@ -9,4 +9,5 @@ public interface MarketMapper extends BaseMapper<Market> {
 
 	Market selectByPrimaryKeyWithBLOBs(Integer id) throws Exception;
 
+	Market selectByName(String name) throws Exception;
 }

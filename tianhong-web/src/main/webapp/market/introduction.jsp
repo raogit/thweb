@@ -18,9 +18,12 @@
 			style="background:url(${basePath}/download/png?fileName=${first.busUrl }) no-repeat;background-size:cover;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(${basePath}/download/png?fileName=${first.busUrl },sizingMethod='scale');">
 			<div class="c-in-lt">
 				<div class="c-in-lti">
-					<div class="c-in-lip">
-						<input type="text" class="tsr-ip c-lip" value="${first.name }">
-					</div>
+					<form action="${basePath}/market/introduction" method="post" id="formId">
+						<div class="c-in-lip">
+							<input type="text" style="float:left;width:70%" class="tsr-ip c-lip" id="searchName" name="searchName" value="${first.name }">
+							<div style="float:left;width:25%;height: 30px;" onclick="search()"> </div>
+						</div>
+					</form>
 					<div class="c-in-ltx fr">${first.name }</div>
 				</div>
 			</div>
@@ -80,7 +83,7 @@
 							</c:forEach>
 							
 							<c:forEach var="item" items="${newsList }" begin="1" step="1" end="2" varStatus="itemStatus">
-								<a href="javascript:;" class="rcc-in rci2">
+								<a href="javascript:newDetail(${item.id });" class="rcc-in rci2">
 									<div class="rcc-ir2 clearfix">
 										<div class="rcc-ird">${fn:substring(item.createTimeStr,8,10)}</div>
 										<div class="rcc-irr">
@@ -94,7 +97,6 @@
 									</div>
 								</a> 
 							</c:forEach>
-							
 <!-- 							<div class="rcc-more">更多新闻</div> -->
 						</div>
 					</div>
@@ -104,15 +106,11 @@
 							<a href="javascript:;">返回</a>
 						</div>
 						<div class="new_inmain">
-							<h2>兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华</h2>
-							<p>&nbsp; &nbsp; &nbsp; &nbsp;
-								厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。</p>
-							<p>汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。</p>
-							<p>
-								<img src="${basePath}/market/images/inner.jpg" />
-							</p>
+							<h2 id="newDetailTitle"></h2>
+							<div id="newDetailContent"></div>
+							<p><img id="newDetailPicture" src="" height="270px" width="670px" /></p>
 							<div class="shar_main">
-								<div class="share_left">2016-3.0-10</div>
+								<div class="share_left" id="newsDetailTime">0000-00-00</div>
 								<div class="share_con">
 									<div class="bshare-custom icon-medium">
 										<a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博"
@@ -147,7 +145,7 @@
 							
 							
 							<c:forEach var="item" items="${activityList }" begin="0" step="1" end="2" varStatus="itemStatus">
-								<div class="rcc-in3">
+								<div class="rcc-in3" onclick="activityDetail(${item.id})">
 									<div class="rcc-imgL">
 										<img src="${basePath}/download/png?fileName=${item.path }" alt="">
 									</div>
@@ -177,15 +175,19 @@
 							<a href="javascript:;">返回</a>
 						</div>
 						<div class="new_inmain">
-							<h2>兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华</h2>
-							<p>&nbsp; &nbsp; &nbsp; &nbsp;
-								厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。</p>
-							<p>汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。</p>
+							<h2 id="activityDetailTitle">兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华</h2>
+							<div id="activityDetailContent">
+								<p>&nbsp; &nbsp; &nbsp; &nbsp;
+									厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。</p>
+								<p>汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。</p>
+							
+							</div>
+							
 							<p>
-								<img src="${basePath}/market/images/inner.jpg" />
+								<img id="activityDetailPicture" src="${basePath}/market/images/inner.jpg" height="270px" width="670px" />
 							</p>
 							<div class="shar_main">
-								<div class="share_left">2016-3.0-10</div>
+								<div class="share_left" id="activityDetailTime">0000-00-00</div>
 								<div class="share_con">
 									<div class="bshare-custom icon-medium">
 										<a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博"
@@ -229,8 +231,7 @@
 		</div>
 		<div class="clear"></div>
 	</div>
-	<script type="text/javascript"
-		src="${basePath}/market/Scripts/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="${basePath}/market/Scripts/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="${basePath}/market/Scripts/web.js"></script>
 	<script type="text/javascript">
     $(function(){

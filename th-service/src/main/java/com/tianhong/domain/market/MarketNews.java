@@ -161,7 +161,8 @@ public class MarketNews extends Page {
 
 	public String getCreateTimeStr() {
 		try {
-			return DateUtils.parseString(createTime, CommonConstant.YYYY_MM_dd);
+			createTimeStr = DateUtils.parseString(createTime, CommonConstant.YYYY_MM_dd);
+			return createTimeStr;
 		} catch (Exception e) {
 
 		}

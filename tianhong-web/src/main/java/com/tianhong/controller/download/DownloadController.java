@@ -34,7 +34,10 @@ public class DownloadController {
 			request.setCharacterEncoding(CommonConstant.UTF_8);
 			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
 					CommonConstant.UPLOAD_IMG_PATH);
-			FileToolUtils.downLoad(response, path + fileName, false);
+			try {
+				FileToolUtils.downLoad(response, path + fileName, false);
+			} catch (Exception e) {
+			}
 		} catch (Exception e) {
 			log.error("", e);
 		}

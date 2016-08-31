@@ -35,5 +35,7 @@ public interface MarketService {
 
 	Market getByPrimaryKey(int id) throws Exception;
 
+	Market getByName(String name) throws Exception;
+
 	Market getByPrimaryKeyWithBLOBs(Integer id) throws Exception;
 }

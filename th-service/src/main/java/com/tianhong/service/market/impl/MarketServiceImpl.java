@@ -87,4 +87,8 @@ public class MarketServiceImpl implements MarketService {
 		return marketMapper.selectByPrimaryKeyWithBLOBs(id);
 	}
 
+	public Market getByName(String name) throws Exception {
+		return marketMapper.selectByName(name);
+	}
+
 }

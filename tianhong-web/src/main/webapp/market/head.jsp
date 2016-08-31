@@ -9,7 +9,7 @@
             <li class="h-c-rli rli3 rli5"><a href="${basePath}/market/vip.jsp">会员专区</a></li>
             <li class="h-c-rli rli4 rli5"><a href="${basePath}/market/default.jsp">集团首页</a></li>
         </ul>
-        <a href="${basePath}/market/default.jsp" class="h-c-left">
+        <a href="${basePath}/market/index" class="h-c-left">
             <img src="${basePath}/market/images/logo2.png" alt="">
         </a>
     </div>

@@ -16,9 +16,12 @@
 			<div class="cont-in">
 				<div class="c-in-tch">分享生活之美</div>
 				<div class="c-in-ten">Share the beauty of life</div>
-				<div class="c-in-tsr">
-					<input type="text" class="tsr-ip" value="门店搜索">
-				</div>
+				<form action="${basePath}/market/introduction" method="post" id="formId">
+					<div class="c-in-tsr" >
+						<input type="text" style="float:left;width:65%" class="tsr-ip" placeholder="门店搜索" id="searchName" name="searchName"/>
+						<div style="float:left;width:25%;height: 30px;" onclick="search()"> </div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -37,8 +40,16 @@
 		</div>
 		<div class="clear"></div>
 	</div>
-	<script type="text/javascript"
-		src="${basePath}/market/Scripts/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="${basePath}/market/Scripts/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="${basePath}/market/Scripts/web.js"></script>
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		var hcright = $(".h-c-right").find("li");
+		for(var i=0;i<hcright.length;i++){
+			var li = hcright[i];
+			$(li).removeClass("rli5");
+		}
+	})
+	</script>
 </body>
 </html>
