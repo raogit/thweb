@@ -206,4 +206,15 @@ public class MenuController extends BaseController {
 		}
 		return false;
 	}
+
+	@RequestMapping(value = "/sub")
+	@ResponseBody
+	public Object sub(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return menuService.getSubMenus(menuId, true);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
 }

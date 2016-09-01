@@ -34,55 +34,38 @@
 	<div class="rt_content">
 		
 		<section class="loading_area">
-		<div class="loading_cont">
-			<div class="loading_icon">
-				<i></i><i></i><i></i><i></i><i></i>
+			<div class="loading_cont">
+				<div class="loading_icon">
+					<i></i><i></i><i></i><i></i><i></i>
+				</div>
+				<div class="loading_txt">
+					<mark>数据正在加载，请稍后！</mark>
+				</div>
 			</div>
-			<div class="loading_txt">
-				<mark>数据正在加载，请稍后！</mark>
-			</div>
-		</div>
 		</section>
 		<!--结束加载-->
 		<!--弹出框效果-->
 		<section class="pop_bg" id="pop_user">
-		<div class="pop_cont" style="position:initial;width: 80%;height: 80%;margin: auto;overflow: auto;">
+		<div class="pop_cont">
 			<!--title-->
-			<h3 id="pupTitle">修改</h3>
+			<h3 id="pupTitle">修改菜单</h3>
 			<!--content-->
-			<input type="hidden" value="0" id="popMarketId" />
+			<input type="hidden" value="0" id="popMenuId" />
 			<div class="pop_cont_input">
-				<input type="hidden" value="${type }" id="type" name="type" />
-				<input type="hidden" value="0" id="marketNewsId" name="marketNewsId" />
-				<input type="hidden" value="/upload/marketnews/picture" id="uri" name="uri" />
-				<div>
-					
-				</div>
-				<div style="height:5px;border-bottom:2px solid #19a97b;"></div>
-				<div class="btm_btn" style="height: 30px;">
-					<input type="button" value="保存" style="width: 70px;height: 30px;background-color: #19a97b;" id="saveContent"/> 
-					<input type="button" value="清空" style="width: 70px;height: 30px;background-color: #19a97b;" id="clearContent"/>
-					<input type="button" value="关闭" style="width: 70px;height: 30px;background-color: #19a97b;" id="close_user"/>
-				</div>
-				<div style="height:30px;width:500px; margin: 0 auto;padding-top:5px;">
-					<ul>
-						<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标题:</span> <input id="title" style="width:140px;" type="text" placeholder="请输入标题..." class="textbox" /></li>
-					</ul>
-				</div>
-				<section id="editor">
-					<div id='edit' style="margin-top: 30px;"> </div>
-				</section>
-				
-				<div class="btm_btn" style="height: 30px;"> </div>
-			
-			  <script>
-			      $(function(){
-			          $('#edit').editable({inlineMode: false, alwaysBlank: true})
-			      });
-			  </script>
+				<ul>
+					<li><span style="width:70px;text-align: right;" class="ttl">分类名:</span> <input id="popName" style="width:140px;" type="text" placeholder="请输入菜单名..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">英文名:</span> <input id="popEnglishName" style="width:140px;" type="text" placeholder="请输入菜单名..." class="textbox" /></li>
+					<strong style="color: grey;">类型:</strong>
+					<select class="select" id="popcategorytype" name="popcategorytype" style="width: 120px;"></select>
+<!-- 					<li><span style="width:70px;text-align: right;" class="ttl">前台链接:</span><input id="popLink"  style="width:140px;" type="text" placeholder="请填写link..." class="textbox" /></li> -->
+<!-- 					<li><span style="width:70px;text-align: right;" class="ttl">后台链接:</span><input id="popUrl"  style="width:140px;" type="text" placeholder="请填写url..." class="textbox" /></li> -->
+				</ul>
 			</div>
 			<!--bottom:operate->button-->
-			
+			<div class="btm_btn">
+				<input type="button" value="确认" class="input_btn trueBtn" id="confirm_user"/> <input
+					type="button" value="关闭" class="input_btn falseBtn" id="close_user"/>
+			</div>
 		</div>
 		</section>
 		<!--结束：弹出框效果-->
@@ -92,11 +75,11 @@
 				<h2>
 					<strong style="color: grey;"></strong>
 				</h2>
-				<input type="hidden" value="0" id="marketId" name="marketId" />
-				<strong style="color: grey;">新闻标题:</strong>
-				<input id="name" type="text" class="textbox" placeholder="新闻标题..." /> 
-				<strong style="color: grey;">门店:</strong>
-				<select class="select" id="marketSelect" onchange="changeSelect(this.value)" style=" width: 120px;"></select>
+				<input type="hidden" value="0" id="menuId" name="menuId" />
+				<strong style="color: grey;">分类名:</strong>
+				<input id="name" type="text" class="textbox" placeholder="分类名..." /> 
+				<strong style="color: grey;">类型:</strong>
+				<select class="select" id="categorytype" onchange="changeSelect(this.value)" style=" width: 120px;"></select>
 				<strong style="color: grey;">创建时间:</strong>
 				<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" />-
 				<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:160px;"/>
@@ -112,8 +95,8 @@
 					<thead>
 						<tr>
 							<th>序号</th>
+							<th>类型</th>	
 							<th>分类名</th>	
-							<th>图片名</th>	
 							<th>创建时间</th>
 							<th>操作</th>
 						</tr>

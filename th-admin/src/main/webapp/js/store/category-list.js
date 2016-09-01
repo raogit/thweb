@@ -19,15 +19,16 @@ jQuery(document).ready(function() {
 	refreshTime();
 	btn();
 	tab();
-	initMarket();
+	initCategoryType("popcategorytype");
+	initCategoryType("categorytype");
 });
  
-function initMarket(){
+function initCategoryType(id){
 	$(".loading_area").fadeIn(10);
-	var marketSelect = $("#marketSelect");
-	marketSelect.html("");
+	var categoryType = $("#"+id);
+	categoryType.html("");
 	$.ajax({
-        url: basePath + "/market/list",
+        url: basePath + "/menu/sub?menuId="+162,
         type: 'post',
         dataType: 'json',
         cache: false,
@@ -35,19 +36,21 @@ function initMarket(){
         	if(data!=null&&data!=""){
         		for(var i=0; i<data.length;i++){
         			var item = data[i];
-        			marketSelect.append('<option value="'+item.id+'">'+item.name+'</option>');
+        			categoryType.append('<option value="'+item.id+'">'+item.name+'</option>');
         			if(i==0){
-        				$("#marketId").val(item.id);
+        				$("#"+id).val(item.id);
         			}
         		}
-        		tableData(curPage);
+        		if(id== "categorytype"){
+        			tableData(curPage);
+        		}
         	}
         	$(".loading_area").fadeOut(10);
         }
     });
 }
 function changeSelect(val){
-	$("#marketId").val(val);
+	$("#menuId").val(val);
 	tableData(curPage);
 }
 function tableData(pageNum){
@@ -59,7 +62,7 @@ function tableData(pageNum){
 	var startDate = $("#startDate").val();
 	var endDate = $("#endDate").val();	
 	$.ajax({
-        url: basePath + "/marketnews/page",
+        url: basePath + "/storecategory/page",
         type: 'post',
         dataType: 'json',
         data : {
