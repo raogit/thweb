@@ -56,22 +56,7 @@
 				<input type="hidden" value="0" id="marketNewsId" name="marketNewsId" />
 				<input type="hidden" value="/upload/marketnews/picture" id="uri" name="uri" />
 				<div>
-					<form action="${basePath }/upload/picture" encType="multipart/form-data" method="post">
-						<ul class="ulColumn2" style="text-align: left;">
-							<li>
-								<span class="item_name" style="width: 120px;">上传图片：</span><input type="file" id="fileId" name="fileId"/> 
-							</li>
-							<li>
-								<span class="item_name" style="width: 120px;">图片名称：</span><input type="text" id="picTitle" name="picTitle"/> 
-							</li>
-							<li>
-								<span class="item_name" style="width: 120px;">图片URL：</span><input type="text" id="url" name="url"/> 
-							</li>
-							<li><span class="item_name" style="width: 120px;"></span> <input
-								type="button" class="link_btn" onclick="upload('fileId')" value="上传"/></li>					
-							<li id="bannerpicture"> </li>
-						</ul>
-					</form>
+					
 				</div>
 				<div style="height:5px;border-bottom:2px solid #19a97b;"></div>
 				<div class="btm_btn" style="height: 30px;">
@@ -127,7 +112,7 @@
 					<thead>
 						<tr>
 							<th>序号</th>
-							<th>新闻标题</th>	
+							<th>分类名</th>	
 							<th>图片名</th>	
 							<th>创建时间</th>
 							<th>操作</th>
