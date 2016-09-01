@@ -52,7 +52,7 @@ public class CategoryController extends BaseController {
 	@ResponseBody
 	public Object list(Category category, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			categoryService.getList(category);
+			return categoryService.getList(category);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -73,7 +73,7 @@ public class CategoryController extends BaseController {
 
 	@RequestMapping(value = "/get")
 	@ResponseBody
-	public Object save(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+	public Object get(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			return categoryService.getByPrimaryKey(id);
 		} catch (Exception e) {
@@ -87,6 +87,20 @@ public class CategoryController extends BaseController {
 	public Object delete(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			return categoryService.deleteByPrimaryKey(id);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/listbymenuId")
+	@ResponseBody
+	public Object listByMenuId(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			Category category = new Category();
+			category.setMenuId(menuId);
+			return categoryService.getList(category);
 		} catch (Exception e) {
 			log.error("", e);
 		}

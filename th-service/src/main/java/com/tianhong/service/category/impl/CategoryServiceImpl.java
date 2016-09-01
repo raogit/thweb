@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tianhong.dao.category.CategoryMapper;
+import com.tianhong.dao.menu.MenuMapper;
 import com.tianhong.domain.category.Category;
+import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.user.User;
 import com.tianhong.service.category.CategoryService;
 
@@ -25,6 +27,9 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
 	private CategoryMapper categoryMapper;
+
+	@Autowired
+	private MenuMapper menuMapper;
 
 	public boolean deleteByPrimaryKey(Integer id) throws Exception {
 		categoryMapper.deleteByPrimaryKey(id);
@@ -67,6 +72,10 @@ public class CategoryServiceImpl implements CategoryService {
 			c.setUpdateTime(new Date());
 			updateByPrimaryKeySelective(c);
 		} else {
+			Menu menu = menuMapper.selectByPrimaryKey(category.getMenuId());
+			if (menu != null) {
+				category.setMenuName(menu.getName());
+			}
 			insertSelective(category, user);
 		}
 		return category;

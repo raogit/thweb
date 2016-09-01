@@ -4,16 +4,16 @@ import java.util.Date;
 
 import com.tianhong.page.Page;
 
-public class StoreProduct extends Page {
+public class NewProduct extends Page {
 	private Integer id;
 
-	private Integer categoryId;
+	private Byte categoryId;
 
 	private String name;
 
-	private String price;
-
 	private String picture;
+
+	private String describer;
 
 	private Date createTime;
 
@@ -39,11 +39,11 @@ public class StoreProduct extends Page {
 		this.id = id;
 	}
 
-	public Integer getCategoryId() {
+	public Byte getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(Integer categoryId) {
+	public void setCategoryId(Byte categoryId) {
 		this.categoryId = categoryId;
 	}
 
@@ -55,20 +55,20 @@ public class StoreProduct extends Page {
 		this.name = name == null ? null : name.trim();
 	}
 
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price == null ? null : price.trim();
-	}
-
 	public String getPicture() {
 		return picture;
 	}
 
 	public void setPicture(String picture) {
 		this.picture = picture == null ? null : picture.trim();
+	}
+
+	public String getDescriber() {
+		return describer;
+	}
+
+	public void setDescriber(String describer) {
+		this.describer = describer == null ? null : describer.trim();
 	}
 
 	public Date getCreateTime() {

@@ -6,6 +6,7 @@ package com.tianhong.service.store;
 import java.util.List;
 
 import com.tianhong.domain.store.StoreProduct;
+import com.tianhong.domain.user.User;
 
 /**
  * @author Administrator
@@ -17,7 +18,9 @@ public interface StoreProductService {
 
 	StoreProduct insertSelective(StoreProduct record) throws Exception;
 
-	StoreProduct selectByPrimaryKey(Integer id) throws Exception;
+	StoreProduct saveOrUpdate(StoreProduct storeProduct, User user) throws Exception;
+
+	StoreProduct getByPrimaryKey(Integer id) throws Exception;
 
 	int updateByPrimaryKeySelective(StoreProduct record) throws Exception;
 

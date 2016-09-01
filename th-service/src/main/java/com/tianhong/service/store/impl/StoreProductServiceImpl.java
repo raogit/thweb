@@ -3,6 +3,7 @@
  */
 package com.tianhong.service.store.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tianhong.dao.store.StoreProductMapper;
 import com.tianhong.domain.store.StoreProduct;
+import com.tianhong.domain.user.User;
 import com.tianhong.service.store.StoreProductService;
 
 /**
@@ -33,7 +35,7 @@ public class StoreProductServiceImpl implements StoreProductService {
 		return record;
 	}
 
-	public StoreProduct selectByPrimaryKey(Integer id) throws Exception {
+	public StoreProduct getByPrimaryKey(Integer id) throws Exception {
 		return storeProductMapper.selectByPrimaryKey(id);
 	}
 
@@ -42,13 +44,35 @@ public class StoreProductServiceImpl implements StoreProductService {
 	}
 
 	public StoreProduct getPage(StoreProduct storeProduct) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<StoreProduct> page = storeProductMapper.page(storeProduct);
+		int count = storeProductMapper.count(storeProduct);
+		storeProduct.setObj(page);
+		storeProduct.setTotalRow(count);
+		return storeProduct;
 	}
 
 	public List<StoreProduct> getList(StoreProduct storeProduct) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return storeProductMapper.list(storeProduct);
+	}
+
+	public StoreProduct saveOrUpdate(StoreProduct storeProduct, User user) throws Exception {
+		if (storeProduct != null && storeProduct.getId() > 0) {
+			StoreProduct sp = storeProductMapper.selectByPrimaryKey(storeProduct.getId());
+			if (sp != null) {
+				sp.setName(storeProduct.getName());
+				sp.setPicture(storeProduct.getPicture());
+				sp.setPrice(storeProduct.getPrice());
+				sp.setUpdateId(user.getId());
+				sp.setUpdateTime(new Date());
+				storeProductMapper.updateByPrimaryKeySelective(sp);
+				return sp;
+			}
+		}
+		storeProduct.setCreateId(user.getId());
+		storeProduct.setCreateTime(new Date());
+		storeProductMapper.insertSelective(storeProduct);
+
+		return storeProduct;
 	}
 
 }

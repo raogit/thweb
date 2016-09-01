@@ -19,28 +19,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.controller.base.BaseController;
-import com.tianhong.domain.store.StoreProduct;
+import com.tianhong.domain.store.NewProduct;
 import com.tianhong.domain.user.User;
-import com.tianhong.service.store.StoreProductService;
+import com.tianhong.service.store.NewProductService;
 
 /**
  * @author Administrator
  *
  */
 @Controller
-@RequestMapping(value = "/storeproduct")
-public class StoreProductController extends BaseController {
+@RequestMapping(value = "/newproduct")
+public class NewProductController extends BaseController {
 
-	private static final Log log = LogFactory.getLog(StoreProductController.class);
+	private static final Log log = LogFactory.getLog(NewProductController.class);
 
 	@Autowired
-	private StoreProductService storeProductService;
+	private NewProductService newProductService;
 
 	@RequestMapping(value = "/page")
 	@ResponseBody
-	public Object page(StoreProduct storeProduct, HttpServletRequest request, HttpServletResponse response) {
+	public Object page(NewProduct newProduct, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return storeProductService.getPage(storeProduct);
+			return newProductService.getPage(newProduct);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -49,16 +49,16 @@ public class StoreProductController extends BaseController {
 
 	@RequestMapping(value = "/list")
 	@ResponseBody
-	public Object list(StoreProduct storeProduct, HttpServletRequest request, HttpServletResponse response) {
+	public Object list(NewProduct newProduct, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return storeProductService.getList(storeProduct);
+			return newProductService.getList(newProduct);
 		} catch (Exception e) {
 			log.error("", e);
 		}
 		return false;
 	}
 
-	@RequestMapping(value = "/storeproduct-list")
+	@RequestMapping(value = "/newproduct-list")
 	public Object index(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
@@ -67,15 +67,15 @@ public class StoreProductController extends BaseController {
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/store/storeproduct-list", map);
+		return new ModelAndView("/store/newproduct-list", map);
 	}
 
 	@RequestMapping(value = "/save")
 	@ResponseBody
-	public Object save(StoreProduct storeProduct, HttpServletRequest request, HttpServletResponse response) {
+	public Object save(NewProduct newProduct, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			User user = getCurrentUser(request);
-			return storeProductService.saveOrUpdate(storeProduct, user);
+			return newProductService.saveOrUpdate(newProduct, user);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -86,7 +86,7 @@ public class StoreProductController extends BaseController {
 	@ResponseBody
 	public Object get(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return storeProductService.getByPrimaryKey(id);
+			return newProductService.getByPrimaryKey(id);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -97,7 +97,7 @@ public class StoreProductController extends BaseController {
 	@ResponseBody
 	public Object delete(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			return storeProductService.deleteByPrimaryKey(id);
+			return newProductService.deleteByPrimaryKey(id);
 		} catch (Exception e) {
 			log.error("", e);
 		}

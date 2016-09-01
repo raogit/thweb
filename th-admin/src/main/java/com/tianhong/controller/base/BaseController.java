@@ -21,7 +21,6 @@ import com.tianhong.domain.user.User;
 public class BaseController {
 
 	public static User getCurrentUser(HttpServletRequest request) {
-
 		User user = new User();
 		user.setId(1);
 		user.setUserName("admin");
@@ -33,4 +32,5 @@ public class BaseController {
 		return request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 				+ request.getContextPath();
 	}
+
 }
