@@ -187,10 +187,10 @@
   </update>
   
   
-  <select id="page" parameterType="com.tianhong.domain.store.StoreCategory" resultMap="BaseResultMap">
+  <select id="page" parameterType="com.tianhong.domain.category.Category" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from t_store_category
+		from t_category
 		where is_deleted = 0
 		<if test="name != null and name != ''">
 			AND name like CONCAT(#{name,jdbcType=VARCHAR},'%' )
@@ -202,10 +202,10 @@
 		LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER}
 	</select>
 
-	<select id="count" parameterType="com.tianhong.domain.store.StoreCategory" resultType="java.lang.Integer">
+	<select id="count" parameterType="com.tianhong.domain.category.Category" resultType="java.lang.Integer">
 		select
 		count(1)
-		from t_store_category
+		from t_category
 		where is_deleted = 0
 		<if test="name != null and name != ''">
 			AND name like CONCAT(#{name,jdbcType=VARCHAR},'%' )
@@ -215,10 +215,10 @@
 		</if>	
 	</select>
 	
-	<select id="list" parameterType="com.tianhong.domain.store.StoreCategory" resultMap="BaseResultMap">
+	<select id="list" parameterType="com.tianhong.domain.category.Category" resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
-		from t_store_category
+		from t_category
 		where is_deleted = 0
 		<if test="name != null and name != ''">
 			AND name like CONCAT(#{name,jdbcType=VARCHAR},'%' )

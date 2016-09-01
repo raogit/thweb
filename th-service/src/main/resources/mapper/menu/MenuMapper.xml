@@ -233,7 +233,7 @@
 		<include refid="Base_Column_List" />
 		from t_menu
 		where is_deleted = 0
-		order by level,sort
+		order by level,sort,create_time
 	</select>
 
 	<select id="selectMenusByType" parameterType="java.lang.Integer"

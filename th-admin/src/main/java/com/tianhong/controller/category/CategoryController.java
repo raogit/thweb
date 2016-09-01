@@ -11,10 +11,12 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.category.Category;
+import com.tianhong.domain.user.User;
 import com.tianhong.service.category.CategoryService;
 
 /**
@@ -22,7 +24,7 @@ import com.tianhong.service.category.CategoryService;
  *
  */
 @Controller
-@RequestMapping(value = "/Category")
+@RequestMapping(value = "/category")
 public class CategoryController extends BaseController {
 
 	private static final Log log = LogFactory.getLog(CategoryController.class);
@@ -30,11 +32,16 @@ public class CategoryController extends BaseController {
 	@Autowired
 	private CategoryService categoryService;
 
+	@RequestMapping(value = "/category-list")
+	public Object index(HttpServletRequest request, HttpServletResponse response) {
+		return "/category/category-list";
+	}
+
 	@RequestMapping(value = "/page")
 	@ResponseBody
 	public Object page(Category category, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			categoryService.getPage(category);
+			return categoryService.getPage(category);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -52,4 +59,37 @@ public class CategoryController extends BaseController {
 		return false;
 	}
 
+	@RequestMapping(value = "/save")
+	@ResponseBody
+	public Object save(Category category, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			User user = getCurrentUser(request);
+			return categoryService.saveOrUpdate(category, user);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/get")
+	@ResponseBody
+	public Object save(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return categoryService.getByPrimaryKey(id);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/delete")
+	@ResponseBody
+	public Object delete(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return categoryService.deleteByPrimaryKey(id);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
 }

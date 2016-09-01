@@ -191,7 +191,7 @@
 		backup3 = #{backup3,jdbcType=VARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
-	<select id="page" parameterType="com.tianhong.domain.store.StoreCategory"
+	<select id="page" parameterType="com.tianhong.domain.store.StoreProduct"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />
@@ -208,7 +208,7 @@
 	</select>
 
 	<select id="count" resultType="java.lang.Integer"
-		parameterType="com.tianhong.domain.store.StoreCategory">
+		parameterType="com.tianhong.domain.store.StoreProduct">
 		select
 		count(1)
 		from t_store_product
@@ -221,7 +221,7 @@
 		</if>
 	</select>
 	
-	<select id="list" parameterType="com.tianhong.domain.store.StoreCategory"
+	<select id="list" parameterType="com.tianhong.domain.store.StoreProduct"
 		resultMap="BaseResultMap">
 		select
 		<include refid="Base_Column_List" />

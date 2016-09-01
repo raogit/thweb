@@ -3,6 +3,7 @@
  */
 package com.tianhong.service.category.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,29 +12,33 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.tianhong.dao.category.CategoryMapper;
 import com.tianhong.domain.category.Category;
+import com.tianhong.domain.user.User;
 import com.tianhong.service.category.CategoryService;
 
 /**
  * @author Administrator
  *
  */
-@Service("storeCategoryService")
+@Service("categoryService")
 @Transactional
 public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
 	private CategoryMapper categoryMapper;
 
-	public int deleteByPrimaryKey(Integer id) throws Exception {
-		return categoryMapper.deleteByPrimaryKey(id);
+	public boolean deleteByPrimaryKey(Integer id) throws Exception {
+		categoryMapper.deleteByPrimaryKey(id);
+		return true;
 	}
 
-	public Category insertSelective(Category category) throws Exception {
+	public Category insertSelective(Category category, User user) throws Exception {
+		category.setCreateId(user.getId());
+		category.setCreateTime(new Date());
 		categoryMapper.insertSelective(category);
 		return category;
 	}
 
-	public Category selectByPrimaryKey(Integer id) throws Exception {
+	public Category getByPrimaryKey(Integer id) throws Exception {
 		return categoryMapper.selectByPrimaryKey(id);
 	}
 
@@ -51,6 +56,20 @@ public class CategoryServiceImpl implements CategoryService {
 
 	public List<Category> getList(Category category) throws Exception {
 		return categoryMapper.list(category);
+	}
+
+	public Category saveOrUpdate(Category category, User user) throws Exception {
+		if (category != null && category.getId() > 0) {
+			Category c = getByPrimaryKey(category.getId());
+			c.setName(category.getName());
+			c.setEnName(category.getEnName());
+			c.setUpdateId(user.getId());
+			c.setUpdateTime(new Date());
+			updateByPrimaryKeySelective(c);
+		} else {
+			insertSelective(category, user);
+		}
+		return category;
 	}
 
 }
