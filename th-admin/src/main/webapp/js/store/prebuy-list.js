@@ -128,9 +128,11 @@ function edit(id){
 	$("#popNewProductId").val(id);
 	$("#popName").val("");
 	$("#picture").val("");
+	$("#closeDate").val(curentDate(new Date()));
+	$("#popWeight").val("");
 	$("#popPrice").val("");
-	$("#picture").val("");
 	$("#bannerpicture").attr("src","");
+	
 	if(id<=0){
 		$("#pupTitle").html("添加");
 	}else{
@@ -146,8 +148,10 @@ function edit(id){
 	        success: function(data){
 	        	if(data){
 	        		$("#popName").val(data.name);
-	        		$("#popDescriber").val(data.describer);
 	        		$("#picture").val(data.picture);
+	        		$("#closeDate").val(curentDate(new Date()));
+	        		$("#popWeight").val(data.weight);
+	        		$("#popPrice").val(data.price);
 	        		$("#bannerpicture").attr("src",basePath+"/download/png?fileName="+data.picture);
 	        	}
 	        }
@@ -160,8 +164,9 @@ function add(id){
 	$("#popNewProductId").val(0);
 	$("#popName").val("");
 	$("#picture").val("");
+	$("#closeDate").val(curentDate(new Date()));
+	$("#popWeight").val("");
 	$("#popPrice").val("");
-	$("#popDescriber").val("");
 	$("#bannerpicture").attr("src","");
 }
 function save(){
