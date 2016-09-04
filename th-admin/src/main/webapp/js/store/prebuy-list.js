@@ -16,6 +16,8 @@ jQuery(document).ready(function() {
 			});
 		});
 	})(jQuery);
+	
+	$("#closeDate").val(curentDate(new Date()));
 	refreshTime();
 	btn();
 	tab();
@@ -60,7 +62,7 @@ function tableData(pageNum){
 	var endDate = $("#endDate").val();	
 	debugger;
 	$.ajax({
-        url: basePath + "/newproduct/page",
+        url: basePath + "/prebuy/page",
         type: 'post',
         dataType: 'json',
         data : {
@@ -90,12 +92,12 @@ function initTable(data){
 	for(var i=0;i<list.length;i++){
 		debugger;
 		var item = list[i];
-		var time = curentTime(item.createTime);
+		var time = curentTime(item.endTime);
 		var tr = "<tr>"
 			+"<td>"+(i+1)+"</td>"
 			+"<td>"+item.name+"</td>"
-			+"<td>"+item.describer.substring(1,20)+"</td>"
-			+"<td>"+item.picture+"</td>"
+			+"<td>"+item.weight+"</td>"
+			+"<td>"+item.price+"</td>"
 			+"<td>"+time+"</td>";
 		var operation = "<td style='text-align: center;'><a href='javascript:edit("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:del("+item.id+")' class='inner_btn'>删除</a></td>"
 		var end_tr = "</tr>";
@@ -166,23 +168,27 @@ function save(){
 	var id = $("#popNewProductId").val();
 	var name = $("#popName").val();
 	var picture = $("#picture").val();
-	var describer = $("#popDescriber").val();
+	var closeDate = $("#closeDate").val();
 	var categoryId = $("#categoryId").val();
+	var weight = $("#popWeight").val();
+	var price = $("#popPrice").val();
 	debugger;
 	if(isEmpty(name)){
 		alert("请填写内容");
 		return ;
 	}
 	$.ajax({
-        url: basePath + "/newproduct/save",
+        url: basePath + "/prebuy/save",
         type: 'post',
         dataType: 'json',
         data : {
         	id : id,
         	name : name,
         	picture : picture,
-        	describer : describer,
-        	categoryId : categoryId
+        	categoryId : categoryId,
+        	closeDate : closeDate,
+	    	weight : weight,
+	    	price : price
         },
         cache: false,
         success: function(data){
@@ -262,7 +268,7 @@ function upload(fileId){
 
 function del(id){
 	$.ajax({
-        url: basePath + "/newproduct/delete",
+        url: basePath + "/prebuy/delete",
         type: 'post',
         dataType: 'json',
         data : {

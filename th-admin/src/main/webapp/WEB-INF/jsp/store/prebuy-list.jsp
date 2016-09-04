@@ -54,10 +54,10 @@
 			<input type="hidden" value="0" id="picture" name="picture"/>
 			<div class="pop_cont_input">
 				<ul>
-					<li><span style="width:70px;text-align: right;" class="ttl">预购商品名:</span> <input id="popName" style="width:140px;" type="text" placeholder="请输入预购商品名..." class="textbox" /></li>
-					<li><span style="width:70px;text-align: right;" class="ttl">规格重量:</span> <input id="popWeight" style="width:140px;" type="text" placeholder="请输入规格重量..." class="textbox" /></li>
-					<li><span style="width:70px;text-align: right;" class="ttl">参考价格:</span> <input id="popPrice" style="width:140px;" type="text" placeholder="请输入参考价格..." class="textbox" /></li>
-<!-- 					<li><span style="width:70px;text-align: right;" class="ttl">前台链接:</span><input id="popLink"  style="width:140px;" type="text" placeholder="请填写link..." class="textbox" /></li> -->
+					<li><span style="width:70px;text-align: right;" class="ttl">商品名:</span><input id="popName" style="width:140px;" type="text" placeholder="请输入预购商品名..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">规格重量:</span><input id="popWeight" style="width:140px;" type="text" placeholder="请输入规格重量..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">参考价格:</span><input id="popPrice" style="width:140px;" type="text" placeholder="请输入参考价格..." class="textbox" /></li>
+ 					<li><span style="width:70px;text-align: right;" class="ttl">截止日期:</span><input class="Wdate" type="text" id="closeDate" name="closeDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',lang:'ch'})"  style="width:140px;" /></li>
 <!-- 					<li><span style="width:70px;text-align: right;" class="ttl">后台链接:</span><input id="popUrl"  style="width:140px;" type="text" placeholder="请填写url..." class="textbox" /></li> -->
 				</ul>
 				<div id="popUpPicture">
@@ -106,10 +106,10 @@
 					<thead>
 						<tr>
 							<th>序号</th>
-							<th>新品名</th>	
-							<th>描述</th>	
-							<th>图片</th>	
-							<th>创建时间</th>
+							<th>商品名</th>	
+							<th>规格</th>	
+							<th>价格</th>	
+							<th>截止时间</th>
 							<th>操作</th>
 						</tr>
 					</thead>

@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tianhong.constant.CommonConstant;
 import com.tianhong.dao.store.PreBuyMapper;
 import com.tianhong.domain.store.PreBuy;
 import com.tianhong.domain.user.User;
 import com.tianhong.service.store.PreBuyService;
+import com.tianhong.utils.DateUtils;
 
 /**
  * @author Administrator
@@ -56,6 +58,10 @@ public class PreBuyServiceImpl implements PreBuyService {
 	}
 
 	public PreBuy saveOrUpdate(PreBuy preBuy, User user) throws Exception {
+		try {
+			preBuy.setEndTime(DateUtils.parseDate(preBuy.getCloseDate(), CommonConstant.YYYY_MM_dd));
+		} catch (Exception e) {
+		}
 		if (preBuy != null && preBuy.getId() > 0) {
 			PreBuy product = preBuyMapper.selectByPrimaryKey(preBuy.getId());
 			if (product != null) {

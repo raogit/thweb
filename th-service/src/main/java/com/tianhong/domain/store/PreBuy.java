@@ -35,6 +35,8 @@ public class PreBuy extends Page {
 
 	private String backup3;
 
+	private String closeDate;
+
 	public Integer getId() {
 		return id;
 	}
@@ -153,5 +155,13 @@ public class PreBuy extends Page {
 
 	public void setBackup3(String backup3) {
 		this.backup3 = backup3 == null ? null : backup3.trim();
+	}
+
+	public String getCloseDate() {
+		return closeDate;
+	}
+
+	public void setCloseDate(String closeDate) {
+		this.closeDate = closeDate;
 	}
 }
