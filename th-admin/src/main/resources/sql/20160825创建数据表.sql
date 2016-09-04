@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-01 17:05:37
+Date: 2016-09-04 21:15:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -908,6 +908,30 @@ CREATE TABLE `t_resume_work_history` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `t_store_category`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_store_category`;
+CREATE TABLE `t_store_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` tinyint(4) DEFAULT NULL COMMENT '1商品；2最新活动；3新品上市；4预购专区；5便利服务；6加盟我们；7关于我们',
+  `name` varchar(1024) DEFAULT NULL,
+  `en_name` varchar(1024) DEFAULT NULL,
+  `create_time` timestamp NULL DEFAULT NULL,
+  `create_id` int(11) DEFAULT NULL,
+  `update_time` timestamp NULL DEFAULT NULL,
+  `update_id` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(1) DEFAULT '0',
+  `backup1` varchar(1024) DEFAULT NULL,
+  `backup2` varchar(1024) DEFAULT NULL,
+  `backup3` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='分类';
+
+-- ----------------------------
+-- Records of t_store_category
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `t_store_new_activity`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_store_new_activity`;
@@ -979,11 +1003,13 @@ CREATE TABLE `t_store_pre_buy` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='预购专区';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='预购专区';
 
 -- ----------------------------
 -- Records of t_store_pre_buy
 -- ----------------------------
+INSERT INTO `t_store_pre_buy` VALUES ('1', '11', '011', '2016-09-01 00:00:00', '168g', '108元', '1472994764651.png', '2016-09-04 21:12:52', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_pre_buy` VALUES ('2', '12', '应季推荐001', '2016-09-15 00:00:00', '1068', '12', '1472994802927.png', '2016-09-04 21:13:23', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_store_product`
