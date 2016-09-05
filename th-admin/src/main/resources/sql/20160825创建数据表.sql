@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-04 21:15:37
+Date: 2016-09-05 09:57:54
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -524,7 +524,7 @@ INSERT INTO `t_menu` VALUES ('161', '会员权益', '', '', '3', '152', '4', nul
 INSERT INTO `t_menu` VALUES ('162', '天虹O2OStore', '', '', '1', '0', '14', '1', '2016-08-31 17:24:00', '1', '2016-08-31 20:42:50', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('163', '首页', '', '', '2', '162', '1', '1', '2016-08-31 17:24:15', '1', '2016-08-31 20:43:14', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('164', '商品', '', '/storeproduct/storeproduct-list', '2', '162', '2', '1', '2016-08-31 17:25:16', '1', '2016-08-31 20:43:19', '1', '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('165', '最新活动', '', '', '2', '162', '3', '1', '2016-08-31 17:25:54', '1', '2016-08-31 20:43:27', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('165', '最新活动', '', '/newactivity/newactivity-info', '2', '162', '3', '1', '2016-08-31 17:25:54', '1', '2016-08-31 20:43:27', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('166', '新品上市', '', '/newproduct/newproduct-list', '2', '162', '4', '1', '2016-08-31 17:26:02', '1', '2016-08-31 20:43:24', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('167', '预购专区', '', '/prebuy/prebuy-list', '2', '162', '5', '1', '2016-08-31 17:26:11', '1', '2016-08-31 20:44:19', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('168', '便利服务', '', '', '2', '162', '6', '1', '2016-08-31 17:26:21', '1', '2016-08-31 20:44:15', '1', '0', '', null, null);
@@ -940,6 +940,7 @@ CREATE TABLE `t_store_new_activity` (
   `category_id` int(11) DEFAULT NULL,
   `name` varchar(1024) DEFAULT NULL,
   `picture` varchar(1024) DEFAULT NULL,
+  `content` text,
   `create_time` timestamp NULL DEFAULT NULL,
   `create_id` int(11) DEFAULT NULL,
   `update_time` timestamp NULL DEFAULT NULL,
