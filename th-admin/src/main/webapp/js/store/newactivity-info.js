@@ -1,5 +1,6 @@
 
 jQuery(document).ready(function() {	
+	
 	$("#saveContent").click(function(){
 		save();
 	});
@@ -7,7 +8,6 @@ jQuery(document).ready(function() {
 		clear();
 	});
 	initSelect("categoryId");
-	initRich($("#menuId").val());
 });
 
 function initSelect(id){
@@ -29,14 +29,15 @@ function initSelect(id){
         			var item = data[i];
         			categoryId.append('<option value="'+item.id+'">'+item.name+'</option>');
         		}
-        		tableData(curPage);
+        		initRich($("#categoryId").val());
         	}
         	$(".loading_area").fadeOut(10);
         }
     });
 }
 
-function initRich(menuId){
+function initRich(categoryId){
+	debugger;
 	clear();
 	$.ajax({
         url: basePath + "/newactivity/get",
@@ -62,14 +63,13 @@ function initRich(menuId){
 function save(){
 	var categoryId = $("#categoryId").val();
 	var content = $("#contentId").html();
-	
 	if(isEmpty(content)){
 		alert("请填写内容");
 		return ;
 	}
 	var id = $("#id").val();
 	$.ajax({
-        url: basePath + "/newactivity/save",
+          url: basePath + "/newactivity/save",
         type: 'post',
         dataType: 'json',
         data : {
@@ -78,7 +78,7 @@ function save(){
         },
         cache: false,
         success: function(data){
-        	if(data!=null&&data==true){
+        	if(data!=null&&data!=false){
         		alert("操作成功");
         	}else{
         		alert(json.obj);
@@ -89,4 +89,9 @@ function save(){
 
 function clear(){
 	$("#contentId").html("");
+}
+
+function changeSelect(val){
+	$("#categoryId").val(val)
+	initRich($("#categoryId").val());
 }

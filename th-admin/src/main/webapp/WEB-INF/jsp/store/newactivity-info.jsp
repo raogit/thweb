@@ -38,27 +38,27 @@
 
 <body style="overflow: auto;">
 	<jsp:include page="../head/head-iframe.jsp"></jsp:include>
+	<input type="hidden" value="${menuId}" id="menuId" name="menuId" />
 	<input type="hidden" value="0" id="id" name="id" />
 	
-	<section> 
+	
 		<section>
 			<h2>
 				<strong style="color: grey;"></strong>
 			</h2>
-			<input type="hidden" value="${menuId }" id="menuId" name="menuId" />
 			<strong style="color: grey;">类型:</strong><select class="select" id="categoryId" name="categoryId" onchange="changeSelect(this.value)" style="width: 120px;"></select> 
 		</section> 
-	<section>
+	
 	
 	<div style="height:30px;border-bottom:2px solid #19a97b;"></div>
-	<div style="height:100px;width:500px; margin: 0 auto;padding-top:5px;">
+	<!-- <div style="height:100px;width:500px; margin: 0 auto;padding-top:5px;">
 		<ul>
 			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标题:</span> <input id="title" style="width:140px;" type="text" placeholder="请输入标题..." class="textbox" /></li>
 			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标语:</span> <input id="slogan" style="width:240px;" type="text" placeholder="请输入标语..." class="textbox" /></li>
 			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">电话:</span> <input id="phone" style="width:140px;" type="text" placeholder="请输入电话..." class="textbox" /></li>
 			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">地址:</span> <input id="address" style="width:240px;" type="text" placeholder="请输入地址..." class="textbox" /></li>
 		</ul>
-	</div>
+	</div> -->
 	<section id="editor">
 		<div id='edit' style="margin-top: 30px;"> </div>
 	</section>
