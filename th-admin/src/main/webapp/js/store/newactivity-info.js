@@ -37,7 +37,6 @@ function initSelect(id){
 }
 
 function initRich(categoryId){
-	debugger;
 	clear();
 	$.ajax({
         url: basePath + "/newactivity/get",
@@ -51,8 +50,7 @@ function initRich(categoryId){
         	if(data!=null && data!=""){
         		$("#contentId").html(data.content);
             	$("#id").val(data.id);
-            	$("#title").val(data.title);
-            	$("#slogan").val(data.slogan);
+            	$("#title").val(data.name);
         	}else{
         		$("#contentId").html("");
         	}
@@ -63,6 +61,7 @@ function initRich(categoryId){
 function save(){
 	var categoryId = $("#categoryId").val();
 	var content = $("#contentId").html();
+	var name = $("#title").val();
 	if(isEmpty(content)){
 		alert("请填写内容");
 		return ;
@@ -73,6 +72,7 @@ function save(){
         type: 'post',
         dataType: 'json',
         data : {
+        	name : name,
         	categoryId : categoryId,
         	content : content
         },
