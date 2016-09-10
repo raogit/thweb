@@ -28,4 +28,5 @@ public interface PreBuyService {
 
 	List<PreBuy> getList(PreBuy preBuy) throws Exception;
 
+	List<PreBuy> getList(int categoryId) throws Exception;
 }

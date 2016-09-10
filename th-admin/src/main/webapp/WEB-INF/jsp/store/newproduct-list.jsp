@@ -81,15 +81,13 @@
 							<textarea id="popDescriber" rows="10" cols="50"></textarea></li>
 					</ul>
 					<div id="popUpPicture">
-						<form action="${basePath }/upload/image"
-							encType="multipart/form-data" method="post">
+						<form action="${basePath }/upload/image" encType="multipart/form-data" method="post">
 							<ul class="ulColumn2" style="text-align: left;">
 								<li><span class="item_name" style="width: 120px;">上传图片：</span><input
 									type="file" id="fileId" name="fileId" /></li>
-								<li><span class="item_name" style="width: 120px;"></span> <input
-									type="button" class="link_btn" onclick="upload('fileId')"
-									value="上传" /><img id="bannerpicture" alt="" src="" width="100px"
-									height="50px" style="padding-left: 10px;"></li>
+								<li><span class="item_name" style="width: 120px;"></span> 
+								<input type="button" class="link_btn" onclick="upload('fileId')" value="上传" />
+									<img id="productpicture" alt="" src="" width="100px" height="50px" style="padding-left: 10px;"></li>
 							</ul>
 						</form>
 					</div>

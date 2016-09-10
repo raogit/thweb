@@ -3,7 +3,9 @@
  */
 package com.tianhong.controller.store;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +21,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.controller.base.BaseController;
+import com.tianhong.domain.category.Category;
+import com.tianhong.domain.menu.Menu;
+import com.tianhong.domain.picture.Picture;
 import com.tianhong.domain.store.PreBuy;
 import com.tianhong.domain.user.User;
+import com.tianhong.service.category.CategoryService;
+import com.tianhong.service.menu.MenuService;
+import com.tianhong.service.picture.PictureService;
 import com.tianhong.service.store.PreBuyService;
 
 /**
@@ -28,13 +36,44 @@ import com.tianhong.service.store.PreBuyService;
  *
  */
 @Controller
-@RequestMapping(value = "/prebuy")
+@RequestMapping(value = "/store/prebuy")
 public class PreBuyController extends BaseController {
 
 	private static final Log log = LogFactory.getLog(PreBuyController.class);
 
 	@Autowired
 	private PreBuyService preBuyService;
+	@Autowired
+	private MenuService menuService;
+	@Autowired
+	private CategoryService categoryService;
+	@Autowired
+	private PictureService pictureService;
+
+	@RequestMapping(value = "/index")
+	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			List<Menu> subMenus = menuService.getSubMenus(162, true);
+			model.put("subMenus", subMenus);
+			List<Picture> pictures = pictureService.findByMenuId(menuId);
+			model.put("pictures", pictures);
+			Category category = new Category();
+			category.setMenuId(menuId);
+			List<Category> categorys = categoryService.getList(category);
+			List<PreBuy> preBuyList = new ArrayList<PreBuy>();
+			for (Category cate : categorys) {
+				List<PreBuy> preBuys = preBuyService.getList(cate.getId());
+				cate.setPreBuys(preBuys);
+				preBuyList.addAll(preBuys);
+			}
+			model.put("categorys", categorys);
+			model.put("preBuyList", preBuyList);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/store/PreOrder/default", model);
+	}
 
 	@RequestMapping(value = "/page")
 	@ResponseBody

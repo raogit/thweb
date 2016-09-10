@@ -230,7 +230,7 @@ function edit(id){
 	$("#picture").val("");
 	$("#popPrice").val("");
 	$("#picture").val("");
-	$("#bannerpicture").attr("src","");
+	$("#productpicture").attr("src","");
 	if(id<=0){
 		$("#pupTitle").html("添加");
 	}else{
@@ -248,7 +248,7 @@ function edit(id){
 	        		$("#popName").val(data.name);
 	        		$("#popDescriber").val(data.describer);
 	        		$("#picture").val(data.picture);
-	        		$("#bannerpicture").attr("src",basePath+"/download/png?fileName="+data.picture);
+	        		$("#productpicture").attr("src",basePath+"/download/png?fileName="+data.picture);
 	        	}
 	        }
 	    });
@@ -262,9 +262,10 @@ function add(id){
 	$("#picture").val("");
 	$("#popPrice").val("");
 	$("#popDescriber").val("");
-	$("#bannerpicture").attr("src","");
+	$("#productpicture").attr("src","");
 }
 function save(){
+	debugger;
 	var id = $("#popNewProductId").val();
 	var name = $("#popName").val();
 	var picture = $("#picture").val();
@@ -352,7 +353,7 @@ function upload(fileId){
             data = data.replace("</pre>", '');
             var reqParam = data;
         	if (reqParam != "" && reqParam!=false) {
-        		$("#bannerpicture").attr("src",basePath+"/download/png?fileName="+reqParam);
+        		$("#productpicture").attr("src",basePath+"/download/png?fileName="+reqParam);
         		$("#picture").val(reqParam);
 			} else {
 				alert("上传失败");

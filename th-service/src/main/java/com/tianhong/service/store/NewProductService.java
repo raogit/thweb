@@ -28,4 +28,6 @@ public interface NewProductService {
 
 	List<NewProduct> getList(NewProduct newProduct) throws Exception;
 
+	List<NewProduct> getList(int categoryId) throws Exception;
+
 }

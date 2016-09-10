@@ -60,6 +60,7 @@ public class NewProductServiceImpl implements NewProductService {
 			NewProduct product = newProductMapper.selectByPrimaryKey(newProduct.getId());
 			if (product != null) {
 				product.setName(newProduct.getName());
+				product.setPicture(newProduct.getPicture());
 				product.setDescriber(newProduct.getDescriber());
 				product.setUpdateId(user.getId());
 				product.setUpdateTime(new Date());
@@ -72,6 +73,12 @@ public class NewProductServiceImpl implements NewProductService {
 		newProductMapper.insertSelective(newProduct);
 
 		return newProduct;
+	}
+
+	public List<NewProduct> getList(int categoryId) throws Exception {
+		NewProduct newProduct = new NewProduct();
+		newProduct.setCategoryId(categoryId);
+		return getList(newProduct);
 	}
 
 }

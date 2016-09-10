@@ -3,7 +3,7 @@
 <mapper namespace="com.tianhong.dao.store.NewProductMapper">
 	<resultMap id="BaseResultMap" type="com.tianhong.domain.store.NewProduct">
 		<id column="id" jdbcType="INTEGER" property="id" />
-		<result column="category_id" jdbcType="TINYINT" property="categoryId" />
+		<result column="category_id" jdbcType="INTEGER" property="categoryId" />
 		<result column="name" jdbcType="VARCHAR" property="name" />
 		<result column="picture" jdbcType="VARCHAR" property="picture" />
 		<result column="describer" jdbcType="VARCHAR" property="describer" />
@@ -38,7 +38,7 @@
 		create_id, update_time, update_id,
 		is_deleted, backup1, backup2,
 		backup3)
-		values (#{id,jdbcType=INTEGER}, #{categoryId,jdbcType=TINYINT},
+		values (#{id,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER},
 		#{name,jdbcType=VARCHAR},
 		#{picture,jdbcType=VARCHAR}, #{describer,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
 		#{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP},
@@ -94,7 +94,7 @@
 				#{id,jdbcType=INTEGER},
 			</if>
 			<if test="categoryId != null">
-				#{categoryId,jdbcType=TINYINT},
+				#{categoryId,jdbcType=INTEGER},
 			</if>
 			<if test="name != null">
 				#{name,jdbcType=VARCHAR},
@@ -135,7 +135,7 @@
 		update t_store_new_product
 		<set>
 			<if test="categoryId != null">
-				category_id = #{categoryId,jdbcType=TINYINT},
+				category_id = #{categoryId,jdbcType=INTEGER},
 			</if>
 			<if test="name != null">
 				name = #{name,jdbcType=VARCHAR},
@@ -175,7 +175,7 @@
 	</update>
 	<update id="updateByPrimaryKey" parameterType="com.tianhong.domain.store.NewProduct">
 		update t_store_new_product
-		set category_id = #{categoryId,jdbcType=TINYINT},
+		set category_id = #{categoryId,jdbcType=INTEGER},
 		name = #{name,jdbcType=VARCHAR},
 		picture = #{picture,jdbcType=VARCHAR},
 		describer = #{describer,jdbcType=VARCHAR},

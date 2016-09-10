@@ -82,4 +82,10 @@ public class PreBuyServiceImpl implements PreBuyService {
 		return preBuy;
 	}
 
+	public List<PreBuy> getList(int categoryId) throws Exception {
+		PreBuy preBuy = new PreBuy();
+		preBuy.setCategoryId(categoryId);
+		return getList(preBuy);
+	}
+
 }

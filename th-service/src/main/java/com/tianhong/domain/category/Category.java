@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.tianhong.domain.store.NewProduct;
+import com.tianhong.domain.store.PreBuy;
 import com.tianhong.domain.store.StoreProduct;
 import com.tianhong.page.Page;
 
@@ -35,6 +37,10 @@ public class Category extends Page {
 	private String backup3;
 
 	private List<StoreProduct> storeProducts;
+
+	private List<NewProduct> newProducts;
+
+	private List<PreBuy> preBuys;
 
 	public Integer getId() {
 		return id;
@@ -149,6 +155,28 @@ public class Category extends Page {
 
 	public void setStoreProducts(List<StoreProduct> storeProducts) {
 		this.storeProducts = storeProducts;
+	}
+
+	public List<NewProduct> getNewProducts() {
+		if (newProducts == null) {
+			newProducts = new ArrayList<NewProduct>();
+		}
+		return newProducts;
+	}
+
+	public void setNewProducts(List<NewProduct> newProducts) {
+		this.newProducts = newProducts;
+	}
+
+	public List<PreBuy> getPreBuys() {
+		if (preBuys == null) {
+			preBuys = new ArrayList<PreBuy>();
+		}
+		return preBuys;
+	}
+
+	public void setPreBuys(List<PreBuy> preBuys) {
+		this.preBuys = preBuys;
 	}
 
 }

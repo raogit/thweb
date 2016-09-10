@@ -7,7 +7,7 @@ import com.tianhong.page.Page;
 public class NewProduct extends Page {
 	private Integer id;
 
-	private Byte categoryId;
+	private Integer categoryId;
 
 	private String name;
 
@@ -39,11 +39,11 @@ public class NewProduct extends Page {
 		this.id = id;
 	}
 
-	public Byte getCategoryId() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(Byte categoryId) {
+	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
 

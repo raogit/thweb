@@ -24,13 +24,11 @@ import com.tianhong.domain.category.Category;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.picture.Picture;
 import com.tianhong.domain.store.NewProduct;
-import com.tianhong.domain.store.StoreProduct;
 import com.tianhong.domain.user.User;
 import com.tianhong.service.category.CategoryService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.service.store.NewProductService;
-import com.tianhong.service.store.StoreProductService;
 
 /**
  * @author Administrator
@@ -47,8 +45,7 @@ public class NewProductController extends BaseController {
 	private CategoryService categoryService;
 	@Autowired
 	private PictureService pictureService;
-	@Autowired
-	private StoreProductService storeProductService;
+
 	@Autowired
 	private NewProductService newProductService;
 
@@ -64,8 +61,8 @@ public class NewProductController extends BaseController {
 			category.setMenuId(menuId);
 			List<Category> categorys = categoryService.getList(category);
 			for (Category cate : categorys) {
-				List<StoreProduct> storeProducts = storeProductService.getList(cate.getId());
-				cate.setStoreProducts(storeProducts);
+				List<NewProduct> newProducts = newProductService.getList(cate.getId());
+				cate.setNewProducts(newProducts);
 			}
 			model.put("categorys", categorys);
 		} catch (Exception e) {
