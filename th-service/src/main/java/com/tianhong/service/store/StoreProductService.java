@@ -28,4 +28,5 @@ public interface StoreProductService {
 
 	List<StoreProduct> getList(StoreProduct storeProduct) throws Exception;
 
+	List<StoreProduct> getList(int categoryId) throws Exception;
 }

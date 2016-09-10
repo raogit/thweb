@@ -18,13 +18,11 @@
                       http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
 	<!-- 使用disConf的话,scanPackage需要加上com.baidu -->
-	<context:component-scan base-package="com.tianhong" />
-	<mvc:annotation-driven />
+	<context:component-scan base-package="com.tianhong"></context:component-scan>
+	<mvc:annotation-driven></mvc:annotation-driven>
 
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView" />
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
@@ -75,6 +73,9 @@
 	
 	<mvc:resources mapping="/shopping-center/**" location="/shopping-center/" />
 	<mvc:resources mapping="/store/**" location="/store/" />
+	
+	<mvc:resources mapping="/store/images/**" location="/store/images/" />
+	
 	<mvc:resources mapping="/common/**" location="/common/" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/images/**" location="/images/" />

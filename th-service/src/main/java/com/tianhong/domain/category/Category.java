@@ -1,7 +1,10 @@
 package com.tianhong.domain.category;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import com.tianhong.domain.store.StoreProduct;
 import com.tianhong.page.Page;
 
 public class Category extends Page {
@@ -30,6 +33,8 @@ public class Category extends Page {
 	private String backup2;
 
 	private String backup3;
+
+	private List<StoreProduct> storeProducts;
 
 	public Integer getId() {
 		return id;
@@ -134,4 +139,16 @@ public class Category extends Page {
 	public void setBackup3(String backup3) {
 		this.backup3 = backup3 == null ? null : backup3.trim();
 	}
+
+	public List<StoreProduct> getStoreProducts() {
+		if (storeProducts == null) {
+			storeProducts = new ArrayList<StoreProduct>();
+		}
+		return storeProducts;
+	}
+
+	public void setStoreProducts(List<StoreProduct> storeProducts) {
+		this.storeProducts = storeProducts;
+	}
+
 }

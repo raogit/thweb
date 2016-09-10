@@ -15,12 +15,17 @@
     <div class="cont-in">
         <div class="cont-int clearfix">
             <ul class="c-i-img">
-                <li><a href="About/Store.html"><img src="images/index/i_02.png" alt=""></a></li>
-                <li><a href="About/Public.html"><img src="images/index/i_03.png" alt=""></a></li>
-                <li><a href="Join/Iwant.html"><img src="images/index/i_04.png" alt=""></a></li>
+               <%--  <li><a href="About/Store.html"><img src="${basePath }/store/images/index/i_02.png" alt=""></a></li>
+                <li><a href="About/Public.html"><img src="${basePath }/store/images/index/i_03.png" alt=""></a></li> --%>
+               
+                <c:forEach var="item" items="${pictures }" begin="1" step="1" end="3" varStatus="itemStatus">
+	            	 <li><a href="Join/Iwant.html"><img src="${basePath}/download/png?fileName=${item.path }" alt="" width="211px" height="90px"></a></li>
+	            </c:forEach>
             </ul>
             <div class="c-i-banner">
-                <img src="images/index/i_01.png" alt="">
+	            <c:forEach var="item" items="${pictures }" begin="0" step="1" end="0" varStatus="itemStatus">
+	            	<img src="${basePath}/download/png?fileName=${item.path }" alt=""  width="743px" height="290px">
+	            </c:forEach>
             </div>
         </div>
         <div class="c-i-new">
@@ -29,11 +34,11 @@
                 <div class="n-l-en">New arrival</div>
             </div>
             <ul class="c-i-nright">
-                <li><img src="images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
-                <li><img src="images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
-                <li><img src="images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
-                <li><img src="images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
-                <li><img src="images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
+                <li><img src="${basePath }/store/images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
+                <li><img src="${basePath }/store/images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
+                <li><img src="${basePath }/store/images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
+                <li><img src="${basePath }/store/images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
+                <li><img src="${basePath }/store/images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
             </ul>
         </div>
         <div class="c-i-btm">
@@ -41,7 +46,7 @@
                 <div class="b-r-title">最新消息</div>
                 <div class="b-r-cont">
                     <div class="b-r-cT">
-                        <img src="images/index/i_06.png" alt="">
+                        <img src="${basePath }/store/images/index/i_06.png" alt="">
                         <ul class="b-r-list">
                             <li><a href="NewInfo.html"><div class="b-r-cR">偏爱圣诞季~积分"五"倍送</div><div class="b-r-cL">2016年07月07日</div></a></li>
                             <li><a href="NewInfo.html"><div class="b-r-cR">偏爱圣诞季~积分"五"倍送</div><div class="b-r-cL">2016年07月07日</div></a></li>
@@ -57,42 +62,42 @@
                 <div class="b-l-title">商品介绍</div>
                 <div class="b-l-cont">
                     <div class="l-cont-in">
-                        <div class="l-cont-inl"><img src="images/index/i_05.jpg" alt=""></div>
+                        <div class="l-cont-inl"><img src="${basePath }/store/images/index/i_05.jpg" alt=""></div>
                         <div class="l-cont-inr">
                             <p>关东煮</p>
                             <p class="inr-en">Oden</p>
                         </div>
                     </div>
                     <div class="l-cont-in">
-                        <div class="l-cont-inl"><img src="images/index/i_05.jpg" alt=""></div>
+                        <div class="l-cont-inl"><img src="${basePath }/store/images/index/i_05.jpg" alt=""></div>
                         <div class="l-cont-inr">
                             <p>关东煮</p>
                             <p class="inr-en">Oden</p>
                         </div>
                     </div>
                     <div class="l-cont-in">
-                        <div class="l-cont-inl"><img src="images/index/i_05.jpg" alt=""></div>
+                        <div class="l-cont-inl"><img src="${basePath }/store/images/index/i_05.jpg" alt=""></div>
                         <div class="l-cont-inr">
                             <p>关东煮</p>
                             <p class="inr-en">Oden</p>
                         </div>
                     </div>
                     <div class="l-cont-in">
-                        <div class="l-cont-inl"><img src="images/index/i_05.jpg" alt=""></div>
+                        <div class="l-cont-inl"><img src="${basePath }/store/images/index/i_05.jpg" alt=""></div>
                         <div class="l-cont-inr">
                             <p>关东煮</p>
                             <p class="inr-en">Oden</p>
                         </div>
                     </div>
                     <div class="l-cont-in">
-                        <div class="l-cont-inl"><img src="images/index/i_05.jpg" alt=""></div>
+                        <div class="l-cont-inl"><img src="${basePath }/store/images/index/i_05.jpg" alt=""></div>
                         <div class="l-cont-inr">
                             <p>关东煮</p>
                             <p class="inr-en">Oden</p>
                         </div>
                     </div>
                     <div class="l-cont-in">
-                        <div class="l-cont-inl"><img src="images/index/i_05.jpg" alt=""></div>
+                        <div class="l-cont-inl"><img src="${basePath }/store/images/index/i_05.jpg" alt=""></div>
                         <div class="l-cont-inr">
                             <p>关东煮</p>
                             <p class="inr-en">Oden</p>
@@ -104,15 +109,7 @@
         </div>
     </div>
 </div>
-<div class="footer">
-    <div class="f-cont">
-        <div class="f-c-right">
-            <div class="r-left"><a href="Problem.html" class="f-r-a">常见问题</a> | <a href="Contact.html" class="f-r-a">联系我们</a></div>
-            <div class="r-right">技术支持：牧星策划</div>
-        </div>
-        <div class="f-c-left">Copyright© 天虹微喔 2009-2017, All Rights Reserved 粤ICP备11065574号-7</div>
-    </div>
-</div>
-<script src="${basePath}/store/Scripts/common.js"></script>
+<jsp:include page="foot/foot.jsp"></jsp:include>
+
 </body>
 </html>

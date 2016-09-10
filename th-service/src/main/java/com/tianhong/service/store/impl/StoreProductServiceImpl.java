@@ -75,4 +75,9 @@ public class StoreProductServiceImpl implements StoreProductService {
 		return storeProduct;
 	}
 
+	public List<StoreProduct> getList(int categoryId) throws Exception {
+		StoreProduct storeProduct = new StoreProduct();
+		storeProduct.setCategoryId(categoryId);
+		return getList(storeProduct);
+	}
 }

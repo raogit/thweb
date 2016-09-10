@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-06 21:33:56
+Date: 2016-09-10 18:24:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -521,9 +521,9 @@ INSERT INTO `t_menu` VALUES ('158', '会员入会', '', '', '3', '152', '1', nul
 INSERT INTO `t_menu` VALUES ('159', '会员升降级制度', '', '', '3', '152', '2', null, '2016-08-25 21:25:33', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('160', 'VIP卡积分使用有效期', '', '', '3', '152', '3', null, '2016-08-25 21:25:42', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('161', '会员权益', '', '', '3', '152', '4', null, '2016-08-25 21:25:50', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('162', '天虹O2OStore', '', '', '1', '0', '14', '1', '2016-08-31 17:24:00', '1', '2016-08-31 20:42:50', '1', '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('163', '首页', '', '/store/index', '2', '162', '1', '1', '2016-08-31 17:24:15', '1', '2016-08-31 20:43:14', '1', '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('164', '商品', '', '/storeproduct/storeproduct-list', '2', '162', '2', '1', '2016-08-31 17:25:16', '1', '2016-08-31 20:43:19', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('162', '天虹O2OStore', '/store/index?menuId=162', '', '1', '0', '14', '1', '2016-08-31 17:24:00', '1', '2016-08-31 20:42:50', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('163', '首页', '/store/index', '/store/index', '2', '162', '1', '1', '2016-08-31 17:24:15', '1', '2016-08-31 20:43:14', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('164', '商品', '/store/product/index', '/storeproduct/storeproduct-list', '2', '162', '2', '1', '2016-08-31 17:25:16', '1', '2016-08-31 20:43:19', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('165', '最新活动', '', '/newactivity/newactivity-info', '2', '162', '3', '1', '2016-08-31 17:25:54', '1', '2016-08-31 20:43:27', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('166', '新品上市', '', '/newproduct/newproduct-list', '2', '162', '4', '1', '2016-08-31 17:26:02', '1', '2016-08-31 20:43:24', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('167', '预购专区', '', '/prebuy/prebuy-list', '2', '162', '5', '1', '2016-08-31 17:26:11', '1', '2016-08-31 20:44:19', '1', '0', '', null, null);
@@ -579,7 +579,7 @@ CREATE TABLE `t_picture` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_picture
@@ -647,6 +647,7 @@ INSERT INTO `t_picture` VALUES ('71', '140', '4', '优惠券', 'undefined', null
 INSERT INTO `t_picture` VALUES ('72', '156', '1', '', 'undefined', null, '1', '1472132174250.png', '2016-08-25 21:36:14', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('73', '163', '1', '', 'undefined', null, '1', '1473168468832.png', '2016-09-06 21:27:48', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('74', '163', '2', '', 'undefined', null, '1', '1473168472307.png', '2016-09-06 21:27:52', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('75', '163', '3', '', 'undefined', null, '1', '1473471710774.png', '2016-09-10 09:41:50', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_recruit_interaction`
@@ -952,13 +953,14 @@ CREATE TABLE `t_store_new_activity` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='最新活动';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='最新活动';
 
 -- ----------------------------
 -- Records of t_store_new_activity
 -- ----------------------------
 INSERT INTO `t_store_new_activity` VALUES ('1', '9', '活动', null, '<p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8080/th-admin/download/png?fileName=1473167662482.png\" width=\"300\"></p><p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8080/th-admin/download/png?fileName=1473167667868.png\" width=\"300\"></p><p><br></p>', '2016-09-06 21:14:29', '1', null, null, '0', null, null, null);
 INSERT INTO `t_store_new_activity` VALUES ('2', '7', '主题活动标题', null, '<p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8080/th-admin/download/png?fileName=1473168011067.png\" width=\"300\"></p><p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8080/th-admin/download/png?fileName=1473168014779.png\" width=\"300\"></p><p><br></p>', '2016-09-06 21:20:17', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_new_activity` VALUES ('3', '31', '静音', null, '<p>静音<br></p>', '2016-09-10 09:17:04', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_store_new_product`
