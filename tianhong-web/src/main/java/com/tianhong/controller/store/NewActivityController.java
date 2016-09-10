@@ -16,14 +16,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.category.Category;
 import com.tianhong.domain.menu.Menu;
+import com.tianhong.domain.picture.Picture;
+import com.tianhong.domain.store.NewActivity;
 import com.tianhong.domain.store.StoreProduct;
+import com.tianhong.domain.user.User;
 import com.tianhong.service.category.CategoryService;
 import com.tianhong.service.menu.MenuService;
+import com.tianhong.service.picture.PictureService;
+import com.tianhong.service.store.NewActivityService;
 import com.tianhong.service.store.StoreProductService;
 
 /**
@@ -31,15 +37,20 @@ import com.tianhong.service.store.StoreProductService;
  *
  */
 @Controller
-@RequestMapping(value = "/store/product")
-public class ProductController extends BaseController {
-	private static final Log log = LogFactory.getLog(ProductController.class);
+@RequestMapping(value = "/store/newactivity")
+public class NewActivityController extends BaseController {
+
+	private static final Log log = LogFactory.getLog(NewActivityController.class);
 	@Autowired
 	private MenuService menuService;
 	@Autowired
 	private CategoryService categoryService;
 	@Autowired
+	private PictureService pictureService;
+	@Autowired
 	private StoreProductService storeProductService;
+	@Autowired
+	private NewActivityService newActivityService;
 
 	@RequestMapping(value = "/index")
 	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
@@ -47,6 +58,8 @@ public class ProductController extends BaseController {
 		try {
 			List<Menu> subMenus = menuService.getSubMenus(162, true);
 			model.put("subMenus", subMenus);
+			List<Picture> pictures = pictureService.findByMenuId(menuId);
+			model.put("pictures", pictures);
 			Category category = new Category();
 			category.setMenuId(menuId);
 			List<Category> categorys = categoryService.getList(category);
@@ -58,27 +71,41 @@ public class ProductController extends BaseController {
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/store/Commodity/default", model);
+		return new ModelAndView("/store/Activity/default", model);
 	}
 
-	@RequestMapping(value = "/detail")
-	public Object detail(@RequestParam("menuId") int menuId, @RequestParam("categoryId") int categoryId,
-			HttpServletRequest request, HttpServletResponse response) {
-		Map<String, Object> model = new HashMap<String, Object>();
+	@RequestMapping(value = "/save")
+	@ResponseBody
+	public Object save(NewActivity newActivity, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			List<Menu> subMenus = menuService.getSubMenus(162, true);
-			model.put("subMenus", subMenus);
-			Category ca = new Category();
-			ca.setMenuId(menuId);
-			List<Category> categorys = categoryService.getList(ca);
-			model.put("categorys", categorys);
-			Category category = categoryService.getByPrimaryKey(categoryId);
-			model.put("category", category);
-			List<StoreProduct> storeProducts = storeProductService.getList(categoryId);
-			model.put("storeProducts", storeProducts);
+			User user = getCurrentUser(request);
+			return newActivityService.saveOrUpdate(newActivity, user);
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/store/Commodity/cmddetail", model);
+		return false;
+	}
+
+	@RequestMapping(value = "/get")
+	@ResponseBody
+	public Object get(@RequestParam("categoryId") int categoryId, HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			return newActivityService.getByCategoryId(categoryId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/delete")
+	@ResponseBody
+	public Object delete(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return newActivityService.deleteByPrimaryKey(id);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
 	}
 }

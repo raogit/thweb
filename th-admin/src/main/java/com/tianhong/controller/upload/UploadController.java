@@ -110,7 +110,6 @@ public class UploadController extends BaseController {
 	@ResponseBody
 	public Object picture(@RequestParam("fileId") MultipartFile[] file, @RequestParam("title") String title,
 			HttpServletRequest request, ModelMap model) {
-
 		try {
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			User user = getCurrentUser(request);
@@ -125,7 +124,28 @@ public class UploadController extends BaseController {
 			return true;
 		} catch (Exception e) {
 			log.error("", e);
+		}
+		return false;
+	}
 
+	@RequestMapping(value = "/filepic")
+	@ResponseBody
+	public Object filePicId(@RequestParam("filePicId") MultipartFile[] file, @RequestParam("title") String title,
+			HttpServletRequest request, ModelMap model) {
+		try {
+			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
+			User user = getCurrentUser(request);
+			String url = request.getParameter("url");
+			int menuId = Integer.parseInt(request.getParameter("menuId"));
+			byte type = Byte.parseByte(request.getParameter("type"));
+			request.setCharacterEncoding(CommonConstant.UTF_8);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
+					CommonConstant.UPLOAD_IMG_PATH);
+			String fileName = FileToolUtils.saveImage(file[0], path);
+			pictureService.insertSelective(menuId, title, url, type, fileName, user);
+			return true;
+		} catch (Exception e) {
+			log.error("", e);
 		}
 		return false;
 	}

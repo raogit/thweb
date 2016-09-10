@@ -30,6 +30,26 @@
 </head>
 
 <body>
+	<input type="hidden" value="/upload/filepic" id="uri" name="uri" />
+	<div>
+		<form action="${basePath }/upload/filepic" encType="multipart/form-data" method="post">
+			<ul class="ulColumn2" style="text-align: left;">
+				<li>
+					<span class="item_name" style="width: 120px;">上传图片：</span><input type="file" id="filePicId" name="filePicId"/> 
+				</li>
+				<li>
+					<span class="item_name" style="width: 120px;">图片名称：</span><input type="text" id="picTitle" name="picTitle"/> 
+				</li>
+				<li>
+					<span class="item_name" style="width: 120px;">图片URL：</span><input type="text" id="url" name="url"/> 
+				</li>
+				<li><span class="item_name" style="width: 120px;"></span> <input
+					type="button" class="link_btn" onclick="uploadPic('filePicId',1)" value="上传"/></li>					
+				<li id="bannerpicture"> </li>
+			</ul>
+		</form>
+	</div>
+	<div style="height:30px;border-bottom:2px solid #19a97b;"></div>
 	<section class="rt_wrap content mCustomScrollbar">
 		<div class="rt_content">
 	
@@ -59,8 +79,6 @@
 							placeholder="请输入菜单名..." class="textbox" /></li>
 						<li><span style="width: 70px; text-align: right;" class="ttl">描述:</span>
 							<textarea id="popDescriber" rows="10" cols="50"></textarea></li>
-						<!-- 					<li><span style="width:70px;text-align: right;" class="ttl">前台链接:</span><input id="popLink"  style="width:140px;" type="text" placeholder="请填写link..." class="textbox" /></li> -->
-						<!-- 					<li><span style="width:70px;text-align: right;" class="ttl">后台链接:</span><input id="popUrl"  style="width:140px;" type="text" placeholder="请填写url..." class="textbox" /></li> -->
 					</ul>
 					<div id="popUpPicture">
 						<form action="${basePath }/upload/image"

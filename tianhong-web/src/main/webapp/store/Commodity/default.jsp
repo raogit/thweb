@@ -77,7 +77,7 @@
 						<c:forEach var="item" items="${categorys }" begin="0" step="1" varStatus="itemStatus">
 							<div class="n-l-cin">
 								<div class="cin-title">
-									<div class="cin-ttc">${item.name }</div><a href="CmdDetail.html"><div class="cin-tdc">MORE>></div></a>
+									<div class="cin-ttc">${item.name }</div><a href="${basePath}/store/product/detail?menuId=${item.menuId }&categoryId=${item.id}"><div class="cin-tdc">MORE>></div></a>
 								</div>
 								<div class="cin-contCM">
 									<c:forEach var="product" items="${item.storeProducts }" begin="0" step="1">
