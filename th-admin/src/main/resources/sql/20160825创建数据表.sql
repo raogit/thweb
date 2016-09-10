@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-10 18:24:44
+Date: 2016-09-10 22:40:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -39,10 +39,10 @@ CREATE TABLE `t_category` (
 -- ----------------------------
 -- Records of t_category
 -- ----------------------------
-INSERT INTO `t_category` VALUES ('1', '164', null, '关东煮', 'Oden', '2016-09-01 10:54:30', '1', '2016-09-01 11:03:36', '1', '0', null, null, null);
+INSERT INTO `t_category` VALUES ('1', '164', null, '关东煮1', 'Oden', '2016-09-01 10:54:30', '1', '2016-09-10 21:05:45', '1', '0', null, null, null);
 INSERT INTO `t_category` VALUES ('4', '164', null, '便当', 'Lunch', '2016-09-01 11:12:06', '1', null, null, '0', null, null, null);
 INSERT INTO `t_category` VALUES ('5', '164', null, '甜品', 'Dessert', '2016-09-01 11:12:35', '1', null, null, '0', null, null, null);
-INSERT INTO `t_category` VALUES ('6', '164', null, '特色小吃', 'Snack', '2016-09-01 11:12:58', '1', null, null, '0', null, null, null);
+INSERT INTO `t_category` VALUES ('6', '164', null, '特色小吃1', 'Snack', '2016-09-01 11:12:58', '1', '2016-09-10 21:05:48', '1', '0', null, null, null);
 INSERT INTO `t_category` VALUES ('7', '165', null, '主题活动', 'Theme', '2016-09-01 11:13:25', '1', null, null, '0', null, null, null);
 INSERT INTO `t_category` VALUES ('8', '165', null, '促销活动', 'Promotion', '2016-09-01 11:13:42', '1', null, null, '0', null, null, null);
 INSERT INTO `t_category` VALUES ('9', '165', null, '热门活动', 'Hot', '2016-09-01 11:13:55', '1', null, null, '0', null, null, null);
@@ -524,9 +524,9 @@ INSERT INTO `t_menu` VALUES ('161', '会员权益', '', '', '3', '152', '4', nul
 INSERT INTO `t_menu` VALUES ('162', '天虹O2OStore', '/store/index?menuId=162', '', '1', '0', '14', '1', '2016-08-31 17:24:00', '1', '2016-08-31 20:42:50', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('163', '首页', '/store/index', '/store/index', '2', '162', '1', '1', '2016-08-31 17:24:15', '1', '2016-08-31 20:43:14', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('164', '商品', '/store/product/index', '/storeproduct/storeproduct-list', '2', '162', '2', '1', '2016-08-31 17:25:16', '1', '2016-08-31 20:43:19', '1', '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('165', '最新活动', '', '/newactivity/newactivity-info', '2', '162', '3', '1', '2016-08-31 17:25:54', '1', '2016-08-31 20:43:27', '1', '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('166', '新品上市', '', '/newproduct/newproduct-list', '2', '162', '4', '1', '2016-08-31 17:26:02', '1', '2016-08-31 20:43:24', '1', '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('167', '预购专区', '', '/prebuy/prebuy-list', '2', '162', '5', '1', '2016-08-31 17:26:11', '1', '2016-08-31 20:44:19', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('165', '最新活动', '/store/newactivity/index', '/newactivity/newactivity-info', '2', '162', '3', '1', '2016-08-31 17:25:54', '1', '2016-08-31 20:43:27', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('166', '新品上市', '/store/newproduct/index', '/newproduct/newproduct-list', '2', '162', '4', '1', '2016-08-31 17:26:02', '1', '2016-08-31 20:43:24', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('167', '预购专区', '/store/prebuy/index', '/prebuy/prebuy-list', '2', '162', '5', '1', '2016-08-31 17:26:11', '1', '2016-08-31 20:44:19', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('168', '便利服务', '', '/newactivity/newactivity-info', '2', '162', '6', '1', '2016-08-31 17:26:21', '1', '2016-08-31 20:44:15', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('169', '加盟我们', '', '/newactivity/newactivity-info', '2', '162', '7', '1', '2016-08-31 17:26:31', '1', '2016-08-31 20:44:24', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('170', '关于我们', '', '/newactivity/newactivity-info', '2', '162', '8', '1', '2016-08-31 17:26:40', '1', '2016-08-31 20:44:27', '1', '0', '', null, null);
@@ -579,7 +579,7 @@ CREATE TABLE `t_picture` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_picture
@@ -648,6 +648,12 @@ INSERT INTO `t_picture` VALUES ('72', '156', '1', '', 'undefined', null, '1', '1
 INSERT INTO `t_picture` VALUES ('73', '163', '1', '', 'undefined', null, '1', '1473168468832.png', '2016-09-06 21:27:48', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('74', '163', '2', '', 'undefined', null, '1', '1473168472307.png', '2016-09-06 21:27:52', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('75', '163', '3', '', 'undefined', null, '1', '1473471710774.png', '2016-09-10 09:41:50', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('76', '165', '1', '', 'undefined', null, '1', '1473513956471.png', '2016-09-10 21:25:56', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('77', '165', '3', '', 'undefined', null, '1', '1473513961068.png', '2016-09-10 21:26:01', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('78', '165', '2', '', 'undefined', null, '1', '1473513964365.png', '2016-09-10 21:26:04', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('79', '166', '1', '', 'undefined', null, '1', '1473515427318.png', '2016-09-10 21:50:27', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('80', '166', '3', '', 'undefined', null, '1', '1473515433238.png', '2016-09-10 21:50:33', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('81', '166', '2', '', 'undefined', null, '1', '1473515437221.png', '2016-09-10 21:50:37', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_recruit_interaction`
@@ -968,7 +974,7 @@ INSERT INTO `t_store_new_activity` VALUES ('3', '31', '静音', null, '<p>静音
 DROP TABLE IF EXISTS `t_store_new_product`;
 CREATE TABLE `t_store_new_product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `category_id` tinyint(4) DEFAULT NULL COMMENT '类型:1新品推荐,2进口新品推荐',
+  `category_id` int(11) DEFAULT NULL COMMENT '类型:1新品推荐,2进口新品推荐',
   `name` varchar(1024) DEFAULT NULL,
   `picture` varchar(1024) DEFAULT NULL,
   `describer` varchar(1024) DEFAULT NULL,
@@ -986,8 +992,9 @@ CREATE TABLE `t_store_new_product` (
 -- ----------------------------
 -- Records of t_store_new_product
 -- ----------------------------
-INSERT INTO `t_store_new_product` VALUES ('1', '36', '费列罗品巧克力', '1472716167944.png', '开创多层式用料，外面铺满巧克力碎果仁，里面有威化、软巧克力和一粒完整的榛子。', '2016-09-01 15:49:28', '1', '2016-09-01 16:00:38', '1', '0', null, null, null);
-INSERT INTO `t_store_new_product` VALUES ('2', '37', '巧克力', '1472716919892.png', '开创多层式用料，外面铺满巧克力碎果仁，里面有威化、软巧克力和一粒完整的榛子。', '2016-09-01 16:02:00', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_new_product` VALUES ('1', '36', '费列罗品巧克力', '1473517356030.png', '开创多层式用料，外面铺满巧克力碎果仁，里面有威化、软巧克力和一粒完整的榛子。', '2016-09-01 15:49:28', '1', '2016-09-10 22:22:51', '1', '0', null, null, null);
+INSERT INTO `t_store_new_product` VALUES ('2', '37', '巧克力', '1473517382983.png', '开创多层式用料，外面铺满巧克力碎果仁，里面有威化、软巧克力和一粒完整的榛子。', '2016-09-01 16:02:00', '1', '2016-09-10 22:23:03', '1', '0', null, null, null);
+INSERT INTO `t_store_new_product` VALUES ('3', '37', '巧克力01', '1473516834124.png', '，外面铺满巧克力碎果仁，里面有威化、软巧克力和一粒完整的榛', '2016-09-10 22:14:03', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_store_pre_buy`
@@ -1037,7 +1044,7 @@ CREATE TABLE `t_store_product` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='商品';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='商品';
 
 -- ----------------------------
 -- Records of t_store_product
@@ -1045,6 +1052,10 @@ CREATE TABLE `t_store_product` (
 INSERT INTO `t_store_product` VALUES ('1', '1', '柱候牛腩饭', '22元', '1472713553941.png', '2016-09-01 14:55:32', '1', '2016-09-01 15:05:54', '1', '0', null, null, null);
 INSERT INTO `t_store_product` VALUES ('2', '4', '台北便当', '25元', '1472713594349.png', '2016-09-01 15:06:36', '1', null, null, '0', null, null, null);
 INSERT INTO `t_store_product` VALUES ('3', '36', '费列罗品巧克力', null, '1472715557413.png', '2016-09-01 15:39:18', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_product` VALUES ('4', '1', '柱候牛腩饭1', '33元', '1473512779841.png', '2016-09-10 21:06:20', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_product` VALUES ('5', '1', '柱候牛腩饭2', '55元', '1473512804116.png', '2016-09-10 21:06:45', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_product` VALUES ('6', '1', '柱候牛腩饭33', '33', '1473512813883.png', '2016-09-10 21:06:54', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_product` VALUES ('7', '1', '柱候牛腩饭55', '55', '1473512824322.png', '2016-09-10 21:07:04', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_store_service_join_about`
