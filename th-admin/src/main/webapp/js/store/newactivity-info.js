@@ -93,5 +93,6 @@ function clear(){
 
 function changeSelect(val){
 	$("#categoryId").val(val)
+	$("#title").val("");
 	initRich($("#categoryId").val());
 }
