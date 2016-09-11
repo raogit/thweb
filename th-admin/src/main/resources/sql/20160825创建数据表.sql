@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-10 22:40:31
+Date: 2016-09-11 08:51:13
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -987,7 +987,7 @@ CREATE TABLE `t_store_new_product` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='新品上市';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='新品上市';
 
 -- ----------------------------
 -- Records of t_store_new_product
@@ -995,6 +995,10 @@ CREATE TABLE `t_store_new_product` (
 INSERT INTO `t_store_new_product` VALUES ('1', '36', '费列罗品巧克力', '1473517356030.png', '开创多层式用料，外面铺满巧克力碎果仁，里面有威化、软巧克力和一粒完整的榛子。', '2016-09-01 15:49:28', '1', '2016-09-10 22:22:51', '1', '0', null, null, null);
 INSERT INTO `t_store_new_product` VALUES ('2', '37', '巧克力', '1473517382983.png', '开创多层式用料，外面铺满巧克力碎果仁，里面有威化、软巧克力和一粒完整的榛子。', '2016-09-01 16:02:00', '1', '2016-09-10 22:23:03', '1', '0', null, null, null);
 INSERT INTO `t_store_new_product` VALUES ('3', '37', '巧克力01', '1473516834124.png', '，外面铺满巧克力碎果仁，里面有威化、软巧克力和一粒完整的榛', '2016-09-10 22:14:03', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_new_product` VALUES ('4', '36', '巧克力01', '1473553243805.png', '式用料，外面铺满巧克力碎果仁，里面有威化、软巧克力和一粒完整的', '2016-09-11 08:20:44', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_new_product` VALUES ('5', '36', '巧克力02', '1473553261253.png', '仁，里面有威化、软巧克力和一粒完整的', '2016-09-11 08:21:01', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_new_product` VALUES ('6', '36', '巧克力03', '1473553372688.png', '用料，外面铺满巧克力碎果仁，里面有威化、软巧克力和一粒完整的榛', '2016-09-11 08:22:53', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_new_product` VALUES ('7', '36', '品巧克力04', '1473553392455.png', '用料，外面铺满巧克力碎果仁，里面有威化、软巧克力和一粒完整的榛子', '2016-09-11 08:23:12', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_store_pre_buy`
@@ -1017,13 +1021,15 @@ CREATE TABLE `t_store_pre_buy` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='预购专区';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='预购专区';
 
 -- ----------------------------
 -- Records of t_store_pre_buy
 -- ----------------------------
 INSERT INTO `t_store_pre_buy` VALUES ('1', '11', '011', '2016-09-01 00:00:00', '168g', '108元', '1472994764651.png', '2016-09-04 21:12:52', '1', null, null, '0', null, null, null);
 INSERT INTO `t_store_pre_buy` VALUES ('2', '12', '应季推荐001', '2016-09-15 00:00:00', '1068', '12', '1472994802927.png', '2016-09-04 21:13:23', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_pre_buy` VALUES ('3', '11', '0002151', '2016-09-13 00:00:00', '169g', '11', '1473553447746.png', '2016-09-11 08:24:11', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_pre_buy` VALUES ('4', '11', '蛋黄莲蓉', '2016-09-05 00:00:00', '165', '22', '1473554180504.png', '2016-09-11 08:36:23', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_store_product`
