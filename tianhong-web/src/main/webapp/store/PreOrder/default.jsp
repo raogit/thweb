@@ -116,190 +116,32 @@
 				</div>
 			</div>
 			<c:forEach var="item" items="${preBuyList }" begin="0" step="1" varStatus="itemStatus">
-			
+				<c:if test="${(itemStatus.index+1)%4==0 }">
+					<div class="new-left p-left">
+				</c:if>
+					<div class="p-left-in">
+						<div class="rs-title">
+							<div class="rs-tch">${item.name }</div>
+							<div class="n-r-nin"><img src="images/n_13.png" alt="" /></div>
+						</div>
+						<div class="rs-cont">
+							<div class="rs-cin p-cin">
+								<div class="cin-CM-in">
+									<img src="${basePath}/download/png?fileName=${item.picture }" alt="" width="150px" height="150px" />
+								</div>
+								<div class="cin-CM-nm rs-nm">
+									<p>截止日期：${item.closeDate }</p>
+									<p class="rs-p">规 格：${item.weight }</p>
+									<p class="rs-p">参考价格：<em>${item.price }</em></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				<c:if test="${(itemStatus.index+1)%4==0 }">
+					</div>
+				</c:if>
 			</c:forEach>
 			
-			
-			<div class="new-left p-left">
-				<div class="p-left-in">
-					<div class="rs-title">
-						<div class="rs-tch">黄金兴蛋黄莲蓉月饼</div>
-						<div class="n-r-nin">
-							<img src="images/n_13.png" alt="">
-						</div>
-					</div>
-					<div class="rs-cont">
-						<div class="rs-cin p-cin">
-							<div class="cin-CM-in">
-								<img src="images/p_01.jpg" alt="">
-							</div>
-							<div class="cin-CM-nm rs-nm">
-								<p>截止日期：2016-08-26</p>
-								<p class="rs-p">规 格：125g</p>
-								<p class="rs-p">
-									参考价格：<em>98元</em>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="p-left-in">
-					<div class="rs-title">
-						<div class="rs-tch">黄金兴蛋黄莲蓉月饼</div>
-						<div class="n-r-nin">
-							<img src="images/n_13.png" alt="">
-						</div>
-					</div>
-					<div class="rs-cont">
-						<div class="rs-cin p-cin">
-							<div class="cin-CM-in">
-								<img src="images/p_01.jpg" alt="">
-							</div>
-							<div class="cin-CM-nm rs-nm">
-								<p>截止日期：2016-08-26</p>
-								<p class="rs-p">规 格：125g</p>
-								<p class="rs-p">
-									参考价格：<em>98元</em>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="p-left-in">
-					<div class="rs-title">
-						<div class="rs-tch">黄金兴蛋黄莲蓉月饼</div>
-						<div class="n-r-nin">
-							<img src="images/n_13.png" alt="">
-						</div>
-					</div>
-					<div class="rs-cont">
-						<div class="rs-cin p-cin">
-							<div class="cin-CM-in">
-								<img src="images/p_01.jpg" alt="">
-							</div>
-							<div class="cin-CM-nm rs-nm">
-								<p>截止日期：2016-08-26</p>
-								<p class="rs-p">规 格：125g</p>
-								<p class="rs-p">
-									参考价格：<em>98元</em>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="p-left-in">
-					<div class="rs-title">
-						<div class="rs-tch">黄金兴蛋黄莲蓉月饼</div>
-						<div class="n-r-nin">
-							<img src="images/n_13.png" alt="">
-						</div>
-					</div>
-					<div class="rs-cont">
-						<div class="rs-cin p-cin">
-							<div class="cin-CM-in">
-								<img src="images/p_01.jpg" alt="">
-							</div>
-							<div class="cin-CM-nm rs-nm">
-								<p>截止日期：2016-08-26</p>
-								<p class="rs-p">规 格：125g</p>
-								<p class="rs-p">
-									参考价格：<em>98元</em>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="new-left p-left">
-				<div class="p-left-in">
-					<div class="rs-title">
-						<div class="rs-tch">黄金兴蛋黄莲蓉月饼</div>
-						<div class="n-r-nin">
-							<img src="images/n_13.png" alt="">
-						</div>
-					</div>
-					<div class="rs-cont">
-						<div class="rs-cin p-cin">
-							<div class="cin-CM-in">
-								<img src="images/p_01.jpg" alt="">
-							</div>
-							<div class="cin-CM-nm rs-nm">
-								<p>截止日期：2016-08-26</p>
-								<p class="rs-p">规 格：125g</p>
-								<p class="rs-p">
-									参考价格：<em>98元</em>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="p-left-in">
-					<div class="rs-title">
-						<div class="rs-tch">黄金兴蛋黄莲蓉月饼</div>
-						<div class="n-r-nin">
-							<img src="images/n_13.png" alt="">
-						</div>
-					</div>
-					<div class="rs-cont">
-						<div class="rs-cin p-cin">
-							<div class="cin-CM-in">
-								<img src="images/p_01.jpg" alt="">
-							</div>
-							<div class="cin-CM-nm rs-nm">
-								<p>截止日期：2016-08-26</p>
-								<p class="rs-p">规 格：125g</p>
-								<p class="rs-p">
-									参考价格：<em>98元</em>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="p-left-in">
-					<div class="rs-title">
-						<div class="rs-tch">黄金兴蛋黄莲蓉月饼</div>
-						<div class="n-r-nin">
-							<img src="images/n_13.png" alt="">
-						</div>
-					</div>
-					<div class="rs-cont">
-						<div class="rs-cin p-cin">
-							<div class="cin-CM-in">
-								<img src="images/p_01.jpg" alt="">
-							</div>
-							<div class="cin-CM-nm rs-nm">
-								<p>截止日期：2016-08-26</p>
-								<p class="rs-p">规 格：125g</p>
-								<p class="rs-p">
-									参考价格：<em>98元</em>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="p-left-in">
-					<div class="rs-title">
-						<div class="rs-tch">黄金兴蛋黄莲蓉月饼</div>
-						<div class="n-r-nin">
-							<img src="images/n_13.png" alt="">
-						</div>
-					</div>
-					<div class="rs-cont">
-						<div class="rs-cin p-cin">
-							<div class="cin-CM-in">
-								<img src="images/p_01.jpg" alt="">
-							</div>
-							<div class="cin-CM-nm rs-nm">
-								<p>截止日期：2016-08-26</p>
-								<p class="rs-p">规 格：125g</p>
-								<p class="rs-p">
-									参考价格：<em>98元</em>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div class="n-l-btm">
 				<img src="images/n_12.png" alt="">
 			</div>

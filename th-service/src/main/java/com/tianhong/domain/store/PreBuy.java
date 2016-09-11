@@ -2,7 +2,9 @@ package com.tianhong.domain.store;
 
 import java.util.Date;
 
+import com.tianhong.constant.CommonConstant;
 import com.tianhong.page.Page;
+import com.tianhong.utils.DateUtils;
 
 public class PreBuy extends Page {
 	private Integer id;
@@ -158,6 +160,11 @@ public class PreBuy extends Page {
 	}
 
 	public String getCloseDate() {
+		try {
+			closeDate = DateUtils.parseString(getEndTime(), CommonConstant.YYYY_MM_dd);
+		} catch (Exception e) {
+			closeDate = "";
+		}
 		return closeDate;
 	}
 

@@ -29,7 +29,7 @@
 	<script src="${basePath}/js/upload/ajaxfileupload.js?ver=${ver}" type="text/javascript"></script>
 </head>
 
-<body>
+<body style="overflow: auto;">
 	<input type="hidden" value="/upload/filepic" id="uri" name="uri" />
 	<div>
 		<form action="${basePath }/upload/filepic" encType="multipart/form-data" method="post">

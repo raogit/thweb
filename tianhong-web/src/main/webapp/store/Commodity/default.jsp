@@ -80,7 +80,7 @@
 									<div class="cin-ttc">${item.name }</div><a href="${basePath}/store/product/detail?menuId=${item.menuId }&categoryId=${item.id}"><div class="cin-tdc">MORE>></div></a>
 								</div>
 								<div class="cin-contCM">
-									<c:forEach var="product" items="${item.storeProducts }" begin="0" step="1">
+									<c:forEach var="product" items="${item.storeProducts }" begin="0" step="1" end="3">
 										<div class="cin-CM">
 											<div class="cin-CM-in"><img src="${basePath}/download/png?fileName=${product.picture }" alt=""></div>
 											<div class="cin-CM-nm"><p>${product.name }</p><p>统一价格：<em>${product.price }</em></p></div>

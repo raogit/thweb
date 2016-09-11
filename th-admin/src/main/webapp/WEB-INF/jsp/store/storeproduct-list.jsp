@@ -29,7 +29,7 @@
 	<script src="${basePath}/js/upload/ajaxfileupload.js?ver=${ver}" type="text/javascript" ></script>
 </head>
 
-<body>
+<body style="overflow: auto;">
 	<section class="rt_wrap content mCustomScrollbar">
 	<div class="rt_content">
 		
