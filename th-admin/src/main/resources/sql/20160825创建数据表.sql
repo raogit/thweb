@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-11 08:51:13
+Date: 2016-09-17 09:50:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -959,7 +959,7 @@ CREATE TABLE `t_store_new_activity` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='最新活动';
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='最新活动';
 
 -- ----------------------------
 -- Records of t_store_new_activity
@@ -967,6 +967,7 @@ CREATE TABLE `t_store_new_activity` (
 INSERT INTO `t_store_new_activity` VALUES ('1', '9', '活动', null, '<p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8080/th-admin/download/png?fileName=1473167662482.png\" width=\"300\"></p><p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8080/th-admin/download/png?fileName=1473167667868.png\" width=\"300\"></p><p><br></p>', '2016-09-06 21:14:29', '1', null, null, '0', null, null, null);
 INSERT INTO `t_store_new_activity` VALUES ('2', '7', '主题活动标题', null, '<p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8080/th-admin/download/png?fileName=1473168011067.png\" width=\"300\"></p><p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8080/th-admin/download/png?fileName=1473168014779.png\" width=\"300\"></p><p><br></p>', '2016-09-06 21:20:17', '1', null, null, '0', null, null, null);
 INSERT INTO `t_store_new_activity` VALUES ('3', '31', '静音', null, '<p>静音<br></p>', '2016-09-10 09:17:04', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_new_activity` VALUES ('4', '24', '加盟优势', null, '<p style=\"text-align: left;\">\n\n加盟优势\n\n\n\n</p><p>天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。</p><p>\n\n  天虹便利店的发展\n\n    </p><p><img class=\"fr-fin\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8080/th-admin/download/png?fileName=1474076870220.png\" width=\"300\"></p><p><br></p><p>天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。</p><p>天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。</p><p>天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限</p><p><img class=\"fr-fil\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8080/th-admin/download/png?fileName=1474076946818.png\" width=\"200\"></p><p><br></p><p><br></p><p><br></p><p><br></p><p><img class=\"fr-fil\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8080/th-admin/download/png?fileName=1474076979732.png\" width=\"184\"></p><p><img class=\"fr-fir\" data-fr-image-preview=\"false\" alt=\"Image title\" src=\"http://localhost:8080/th-admin/download/png?fileName=1474076994820.png\" width=\"401\"></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p>天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。</p><p>天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。</p>', '2016-09-17 09:50:18', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_store_new_product`
@@ -1021,7 +1022,7 @@ CREATE TABLE `t_store_pre_buy` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='预购专区';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='预购专区';
 
 -- ----------------------------
 -- Records of t_store_pre_buy
@@ -1030,6 +1031,7 @@ INSERT INTO `t_store_pre_buy` VALUES ('1', '11', '011', '2016-09-01 00:00:00', '
 INSERT INTO `t_store_pre_buy` VALUES ('2', '12', '应季推荐001', '2016-09-15 00:00:00', '1068', '12', '1472994802927.png', '2016-09-04 21:13:23', '1', null, null, '0', null, null, null);
 INSERT INTO `t_store_pre_buy` VALUES ('3', '11', '0002151', '2016-09-13 00:00:00', '169g', '11', '1473553447746.png', '2016-09-11 08:24:11', '1', null, null, '0', null, null, null);
 INSERT INTO `t_store_pre_buy` VALUES ('4', '11', '蛋黄莲蓉', '2016-09-05 00:00:00', '165', '22', '1473554180504.png', '2016-09-11 08:36:23', '1', null, null, '0', null, null, null);
+INSERT INTO `t_store_pre_buy` VALUES ('5', '11', '巧克力02', '2016-09-17 09:44:54', '142', '12元', '1473553261253.png', '2016-09-17 09:41:09', '1', '2016-09-17 09:44:54', '1', '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_store_product`
