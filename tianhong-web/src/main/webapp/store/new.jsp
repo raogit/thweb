@@ -25,7 +25,7 @@
 		            	<div class="n-r-new">
 							<img src="${basePath}/download/png?fileName=${item.path }" alt="" width="164px" height="73px" />
 							 <div class="n-r-nin">
-		                        <img src="images/n_13.png" alt="" />
+		                        <img src="${basePath}/images/store/n_13.png" alt="" />
 		                    </div>
 						</div>
 		            </c:forEach>
@@ -34,58 +34,21 @@
 							<div class="n-r-ch">商品一览</div>
 							<div class="n-r-en">Ttem List</div>
 							<div class="n-r-nin">
-								<img src="images/n_14.png" alt="">
+								<img src="${basePath}/images/store/n_14.png" alt="">
 							</div>
 						</div>
-						<ul class="n-r-ul">
-							<li><a href="#"> <img src="images/n_08.jpg" alt=""
-									class="n-r-img">
-									<div class="n-r-name">
-										<div class="n-r-nch">关东煮</div>
-										<div class="n-r-nen">Oden</div>
-									</div>
-							</a></li>
-							<li><a href="#"> <img src="images/n_08.jpg" alt=""
-									class="n-r-img">
-									<div class="n-r-name">
-										<div class="n-r-nch">关东煮</div>
-										<div class="n-r-nen">Oden</div>
-									</div>
-							</a></li>
-							<li><a href="#"> <img src="images/n_08.jpg" alt=""
-									class="n-r-img">
-									<div class="n-r-name">
-										<div class="n-r-nch">关东煮</div>
-										<div class="n-r-nen">Oden</div>
-									</div>
-							</a></li>
-							<li><a href="#"> <img src="images/n_08.jpg" alt=""
-									class="n-r-img">
-									<div class="n-r-name">
-										<div class="n-r-nch">关东煮</div>
-										<div class="n-r-nen">Oden</div>
-									</div>
-							</a></li>
-							<li><a href="#"> <img src="images/n_08.jpg" alt=""
-									class="n-r-img">
-									<div class="n-r-name">
-										<div class="n-r-nch">关东煮</div>
-										<div class="n-r-nen">Oden</div>
-									</div>
-							</a></li>
-						</ul>
 						<div class="n-r-lb"></div>
 					</div>
 				</div>
 			</div>
 			<div class="new-left">
 				<div class="n-l-top">
-					<img src="images/n_02.jpg" alt="">
+					<img src="${basePath}/images/store/n_02.jpg" alt="">
 				</div>
 				<div class="n-l-c">
 					<div class="n-l-crumb">
 						<div class="n-l-cleft n-l-cl2">
-							<a href="Default.html"><div class="c-home"><img src="images/n_03.png" alt=""></div></a>
+							<a href="Default.html"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
 						</div>
 						<div class="c-h-in">新品上市 · <i>New arrivals</i></div>
 					</div>
@@ -107,7 +70,7 @@
 					<div class="rs-title">
 						<div class="rs-tch">${item.name }</div>
 						<div class="rs-ten">${item.enName }</div>
-						<div class="n-r-nin"><img src="images/n_13.png" alt=""></div>
+						<div class="n-r-nin"><img src="${basePath}/images/store/n_13.png" alt=""></div>
 					</div>
 					<div class="rs-cont">
 						<c:forEach var="product" items="${item.newProducts }" begin="0" step="1">
@@ -124,7 +87,7 @@
 			</c:forEach>
 			
 			<div class="n-l-btm">
-				<img src="images/n_12.png" alt="">
+				<img src="${basePath}/images/store/n_12.png" alt="">
 			</div>
 		</div>
 	</div>

@@ -138,7 +138,7 @@ function edit(id){
 	}else{
 		$("#pupTitle").html("修改");
 		$.ajax({
-	        url: basePath + "/newproduct/get",
+	        url: basePath + "/prebuy/get",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -146,6 +146,7 @@ function edit(id){
 	        },
 	        cache: false,
 	        success: function(data){
+	        	debugger;
 	        	if(data){
 	        		$("#popName").val(data.name);
 	        		$("#picture").val(data.picture);
