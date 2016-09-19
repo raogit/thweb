@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-19 20:52:47
+Date: 2016-09-19 21:36:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -533,8 +533,8 @@ INSERT INTO `t_menu` VALUES ('169', '加盟我们', '/store/servicejoinabout/ind
 INSERT INTO `t_menu` VALUES ('170', '关于我们', '/store/servicejoinabout/index', '/newactivity/newactivity-info', '2', '162', '8', '1', '2016-08-31 17:26:40', '1', '2016-08-31 20:44:27', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('171', '分类', '', '/category/category-list', '2', '162', '9', '0', '2016-08-31 20:45:47', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('172', 'WEB前台', '', '', '1', '0', '15', '1', '2016-09-19 20:14:38', '1', null, null, '0', 'web', null, null);
-INSERT INTO `t_menu` VALUES ('173', '首页', '', '/menu/news/detail', '2', '172', '1', '1', '2016-09-19 20:21:32', '1', null, null, '0', 'index', null, null);
-INSERT INTO `t_menu` VALUES ('174', '关于天虹', '', '', '2', '172', '2', '1', '2016-09-19 20:22:06', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('173', '首页', '/web/index', '/menu/news/detail', '2', '172', '1', '1', '2016-09-19 20:21:32', '1', null, null, '0', 'index', null, null);
+INSERT INTO `t_menu` VALUES ('174', '关于天虹', '/web/about/intro', '', '2', '172', '2', '1', '2016-09-19 20:22:06', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('175', '多元业务', '', '', '2', '172', '3', '1', '2016-09-19 20:22:25', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('176', '企业文化', '', '', '2', '172', '4', '1', '2016-09-19 20:22:35', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('177', '人力资源', '', '', '2', '172', '5', '1', '2016-09-19 20:22:44', '1', null, null, '0', '', null, null);
