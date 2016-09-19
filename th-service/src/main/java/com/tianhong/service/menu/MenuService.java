@@ -32,7 +32,7 @@ public interface MenuService {
 
 	boolean updateByPrimaryKeySelective(Menu record) throws Exception;
 
-	Menu getByName(String name) throws Exception;
+	List<Menu> getByName(String name) throws Exception;
 
 	List<Menu> getAllMenus() throws Exception;
 

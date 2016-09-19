@@ -204,7 +204,6 @@ function addOrEdituser(){
 	var popUrl = $("#popUrl").val();
 	var parentId = $("#parentMenuId").val();
 	var isShow = $("#isShow").val();
-	debugger;
 	if(isEmpty(name)){
 		alert("请输入菜单名");
 		return ;

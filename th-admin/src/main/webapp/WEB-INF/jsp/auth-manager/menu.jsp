@@ -57,8 +57,8 @@
 			</div>
 			<!--bottom:operate->button-->
 			<div class="btm_btn">
-				<input type="button" value="确认" class="input_btn trueBtn" id="confirm_user"/> <input
-					type="button" value="关闭" class="input_btn falseBtn" id="close_user"/>
+				<input type="button" value="确认" class="input_btn trueBtn" id="confirm_user"/> 
+				<input type="button" value="关闭" class="input_btn falseBtn" id="close_user"/>
 			</div>
 		</div>
 		</section>

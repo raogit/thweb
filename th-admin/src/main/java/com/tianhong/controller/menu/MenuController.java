@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -134,9 +135,11 @@ public class MenuController extends BaseController {
 	@ResponseBody
 	public Object add(Menu menu, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			Menu m = menuService.getByName(menu.getName());
-			if (m != null) {
-				AssertUtils.isTrue(m.getParentId().intValue() != menu.getParentId().intValue(), "角色已存在");
+			List<Menu> menuList = menuService.getByName(menu.getName());
+			if (!CollectionUtils.isEmpty(menuList)) {
+				for (Menu m : menuList) {
+					AssertUtils.isTrue(m.getParentId().intValue() != menu.getParentId().intValue(), "角色已存在");
+				}
 			}
 			User user = getCurrentUser(request);
 

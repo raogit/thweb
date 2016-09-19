@@ -11,7 +11,7 @@ public interface MenuMapper extends BaseMapper<Menu> {
 
 	List<Menu> selectMenusByType(int type) throws Exception;
 
-	Menu selectByName(String name) throws Exception;
+	List<Menu> selectByName(String name) throws Exception;
 
 	List<Menu> selectPage(Menu menu) throws Exception;
 
