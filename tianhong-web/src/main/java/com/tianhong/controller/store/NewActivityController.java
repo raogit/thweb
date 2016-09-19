@@ -74,6 +74,33 @@ public class NewActivityController extends BaseController {
 		return new ModelAndView("/store/Activity/default", model);
 	}
 
+	@RequestMapping(value = "/detail")
+	public Object detail(@RequestParam("categoryId") int categoryId, @RequestParam("menuId") int menuId,
+			HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			List<Menu> subMenus = menuService.getSubMenus(162, true);
+			model.put("subMenus", subMenus);
+			NewActivity activity = newActivityService.getByCategoryId(categoryId);
+			model.put("activity", activity);
+			List<Picture> pictures = pictureService.findByMenuId(166);
+			model.put("pictures", pictures);
+			Category category = new Category();
+			category.setMenuId(menuId);
+			List<Category> categorys = categoryService.getList(category);
+			for (Category cate : categorys) {
+				List<StoreProduct> storeProducts = storeProductService.getList(cate.getId());
+				cate.setStoreProducts(storeProducts);
+			}
+			model.put("categorys", categorys);
+
+			model.put("category", categoryService.getByPrimaryKey(categoryId));
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/store/Activity/detail", model);
+	}
+
 	@RequestMapping(value = "/save")
 	@ResponseBody
 	public Object save(NewActivity newActivity, HttpServletRequest request, HttpServletResponse response) {

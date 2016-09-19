@@ -34,7 +34,7 @@
 					<div class="cm-n-title">最新活动 · <i>Activities</i></div>
 					<div class="cm-n-cont">
 						<c:forEach var="item" items="${categorys }" begin="0" step="1" varStatus="itemStatus">
-							<a href="CmdDetail.html"><div class="cm-n-cin">${item.name }<i>${item.enName }</i></div></a>
+							<a href="${basePath}/store/newactivity/detail?categoryId=${item.id }&menuId=${item.menuId}"><div class="cm-n-cin">${item.name }<i>${item.enName }</i></div></a>
 						</c:forEach>
 					</div>
 				</div>
@@ -43,14 +43,6 @@
 					<div class="n-r-new">
 						<img src="${basePath}/images/store/n_07.png" alt="">
 						<div class="n-r-nin"><img src="${basePath}/images/store/n_13.png" alt=""></div>
-					</div>
-					<div class="n-r-list">
-						<div class="n-r-lt">
-							<div class="n-r-ch">商品一览</div>
-							<div class="n-r-en">Ttem List</div>
-							<div class="n-r-nin"><img src="${basePath}/images/store/n_14.png" alt=""></div>
-						</div>
-						<div class="n-r-lb"></div>
 					</div>
 				</div>
 			</div>

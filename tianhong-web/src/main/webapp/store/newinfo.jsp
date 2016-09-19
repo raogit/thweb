@@ -16,13 +16,19 @@
 	        <div class="new-right">
 	            <div class="new-right">
 	                <div class="n-r-nav">
-	                    <div class="n-r-top"><img src="${basePath }/images/store/n_06.png" alt=""></div>
-	                    <div class="n-r-new">
-	                        <img src="${basePath }/images/store/n_07.png" alt="">
-	                        <div class="n-r-nin">
-	                            <img src="${basePath }/images/store/n_13.png" alt="">
-	                        </div>
-	                    </div>
+	                    <c:forEach var="item" items="${pictures }" begin="0" step="1" end="0" varStatus="itemStatus">
+			            	<div class="n-r-top">
+								<img src="${basePath}/download/png?fileName=${item.path }" alt="" width="164px" height="73px">
+							</div>
+			            </c:forEach>
+						<c:forEach var="item" items="${pictures }" begin="1" step="1" end="1" varStatus="itemStatus">
+			            	<div class="n-r-new">
+								<img src="${basePath}/download/png?fileName=${item.path }" alt="" width="164px" height="73px" />
+								 <div class="n-r-nin">
+			                        <img src="${basePath}/images/store/n_13.png" alt="" />
+			                    </div>
+							</div>
+			            </c:forEach>
 	                    <div class="n-r-list"> </div>
 	                </div>
 	            </div>

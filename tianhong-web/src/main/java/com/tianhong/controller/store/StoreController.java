@@ -103,7 +103,7 @@ public class StoreController {
 		try {
 			List<Menu> subMenus = menuService.getSubMenus(162, true);
 			model.put("subMenus", subMenus);
-			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			List<Picture> pictures = pictureService.findByMenuId(166);
 			model.put("pictures", pictures);
 			// 最新消息
 
