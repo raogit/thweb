@@ -34,11 +34,9 @@
                 <div class="n-l-en">New arrival</div>
             </div>
             <ul class="c-i-nright">
-                <li><img src="${basePath }/store/images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
-                <li><img src="${basePath }/store/images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
-                <li><img src="${basePath }/store/images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
-                <li><img src="${basePath }/store/images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
-                <li><img src="${basePath }/store/images/index/i_05.jpg" alt=""><p>鸿福堂杨枝甘露</p></li>
+            	<c:forEach var="item" items="${newProductList }" begin="0" step="1" end="3" varStatus="itemStatus">
+	            	 <li><img src="${basePath}/download/png?fileName=${item.picture }" alt=""  width="60px" height="60px"><p>${item.name }</p></li>
+	            </c:forEach>
             </ul>
         </div>
         <div class="c-i-btm">
@@ -46,7 +44,7 @@
                 <div class="b-r-title">最新消息</div>
                 <div class="b-r-cont">
                     <div class="b-r-cT">
-                        <img src="${basePath }/store/images/index/i_06.png" alt="">
+                        <img src="${basePath }/images/store/index/i_06.png" alt="">
                         <ul class="b-r-list">
                             <li><a href="NewInfo.html"><div class="b-r-cR">偏爱圣诞季~积分"五"倍送</div><div class="b-r-cL">2016年07月07日</div></a></li>
                             <li><a href="NewInfo.html"><div class="b-r-cR">偏爱圣诞季~积分"五"倍送</div><div class="b-r-cL">2016年07月07日</div></a></li>
@@ -61,48 +59,12 @@
             <div class="c-i-bleft">
                 <div class="b-l-title">商品介绍</div>
                 <div class="b-l-cont">
-                    <div class="l-cont-in">
-                        <div class="l-cont-inl"><img src="${basePath }/store/images/index/i_05.jpg" alt=""></div>
-                        <div class="l-cont-inr">
-                            <p>关东煮</p>
-                            <p class="inr-en">Oden</p>
-                        </div>
-                    </div>
-                    <div class="l-cont-in">
-                        <div class="l-cont-inl"><img src="${basePath }/store/images/index/i_05.jpg" alt=""></div>
-                        <div class="l-cont-inr">
-                            <p>关东煮</p>
-                            <p class="inr-en">Oden</p>
-                        </div>
-                    </div>
-                    <div class="l-cont-in">
-                        <div class="l-cont-inl"><img src="${basePath }/store/images/index/i_05.jpg" alt=""></div>
-                        <div class="l-cont-inr">
-                            <p>关东煮</p>
-                            <p class="inr-en">Oden</p>
-                        </div>
-                    </div>
-                    <div class="l-cont-in">
-                        <div class="l-cont-inl"><img src="${basePath }/store/images/index/i_05.jpg" alt=""></div>
-                        <div class="l-cont-inr">
-                            <p>关东煮</p>
-                            <p class="inr-en">Oden</p>
-                        </div>
-                    </div>
-                    <div class="l-cont-in">
-                        <div class="l-cont-inl"><img src="${basePath }/store/images/index/i_05.jpg" alt=""></div>
-                        <div class="l-cont-inr">
-                            <p>关东煮</p>
-                            <p class="inr-en">Oden</p>
-                        </div>
-                    </div>
-                    <div class="l-cont-in">
-                        <div class="l-cont-inl"><img src="${basePath }/store/images/index/i_05.jpg" alt=""></div>
-                        <div class="l-cont-inr">
-                            <p>关东煮</p>
-                            <p class="inr-en">Oden</p>
-                        </div>
-                    </div>
+	                <c:forEach var="item" items="${storeProductsList }" begin="0" step="1" end="5" varStatus="itemStatus">
+		            	<div class="l-cont-in">
+	                        <div class="l-cont-inl"><img src="${basePath}/download/png?fileName=${item.picture }" alt=""  width="60px" height="60px"></div>
+	                        <div class="l-cont-inr"><p>${item.name }</p><p class="inr-en"></p></div>
+	                    </div>
+		            </c:forEach>
                 </div>
             </div>
 
