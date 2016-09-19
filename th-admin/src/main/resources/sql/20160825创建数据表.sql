@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-19 20:35:11
+Date: 2016-09-19 20:52:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -533,7 +533,7 @@ INSERT INTO `t_menu` VALUES ('169', '加盟我们', '/store/servicejoinabout/ind
 INSERT INTO `t_menu` VALUES ('170', '关于我们', '/store/servicejoinabout/index', '/newactivity/newactivity-info', '2', '162', '8', '1', '2016-08-31 17:26:40', '1', '2016-08-31 20:44:27', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('171', '分类', '', '/category/category-list', '2', '162', '9', '0', '2016-08-31 20:45:47', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('172', 'WEB前台', '', '', '1', '0', '15', '1', '2016-09-19 20:14:38', '1', null, null, '0', 'web', null, null);
-INSERT INTO `t_menu` VALUES ('173', '首页', '', '', '2', '172', '1', '1', '2016-09-19 20:21:32', '1', null, null, '0', 'index', null, null);
+INSERT INTO `t_menu` VALUES ('173', '首页', '', '/menu/news/detail', '2', '172', '1', '1', '2016-09-19 20:21:32', '1', null, null, '0', 'index', null, null);
 INSERT INTO `t_menu` VALUES ('174', '关于天虹', '', '', '2', '172', '2', '1', '2016-09-19 20:22:06', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('175', '多元业务', '', '', '2', '172', '3', '1', '2016-09-19 20:22:25', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('176', '企业文化', '', '', '2', '172', '4', '1', '2016-09-19 20:22:35', '1', null, null, '0', '', null, null);
@@ -563,8 +563,8 @@ INSERT INTO `t_menu` VALUES ('199', '展示成果', '', '', '3', '178', '2', '1'
 INSERT INTO `t_menu` VALUES ('200', '实时行情', '', '', '3', '180', '1', '1', '2016-09-19 20:34:06', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('201', '基本资料', '', '', '3', '180', '2', '1', '2016-09-19 20:34:12', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('202', '公司治理', '', '', '3', '180', '3', '1', '2016-09-19 20:34:19', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('203', '定期报告', '', '', '3', '180', '4', '1', '2016-09-19 20:34:24', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('204', '临时公告', '', '', '3', '180', '5', '1', '2016-09-19 20:34:30', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('203', '定期报告', 'http://www.cninfo.com.cn/cninfo-new/index', '', '3', '180', '4', '1', '2016-09-19 20:34:24', '1', '2016-09-19 20:44:51', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('204', '临时公告', 'http://www.cninfo.com.cn/cninfo-new/index', '', '3', '180', '5', '1', '2016-09-19 20:34:30', '1', '2016-09-19 20:45:40', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('205', '股东回报', '', '', '3', '180', '6', '1', '2016-09-19 20:34:36', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('206', '宣传与保护', '', '', '3', '180', '7', '1', '2016-09-19 20:34:48', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('207', '互动交流', '', '', '3', '180', '8', '1', '2016-09-19 20:34:54', '1', null, null, '0', '', null, null);
@@ -616,7 +616,7 @@ CREATE TABLE `t_picture` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_picture
@@ -690,6 +690,9 @@ INSERT INTO `t_picture` VALUES ('77', '165', '3', '', 'undefined', null, '1', '1
 INSERT INTO `t_picture` VALUES ('78', '165', '2', '', 'undefined', null, '1', '1473513964365.png', '2016-09-10 21:26:04', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('82', '166', '3', '', 'undefined', null, '1', '1474271479355.png', '2016-09-19 15:51:19', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('83', '166', '5', '', 'undefined', null, '1', '1474271486980.png', '2016-09-19 15:51:26', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('84', '173', '1', '', 'undefined', null, '1', '1474289288198.png', '2016-09-19 20:48:08', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('85', '173', '2', '', 'undefined', null, '1', '1474289415777.png', '2016-09-19 20:50:15', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('86', '173', '3', '', 'undefined', null, '1', '1474289422597.png', '2016-09-19 20:50:22', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_recruit_interaction`
