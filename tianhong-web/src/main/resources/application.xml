@@ -70,12 +70,10 @@
 	<mvc:resources mapping="/market/images/**" location="/market/images/" />
 	<mvc:resources mapping="/market/Scripts/**" location="/market/Scripts/" />
 	<mvc:resources mapping="/market/style/**" location="/market/style/" />
-	
 	<mvc:resources mapping="/shopping-center/**" location="/shopping-center/" />
 	<mvc:resources mapping="/store/**" location="/store/" />
-	
 	<mvc:resources mapping="/store/images/**" location="/store/images/" />
-	
+	<mvc:resources mapping="/web/**" location="/web/" />
 	<mvc:resources mapping="/common/**" location="/common/" />
 	<mvc:resources mapping="/css/**" location="/css/" />
 	<mvc:resources mapping="/images/**" location="/images/" />
