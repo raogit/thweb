@@ -47,7 +47,7 @@
                         <img src="${basePath }/images/store/index/i_06.png" alt="">
                         <ul class="b-r-list">
 	                        <c:forEach var="item" items="${newsList }" begin="0" step="1" end="4" varStatus="itemStatus">
-				            	<li><a href="${basePath }/store/newinfo"><div class="b-r-cR">${item.title }</div><div class="b-r-cL">${fn:substring(item.startTimeStr,0,10) }</div></a></li>
+				            	<li><a href="${basePath }/store/newinfo"><div class="b-r-cR">${item.title }</div><div class="b-r-cL">${fn:substring(item.startTimeStr,0,11) }</div></a></li>
 				            </c:forEach>
                         </ul>
                     </div>

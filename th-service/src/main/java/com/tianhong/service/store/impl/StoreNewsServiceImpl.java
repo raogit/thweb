@@ -77,6 +77,12 @@ public class StoreNewsServiceImpl implements StoreNewsService {
 
 	public StoreNews getPage(StoreNews storeNews) throws Exception {
 		List<StoreNews> page = storeNewsMapper.page(storeNews);
+		if (!CollectionUtils.isEmpty(page)) {
+			for (StoreNews news : page) {
+				news.setStartTimeStr(DateUtils.parseString(news.getStartTime(), CommonConstant.YYYY_MM_dd_NIAN));
+				news.setEndTimeStr(DateUtils.parseString(news.getEndTime(), CommonConstant.YYYY_MM_dd_NIAN));
+			}
+		}
 		int count = storeNewsMapper.count(storeNews);
 		storeNews.setObj(page);
 		storeNews.setTotalRow(count);
@@ -87,8 +93,8 @@ public class StoreNewsServiceImpl implements StoreNewsService {
 		List<StoreNews> list = storeNewsMapper.list(storeNews);
 		if (!CollectionUtils.isEmpty(list)) {
 			for (StoreNews news : list) {
-				news.setStartTimeStr(DateUtils.parseString(news.getStartTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
-				news.setEndTimeStr(DateUtils.parseString(news.getEndTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
+				news.setStartTimeStr(DateUtils.parseString(news.getStartTime(), CommonConstant.YYYY_MM_dd_NIAN));
+				news.setEndTimeStr(DateUtils.parseString(news.getEndTime(), CommonConstant.YYYY_MM_dd_NIAN));
 			}
 		}
 		return list;

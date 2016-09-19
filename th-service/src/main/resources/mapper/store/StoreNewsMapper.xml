@@ -16,8 +16,7 @@
 		<result column="backup2" jdbcType="VARCHAR" property="backup2" />
 		<result column="backup3" jdbcType="VARCHAR" property="backup3" />
 	</resultMap>
-	<resultMap extends="BaseResultMap" id="ResultMapWithBLOBs"
-		type="com.tianhong.domain.store.StoreNews">
+	<resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.tianhong.domain.store.StoreNews">
 		<result column="content" jdbcType="LONGVARCHAR" property="content" />
 	</resultMap>
 	<sql id="Base_Column_List">
@@ -226,9 +225,11 @@
 	</update>
 
 
-	<select id="page" parameterType="com.tianhong.domain.store.StoreNews" resultMap="BaseResultMap">
+	<select id="page" parameterType="com.tianhong.domain.store.StoreNews" resultMap="ResultMapWithBLOBs">
 		select
 			<include refid="Base_Column_List" />
+			,
+			<include refid="Blob_Column_List" />
 		from t_store_news
 		where is_deleted = 0
 		<if test="menuId != null and menuId>0">
@@ -262,9 +263,11 @@
 		</if>
 	</select>
 
-	<select id="list" parameterType="com.tianhong.domain.store.StoreNews" resultMap="BaseResultMap">
+	<select id="list" parameterType="com.tianhong.domain.store.StoreNews" resultMap="ResultMapWithBLOBs">
 		select
 			<include refid="Base_Column_List" />
+			,
+			<include refid="Blob_Column_List" />
 		from t_store_news
 		where is_deleted = 0
 		<if test="menuId != null and menuId>0">

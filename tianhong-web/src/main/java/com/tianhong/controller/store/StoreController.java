@@ -106,10 +106,24 @@ public class StoreController {
 			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
 			model.put("pictures", pictures);
 			// 最新消息
+
+			int curPage = 1;
+			try {
+				curPage = Integer.parseInt(request.getParameter("curPage"));
+			} catch (Exception e) {
+			}
+
 			StoreNews storeNews = new StoreNews();
 			storeNews.setMenuId(163);
-			List<StoreNews> newsList = storeNewsService.getList(storeNews);
-			model.put("newsList", newsList);
+			storeNews.setCurPage(curPage);
+			storeNews.setPageSize(4);
+			StoreNews news = storeNewsService.getPage(storeNews);
+			model.put("news", news);
+			List<Integer> pageFoot = new ArrayList<Integer>();
+			for (int i = 1; i <= news.getTotalPage(); i++) {
+				pageFoot.add(i);
+			}
+			model.put("pageFoot", pageFoot);
 		} catch (Exception e) {
 			log.error("", e);
 		}
