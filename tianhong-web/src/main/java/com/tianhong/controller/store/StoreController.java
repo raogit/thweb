@@ -23,11 +23,13 @@ import com.tianhong.domain.category.Category;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.picture.Picture;
 import com.tianhong.domain.store.NewProduct;
+import com.tianhong.domain.store.StoreNews;
 import com.tianhong.domain.store.StoreProduct;
 import com.tianhong.service.category.CategoryService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.service.store.NewProductService;
+import com.tianhong.service.store.StoreNewsService;
 import com.tianhong.service.store.StoreProductService;
 
 /**
@@ -51,6 +53,8 @@ public class StoreController {
 	private NewProductService newProductService;
 	@Autowired
 	private StoreProductService storeProductService;
+	@Autowired
+	private StoreNewsService storeNewsService;
 
 	@RequestMapping(value = "/index")
 	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
@@ -82,9 +86,33 @@ public class StoreController {
 				storeProductsList.addAll(storeProducts);
 			}
 			model.put("storeProductsList", storeProductsList);
+			// 最新消息
+			StoreNews storeNews = new StoreNews();
+			storeNews.setMenuId(163);
+			List<StoreNews> newsList = storeNewsService.getList(storeNews);
+			model.put("newsList", newsList);
 		} catch (Exception e) {
 			log.error("", e);
 		}
 		return new ModelAndView("/store/default", model);
+	}
+
+	@RequestMapping(value = "/newinfo")
+	public Object newInfo(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			List<Menu> subMenus = menuService.getSubMenus(162, true);
+			model.put("subMenus", subMenus);
+			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			model.put("pictures", pictures);
+			// 最新消息
+			StoreNews storeNews = new StoreNews();
+			storeNews.setMenuId(163);
+			List<StoreNews> newsList = storeNewsService.getList(storeNews);
+			model.put("newsList", newsList);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/store/newinfo", model);
 	}
 }

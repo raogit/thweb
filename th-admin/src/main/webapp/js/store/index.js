@@ -1,4 +1,4 @@
-
+var curPage= 1;
 jQuery(document).ready(function() {	
 	init();
 	$("#saveContent").click(function(){
@@ -7,15 +7,135 @@ jQuery(document).ready(function() {
 	$("#clearContent").click(function(){
 		clear();
 	});
-	
+	refreshTime();
+	refreshPopTime();
+	btn();
+	tableData(1);
 });
+function refreshTime(){
+	var curDate = new Date();
+	$("#startDate").val(curentTime(curDate.getTime() - 12*30*24*60*60*1000));
+	$("#endDate").val(curentTime(curDate.getTime()+ 60*60*1000));
+}
+
+function refreshPopTime(){
+	var curDate = new Date();
+	$("#popStartTime").val(curentTime(curDate.getTime() - 12*30*24*60*60*1000));
+	$("#popEndTime").val(curentTime(curDate.getTime()+ 60*60*1000));
+}
+function edit(id){
+	debugger;
+	add(id);
+	$("#popNewsId").val(id)
+	if(id>0){
+		$.ajax({
+	        url: basePath + "/store/news/get",
+	        type: 'post',
+	        dataType: 'json',
+	        data : {
+	        	id : id
+	        },
+	        cache: false,
+	        success: function(data){
+	        	if(data){
+	        		refreshTime();
+	        		$("#popTitle").val(data.title);
+	        		$("#contentId").html(data.content);
+	        		debugger;
+	        		$("#popStartTime").val(data.startTimeStr);
+	        		$("#popEndTime").val(data.endTimeStr);
+	        	}
+	        }
+	    });
+	}
+}
+function add(id){	
+	$("#pop").fadeIn(10);	
+	$("#popTitle").val("");
+	$("#contentId").html("");
+	refreshPopTime();
+}
+function save(){
+	var id = $("#popNewsId").val();
+	var title = $("#popTitle").val();
+	var content = $("#contentId").html();
+	var startTime = $("#popStartTime").val();
+	var endTime = $("#popEndTime").val();
+	var menuId = $("#menuId").val();
+	if(isEmpty(content)){
+		alert("请填写内容");
+		return ;
+	}
+	debugger;
+	$.ajax({
+        url: basePath + "/store/news/save",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	id : id,
+        	menuId : menuId,
+        	title : title,
+        	content : content,
+        	startTimeStr : startTime,
+        	endTimeStr : endTime
+        },
+        cache: false,
+        success: function(data){
+        	debugger;
+        	if(data!=null&&data!=false){
+        		alert("操作成功");
+        		tableData(curPage);
+        		$("#pop").fadeOut(10);
+        	}else{
+        		alert("操作失败");
+        	}
+        }
+    });
+}
+function isEmpty(str){
+	if(str==null || str==""){
+		return true;
+	}
+}
+function deleteObj(id){
+	if(confirm("刪除将无法恢复?")){
+		$.ajax({
+	        url: basePath + "/store/news/delete",
+	        type: 'post',
+	        dataType: 'json',
+	        data : {
+	        	id : id
+	        },
+	        cache: false,
+	        success: function(data){
+	        	if(data!=null && data){
+	        		alert("删除成功!");
+	        		tableData(curPage);
+	        	}else{
+	        		alert("删除失败!");
+	        	}
+	        }
+	    });
+	}
+}
+
+function btn(){
+	//弹出：确认按钮
+	$("#confirm").click(function(){
+		save();
+	});
+	//弹出：取消或关闭按钮
+	$("#close").click(function(){
+		 $("#pop").fadeOut(10);
+	});
+}
 
 function init(){
 	var menuId = $("#menuId").val();
 	
-	initRich(menuId);
+	//initRich(menuId);
 	initPicture(menuId);
-	initMarket();
+	//initMarket();
 }
 
 function initMarket(){
@@ -91,42 +211,6 @@ function picture(data){
 	}
 	
 }
-function save(){
-	var menuId = $("#menuId").val();
-	var content = $("#contentId").html();
-	var title = $("#title").val();
-	var slogan = $("#slogan").val();
-	
-	var phone = $("#phone").val();
-	var address = $("#address").val();
-	if(isEmpty(content)){
-		alert("请填写内容");
-		return ;
-	}
-	var id = $("#id").val();
-	$.ajax({
-        url: basePath + "/content/save",
-        type: 'post',
-        dataType: 'json',
-        data : {
-        	id : id,
-        	title : title,
-        	slogan : slogan,
-        	phone : phone,
-        	address : address,
-        	menuId : menuId,
-        	content : content
-        },
-        cache: false,
-        success: function(data){
-        	if(data!=null&&data==true){
-        		alert("操作成功");
-        	}else{
-        		alert(json.obj);
-        	}
-        }
-    });
-}
 
 function clear(){
 	$("#contentId").html("");
@@ -201,4 +285,75 @@ function del(id){
         cache: false,
         success: picture
     });
+}
+
+function tableData(pageNum){
+	debugger;
+	curPage = pageNum;
+	$(".loading_area").fadeIn(10);
+	var title = $("#title").val();
+	var startDate = $("#startDate").val();
+	var endDate = $("#endDate").val();	
+	$.ajax({
+        url: basePath + "/store/news/page",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	title : title,
+        	startDate : startDate,
+        	endDate : endDate,
+        	curPage : pageNum
+        },
+        cache: false,
+        success: function(data){
+        	debugger;
+        	if(data!=null&&data!=""){
+        		initTable(data);
+        		initPage(data);
+        	}else{
+        		alert(json.obj);
+        	}
+        	$(".loading_area").fadeOut(10);
+        }
+    });
+}
+
+function initTable(data){
+	var userlist = $("#userlist tbody");
+	userlist.empty();
+	var list = data.obj;
+	var totalRow = data.totalRow;
+	for(var i=0;i<list.length;i++){
+		var item = list[i];
+		var starttime = curentTime(item.startTime);
+		var endtime = curentTime(item.endTime);
+		var time = curentTime(item.createTime);
+		var tr = "<tr>"
+			+"<td>"+(i+1)+"</td>"
+			+"<td>"+item.title+"</td>"
+			+"<td>"+starttime+"</td>"
+			+"<td>"+endtime+"</td>"
+			+"<td>"+time+"</td>";
+		var operation = "<td style='text-align: center;'><a href='javascript:edit("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteObj("+item.id+")' class='inner_btn'>删除</a></td>"
+		var end_tr = "</tr>";
+		userlist.append(tr+operation+end_tr);
+	}
+}
+
+function initPage(page){
+	var paging = $(".paging");
+	paging.empty();
+	var prePage = page.curPage-1 < 1 ? 1 : page.curPage-1;
+	var nextPage = page.curPage+1 > page.totalPage ? page.totalPage : page.curPage+1;
+	paging.append("<a href='javascript:void(0);' onclick='tableData(1)' ><<</a>");
+	paging.append("<a href='javascript:void(0);' onclick='tableData("+prePage+")' ><</a>");
+	for(var i=0;i<page.totalPage;i++){
+		if((i+1) == page.curPage){
+			paging.append("<a href='javascript:void(0);' onclick='tableData("+(i+1)+")' style='background: #ff99ff;'>"+(i+1)+"</a>");
+		}else{
+			paging.append("<a href='javascript:void(0);' onclick='tableData("+(i+1)+")' >"+(i+1)+"</a>");
+		}
+	}
+	paging.append("<a href='javascript:void(0);' onclick='tableData("+nextPage+")' >></a>");
+	paging.append("<a href='javascript:void(0);' onclick='tableData("+(page.totalPage)+")' >>></a>");
 }

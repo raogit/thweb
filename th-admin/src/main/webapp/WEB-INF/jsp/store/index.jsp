@@ -34,11 +34,11 @@
 	<script src="${basePath}/js/timer/timer.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath}/js/utils/utils.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath}/js/store/index.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath }/js/My97DatePicker/WdatePicker.js?ver=${ver}" type="text/javascript" ></script>
 </head>
 
 <body style="overflow: auto;">
 	<jsp:include page="../head/head-iframe.jsp"></jsp:include>
-	<input type="hidden" value="${menuId}" id="menuId" name="menuId" />
 	<input type="hidden" value="0" id="id" name="id" />
 	<input type="hidden" value="/upload/picture" id="uri" name="uri" />
 	<div>
@@ -59,23 +59,65 @@
 			</ul>
 		</form>
 	</div>
-	<div style="height:30px;border-bottom:2px solid #19a97b;"></div>
-	<div style="height:100px;width:500px; margin: 0 auto;padding-top:5px;">
-		<ul>
-			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标题:</span> <input id="title" style="width:140px;" type="text" placeholder="请输入标题..." class="textbox" /></li>
-			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标语:</span> <input id="slogan" style="width:240px;" type="text" placeholder="请输入标语..." class="textbox" /></li>
-			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">电话:</span> <input id="phone" style="width:140px;" type="text" placeholder="请输入电话..." class="textbox" /></li>
-			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">地址:</span> <input id="address" style="width:240px;" type="text" placeholder="请输入地址..." class="textbox" /></li>
-		</ul>
-	</div>
-	<section id="editor">
-		<div id='edit' style="margin-top: 30px;"> </div>
+	<!--弹出框效果-->
+	<section class="pop_bg" id="pop">
+		<div class="pop_cont" style="left: 20%;top:10%;position:initial;width: 80%;height: 80%;margin: auto;overflow: auto;">
+			<input type="hidden" value="0" id="popNewsId" name="popNewsId" />
+			<div style="height:30px;border-bottom:2px solid #19a97b;"></div>
+			<div style="height:100px;width:500px; margin: 0 auto;padding-top:5px;">
+				<ul>
+					<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标题:</span> <input id="popTitle" style="width:140px;" type="text" placeholder="请输入标题..." class="textbox" /></li>
+					<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">开始时间:</span> <input class="Wdate" type="text" id="popStartTime" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" /></li>
+					<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">结束时间:</span> <input class="Wdate" type="text" id="popEndTime"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:160px;"/></li>
+				</ul>
+			</div>
+			<section id="editor">
+				<div id='edit' style="margin-top: 30px;"> </div>
+			</section>
+			<div class="btm_btn" style="margin-top: 30px;height: 30px;">
+				<input type="button" value="保存" style="width: 70px;height: 30px;background-color: #19a97b;" id="saveContent"/> 
+				<input type="button" value="清空" style="width: 70px;height: 30px;background-color: #19a97b;" id="clearContent"/>
+				<input type="button" value="关闭" style="width: 70px;height: 30px;background-color: #19a97b;" id="close"/>
+			</div>
+			<div class="btm_btn" style="margin-top: 30px;height: 30px;"> </div>
+			
+		</div>
 	</section>
-	<div class="btm_btn" style="margin-top: 30px;height: 30px;">
-		<input type="button" value="保存" style="width: 70px;height: 30px;background-color: #19a97b;" id="saveContent"/> 
-		<input type="button" value="清空" style="width: 70px;height: 30px;background-color: #19a97b;" id="clearContent"/>
+	<!--结束：弹出框效果-->
+	<div>
+		<h2>
+			<strong style="color: grey;"></strong>
+		</h2>
+		<input type="hidden" value="${menuId }" id="menuId" name="menuId" />
+		<strong style="color: grey;">标题:</strong>
+		<input id="title" type="text" class="textbox" placeholder="标题..." /> 
+		<strong style="color: grey;">创建时间:</strong>
+		<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" />-
+		<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:160px;"/>
+		<input type="button" value="查询" class="group_btn" onclick="tableData(1)" /> 
+		<input type="button" value="添加" class="group_btn" onclick="add(0)" style="margin-left:20px;" /> 
 	</div>
-	<div class="btm_btn" style="margin-top: 30px;height: 30px;"> </div>
+	<div>
+		<h1></h1>
+		<div class="page_title">
+			<h2 class="fl">全部菜单</h2>
+		</div>
+		<table class="table" id="userlist">
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>标题</th>	
+					<th>开始时间</th>	
+					<th>结束时间</th>	
+					<th>创建时间</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<aside class="paging"></aside> 
+	</div>
 
   <script>
       $(function(){

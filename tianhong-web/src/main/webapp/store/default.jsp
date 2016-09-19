@@ -34,7 +34,7 @@
                 <div class="n-l-en">New arrival</div>
             </div>
             <ul class="c-i-nright">
-            	<c:forEach var="item" items="${newProductList }" begin="0" step="1" end="3" varStatus="itemStatus">
+            	<c:forEach var="item" items="${newProductList }" begin="0" step="1" end="4" varStatus="itemStatus">
 	            	 <li><img src="${basePath}/download/png?fileName=${item.picture }" alt=""  width="60px" height="60px"><p>${item.name }</p></li>
 	            </c:forEach>
             </ul>
@@ -46,12 +46,9 @@
                     <div class="b-r-cT">
                         <img src="${basePath }/images/store/index/i_06.png" alt="">
                         <ul class="b-r-list">
-                            <li><a href="NewInfo.html"><div class="b-r-cR">偏爱圣诞季~积分"五"倍送</div><div class="b-r-cL">2016年07月07日</div></a></li>
-                            <li><a href="NewInfo.html"><div class="b-r-cR">偏爱圣诞季~积分"五"倍送</div><div class="b-r-cL">2016年07月07日</div></a></li>
-                            <li><a href="NewInfo.html"><div class="b-r-cR">偏爱圣诞季~积分"五"倍送</div><div class="b-r-cL">2016年07月07日</div></a></li>
-                            <li><a href="NewInfo.html"><div class="b-r-cR">偏爱圣诞季~积分"五"倍送</div><div class="b-r-cL">2016年07月07日</div></a></li>
-                            <li><a href="NewInfo.html"><div class="b-r-cR">偏爱圣诞季~积分"五"倍送</div><div class="b-r-cL">2016年07月07日</div></a></li>
-                            <li><a href="NewInfo.html"><div class="b-r-cR">偏爱圣诞季~积分"五"倍送</div><div class="b-r-cL">2016年07月07日</div></a></li>
+	                        <c:forEach var="item" items="${newsList }" begin="0" step="1" end="4" varStatus="itemStatus">
+				            	<li><a href="${basePath }/store/newinfo"><div class="b-r-cR">${item.title }</div><div class="b-r-cL">${fn:substring(item.startTimeStr,0,10) }</div></a></li>
+				            </c:forEach>
                         </ul>
                     </div>
                 </div>
