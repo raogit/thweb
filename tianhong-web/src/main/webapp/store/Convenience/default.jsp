@@ -11,105 +11,32 @@
 
 <body>
 <jsp:include page="../head/head.jsp"></jsp:include>
+<input type="hidden" value="${menu.id }" id="menuId" name="menuId"/>
 <div class="content">
     <div class="cont-in clearfix">
         <div class="new-right">
             <div class="cm-nav dt-nav">
-                <div class="cm-n-title">
-                    便利服务 · <i>Convenience</i></div>
+                <div class="cm-n-title">${menu.name } <i></i></div>
                 <div class="cm-n-cont">
-                    <a href="Distribution.html"><div class="cm-n-cin">
-                        生鲜宅配<i>Distribution</i></div></a>
-                    <a href="Recharge.html"><div class="cm-n-cin">
-                        充值<i>Recharge</i></div></a>
-                    <a href="Finance.html"><div class="cm-n-cin">
-                        金融<i>Finance</i></div></a>
-                    <a href="Copy.html"><div class="cm-n-cin">
-                        复印、打印及传真<i>Copy</i></div></a>
-                    <a href="SF.html"><div class="cm-n-cin">
-                        顺丰快递<i>SF</i></div></a>
-                    <a href="Reserve.html"><div class="cm-n-cin">
-                        鲜花、蛋糕预订<i>Reserve</i></div></a>
-                    <a href="Yunda.html"><div class="cm-n-cin">
-                        韵达快递<i>Yunda</i></div></a>
-                    <a href="Photo.html"><div class="cm-n-cin">
-                        照片冲印<i>Photo</i></div></a>
-                    <a href="Train.html"><div class="cm-n-cin">
-                        教育培训<i>Train</i></div></a>
-                    <a href="Clean.html"><div class="cm-n-cin">
-                        家政、衣物干洗<i>Clean</i></div></a>
+                	<c:forEach var="item" items="${categorys }" begin="0" step="1" varStatus="itemStatus">
+						<a href="${basePath}/store/servicejoinabout/detail?menuId=${item.menuId}&categoryId=${item.id }"><div class="cm-n-cin">${item.name }<i>${item.enName }</i></div></a>
+					</c:forEach>
                 </div>
             </div>
             <div class="n-r-nav">
-                <div class="n-r-top">
-                    <img src="images/n_06.png" alt="">
-                </div>
-                <div class="n-r-new">
-                    <img src="images/n_07.png" alt="">
-                    <div class="n-r-nin">
-                        <img src="images/n_13.png" alt="">
-                    </div>
-                </div>
-                <div class="n-r-list">
-                    <div class="n-r-lt">
-                        <div class="n-r-ch">
-                            商品一览</div>
-                        <div class="n-r-en">
-                            Ttem List</div>
-                        <div class="n-r-nin">
-                            <img src="images/n_14.png" alt="">
-                        </div>
-                    </div>
-                    <ul class="n-r-ul">
-                        <li><a href="#">
-                            <img src="images/n_08.jpg" alt="" class="n-r-img">
-                            <div class="n-r-name">
-                                <div class="n-r-nch">
-                                    关东煮</div>
-                                <div class="n-r-nen">
-                                    Oden</div>
-                            </div>
-                        </a></li>
-                        <li><a href="#">
-                            <img src="images/n_08.jpg" alt="" class="n-r-img">
-                            <div class="n-r-name">
-                                <div class="n-r-nch">
-                                    关东煮</div>
-                                <div class="n-r-nen">
-                                    Oden</div>
-                            </div>
-                        </a></li>
-                        <li><a href="#">
-                            <img src="images/n_08.jpg" alt="" class="n-r-img">
-                            <div class="n-r-name">
-                                <div class="n-r-nch">
-                                    关东煮</div>
-                                <div class="n-r-nen">
-                                    Oden</div>
-                            </div>
-                        </a></li>
-                        <li><a href="#">
-                            <img src="images/n_08.jpg" alt="" class="n-r-img">
-                            <div class="n-r-name">
-                                <div class="n-r-nch">
-                                    关东煮</div>
-                                <div class="n-r-nen">
-                                    Oden</div>
-                            </div>
-                        </a></li>
-                        <li><a href="#">
-                            <img src="images/n_08.jpg" alt="" class="n-r-img">
-                            <div class="n-r-name">
-                                <div class="n-r-nch">
-                                    关东煮</div>
-                                <div class="n-r-nen">
-                                    Oden</div>
-                            </div>
-                        </a></li>
-                    </ul>
-                    <div class="n-r-lb">
-                    </div>
-                </div>
+                <c:forEach var="item" items="${pictures }" begin="0" step="1" end="0" varStatus="itemStatus">
+	            	<div class="n-r-top">
+						<img src="${basePath}/download/png?fileName=${item.path }" alt="" width="164px" height="73px">
+					</div>
+	            </c:forEach>
+				<c:forEach var="item" items="${pictures }" begin="1" step="1" end="1" varStatus="itemStatus">
+	            	<div class="n-r-new">
+						<img src="${basePath}/download/png?fileName=${item.path }" alt="" width="164px" height="73px" />
+						 <div class="n-r-nin">
+	                        <img src="${basePath}/images/store/n_13.png" alt="" />
+	                    </div>
+					</div>
+	            </c:forEach>
             </div>
         </div>
         <div class="new-left">
@@ -118,21 +45,15 @@
             <div class="n-l-c">
                 <div class="n-l-crumb">
                     <div class="n-l-cleft">
-                        <a href="Default.html">
-                            <div class="c-home">
-                                <img src="images/n_03.png" alt=""></div>
-                        </a><a href="Default.html">
-                        <div class="c-h-in">
-                            便利服务 · <i>Convenience</i></div>
+                        <a href="${basePath}/store/servicejoinabout/index?menuId=${menu.id }"><div class="c-home"><img src="images/n_03.png" alt=""></div></a>
+                        <a href="${basePath}/store/servicejoinabout/index?menuId=${menu.id }"><div class="c-h-in">${menu.name }<i></i></div>
                     </a>
                     </div>
-                    <div class="c-now">
-                        便利服务</div>
+                    <div class="c-now">${categoryName }</div>
                 </div>
             </div>
             <div class="n-l-cont">
-                <div class="n-l-ct">
-                    便利服务</div>
+                <div class="n-l-ct">${categoryName }</div>
                 <div class="n-l-line">
                 </div>
                 <div class="at-rec cv-rec">
@@ -211,7 +132,7 @@
         </div>
     </div>
 </div>
-<jsp:include page="foot/foot.jsp"></jsp:include>
+<jsp:include page="../foot/foot.jsp"></jsp:include>
 
 </body>
 </html>

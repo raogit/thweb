@@ -54,6 +54,7 @@ public class PreBuyController extends BaseController {
 	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
+			model.put("menuId", menuId);
 			List<Menu> subMenus = menuService.getSubMenus(162, true);
 			model.put("subMenus", subMenus);
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
@@ -67,6 +68,22 @@ public class PreBuyController extends BaseController {
 				cate.setPreBuys(preBuys);
 				preBuyList.addAll(preBuys);
 			}
+			try {
+				int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+				if (categoryId > 0) {
+					preBuyList.clear();
+					preBuyList = preBuyService.getList(categoryId);
+					Category ca = categoryService.getByPrimaryKey(categoryId);
+					if (ca != null) {
+						model.put("categoryName", ca.getName());
+					} else {
+						model.put("categoryName", "节日必须");
+					}
+				}
+			} catch (Exception e) {
+				model.put("categoryName", "节日必须");
+			}
+
 			model.put("categorys", categorys);
 			model.put("preBuyList", preBuyList);
 		} catch (Exception e) {

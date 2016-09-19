@@ -362,19 +362,3 @@ function upload(fileId){
     });
 }
 
-function del(id){
-	$.ajax({
-        url: basePath + "/newproduct/delete",
-        type: 'post',
-        dataType: 'json',
-        data : {
-        	id : id
-        },
-        cache: false,
-        success: function(data){
-        	if(data!=""&& data!=false){
-        		tableData(curPage);
-        	}
-        }
-    });
-}

@@ -17,29 +17,15 @@
 					<div class="cm-n-title">预购专区 · <i>Pre Order</i></div>
 					<div class="cm-n-cont">
 						<c:forEach var="item" items="${categorys }" begin="0" step="1" varStatus="itemStatus">
-							<a href="CmdDetail.html"><div class="cm-n-cin">${item.name }<i>${item.enName }</i></div></a>
+							<a href="${basePath}/store/prebuy/index?menuId=${menuId}&categoryId=${item.id}"><div class="cm-n-cin">${item.name }<i>${item.enName }</i></div></a>
 						</c:forEach>
 					</div>
 				</div>
 				<div class="n-r-nav">
-					<div class="n-r-top">
-						<img src="${basePath}/images/store/n_06.png" alt="">
-					</div>
+					<div class="n-r-top"><img src="${basePath}/images/store/n_06.png" alt=""></div>
 					<div class="n-r-new">
 						<img src="${basePath}/images/store/n_07.png" alt="">
-						<div class="n-r-nin">
-							<img src="${basePath}/images/store/n_13.png" alt="">
-						</div>
-					</div>
-					<div class="n-r-list">
-						<div class="n-r-lt">
-							<div class="n-r-ch">商品一览</div>
-							<div class="n-r-en">Ttem List</div>
-							<div class="n-r-nin">
-								<img src="${basePath}/images/store/n_14.png" alt="">
-							</div>
-						</div>
-						<div class="n-r-lb"></div>
+						<div class="n-r-nin"><img src="${basePath}/images/store/n_13.png" alt=""></div>
 					</div>
 				</div>
 			</div>
@@ -50,19 +36,14 @@
 				<div class="n-l-c">
 					<div class="n-l-crumb">
 						<div class="n-l-cleft">
-							<a href="Default.html">
-								<div class="c-home">
-									<img src="${basePath}/images/store/n_03.png" alt="">
-								</div>
-							</a><a href="Default.html">
-								<div class="c-h-in">预购专区 · <i>Pre Order</i></div>
-							</a>
+							<a href="${basePath}/store/prebuy/index?menuId=${menuId}"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
+							<a href="${basePath}/store/prebuy/index?menuId=${menuId}"><div class="c-h-in">预购专区 · <i>Pre Order</i></div></a>
 						</div>
-						<div class="c-now">节日必选</div>
+						<div class="c-now">${categoryName }</div>
 					</div>
 				</div>
 				<div class="n-l-cont">
-					<div class="n-l-ct">节日必选</div>
+					<div class="n-l-ct">${categoryName }</div>
 					<div class="n-l-line"></div>
 					<div class="at-rec cv-rec">
 						<div class="dt-rec-txt new-t">

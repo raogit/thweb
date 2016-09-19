@@ -53,8 +53,8 @@
 				<div class="n-l-c">
 					<div class="n-l-crumb">
 						<div class="n-l-cleft">
-							<a href="Default.html"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
-							<a href="Default.html"><div class="c-h-in">最新活动 · <i>Activities</i></div></a>
+							<a href="${basePath}/store/newactivity/index?menuId=${menu.id}"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
+							<a href="${basePath}/store/newactivity/index?menuId=${menu.id}"><div class="c-h-in">最新活动 · <i>Activities</i></div></a>
 						</div>
 						<div class="c-now">最新活动</div>
 					</div>

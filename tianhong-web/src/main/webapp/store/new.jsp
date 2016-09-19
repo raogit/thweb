@@ -29,16 +29,6 @@
 		                    </div>
 						</div>
 		            </c:forEach>
-					<div class="n-r-list">
-						<div class="n-r-lt">
-							<div class="n-r-ch">商品一览</div>
-							<div class="n-r-en">Ttem List</div>
-							<div class="n-r-nin">
-								<img src="${basePath}/images/store/n_14.png" alt="">
-							</div>
-						</div>
-						<div class="n-r-lb"></div>
-					</div>
 				</div>
 			</div>
 			<div class="new-left">

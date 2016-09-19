@@ -31,16 +31,6 @@
 		                        <img src="${basePath}/images/store/n_13.png" alt="">
 		                    </div>
 		                </div>
-		                <div class="n-r-list">
-		                    <div class="n-r-lt">
-		                        <div class="n-r-ch">商品一览</div>
-		                        <div class="n-r-en">Ttem List</div>
-		                        <div class="n-r-nin"><img src="${basePath}/images/store/n_14.png" alt=""></div>
-		                    </div>
-		                    
-		                    <div class="n-r-lb">
-		                    </div>
-		                </div>
 		            </div>
 		        </div>
 		        <div class="new-left">
@@ -49,12 +39,8 @@
 		            <div class="n-l-c">
 		                <div class="n-l-crumb">
 		                    <div class="n-l-cleft">
-		                        <a href="Default.html">
-		                            <div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div>
-		                        </a>
-		                        <a href="Default.html">
-		                            <div class="c-h-in">商品 · <i>Commodity</i></div>
-		                        </a>
+		                        <a href="${basePath}/store/product/index?menuId=${menu.id}"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
+		                        <a href="${basePath}/store/product/index?menuId=${menu.id}"><div class="c-h-in">商品 · <i>Commodity</i></div></a>
 		                    </div>
 		                    <div class="c-now">${category.name }</div>
 		                </div>

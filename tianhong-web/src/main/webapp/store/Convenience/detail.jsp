@@ -10,15 +10,15 @@
 </head>
 <body>
 	<jsp:include page="../head/head.jsp"></jsp:include>
-	<input type="hidden" value="${menuId }" id="menuId" name="menuId"/>
+	<input type="hidden" value="${menu.id }" id="menuId" name="menuId"/>
 	<div class="content">
 	    <div class="cont-in clearfix">
 	        <div class="new-right">
-	            <div class="cm-nav">
-	                <div class="cm-n-title">最新活动 · <i>Activities</i></div>
+	            <div class="cm-nav2">
+	                <div class="cm-n-title">${menu.name }<i></i></div>
 	                <div class="cm-n-cont">
 	                	<c:forEach var="item" items="${categorys }" begin="0" step="1" varStatus="itemStatus">
-							<a href="${basePath}/store/newactivity/detail?categoryId=${item.id }&menuId=${item.menuId}"><div class="cm-n-cin">${item.name }<i>${item.enName }</i></div></a>
+							<a href="${basePath}/store/servicejoinabout/detail?categoryId=${item.id }&menuId=${item.menuId}"><div class="cm-n-cin">${item.name }<i>${item.enName }</i></div></a>
 						</c:forEach>
 	                </div>
 	            </div>
@@ -43,8 +43,8 @@
 	            <div class="n-l-c">
 	                <div class="n-l-crumb">
 	                    <div class="n-l-cleft">
-	                        <a href="${basePath}/store/newactivity/index?menuId=${menu.id}"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
-	                        <a href="${basePath}/store/newactivity/index?menuId=${menu.id}"><div class="c-h-in">最新活动 · <i>Activities</i></div></a>
+	                        <a href="${basePath}/store/servicejoinabout/index?menuId=${menu.id }"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
+	                        <a href="${basePath}/store/servicejoinabout/index?menuId=${menu.id }"><div class="c-h-in">${menu.name }<i></i></div></a>
 	                    </div>
 	                    <div class="c-now">${category.name }</div>
 	                </div>

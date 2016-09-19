@@ -32,14 +32,14 @@
 							</div>
 						</div>
 						<div class="n-r-list">
-							<div class="n-r-lt">
+							<!-- <div class="n-r-lt">
 								<div class="n-r-ch">商品一览</div>
 								<div class="n-r-en">Ttem List</div>
 								<div class="n-r-nin">
 									<img src="${basePath}/images/store/n_14.png" alt="">
 								</div>
 							</div>
-							<!-- <ul class="n-r-ul">
+							<ul class="n-r-ul">
 								<li><a href="#"> <img src="images/n_08.jpg" alt="" class="n-r-img">
 										<div class="n-r-name"><div class="n-r-nch">关东煮1</div><div class="n-r-nen">Oden1</div></div>
 								</a></li>
@@ -62,12 +62,9 @@
 				</div>
 				<div class="new-left">
 					<div class="n-l-top"><img src="${basePath}/images/store/n_02.jpg" alt=""></div>
-	
 					<div class="n-l-c">
 						<div class="n-l-crumb">
-							<div class="n-l-cleft n-l-cl2">
-								<a href="Default.html"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
-							</div>
+							<div class="n-l-cleft n-l-cl2"><a href="${basePath}/store/product/index?menuId=${menu.id}"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a></div>
 							<div class="c-h-in">商品 · <i>Commodity</i></div>
 						</div>
 					</div>

@@ -138,6 +138,7 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());c
 .cin-CM-nm{margin:10px;font-size:14px;line-height:24px}
 .cin-CM-nm p em{color:#f03600}
 .cm-nav{width:169px;height:210px;background:url(../../images/store/c_02.png) no-repeat;background-color:#fff;font-size:12px;color:#215672;padding-top:15px}
+.cm-nav2{width:169px;background-color:#fff;font-size:12px;color:#215672;padding-top:15px}
 .cm-n-title{height:16px;line-height:16px;border-left:4px solid #215672;margin-left:15px;padding-left:6px}
 .cm-n-cont{margin-top:15px;padding:5px 0;border-top:1px dashed #f3ccb2}
 .cm-n-cont a{color:#215672;}

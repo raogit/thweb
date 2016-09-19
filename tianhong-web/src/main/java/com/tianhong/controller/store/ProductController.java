@@ -45,6 +45,7 @@ public class ProductController extends BaseController {
 	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
+			model.put("menu", menuService.getByPrimaryKey(menuId));
 			List<Menu> subMenus = menuService.getSubMenus(162, true);
 			model.put("subMenus", subMenus);
 			Category category = new Category();
@@ -66,6 +67,7 @@ public class ProductController extends BaseController {
 			HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
+			model.put("menu", menuService.getByPrimaryKey(menuId));
 			List<Menu> subMenus = menuService.getSubMenus(162, true);
 			model.put("subMenus", subMenus);
 			Category ca = new Category();
