@@ -54,7 +54,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 		return menuMapper.selectAllMenus();
 	}
 
-	public Menu getByName(String name) throws Exception {
+	public List<Menu> getByName(String name) throws Exception {
 		return menuMapper.selectByName(name);
 	}
 

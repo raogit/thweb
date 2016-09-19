@@ -29,6 +29,6 @@ public interface SysMenuService {
 
 	List<Menu> getAllMenus() throws Exception;
 
-	Menu getByName(String name) throws Exception;
+	List<Menu> getByName(String name) throws Exception;
 
 }
