@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-20 15:06:52
+Date: 2016-09-20 17:36:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -543,7 +543,7 @@ INSERT INTO `t_menu` VALUES ('178', '招商采购', '', '', '2', '172', '6', '1'
 INSERT INTO `t_menu` VALUES ('179', '新闻中心', '', '', '2', '172', '7', '1', '2016-09-19 20:23:07', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('180', '投资者关系', '', '', '2', '172', '8', '1', '2016-09-19 20:23:14', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('181', '公司概括', '/web/about/intro', '/menu/news/detail', '3', '174', '1', '1', '2016-09-19 20:23:36', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('182', '发展历程', '/web/about/history', '/web/about/history', '3', '174', '2', '1', '2016-09-19 20:23:50', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('182', '发展历程', '/web/about/history', '/web/about/history/index', '3', '174', '2', '1', '2016-09-19 20:23:50', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('183', '发展战略', '/web/about/strategy', '', '3', '174', '3', '1', '2016-09-19 20:24:01', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('184', '荣誉奖项', '/web/about/awards', '/menu/news/detail', '3', '174', '4', '1', '2016-09-19 20:24:12', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('185', '自由品牌', '/web/about/brand', '', '3', '174', '5', '1', '2016-09-19 20:24:30', '1', null, null, '0', '', null, null);
@@ -617,7 +617,7 @@ CREATE TABLE `t_picture` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_picture
@@ -700,6 +700,8 @@ INSERT INTO `t_picture` VALUES ('89', '184', '3', '天虹第一家店', 'undefin
 INSERT INTO `t_picture` VALUES ('90', '184', '2', '天虹上市', 'undefined', null, '1', '1474352440648.png', '2016-09-20 14:20:40', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('91', '184', '4', '天虹市值喝大', 'undefined', null, '1', '1474352477361.png', '2016-09-20 14:21:17', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('92', '184', '5', '天虹很多店了', 'undefined', null, '1', '1474352503072.png', '2016-09-20 14:21:43', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('95', '182', '2', '', 'undefined', null, '1', '1474363544061.png', '2016-09-20 17:25:44', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('96', '182', '3', '', 'undefined', null, '1', '1474363546842.png', '2016-09-20 17:25:46', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_recruit_interaction`
@@ -1422,6 +1424,7 @@ DROP TABLE IF EXISTS `t_web_develop_history`;
 CREATE TABLE `t_web_develop_history` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `menu_id` int(11) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
   `picture` varchar(255) DEFAULT NULL,
   `content` text,
   `event_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
@@ -1434,8 +1437,13 @@ CREATE TABLE `t_web_develop_history` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_web_develop_history
 -- ----------------------------
+INSERT INTO `t_web_develop_history` VALUES ('2', '182', '天虹起步', '1474362310633.png', '1月18日，天虹总部乔迁至深圳市南山区中心路天虹大厦。大厦占地约86544平米，高97.5m，总建筑面积达8.7万平方米，为商用、办公一体的综合性建筑。地上20层 ，地下4层，其中裙楼部分（1-8层）为君尚百货旗舰店，9至20层为公司办公区域。办公区采用现代“简约而不简单”的设计理念，营造年轻、活力、个性的氛围，温馨明亮的办公场所、舒适宜人的员工交流区让员工工作更心情加舒畅、工作氛围更加开放，也体现出天虹“以人为本”的管理理念。', '2016-09-20 17:32:51', '2016-09-20 17:05:15', '1', null, null, '0', null, null, null);
+INSERT INTO `t_web_develop_history` VALUES ('3', '182', '天虹第二部', '1474362872487.png', '5月5日，由国家文化部副部长杨志今率领的“国务院消防工作考核组”在公安部消防局防火监督处处长亓延军，江西省政府副秘书长张小平，江西省消防总队总队长房凌春，吉安市副市长张强等陪同下莅临吉安天虹购物中心检查指导消防工作，吉安天虹购物中心总经理李新文陪同接待。', '2015-09-01 00:00:00', '2016-09-20 17:14:34', '1', null, null, '0', null, null, null);
+INSERT INTO `t_web_develop_history` VALUES ('4', '182', '天虹第三步', '1474363062426.png', '5月5日，由国家文化部副部长杨志今率领的“国务院消防工作考核组”在公安部消防局防火监督处处长亓延军，江西省政府副秘书长张小平，江西省消防总队总队长房凌春，吉安市副市长张强等陪同下莅临吉安天虹购物中心检查指导消防工作，吉安天虹购物中心总经理李新文陪同接待', '2015-09-01 00:00:00', '2016-09-20 17:17:43', '1', null, null, '0', null, null, null);
+INSERT INTO `t_web_develop_history` VALUES ('5', '182', '第四', '1474363126231.png', '6月5日，由国家文化部副部长杨志今率领的“国务院消防工作考核组”在公安部消防局防火监督处处长亓延军，江西省政府副秘书长张小平，江西省消防总队总队长房凌春，吉安市副市长张强等陪同下莅临吉安天虹购物中心检查指导消防工作，吉安天虹购物中心总经理李新文陪同接待', '2015-06-05 00:00:00', '2016-09-20 17:18:46', '1', null, null, '0', null, null, null);
+INSERT INTO `t_web_develop_history` VALUES ('6', '182', '第五', '1474363172549.png', '队长房凌春，吉安市副市长张强等陪同下莅临吉安天虹购物中心检查指导消防工作，吉安天虹购物中心总经理李新文陪同接待。', '2015-09-10 00:00:00', '2016-09-20 17:19:33', '1', null, null, '0', null, null, null);

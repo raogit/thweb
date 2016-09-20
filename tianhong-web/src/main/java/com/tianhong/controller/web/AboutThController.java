@@ -22,9 +22,11 @@ import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.content.Content;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.picture.Picture;
+import com.tianhong.domain.web.DevelopHistory;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.picture.PictureService;
+import com.tianhong.service.web.DevelopHistoryService;
 
 /**
  * @author Administrator
@@ -41,6 +43,8 @@ public class AboutThController extends BaseController {
 	private ContentService contentService;
 	@Autowired
 	private PictureService pictureService;
+	@Autowired
+	private DevelopHistoryService developHistoryService;
 
 	@RequestMapping(value = "/index")
 	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
@@ -98,6 +102,9 @@ public class AboutThController extends BaseController {
 
 			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
 			model.put("subMenus", subMenus);
+
+			List<DevelopHistory> historys = developHistoryService.getList(menuId);
+			model.put("historys", historys);
 		} catch (Exception e) {
 			log.error("", e);
 		}

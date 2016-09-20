@@ -52,7 +52,6 @@
 	<div style="height:30px;border-bottom:2px solid #19a97b;"></div>
 	<section class="rt_wrap content mCustomScrollbar">
 		<div class="rt_content">
-	
 			<section class="loading_area">
 			<div class="loading_cont">
 				<div class="loading_icon">
@@ -70,15 +69,22 @@
 				<!--title-->
 				<h3 id="pupTitle">修改菜单</h3>
 				<!--content-->
-				<input type="hidden" value="0" id="popNewProductId" /> <input
-					type="hidden" value="0" id="picture" name="picture" />
+				<input type="hidden" value="0" id="popHistoryId" /> 
+				<input type="hidden" value="0" id="picture" name="picture" />
 				<div class="pop_cont_input">
 					<ul>
-						<li><span style="width: 70px; text-align: right;" class="ttl">新品名:</span>
-							<input id="popName" style="width: 140px;" type="text"
-							placeholder="请输入菜单名..." class="textbox" /></li>
-						<li><span style="width: 70px; text-align: right;" class="ttl">描述:</span>
-							<textarea id="popDescriber" rows="10" cols="50"></textarea></li>
+						<li>
+							<span style="width: 70px; text-align: right;" class="ttl">标题:</span>
+							<input id="popTitle" style="width: 140px;" type="text" placeholder="请输入菜单名..." class="textbox" />
+						</li>
+						<li>
+							<span style="width: 70px; text-align: right;" class="ttl">描述:</span>
+							<textarea id="popContent" rows="10" cols="50"></textarea>
+						</li>
+						<li>
+							<span style="width: 70px; text-align: right;" class="ttl">事件时间:</span>
+							<input class="Wdate" type="text" id="eventTime" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',lang:'en'})" name="endTime" style="width: 160px;" />
+						</li>
 					</ul>
 					<div id="popUpPicture">
 						<form action="${basePath }/upload/image" encType="multipart/form-data" method="post">
@@ -87,16 +93,15 @@
 									type="file" id="fileId" name="fileId" /></li>
 								<li><span class="item_name" style="width: 120px;"></span> 
 								<input type="button" class="link_btn" onclick="upload('fileId')" value="上传" />
-									<img id="productpicture" alt="" src="" width="100px" height="50px" style="padding-left: 10px;"></li>
+									<img id="popPictureImg" alt="" src="" width="100px" height="50px" style="padding-left: 10px;"></li>
 							</ul>
 						</form>
 					</div>
 				</div>
 				<!--bottom:operate->button-->
 				<div class="btm_btn">
-					<input type="button" value="确认" class="input_btn trueBtn"
-						id="confirm" /> <input type="button" value="关闭"
-						class="input_btn falseBtn" id="close" />
+					<input type="button" value="确认" class="input_btn trueBtn" id="confirm" /> 
+					<input type="button" value="关闭" class="input_btn falseBtn" id="close" />
 				</div>
 			</div>
 			</section>
@@ -108,10 +113,9 @@
 						<strong style="color: grey;"></strong>
 					</h2>
 					<input type="hidden" value="${menuId }" id="menuId" name="menuId" />
-					<strong style="color: grey;">新品名:</strong><input id="name" type="text" class="textbox" placeholder="新品名..." /> 
-					<strong style="color: grey;">类型:</strong><select class="select" id="categoryId" name="categoryId" onchange="changeSelect(this.value)" style="width: 120px;"></select> 
+					<strong style="color: grey;">标题:</strong><input id="title" type="text" class="textbox" placeholder="新品名..." /> 
 					<strong style="color: grey;">创建时间:</strong><input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width: 160px;" />- 
-						<input class="Wdate" type="text" id="endDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width: 160px;" /> 
+					<input class="Wdate" type="text" id="endDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width: 160px;" /> 
 					<input type="button" value="查询" class="group_btn" onclick="tableData(1)" /> <input type="button" value="添加" class="group_btn" onclick="add(0)" style="margin-left: 20px;" /> 
 				</section> 
 			<section>
@@ -123,8 +127,9 @@
 				<thead>
 					<tr>
 						<th>序号</th>
-						<th>新品名</th>
-						<th>描述</th>
+						<th>标题</th>
+						<th>事件时间</th>
+						<th>内容</th>
 						<th>图片</th>
 						<th>创建时间</th>
 						<th>操作</th>

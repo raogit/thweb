@@ -59,47 +59,16 @@
 	                </div>
 	                <div class="move-box">
 	                    <ul class="bd-H-list">
-	                        <li class="H-list-li">  
-	                            <div class="H-txt">
-	                                <div class="H-dot"></div>
-	                                <div class="H-img"><img src="../images/img/h_3.jpg"></div>
-	                                <div class="H-txt-c">1月18日，天虹总部乔迁至深圳市南山区中心路天虹大厦。大厦占地约86544平米，高97.5m，总建筑面积达8.7万平方米，为商用、办公一体的综合性建筑。地上20层 ，地下4层，其中裙楼部分（1-8层）为君尚百货旗舰店，9至20层为公司办公区域。办公区采用现代“简约而不简单”的设计理念，营造年轻、活力、个性的氛围，温馨明亮的办公场所、舒适宜人的员工交流区让员工工作更心情加舒畅、工作氛围更加开放，也体现出天虹“以人为本”的管理理念。</div>
-	                                <div class="H-txt-t">2015</div>
-	                            </div>
-	                        </li>
-	                        <li class="H-list-li">
-	                            
-	                            <div class="H-txt">
-	                               <div class="H-dot"></div>
-	                               <div class="H-img"><img src="../images/img/h_3.jpg"></div>
-	                               <div class="H-txt-c">5月5日，由国家文化部副部长杨志今率领的“国务院消防工作考核组”在公安部消防局防火监督处处长亓延军，江西省政府副秘书长张小平，江西省消防总队总队长房凌春，吉安市副市长张强等陪同下莅临吉安天虹购物中心检查指导消防工作，吉安天虹购物中心总经理李新文陪同接待。</div>
-	                               <div class="H-txt-t">2014</div>
-	                            </div>
-	                        </li>
-	                        <li class="H-list-li"> 
-	                            <div class="H-txt">
-	                               <div class="H-dot"></div>
-	                               <div class="H-img"><img src="../images/img/h_3.jpg"></div>
-	                               <div class="H-txt-c">5月5日，由国家文化部副部长杨志今率领的“国务院消防工作考核组”在公安部消防局防火监督处处长亓延军，江西省政府副秘书长张小平，江西省消防总队总队长房凌春，吉安市副市长张强等陪同下莅临吉安天虹购物中心检查指导消防工作，吉安天虹购物中心总经理李新文陪同接待。</div>
-	                               <div class="H-txt-t">2014</div>
-	                            </div>
-	                        </li>
-	                        <li class="H-list-li"> 
-	                            <div class="H-txt">
-	                               <div class="H-dot"></div>
-	                               <div class="H-img"><img src="../images/img/h_3.jpg"></div>
-	                               <div class="H-txt-c">5月5日，由国家文化部副部长杨志今率领的“国务院消防工作考核组”在公安部消防局防火监督处处长亓延军，江西省政府副秘书长张小平，江西省消防总队总队长房凌春，吉安市副市长张强等陪同下莅临吉安天虹购物中心检查指导消防工作，吉安天虹购物中心总经理李新文陪同接待。</div>
-	                               <div class="H-txt-t">2014</div>
-	                            </div>
-	                        </li>
-	                        <li class="H-list-li"> 
-	                            <div class="H-txt">
-	                               <div class="H-dot"></div>
-	                               <div class="H-img"><img src="../images/img/h_3.jpg"></div>
-	                               <div class="H-txt-c">5月5日，由国家文化部副部长杨志今率领的“国务院消防工作考核组”在公安部消防局防火监督处处长亓延军，江西省政府副秘书长张小平，江西省消防总队总队长房凌春，吉安市副市长张强等陪同下莅临吉安天虹购物中心检查指导消防工作，吉安天虹购物中心总经理李新文陪同接待。</div>
-	                               <div class="H-txt-t">2014</div>
-	                            </div>
-	                        </li>
+		                    <c:forEach var="item" items="${historys }" begin="0" step="1" varStatus="itemStatus">
+			                	<li class="H-list-li">  
+		                            <div class="H-txt">
+		                                <div class="H-dot"></div>
+		                                <div class="H-img"><img src="${basePath}/download/png?fileName=${item.picture }" width="275px" height="400px" /></div>
+		                                <div class="H-txt-c">${item.content }</div>
+		                                <div class="H-txt-t">${fn:substring(item.eventTimeStr,0,5) }</div>
+		                            </div>
+		                        </li>
+					        </c:forEach>
 	                    </ul>
 	                </div>
 	                <div class="bd-V-arr arr-next fr">

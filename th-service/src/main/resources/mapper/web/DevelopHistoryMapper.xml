@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.tianhong.domain.web.DevelopHistory">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="menu_id" jdbcType="INTEGER" property="menuId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="picture" jdbcType="VARCHAR" property="picture" />
     <result column="event_time" jdbcType="TIMESTAMP" property="eventTime" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -19,7 +20,7 @@
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, menu_id, picture, event_time, create_time, create_id, update_time, update_id, 
+    id, menu_id, title, picture, event_time, create_time, create_id, update_time, update_id, 
     is_deleted, backup1, backup2, backup3
   </sql>
   <sql id="Blob_Column_List">
@@ -37,19 +38,19 @@
     delete from t_web_develop_history
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.tianhong.domain.web.DevelopHistory" useGeneratedKeys="true" keyProperty="id">
-    insert into t_web_develop_history (id, menu_id, picture, 
-      event_time, create_time, create_id, 
-      update_time, update_id, is_deleted, 
-      backup1, backup2, backup3, 
-      content)
-    values (#{id,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER}, #{picture,jdbcType=VARCHAR}, 
-      #{eventTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{createId,jdbcType=INTEGER}, 
-      #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, #{isDeleted,jdbcType=BIT}, 
-      #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, #{backup3,jdbcType=VARCHAR}, 
-      #{content,jdbcType=LONGVARCHAR})
+  <insert id="insert" parameterType="com.tianhong.domain.web.DevelopHistory">
+    insert into t_web_develop_history (id, menu_id, title, 
+      picture, event_time, create_time, 
+      create_id, update_time, update_id, 
+      is_deleted, backup1, backup2, 
+      backup3, content)
+    values (#{id,jdbcType=INTEGER}, #{menuId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{picture,jdbcType=VARCHAR}, #{eventTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{createId,jdbcType=INTEGER}, #{updateTime,jdbcType=TIMESTAMP}, #{updateId,jdbcType=INTEGER}, 
+      #{isDeleted,jdbcType=BIT}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR}, 
+      #{backup3,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.tianhong.domain.web.DevelopHistory" useGeneratedKeys="true" keyProperty="id">
+  <insert id="insertSelective" parameterType="com.tianhong.domain.web.DevelopHistory">
     insert into t_web_develop_history
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -57,6 +58,9 @@
       </if>
       <if test="menuId != null">
         menu_id,
+      </if>
+      <if test="title != null">
+        title,
       </if>
       <if test="picture != null">
         picture,
@@ -99,6 +103,9 @@
       <if test="menuId != null">
         #{menuId,jdbcType=INTEGER},
       </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
       <if test="picture != null">
         #{picture,jdbcType=VARCHAR},
       </if>
@@ -140,6 +147,9 @@
       <if test="menuId != null">
         menu_id = #{menuId,jdbcType=INTEGER},
       </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
       <if test="picture != null">
         picture = #{picture,jdbcType=VARCHAR},
       </if>
@@ -179,6 +189,7 @@
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.tianhong.domain.web.DevelopHistory">
     update t_web_develop_history
     set menu_id = #{menuId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
       picture = #{picture,jdbcType=VARCHAR},
       event_time = #{eventTime,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -195,6 +206,7 @@
   <update id="updateByPrimaryKey" parameterType="com.tianhong.domain.web.DevelopHistory">
     update t_web_develop_history
     set menu_id = #{menuId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
       picture = #{picture,jdbcType=VARCHAR},
       event_time = #{eventTime,jdbcType=TIMESTAMP},
       create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -207,6 +219,17 @@
       backup3 = #{backup3,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -257,6 +280,6 @@
 			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND
 			#{endDate,jdbcType=VARCHAR}
 		</if>
-		ORDER BY create_time
+		ORDER BY event_time
 	</select>
 </mapper>

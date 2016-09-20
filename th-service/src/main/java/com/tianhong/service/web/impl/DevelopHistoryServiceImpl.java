@@ -10,14 +10,17 @@ package com.tianhong.service.web.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tianhong.constant.CommonConstant;
 import com.tianhong.dao.web.DevelopHistoryMapper;
 import com.tianhong.domain.user.User;
 import com.tianhong.domain.web.DevelopHistory;
 import com.tianhong.service.web.DevelopHistoryService;
+import com.tianhong.utils.DateUtils;
 
 /**
  * ClassName: DevelopHistoryServiceImpl
@@ -71,6 +74,11 @@ public class DevelopHistoryServiceImpl implements DevelopHistoryService {
 
 	public DevelopHistory getPage(DevelopHistory developHistory) throws Exception {
 		List<DevelopHistory> page = developHistoryMapper.page(developHistory);
+		if (!CollectionUtils.isEmpty(page)) {
+			for (DevelopHistory his : page) {
+				his.setEventTimeStr(DateUtils.parseString(his.getEventTime(), CommonConstant.YYYY_MM_dd));
+			}
+		}
 		int count = developHistoryMapper.count(developHistory);
 		developHistory.setObj(page);
 		developHistory.setTotalRow(count);
@@ -84,7 +92,13 @@ public class DevelopHistoryServiceImpl implements DevelopHistoryService {
 	public List<DevelopHistory> getList(int menuId) throws Exception {
 		DevelopHistory developHistory = new DevelopHistory();
 		developHistory.setMenuId(menuId);
-		return developHistoryMapper.list(developHistory);
+		List<DevelopHistory> list = developHistoryMapper.list(developHistory);
+		if (!CollectionUtils.isEmpty(list)) {
+			for (DevelopHistory his : list) {
+				his.setEventTimeStr(DateUtils.parseString(his.getEventTime(), CommonConstant.YYYY_MM_dd_NIAN));
+			}
+		}
+		return list;
 	}
 
 }

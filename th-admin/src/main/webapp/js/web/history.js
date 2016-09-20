@@ -17,37 +17,12 @@ jQuery(document).ready(function() {
 		});
 	})(jQuery);
 	refreshTime();
+	refreshPopTime();
 	btn();
 	tab();
-	initSelect("categoryId");
 	initPicture($("#menuId").val());
+	tableData(curPage);
 });
-
-function initSelect(id){
-	$(".loading_area").fadeIn(10);
-	var categoryId = $("#"+id);
-	categoryId.html("");
-	var menuId = $("#menuId").val();
-	$.ajax({
-        url: basePath + "/category/list",
-        type: 'post',
-        dataType: 'json',
-        data : {
-        	menuId : menuId
-        },
-        cache: false,
-        success: function(data){
-        	if(data!=null&&data!=""){
-        		for(var i=0; i<data.length;i++){
-        			var item = data[i];
-        			categoryId.append('<option value="'+item.id+'">'+item.name+'</option>');
-        		}
-        		tableData(curPage);
-        	}
-        	$(".loading_area").fadeOut(10);
-        }
-    });
-}
 
 function initPicture(menuId){
 	$.ajax({
@@ -63,6 +38,7 @@ function initPicture(menuId){
 }
 
 function picture(data){
+	debugger;
 	if(data!=null && data!="" && data!=false){
 		var bannerpicture = $("#bannerpicture");
 		bannerpicture.empty();
@@ -89,7 +65,9 @@ function left(id){
         	id : id
         },
         cache: false,
-        success: picture
+        success: function(data){
+        	initPicture($("#menuId").val());
+        }
     });
 }
 
@@ -102,7 +80,9 @@ function right(id){
         	id : id
         },
         cache: false,
-        success: picture
+        success: function(data){
+        	initPicture($("#menuId").val());
+        }
     });
 }
 function del(id){
@@ -114,13 +94,33 @@ function del(id){
         	id : id
         },
         cache: false,
-        success: picture
+        success: function(data){
+        	initPicture($("#menuId").val());
+        }
     });
 }
-
+function deleteObj(id){
+	if(confirm("刪除将无法恢复?")){
+		$.ajax({
+	        url: basePath + "/web/about/history/delete",
+	        type: 'post',
+	        dataType: 'json',
+	        data : {
+	        	id : id
+	        },
+	        cache: false,
+	        success: function(data){
+	        	if(data!=null && data){
+	        		alert("删除成功!");
+	        		tableData(curPage);
+	        	}else{
+	        		alert("删除失败!");
+	        	}
+	        }
+	    });
+	}
+}
 function uploadPic(fileId,type){
-	
-	debugger;
 	var file = $("#"+fileId).val();
 	if(!file){
 		alert("请选择图片");
@@ -152,24 +152,19 @@ function uploadPic(fileId,type){
         }
     });
 }
-function changeSelect(val){
-	$("#categoryId").val(val)
-	tableData(curPage);
-}
+
 function tableData(pageNum){
 	curPage = pageNum;
 	$(".loading_area").fadeIn(10);
-	var name = $("#name").val();
-	var categoryId = $("#categoryId").val();
+	var title = $("#title").val();
 	var startDate = $("#startDate").val();
 	var endDate = $("#endDate").val();	
 	$.ajax({
-        url: basePath + "/newproduct/page",
+        url: basePath + "/web/about/history/page",
         type: 'post',
         dataType: 'json',
         data : {
-        	name : name,
-        	categoryId : categoryId,
+        	title : title,
         	startDate : startDate,
         	endDate : endDate,
         	curPage : pageNum
@@ -192,14 +187,20 @@ function initTable(data){
 	var totalRow = data.totalRow;
 	for(var i=0;i<list.length;i++){
 		var item = list[i];
+		var eventTime = curentTime(item.eventTime);
 		var time = curentTime(item.createTime);
+		var content = "";
+		if(item.content!=null && item.content!=""){
+			content = item.content.substring(0,20)
+		}
 		var tr = "<tr>"
 			+"<td>"+(i+1)+"</td>"
-			+"<td>"+item.name+"</td>"
-			+"<td>"+item.describer.substring(1,20)+"</td>"
+			+"<td>"+item.title+"</td>"
+			+"<td>"+item.eventTimeStr+"</td>"
+			+"<td>"+content+"</td>"
 			+"<td>"+item.picture+"</td>"
 			+"<td>"+time+"</td>";
-		var operation = "<td style='text-align: center;'><a href='javascript:edit("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:del("+item.id+")' class='inner_btn'>删除</a></td>"
+		var operation = "<td style='text-align: center;'><a href='javascript:edit("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteObj("+item.id+")' class='inner_btn'>删除</a></td>"
 		var end_tr = "</tr>";
 		userlist.append(tr+operation+end_tr);
 	}
@@ -225,18 +226,18 @@ function initPage(page){
 
 function edit(id){
 	$("#pop").fadeIn(10);	
-	$("#popNewProductId").val(id);
-	$("#popName").val("");
+	$("#popHistoryId").val(id);
+	$("#popTitle").val("");
 	$("#picture").val("");
 	$("#popPrice").val("");
 	$("#picture").val("");
-	$("#productpicture").attr("src","");
+	$("#popPictureImg").attr("src","");
 	if(id<=0){
 		$("#pupTitle").html("添加");
 	}else{
 		$("#pupTitle").html("修改");
 		$.ajax({
-	        url: basePath + "/newproduct/get",
+	        url: basePath + "/web/about/history/get",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -245,46 +246,47 @@ function edit(id){
 	        cache: false,
 	        success: function(data){
 	        	if(data){
-	        		$("#popName").val(data.name);
-	        		$("#popDescriber").val(data.describer);
+	        		$("#popTitle").val(data.title);
+	        		$("#popContent").val(data.content);
 	        		$("#picture").val(data.picture);
-	        		$("#productpicture").attr("src",basePath+"/download/png?fileName="+data.picture);
+	        		$("#popPictureImg").attr("src",basePath+"/download/png?fileName="+data.picture);
 	        	}
 	        }
 	    });
 	}
 }
 function add(id){	
+	refreshPopTime();
 	$("#pupTitle").html("添加");
 	$("#pop").fadeIn(10);	
-	$("#popNewProductId").val(0);
-	$("#popName").val("");
+	$("#popHistoryId").val(0);
+	$("#popTitle").val("");
 	$("#picture").val("");
-	$("#popPrice").val("");
-	$("#popDescriber").val("");
-	$("#productpicture").attr("src","");
+	$("#popContent").val("");
+	$("#popPictureImg").attr("src","");
 }
 function save(){
-	debugger;
-	var id = $("#popNewProductId").val();
-	var name = $("#popName").val();
+	var id = $("#popHistoryId").val();
+	var title = $("#popTitle").val();
 	var picture = $("#picture").val();
-	var describer = $("#popDescriber").val();
-	var categoryId = $("#categoryId").val();
+	var content = $("#popContent").val();
+	var menuId = $("#menuId").val();
+	var eventTime = $("#eventTime").val();
 	if(isEmpty(name)){
 		alert("请填写内容");
 		return ;
 	}
 	$.ajax({
-        url: basePath + "/newproduct/save",
+        url: basePath + "/web/about/history/save",
         type: 'post',
         dataType: 'json',
         data : {
         	id : id,
-        	name : name,
+        	menuId : menuId,
+        	title : title,
         	picture : picture,
-        	describer : describer,
-        	categoryId : categoryId
+        	content : content,
+        	eventTimeStr : eventTime
         },
         cache: false,
         success: function(data){
@@ -328,7 +330,10 @@ function refreshTime(){
 	$("#startDate").val(curentTime(curDate.getTime() - 12*30*24*60*60*1000));
 	$("#endDate").val(curentTime(curDate.getTime()+ 60*60*1000));
 }
-
+function refreshPopTime(){
+	var curDate = new Date();
+	$("#eventTime").val(curentDate(curDate.getTime()+ 60*60*1000));
+}
 function clear(){
 	$("#contentId").html("");
 }
@@ -353,7 +358,7 @@ function upload(fileId){
             data = data.replace("</pre>", '');
             var reqParam = data;
         	if (reqParam != "" && reqParam!=false) {
-        		$("#productpicture").attr("src",basePath+"/download/png?fileName="+reqParam);
+        		$("#popPictureImg").attr("src",basePath+"/download/png?fileName="+reqParam);
         		$("#picture").val(reqParam);
 			} else {
 				alert("上传失败");
