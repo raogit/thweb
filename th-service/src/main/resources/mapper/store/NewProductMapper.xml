@@ -32,7 +32,7 @@
 		delete from t_store_new_product
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.tianhong.domain.store.NewProduct">
+	<insert id="insert" parameterType="com.tianhong.domain.store.NewProduct" useGeneratedKeys="true" keyProperty="id">
 		insert into t_store_new_product (id, category_id, name,
 		picture, describer, create_time,
 		create_id, update_time, update_id,
@@ -46,7 +46,7 @@
 		#{isDeleted,jdbcType=BIT}, #{backup1,jdbcType=VARCHAR}, #{backup2,jdbcType=VARCHAR},
 		#{backup3,jdbcType=VARCHAR})
 	</insert>
-	<insert id="insertSelective" parameterType="com.tianhong.domain.store.NewProduct">
+	<insert id="insertSelective" parameterType="com.tianhong.domain.store.NewProduct" useGeneratedKeys="true" keyProperty="id">
 		insert into t_store_new_product
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">
