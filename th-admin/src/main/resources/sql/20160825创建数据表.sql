@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-19 21:36:19
+Date: 2016-09-20 15:06:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -121,7 +121,7 @@ CREATE TABLE `t_content` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_content
@@ -144,6 +144,7 @@ INSERT INTO `t_content` VALUES ('15', '133', '', '', '', '', null, '<p>\n\n<span
 INSERT INTO `t_content` VALUES ('16', '134', '', '', '', '', null, '<p>\n\n<span style=\"color: rgb(0, 0, 0); font-family: &quot; Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none;\" data-fr-verified=\"true\">1984年成立以来，通过人本、科学的管理，专业、高效的运营，公司取得了卓越的业绩，已连续多年入围中国连锁百强企业。公司根据目标顾客需求的不同，以百货店、大型购物中心、便利店的实体零售业态，打造以“亲和、信赖、享受生活”为核心价值的品牌，旗下拥有“天虹”、“君尚”两大零售品牌。截止5月16日，天虹品牌在北京、广东、福建、江西、湖南、江苏、浙江、四川等8省20市开设了61家直营分店及以特许经营方式管理2家分店，君尚品牌在深圳、东莞、惠州共开设了3家直营分店；天虹微喔便利店在深圳、厦门、南昌等地共开设了96家直营分店，38家加盟店；天虹跨境电商体验店在深圳、东莞、惠州、厦门、福州、成都、长沙、株洲、吉安、赣州、杭州、苏州等地开店34家。<br style=\"color: rgb(0, 0, 0); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\"><br style=\"color: rgb(0, 0, 0); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 25px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">公司在行业内率先突破传统百货购物模式，从实体店走向线上线下融合的全渠道，率先打造出全国首家拥有“自定义菜单”的零售微信服务号“天虹”，随后逐步创新，现已形成实体店、PC网店、移动端（天虹微信、天虹微品、虹领巾）的全渠道零售生活平台。</span>\n\n<br></p>', null, '2016-08-19 15:23:31', '1', null, null, '0', null, null, null);
 INSERT INTO `t_content` VALUES ('17', '156', '品质管理介绍', '', '', '', null, '<p style=\"padding: 0px; margin: 20px 0px 0px; line-height: 24px; text-align: justify; color: rgb(51, 51, 51); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">品质管理介绍厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。</p><p style=\"padding: 0px; margin: 20px 0px 0px; line-height: 24px; text-align: justify; color: rgb(51, 51, 51); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。</p><p style=\"padding: 0px; margin: 20px 0px 0px; line-height: 24px; text-align: justify; color: rgb(51, 51, 51); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">商场一直致力于保持服务领先的优势，免费提供多项便民服务，同时提供钟表维修、机器修鞋、改缝裤脚等专业服务，送货服务范围更广、更便捷了</p>', null, '2016-08-25 21:35:45', '1', null, null, '0', null, null, null);
 INSERT INTO `t_content` VALUES ('18', '163', '', null, null, null, null, '<ol><li><p>\n\n任意消费满10元+15元换购圣诞小熊一只&nbsp;</p></li><li><p>参与门店：天虹微喔和万店通所有门店（不含加盟店）\n\n\n<br></p></li></ol>', null, '2016-09-19 11:30:09', '1', null, null, '0', null, null, null);
+INSERT INTO `t_content` VALUES ('19', '181', '天虹商场股份有限公司', 'SINCE 1984', '', '', null, '<p style=\"padding: 0px; margin: 20px 0px 0px; color: rgb(139, 123, 112); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。</p><p style=\"padding: 0px; margin: 20px 0px 0px; color: rgb(139, 123, 112); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">1984年成立以来，通过人本、科学的管理，专业、高效的运营，公司取得了卓越的业绩，已连续多年入围中国连锁百强企业。公司根据目标顾客需求的不同，以百货店、大型购物中心、便利店的实体零售业态，打造以“亲和、信赖、享受生活”为核心价值的品牌，旗下拥有“天虹”、“君尚”两大零售品牌。截止5月16日，天虹品牌在北京、广东、福建、江西、湖南、江苏、浙江、四川等8省20市开设了61家直营分店及以特许经营方式管理2家分店，君尚品牌在深圳、东莞、惠州共开设了3家直营分店；天虹微喔便利店在深圳、厦门、南昌等地共开设了96家直营分店，38家加盟店；天虹跨境电商体验店在深圳、东莞、惠州、厦门、福州、成都、长沙、株洲、吉安、赣州、杭州、苏州等地开店34家。</p><p style=\"padding: 0px; margin: 20px 0px 0px; color: rgb(139, 123, 112); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">公司在行业内率先突破传统百货购物模式，从实体店走向线上线下融合的全渠道，率先打造出全国首家拥有“自定义菜单”的零售微信服务号“天虹”，随后逐步创新，现已形成实体店、PC网店、移动端（天虹微信、天虹微品、虹领巾）的全渠道零售生活平台。</p><p style=\"padding: 0px; margin: 20px 0px 0px; color: rgb(139, 123, 112); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px;\">天虹将始终坚持“有效益扩张”和“可持续发展”的原则，立志将公司塑造成全国一流的零售企业，与顾客分享生活之美。</p>', null, '2016-09-20 10:09:53', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_culture`
@@ -534,18 +535,18 @@ INSERT INTO `t_menu` VALUES ('170', '关于我们', '/store/servicejoinabout/ind
 INSERT INTO `t_menu` VALUES ('171', '分类', '', '/category/category-list', '2', '162', '9', '0', '2016-08-31 20:45:47', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('172', 'WEB前台', '', '', '1', '0', '15', '1', '2016-09-19 20:14:38', '1', null, null, '0', 'web', null, null);
 INSERT INTO `t_menu` VALUES ('173', '首页', '/web/index', '/menu/news/detail', '2', '172', '1', '1', '2016-09-19 20:21:32', '1', null, null, '0', 'index', null, null);
-INSERT INTO `t_menu` VALUES ('174', '关于天虹', '/web/about/intro', '', '2', '172', '2', '1', '2016-09-19 20:22:06', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('174', '关于天虹', '/web/about/index', '', '2', '172', '2', '1', '2016-09-19 20:22:06', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('175', '多元业务', '', '', '2', '172', '3', '1', '2016-09-19 20:22:25', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('176', '企业文化', '', '', '2', '172', '4', '1', '2016-09-19 20:22:35', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('177', '人力资源', '', '', '2', '172', '5', '1', '2016-09-19 20:22:44', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('178', '招商采购', '', '', '2', '172', '6', '1', '2016-09-19 20:22:53', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('179', '新闻中心', '', '', '2', '172', '7', '1', '2016-09-19 20:23:07', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('180', '投资者关系', '', '', '2', '172', '8', '1', '2016-09-19 20:23:14', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('181', '公司概括', '', '', '3', '174', '1', '1', '2016-09-19 20:23:36', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('182', '发展历程', '', '', '3', '174', '2', '1', '2016-09-19 20:23:50', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('183', '发展战略', '', '', '3', '174', '3', '1', '2016-09-19 20:24:01', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('184', '荣誉奖项', '', '', '3', '174', '4', '1', '2016-09-19 20:24:12', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('185', '自由品牌', '', '', '3', '174', '5', '1', '2016-09-19 20:24:30', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('181', '公司概括', '/web/about/intro', '/menu/news/detail', '3', '174', '1', '1', '2016-09-19 20:23:36', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('182', '发展历程', '/web/about/history', '/web/about/history', '3', '174', '2', '1', '2016-09-19 20:23:50', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('183', '发展战略', '/web/about/strategy', '', '3', '174', '3', '1', '2016-09-19 20:24:01', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('184', '荣誉奖项', '/web/about/awards', '/menu/news/detail', '3', '174', '4', '1', '2016-09-19 20:24:12', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('185', '自由品牌', '/web/about/brand', '', '3', '174', '5', '1', '2016-09-19 20:24:30', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('186', '天虹小额贷款', '', '', '3', '175', '1', '1', '2016-09-19 20:25:40', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('187', '天虹商场', '', '', '3', '175', '2', '1', '2016-09-19 20:25:47', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('188', '君尚百货', '', '', '3', '175', '3', '1', '2016-09-19 20:25:57', '1', null, null, '0', '', null, null);
@@ -616,7 +617,7 @@ CREATE TABLE `t_picture` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_picture
@@ -693,6 +694,12 @@ INSERT INTO `t_picture` VALUES ('83', '166', '5', '', 'undefined', null, '1', '1
 INSERT INTO `t_picture` VALUES ('84', '173', '1', '', 'undefined', null, '1', '1474289288198.png', '2016-09-19 20:48:08', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('85', '173', '2', '', 'undefined', null, '1', '1474289415777.png', '2016-09-19 20:50:15', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('86', '173', '3', '', 'undefined', null, '1', '1474289422597.png', '2016-09-19 20:50:22', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('87', '181', '1', '', 'undefined', null, '1', '1474337363679.png', '2016-09-20 10:09:23', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('88', '184', '1', '天虹第一家店', 'undefined', null, '1', '1474352303889.png', '2016-09-20 14:18:23', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('89', '184', '3', '天虹第一家店', 'undefined', null, '1', '1474352310803.png', '2016-09-20 14:18:30', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('90', '184', '2', '天虹上市', 'undefined', null, '1', '1474352440648.png', '2016-09-20 14:20:40', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('91', '184', '4', '天虹市值喝大', 'undefined', null, '1', '1474352477361.png', '2016-09-20 14:21:17', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('92', '184', '5', '天虹很多店了', 'undefined', null, '1', '1474352503072.png', '2016-09-20 14:21:43', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_recruit_interaction`
@@ -1407,3 +1414,28 @@ INSERT INTO `t_user` VALUES ('122', '1', 'softbank2', 'f927125863f1d88293ec9867e
 INSERT INTO `t_user` VALUES ('123', '0', 'LITMDW_HK1_ADMIN', '6e27319274c971c8e993e23d39408bb7', null, '2016-07-16 11:43:42', '1', null, null, '0', null, null, null);
 INSERT INTO `t_user` VALUES ('124', '1', 'LITMDW_HK1_GUEST', '6e27319274c971c8e993e23d39408bb7', null, '2016-07-16 11:43:42', '1', null, null, '0', null, null, null);
 INSERT INTO `t_user` VALUES ('125', '0', 'softbank01', 'ad33d6eff98c3efe54cb492f90f5ada5', 'damy.address1@reteck.com', '2016-07-16 11:43:42', '1', null, null, '0', null, null, null);
+
+-- ----------------------------
+-- Table structure for `t_web_develop_history`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_web_develop_history`;
+CREATE TABLE `t_web_develop_history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `menu_id` int(11) DEFAULT NULL,
+  `picture` varchar(255) DEFAULT NULL,
+  `content` text,
+  `event_time` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `create_time` timestamp NULL DEFAULT NULL,
+  `create_id` int(11) DEFAULT NULL,
+  `update_time` timestamp NULL DEFAULT NULL,
+  `update_id` int(11) DEFAULT NULL,
+  `is_deleted` tinyint(1) DEFAULT '0',
+  `backup1` varchar(1024) DEFAULT NULL,
+  `backup2` varchar(1024) DEFAULT NULL,
+  `backup3` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_web_develop_history
+-- ----------------------------

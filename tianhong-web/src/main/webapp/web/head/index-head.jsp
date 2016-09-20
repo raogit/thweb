@@ -7,7 +7,7 @@
         <a href="${basePath}/web/index" class="header_logo"><img src="images/logo.png"></a>
         <div class="header_contentBlock">
             <div class="header_ulBlock">
-            	<c:forEach var="item" items="${subMenus }" begin="0" step="1" varStatus="itemStatus">
+            	<c:forEach var="item" items="${headMenus }" begin="0" step="1" varStatus="itemStatus">
 		        	<a href="${basePath}${item.link }?menuId=${item.id }" class="header_liBlock">${item.name }</a>
 		        </c:forEach>
                 <!-- <a href="index.html" class="header_liBlock">首 页</a>

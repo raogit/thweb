@@ -39,8 +39,8 @@ public class WebController extends BaseController {
 		try {
 			int menuId = 172;
 			model.put("menu", menuService.getByPrimaryKey(menuId));
-			List<Menu> subMenus = menuService.getSubMenus(menuId, true);
-			model.put("subMenus", subMenus);
+			List<Menu> headMenus = menuService.getSubMenus(menuId, true);
+			model.put("headMenus", headMenus);
 		} catch (Exception e) {
 			log.error("", e);
 		}

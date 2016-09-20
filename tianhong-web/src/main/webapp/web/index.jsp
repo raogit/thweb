@@ -8,7 +8,7 @@
 	<title>天虹集团官网</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<jsp:include page="base.jsp"></jsp:include>
-	<script src="${basePath}/web/js/web.js" type="text/javascript"></script>
+	
 	<style type="text/css">
 		html.full, html.full body {
 			width: 100%;
