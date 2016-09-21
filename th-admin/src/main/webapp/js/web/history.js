@@ -38,10 +38,10 @@ function initPicture(menuId){
 }
 
 function picture(data){
-	debugger;
+	var bannerpicture = $("#bannerpicture");
+	bannerpicture.empty();
 	if(data!=null && data!="" && data!=false){
-		var bannerpicture = $("#bannerpicture");
-		bannerpicture.empty();
+		
 		for(var i=0;i<data.length;i++){
 			var picture = data[i];
 			var html;

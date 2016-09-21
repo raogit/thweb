@@ -1,6 +1,5 @@
 var curPage= 1;
 jQuery(document).ready(function() {	
-	debugger;
 	init();
 	$("#saveContent").click(function(){
 		save();
@@ -12,6 +11,7 @@ jQuery(document).ready(function() {
 	refreshPopTime();
 	btn();
 	tableData(1);
+	showContent();
 });
 function refreshTime(){
 	var curDate = new Date();
@@ -25,7 +25,7 @@ function refreshPopTime(){
 }
 function showContent(){
 	var menuId = $("#menuId").val();
-	$("#investmentContent").html("");
+	$("#investmentContent").val("");
 	$("#investmentTitle").val("");
 	$("#investmentSlogan").val("");
 	$("#contentId").val(0);
@@ -40,7 +40,7 @@ function showContent(){
         success: function(data){
         	if(data!=null && data!=""){
             	$("#menuId").val(data.menuId);
-            	$("#investmentContent").html(data.content);
+            	$("#investmentContent").val(data.content);
             	$("#investmentTitle").val(data.title);
             	$("#investmentSlogan").val(data.slogan);
             	$("#contentId").val(data.id);
@@ -50,7 +50,7 @@ function showContent(){
 }
 function saveInvestmentContent(){
 	var menuId = $("#menuId").val();
-	var content = $("#investmentContent").html();
+	var content = $("#investmentContent").val();
 	var title = $("#investmentTitle").val();
 	var slogan = $("#investmentSlogan").val();
 	var id = $("#contentId").val();
@@ -58,7 +58,7 @@ function saveInvestmentContent(){
 		alert("请填写内容");
 		return ;
 	}
-	debugger;
+	
 	$.ajax({
         url: basePath + "/content/save",
         type: 'post',
@@ -80,13 +80,12 @@ function saveInvestmentContent(){
         }
     });
 }
-
 function edit(id){
 	add(id);
 	$("#popNewsId").val(id)
 	if(id>0){
 		$.ajax({
-	        url: basePath + "/web/investment/get",
+	        url: basePath + "/web/newscenter/get",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -98,7 +97,6 @@ function edit(id){
 	        		refreshTime();
 	        		$("#popTitle").val(data.title);
 	        		$("#contentId").html(data.content);
-	        		debugger;
 	        		$("#popStartTime").val(curentDate(data.newsTime));
 	        		$("#popSource").val(data.source);
 	        		$("#popType").val(data.type);
@@ -117,7 +115,7 @@ function add(id){
 	$("#contentId").html("");
 	$("#productpicture").attr("src","");
 	$("#popPicture").val("");
-	$("#popType").val("品牌展示");
+	$("#popType").val("新闻头条");
 	
 	refreshPopTime();
 }
@@ -135,9 +133,8 @@ function save(){
 		alert("请填写内容");
 		return ;
 	}
-	debugger;
 	$.ajax({
-        url: basePath + "/web/investment/save",
+        url: basePath + "/web/newscenter/save",
         type: 'post',
         dataType: 'json',
         data : {
@@ -153,7 +150,6 @@ function save(){
         },
         cache: false,
         success: function(data){
-        	debugger;
         	if(data!=null&&data!=false){
         		alert("操作成功");
         		tableData(curPage);
@@ -172,7 +168,7 @@ function isEmpty(str){
 function deleteObj(id){
 	if(confirm("刪除将无法恢复?")){
 		$.ajax({
-	        url: basePath + "/web/investment/delete",
+	        url: basePath + "/web/newscenter/delete",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -204,10 +200,32 @@ function btn(){
 
 function init(){
 	var menuId = $("#menuId").val();
+	
+	//initRich(menuId);
 	initPicture(menuId);
+	//initMarket();
 }
 
-
+function initMarket(){
+	$.ajax({
+        url: basePath + "/market/list",
+        type: 'post',
+        dataType: 'json',
+        cache: false,
+        success: function(data){
+        	if(data!=null && data!=""){
+        		var marketSelect = $("#marketSelect");
+        		for(var i=0;i<data.length;i++){
+        			var item = data[i];
+        			marketSelect.append("<option value='"+item.id+"'>"+item.name+"</option>");
+        			if(i==0){
+        				$("#marketId").val(item.id);
+        			}
+        		}
+        	}
+        }
+    });
+}
 function initRich(menuId){
 	clear();
 	$.ajax({
@@ -266,8 +284,9 @@ function picture(data){
 function clear(){
 	$("#contentId").html("");
 }
-function upload(fileId,type){
-	var file = $("#fileId").val();
+function uploadInvestment(fileId,type){
+	debugger;
+	var file = $("#"+fileId).val();
 	if(!file){
 		alert("请选择图片");
 		return;
@@ -299,6 +318,7 @@ function upload(fileId,type){
     });
 }
 function upload(fileId){
+	debugger;
 	var file = $("#"+fileId).val();
 	if(!file){
 		alert("请选择图片");
@@ -318,7 +338,6 @@ function upload(fileId){
             data = data.replace("<pre>", '');
             data = data.replace("</pre>", '');
             var reqParam = data;
-            debugger;
         	if (reqParam != "" && reqParam!=false) {
         		$("#productpicture").attr("src",basePath+"/download/png?fileName="+reqParam);
         		$("#popPicture").val(reqParam);
@@ -337,7 +356,10 @@ function left(id){
         	id : id
         },
         cache: false,
-        success: picture
+        success: function(data){
+        	var menuId = $("#menuId").val();
+        	initPicture(menuId);
+        }
     });
 }
 
@@ -350,7 +372,10 @@ function right(id){
         	id : id
         },
         cache: false,
-        success: picture
+        success: function(data){
+        	var menuId = $("#menuId").val();
+        	initPicture(menuId);
+        }
     });
 }
 
@@ -363,7 +388,10 @@ function del(id){
         	id : id
         },
         cache: false,
-        success: picture
+        success: function(data){
+        	var menuId = $("#menuId").val();
+        	initPicture(menuId);
+        }
     });
 }
 function changeSelect(val){
@@ -379,7 +407,7 @@ function tableData(pageNum){
 	var startDate = $("#startDate").val();
 	var endDate = $("#endDate").val();	
 	$.ajax({
-        url: basePath + "/web/investment/page",
+        url: basePath + "/web/newscenter/page",
         type: 'post',
         dataType: 'json',
         data : {

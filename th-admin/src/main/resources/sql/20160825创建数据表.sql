@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-21 21:06:36
+Date: 2016-09-21 21:57:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -121,7 +121,7 @@ CREATE TABLE `t_content` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_content
@@ -153,6 +153,7 @@ INSERT INTO `t_content` VALUES ('24', '190', '微喔便利店', '', '', 'http://
 INSERT INTO `t_content` VALUES ('25', '191', '天虹红领巾', '', '', 'http://www.tianhong.cn/', null, '<p>天虹红领巾\n\n<span style=\"color: rgb(102, 102, 102); font-family: &quot; Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none;\" data-fr-verified=\"true\">天虹将立志成为全国一流的零售企业，与顾客分享生活之美。我们天虹微喔便利店不仅能够是补给站，更要充当顾客新的生活方式定制者。基于对顾客的深度定位上，准确计算顾客群的消费能力、消费习惯、价值取向进行精准营销，让顾客们接受并爱上有微喔定制的生活方式。</span>\n\n<br></p>', null, '2016-09-20 20:50:45', '1', null, null, '0', null, null, null);
 INSERT INTO `t_content` VALUES ('26', '192', '天虹置业', '', '', 'http://www.tianhong.cn/', null, '<p>天虹置业\n\n<span style=\"color: rgb(102, 102, 102); font-family: &quot; Microsoft Yahei&quot;, Arial, Simsun; font-size: 14px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none;\" data-fr-verified=\"true\">天虹将立志成为全国一流的零售企业，与顾客分享生活之美。我们天虹微喔便利店不仅能够是补给站，更要充当顾客新的生活方式定制者。基于对顾客的深度定位上，准确计算顾客群的消费能力、消费习惯、价值取向进行精准营销，让顾客们接受并爱上有微喔定制的生活方式。</span>\n\n</p>', null, '2016-09-20 20:51:00', '1', null, null, '0', null, null, null);
 INSERT INTO `t_content` VALUES ('27', '193', '企业文化1', 'corporate culture1', '', '', null, '<p style=\"padding: 0px; margin: 35px 0px 0px; font-size: 12px; color: rgb(139, 123, 112); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; width: 420px; background-color: rgb(250, 250, 250);\"><strong>企业使命 ：11</strong>致力于创造与分享生活之美；创造：创造价值，这份价值就是让生活更加美好。劳动、创新，让世界在改变； 分享：利他思想、集体主义、开放精神；分享能1+1&gt;2；让1变成千万甚至无穷大；静态变为动态；短期变为长远；生活：零售行业贴近生活脉搏，与生活息息相关；包括物质生活、精神生活；美：真善才美、内外兼修才美、无私利他才美、分享就是美。</p><p style=\"padding: 0px; margin: 35px 0px 0px; font-size: 12px; color: rgb(139, 123, 112); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250);\"><strong>企业愿景 ：</strong>成为全国一流的零售企业；全国：确定了公司的发展区域就是全国。一流：从员工、目标顾客、股东、供应商和社会五个方面体现。 ——让天虹员工获得最佳的综合回报和实现自我价值的舞台；——成为当地目标顾客消费的首选商场；——为股东提供稳定的、超过同行平均水平的投资回报；——我们与供应商成为良好的合作伙伴，信守合约，友好合作；——通过卓越运营、创新求索，促进行业发展；保护环境、服务社区、乐善好施，维护社会和谐</p><p style=\"padding: 0px; margin: 35px 0px 0px; font-size: 12px; color: rgb(139, 123, 112); font-family: &quot;Microsoft Yahei&quot;, Arial, Simsun; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; line-height: 24px; orphans: 2; text-align: justify; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(250, 250, 250);\"><strong>核心价值观 ：</strong>诚信:诚实 诚恳 信任 信誉；分享:分享的涵义，分享什么；开放:胸怀、心态、思维创新:创新的灵感，源于细心的观察，用心的思考；</p>', null, '2016-09-21 14:32:07', '1', '2016-09-21 14:36:13', '1', '0', null, null, null);
+INSERT INTO `t_content` VALUES ('28', '198', '职能简介', 'Business School Profile', null, null, null, '秉持“尊重人的价值、开发人的潜能、升华人的心灵”人才工作宗旨，把天虹打造成一个海纳百川的组织，在这个组织里，普通的人变成优秀的人，优秀的人变成卓越的人，源源不断的人在这里实现自己的人生梦想。培养和造就一支赢得市场领先、创造组织优势、引领价值导向、有使命感与责任感的人才队伍、更加有创造力、更加有超越其他组织和个人的推动力，实现自我境界的升华。', null, '2016-09-21 21:40:20', '1', '2016-09-21 21:40:54', '1', '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_culture`
@@ -567,7 +568,7 @@ INSERT INTO `t_menu` VALUES ('194', '宣传片', '', '', '3', '176', '2', '1', '
 INSERT INTO `t_menu` VALUES ('195', '电子期刊', '', '', '3', '176', '3', '1', '2016-09-19 20:30:50', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('196', '视频中心', '', '', '3', '176', '4', '1', '2016-09-19 20:30:56', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('197', '社会责任', '', '', '3', '176', '5', '1', '2016-09-19 20:31:02', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('198', '招商中心', '/web/investment/business', '', '3', '178', '1', '1', '2016-09-19 20:31:22', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('198', '招商中心', '/web/investment/business', '/web/investment/center', '3', '178', '1', '1', '2016-09-19 20:31:22', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('199', '展示成果', '/web/investment/show', '/web/investment/index', '3', '178', '2', '1', '2016-09-19 20:31:28', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('200', '实时行情', '', '', '3', '180', '1', '1', '2016-09-19 20:34:06', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('201', '基本资料', '', '', '3', '180', '2', '1', '2016-09-19 20:34:12', '1', null, null, '0', '', null, null);
@@ -641,7 +642,7 @@ CREATE TABLE `t_picture` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_picture

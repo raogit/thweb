@@ -57,6 +57,18 @@ public class InvestmentController extends BaseController {
 		return new ModelAndView("/web/investment-display", map);
 	}
 
+	@RequestMapping(value = "/center")
+	public Object center(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			String menuId = request.getParameter("menuId");
+			map.put("menuId", menuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/investment-center", map);
+	}
+
 	@RequestMapping(value = "/page")
 	@ResponseBody
 	public Object page(NewsCenter newsCenter, HttpServletRequest request, HttpServletResponse response) {

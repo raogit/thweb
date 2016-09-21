@@ -243,9 +243,10 @@ function initPicture(marketNewsId){
     });
 }
 function picture(data){
+	var bannerpicture = $("#bannerpicture");
+	bannerpicture.empty();
 	if(data!=null && data!="" && data!=false){
-		var bannerpicture = $("#bannerpicture");
-		bannerpicture.empty();
+		
 		var picture = data;
 		$("#marketNewsId").val(data.id);
 		if(data.path!=null){
