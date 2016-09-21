@@ -28,7 +28,7 @@ function edit(id){
 	$("#popNewsId").val(id)
 	if(id>0){
 		$.ajax({
-	        url: basePath + "/web/business/get",
+	        url: basePath + "/web/investment/get",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -79,7 +79,7 @@ function save(){
 	}
 	debugger;
 	$.ajax({
-        url: basePath + "/web/business/save",
+        url: basePath + "/web/investment/save",
         type: 'post',
         dataType: 'json',
         data : {
@@ -114,7 +114,7 @@ function isEmpty(str){
 function deleteObj(id){
 	if(confirm("刪除将无法恢复?")){
 		$.ajax({
-	        url: basePath + "/web/business/delete",
+	        url: basePath + "/web/investment/delete",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -146,32 +146,10 @@ function btn(){
 
 function init(){
 	var menuId = $("#menuId").val();
-	
-	//initRich(menuId);
 	initPicture(menuId);
-	//initMarket();
 }
 
-function initMarket(){
-	$.ajax({
-        url: basePath + "/market/list",
-        type: 'post',
-        dataType: 'json',
-        cache: false,
-        success: function(data){
-        	if(data!=null && data!=""){
-        		var marketSelect = $("#marketSelect");
-        		for(var i=0;i<data.length;i++){
-        			var item = data[i];
-        			marketSelect.append("<option value='"+item.id+"'>"+item.name+"</option>");
-        			if(i==0){
-        				$("#marketId").val(item.id);
-        			}
-        		}
-        	}
-        }
-    });
-}
+
 function initRich(menuId){
 	clear();
 	$.ajax({
@@ -343,7 +321,7 @@ function tableData(pageNum){
 	var startDate = $("#startDate").val();
 	var endDate = $("#endDate").val();	
 	$.ajax({
-        url: basePath + "/web/business/page",
+        url: basePath + "/web/investment/page",
         type: 'post',
         dataType: 'json',
         data : {

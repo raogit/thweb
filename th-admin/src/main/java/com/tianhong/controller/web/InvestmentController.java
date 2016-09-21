@@ -37,10 +37,10 @@ import com.tianhong.utils.DateUtils;
  * @date 2016年9月21日 下午2:39:38
  */
 @Controller
-@RequestMapping(value = "/web/business")
-public class BusinessController extends BaseController {
+@RequestMapping(value = "/web/investment")
+public class InvestmentController extends BaseController {
 
-	private static final Log log = LogFactory.getLog(BusinessController.class);
+	private static final Log log = LogFactory.getLog(InvestmentController.class);
 
 	@Autowired
 	private NewsCenterService newsCenterService;
@@ -54,7 +54,7 @@ public class BusinessController extends BaseController {
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/web/business-display", map);
+		return new ModelAndView("/web/investment-display", map);
 	}
 
 	@RequestMapping(value = "/page")

@@ -33,7 +33,7 @@
 	<script src="${basePath}/js/upload/ajaxfileupload.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath}/js/timer/timer.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath}/js/utils/utils.js?ver=${ver}" type="text/javascript" ></script>
-	<script src="${basePath}/js/web/business-display.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath}/js/web/investment-display.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/My97DatePicker/WdatePicker.js?ver=${ver}" type="text/javascript" ></script>
 </head>
 
