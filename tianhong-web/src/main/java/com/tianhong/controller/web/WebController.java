@@ -41,6 +41,8 @@ public class WebController extends BaseController {
 			model.put("menu", menuService.getByPrimaryKey(menuId));
 			List<Menu> headMenus = menuService.getSubMenus(menuId, true);
 			model.put("headMenus", headMenus);
+
+			model.put("parentMenu", headMenus.get(0));
 		} catch (Exception e) {
 			log.error("", e);
 		}

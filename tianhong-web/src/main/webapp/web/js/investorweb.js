@@ -18,38 +18,38 @@ $UrlParameter = function(_key) {
 };
 
 $(function(){
-	var href = window.location.href;
-	var aboutUs = new RegExp("/aboutUs/");
-	var buss = new RegExp("/Business.html");
-	var culture = new RegExp("/culture/");
-	var staff = new RegExp("/staff/");
-	var business = new RegExp("/business/");
-	var news = new RegExp("/news/");
-	var investor = new RegExp("/investor/");
-	//一级导航选中
-	if(aboutUs.test(href)){
-		$(".header_liBlock").eq(1).addClass("current");
-	}else if(buss.test(href)){
-		$(".header_liBlock").eq(2).addClass("current");
-	}else if(culture.test(href)){
-		$(".header_liBlock").eq(3).addClass("current");
-	}else if(staff.test(href)){
-		$(".header_liBlock").eq(4).addClass("current");
-	}else if(business.test(href)){
-		$(".header_liBlock").eq(5).addClass("current");
-	}else if(news.test(href)){
-		$(".header_liBlock").eq(6).addClass("current");
-	}else if(investor.test(href)){
-		$(".header_liBlock").eq(7).addClass("current");
-	}else{
-		$(".header_liBlock").eq(0).addClass("current");
-	}
-
-	var p = $UrlParameter("p");
-	if(p==null||p==undefined){
-		p=0
-	}
-	$(".nav_ulBlock a").eq(p).addClass("current");
+//	var href = window.location.href;
+//	var aboutUs = new RegExp("/aboutUs/");
+//	var buss = new RegExp("/Business.html");
+//	var culture = new RegExp("/culture/");
+//	var staff = new RegExp("/staff/");
+//	var business = new RegExp("/business/");
+//	var news = new RegExp("/news/");
+//	var investor = new RegExp("/investor/");
+//	//一级导航选中
+//	if(aboutUs.test(href)){
+//		$(".header_liBlock").eq(1).addClass("current");
+//	}else if(buss.test(href)){
+//		$(".header_liBlock").eq(2).addClass("current");
+//	}else if(culture.test(href)){
+//		$(".header_liBlock").eq(3).addClass("current");
+//	}else if(staff.test(href)){
+//		$(".header_liBlock").eq(4).addClass("current");
+//	}else if(business.test(href)){
+//		$(".header_liBlock").eq(5).addClass("current");
+//	}else if(news.test(href)){
+//		$(".header_liBlock").eq(6).addClass("current");
+//	}else if(investor.test(href)){
+//		$(".header_liBlock").eq(7).addClass("current");
+//	}else{
+//		$(".header_liBlock").eq(0).addClass("current");
+//	}
+//
+//	var p = $UrlParameter("p");
+//	if(p==null||p==undefined){
+//		p=0
+//	}
+//	$(".nav_ulBlock a").eq(p).addClass("current");
 
 	////栏目内页选中
 	//var index = new RegExp("/inveIndex.html");

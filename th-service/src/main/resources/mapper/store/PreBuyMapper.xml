@@ -34,7 +34,7 @@
 		delete from t_store_pre_buy
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.tianhong.domain.store.PreBuy">
+	<insert id="insert" parameterType="com.tianhong.domain.store.PreBuy" useGeneratedKeys="true" keyProperty="id">
 		insert into t_store_pre_buy (id, category_id, name,
 		end_time, weight, price,
 		picture, create_time, create_id,
@@ -51,7 +51,7 @@
 		#{backup3,jdbcType=VARCHAR}
 		)
 	</insert>
-	<insert id="insertSelective" parameterType="com.tianhong.domain.store.PreBuy">
+	<insert id="insertSelective" parameterType="com.tianhong.domain.store.PreBuy" useGeneratedKeys="true" keyProperty="id">
 		insert into t_store_pre_buy
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">

@@ -8,7 +8,12 @@
         <div class="header_contentBlock">
             <div class="header_ulBlock">
             	<c:forEach var="item" items="${headMenus }" begin="0" step="1" varStatus="itemStatus">
-		        	<a href="${basePath}${item.link }?menuId=${item.id }" class="header_liBlock">${item.name }</a>
+		        	<c:if test="${item.id==parentMenu.id }">
+                		<a href="${basePath}${item.link }?menuId=${item.id }" class="header_liBlock current">${item.name }</a>
+                	</c:if>
+                	<c:if test="${item.id!=parentMenu.id }">
+                		<a href="${basePath}${item.link }?menuId=${item.id }" class="header_liBlock">${item.name }</a>
+                	</c:if>
 		        </c:forEach>
                 <!-- <a href="index.html" class="header_liBlock">首 页</a>
                 <a href="aboutUs/Intro.html" class="header_liBlock">关于天虹</a>

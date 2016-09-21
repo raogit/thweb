@@ -36,7 +36,7 @@ public class DownloadController {
 					CommonConstant.UPLOAD_IMG_PATH);
 			FileToolUtils.downLoad(response, path + fileName, false);
 		} catch (Exception e) {
-			log.error("", e);
+			log.error(e.getMessage());
 		}
 		return null;
 	}

@@ -211,4 +211,21 @@ public class UploadController extends BaseController {
 		}
 		return false;
 	}
+
+	@RequestMapping(value = "/filePicId")
+	@ResponseBody
+	public Object filePicId(@RequestParam("filePicId") MultipartFile[] file, HttpServletRequest request,
+			ModelMap model) {
+		try {
+			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
+			request.setCharacterEncoding(CommonConstant.UTF_8);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
+					CommonConstant.UPLOAD_IMG_PATH);
+			String fileName = FileToolUtils.saveImage(file[0], path);
+			return fileName;
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
 }

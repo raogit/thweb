@@ -318,9 +318,9 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());}
 .news_searchtext{ float: left;  width: 120px; height:28px; line-height: 28px; border: 1px solid #e6e6e6; border-right: 0;}
 .news_searchSub{ float: left;width: 37px;  height:30px; line-height: 30px; border: 0; background: url(../images/new2.png) no-repeat #8b7b70;}
 
-.news_model1{ background: #fff;width: 1200px; height: 394px; }
+.news_model1{ background: #fff;width: 1200px; height: 434px; }
 .news_bannerBox{ position: relative; width: 696px; float: left }
-.news_banner{  width: 696px; height: 394px; }
+.news_banner{  width: 696px; height: 434px; }
 .news_bannerText{ position: absolute; left: 0; bottom: 0px;width: 696px; }
 .news_bannerTit{ display: block;  color: #fff; background: url(../images/back.png); height: 50px; line-height: 50px; width: 100%;  text-indent: 20px;}
 .news_bannerBtn a {position:absolute; top:50%; z-index:4; margin-top:-25px; width:20px; height:50px; -ms-transition:left 400ms, right 400ms; transition:left 400ms, right 400ms; -webkit-transition:left 400ms, right 400ms; -moz-transition:left 400ms, right 400ms; -o-transition:left 400ms, right 400ms;}
