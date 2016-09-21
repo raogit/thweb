@@ -33,8 +33,12 @@ function initMenu(obj){
 			if(menu.subMenus!=null && menu.subMenus.length>0){
 				a.href="javascript:void(0);";
 			}else{
+				debugger;
 				a.target="myFrame";
-				if(menu.url!=null && reg.test(menu.url)){
+				if(menu.url==null || menu.url==""){
+					debugger;
+					a.href="javascript:void(0);";
+				}else if(menu.url!=null && reg.test(menu.url)){
 					a.href=menu.url+"?menuId="+menu.id;
 				}else{
 					a.href=basePath+menu.url+"?menuId="+menu.id;
@@ -61,7 +65,10 @@ function subMenu(obj,id,array){
 					a.href="javascript:void(0);";
 				}else{
 					a.target="myFrame";
-					if(menu.url!=null && reg.test(menu.url)){
+					if(menu.url==null || menu.url==""){
+						debugger;
+						a.href="javascript:void(0);";
+					}else if(menu.url!=null && reg.test(menu.url)){
 						a.href=menu.url+"?menuId="+menu.id;
 					}else{
 						a.href=basePath+menu.url+"?menuId="+menu.id;

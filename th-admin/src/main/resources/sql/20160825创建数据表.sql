@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-21 20:53:46
+Date: 2016-09-21 21:06:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -568,7 +568,7 @@ INSERT INTO `t_menu` VALUES ('195', '电子期刊', '', '', '3', '176', '3', '1'
 INSERT INTO `t_menu` VALUES ('196', '视频中心', '', '', '3', '176', '4', '1', '2016-09-19 20:30:56', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('197', '社会责任', '', '', '3', '176', '5', '1', '2016-09-19 20:31:02', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('198', '招商中心', '/web/investment/business', '', '3', '178', '1', '1', '2016-09-19 20:31:22', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('199', '展示成果', '/web/investment/show', '/web/business/index', '3', '178', '2', '1', '2016-09-19 20:31:28', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('199', '展示成果', '/web/investment/show', '/web/investment/index', '3', '178', '2', '1', '2016-09-19 20:31:28', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('200', '实时行情', '', '', '3', '180', '1', '1', '2016-09-19 20:34:06', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('201', '基本资料', '', '', '3', '180', '2', '1', '2016-09-19 20:34:12', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('202', '公司治理', '', '', '3', '180', '3', '1', '2016-09-19 20:34:19', '1', null, null, '0', '', null, null);
