@@ -57,6 +57,7 @@ public class NewsCenterController extends BaseController {
 			model.put("headMenus", headMenus);
 
 			NewsCenter newsCenter = new NewsCenter();
+			newsCenter.setMenuId(menuId);
 			newsCenter.setType("新闻头条");
 			List<NewsCenter> newsHeadLine = newsCenterService.getList(newsCenter);
 			model.put("newsHeadLine", newsHeadLine);

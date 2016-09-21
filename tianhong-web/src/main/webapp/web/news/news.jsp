@@ -54,8 +54,8 @@
                         <h3>全部新闻</h3>
                         <div class="news_AllTopLIst">
                             <ul>
-                                <li>媒体视角</li>
-                                <li>公司新闻</li>
+                                <!-- <li>媒体视角</li>
+                                <li>公司新闻</li> -->
                             </ul>
                             <div class="clear"></div>
                         </div>
