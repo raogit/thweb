@@ -45,7 +45,7 @@ public class InvestorController extends BaseController {
 	@Autowired
 	private NewsCenterService newsCenterService;
 
-	@RequestMapping(value = "/index")
+	@RequestMapping(value = "/companyManage")
 	public Object info(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
@@ -54,10 +54,10 @@ public class InvestorController extends BaseController {
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/web/investment-display", map);
+		return new ModelAndView("/web/investor-companyManager", map);
 	}
 
-	@RequestMapping(value = "/center")
+	@RequestMapping(value = "/profit")
 	public Object center(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
@@ -69,6 +69,17 @@ public class InvestorController extends BaseController {
 		return new ModelAndView("/web/investment-center", map);
 	}
 
+	@RequestMapping(value = "/protect")
+	@ResponseBody
+	public Object protect(NewsCenter newsCenter, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return newsCenterService.getPage(newsCenter);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+	
 	@RequestMapping(value = "/page")
 	@ResponseBody
 	public Object page(NewsCenter newsCenter, HttpServletRequest request, HttpServletResponse response) {

@@ -92,9 +92,9 @@ public class InvestorController extends BaseController {
 
 			List<Menu> subMenus = menuService.getSubMenus(menuId, true);
 			model.put("subMenus", subMenus);
-			model.put("menu", subMenus.get(0));
-			Content content = contentService.getByMenuId(181);
-			model.put("content", content);
+//			model.put("menu", subMenus.get(0));
+//			Content content = contentService.getByMenuId(181);
+//			model.put("content", content);
 			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
 			model.put("pictures", pictures);
 
