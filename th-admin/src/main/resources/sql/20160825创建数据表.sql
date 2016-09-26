@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
+Source Server         : th114
 Source Server Version : 50173
-Source Host           : localhost:3306
+Source Host           : 192.168.163.114:3306
 Source Database       : tianhong
 
 Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-09-21 21:57:34
+Date: 2016-09-26 21:04:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -550,7 +550,7 @@ INSERT INTO `t_menu` VALUES ('176', '企业文化', '/web/culture/index', '', '2
 INSERT INTO `t_menu` VALUES ('177', '人力资源', '', '', '2', '172', '5', '1', '2016-09-19 20:22:44', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('178', '招商采购', '/web/investment/index', '', '2', '172', '6', '1', '2016-09-19 20:22:53', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('179', '新闻中心', '/web/newscenter/index', '/web/newscenter/index', '2', '172', '7', '1', '2016-09-19 20:23:07', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('180', '投资者关系', '', '', '2', '172', '8', '1', '2016-09-19 20:23:14', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('180', '投资者关系', '/web/investor/index', '', '2', '172', '8', '1', '2016-09-19 20:23:14', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('181', '公司概括', '/web/about/intro', '/menu/news/detail', '3', '174', '1', '1', '2016-09-19 20:23:36', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('182', '发展历程', '/web/about/history', '/web/about/history/index', '3', '174', '2', '1', '2016-09-19 20:23:50', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('183', '发展战略', '/web/about/strategy', '', '3', '174', '3', '1', '2016-09-19 20:24:01', '1', null, null, '0', '', null, null);
@@ -570,14 +570,14 @@ INSERT INTO `t_menu` VALUES ('196', '视频中心', '', '', '3', '176', '4', '1'
 INSERT INTO `t_menu` VALUES ('197', '社会责任', '', '', '3', '176', '5', '1', '2016-09-19 20:31:02', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('198', '招商中心', '/web/investment/business', '/web/investment/center', '3', '178', '1', '1', '2016-09-19 20:31:22', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('199', '展示成果', '/web/investment/show', '/web/investment/index', '3', '178', '2', '1', '2016-09-19 20:31:28', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('200', '实时行情', '', '', '3', '180', '1', '1', '2016-09-19 20:34:06', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('201', '基本资料', '', '', '3', '180', '2', '1', '2016-09-19 20:34:12', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('202', '公司治理', '', '', '3', '180', '3', '1', '2016-09-19 20:34:19', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('200', '实时行情', '/web/investor/index', '', '3', '180', '1', '1', '2016-09-19 20:34:06', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('201', '基本资料', '/web/investor/inveInfo.html', '', '3', '180', '2', '1', '2016-09-19 20:34:12', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('202', '公司治理', '/web/investor/companyManage.html', '/web/investor/companyManage', '3', '180', '3', '1', '2016-09-19 20:34:19', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('203', '定期报告', 'http://www.cninfo.com.cn/cninfo-new/index', '', '3', '180', '4', '1', '2016-09-19 20:34:24', '1', '2016-09-19 20:44:51', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('204', '临时公告', 'http://www.cninfo.com.cn/cninfo-new/index', '', '3', '180', '5', '1', '2016-09-19 20:34:30', '1', '2016-09-19 20:45:40', '1', '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('205', '股东回报', '', '', '3', '180', '6', '1', '2016-09-19 20:34:36', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('206', '宣传与保护', '', '', '3', '180', '7', '1', '2016-09-19 20:34:48', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('207', '互动交流', '', '', '3', '180', '8', '1', '2016-09-19 20:34:54', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('205', '股东回报', '/web/investor/profit.html', '/web/investor/profit', '3', '180', '6', '1', '2016-09-19 20:34:36', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('206', '宣传与保护', '/web/investor/protect.html', '/web/investor/protect', '3', '180', '7', '1', '2016-09-19 20:34:48', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('207', '互动交流', '/web/investor/contact.html', '', '3', '180', '8', '1', '2016-09-19 20:34:54', '1', null, null, '0', '', null, null);
 
 -- ----------------------------
 -- Table structure for `t_news_center`
