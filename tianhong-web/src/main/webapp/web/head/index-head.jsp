@@ -35,4 +35,76 @@
         </div>
         <div style="clear:both;"></div>
     </div>
+    <div class="header_onBlock">
+        <div class="header_onBlockBg"></div><!--index-->
+        <div class="header_onBlockBg">
+        <div class="header_onBlockIn">
+        <ul class="header_onList">
+            <li><a href="aboutUs/Intro.html">公司概况</a></li>
+            <li><a href="Business.html">多元业务</a></li>
+            <li><a href="aboutUs/History.html?p=2">发展历程</a></li>
+            <li><a href="aboutUs/Strategy.html?p=3">发展战略</a></li>
+            <li><a href="aboutUs/Awards.html?p=4">荣誉奖项</a></li>
+            <li><a href="aboutUs/Brand.html?p=5">自有品牌</a></li>
+        </ul>
+    </div>
+        </div><!--about-->
+        <div class="header_onBlockBg">
+    <div class="header_onBlockIn">
+            <ul class="header_onList">
+                <li><a href="Business.html">天虹小额贷</a></li>
+                <li><a href="Business.html?p=1">天虹商场</a></li>
+                <li><a href="Business.html?p=2">君尚百货</a></li>
+                <li><a href="Business.html?p=3">购物中心</a></li>
+                <li><a href="Business.html?p=4">微喔便利店</a></li>
+                <li><a href="Business.html?p=5">天虹红领巾</a></li>
+                <li><a href="Business.html?p=6">天虹置业</a></li>
+            </ul>
+        </div>
+    </div><!--business多元-->
+        <div class="header_onBlockBg">
+            <div class="header_onBlockIn">
+                <ul class="header_onList">
+                    <li><a href="culture/index.html?p=0">企业文化</a></li>
+                    <li><a href="culture/Trailer.html?p=1">宣传片</a></li>
+                    <li><a href="culture/Ejournals.html?p=2">电子期刊</a></li>
+                    <li><a href="culture/Video.html?p=3">视频中心</a></li>
+                    <li><a href="culture/Public.html?p=4">社会责任</a></li>
+                </ul>
+            </div>
+        </div><!--culture-->
+        <div class="header_onBlockBg"><!--staff-->
+            <div class="header_onBlockIn">
+                <ul class="header_onList">
+                    <li><a href="staff/School.html?p=0">天虹商学院</a></li>
+                    <li><a href="staff/Talent.html?p=1">人在天虹</a></li>
+                    <li><a href="staff/SocialRecruit.html?p=2">社会招聘</a></li>
+                    <li><a href="staff/SchoolRecruit.html?p=3">校园招聘</a></li>
+                </ul>
+            </div>
+        </div><!--staff-->
+        <div class="header_onBlockBg"><!--business-->
+            <div class="header_onBlockIn">
+                <ul class="header_onList">
+                    <li><a href="business/BusineIndex.html?p=0">招商采购</a></li>
+                    <li><a href="business/show.html?p=1">招商中心</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header_onBlockBg"></div><!--news-->
+        <div class="header_onBlockBg"><!--investor-->
+            <div class="header_onBlockIn">
+                <ul class="header_onList">
+                    <li><a href="investor/inveIndex.html?p=0">实时行情</a></li>
+                    <li><a href="investor/inveInfo.html?p=1">基本资料</a></li>
+                    <li><a href="investor/companyManage.html?p=2">公司治理</a></li>
+                    <li><a href="http://www.cninfo.com.cn" target="_blank">定期报告</a></li>
+                    <li><a href="http://www.cninfo.com.cn" target="_blank">临时公告</a></li>
+                    <li><a href="investor/profit.html?p=5">股东回报</a></li>
+                    <li><a href="investor/protect.html?p=6">宣传与保护</a></li>
+                    <li><a href="investor/contact.html?p=7">互动交流</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>

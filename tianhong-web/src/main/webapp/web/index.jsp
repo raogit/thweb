@@ -27,16 +27,18 @@
 	
 	<div class="wrapper">
 		<div class="i-center">
-			<div class="i-c-l">
-				<img src="images/img/bg_2.png" alt="">
-			</div>
-			<div class="i-c-t">
-				<img src="images/img/bg_1.png" alt="">
-			</div>
-			<div class="i-c-r">
-				<img src="images/img/bg_3.png" alt="">
-			</div>
-		</div>
+            <div class="i-c-l"><img src="images/img/bg_2.png" alt=""></div>
+            <div class="i-c-t"><img src="images/img/bg_1.png" alt=""></div>
+            <div class="i-c-r"><img src="images/img/bg_3.png" alt=""></div>
+            <ul class="i_clk">
+                <li class="i_cli a1"><a href="www.thweiwo.com.cn" title="天虹商场"></a></li>
+                <li class="i_cli a2"><a href="www.thweiwo.com.cn" title="天虹金融"></a></li>
+                <li class="i_cli a3"><a href="www.thweiwo.com.cn" title="君尚百货"></a></li>
+                <li class="i_cli a4"><a href="www.thweiwo.com.cn" title="微喔便利店"></a></li>
+                <li class="i_cli a5"><a href="www.thweiwo.com.cn" title="购物中心"></a></li>
+                <li class="i_cli a6"><a href="www.thweiwo.com.cn" title="虹领巾"></a></li>
+            </ul>
+        </div>
 		<div class="i-btm" id="middle">
 			<div class="i-btm-in">
 				<div class="i-b-news">
