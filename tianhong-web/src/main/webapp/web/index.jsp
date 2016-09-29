@@ -59,7 +59,7 @@
 				</div>
 				<div class="i-b-mid">
 					<ul class="i-b-ul">
-						<li><a href=""><img src="images/img/i_1.png" alt="">
+						<li><a href="${basePath}/app/list" target="_blank"><img src="images/img/i_1.png" alt="">
 							<p>天虹APP下载</p></a></li>
 						<li><a href="culture/Ejournals.html"><img
 								src="images/img/i_2.png" alt="">

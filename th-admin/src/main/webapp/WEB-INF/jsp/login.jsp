@@ -17,7 +17,7 @@
 
 <body id="by" style="overflow-y: hidden">
 	<div class="page-container">
-		<h1>一路向西</h1>
+		<h1>天虹</h1>
 		<form id="formId" name="formId"  action="${basePath}/loginconfirm" method="post">
 			<div>
 				<input type="text" name="username" class="username" placeholder="Username" autocomplete="off"/>
