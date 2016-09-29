@@ -12,6 +12,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ import com.tianhong.controller.menu.MenuController;
 import com.tianhong.domain.user.User;
 import com.tianhong.service.user.UserService;
 import com.tianhong.utils.AssertUtils;
+import com.tianhong.utils.MD5;
 
 /**
  * ClassName: UserController
@@ -58,7 +60,10 @@ public class UserController extends BaseController {
 	public Object edit(User user, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			AssertUtils.notNull(user, "用户对象为空");
-			// user.setUpdateId(getCurrentUser(request).getId());
+			if (StringUtils.isNotEmpty(user.getPassword())) {
+				user.setPassword(MD5.GetMD5Code(user.getPassword()));
+			}
+			user.setUpdateId(getCurrentUser(request).getId());
 			return userService.updateUser(user);
 		} catch (Exception e) {
 			log.error("", e);

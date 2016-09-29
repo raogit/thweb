@@ -91,16 +91,7 @@
 		
 		
 		<section>
-			<h2>
-				<strong style="color: grey;">常用按钮（水平块元素，无区域限制）</strong>
-			</h2>
-			<a class="link_btn" id="loading">点击加载</a>
-			<button class="link_btn" id="showPopTxt">测试弹出框</button>
-			<input type="button" value="按钮input" class="link_btn" /> </section>
 			<section>
-				<h2>
-					<strong style="color: grey;">表单样式（组合）</strong>
-				</h2>
 				<strong style="color: grey;">用户名:</strong>
 				<input id="username" type="text" class="textbox" placeholder="用户名..." /> 
 				<strong style="color: grey;">类型:</strong>
@@ -137,107 +128,7 @@
 				<aside class="paging"></aside> 
 			</section>
 		<section>
-		<h2>
-			<strong style="color: grey;">分列内容布局</strong>
-		</h2>
-		<ul class="ulColumn2">
-			<li><span class="item_name" style="width: 120px;">商品名称：</span> <input
-				type="text" class="textbox textbox_295" placeholder="文本信息提示..." /> <span
-				class="errorTips">错误提示信息...</span></li>
-			<li><span class="item_name" style="width: 120px;">品牌：</span> <select
-				class="select">
-					<option>选择品牌</option>
-			</select> <span class="errorTips">错误提示信息...</span></li>
-			<li><span class="item_name" style="width: 120px;">是否热销：</span> <label
-				class="single_selection"><input type="radio" name="name" />推荐</label>
-				<label class="single_selection"><input type="radio"
-					name="name" />不推荐</label></li>
-			<li><span class="item_name" style="width: 120px;">摘要：</span> <textarea
-					placeholder="摘要信息" class="textarea"
-					style="width: 500px; height: 100px;"></textarea></li>
-			<li><span class="item_name" style="width: 120px;">上传图片：</span> <label
-				class="uploadImg"> <input type="file" /> <span>上传图片</span>
-			</label></li>
-			<li><span class="item_name" style="width: 120px;"></span> <input
-				type="submit" class="link_btn" /></li>
-		</ul>
-		</section>
-		<!--tabStyle-->
 		
-		<section>
-		<ul class="admin_tab">
-			<li><a class="active">自定义标题</a></li>
-			<li><a>自定义标题</a></li>
-			<li><a>...可追加</a></li>
-		</ul>
-		<!--tabCont-->
-		<div class="admin_tab_cont" style="display: block;">添加时，对其增加一个父级，tabContent01子项无样式，具体情况单独定义。</div>
-		<div class="admin_tab_cont">tabContent02，内容根据具体数据二次单独定义，公共样式单独调用</div>
-		<div class="admin_tab_cont">可追加</div>
-		</section>
-		<section>
-		<ul class="admin_tab">
-			<li><a class="active">自定义标题</a></li>
-			<li><a>自定义标题</a></li>
-			<li><a>...可追加</a></li>
-		</ul>
-		<!--tabCont-->
-		<div class="admin_tab_cont" style="display: block;">
-			<!--左右分栏：左侧栏目-->
-			<div class="cont_col_lt mCustomScrollbar" style="height: 500px;">
-				<table class="table fl">
-					<tr>
-						<th>角色</th>
-						<th>操作</th>
-					</tr>
-					<tr>
-						<td class="center">顶级管理员</td>
-						<td class="center"><a class="inner_btn">DeathGhost</a></td>
-					</tr>
-					<tr>
-						<td class="center">采购人员</td>
-						<td class="center"><a class="inner_btn">DeathGhost</a></td>
-					</tr>
-				</table>
-				<table class="table fl" style="margin-top: 8px;">
-					<tr>
-						<th>角色</th>
-						<th>操作</th>
-					</tr>
-					<tr>
-						<td class="center">顶级管理员</td>
-						<td class="center"><a class="inner_btn">DeathGhost</a></td>
-					</tr>
-					<tr>
-						<td class="center">采购人员</td>
-						<td class="center"><a class="inner_btn">DeathGhost</a></td>
-					</tr>
-				</table>
-			</div>
-			<!--左右分栏：右侧栏-->
-			<div class="cont_col_rt">
-				<table class="table fl">
-					<tr>
-						<th>资源</th>
-						<th>描述</th>
-						<th>操作</th>
-					</tr>
-					<tr>
-						<td class="center">测试</td>
-						<td>数据信息过多（扩展性太大），不建议使用此布局，以免数据溢出。</td>
-						<td class="center"><a class="inner_btn">DeathGhost</a></td>
-					</tr>
-					<tr>
-						<td class="center">测试</td>
-						<td>数据信息过多（扩展性太大），不建议使用此布局，以免数据溢出。</td>
-						<td class="center"><a class="inner_btn">DeathGhost</a></td>
-					</tr>
-				</table>
-			</div>
-		</div>
-		<div class="admin_tab_cont">tabContent02，内容根据具体数据二次单独定义，公共样式单独调用</div>
-		<div class="admin_tab_cont">可追加</div>
-		</section>
 		<!--结束：以下内容则可删除，仅为素材引用参考-->
 	</div>
 	</section>

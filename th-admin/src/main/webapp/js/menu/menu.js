@@ -1,11 +1,13 @@
 var reg = new RegExp("^http://");
 $(document).ready(function () {
+	debugger;
 	$.ajax({
         url: basePath + "/menu/list",
         type: 'GET',
         dataType: 'json',
         cache: false,
         success: function(data){
+        	debugger;
         	var json = eval(data);
         	if(data!=null&&data!=""){
             	initMenu(data);

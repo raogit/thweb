@@ -15,12 +15,29 @@ function sub(){
 		return false;
 	} else {
 		var form = $("#formId");
-		debugger;
+		
 //		jQuery(form).submit();
-		var a = document.getElementById("formId");
-		document.getElementById("formId").submit();
-		
-		
+//		var a = document.getElementById("formId");
+//		document.getElementById("formId").submit();
+		debugger;
+		$.ajax({
+	        url: basePath + "/loginconfirm",
+	        type: 'post',
+	        data : {
+	        	userName : u.val(),
+	        	password : p.val()
+	        },
+	        dataType: 'json',
+	        cache: false,
+	        success: function(data){
+	        	debugger;
+	        	if(data!=null&&data!=false){
+	        		location.replace(basePath+"/menu/menu");   
+	        	}else{
+	        		alert("用户名/密码错误");
+	        	}
+	        }
+	    });
 	}
 }
 

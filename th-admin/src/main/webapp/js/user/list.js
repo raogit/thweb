@@ -125,7 +125,6 @@ function showUser(id){
 	        	 
 	        	if(data){
 	        		$("#popUserName").val(data.userName);
-		        	$("#popPassword").val(data.password);
 		        	$("#popType").val(data.type);
 		        	$("#popEmail").val(data.email);
 	        	}

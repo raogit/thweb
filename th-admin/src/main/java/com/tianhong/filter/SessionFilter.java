@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Component;
 
+import com.tianhong.constant.UserConstant;
+
 /**
  * 
  * ClassName: SessionFilter
@@ -62,24 +64,23 @@ public class SessionFilter implements Filter {
 				}
 			}
 		}
-		chain.doFilter(request, response);
-		// if (request.getSession().getAttribute(UserConstant.USER) != null) {
-		// if (!flag) {
-		// response.sendRedirect(request.getScheme() + "://" +
-		// request.getServerName() + ":"
-		// + request.getServerPort() + request.getContextPath() + "/menu/menu");
-		// return;
-		// }
-		// chain.doFilter(request, response);
-		// } else {
-		// if (!flag) {
-		// response.sendRedirect(request.getScheme() + "://" +
-		// request.getServerName() + ":"
-		// + request.getServerPort() + request.getContextPath() + "/login");
-		// } else {
-		// chain.doFilter(request, response);
-		// }
-		// }
+		if (request.getSession().getAttribute(UserConstant.USER) != null) {
+			// if (flag) {
+			// response.sendRedirect(request.getScheme() + "://" +
+			// request.getServerName() + ":"
+			// + request.getServerPort() + request.getContextPath() +
+			// "/menu/menu");
+			// return;
+			// }
+			chain.doFilter(request, response);
+		} else {
+			if (!flag) {
+				response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":"
+						+ request.getServerPort() + request.getContextPath() + "/login");
+			} else {
+				chain.doFilter(request, response);
+			}
+		}
 
 	}
 
