@@ -71,10 +71,8 @@
 				</div>
 				<div class="i-b-r">
 					<div class="tch">天虹商场（002419.sz）</div>
-					<div class="ten">
-						14.31<span>RMB</span>
-					</div>
-					<div class="time">截止2016-08-19 11:22:36</div>
+					<div class="ten">12.20<span>RMB</span></div>
+					<div class="time" id="endTime"></div>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -87,6 +85,12 @@
 	        $('.i-c-l').addClass("animated swing");
 	        $('.i-c-r').addClass("animated swing");
 	    })
+	    
+	    jQuery(document).ready(function() {
+	    	var curDate = new Date();
+			$("#endTime").html("截止"+curentTime(curDate.getTime()));
+		})
+
 	</script>
 	<jsp:include page="foot/index-foot.jsp"></jsp:include>
 
