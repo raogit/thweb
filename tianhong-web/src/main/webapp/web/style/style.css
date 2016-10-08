@@ -22,7 +22,7 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());}
 .Header.H2{background:#e3ecf0}
 .header_content {position: relative;width:1200px;margin: auto;}
 .header_logo {position: relative;float: left;padding:13px 0;}
-.header_contentBlock {position: relative;float: right;width:790px;}
+.header_contentBlock {position: relative;float: right;width:790px;height:80px}
 .header_ulBlock {position: relative;float: left;}
 .header_rightBlock {position: relative;float: right;width:150px;}
 .Header .header_liBlock {position: relative;display: block;float: left;height: 80px;line-height: 80px;padding: 0px 16px;color:#8b7b70;}
@@ -32,7 +32,7 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());}
 .header_wc {background:url(../images/wc.png) no-repeat center;}
 .header_select {position: relative;float: right;color:#e8a171;height: 30px;line-height: 30px;padding: 25px 0;cursor: pointer;}
 .header_showBlock {width:52px;background: url(../images/b_1.png) no-repeat right;}
-.Header .header_liBlock.current,.header_liBlock:hover {background: #e84137;color:#fff;}
+.Header .header_liBlock.current,.header_liBlock:hover{background:#f8f8f8;color:#e84137;border-bottom: 2px solid #e84137;height:78px;}
 .Header.H2 .header_liBlock.current,.Header.H2 .header_liBlock:hover {background: #e3ecf0;color:#e84137;border-bottom:2px solid #e84137;height:78px}
 .Footer{position:relative;width:100%;background: #1a1a1a;color:#bfbfbf;height:40px}
 .Footer.F2{background:url(../images/img/bg_4.jpg) repeat;color:#666}

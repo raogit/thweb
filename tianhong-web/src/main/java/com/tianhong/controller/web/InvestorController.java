@@ -24,7 +24,6 @@ import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.picture.Picture;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
-import com.tianhong.service.newscenter.NewsCenterService;
 import com.tianhong.service.picture.PictureService;
 
 /**
@@ -43,11 +42,12 @@ public class InvestorController extends BaseController {
 	private ContentService contentService;
 	@Autowired
 	private PictureService pictureService;
-	@Autowired
-	private NewsCenterService newsCenterService;
-	
+	// @Autowired
+	// private NewsCenterService newsCenterService;
+
 	/**
 	 * 入口
+	 * 
 	 * @param menuId
 	 * @param request
 	 * @param response
@@ -77,13 +77,15 @@ public class InvestorController extends BaseController {
 
 	/**
 	 * 公司治理
+	 * 
 	 * @param menuId
 	 * @param request
 	 * @param response
 	 * @return
 	 */
 	@RequestMapping(value = "/companyManage")
-	public Object companyManage(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+	public Object companyManage(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			model.put("parentMenu", menuService.getByPrimaryKey(menuId));
@@ -92,9 +94,9 @@ public class InvestorController extends BaseController {
 
 			List<Menu> subMenus = menuService.getSubMenus(menuId, true);
 			model.put("subMenus", subMenus);
-//			model.put("menu", subMenus.get(0));
-//			Content content = contentService.getByMenuId(181);
-//			model.put("content", content);
+			// model.put("menu", subMenus.get(0));
+			// Content content = contentService.getByMenuId(181);
+			// model.put("content", content);
 			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
 			model.put("pictures", pictures);
 
@@ -103,8 +105,10 @@ public class InvestorController extends BaseController {
 		}
 		return new ModelAndView("/web/investor/companyManage", model);
 	}
+
 	/**
 	 * 股东回报
+	 * 
 	 * @param menuId
 	 * @param request
 	 * @param response
@@ -131,16 +135,18 @@ public class InvestorController extends BaseController {
 		}
 		return new ModelAndView("/web/investor/profit", model);
 	}
-	
+
 	/**
 	 * 宣传与保护
+	 * 
 	 * @param menuId
 	 * @param request
 	 * @param response
 	 * @return
 	 */
 	@RequestMapping(value = "/protect")
-	public Object protect(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+	public Object protect(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			model.put("parentMenu", menuService.getByPrimaryKey(menuId));

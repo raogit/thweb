@@ -224,3 +224,21 @@ $(function(){
 
 
 })
+
+$(function(){
+	$(".header_onList").eq(1).css({"right":"-60px"});
+	$(".header_onList").eq(2).css({"right":"-150px"});
+	$(".header_onList").eq(3).css({"right":"-240px"});
+	$(".header_onList").eq(4).css({"right":"-320px"});
+
+	var tOn=0;
+	function showBlock(){
+		$(".header_onBlockBg").eq(tOn).stop(true,true).fadeIn().siblings().hide();
+
+	}
+	showBlock();
+	$(".header_ulBlock a").bind("mouseover",function(){
+		tOn = $(this).index();
+		showBlock();
+	})
+})

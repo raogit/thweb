@@ -16,7 +16,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.domain.category.Category;
@@ -57,7 +56,7 @@ public class StoreController {
 	private StoreNewsService storeNewsService;
 
 	@RequestMapping(value = "/index")
-	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+	public Object index(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			List<Menu> subMenus = menuService.getSubMenus(162, true);
