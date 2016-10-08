@@ -1,0 +1,229 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>天虹集团官网</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<jsp:include page="../base.jsp"></jsp:include>
+	<style type="text/css">
+		html.full, html.full body {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		
+		.wrapper {
+			width: 100%;
+		}
+	</style>
+</head>
+
+<body>
+	<jsp:include page="../head/head.jsp"></jsp:include>
+	<div class="bodyer">
+	    <div class="titleImg_content" style="background:url(../images/b_2.jpg) no-repeat center; background-size:cover; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(../images/b_2.jpg,sizingMethod='scale');">
+	        <div class="titleImg_img"><img src="../images/b_3.png"></div>
+	    </div>
+	    <div class="nav_content">
+	        <div class="nav_contentBlock">
+	            <div class="nav_aContent">
+	                <a href="${basePath}" class="nav_aBlock icon">首页</a> 
+					<a href="javascript:void(0);" class="nav_aBlock icon">${parentMenu.name }</a>
+					<a href="javascript:void(0);" class="nav_aBlock">${menu.name }</a>
+	            </div>
+	            <div class="nav_ulBlock">
+	            	<c:forEach var="item" items="${subMenus }" begin="0" step="1" varStatus="itemStatus">
+	                	<c:if test="${item.id==menu.id }">
+	                		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock current">${item.name }</a>
+	                	</c:if>
+	                	<c:if test="${item.id!=menu.id }">
+	                		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock">${item.name }</a>
+	                	</c:if>
+			        </c:forEach>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="bd-cont">
+	        <div class="bd-cont-in">
+	            <ul class="bd-sch-top">
+	                <li class="st-li li1 at">商学院简介</li>
+	                <li class="st-l"></li>
+	                <li class="st-li li2">培训中心</li>
+	                <li class="st-l"></li>
+	                <li class="st-li li3">创新中心</li>
+	                <li class="st-l"></li>
+	                <li class="st-li li4">同济大学MBA项目</li>
+	                <li class="st-l"></li>
+	                <li class="st-li li5">场地租赁</li>
+	            </ul>
+	            <div class="bd-sch-cont">
+	                <div class="bd-sch-cin">
+	                    <div class="sch-r fr">
+	                        <img src="../images/img/s_10.png" alt="">
+	                    </div>
+	                    <div class="sch-l fl">
+	                        <div class="bd-L-title">
+	                            <div class="bd-L-tch tch2">商学院简介</div>
+	                            <div class="bd-L-ten ten4">Business School Profile</div>
+	                            <div class="bd-L-tle tle3"></div>
+	                        </div>
+	                        <div class="bd-L-cont c2">
+	                            <p>天虹商学院成立于2012年8月，其前身为天虹培训中心，经过十余年的沉淀与积累，通过不断完善培训体系，搭建公司人才梯队，
+	                                开发系统的课程体系，将学习发展作为承接业务与策略变革的手段；旨在构建一个信息共享、价值最大化的知识经营平台，及时培养和输送适用于天虹的人才。</p>
+	                            <p><strong>愿景</strong>：成为全国一流的零售企业人才培养基地</p>
+	                            <p><strong>使命</strong>：培养零售人才，推动公司持续发展</p>
+	                        </div>
+	                        <ul class="bd-sch-list">
+	                            <li><img src="../images/img/s_6.png" alt=""><p>领导发展中心</p></li>
+	                            <li><img src="../images/img/s_7.png" alt=""><p>人才培养中心</p></li>
+	                            <li><img src="../images/img/s_8.png" alt=""><p>零售技术推广中心</p></li>
+	                            <li><img src="../images/img/s_9.png" alt=""><p>变革推动中心</p></li>
+	                        </ul>
+	                    </div>
+	                    <div class="clear"></div>
+	                </div>
+	                <div class="bd-sch-cin">
+	                    <div class="sch-r2 fr">
+	                        <div class="bd-L-title">
+	                            <div class="bd-L-tch tch2">培训中心</div>
+	                            <div class="bd-L-ten ten4">training center</div>
+	                            <div class="bd-L-tle tle3"></div>
+	                        </div>
+	                        <div class="bd-L-cont c2">
+	                            <p><strong>优才计划：</strong>结合公司战略发展目标，培养公司现任中高层管理干部的战略思维、提高团队领导能力，提升经营管理水平，重点强化学员的经营实践能力，以实现业务绩效的提升，最终支持组织绩效的达成。</p>
+	                            <p><strong>新秀训练营：</strong>新秀动力营属于天虹梯队人才培养体系中的育才计划，培养人群为新进大学生。通过开展一系列的培训，帮助新进大学生实现校园人向职场人转变，快速融入和了解公司，掌握岗位技能、胜任岗位工作，顺利转型、度过关键期，并且清晰职业生涯发展规划，确保试用期后能顺利链接至梯队人才培养体系中。</p>
+	                        </div>
+	                    </div>
+	                    <div class="sch-l2 fl">
+	                        <div class="sch-l2-in">
+	                            <img src="../images/img/s_12.jpg" alt="">
+	                        </div>
+	                    </div>
+	                    <div class="clear"></div>
+	                </div>
+	                <div class="bd-sch-cin">
+	                    <div class="bd-sch-inn">
+	                        <div class="bd-sch-inr fr">
+	                            <div class="inr-in">
+	                                <div class="inr-t">知识管理体系</div>
+	                                <div class="inr-cont">
+	                                    <div class="inr-cin">
+	                                        <div class="inr-ct">E-learnning系统</div>
+	                                        <div class="inr-cc">可实现视频资料、微课、PPT资料的上传、存储与分享，实现全体员工的线上学习与考试。</div>
+	                                        <div class="inr-btn"><a href="">点击进入</a></div>
+	                                    </div>
+	                                    <div class="inr-line"></div>
+	                                    <div class="inr-cin cin2">
+	                                        <div class="inr-ct">KMS系统</div>
+	                                        <div class="inr-cc">可实现文档资料的知识沉淀与共享，可推送推荐至全体员工。</div>
+	                                        <div class="inr-btn"><a href="">点击进入</a></div>
+	                                    </div>
+	                                </div>
+	
+	                            </div>
+	                            <div class="inr-in in2">
+	                                <div class="inr-t t2">创新大赛</div>
+	                                <div class="inr-cont">
+	                                    <p>创新中心通过组织月度/年度竞赛，收集公司创新点子与方案、邀请评委评分点评，统计结果，奖励创新项目、后期跟进实施及推广。通过大赛的平台拉动创新点子挖掘、创新点子实施，从而形成在企业内完善的创新管理机制，并且营造良好的创新氛围。</p>
+	                                </div>
+	                                <div class="inr-btn b2"><a href="">参与报名</a></div>
+	                            </div>
+	                        </div>
+	                        <div class="bd-sch-inl fl">
+	                            <div class="bd-L-title">
+	                                <div class="bd-L-tch tch3">创新中心</div>
+	                                <div class="bd-L-ten ten5">Innovation Center</div>
+	                                <div class="bd-L-tle tle4"></div>
+	                            </div>
+	                        </div>
+	                        <div class="clear"></div>
+	                    </div>
+	                </div>
+	                <div class="bd-sch-cin">
+	                    <div class="bd-sch-mba">
+	                        <div class="mba-r fr">
+	                            <div class="mba-rc">
+	                                <p><strong>1、百年积淀的多学科优势</strong></p>
+	                                <p>授课教师由兼具深厚学术造诣和丰富管理实践经验的同济大学管理学院的教授担当，同时聘请在大型企业的高管和企业家担任兼职教授，
+	                                    优秀校友作为校友导师提供学业和职业的指导。</p>
+	                            </div>
+	                            <div class="mba-rc">
+	                                <p><strong>2、雄厚的师资</strong></p>
+	                                <p>同济大学在建筑、土木、海洋、环境、车辆、交通等专业领域全国领先，MBA项目以此为基石，
+	                                    并依托学院在工程管理、服务运营管理和城市发展与管理学科的优势，逐渐形成了MBA自己的特色专业方向，
+	                                    特别是项目管理与房地产，服务与运营管理和金融方向。</p>
+	                            </div>
+	                            <div class="mba-rc">
+	                                <p><strong>3、庞大校友网络和人脉资源</strong></p>
+	                                <p>同济MBA校友近6000人，他们遍及全国各地，特别是在上海、长三角、华东地区和珠三角的国有大型企业、著名跨国企业、政府机构中担任中高级管理职务，为国家经济发展做出了突出的贡献。
+	                                   同济MBA通过校友理事会、校友讲坛、校友微博、校友社区网等渠道为学员搭建与校友广泛交流的平台。</p>
+	                                </p>
+	                            </div>
+	                            <div class="mba-rb">
+	                                <p>同济大学MBA深圳班</p>
+	                                <p>李老师189-2389-2161</p>
+	                            </div>
+	                        </div>
+	                        <div class="mba-l fl">
+	                            <div class="mba-lt">
+	                                <div class="ten">MBA project</div>
+	                                <div class="tch">同济大学MBA项目</div>
+	                            </div>
+	                        </div>
+	                        <div class="clear"></div>
+	                    </div>
+	                </div>
+	                <div class="bd-sch-cin">
+	                    <div class="bd-sch-map">
+	                        <div class="map-btn">
+	                            <!-- <div class="m-btn"></div>
+	                            <div class="m-btn b2"></div> -->
+	                        </div>
+	                        <div class="map-cont">
+	                            <div class="map-cin">
+	                                <div class="map-ct">场地介绍</div>
+	                                <div class="map-line"></div>
+	                                <div class="map-cc">
+	                                    <p>我司在东莞大朗的商学院现面向社会提供场地租赁业务。</p>
+	                                    <p>天虹商学院位于东莞市大朗镇富民南路336号，教学楼占地面积约6000平米，能同时提供900人培训。会议室分别为：多功能厅435平米，容纳250人；阶梯教室485平米 ，容纳210人；教室6间74-170平米，容纳40-108人；电教室148平米，容纳31人；拥有室外拓展基地；配套图书馆、休息区、娱乐室；住宿包括套间2间，标间4间，学员宿舍60间，可以同时满足370人住宿。</p>
+	                                </div>
+	                            </div>
+	                            <div class="map-cin">
+	                                <div class="map-ct">租赁方式</div>
+	                                <div class="map-line"></div>
+	                                <div class="map-cc">
+	                                    <p>天虹商学院 高经理：0769-8291 3062</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<jsp:include page="../foot/foot.jsp"></jsp:include>
+	<script>
+	    $(function(){
+	        var tOn=0;
+	        var showCont=function(){
+	            $(".bd-sch-cin").eq(tOn).siblings().css({"display":"none"});
+	            $(".bd-sch-cin").eq(tOn).stop(true,true).fadeIn();
+	        }
+	        showCont();
+	        $(".bd-sch-top li").bind("click",function(){
+	            tOn=($(this).index()+1)/2;
+	            showCont();
+	            $(this).addClass("at").siblings().removeClass("at");
+	        })
+	    })
+	</script>
+	
+	
+	
+
+</body>
+</html>
