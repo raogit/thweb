@@ -95,8 +95,8 @@
 	                    <div class="V-sld-b"></div>
 	                    <div class="V-txt-line"></div>
 	                    <div class="V-txt-in">
-	                        <div class="tch">天虹微电影《礼物》OK</div>
-	                        <div class="ten">Rainbow micro film "gift"</div>
+	                        <!-- <div class="tch">天虹微电影《礼物》OK</div>
+	                        <div class="ten">Rainbow micro film "gift"</div> -->
 	                    </div>
 	                </div>
 	

@@ -29,13 +29,13 @@ import com.tianhong.controller.base.BaseController;
  * @date 2016年9月21日 下午2:28:14
  */
 @Controller
-@RequestMapping(value = "/web/culture/public")
+@RequestMapping(value = "/web/culture")
 public class CultureController extends BaseController {
 
 	private static final Log log = LogFactory.getLog(CultureController.class);
 
-	@RequestMapping(value = "/index")
-	public Object info(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = "/public/index")
+	public Object publicIndex(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
 			String menuId = request.getParameter("menuId");
@@ -46,4 +46,15 @@ public class CultureController extends BaseController {
 		return new ModelAndView("/web/public", map);
 	}
 
+	@RequestMapping(value = "/video/index")
+	public Object videoIndex(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			String menuId = request.getParameter("menuId");
+			map.put("menuId", menuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/video", map);
+	}
 }
