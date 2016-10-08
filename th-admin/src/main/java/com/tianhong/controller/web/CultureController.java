@@ -57,4 +57,16 @@ public class CultureController extends BaseController {
 		}
 		return new ModelAndView("/web/video", map);
 	}
+
+	@RequestMapping(value = "/trailer/index")
+	public Object trailerIndex(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			String menuId = request.getParameter("menuId");
+			map.put("menuId", menuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/trailer", map);
+	}
 }

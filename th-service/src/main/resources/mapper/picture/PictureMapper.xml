@@ -30,8 +30,7 @@
 	<sql id="Blob_Column_List">
 		content
 	</sql>
-	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
-		resultMap="ResultMapWithBLOBs">
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
 		select
 		<include refid="Base_Column_List" />
 		,
@@ -43,8 +42,7 @@
 		delete from t_picture
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.tianhong.domain.picture.Picture"
-		useGeneratedKeys="true" keyProperty="id">
+	<insert id="insert" parameterType="com.tianhong.domain.picture.Picture" useGeneratedKeys="true" keyProperty="id">
 		insert into t_picture (id, menu_id, sort,
 		title, url, picture_type,
 		path, create_time, create_id,
@@ -61,8 +59,7 @@
 		#{backup3,jdbcType=VARCHAR},
 		#{content,jdbcType=LONGVARCHAR})
 	</insert>
-	<insert id="insertSelective" parameterType="com.tianhong.domain.picture.Picture"
-		useGeneratedKeys="true" keyProperty="id">
+	<insert id="insertSelective" parameterType="com.tianhong.domain.picture.Picture" useGeneratedKeys="true" keyProperty="id">
 		insert into t_picture
 		<trim prefix="(" suffix=")" suffixOverrides=",">
 			<if test="id != null">

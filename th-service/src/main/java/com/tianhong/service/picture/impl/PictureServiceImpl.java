@@ -132,4 +132,19 @@ public class PictureServiceImpl implements PictureService {
 		return pictures;
 	}
 
+	public Picture save(Picture picture, User user) throws Exception {
+		if (picture.getId() != null && picture.getId() > 0) {
+			picture.setUpdateId(user.getId());
+			picture.setUpdateTime(new Date());
+			this.updateByPrimaryKeySelective(picture);
+		} else {
+			byte sort = pictureMapper.selectMaxSort(picture.getMenuId(), picture.getPictureType());
+			picture.setSort(sort);
+			picture.setCreateId(user.getId());
+			picture.setCreateTime(new Date());
+			this.insertSelective(picture);
+		}
+		return picture;
+	}
+
 }

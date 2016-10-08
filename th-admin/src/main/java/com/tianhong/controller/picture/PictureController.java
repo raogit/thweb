@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tianhong.constant.CommonConstant;
 import com.tianhong.controller.base.BaseController;
+import com.tianhong.domain.picture.Picture;
+import com.tianhong.domain.user.User;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.utils.FileToolUtils;
 
@@ -80,6 +82,18 @@ public class PictureController extends BaseController {
 			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
 					CommonConstant.UPLOAD_IMG_PATH);
 			return pictureService.delete(id, path);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/save")
+	@ResponseBody
+	public Object save(Picture picture, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			User user = getCurrentUser(request);
+			return pictureService.save(picture, user);
 		} catch (Exception e) {
 			log.error("", e);
 		}

@@ -21,6 +21,8 @@ import com.tianhong.domain.user.User;
  */
 public interface PictureService {
 
+	Picture save(Picture picture, User user) throws Exception;
+
 	Picture insertSelective(Picture picture) throws Exception;
 
 	Picture insertSelective(int menuId, String title, String url, byte pictureType, String path, User user)
