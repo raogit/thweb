@@ -70,4 +70,117 @@ public class CultureController extends BaseController {
 		}
 		return new ModelAndView("/web/culture/index", model);
 	}
+
+	@RequestMapping(value = "/index2")
+	public Object index2(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+			model.put("menu", menu);
+			Content content = contentService.getByMenuId(subMenus.get(0).getId());
+			model.put("content", content);
+			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			model.put("pictures", pictures);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/culture/index", model);
+	}
+
+	@RequestMapping(value = "/trailer")
+	public Object trailer(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+			model.put("menu", menu);
+			Content content = contentService.getByMenuId(subMenus.get(0).getId());
+			model.put("content", content);
+			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			model.put("pictures", pictures);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/culture/trailer", model);
+	}
+
+	@RequestMapping(value = "/ejournals")
+	public Object ejournals(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+			model.put("menu", menu);
+			Content content = contentService.getByMenuId(subMenus.get(0).getId());
+			model.put("content", content);
+			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			model.put("pictures", pictures);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/culture/ejournals", model);
+	}
+
+	@RequestMapping(value = "/video")
+	public Object video(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+			model.put("menu", menu);
+			Content content = contentService.getByMenuId(subMenus.get(0).getId());
+			model.put("content", content);
+			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			model.put("pictures", pictures);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/culture/video", model);
+	}
+
+	@RequestMapping(value = "/public")
+	public Object publicPage(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+			model.put("menu", menu);
+			Content content = contentService.getByMenuId(subMenus.get(0).getId());
+			model.put("content", content);
+			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			model.put("pictures", pictures);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/culture/public", model);
+	}
 }

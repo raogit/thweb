@@ -57,8 +57,7 @@ function add(id){
 	$("#contentId").html("");
 	$("#productpicture").attr("src","");
 	$("#popPicture").val("");
-	$("#popType").val("新闻头条");
-	
+	$("#popType").val("公益活动");
 	refreshPopTime();
 }
 function save(){
