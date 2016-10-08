@@ -19,7 +19,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.menu.Menu;
+import com.tianhong.domain.newscenter.NewsCenter;
 import com.tianhong.service.menu.MenuService;
+import com.tianhong.service.newscenter.NewsCenterService;
 
 /**
  * @author Administrator
@@ -32,6 +34,8 @@ public class WebController extends BaseController {
 	private static final Log log = LogFactory.getLog(WebController.class);
 	@Autowired
 	private MenuService menuService;
+	@Autowired
+	private NewsCenterService newsCenterService;
 
 	@RequestMapping(value = "/index")
 	public Object index(HttpServletRequest request, HttpServletResponse response) {
@@ -43,6 +47,11 @@ public class WebController extends BaseController {
 			model.put("headMenus", headMenus);
 
 			model.put("parentMenu", headMenus.get(0));
+
+			NewsCenter newsCenter = new NewsCenter();
+			newsCenter.setMenuId(179);
+			List<NewsCenter> newsList = newsCenterService.getList(newsCenter);
+			model.put("news", newsList.get(0));
 		} catch (Exception e) {
 			log.error("", e);
 		}

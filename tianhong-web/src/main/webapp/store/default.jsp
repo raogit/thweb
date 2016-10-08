@@ -15,9 +15,6 @@
     <div class="cont-in">
         <div class="cont-int clearfix">
             <ul class="c-i-img">
-               <%--  <li><a href="About/Store.html"><img src="${basePath }/store/images/index/i_02.png" alt=""></a></li>
-                <li><a href="About/Public.html"><img src="${basePath }/store/images/index/i_03.png" alt=""></a></li> --%>
-               
                 <c:forEach var="item" items="${pictures }" begin="1" step="1" end="3" varStatus="itemStatus">
 	            	 <li><a href="Join/Iwant.html"><img src="${basePath}/download/png?fileName=${item.path }" alt="" width="211px" height="90px"></a></li>
 	            </c:forEach>

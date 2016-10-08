@@ -22,10 +22,10 @@
 </head>
 
 <body>
-	<jsp:include page="../head/head.jsp"></jsp:include>
-	<div class="bodyer">
-		<iframe src="${basePath }/pdf/spring.pdf" width="100%" height="100%"></iframe>
+<%-- 	<jsp:include page="../head/head.jsp"></jsp:include> --%>
+	<div style="background-color: rgb(38,38,38);height: 100%;width: 100%;overflow: hidden;margin: 0;">
+ 		<iframe src="${basePath }/pdf/20161008095757440.PDF" width="100%" height="100%"></iframe>
 	</div>
-	<jsp:include page="../foot/foot.jsp"></jsp:include>
+<%-- 	<jsp:include page="../foot/foot.jsp"></jsp:include> --%>
 </body>
 </html>

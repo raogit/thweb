@@ -183,4 +183,27 @@ public class CultureController extends BaseController {
 		}
 		return new ModelAndView("/web/culture/public", model);
 	}
+
+	@RequestMapping(value = "/edetails")
+	public Object edetails(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+			model.put("menu", menu);
+			Content content = contentService.getByMenuId(subMenus.get(0).getId());
+			model.put("content", content);
+			List<Picture> pictures = pictureService.findByMenuId(menuId);
+			model.put("pictures", pictures);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/culture/edetails", model);
+	}
 }

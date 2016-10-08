@@ -27,7 +27,7 @@
 				<a href="" class="h-c-l1"><img src="${basePath}/app/Images/l1.png" alt=""></a>
 				<a href="" class="h-c-l2"><img src="${basePath}/app/Images/l2.png" alt=""></a>
 			</div>
-			<a href="" class="h-c-back">返回天虹</a>
+			<a href="${basePath}" class="h-c-back">返回天虹</a>
 			<ul class="h-c-title">
 				<%-- <c:forEach var="item" items="${subMenus }" begin="0" step="1">
 					<li>${item.name }</li>

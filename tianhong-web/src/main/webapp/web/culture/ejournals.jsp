@@ -51,7 +51,7 @@
 	            <div class="bd-cont-RE fr" style="background:url(../images/img/c_8.jpg) no-repeat">
 	                <div class="bd-RE">
 	                    <div class="RE-in"><a href=""><img src="../images/img/c_27.png" alt=""></a></div>
-	                    <div class="RE-in"><a href="EDetails.html?p=2"><img src="../images/img/c_28.png" alt=""></a></div>
+	                    <div class="RE-in"><a href="${basePath}/web/culture/edetails?menuId=${menu.id }"><img src="../images/img/c_28.png" alt=""></a></div>
 	                </div>
 	            </div>
 	            <div class="bd-cont-LE fl">
@@ -61,7 +61,7 @@
 	                        <div class="bd-LE-num">2016-08-10</div>
 	                        <div class="bd-LE-ch">《趣你的双十一》</div>
 	                        <div class="bd-LE-txt">天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通</div>
-	                        <a href="EDetails.html?p=2" class="bd-LE-a"><div class="bd-LE-btn b2"><img src="../images/img/c_10.png" alt=""></div></a>
+	                        <a href="${basePath}/web/culture/edetails?menuId=${menu.id }" class="bd-LE-a"><div class="bd-LE-btn b2"><img src="../images/img/c_10.png" alt=""></div></a>
 	                    </div>
 	                </div>
 	                <div class="bd-LE-btm">
