@@ -26,15 +26,9 @@ html.full, html.full body {
 	<jsp:include page="head/index-head.jsp"></jsp:include>
 	<div class="wrapper">
 		<div class="i-center">
-			<div class="i-c-l">
-				<img src="images/img/bg_2.png" alt="">
-			</div>
-			<div class="i-c-t">
-				<img src="images/img/bg_1.png" alt="">
-			</div>
-			<div class="i-c-r">
-				<img src="images/img/bg_3.png" alt="">
-			</div>
+			<div class="i-c-l"><img src="images/img/bg_2.png" alt=""></div>
+			<div class="i-c-t"><img src="images/img/bg_1.png" alt=""></div>
+			<div class="i-c-r"><img src="images/img/bg_3.png" alt=""></div>
 			<ul class="i_clk">
 				<li class="i_cli a1"><a href="${basePath}/market/index" title="天虹商场"></a></li>
 				<li class="i_cli a2"><a href="www.thweiwo.com.cn" title="天虹金融"></a></li>
