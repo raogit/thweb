@@ -128,9 +128,9 @@
 .bd-V-arr.arr-prev{left:0px;}
 .bd-V-arr.arr-next{right:0px;}
 .bd-V-cont{width:1100px;height:223px;margin:10px 50px;float:left}
-.V-cont-in{width:324px;height:189px;/* background:url(../images/img/c_22.png) no-repeat; */position:relative;float:left;margin:17px 12px}
+.V-cont-in{ width:324px;height:189px; /* background:url(../images/img/c_22.png) no-repeat; */position:relative;float:left;margin:17px 12px}
 .V-cont-in.v-at{width:382px;height:223px;background:url(../images/img/c_23.png) no-repeat;margin:0 10px}
-.V-cont-in .V-video{width:308px;height:144px;position:absolute;top:8px;left:8px}
+.V-cont-in .V-video{width:308px;height:144px; position:absolute;top:8px;left:8px}
 .V-cont-in.v-at .V-video{width:366px;height:172px}
 .bd-V-sld{width:348px;height:80px;margin:0 auto}
 .V-sld-n{color:#666;margin-bottom:5px;text-align:right}

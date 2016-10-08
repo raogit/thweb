@@ -69,21 +69,9 @@
 	                </div>
 	                <div class="bd-V-cont"  style="height: 520px;">
 	                    <div class="moveBox" style="height: 520px;">
-	                        <div class="V-cont-in" style="background: ;">
-	                       		<div class="V-video"><iframe height=498 width=510 src='http://player.youku.com/embed/XMTQ4MDk0MjI4' frameborder=0 'allowfullscreen'></iframe></div>
-	                        </div>
-	                        <div class="V-cont-in" style="background: ;">
-	                        	<div class="V-video"><iframe frameborder="0" width="480" height="400" src="http://v.qq.com/iframe/player.html?vid=p00204w9qo2&tiny=0&auto=0" allowfullscreen></iframe></div>
-	                        </div>
-	                        <div class="V-cont-in" style="background: ;">
-	                        	<div class="V-video"><iframe frameborder="0" width="480" height="400" src="http://v.qq.com/iframe/player.html?vid=x0332o1n53b&tiny=0&auto=0" allowfullscreen></iframe></div>
-	                        </div>
-	                        <div class="V-cont-in" style="background: ;">
-	                        	<div class="V-video"><iframe frameborder="0" width="480" height="400" src="http://v.qq.com/iframe/player.html?vid=v0323g2qcqt&tiny=0&auto=0" allowfullscreen></iframe></div>
-	                        </div>
-	                        <div class="V-cont-in" style="background: ;">
-	                       		<div class="V-video"><iframe frameborder="0" width="480" height="400" src="http://v.qq.com/iframe/player.html?vid=h03093gwlpn&tiny=0&auto=0" allowfullscreen></iframe></div>
-	                        </div>
+	                        <c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
+				            	<div class="V-cont-in" style="background: ;"><div class="V-video">${item.path }</div></div>
+					        </c:forEach>
 	                    </div> 
 	                </div>
 	                <div class="bd-V-arr arr-next fr">
@@ -117,7 +105,7 @@
 			var listW = list.outerWidth(true);
 			var index = 0;
 			var count = 1; 
-			if(len>3){  
+			if(len>=1){  
 				list.eq(1).animate({width:510,height:500,marginTop:0},500);
 				list.eq(1).children().animate({width:490,height:480},500); 
 				btnNext.click(function(){ 
@@ -125,21 +113,28 @@
 					index=index>len-2?len-2:index;
 					count++;
 					count=count>len-1?len-1:count; 
-					go()
+					go();
 				});
 				btnPrev.click(function(){ 
 					index--;
 					index=index<-1?-1:index;
 					count--;
 					count=count<0?0:count; 
-					go()
+					go();
 				});
 				function go(){
 					 moveBox.stop().animate({marginLeft:-listW*index},500);
 					 
 					 list.eq(count).animate({width:510,height:500,marginTop:0},500).siblings().stop().animate({width:324,height:189,marginTop:17},500);
 					 list.eq(count).children().animate({width:490,height:480},500).parent().siblings().children().stop().animate({width:308,height:144},500);
-					 console.log(count)
+					 console.log(count);
+				}
+				if(len==1){
+					index++;
+					index=index>len-2?len-2:index;
+					count++;
+					count=count>len-1?len-1:count; 
+					go();
 				}
 			}
 		})

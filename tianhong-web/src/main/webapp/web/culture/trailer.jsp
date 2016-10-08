@@ -48,10 +48,14 @@
 	    </div>
 	    <div class="bd-cont cont-C">
 	        <div class="bd-cont-in">
-	            <div class="bd-cont-R3 fr">
-	                <iframe frameborder="0" width="640" height="498" src="http://v.qq.com/iframe/player.html?vid=k0303be7xg7&tiny=0&auto=0" allowfullscreen></iframe>
-	            	<!-- <embed src="http://static.video.qq.com/TPout.swf?vid=k0303be7xg7&auto=0" allowFullScreen="true" quality="high" width="640" height="498" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed> -->
-	            </div>
+	            <c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
+	            	<c:if test="${itemStatus.index==0 }">
+	                	<div class="bd-cont-R3 fr" style="display:block;" id="video${item.id }">${item.path }</div>
+	                </c:if>
+                	<c:if test="${itemStatus.index>0 }">
+	                	<div class="bd-cont-R3 fr" style="display:none;" id="video${item.id }">${item.path }</div>
+	                </c:if>
+		        </c:forEach>
 	            <div class="bd-cont-L LT fl">
 	                <div class="bd-L-title">
 	                    <div class="bd-L-tch">宣传片</div>
@@ -62,9 +66,12 @@
 	                    <p><strong>企业宣传片</strong>主要是企业一种阶段性总结动态艺术化的展播方式，回望过去，放眼未来，这是传统企业宣传片内在的核心线索，随着传播观念的日渐完善和先进，传统企业宣传片千篇一律的传播方式逐渐的开始让人出现审美疲劳，影视广告公司在探寻着企业宣传片创意方式的突破，站在企业形象的高度，对企业理念和企业文化进行深度的挖掘，让企业宣传片的展现元素都依托在企业文化的精髓之上，或通过故事的形式</p>
 	                </div>
 	                <ul class="bd-L-Tra">
-	                    <li>天虹企业形象宣传片一</li>
+	                	<c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
+		                	<li><a href="javascript:changeVideo(${item.id });">${item.title }</a></li>
+				        </c:forEach>
+	                    <!-- <li>天虹企业形象宣传片一</li>
 	                    <li>天虹企业形象宣传片二</li>
-	                    <li>天虹企业形象宣传片一</li>
+	                    <li>天虹企业形象宣传片一</li> -->
 	                </ul>
 	            </div>
 	            <div class="clear"></div>
@@ -78,6 +85,13 @@
 	    $(function(){
 	        $(".bd-L-cont.LC p").eq(0).css({"width":"420px"});
 	    })
+	    function changeVideo(id){
+	    	var bdConts = $(".bd-cont-R3");
+	    	for(var i=0;i<bdConts.length;i++){
+	    		$(bdConts[i]).hide();
+	    	}
+	    	$("#video"+id).show();
+	    }
 	</script>
 	
 

@@ -35,7 +35,7 @@ function saveVideo(){
         	if(data!=null&&data!=false){
         		initPicture(menuId)
         		$("#title").val("");
-        		$("#path").val("");
+        		$("#picPath").val("");
         	}else{
         		alert("操作失败");
         	}
@@ -47,7 +47,6 @@ function isEmpty(str){
 		return true;
 	}
 }
-
 
 function btn(){
 	//弹出：确认按钮

@@ -85,7 +85,7 @@ public class CultureController extends BaseController {
 			model.put("menu", menu);
 			Content content = contentService.getByMenuId(subMenus.get(0).getId());
 			model.put("content", content);
-			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("pictures", pictures);
 		} catch (Exception e) {
 			log.error("", e);
@@ -108,7 +108,7 @@ public class CultureController extends BaseController {
 			model.put("menu", menu);
 			Content content = contentService.getByMenuId(subMenus.get(0).getId());
 			model.put("content", content);
-			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("pictures", pictures);
 		} catch (Exception e) {
 			log.error("", e);
@@ -131,7 +131,7 @@ public class CultureController extends BaseController {
 			model.put("menu", menu);
 			Content content = contentService.getByMenuId(subMenus.get(0).getId());
 			model.put("content", content);
-			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("pictures", pictures);
 		} catch (Exception e) {
 			log.error("", e);
@@ -153,7 +153,7 @@ public class CultureController extends BaseController {
 			model.put("menu", menu);
 			Content content = contentService.getByMenuId(subMenus.get(0).getId());
 			model.put("content", content);
-			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("pictures", pictures);
 		} catch (Exception e) {
 			log.error("", e);
@@ -176,7 +176,7 @@ public class CultureController extends BaseController {
 			model.put("menu", menu);
 			Content content = contentService.getByMenuId(subMenus.get(0).getId());
 			model.put("content", content);
-			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("pictures", pictures);
 		} catch (Exception e) {
 			log.error("", e);
