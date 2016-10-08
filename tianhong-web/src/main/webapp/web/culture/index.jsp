@@ -30,9 +30,9 @@
 	    <div class="nav_content">
 	        <div class="nav_contentBlock">
 	            <div class="nav_aContent">
-	                <a href="../index.html" class="nav_aBlock icon">首页</a>
-	                <a href="index.html" class="nav_aBlock icon">${parentMenu.name }</a>
-	                <a href="index.html" class="nav_aBlock">${menu.name }</a>
+	                <a href="${basePath}" class="nav_aBlock icon">首页</a> 
+					<a href="javascript:void(0);" class="nav_aBlock icon">${parentMenu.name }</a>
+					<a href="javascript:void(0);" class="nav_aBlock">${menu.name }</a>
 	            </div>
 	            <div class="nav_ulBlock">
 	            	<c:forEach var="item" items="${subMenus }" begin="0" step="1" varStatus="itemStatus">
@@ -43,11 +43,6 @@
 	                		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock">${item.name }</a>
 	                	</c:if>
 			        </c:forEach>
-	               <!--  <a href="index.html?p=0" class="nav_liBlock">企业文化</a>
-	                <a href="Trailer.html?p=1" class="nav_liBlock">宣传片</a>
-	                <a href="Ejournals.html?p=2" class="nav_liBlock">电子期刊</a>
-	                <a href="Video.html?p=3" class="nav_liBlock">视频中心</a>
-	                <a href="Public.html?p=4" class="nav_liBlock">社会责任</a> -->
 	            </div>
 	        </div>
 	    </div>
