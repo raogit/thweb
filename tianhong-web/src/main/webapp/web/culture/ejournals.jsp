@@ -48,52 +48,41 @@
 	    </div>
 	    <div class="bd-cont cont-C">
 	        <div class="bd-cont-in cinE">
-	            <div class="bd-cont-RE fr" style="background:url(../images/img/c_8.jpg) no-repeat">
-	                <div class="bd-RE">
-	                    <div class="RE-in"><a href=""><img src="../images/img/c_27.png" alt=""></a></div>
-	                    <div class="RE-in"><a href="${basePath}/web/culture/edetails?menuId=${menu.id }"><img src="../images/img/c_28.png" alt=""></a></div>
-	                </div>
-	            </div>
+	            
+	            <c:forEach var="item" items="${pictures }" begin="0" step="1" end="0" varStatus="itemStatus">
+				   <div class="bd-cont-RE fr" style="background:url(${basePath}/download/png?fileName=${item.path }) no-repeat;width:305px; height:396px">
+		                <div class="bd-RE">
+		                    <div class="RE-in"><a href="${basePath}/download/pdf?fileName=${item.url }"><img src="../images/img/c_27.png" alt=""></a></div>
+		                    <div class="RE-in"><a target="_blank" href="${basePath}/web/culture/edetails?fileName=${item.url}"><img src="../images/img/c_28.png" alt=""></a></div>
+		                </div>
+		            </div>
+				</c:forEach>
 	            <div class="bd-cont-LE fl">
-	                <div class="bd-LE-top">
-	                    <div class="bd-LE-tr fr"><img src="../images/img/c_9.png" alt=""></div>
-	                    <div class="bd-LE-tl fl">
-	                        <div class="bd-LE-num">2016-08-10</div>
-	                        <div class="bd-LE-ch">《趣你的双十一》</div>
-	                        <div class="bd-LE-txt">天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通</div>
-	                        <a href="${basePath}/web/culture/edetails?menuId=${menu.id }" class="bd-LE-a"><div class="bd-LE-btn b2"><img src="../images/img/c_10.png" alt=""></div></a>
-	                    </div>
-	                </div>
+	                <c:forEach var="item" items="${pictures }" begin="0" step="1" end="0" varStatus="itemStatus">
+					    <div class="bd-LE-top">
+		                    <div class="bd-LE-tr fr"><img src="${basePath}/download/png?fileName=${item.path }" alt="" width="312px" height="206px"></div>
+		                    <div class="bd-LE-tl fl">
+		                        <div class="bd-LE-num">${item.createTimeStr }</div>
+		                        <div class="bd-LE-ch">《${item.title }》</div>
+		                        <div class="bd-LE-txt">${item.content }</div>
+		                        <a target="_blank" href="${basePath}/web/culture/edetails?fileName=${item.url}" class="bd-LE-a"><div class="bd-LE-btn b2"><img src="../images/img/c_10.png" alt=""></div></a>
+		                    </div>
+		                </div>
+					</c:forEach>
 	                <div class="bd-LE-btm">
 	                    <ul class="bd-LE-list">
-	                        <li>
-	                            <div class="LE-lr fr">
-	                                <div class="LE-lrt"><strong>2016</strong><span>《天虹期刊》（趣你的双十一）</span></div>
-	                                <div class="LE-lrc">天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，
-	                                    其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通过人本、科学的管理，专业、
-	                                    高效的运营，公司取得了卓越的业绩，已连续多年入围中国连锁百强企业。公司根据目标顾客需求的不同</div>
-	                                <div class="LE-lrm">查看更多</div>
-	                            </div>
-	                            <img src="../images/img/c_11.jpg" alt="" class="fl">
-	                        </li>
-	                        <li>
-	                            <div class="LE-lr fr">
-	                                <div class="LE-lrt"><strong>2016</strong><span>《天虹期刊》（趣你的双十一）</span></div>
-	                                <div class="LE-lrc">天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通过人本、科学的管理，专业、高效的运营，公司取得了卓越的业绩，已连续多年入围中国连锁百强企业。公司根据目标顾客需求的不同</div>
-	                                <div class="LE-lrm">查看更多</div>
-	                            </div>
-	                            <img src="../images/img/c_11.jpg" alt="" class="fl">
-	                        </li>
-	                        <li>
-	                            <div class="LE-lr fr">
-	                                <div class="LE-lrt"><strong>2016</strong><span>《天虹期刊》（趣你的双十一）</span></div>
-	                                <div class="LE-lrc">天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通过人本、科学的管理，专业、高效的运营，公司取得了卓越的业绩，已连续多年入围中国连锁百强企业。公司根据目标顾客需求的不同</div>
-	                                <div class="LE-lrm">查看更多</div>
-	                            </div>
-	                            <img src="../images/img/c_11.jpg" alt="" class="fl">
-	                        </li>
+	                    	<c:forEach var="item" items="${pictures }" begin="1" step="1" end="3" varStatus="itemStatus">
+				                <li>
+		                            <div class="LE-lr fr">
+		                                <div class="LE-lrt"><strong>${item.createTimeStr }</strong><span>《${item.title }》</span></div>
+		                                <div class="LE-lrc">${item.content }</div>
+		                                <div class="LE-lrm"><a target="_blank" href="${basePath}/web/culture/edetails?fileName=${item.url}" class="bd-LE-a">查看更多</a></div>
+		                            </div>
+		                            <img src="${basePath}/download/png?fileName=${item.path }" alt="" class="fl" width="206px" height="134px">
+		                        </li>
+							</c:forEach>
 	                    </ul>
-	                    <div class="bd-LE-btn"><img src="../images/img/c_10.png" alt=""></div>
+	                    <!-- <div class="bd-LE-btn"><img src="../images/img/c_10.png" alt=""></div> -->
 	                </div>
 	            </div>
 	            <div class="clear"></div>

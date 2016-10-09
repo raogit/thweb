@@ -231,14 +231,17 @@ public class UploadController extends BaseController {
 
 	@RequestMapping(value = "/pdf")
 	@ResponseBody
-	public Object pdf(@RequestParam("fileId") MultipartFile[] file, @RequestParam("menuId") int menuId,
-			HttpServletRequest request, ModelMap model) {
+	public Object pdf(@RequestParam("filePdfId") MultipartFile[] file, HttpServletRequest request, ModelMap model) {
 		try {
 			AssertUtils.isTrue(file != null && file.length > 0, "文件不存在");
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			request.setCharacterEncoding(CommonConstant.UTF_8);
 			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
 					CommonConstant.UPLOAD_FILE_PATH);
+			// String path =
+			// request.getSession().getServletContext().getRealPath("/") +
+			// "/pdf";
+
 			String fileName = FileToolUtils.saveFile(file[0], path);
 			return fileName;
 		} catch (Exception e) {

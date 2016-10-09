@@ -10,6 +10,7 @@ package com.tianhong.service.picture.impl;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,7 @@ import com.tianhong.domain.picture.Picture;
 import com.tianhong.domain.user.User;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.utils.AssertUtils;
+import com.tianhong.utils.DateUtils;
 import com.tianhong.utils.FileToolUtils;
 
 /**
@@ -50,7 +52,14 @@ public class PictureServiceImpl implements PictureService {
 	}
 
 	public List<Picture> findByMenuId(Integer menuId) throws Exception {
-		return pictureMapper.findByMenuId(menuId);
+		List<Picture> list = pictureMapper.findByMenuId(menuId);
+		if (!CollectionUtils.isEmpty(list)) {
+			for (Picture pic : list) {
+				pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+			}
+		}
+		return list;
+
 	}
 
 	public Picture insertSelective(int menuId, String title, String url, byte pictureType, String path, User user)
@@ -149,6 +158,11 @@ public class PictureServiceImpl implements PictureService {
 
 	public Picture getPage(Picture picture) throws Exception {
 		List<Picture> page = pictureMapper.page(picture);
+		if (!CollectionUtils.isEmpty(page)) {
+			for (Picture pic : page) {
+				pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+			}
+		}
 		int count = pictureMapper.count(picture);
 		picture.setObj(page);
 		picture.setTotalRow(count);
@@ -156,7 +170,13 @@ public class PictureServiceImpl implements PictureService {
 	}
 
 	public List<Picture> getList(Picture picture) throws Exception {
-		return pictureMapper.list(picture);
+		List<Picture> list = pictureMapper.list(picture);
+		if (!CollectionUtils.isEmpty(list)) {
+			for (Picture pic : list) {
+				pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+			}
+		}
+		return list;
 	}
 
 }

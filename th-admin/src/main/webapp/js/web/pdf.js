@@ -41,7 +41,6 @@ function picture(data){
 	var bannerpicture = $("#bannerpicture");
 	bannerpicture.empty();
 	if(data!=null && data!="" && data!=false){
-		
 		for(var i=0;i<data.length;i++){
 			var picture = data[i];
 			var html;
@@ -196,12 +195,11 @@ function initTable(data){
 		if(item.content!=null && item.content!=""){
 			content = item.content.substring(0,20)
 		}
-		debugger;
 		var tr = "<tr>"
 			+"<td>"+(i+1)+"</td>"
 			+"<td>"+item.title+"</td>"
 			+"<td>"+content+"</td>"
-			+"<td>"+item.path+"</td>"
+			+"<td>"+item.url+"</td>"
 			+"<td>"+time+"</td>";
 		var operation = "<td style='text-align: center;'><a href='javascript:edit("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteObj("+item.id+")' class='inner_btn'>删除</a></td>"
 		var end_tr = "</tr>";
@@ -232,9 +230,10 @@ function edit(id){
 	$("#popHistoryId").val(id);
 	$("#popTitle").val("");
 	$("#picture").val("");
+	$("#pdfurl").val("");
 	$("#popPrice").val("");
 	$("#picture").val("");
-	$("#popPictureImg").html("");
+	$("#popPdf").html("");
 	if(id<=0){
 		$("#pupTitle").html("添加");
 	}else{
@@ -252,7 +251,10 @@ function edit(id){
 	        		$("#popTitle").val(data.title);
 	        		$("#popContent").val(data.content);
 	        		$("#picture").val(data.path);
-	        		$("#popPictureImg").html(data.picture);
+	        		$("#popPictureImg").attr("src",basePath+"/download/png?fileName="+data.path);
+	        		$("#pdfurl").val(data.url);
+	        		$("#popPdf").html(data.url);
+	        		$("#popPdf").html(data.picture);
 	        	}
 	        }
 	    });
@@ -265,13 +267,15 @@ function add(id){
 	$("#popHistoryId").val(0);
 	$("#popTitle").val("");
 	$("#picture").val("");
+	$("#pdfurl").val("");
 	$("#popContent").val("");
-	$("#popPictureImg").html("");
+	$("#popPdf").html("");
 }
 function save(){
 	var id = $("#popHistoryId").val();
 	var title = $("#popTitle").val();
 	var picture = $("#picture").val();
+	var pdfurl = $("#pdfurl").val();
 	var content = $("#popContent").val();
 	var menuId = $("#menuId").val();
 	var eventTime = $("#eventTime").val();
@@ -289,6 +293,7 @@ function save(){
         	title : title,
         	pictureType : 8,
         	path : picture,
+        	url : pdfurl,
         	content : content
         },
         cache: false,
@@ -340,14 +345,13 @@ function refreshPopTime(){
 function clear(){
 	$("#contentId").html("");
 }
-function upload(fileId){
-	var file = $("#fileId").val();
+function uploadPdf(fileId){
+	var file = $("#"+fileId).val();
 	if(!file){
 		alert("请选择文件");
 		return;
 	}
-	var menuId = $("#menuId").val();
-	var url=basePath + "/upload/pdf?menuId="+menuId;
+	var url=basePath + "/upload/pdf";
 	//执行上传文件操作的函数
 	$.ajaxFileUpload({
         url:url,
@@ -362,8 +366,8 @@ function upload(fileId){
             data = data.replace("</pre>", '');
             var reqParam = data;
         	if (reqParam != "" && reqParam!=false) {
-        		$("#popPictureImg").html(reqParam);
-        		$("#picture").val(reqParam);
+        		$("#popPdf").html(reqParam);
+        		$("#pdfurl").val(reqParam);
 			} else {
 				alert("上传失败");
 			}
@@ -371,3 +375,32 @@ function upload(fileId){
     });
 }
 
+function uploadImg(fileId){
+	var file = $("#"+fileId).val();
+	if(!file){
+		alert("请选择文件");
+		return;
+	}
+	var url=basePath + "/upload/image";
+	//执行上传文件操作的函数
+	$.ajaxFileUpload({
+        url:url,
+        secureuri:false, //是否启用安全提交,默认为false
+        fileElementId:fileId,
+        dataType:'text',
+        success:function(data,status){
+        	data = data.replace(/<pre.*">/, '');
+            data = data.replace("<PRE>", ''); //ajaxFileUpload会对服务器响应回来的text内容加上<pre>text</pre>前后缀
+            data = data.replace("</PRE>", '');
+            data = data.replace("<pre>", '');
+            data = data.replace("</pre>", '');
+            var reqParam = data;
+        	if (reqParam != "" && reqParam!=false) {
+        		$("#popPictureImg").attr("src",basePath+"/download/png?fileName="+reqParam);
+        		$("#picture").val(reqParam);
+			} else {
+				alert("上传失败");
+			}
+        }
+    });
+}

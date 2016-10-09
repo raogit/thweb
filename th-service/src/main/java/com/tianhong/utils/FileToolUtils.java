@@ -166,6 +166,26 @@ public class FileToolUtils extends FileUtils {
 		return pathBuffer.toString();
 	}
 
+	public static String getPathMkdir2(String realPath, String mdwPath) throws Exception {
+		/**
+		 * 创建的文件夹与tomcat平级
+		 */
+		StringBuffer pathBuffer = new StringBuffer();
+		String separator = File.separator;
+		if (!separator.equals("/")) {
+			separator = "\\\\";
+		}
+		String path[] = realPath.split(separator);
+		for (int i = 0; i < path.length - 3; i++) {
+			pathBuffer.append(path[i]);
+			pathBuffer.append(separator);
+		}
+		String rep = mdwPath.replaceAll("/", separator);
+		pathBuffer.append(rep);
+		FileToolUtils.mkDir(pathBuffer.toString());
+		return pathBuffer.toString();
+	}
+
 	public static String fileToString(File file, String code) throws Exception {
 		StringBuffer sb = new StringBuffer();
 		InputStream fileInput = null;
@@ -383,6 +403,14 @@ public class FileToolUtils extends FileUtils {
 			} catch (Exception e2) {
 				log.error("", e2);
 			}
+		}
+	}
+
+	public static void copyFile(String oldPath, String newPath) throws Exception {
+		File oldFile = new File(oldPath);
+		File newFile = new File(newPath);
+		if (!newFile.exists()) {
+			FileUtils.copyFile(oldFile, newFile);
 		}
 	}
 }

@@ -37,6 +37,8 @@ public class Picture extends Page {
 
 	private String content;
 
+	private String createTimeStr;
+
 	public Integer getId() {
 		return id;
 	}
@@ -164,4 +166,13 @@ public class Picture extends Page {
 	public void setContent(String content) {
 		this.content = content == null ? null : content.trim();
 	}
+
+	public String getCreateTimeStr() {
+		return createTimeStr;
+	}
+
+	public void setCreateTimeStr(String createTimeStr) {
+		this.createTimeStr = createTimeStr;
+	}
+
 }

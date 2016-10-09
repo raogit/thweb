@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tianhong.constant.CommonConstant;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.content.Content;
 import com.tianhong.domain.menu.Menu;
@@ -29,6 +30,7 @@ import com.tianhong.domain.picture.Picture;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.picture.PictureService;
+import com.tianhong.utils.FileToolUtils;
 
 /**
  * ClassName: CultureController
@@ -185,22 +187,16 @@ public class CultureController extends BaseController {
 	}
 
 	@RequestMapping(value = "/edetails")
-	public Object edetails(@RequestParam("menuId") int menuId, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object edetails(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-			Menu menu = menuService.getByPrimaryKey(menuId);
-			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
-			List<Menu> headMenus = menuService.getSubMenus(172, true);
-			model.put("headMenus", headMenus);
-
-			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
-			model.put("subMenus", subMenus);
-			model.put("menu", menu);
-			Content content = contentService.getByMenuId(subMenus.get(0).getId());
-			model.put("content", content);
-			List<Picture> pictures = pictureService.findByMenuId(menuId);
-			model.put("pictures", pictures);
+			String fileName = request.getParameter("fileName");
+			model.put("fileName", fileName);
+			String pathFrom = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
+					CommonConstant.UPLOAD_FILE_PATH);
+			String pathTarget = request.getSession().getServletContext().getRealPath("/")
+					+ CommonConstant.UPLOAD_PDF_PATH;
+			FileToolUtils.copyFile(pathFrom + "/" + fileName, pathTarget + "/" + fileName);
 		} catch (Exception e) {
 			log.error("", e);
 		}
