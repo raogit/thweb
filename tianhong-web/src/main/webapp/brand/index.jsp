@@ -4,30 +4,30 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>天虹官网</title>
-<%String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
-	request.setAttribute("path", path);
-	request.setAttribute("basePath", basePath);
-	request.setAttribute("ver", Math.random());
-	%>
-<link rel="shortcut icon" href="${basePath}/images/favicon.ico"
-	type="image/x-icon">
-<input type="hidden" value="${basePath }" id="basePath" name="basePath" />
-<input type="hidden" value="${path }" id="path" name="path" />
-<link href="${basePath}/brand/css/common.css" rel="stylesheet"
-	type="text/css">
-<!-- 具体样式 -->
-<script src="${basePath}/brand/js/jquery-1.4.2.js"
-	type="text/javascript"></script>
-<!-- Jquery 库 -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>天虹官网</title>
+	<%String path = request.getContextPath();
+		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
+		request.setAttribute("path", path);
+		request.setAttribute("basePath", basePath);
+		request.setAttribute("ver", Math.random());
+		%>
+	<link rel="shortcut icon" href="${basePath}/images/favicon.ico"
+		type="image/x-icon">
+	<input type="hidden" value="${basePath }" id="basePath" name="basePath" />
+	<input type="hidden" value="${path }" id="path" name="path" />
+	<link href="${basePath}/brand/css/common.css" rel="stylesheet"
+		type="text/css">
+	<!-- 具体样式 -->
+	<script src="${basePath}/brand/js/jquery-1.4.2.js"
+		type="text/javascript"></script>
+	<!-- Jquery 库 -->
 </head>
 
 <body>
 	<div class="header_content">
 		<div class="header_contentBlock">
-			<a href="#" class="header_logo"><img src="images/common/logo.png"></a>
+			<a href="${basePath}" class="header_logo"><img src="images/common/logo.png"></a>
 			<div class="header_ulBlock">
 				<ul>
 					<c:forEach var="item" items="${subMenus }" begin="0" step="1">
@@ -45,7 +45,7 @@
 		</div>
 		<div class="header_bottomBlock">
 			<div class="complay">
-				<a href="#">集团首页</a>
+				<a href="${basePath}">集团首页</a>
 			</div>
 			<div class="clink">
 				<h1 class="linkText fl">友情链接</h1>

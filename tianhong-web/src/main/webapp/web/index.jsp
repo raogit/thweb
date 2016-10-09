@@ -31,7 +31,7 @@
 			<div class="i-c-r"><img src="images/img/bg_3.png" alt=""></div>
 			<ul class="i_clk">
 				<li class="i_cli a1"><a href="${basePath}/market/index" title="天虹商场"></a></li>
-				<li class="i_cli a2"><a href="javascript:void(0);" title="天虹金融"></a></li>
+				<li class="i_cli a2"><a href="https://f.tianhong.cn/" title="天虹金融"></a></li>
 				<li class="i_cli a3"><a href="http://www.dreams-on.com/" title="君尚百货"></a></li>
 				<li class="i_cli a4"><a href="${basePath}/store/index" title="微喔便利店"></a></li>
 				<li class="i_cli a5"><a href="javascript:void(0);" title="购物中心"></a></li>

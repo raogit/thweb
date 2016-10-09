@@ -4,7 +4,7 @@
 <input type="hidden" id="menuId" name="menuId" value="${menu.id }" />
 <div class="Header">
     <div class="header_content">
-        <a href="index.html" class="header_logo"><img src="../images/logo.png"></a>
+        <a href="${basePath}" class="header_logo"><img src="../images/logo.png"></a>
         <div class="header_contentBlock">
             <div class="header_ulBlock">
                 <c:forEach var="item" items="${headMenus }" begin="0" step="1" varStatus="itemStatus">
@@ -34,7 +34,14 @@
 				<div class="header_onBlockIn">
 					<ul class="header_onList">
 						<c:forEach var="sub" items="${item.subMenus }" begin="0" step="1">
-							<li><a href="${basePath}${sub.link }?menuId=${sub.id }">${sub.name }</a></li>
+							<c:choose>
+								<c:when test="${fn:contains(sub.link, 'http')}">  
+							   		<li><a href="${sub.link }">${sub.name }</a></li>  
+							   	</c:when>
+							   	<c:otherwise> 
+							   		<li><a href="${basePath}${sub.link }?menuId=${sub.id }">${sub.name }</a></li>
+							   	</c:otherwise>
+							</c:choose>
 						</c:forEach>
 					</ul>
 				</div>

@@ -3,12 +3,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <div id="Header">
     <div class="wrap">
-         <div class="logo"><a href="${basePath}/home/index.jsp"><img src="${basePath}/images/logo.png" alt="天虹官网"/></a></div>
+         <div class="logo"><a href="${basePath}"><img src="${basePath}/images/logo.png" alt="天虹官网"/></a></div>
          <div class="menu">
             <div class="menu-link">
                 <div class="link-box">
                   <a href="" class="sina">新浪微博</a><a href="" class="weixin">微信</a>
-                  <a href="" class="return">返回集团</a>
+                  <a href="${basePath}" class="return">返回集团</a>
                 </div>
             </div>
             <div class="menu-nav">

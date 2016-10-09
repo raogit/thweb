@@ -14,3 +14,14 @@ INSERT INTO `t_menu` (`name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_s
 INSERT INTO `t_menu` (`name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES ('社会招聘', '', '', 3, 177, 3, 1, '2016-10-8 14:32:30', 1, 0);
 INSERT INTO `t_menu` (`name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES ('校园招聘', '', '', 3, 177, 4, 1, '2016-10-8 14:32:37', 1, 0);
 
+
+
+update t_menu set link='https://f.tianhong.cn/' where id=186;
+update t_menu set link='/market/index' where id=187;
+update t_menu set link='http://www.dreams-on.com/' where id=188;
+update t_menu set link='/shopping/index' where id=189;
+update t_menu set link='/store/index' where id=190;
+update t_menu set link='/app/list' where id=191;
+update t_menu set link='/home/index' where id=192;
+update t_menu set link='http://szrainbowhr.hirede.com/CareerSite/CampusRecruit' where id=214;
+update t_menu set link='http://szrainbowhr.hirede.com/CareerSite/Index' where id=215;
