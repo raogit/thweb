@@ -147,4 +147,16 @@ public class PictureServiceImpl implements PictureService {
 		return picture;
 	}
 
+	public Picture getPage(Picture picture) throws Exception {
+		List<Picture> page = pictureMapper.page(picture);
+		int count = pictureMapper.count(picture);
+		picture.setObj(page);
+		picture.setTotalRow(count);
+		return picture;
+	}
+
+	public List<Picture> getList(Picture picture) throws Exception {
+		return pictureMapper.list(picture);
+	}
+
 }

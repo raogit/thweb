@@ -99,4 +99,37 @@ public class PictureController extends BaseController {
 		}
 		return false;
 	}
+
+	@RequestMapping(value = "/page")
+	@ResponseBody
+	public Object page(Picture picture, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return pictureService.getPage(picture);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/list")
+	@ResponseBody
+	public Object list(Picture picture, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return pictureService.getList(picture);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/get")
+	@ResponseBody
+	public Object get(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return pictureService.getByPrimaryKey(id);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
 }

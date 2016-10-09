@@ -25,3 +25,5 @@ update t_menu set link='/app/list' where id=191;
 update t_menu set link='/home/index' where id=192;
 update t_menu set link='http://szrainbowhr.hirede.com/CareerSite/CampusRecruit' where id=214;
 update t_menu set link='http://szrainbowhr.hirede.com/CareerSite/Index' where id=215;
+
+update t_menu set url='/pdf/index' where id=195;

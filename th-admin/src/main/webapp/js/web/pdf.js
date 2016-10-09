@@ -161,11 +161,12 @@ function tableData(pageNum){
 	var endDate = $("#endDate").val();	
 	var menuId = $("#menuId").val();	
 	$.ajax({
-        url: basePath + "/web/about/history/page",
+        url: basePath + "/picture/page",
         type: 'post',
         dataType: 'json',
         data : {
         	menuId : menuId,
+        	pictureType : 8,
         	title : title,
         	startDate : startDate,
         	endDate : endDate,
@@ -195,12 +196,12 @@ function initTable(data){
 		if(item.content!=null && item.content!=""){
 			content = item.content.substring(0,20)
 		}
+		debugger;
 		var tr = "<tr>"
 			+"<td>"+(i+1)+"</td>"
 			+"<td>"+item.title+"</td>"
-			+"<td>"+item.eventTimeStr+"</td>"
 			+"<td>"+content+"</td>"
-			+"<td>"+item.picture+"</td>"
+			+"<td>"+item.path+"</td>"
 			+"<td>"+time+"</td>";
 		var operation = "<td style='text-align: center;'><a href='javascript:edit("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteObj("+item.id+")' class='inner_btn'>删除</a></td>"
 		var end_tr = "</tr>";
@@ -233,13 +234,13 @@ function edit(id){
 	$("#picture").val("");
 	$("#popPrice").val("");
 	$("#picture").val("");
-	$("#popPictureImg").attr("src","");
+	$("#popPictureImg").html("");
 	if(id<=0){
 		$("#pupTitle").html("添加");
 	}else{
 		$("#pupTitle").html("修改");
 		$.ajax({
-	        url: basePath + "/web/about/history/get",
+	        url: basePath + "/picture/get",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -250,8 +251,8 @@ function edit(id){
 	        	if(data){
 	        		$("#popTitle").val(data.title);
 	        		$("#popContent").val(data.content);
-	        		$("#picture").val(data.picture);
-	        		$("#popPictureImg").attr("src",basePath+"/download/png?fileName="+data.picture);
+	        		$("#picture").val(data.path);
+	        		$("#popPictureImg").html(data.picture);
 	        	}
 	        }
 	    });
@@ -265,7 +266,7 @@ function add(id){
 	$("#popTitle").val("");
 	$("#picture").val("");
 	$("#popContent").val("");
-	$("#popPictureImg").attr("src","");
+	$("#popPictureImg").html("");
 }
 function save(){
 	var id = $("#popHistoryId").val();
@@ -279,16 +280,16 @@ function save(){
 		return ;
 	}
 	$.ajax({
-        url: basePath + "/web/about/history/save",
+        url: basePath + "/picture/save",
         type: 'post',
         dataType: 'json',
         data : {
         	id : id,
         	menuId : menuId,
         	title : title,
-        	picture : picture,
-        	content : content,
-        	eventTimeStr : eventTime
+        	pictureType : 8,
+        	path : picture,
+        	content : content
         },
         cache: false,
         success: function(data){
@@ -342,10 +343,11 @@ function clear(){
 function upload(fileId){
 	var file = $("#fileId").val();
 	if(!file){
-		alert("请选择图片");
+		alert("请选择文件");
 		return;
 	}
-	var url=basePath + "/upload/image";
+	var menuId = $("#menuId").val();
+	var url=basePath + "/upload/pdf?menuId="+menuId;
 	//执行上传文件操作的函数
 	$.ajaxFileUpload({
         url:url,
@@ -360,7 +362,7 @@ function upload(fileId){
             data = data.replace("</pre>", '');
             var reqParam = data;
         	if (reqParam != "" && reqParam!=false) {
-        		$("#popPictureImg").attr("src",basePath+"/download/png?fileName="+reqParam);
+        		$("#popPictureImg").html(reqParam);
         		$("#picture").val(reqParam);
 			} else {
 				alert("上传失败");

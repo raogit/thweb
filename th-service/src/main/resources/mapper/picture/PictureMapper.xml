@@ -270,4 +270,51 @@
 		picture_type = #{pictureType,jdbcType=TINYINT}
 		order by sort
 	</select>
+	
+	
+	<select id="page" parameterType="com.tianhong.domain.picture.Picture" resultMap="ResultMapWithBLOBs">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from t_picture
+		where is_deleted = 0
+		<if test="menuId != null and menuId>0">
+			AND menu_id = #{menuId,jdbcType=INTEGER}
+		</if>
+		<if test="pictureType != null and pictureType>0">
+			AND picture_type = #{pictureType,jdbcType=TINYINT}
+		</if>
+		ORDER BY create_time
+		LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER}
+	</select>
+
+	<select id="count" parameterType="com.tianhong.domain.picture.Picture" resultType="java.lang.Integer">
+		select
+		count(1)
+		from t_picture
+		where is_deleted = 0
+		<if test="menuId != null and menuId>0">
+			AND menu_id = #{menuId,jdbcType=INTEGER}
+		</if>
+		<if test="pictureType != null and pictureType>0">
+			AND picture_type = #{pictureType,jdbcType=TINYINT}
+		</if>
+	</select>
+
+	<select id="list" parameterType="com.tianhong.domain.picture.Picture" resultMap="ResultMapWithBLOBs">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from t_picture
+		where is_deleted = 0
+		<if test="menuId != null and menuId>0">
+			AND menu_id = #{menuId,jdbcType=INTEGER}
+		</if>
+		<if test="pictureType != null and pictureType>0">
+			AND picture_type = #{pictureType,jdbcType=TINYINT}
+		</if>
+		ORDER BY create_time
+	</select>
 </mapper>
