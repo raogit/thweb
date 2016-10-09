@@ -52,4 +52,19 @@ public class DownloadController {
 		}
 		return null;
 	}
+
+	@RequestMapping(value = "/pdf")
+	@ResponseBody
+	public Object pdf(@RequestParam("fileName") String fileName, HttpServletRequest request,
+			HttpServletResponse response) {
+		try {
+			request.setCharacterEncoding(CommonConstant.UTF_8);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
+					CommonConstant.UPLOAD_FILE_PATH);
+			FileToolUtils.downLoad(response, path + fileName, false);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return null;
+	}
 }
