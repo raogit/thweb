@@ -65,9 +65,9 @@
 					</ul>
 				</div>
 				<div class="i-b-r">
-					<!-- <div class="tch">天虹商场（002419.sz）</div>
-					<div class="ten">14.31<span>RMB</span></div>
-					<div class="time">截止2016-08-19 11:22:36</div> -->
+					<div class="tch">天虹商场（002419.sz）</div>
+					<div class="ten" id="szRmb">14.31<span>RMB</span></div>
+					<div class="time" id="szTime">截止2016-08-19 11:22:36</div>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -82,6 +82,21 @@
 	        $('.i-c-l').addClass("animated swing");
 	        $('.i-c-r').addClass("animated swing");
 	    })
+	    jQuery(document).ready(function() {
+	    	debugger;
+	    	$.ajax({
+	            url: "http://hq.sinajs.cn/list=sz002419",
+	            type: 'get',
+	            contentType:"application/x-javascript; charset=GBK",
+	            dataType: 'text',
+	            cache: false,
+	            success: function(data){
+	            	debugger;
+	            }
+	        });
+	    });
+
+
 	</script>
 </body>
 </html>
