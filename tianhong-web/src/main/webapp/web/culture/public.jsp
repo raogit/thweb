@@ -48,22 +48,26 @@
 	    </div>
 	    <div class="bd-cont cont-C">
 	        <div class="bd-cont-in cinE">
-	            <div class="bd-cont-RE RE2 fr" style="background:url(../images/img/c_29.jpg) no-repeat">
-	                <div class="bd-Pho">
-	                </div>
-	                <div class="bd-Ptx">
-	                    <div class="bd-Pt">
-	                        <div class="tnm">2015</div>
-	                        <div class="tch">社会责任报告</div>
-	                        <div class="ten">Social Responsibility Report</div>
-	                    </div>
-	                    <div class="bd-Pb">天虹股份有限公司</div>
-	                </div>
-	                <div class="bd-RE RE2">
-	                    <div class="RE-in"><a href="#"><img src="../images/img/c_27.png" alt=""></a></div>
-	                    <div class="RE-in"><a href="EDetails.html"><img src="../images/img/c_28.png" alt=""></a></div>
-	                </div>
-	            </div>
+		        <c:forEach var="item" items="${duties }" begin="0" step="1" end="1" varStatus="itemStatus">
+			       	<div class="bd-cont-RE RE2 fr" style="background:url(${basePath}/download/png?fileName=${item.path }) no-repeat">
+		                <div class="bd-Pho">
+		                </div>
+		                <div class="bd-Ptx">
+		                    <div class="bd-Pt">
+		                        <div class="tnm">2015</div>
+		                        <div class="tch">社会责任报告</div>
+		                        <div class="ten">Social Responsibility Report</div>
+		                    </div>
+		                    <div class="bd-Pb">天虹股份有限公司</div>
+		                </div>
+		                <div class="bd-RE RE2">
+		                    <a href="${basePath}/download/pdf?fileName=${item.url}"><img src="../images/img/c_27.png" alt=""></a>
+		                    <a target="_blank" href="${basePath}/web/culture/edetails?fileName=${item.url}"><img src="../images/img/c_28.png" alt=""></a>
+		                </div>
+		            </div>
+		       
+		        </c:forEach>
+	            
 	            <div class="bd-cont-LE fl">
 	            	<c:forEach var="item" items="${commonweals }" begin="0" step="1" end="1" varStatus="itemStatus">
 	                	<div class="bd-LE-top">

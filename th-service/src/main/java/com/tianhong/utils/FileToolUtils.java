@@ -409,8 +409,9 @@ public class FileToolUtils extends FileUtils {
 	public static void copyFile(String oldPath, String newPath) throws Exception {
 		File oldFile = new File(oldPath);
 		File newFile = new File(newPath);
-		if (!newFile.exists()) {
-			FileUtils.copyFile(oldFile, newFile);
+		if (newFile.exists()) {
+			FileToolUtils.deleteFile(newFile);
 		}
+		FileUtils.copyFile(oldFile, newFile);
 	}
 }

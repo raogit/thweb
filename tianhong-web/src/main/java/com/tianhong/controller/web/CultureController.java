@@ -206,6 +206,14 @@ public class CultureController extends BaseController {
 						break;
 					}
 				}
+				for (Menu m : subs) {
+					if (m.getName().indexOf("责任") > -1) {
+						// 员工活动
+						List<Picture> duties = pictureService.findByMenuId(m.getId());
+						model.put("duties", duties);
+						break;
+					}
+				}
 			}
 
 		} catch (Exception e) {

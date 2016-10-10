@@ -76,7 +76,7 @@
 .bd-cont-RE .bd-RE.RE2{top:200px}
 .bd-cont-RE .RE-in{width:155px;height:44px;margin-bottom:8px}
 .bd-cont-RE .bd-RE a{width:155px;height:44px;display:block;margin-top:10px;}
-.bd-Ptx{width:319px;height:439px;position:absolute;top:0;left:0;display:none;z-index:99}
+.bd-Ptx{width:319px;height:439px;position:absolute;top:0;left:0;display:none;/* z-index:99 */}
 .bd-Pt{width:200px;position:absolute;left:50%;margin-left:-100px;top:30px}
 .bd-Pt .tnm{font-size:52px}
 .bd-Pt .tch{font-size:28px}
