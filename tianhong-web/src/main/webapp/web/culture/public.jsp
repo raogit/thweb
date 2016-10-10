@@ -55,7 +55,7 @@
 	                    <div class="bd-Pt">
 	                        <div class="tnm">2015</div>
 	                        <div class="tch">社会责任报告</div>
-	                        <div class="ten">Social Responsibility  Report</div>
+	                        <div class="ten">Social Responsibility Report</div>
 	                    </div>
 	                    <div class="bd-Pb">天虹股份有限公司</div>
 	                </div>
@@ -65,31 +65,37 @@
 	                </div>
 	            </div>
 	            <div class="bd-cont-LE fl">
-	                <div class="bd-LE-top">
-	                    <div class="bd-LE-tr P-tr fr"><img src="../images/img/c_26.jpg" alt=""></div>
-	                    <div class="bd-LE-tl fl">
-	                        <div class="bd-LE-num n-p">公益活动</div>
-	                        <div class="bd-LE-ch ch-p">项目名称：黄手环行动</div>
-	                        <div class="bd-LE-txt">项目宗旨：提高阿尔茨海默病患者的生活质量，促进阿尔茨海默症相关行业的发展，增进社会对病症的了解、理解和预防，积极促进公共政策的改善应对老龄化社会挑战，大力弘扬慈孝文化。</div>
-	                        <a href="PublicDetail.html?p=4" class="bd-LE-a"><div class="bd-LE-btn b2"><img src="../images/img/c_10.png" alt=""></div></a>
-	                    </div>
-	                </div>
-	                <div class="bd-LE-top">
-	                    <div class="bd-LE-tr P-tr fr"><img src="../images/img/c_26.jpg" alt=""></div>
-	                    <div class="bd-LE-tl fl">
-	                        <div class="bd-LE-num n-p">公益活动</div>
-	                        <div class="bd-LE-ch ch-p">项目名称：黄手环行动</div>
-	                        <div class="bd-LE-txt">项目宗旨：提高阿尔茨海默病患者的生活质量，促进阿尔茨海默症相关行业的发展，增进社会对病症的了解、理解和预防，积极促进公共政策的改善应对老龄化社会挑战，大力弘扬慈孝文化。</div>
-	                        <a href="PublicDetail.html?p=4" class="bd-LE-a"><div class="bd-LE-btn b2"><img src="../images/img/c_10.png" alt=""></div></a>
-	                    </div>
-	                </div>
+	            	<c:forEach var="item" items="${commonweals }" begin="0" step="1" end="1" varStatus="itemStatus">
+	                	<div class="bd-LE-top">
+		                    <div class="bd-LE-tr P-tr fr"><img src="${basePath}/download/png?fileName=${item.picture }" alt="" width="352px" height="235px"></div>
+		                    <div class="bd-LE-tl fl">
+		                        <div class="bd-LE-num n-p">公益活动</div>
+		                        <div class="bd-LE-ch ch-p">项目名称：${item.title }</div>
+		                        <div class="bd-LE-txt">${item.content }</div>
+		                        <a href="${basePath}/web/culture/publicdetail?menuId=${menu.id }&id=${item.id }" class="bd-LE-a"><div class="bd-LE-btn b2"><img src="../images/img/c_10.png" alt=""></div></a>
+		                    </div>
+		                </div>
+			        </c:forEach>
+	            
 	                <div class="bd-LE-btm">
 	                    <div class="bd-p-title">
 	                        <div class="bd-LE-num n-p">员工活动</div>
 	                        <div class="bd-LE-ch ch-p2">Employee activity</div>
 	                    </div>
 	                    <ul class="bd-LE-list P-list">
-	                        <li>
+	                    
+	                    <c:forEach var="item" items="${staffs }" begin="0" step="1" end="2" varStatus="itemStatus">
+		                	<li>
+	                            <div class="LE-lr fr">
+	                                <div class="LE-lrt2">${item.title }</div>
+	                                <div class="LE-lrc">${item.content }</div>
+	                                <div class="LE-lrm"><a target="_blank" href="${basePath}/web/culture/edetails?fileName=${item.url}" class="bd-LE-a">查看更多</a></div>
+	                            </div>
+	                            <img src="${basePath}/download/png?fileName=${item.path }" alt="" class="fl" width="206px" height="134px" />
+	                        </li>
+				        </c:forEach>
+	                        
+	                        <!-- <li>
 	                            <div class="LE-lr fr">
 	                                <div class="LE-lrt2">拔河比赛</div>
 	                                <div class="LE-lrc">天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通过人本、科学的管理，专业、高效的运营，公司取得了卓越的业绩，已连续多年入围中国连锁百强企业。公司根据目标顾客需求的不同</div>
@@ -104,15 +110,7 @@
 	                                <div class="LE-lrm">查看更多</div>
 	                            </div>
 	                            <img src="../images/img/c_11.jpg" alt="" class="fl">
-	                        </li>
-	                        <li>
-	                            <div class="LE-lr fr">
-	                                <div class="LE-lrt2">拔河比赛</div>
-	                                <div class="LE-lrc">天虹商场股份有限公司（股票简称：天虹商场，股票代码：002419）是中外合资的连锁零售企业，其控股股东是中国航空工业集团下属的中国航空技术深圳有限公司。1984年成立以来，通过人本、科学的管理，专业、高效的运营，公司取得了卓越的业绩，已连续多年入围中国连锁百强企业。公司根据目标顾客需求的不同</div>
-	                                <div class="LE-lrm">查看更多</div>
-	                            </div>
-	                            <img src="../images/img/c_11.jpg" alt="" class="fl">
-	                        </li>
+	                        </li> -->
 	                    </ul>
 	                    <div class="bd-LE-btn"><img src="../images/img/c_10.png" alt=""></div>
 	                </div>

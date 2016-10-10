@@ -49,10 +49,12 @@ public class DevelopHistoryServiceImpl implements DevelopHistoryService {
 		if (developHistory != null && developHistory.getId() > 0) {
 			DevelopHistory history = developHistoryMapper.selectByPrimaryKey(developHistory.getId());
 			if (history != null) {
+				history.setTitle(developHistory.getTitle());
 				history.setPicture(developHistory.getPicture());
 				history.setContent(developHistory.getContent());
 				history.setUpdateId(user.getId());
 				history.setUpdateTime(new Date());
+				history.setBackup1(developHistory.getBackup1());
 				developHistoryMapper.updateByPrimaryKeySelective(history);
 				return history;
 			}
@@ -76,7 +78,12 @@ public class DevelopHistoryServiceImpl implements DevelopHistoryService {
 		List<DevelopHistory> page = developHistoryMapper.page(developHistory);
 		if (!CollectionUtils.isEmpty(page)) {
 			for (DevelopHistory his : page) {
-				his.setEventTimeStr(DateUtils.parseString(his.getEventTime(), CommonConstant.YYYY_MM_dd));
+				try {
+					his.setEventTimeStr(DateUtils.parseString(his.getEventTime(), CommonConstant.YYYY_MM_dd));
+					his.setCreateTimeStr(DateUtils.parseString(his.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+				} catch (Exception e) {
+				}
+
 			}
 		}
 		int count = developHistoryMapper.count(developHistory);
@@ -95,7 +102,12 @@ public class DevelopHistoryServiceImpl implements DevelopHistoryService {
 		List<DevelopHistory> list = developHistoryMapper.list(developHistory);
 		if (!CollectionUtils.isEmpty(list)) {
 			for (DevelopHistory his : list) {
-				his.setEventTimeStr(DateUtils.parseString(his.getEventTime(), CommonConstant.YYYY_MM_dd_NIAN));
+				try {
+					his.setEventTimeStr(DateUtils.parseString(his.getEventTime(), CommonConstant.YYYY_MM_dd_NIAN));
+					his.setCreateTimeStr(DateUtils.parseString(his.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+				} catch (Exception e) {
+				}
+
 			}
 		}
 		return list;

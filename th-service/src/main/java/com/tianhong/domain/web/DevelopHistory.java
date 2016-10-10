@@ -35,6 +35,8 @@ public class DevelopHistory extends Page {
 
 	private String eventTimeStr;
 
+	private String createTimeStr;
+
 	public Integer getId() {
 		return id;
 	}
@@ -153,6 +155,14 @@ public class DevelopHistory extends Page {
 
 	public void setEventTimeStr(String eventTimeStr) {
 		this.eventTimeStr = eventTimeStr;
+	}
+
+	public String getCreateTimeStr() {
+		return createTimeStr;
+	}
+
+	public void setCreateTimeStr(String createTimeStr) {
+		this.createTimeStr = createTimeStr;
 	}
 
 }

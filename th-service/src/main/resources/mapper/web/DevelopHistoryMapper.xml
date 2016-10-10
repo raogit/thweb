@@ -221,19 +221,6 @@
   </update>
   
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <select id="page" parameterType="com.tianhong.domain.web.DevelopHistory" resultMap="ResultMapWithBLOBs">
 		select
 			<include refid="Base_Column_List" />
@@ -247,6 +234,9 @@
 		<if test="startDate != null and endDate!=null">
 			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND
 			#{endDate,jdbcType=VARCHAR}
+		</if>
+		<if test="title != null and title!=''">
+			AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
 		</if>
 		ORDER BY create_time
 		LIMIT #{start, jdbcType=INTEGER}, #{pageSize,jdbcType=INTEGER}
@@ -264,6 +254,9 @@
 			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND
 			#{endDate,jdbcType=VARCHAR}
 		</if>
+		<if test="title != null and title!=''">
+			AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
+		</if>
 	</select>
 
 	<select id="list" parameterType="com.tianhong.domain.web.DevelopHistory" resultMap="ResultMapWithBLOBs">
@@ -279,6 +272,9 @@
 		<if test="startDate != null and endDate!=null">
 			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND
 			#{endDate,jdbcType=VARCHAR}
+		</if>
+		<if test="title != null and title!=''">
+			AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
 		</if>
 		ORDER BY event_time
 	</select>

@@ -84,8 +84,12 @@ public class HistoryController extends BaseController {
 	public Object save(DevelopHistory developHistory, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			User user = getCurrentUser(request);
-			developHistory
-					.setEventTime(DateUtils.parseDate(developHistory.getEventTimeStr(), CommonConstant.YYYY_MM_dd));
+			try {
+				developHistory
+						.setEventTime(DateUtils.parseDate(developHistory.getEventTimeStr(), CommonConstant.YYYY_MM_dd));
+			} catch (Exception e) {
+			}
+
 			return developHistoryService.saveOrUpdate(developHistory, user);
 		} catch (Exception e) {
 			log.error("", e);

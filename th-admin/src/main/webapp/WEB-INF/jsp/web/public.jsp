@@ -2,43 +2,31 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>天虹</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-<jsp:include page="../base/base.jsp"></jsp:include>
-<link href="${basePath}/css/richtext/font-awesome.css" rel="stylesheet"
-	type="text/css">
-<link href="${basePath}/css/richtext/froala_editor.css" rel="stylesheet"
-	type="text/css">
-<link href="${basePath }/css/dtree/dtree.css" type="text/css"
-	rel="StyleSheet" />
-<script src="${basePath }/js/My97DatePicker/WdatePicker.js?ver=${ver}"
-	type="text/javascript"></script>
-<script src="${basePath }/js/user/jquery.js?ver=${ver}"
-	type="text/javascript"></script>
-<script
-	src="${basePath }/js/user/jquery.mCustomScrollbar.concat.min.js?ver=${ver}"
-	type="text/javascript"></script>
-<script src="${basePath }/js/timer/timer.js?ver=${ver}"
-	type="text/javascript"></script>
-<script src="${basePath }/js/utils/utils.js?ver=${ver}"
-	type="text/javascript"></script>
-<script src="${basePath }/js/web/public.js?ver=${ver}"
-	type="text/javascript"></script>
-<script src="${basePath}/js/jQuery/jquery-2.1.4.min.js?ver=${ver}"
-	type="text/javascript"></script>
-<script src="${basePath}/js/richtext/froala_editor.min.js"></script>
-<script src="${basePath}/js/richtext/tables.min.js"></script>
-<script src="${basePath}/js/richtext/lists.min.js"></script>
-<script src="${basePath}/js/richtext/colors.min.js"></script>
-<script src="${basePath}/js/richtext/media_manager.min.js"></script>
-<script src="${basePath}/js/richtext/font_family.min.js"></script>
-<script src="${basePath}/js/richtext/font_size.min.js"></script>
-<script src="${basePath}/js/richtext/block_styles.min.js"></script>
-<script src="${basePath}/js/richtext/video.min.js"></script>
-<script src="${basePath}/js/upload/ajaxfileupload.js?ver=${ver}"
-	type="text/javascript"></script>
+	<title>天虹</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<jsp:include page="../base/base.jsp"></jsp:include>
+	<link href="${basePath}/css/richtext/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="${basePath}/css/richtext/froala_editor.css" rel="stylesheet" type="text/css">
+	<link href="${basePath }/css/dtree/dtree.css" type="text/css" rel="StyleSheet" />
+	<script src="${basePath }/js/My97DatePicker/WdatePicker.js?ver=${ver}" type="text/javascript"></script>
+	<script src="${basePath }/js/user/jquery.js?ver=${ver}" type="text/javascript"></script>
+	<script src="${basePath }/js/user/jquery.mCustomScrollbar.concat.min.js?ver=${ver}" type="text/javascript"></script>
+	<script src="${basePath }/js/timer/timer.js?ver=${ver}" type="text/javascript"></script>
+	<script src="${basePath }/js/utils/utils.js?ver=${ver}" type="text/javascript"></script>
+	<script src="${basePath }/js/web/public.js?ver=${ver}" type="text/javascript"></script>
+	<script src="${basePath}/js/jQuery/jquery-2.1.4.min.js?ver=${ver}" type="text/javascript"></script>
+	<script src="${basePath}/js/richtext/froala_editor.min.js"></script>
+	<script src="${basePath}/js/richtext/tables.min.js"></script>
+	<script src="${basePath}/js/richtext/lists.min.js"></script>
+	<script src="${basePath}/js/richtext/colors.min.js"></script>
+	<script src="${basePath}/js/richtext/media_manager.min.js"></script>
+	<script src="${basePath}/js/richtext/font_family.min.js"></script>
+	<script src="${basePath}/js/richtext/font_size.min.js"></script>
+	<script src="${basePath}/js/richtext/block_styles.min.js"></script>
+	<script src="${basePath}/js/richtext/video.min.js"></script>
+	<script src="${basePath}/js/upload/ajaxfileupload.js?ver=${ver}" type="text/javascript"></script>
 </head>
 
 <body style="overflow: auto;">

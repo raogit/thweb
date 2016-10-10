@@ -14,6 +14,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,13 @@ import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.content.Content;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.picture.Picture;
+import com.tianhong.domain.web.DevelopHistory;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
+import com.tianhong.service.newscenter.NewsCenterService;
 import com.tianhong.service.picture.PictureService;
+import com.tianhong.service.web.DevelopHistoryService;
+import com.tianhong.utils.DateUtils;
 import com.tianhong.utils.FileToolUtils;
 
 /**
@@ -51,6 +56,10 @@ public class CultureController extends BaseController {
 	private ContentService contentService;
 	@Autowired
 	private PictureService pictureService;
+	@Autowired
+	private NewsCenterService newsCenterService;
+	@Autowired
+	private DevelopHistoryService developHistoryService;
 
 	@RequestMapping(value = "/index")
 	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
@@ -178,12 +187,68 @@ public class CultureController extends BaseController {
 			model.put("menu", menu);
 			Content content = contentService.getByMenuId(subMenus.get(0).getId());
 			model.put("content", content);
-			List<Picture> pictures = pictureService.findByMenuId(menuId);
-			model.put("pictures", pictures);
+
+			// 公益活动
+			List<Menu> subs = menuService.getSubMenus(menu.getId(), false);
+			if (!CollectionUtils.isEmpty(subs)) {
+				for (Menu m : subs) {
+					if (m.getName().indexOf("公益") > -1) {
+						List<DevelopHistory> commonweals = developHistoryService.getList(m.getId());
+						model.put("commonweals", commonweals);
+						break;
+					}
+				}
+				for (Menu m : subs) {
+					if (m.getName().indexOf("员工") > -1) {
+						// 员工活动
+						List<Picture> staffs = pictureService.findByMenuId(m.getId());
+						model.put("staffs", staffs);
+						break;
+					}
+				}
+			}
+
 		} catch (Exception e) {
 			log.error("", e);
 		}
 		return new ModelAndView("/web/culture/public", model);
+	}
+
+	@RequestMapping(value = "/publicdetail")
+	public Object publicDetail(@RequestParam("menuId") int menuId, @RequestParam("id") int id,
+			HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+			model.put("menu", menu);
+			Content content = contentService.getByMenuId(subMenus.get(0).getId());
+			model.put("content", content);
+
+			DevelopHistory history = developHistoryService.getByPrimaryKey(id);
+			history.setCreateTimeStr(DateUtils.parseString(history.getCreateTime(), CommonConstant.YYYY_MM_dd));
+			model.put("history", history);
+			// 公益活动
+			List<Menu> subs = menuService.getSubMenus(menu.getId(), false);
+			if (!CollectionUtils.isEmpty(subs)) {
+				for (Menu m : subs) {
+					if (m.getName().indexOf("公益") > -1) {
+						List<DevelopHistory> historys = developHistoryService.getList(m.getId());
+						model.put("historys", historys);
+						break;
+					}
+				}
+			}
+
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/culture/publicdetail", model);
 	}
 
 	@RequestMapping(value = "/edetails")

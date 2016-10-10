@@ -46,6 +46,18 @@ public class CultureController extends BaseController {
 		return new ModelAndView("/web/public", map);
 	}
 
+	@RequestMapping(value = "/commonweal/index")
+	public Object commonwealIndex(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			String menuId = request.getParameter("menuId");
+			map.put("menuId", menuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/commonweal", map);
+	}
+
 	@RequestMapping(value = "/video/index")
 	public Object videoIndex(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -69,4 +81,5 @@ public class CultureController extends BaseController {
 		}
 		return new ModelAndView("/web/trailer", map);
 	}
+
 }
