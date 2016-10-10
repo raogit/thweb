@@ -25,5 +25,7 @@ update t_menu set link='/app/list' where id=191;
 update t_menu set link='/home/index' where id=192;
 update t_menu set link='http://szrainbowhr.hirede.com/CareerSite/CampusRecruit' where id=214;
 update t_menu set link='http://szrainbowhr.hirede.com/CareerSite/Index' where id=215;
-
 update t_menu set url='/pdf/index' where id=195;
+INSERT INTO `t_menu` (`id`, `name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES (212, '公益活动', '', '/web/culture/commonweal/index', 4, 197, 1, 0, '2016-10-10 21:21:08', 1, 0);
+INSERT INTO `t_menu` (`id`, `name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES (213, '员工活动', '', '/web/culture/public/index', 4, 197, 2, 0, '2016-10-10 21:21:25', 1, 0);
+INSERT INTO `t_menu` (`id`, `name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES (214, '社会责任报告', '', '/web/culture/public/index', 4, 197, 3, 0, '2016-10-10 22:47:13', 1, 0);
