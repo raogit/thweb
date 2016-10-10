@@ -22,6 +22,7 @@ import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.newscenter.NewsCenter;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.newscenter.NewsCenterService;
+import com.tianhong.utils.HttpClientUtils;
 
 /**
  * @author Administrator
@@ -52,6 +53,12 @@ public class WebController extends BaseController {
 			newsCenter.setMenuId(179);
 			List<NewsCenter> newsList = newsCenterService.getList(newsCenter);
 			model.put("news", newsList.get(0));
+			String body = HttpClientUtils.httpGet("http://hq.sinajs.cn/list=sz002419");
+			log.info(body);
+			String[] shares1 = body.split("=");
+			String[] shares2 = shares1[1].split(",");
+			model.put("shares", shares2[3].substring(0, 5));
+			model.put("sharesTime", shares2[30] + ":" + shares2[31]);
 		} catch (Exception e) {
 			log.error("", e);
 		}
