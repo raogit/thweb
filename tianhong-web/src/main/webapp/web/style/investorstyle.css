@@ -471,6 +471,21 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());}
 .schoolInfoBtn{ display: block; width: 180px; height: 40px; line-height: 40px; text-align: center; color: #af9f8d; border: 1px solid #af9f8d; font-size: 16px; margin-top: 30px; }
 
 
+.header_onBlock{width:100%;position:relative}
+.header_onBlockBg{width:100%;height:auto;position:relative;z-index:999;display:none}
+.BlockBg{width:100%;height:50px;background:#000;opacity:0.3;filter:Alpha(opacity=30)}
+.header_onBlockIn{width:1200px;height:50px;position:absolute;top:0}
+.header_onList{width:auto;height:50px;line-height:50px;position:absolute;right:148px}
+.header_onList li{width:80px;color:#fff;text-align:center;float:left;margin-left:10px}
+.header_onList li a{color:#fff}
+.i_clk{width:430px;height:44px;position:absolute;right:90px;bottom:170px;z-index:999}
+.i_clk li{width:44px;height:44px;float:left;margin-left:25px}
+
+.show_dtBox{border:1px solid #ccc;padding: 20px 30px;display:block;margin-bottom:10px;}
+.show_dtBox h3{font-size:40px;color:#f17b6f;height:50px;line-height:40px;}
+.show_dtContent{color:#666;font-size:14px;line-height:24px}
+.show_dtContent p{margin:10px 0}
+.showTop a{color: #f17b6f;}
 
 
 

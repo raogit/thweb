@@ -105,9 +105,7 @@
                </div>
                <div class="busine_model2">
                   <div class="busine_newBox">
-                       <div class="busine_newTit">
-                           招商信息
-                       </div>
+                       <div class="busine_newTit">招商信息</div>
                        <div class="busine_newTop">
                            <ul>
                                 <li>
@@ -173,7 +171,7 @@
 	                               <ul>
 	                                    <c:forEach var="item" items="${historys }" begin="0" step="1" varStatus="itemStatus">
 						                	<li>
-			                                      <a href="BusineTrend.html?p=0">
+			                                      <a href="${basePath}/web/investment/businetrend?menuId=${item.menuId }&id=${item.id }">
 			                                          <h3>${item.title }</h3>
 			                                          <h5>${item.createTimeStr }</h5>
 			                                          <div class="clear"></div>

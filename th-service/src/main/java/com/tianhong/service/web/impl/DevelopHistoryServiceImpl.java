@@ -69,7 +69,9 @@ public class DevelopHistoryServiceImpl implements DevelopHistoryService {
 	}
 
 	public DevelopHistory getByPrimaryKey(Integer id) throws Exception {
-		return developHistoryMapper.selectByPrimaryKey(id);
+		DevelopHistory his = developHistoryMapper.selectByPrimaryKey(id);
+		his.setCreateTimeStr(DateUtils.parseString(his.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+		return his;
 	}
 
 	public int updateByPrimaryKeySelective(DevelopHistory developHistory) throws Exception {
@@ -82,6 +84,9 @@ public class DevelopHistoryServiceImpl implements DevelopHistoryService {
 			for (DevelopHistory his : page) {
 				try {
 					his.setEventTimeStr(DateUtils.parseString(his.getEventTime(), CommonConstant.YYYY_MM_dd));
+				} catch (Exception e) {
+				}
+				try {
 					his.setCreateTimeStr(DateUtils.parseString(his.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
 				} catch (Exception e) {
 				}
@@ -106,6 +111,9 @@ public class DevelopHistoryServiceImpl implements DevelopHistoryService {
 			for (DevelopHistory his : list) {
 				try {
 					his.setEventTimeStr(DateUtils.parseString(his.getEventTime(), CommonConstant.YYYY_MM_dd_NIAN));
+				} catch (Exception e) {
+				}
+				try {
 					his.setCreateTimeStr(DateUtils.parseString(his.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
 				} catch (Exception e) {
 				}

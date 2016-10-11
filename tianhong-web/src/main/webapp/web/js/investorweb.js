@@ -288,3 +288,21 @@ function saveInvestMentCover(){
         }
     });
 }
+$(function(){
+	$(".header_onList").eq(1).css({"right":"-39px"});
+	$(".header_onList").eq(2).css({"right":"60px"});
+	$(".header_onList").eq(3).css({"right":"56px"});
+	$(".header_onList").eq(4).css({"right":"154px"});
+	$(".header_onList").eq(5).css({"right":"56px"});
+
+	var tOn=0;
+	function showBlock(){
+		$(".header_onBlockBg").eq(tOn).stop(true,true).fadeIn().siblings().hide();
+
+	}
+	showBlock();
+	$(".header_ulBlock a").bind("mouseover",function(){
+		tOn = $(this).index();
+		showBlock();
+	})
+})

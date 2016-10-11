@@ -261,6 +261,31 @@ public class InvestmentController extends BaseController {
 		return new ModelAndView("/web/business/busine-index", model);
 	}
 
+	@RequestMapping(value = "/businetrend")
+	public Object busineTrend(@RequestParam("menuId") int menuId, @RequestParam("id") int id,
+			HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu me = menuService.getByPrimaryKey(menuId);
+			Menu menu = menuService.getByPrimaryKey(me.getParentId());
+			model.put("menu", menu);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+
+			List<DevelopHistory> historys = developHistoryService.getList(menuId);
+			model.put("historys", historys);
+			DevelopHistory history = developHistoryService.getByPrimaryKey(id);
+			model.put("history", history);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/business/busine-trend", model);
+	}
+
 	@RequestMapping(value = "/show")
 	public Object show(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -287,6 +312,68 @@ public class InvestmentController extends BaseController {
 			log.error("", e);
 		}
 		return new ModelAndView("/web/business/show", model);
+	}
+
+	@RequestMapping(value = "/showdetail1")
+	public Object showDetail1(@RequestParam("menuId") int menuId, @RequestParam("id") int id,
+			HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("menu", menu);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+
+			NewsCenter newsCenter = new NewsCenter();
+			newsCenter.setMenuId(menuId);
+			newsCenter.setType("品牌展示");
+			List<NewsCenter> brands = newsCenterService.getList(newsCenter);
+			model.put("brands", brands);
+			newsCenter.setType("项目展示");
+			List<NewsCenter> projects = newsCenterService.getList(newsCenter);
+			model.put("projects", projects);
+
+			NewsCenter detail = newsCenterService.getByPrimaryKey(id);
+			model.put("detail", detail);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/business/show-detail", model);
+	}
+
+	@RequestMapping(value = "/showdetail2")
+	public Object showDetail2(@RequestParam("menuId") int menuId, @RequestParam("id") int id,
+			HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("menu", menu);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+
+			NewsCenter newsCenter = new NewsCenter();
+			newsCenter.setMenuId(menuId);
+			newsCenter.setType("品牌展示");
+			List<NewsCenter> brands = newsCenterService.getList(newsCenter);
+			model.put("brands", brands);
+			newsCenter.setType("项目展示");
+			List<NewsCenter> projects = newsCenterService.getList(newsCenter);
+			model.put("projects", projects);
+
+			NewsCenter detail = newsCenterService.getByPrimaryKey(id);
+			model.put("detail", detail);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/business/show-detail2", model);
 	}
 
 	@RequestMapping(value = "/investmentcover/save")
