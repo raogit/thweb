@@ -8,8 +8,6 @@
 	<title>天虹集团官网</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<jsp:include page="../base.jsp"></jsp:include>
-	<%-- <script src="${basePath }/js/user/jquery.js?ver=${ver}" type="text/javascript"></script>
-	<script src="${basePath}/js/jQuery/jquery-2.1.4.min.js?ver=${ver}" type="text/javascript"></script> --%>
 </head>
 
 <body>
@@ -149,7 +147,6 @@
                        </div>
                        <div class="inves_ProtFocus">
                        		<ul>
-                       		
 	                       		<c:forEach var="infos" items="${infoList }" begin="0" step="1" varStatus="itemStatus">
 	                           		<c:if test="${itemStatus.index==0 }">
 	                           			 <li class="cur"></li>
@@ -158,8 +155,6 @@
 	                           			<li></li>
 	                           		</c:if>
 						        </c:forEach>
-	                           
-	                            
                         	</ul>
                         	<div class="clear"></div>
                     	</div>

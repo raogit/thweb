@@ -176,8 +176,84 @@ public class InvestmentController extends BaseController {
 			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
 			model.put("subMenus", subMenus);
 
-			Content content = contentService.getByMenuId(181);
-			model.put("content", content);
+			List<Menu> subs = menuService.getSubMenus(menuId, false);
+			if (!CollectionUtils.isEmpty(subs)) {
+				for (Menu m : subs) {
+					if (m.getName().indexOf("职能") > -1) {
+						Content job = contentService.getByMenuId(m.getId());
+						model.put("job", job);
+						break;
+					}
+				}
+				for (Menu m : subs) {
+					if (m.getName().indexOf("招商信息") > -1) {
+						List<Picture> infos = pictureService.findByMenuId(m.getId());
+						for (Picture pic : infos) {
+							pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd));
+						}
+						List<List<Picture>> infoList = new ArrayList<List<Picture>>();
+						if (infos.size() > 5) {
+							for (int i = 0; i < infos.size(); i += 5) {
+								List<Picture> list = new ArrayList<Picture>();
+								int size = infos.size() - i <= 5 ? infos.size() - i : 5;
+								for (int j = 0; j < size; j++) {
+									list.add(infos.get(i + j));
+								}
+								infoList.add(list);
+							}
+						} else {
+							infoList.add(infos);
+						}
+
+						model.put("infoList", infoList);
+						break;
+					}
+				}
+				for (Menu m : subs) {
+					if (m.getName().indexOf("招商动态") > -1) {
+						List<DevelopHistory> historys = developHistoryService.getList(m.getId());
+						List<List<DevelopHistory>> historyList = new ArrayList<List<DevelopHistory>>();
+						if (historys.size() > 5) {
+							for (int i = 0; i < historys.size(); i += 5) {
+								List<DevelopHistory> list = new ArrayList<DevelopHistory>();
+								int size = historys.size() - i <= 5 ? historys.size() - i : 5;
+								for (int j = 0; j < size; j++) {
+									list.add(historys.get(i + j));
+								}
+								historyList.add(list);
+							}
+						} else {
+							historyList.add(historys);
+						}
+						model.put("historyList", historyList);
+						break;
+					}
+				}
+				for (Menu m : subs) {
+					if (m.getName().indexOf("招商热线") > -1) {
+						List<InvestmentHotline> list = new ArrayList<InvestmentHotline>();
+						Content content = new Content();
+						content.setMenuId(m.getId());
+						List<Content> contents = contentService.findPage(content);
+						for (Content c : contents) {
+							InvestmentHotline hotline = JSONObject.parseObject(c.getContent(), InvestmentHotline.class);
+							hotline.setCreateTime(c.getCreateTime());
+							hotline.setCreateTimeStr(
+									DateUtils.parseString(c.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
+							hotline.setId(c.getId());
+							list.add(hotline);
+						}
+						model.put("hotline", list);
+						break;
+					}
+				}
+				for (Menu m : subs) {
+					if (m.getName().indexOf("供应商自荐") > -1) {
+						model.put("coverMenu", m);
+						break;
+					}
+				}
+			}
 
 		} catch (Exception e) {
 			log.error("", e);
