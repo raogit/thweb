@@ -18,7 +18,6 @@ import com.tianhong.dao.market.MarketNewsMapper;
 import com.tianhong.domain.market.MarketNews;
 import com.tianhong.domain.user.User;
 import com.tianhong.service.market.MarketNewsService;
-import com.tianhong.utils.FileToolUtils;
 
 /**
  * ClassName: MarketNewsServiceImpl
@@ -99,7 +98,7 @@ public class MarketNewsServiceImpl implements MarketNewsService {
 			news.setUpdateId(user.getId());
 			news.setUpdateTime(new Date());
 
-			FileToolUtils.deleteFile(path + fileName);
+			// FileToolUtils.deleteFile(path + fileName);
 
 			marketNewsMapper.updateByPrimaryKeySelective(news);
 		}

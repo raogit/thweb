@@ -197,7 +197,7 @@ function initTable(data){
 			+"<td>"+item.contactName+"</td>"
 			+"<td>"+item.phone+"</td>"
 			+"<td>"+time+"</td>";
-		var operation = "<td style='text-align: center;'><a href='javascript:edit("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteObj("+item.id+")' class='inner_btn'>删除</a></td>"
+		var operation = "<td style='text-align: center;'><a href='javascript:deleteObj("+item.id+")' class='inner_btn'>删除</a></td>"
 		var end_tr = "</tr>";
 		userlist.append(tr+operation+end_tr);
 	}

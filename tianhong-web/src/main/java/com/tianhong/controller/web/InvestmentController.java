@@ -3,6 +3,7 @@
  */
 package com.tianhong.controller.web;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,17 +23,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.fastjson.JSONObject;
+import com.tianhong.constant.CommonConstant;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.content.Content;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.newscenter.NewsCenter;
 import com.tianhong.domain.picture.Picture;
 import com.tianhong.domain.user.User;
+import com.tianhong.domain.web.DevelopHistory;
 import com.tianhong.model.InvestmentCover;
+import com.tianhong.model.InvestmentHotline;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.newscenter.NewsCenterService;
 import com.tianhong.service.picture.PictureService;
+import com.tianhong.service.web.DevelopHistoryService;
+import com.tianhong.utils.DateUtils;
 
 /**
  * @author Administrator
@@ -51,6 +58,8 @@ public class InvestmentController extends BaseController {
 	private PictureService pictureService;
 	@Autowired
 	private NewsCenterService newsCenterService;
+	@Autowired
+	private DevelopHistoryService developHistoryService;
 
 	@RequestMapping(value = "/index")
 	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
@@ -63,8 +72,86 @@ public class InvestmentController extends BaseController {
 			List<Menu> subMenus = menuService.getSubMenus(menuId, true);
 			model.put("subMenus", subMenus);
 			model.put("menu", subMenus.get(0));
-			Content content = contentService.getByMenuId(181);
-			model.put("content", content);
+
+			List<Menu> subs = menuService.getSubMenus(subMenus.get(0).getId(), false);
+			if (!CollectionUtils.isEmpty(subs)) {
+				for (Menu m : subs) {
+					if (m.getName().indexOf("职能") > -1) {
+						Content job = contentService.getByMenuId(m.getId());
+						model.put("job", job);
+						break;
+					}
+				}
+				for (Menu m : subs) {
+					if (m.getName().indexOf("招商信息") > -1) {
+						List<Picture> infos = pictureService.findByMenuId(m.getId());
+						for (Picture pic : infos) {
+							pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd));
+						}
+						List<List<Picture>> infoList = new ArrayList<List<Picture>>();
+						if (infos.size() > 5) {
+							for (int i = 0; i < infos.size(); i += 5) {
+								List<Picture> list = new ArrayList<Picture>();
+								int size = infos.size() - i <= 5 ? infos.size() - i : 5;
+								for (int j = 0; j < size; j++) {
+									list.add(infos.get(i + j));
+								}
+								infoList.add(list);
+							}
+						} else {
+							infoList.add(infos);
+						}
+
+						model.put("infoList", infoList);
+						break;
+					}
+				}
+				for (Menu m : subs) {
+					if (m.getName().indexOf("招商动态") > -1) {
+						List<DevelopHistory> historys = developHistoryService.getList(m.getId());
+						List<List<DevelopHistory>> historyList = new ArrayList<List<DevelopHistory>>();
+						if (historys.size() > 5) {
+							for (int i = 0; i < historys.size(); i += 5) {
+								List<DevelopHistory> list = new ArrayList<DevelopHistory>();
+								int size = historys.size() - i <= 5 ? historys.size() - i : 5;
+								for (int j = 0; j < size; j++) {
+									list.add(historys.get(i + j));
+								}
+								historyList.add(list);
+							}
+						} else {
+							historyList.add(historys);
+						}
+						model.put("historyList", historyList);
+						break;
+					}
+				}
+				for (Menu m : subs) {
+					if (m.getName().indexOf("招商热线") > -1) {
+						List<InvestmentHotline> list = new ArrayList<InvestmentHotline>();
+						Content content = new Content();
+						content.setMenuId(m.getId());
+						List<Content> contents = contentService.findPage(content);
+						for (Content c : contents) {
+							InvestmentHotline hotline = JSONObject.parseObject(c.getContent(), InvestmentHotline.class);
+							hotline.setCreateTime(c.getCreateTime());
+							hotline.setCreateTimeStr(
+									DateUtils.parseString(c.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
+							hotline.setId(c.getId());
+							list.add(hotline);
+						}
+						model.put("hotline", list);
+						break;
+					}
+				}
+				for (Menu m : subs) {
+					if (m.getName().indexOf("供应商自荐") > -1) {
+						model.put("coverMenu", m);
+						break;
+					}
+				}
+			}
+
 			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
 			model.put("pictures", pictures);
 

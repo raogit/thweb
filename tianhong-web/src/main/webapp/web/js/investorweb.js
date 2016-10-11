@@ -242,3 +242,49 @@ $(function(){
 		showBlock();
 	})
 })
+
+
+function saveInvestMentCover(){
+	var menuId = $("#coverMenuId").val();
+	var carrier = $("#popCarrier").val();
+	var legal = $("#popLegal").val();
+	var address = $("#popAddress").val();
+	var establishTime = $("#popEstablishTime").val();
+	
+	var money = $("#popMoney").val();
+	var contactName = $("#popContactName").val();
+	var job = $("#popJob").val();
+	var phone = $("#popPhone").val();
+	var email = $("#popEmail").val();
+	var buz = $("#popBuz").val();
+	var achievement = $("#popAchievement").val();
+	var basePath = $("#basePath").val();
+	debugger;
+	$.ajax({			 
+        url: basePath + "/web/investment/investmentcover/save",
+        type: 'post',
+        dataType: 'json',
+        data : {
+        	menuId : menuId,
+        	carrier : carrier,
+			legal : legal,
+			address : address,
+			establishTime : establishTime,
+			money : money,
+			contactName : contactName,
+			job : job,
+			phone : phone,
+			email : email ,
+			buz : buz,
+			achievement : achievement
+        },
+        cache: false,
+        success: function(data){
+        	if(data!=null&&data!=false){
+        		alert("操作成功");
+        	}else{
+        		alert("操作失败");
+        	}
+        }
+    });
+}

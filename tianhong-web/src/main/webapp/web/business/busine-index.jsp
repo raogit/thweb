@@ -8,6 +8,8 @@
 	<title>天虹集团官网</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<jsp:include page="../base.jsp"></jsp:include>
+	<%-- <script src="${basePath }/js/user/jquery.js?ver=${ver}" type="text/javascript"></script>
+	<script src="${basePath}/js/jQuery/jquery-2.1.4.min.js?ver=${ver}" type="text/javascript"></script> --%>
 </head>
 
 <body>
@@ -44,9 +46,7 @@
                            <h5>Business School Profile</h5>
                            <div class="line"></div>
                        </div>
-                       <div class="busine_shoCom">
-                           秉持“尊重人的价值、开发人的潜能、升华人的心灵”人才工作宗旨，把天虹打造成一个海纳百川的组织，在这个组织里，普通的人变成优秀的人，优秀的人变成卓越的人，源源不断的人在这里实现自己的人生梦想。培养和造就一支赢得市场领先、创造组织优势、引领价值导向、有使命感与责任感的人才队伍、更加有创造力、更加有超越其他组织和个人的推动力，实现自我境界的升华。
-                       </div>
+                       <div class="busine_shoCom">${job.content }</div>
                    </div>
                    <div class="busine_shoImg">
                        <img src="../images/bs4.jpg">
@@ -123,283 +123,84 @@
                            <div class="clear"></div>
                        </div>
                        <div class="business_ConBox">
-                           <div class="busine_newContent">
-                               <ul>
-                                     <li>
-                                       <div class="wth1">招标编号：HN2016-001     天虹商场股份有限公司内部使用</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <li>
-                                       <div class="wth1">招标编号：HN2016-001     天虹商场股份有限公司内部使用</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <li>
-                                       <div class="wth1">招标编号：HN2016-001     天虹商场股份有限公司内部使用</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <li>
-                                       <div class="wth1">招标编号：HN2016-001     天虹商场股份有限公司内部使用</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <li>
-                                       <div class="wth1">招标编号：HN2016-001     天虹商场股份有限公司内部使用</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <div class="clear"></div>
-                               </ul>
-                               <div class="clear"></div>
-                           </div>
-                           <div class="busine_newContent" style="display:none">
-                               <ul>
-                                    <li>
-                                       <div class="wth1">招标编号：HN2016-00天虹商场股份有限公司内部使用</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <li>
-                                       <div class="wth1">招标编号：HN2016-001天虹商场股份有限公司内部使用</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <li>
-                                       <div class="wth1">招标编号：HN2016-001 天虹商场股份有限公司内部使用</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <li>
-                                       <div class="wth1">招标编号：HN2016-001天虹商场股份有限公司内部使用</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <li>
-                                       <div class="wth1">招标编号：HN2016-00天虹商场股份有限公司内部使用</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <div class="clear"></div>
-                               </ul>
-                               <div class="clear"></div>
-                           </div>
-                           <div class="busine_newContent" style="display:none">
-                               <ul>
-                                    <li>
-                                       <div class="wth1">招标编号：HN2016-001     天虹商场股份有限公司</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <li>
-                                       <div class="wth1">招标编号：HN2016-001     天虹商场股份有限公司</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <li>
-                                       <div class="wth1">招标编号：HN2016-001     天虹商场股份有限公司</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <li>
-                                       <div class="wth1">招标编号：HN2016-001     天虹商场股份有限公司</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <li>
-                                       <div class="wth1">招标编号：HN2016-001     天虹商场股份有限公司</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth2">2014年11月03日</div>
-                                       <div class="wth3 cente">办公文具</div>
-                                       <div class="wth3 cente"><a href="#" class="down">下载</a></div>
-                                       <div class="clear"></div>
-                                   </li>
-                                   <div class="clear"></div>
-                               </ul>
-                               <div class="clear"></div>
-                           </div>
+                           <c:forEach var="infos" items="${infoList }" begin="0" step="1" varStatus="itemStatus">
+                           		<c:if test="${itemStatus.index==0 }">
+                           			<div class="busine_newContent">
+                           		</c:if>
+			                	<c:if test="${itemStatus.index>0 }">
+                           			<div class="busine_newContent" style="display:none">
+                           		</c:if>
+	                               <ul>
+	                                    <c:forEach var="item" items="${infos }" begin="0" step="1" varStatus="itemStatus">
+						                	<li>
+		                                       <div class="wth1">${item.title }</div>
+		                                       <div class="wth2">${item.createTimeStr }</div>
+		                                       <div class="wth2">${item.backup1 }</div>
+		                                       <div class="wth3 cente">${item.backup2 }</div>
+		                                       <div class="wth3 cente"><a href="${basePath}/download/pdf?fileName=${item.url}" class="down">下载</a></div>
+		                                       <div class="clear"></div>
+		                                   </li>
+								        </c:forEach>
+	                                   <div class="clear"></div>
+	                               </ul>
+	                               <div class="clear"></div>
+	                           </div>
+					        </c:forEach>
                        </div>
                        <div class="inves_ProtFocus">
-                        <ul>
-                            <li class="cur"></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="clear"></div>
+                       		<ul>
+                       		
+	                       		<c:forEach var="infos" items="${infoList }" begin="0" step="1" varStatus="itemStatus">
+	                           		<c:if test="${itemStatus.index==0 }">
+	                           			 <li class="cur"></li>
+	                           		</c:if>
+				                	<c:if test="${itemStatus.index>0 }">
+	                           			<li></li>
+	                           		</c:if>
+						        </c:forEach>
+	                           
+	                            
+                        	</ul>
+                        	<div class="clear"></div>
+                    	</div>
+                    	<div class="clear"></div>
                   </div>
                   <div class="busine_newBox">
-                       <div class="busine_newTit busine_newTit2">
-                           招商动态
-                       </div>
+                       <div class="busine_newTit busine_newTit2">招商动态</div>
                        <div class="busine_SpotContent">
-                          <div class="busine_Spot">
-                              <ul>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                              </ul>
-                          </div>
-                          <div class="busine_Spot" style="display:none">
-                              <ul>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展展连接内幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展连接内幕交易警示教交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展连接示教育展电子展连接内幕交展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展内幕教育展电连接内幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                              </ul>
-                          </div>
-                          <div class="busine_Spot" style="display:none">
-                              <ul>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0l">
-                                          <h3>内幕交易内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展子展连接内幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展连接内幕交易幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                                  <li>
-                                      <a href="BusineTrend.html?p=0">
-                                          <h3>内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示</h3>
-                                          <h5>2014年3月12日</h5>
-                                          <div class="clear"></div>
-                                      </a>
-                                  </li>
-                              </ul>
-                          </div>
+                       		 <c:forEach var="historys" items="${historyList }" begin="0" step="1" varStatus="itemStatus">
+                           		<c:if test="${itemStatus.index==0 }">
+                           			<div class="busine_Spot">
+                           		</c:if>
+			                	<c:if test="${itemStatus.index>0 }">
+                           			<div class="busine_Spot" style="display:none">
+                           		</c:if>
+	                               <ul>
+	                                    <c:forEach var="item" items="${historys }" begin="0" step="1" varStatus="itemStatus">
+						                	<li>
+			                                      <a href="BusineTrend.html?p=0">
+			                                          <h3>${item.title }</h3>
+			                                          <h5>${item.createTimeStr }</h5>
+			                                          <div class="clear"></div>
+			                                      </a>
+			                                  </li>
+								        </c:forEach>
+	                                   <div class="clear"></div>
+	                               </ul>
+	                               <div class="clear"></div>
+	                           </div>
+					        </c:forEach>
                         </div>
                        <div class="busine_ProtFocus ">
                         <ul>
-                            <li class="cur"></li>
-                            <li></li>
-                            <li></li>
+                        	<c:forEach var="historys" items="${historyList }" begin="0" step="1" varStatus="itemStatus">
+                           		<c:if test="${itemStatus.index==0 }">
+                           			<li class="cur"></li>
+                           		</c:if>
+			                	<c:if test="${itemStatus.index>0 }">
+                           			<li></li>
+                           		</c:if>
+					        </c:forEach>
                         </ul>
                         <div class="clear"></div>
                     </div>
@@ -408,27 +209,20 @@
                </div>
                <div class="busine_model3">
                    <div class="busine_HotLineBox">
-                       <div class="busine_newTit busine_newTit3">
-                           招商热线：
-                       </div>
+                       <div class="busine_newTit busine_newTit3">招商热线：</div>
                        <div class="busine_HotLineCon">
-                           <div class="busine_HotLineText">
-                               <p>徐小姐：0755-23652113</p>    
-                               <p>E-MAIL: xubq@rainbowcn.com</p>
-                               <p>天虹商场股份有限公司采购中心日用品分部</p>
-                           </div>
-                           <div class="busine_HotLineText">
-                               <p>徐小姐：0755-23652113</p>    
-                               <p>E-MAIL: xubq@rainbowcn.com</p>
-                               <p>天虹商场股份有限公司采购中心日用品分部</p>
-                           </div>                           
+                       		<c:forEach var="item" items="${hotline }" begin="0" step="1" end="1" varStatus="itemStatus">
+				            	<div class="busine_HotLineText">
+	                               <p>${item.name }：${item.phone }</p>    
+	                               <p>E-MAIL: ${item.email }</p>
+	                               <p>${item.department }</p>
+	                           </div>
+						   </c:forEach>
                            <div class="clear"></div>
                        </div>
                    </div>
                    <div class="busine_oneselfBox">
-                       <div class="busine_newTit busine_newTit4">
-                           供应商自荐
-                       </div>
+                       <div class="busine_newTit busine_newTit4">供应商自荐</div>
                        <a href="javascript:;" class="busine_oneselfTable">供应商自荐表格填写</a>
                    </div>
                    <div class="clear"></div>
@@ -448,51 +242,52 @@
 	                <a href="javascript:;" id="close_pop" title="关闭"></a>
 	            </div>
 	        </div>
-	        <form action="" method="get" accept-charset="utf-8">
-	        <div class="order_pointv">
-	            <div class="oneself_Table">
-	                <table width="200" border="1">
-	                      <tr>
-	                        <td width="25%";  class="padd">供应商名称：</td>
-	                        <td width="25%" ><input type="text" name="" value="" class="text"></td>
-	                        <td width="25%"   class="padd">法人代表：</td>
-	                        <td width="25%"><input type="text" name="" value="" class="text"></td>
-	                      </tr>
-	                      <tr>
-	                        <td   class="padd">地址：</td>
-	                        <td colspan="3"><input type="text" name="" value="" class="text"></td>
-	                      </tr>
-	                      <tr>
-	                        <td   class="padd">成立时间</td>
-	                        <td><input type="text" name="" value="" class="text"></td>
-	                        <td  class="padd">注册资本</td>
-	                        <td><input type="text" name="" value="" class="text"></td>
-	                      </tr>
-	                      <tr>
-	                        <td  class="padd">联系人：</td>
-	                        <td><input type="text" name="" value="" class="text"></td>
-	                        <td  class="padd">职务：</td>
-	                        <td><input type="text" name="" value="" class="text"></td>
-	                      </tr >
-	                      <tr>
-	                        <td  class="padd">联系电话：</td>
-	                        <td><input type="text" name="" value="" class="text"></td>
-	                        <td  class="padd">电子邮件：</td>
-	                        <td><input type="text" name="" value="" class="text"></td>
-	                      </tr >
-	                      <tr >
-	                        <td height="41"  class="padd">公司及业务范围</td>
-	                        <td colspan="3"><textarea name="textarea" id="textarea" cols="45" rows="4" class="textarea"></textarea></td>
-	                      </tr>
-	                      <tr>
-	                        <td  class="padd">近三年行业业绩及主要客户：</td>
-	                        <td colspan="3"><textarea name="textarea" id="textarea" cols="45" rows="5" class="textarea"></textarea></td>
-	                      </tr>
-	                    </table>
-	            </div>                
-	        </div>
-	        <input type="submit" name="" value="提交申请" class="submitapp">
-	        </form>
+	        
+		        <div class="order_pointv">
+		            <div class="oneself_Table">
+		                <table width="200" border="1">
+		                      <tr>
+		                        <td width="25%";  class="padd">供应商名称：</td>
+		                        <td width="25%" ><input type="text" id="popCarrier" name="" value="" class="text"></td>
+		                        <td width="25%" class="padd">法人代表：</td>
+		                        <td width="25%"><input type="text" id="popLegal" name="" value="" class="text"></td>
+		                      </tr>
+		                      <tr>
+		                        <td   class="padd">地址：</td>
+		                        <td colspan="3"><input type="text" id="popAddress" name="" value="" class="text"></td>
+		                      </tr>
+		                      <tr>
+		                        <td   class="padd">成立时间</td>
+		                        <td><input type="text" id="popEstablishTime" name="" value="" class="text"></td>
+		                        <td  class="padd">注册资本</td>
+		                        <td><input type="text" id="popMoney" name="" value="" class="text"></td>
+		                      </tr>
+		                      <tr>
+		                        <td  class="padd">联系人：</td>
+		                        <td><input type="text" id="popContactName" name="" value="" class="text"></td>
+		                        <td  class="padd">职务：</td>
+		                        <td><input type="text" id="popJob" name="" value="" class="text"></td>
+		                      </tr >
+		                      <tr>
+		                        <td  class="padd">联系电话：</td>
+		                        <td><input type="text" id="popPhone" name="" value="" class="text"></td>
+		                        <td  class="padd">电子邮件：</td>
+		                        <td><input type="text" id="popEmail" name="" value="" class="text"></td>
+		                      </tr >
+		                      <tr >
+		                        <td height="41"  class="padd">公司及业务范围</td>
+		                        <td colspan="3"><textarea name="textarea" id="popBuz" cols="45" rows="4" class="textarea"></textarea></td>
+		                      </tr>
+		                      <tr>
+		                        <td  class="padd">近三年行业业绩及主要客户：</td>
+		                        <td colspan="3"><textarea name="textarea" id="popAchievement" cols="45" rows="5" class="textarea"></textarea></td>
+		                      </tr>
+		                    </table>
+		            </div>                
+		        </div>
+	        	<input type="button" name="" value="提交申请" class="submitapp" onclick="saveInvestMentCover()"/>
+	       
+	       <input type="hidden" value="${coverMenu.id }" id="coverMenuId" name="coverMenuId"/>
 	    </div>
 	    </div>
 	</div>
