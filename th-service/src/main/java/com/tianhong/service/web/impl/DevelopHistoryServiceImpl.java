@@ -55,6 +55,8 @@ public class DevelopHistoryServiceImpl implements DevelopHistoryService {
 				history.setUpdateId(user.getId());
 				history.setUpdateTime(new Date());
 				history.setBackup1(developHistory.getBackup1());
+				history.setBackup2(developHistory.getBackup2());
+				history.setEventTime(developHistory.getEventTime());
 				developHistoryMapper.updateByPrimaryKeySelective(history);
 				return history;
 			}

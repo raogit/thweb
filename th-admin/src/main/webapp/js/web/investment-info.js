@@ -41,7 +41,6 @@ function picture(data){
 	var bannerpicture = $("#bannerpicture");
 	bannerpicture.empty();
 	if(data!=null && data!="" && data!=false){
-		
 		for(var i=0;i<data.length;i++){
 			var picture = data[i];
 			var html;
@@ -161,11 +160,12 @@ function tableData(pageNum){
 	var endDate = $("#endDate").val();	
 	var menuId = $("#menuId").val();	
 	$.ajax({
-        url: basePath + "/web/about/history/page",
+        url: basePath + "/picture/page",
         type: 'post',
         dataType: 'json',
         data : {
         	menuId : menuId,
+        	pictureType : 8,
         	title : title,
         	startDate : startDate,
         	endDate : endDate,
@@ -198,9 +198,8 @@ function initTable(data){
 		var tr = "<tr>"
 			+"<td>"+(i+1)+"</td>"
 			+"<td>"+item.title+"</td>"
-			+"<td>"+item.eventTimeStr+"</td>"
 			+"<td>"+content+"</td>"
-			+"<td>"+item.picture+"</td>"
+			+"<td>"+item.url+"</td>"
 			+"<td>"+time+"</td>";
 		var operation = "<td style='text-align: center;'><a href='javascript:edit("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteObj("+item.id+")' class='inner_btn'>删除</a></td>"
 		var end_tr = "</tr>";
@@ -231,15 +230,17 @@ function edit(id){
 	$("#popHistoryId").val(id);
 	$("#popTitle").val("");
 	$("#picture").val("");
+	$("#pdfurl").val("");
 	$("#popPrice").val("");
 	$("#picture").val("");
-	$("#popPictureImg").attr("src","");
+	$("#popPdf").html("");
+	$("#popBuyType").val("");
 	if(id<=0){
 		$("#pupTitle").html("添加");
 	}else{
 		$("#pupTitle").html("修改");
 		$.ajax({
-	        url: basePath + "/web/about/history/get",
+	        url: basePath + "/picture/get",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {
@@ -250,9 +251,13 @@ function edit(id){
 	        	if(data){
 	        		$("#popTitle").val(data.title);
 	        		$("#popContent").val(data.content);
-	        		$("#picture").val(data.picture);
-	        		$("#eventTime").val(curentDate(data.eventTime));
-	        		$("#popPictureImg").attr("src",basePath+"/download/png?fileName="+data.picture);
+	        		$("#picture").val(data.path);
+	        		$("#popPictureImg").attr("src",basePath+"/download/png?fileName="+data.path);
+	        		$("#pdfurl").val(data.url);
+	        		$("#popPdf").html(data.url);
+	        		$("#popPdf").html(data.picture);
+	        		$("#popBuyType").val(data.backup2);
+	        		$("#eventTime").val(data.backup1);
 	        	}
 	        }
 	    });
@@ -264,32 +269,42 @@ function add(id){
 	$("#pop").fadeIn(10);	
 	$("#popHistoryId").val(0);
 	$("#popTitle").val("");
+	$("#popBuyType").val("");
 	$("#picture").val("");
-	$("#popContent").val("");
+	
 	$("#popPictureImg").attr("src","");
+	$("#pdfurl").val("");
+	$("#popContent").val("");
+	$("#popPdf").html("");
 }
 function save(){
 	var id = $("#popHistoryId").val();
 	var title = $("#popTitle").val();
 	var picture = $("#picture").val();
+	var pdfurl = $("#pdfurl").val();
 	var content = $("#popContent").val();
 	var menuId = $("#menuId").val();
 	var eventTime = $("#eventTime").val();
+	var buyType = $("#popBuyType").val();
+	
 	if(isEmpty(name)){
 		alert("请填写内容");
 		return ;
 	}
 	$.ajax({
-        url: basePath + "/web/about/history/save",
+        url: basePath + "/picture/save",
         type: 'post',
         dataType: 'json',
         data : {
         	id : id,
         	menuId : menuId,
         	title : title,
-        	picture : picture,
+        	pictureType : 8,
+        	path : picture,
+        	url : pdfurl,
         	content : content,
-        	eventTimeStr : eventTime
+        	backup2 : buyType,
+        	backup1 : eventTime
         },
         cache: false,
         success: function(data){
@@ -340,10 +355,40 @@ function refreshPopTime(){
 function clear(){
 	$("#contentId").html("");
 }
-function upload(fileId){
-	var file = $("#fileId").val();
+function uploadPdf(fileId){
+	var file = $("#"+fileId).val();
 	if(!file){
-		alert("请选择图片");
+		alert("请选择文件");
+		return;
+	}
+	var url=basePath + "/upload/pdf";
+	//执行上传文件操作的函数
+	$.ajaxFileUpload({
+        url:url,
+        secureuri:false, //是否启用安全提交,默认为false
+        fileElementId:fileId,
+        dataType:'text',
+        success:function(data,status){
+        	data = data.replace(/<pre.*">/, '');
+            data = data.replace("<PRE>", ''); //ajaxFileUpload会对服务器响应回来的text内容加上<pre>text</pre>前后缀
+            data = data.replace("</PRE>", '');
+            data = data.replace("<pre>", '');
+            data = data.replace("</pre>", '');
+            var reqParam = data;
+        	if (reqParam != "" && reqParam!=false) {
+        		$("#popPdf").html(reqParam);
+        		$("#pdfurl").val(reqParam);
+			} else {
+				alert("上传失败");
+			}
+        }
+    });
+}
+
+function uploadImg(fileId){
+	var file = $("#"+fileId).val();
+	if(!file){
+		alert("请选择文件");
 		return;
 	}
 	var url=basePath + "/upload/image";
@@ -369,4 +414,3 @@ function upload(fileId){
         }
     });
 }
-

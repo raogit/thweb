@@ -21,13 +21,15 @@ import com.tianhong.domain.user.User;
  */
 public interface ContentService {
 
-	boolean deleteByPrimaryKey(Integer id, User user) throws Exception;
+	boolean deleteByPrimaryKey(Integer id) throws Exception;
 
 	Content getByPrimaryKey(Integer id) throws Exception;
 
-	Content insertSelective(Content Content) throws Exception;
+	Content save(Content content) throws Exception;
 
-	int updateByPrimaryKeySelective(Content Content) throws Exception;
+	Content insertSelective(Content content) throws Exception;
+
+	int updateByPrimaryKeySelective(Content content) throws Exception;
 
 	Content getByMenuId(int menuId) throws Exception;
 

@@ -88,8 +88,8 @@ public class CultrueController extends BaseController {
 	@ResponseBody
 	public Object delete(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			User user = getCurrentUser(request);
-			return contentService.deleteByPrimaryKey(id, user);
+			// User user = getCurrentUser(request);
+			return contentService.deleteByPrimaryKey(id);
 		} catch (Exception e) {
 			log.error("", e);
 		}

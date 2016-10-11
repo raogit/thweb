@@ -3,6 +3,7 @@
  */
 package com.tianhong.controller.web;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,13 +17,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.content.Content;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.newscenter.NewsCenter;
 import com.tianhong.domain.picture.Picture;
+import com.tianhong.domain.user.User;
+import com.tianhong.model.InvestmentCover;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.newscenter.NewsCenterService;
@@ -119,5 +124,28 @@ public class InvestmentController extends BaseController {
 			log.error("", e);
 		}
 		return new ModelAndView("/web/business/show", model);
+	}
+
+	@RequestMapping(value = "/investmentcover/save")
+	@ResponseBody
+	public Object investmentcoverSave(InvestmentCover investmentCover, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			User user = getCurrentUser(request);
+			String menuId = request.getParameter("menuId");
+			map.put("menuId", menuId);
+			String json = JSONObject.toJSONString(investmentCover);
+			Content content = new Content();
+			content.setId(investmentCover.getId());
+			content.setMenuId(Integer.parseInt(menuId));
+			content.setContent(json);
+			content.setCreateTime(new Date());
+			content.setCreateId(user.getId());
+			return contentService.save(content);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
 	}
 }

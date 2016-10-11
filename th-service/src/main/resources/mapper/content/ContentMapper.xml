@@ -302,9 +302,11 @@
 	</select>
 
 	<select id="findPage" parameterType="com.tianhong.domain.content.Content"
-		resultMap="BaseResultMap">
+		resultMap="ResultMapWithBLOBs">
 		select
 		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
 		from t_content
 		where is_deleted = 0
 		<if test="menuId != null and  menuId&gt;0">

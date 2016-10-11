@@ -88,4 +88,17 @@ public class ContentController extends BaseController {
 		}
 		return null;
 	}
+
+	@RequestMapping(value = "/delete")
+	@ResponseBody
+	public Object delete(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		try {
+
+			contentService.deleteByPrimaryKey(id);
+			return true;
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return null;
+	}
 }

@@ -34,13 +34,13 @@ public class ContentServiceImpl implements ContentService {
 	@Autowired
 	private ContentMapper contentMapper;
 
-	public Content insertSelective(Content Content) throws Exception {
-		contentMapper.insertSelective(Content);
-		return Content;
+	public Content insertSelective(Content content) throws Exception {
+		contentMapper.insertSelective(content);
+		return content;
 	}
 
-	public int updateByPrimaryKeySelective(Content Content) throws Exception {
-		return contentMapper.updateByPrimaryKeySelective(Content);
+	public int updateByPrimaryKeySelective(Content content) throws Exception {
+		return contentMapper.updateByPrimaryKeySelective(content);
 	}
 
 	public Content getByMenuId(int menuId) throws Exception {
@@ -76,12 +76,13 @@ public class ContentServiceImpl implements ContentService {
 		return Contents;
 	}
 
-	public boolean deleteByPrimaryKey(Integer id, User user) throws Exception {
-		Content Content = contentMapper.selectByPrimaryKey(id);
-		Content.setIsDeleted(true);
-		Content.setUpdateId(user.getId());
-		Content.setUpdateTime(new Date());
-		contentMapper.updateByPrimaryKeySelective(Content);
+	public boolean deleteByPrimaryKey(Integer id) throws Exception {
+		// Content Content = contentMapper.selectByPrimaryKey(id);
+		// Content.setIsDeleted(true);
+		// Content.setUpdateId(user.getId());
+		// Content.setUpdateTime(new Date());
+		// contentMapper.updateByPrimaryKeySelective(Content);
+		contentMapper.deleteByPrimaryKey(id);
 		return true;
 	}
 
@@ -95,6 +96,20 @@ public class ContentServiceImpl implements ContentService {
 
 	public int getCount(Content Content) throws Exception {
 		return contentMapper.getCount(Content);
+	}
+
+	public Content save(Content content) throws Exception {
+		if (content.getId() != null && content.getId() > 0) {
+			Content c = contentMapper.selectByPrimaryKey(content.getId());
+			if (c != null) {
+				updateByPrimaryKeySelective(content);
+			} else {
+				insertSelective(content);
+			}
+		} else {
+			insertSelective(content);
+		}
+		return content;
 	}
 
 }

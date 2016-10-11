@@ -26,6 +26,13 @@ update t_menu set link='/home/index' where id=192;
 update t_menu set link='http://szrainbowhr.hirede.com/CareerSite/CampusRecruit' where id=214;
 update t_menu set link='http://szrainbowhr.hirede.com/CareerSite/Index' where id=215;
 update t_menu set url='/pdf/index' where id=195;
-INSERT INTO `t_menu` (`id`, `name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES (212, '公益活动', '', '/web/culture/commonweal/index', 4, 197, 1, 0, '2016-10-10 21:21:08', 1, 0);
-INSERT INTO `t_menu` (`id`, `name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES (213, '员工活动', '', '/web/culture/public/index', 4, 197, 2, 0, '2016-10-10 21:21:25', 1, 0);
-INSERT INTO `t_menu` (`id`, `name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES (214, '社会责任报告', '', '/web/culture/public/index', 4, 197, 3, 0, '2016-10-10 22:47:13', 1, 0);
+INSERT INTO `t_menu` (`name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES ( '公益活动', '', '/web/culture/commonweal/index', 4, 197, 1, 0, '2016-10-10 21:21:08', 1, 0);
+INSERT INTO `t_menu` (`name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES ( '员工活动', '', '/web/culture/public/index', 4, 197, 2, 0, '2016-10-10 21:21:25', 1, 0);
+INSERT INTO `t_menu` (`name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES ( '社会责任报告', '', '/web/culture/public/index', 4, 197, 3, 0, '2016-10-10 22:47:13', 1, 0);
+
+
+INSERT INTO `t_menu` (`name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES ('职能简介', '', '/menu/news/detail', 4, 198, 1, 0, '2016-10-11 09:39:03', 1, 0);
+INSERT INTO `t_menu` (`name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES ('招商信息', '', '/web/investment/investmentinfo', 4, 198, 2, 0, '2016-10-11 09:39:16', 1, 0);
+INSERT INTO `t_menu` (`name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES ('招商动态', '', '/web/culture/commonweal/index', 4, 198, 3, 0, '2016-10-11 09:39:25', 1, 0);
+INSERT INTO `t_menu` (`name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES ('招商热线', '', '/web/investment/investmenthotline/index', 4, 198, 4, 0, '2016-10-11 09:39:39', 1, 0);
+INSERT INTO `t_menu` (`name`, `link`, `url`, `level`, `parent_id`, `sort`, `is_show`, `create_time`, `create_id`, `is_deleted`) VALUES ('供应商自荐', '', '/web/investment/investmentcover/index', 4, 198, 5, 0, '2016-10-11 09:39:57', 1, 0);
