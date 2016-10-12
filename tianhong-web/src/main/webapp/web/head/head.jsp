@@ -31,6 +31,9 @@
 		<div class="header_onBlockBg"></div>
 		<c:forEach var="item" items="${headMenus }" begin="1" step="1" varStatus="itemStatus">
 			<div class="header_onBlockBg">
+				<c:if test="${fn:length(item.subMenus)>0}">
+					<div class="BlockBg"></div>
+				</c:if>
 				<div class="header_onBlockIn">
 					<ul class="header_onList">
 						<c:forEach var="sub" items="${item.subMenus }" begin="0" step="1">
