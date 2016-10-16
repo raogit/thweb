@@ -76,6 +76,36 @@ public class InvestorController extends BaseController {
 	}
 
 	/**
+	 * 入口
+	 * 
+	 * @param menuId
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value = "/quotation")
+	public Object quotation(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+			model.put("menu", subMenus.get(0));
+			Content content = contentService.getByMenuId(181);
+			model.put("content", content);
+			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			model.put("pictures", pictures);
+
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/investor/inveIndex", model);
+	}
+	/**
 	 * 公司治理
 	 * 
 	 * @param menuId

@@ -78,10 +78,7 @@
 	                            <div class="bd-L-ten ten4">training center</div>
 	                            <div class="bd-L-tle tle3"></div>
 	                        </div>
-	                        <div class="bd-L-cont c2">
-	                            <p><strong>优才计划：</strong>结合公司战略发展目标，培养公司现任中高层管理干部的战略思维、提高团队领导能力，提升经营管理水平，重点强化学员的经营实践能力，以实现业务绩效的提升，最终支持组织绩效的达成。</p>
-	                            <p><strong>新秀训练营：</strong>新秀动力营属于天虹梯队人才培养体系中的育才计划，培养人群为新进大学生。通过开展一系列的培训，帮助新进大学生实现校园人向职场人转变，快速融入和了解公司，掌握岗位技能、胜任岗位工作，顺利转型、度过关键期，并且清晰职业生涯发展规划，确保试用期后能顺利链接至梯队人才培养体系中。</p>
-	                        </div>
+	                        <div class="bd-L-cont c2">${trainingCenter1.content }</div>
 	                    </div>
 	                        <div class="sch-l2 fl">
 	                            <div class="sch-l2-in">
@@ -102,38 +99,23 @@
 	                                <div class="bd-L-ten ten4">training center</div>
 	                                <div class="bd-L-tle tle3"></div>
 	                            </div>
-	                            <div class="bd-L-cont c2">
-	                                <p><strong>优才计划：</strong>结合公司战略发展目标，培养公司现任中高层管理干部的战略思维、提高团队领导能力，提升经营管理水平，重点强化学员的经营实践能力，以实现业务绩效的提升，最终支持组织绩效的达成。</p>
-	                                <p><strong>新秀训练营：</strong>新秀动力营属于天虹梯队人才培养体系中的育才计划，培养人群为新进大学生。通过开展一系列的培训，帮助新进大学生实现校园人向职场人转变，快速融入和了解公司，掌握岗位技能、胜任岗位工作，顺利转型、度过关键期，并且清晰职业生涯发展规划，确保试用期后能顺利链接至梯队人才培养体系中。</p>
-	                            </div>
+	                            <div class="bd-L-cont c2">${trainingCenter2.content }</div>
 	                        </div>
 	                        <div class="clear"></div>
 	                    </div>
 	                </div>
 	                <div class="bd-sch-cin">
 	                    <div class="bd-L-tch tch2">知识管理体系</div>
-	                    <div class="bd-L-cont c3">
-	                        <p>天虹拥有完善的知识管理系统，包含E-learnning（老大师）系统与KMS系统。E-learnning系统可实现视频资料、微课、PPT资料的上传、存储与分享，实现全体员工的线上学习与考试。KMS系统可实现文档资料的知识沉淀与共享，可推送推荐至全体员工。</p>
-	                        <p>创新大赛：创新中心通过组织月度/年度竞赛，收集公司创新点子与方案、邀请评委评分点评，统计结果，奖励创新项目、后期跟进实施及推广。通过大赛的平台拉动创新点子挖掘、创新点子实施，从而形成在企业内完善的创新管理机制，并且营造良好的创新氛围。</p>
-	                    </div>
+	                    <div class="bd-L-cont c3">${knowledge.content }</div>
 	                    <div class="bd-tl-list">
 	                        <ul class="bd-tl-lin">
-	                            <li><div class="tl-ltx">结合公司战略发展目标，培养公司现任中高层管理干部的战略思维、提高团队领导能力，提升经营管理水平，
-	                                重点强化学员的经营实践能力，以结合公司战略发展目标，培养公司现任中高层管理干部的战略思维、提高团队领导能力，提升经营管理水平，
-	                                重点强化学员的经营实践能力，以结合公司战略发展目标，培养公司现任中高层管理干部的战略思维、提高团队领导能力，提升经营管理水平，
-	                                重点强化学员的经营实践能力</div>
+	                            <li><div class="tl-ltx">${plan.content }</div>
 	                                <div class="tl-lbt"></div>
 	                            </li>
-	                            <li><div class="tl-ltx">结合公司战略发展目标，培养公司现任中高层管理干部的战略思维、提高团队领导能力，提升经营管理水平，
-	                                重点强化学员的经营实践能力，以结合公司战略发展目标，培养公司现任中高层管理干部的战略思维、提高团队领导能力，提升经营管理水平，
-	                                重点强化学员的经营实践能力，以结合公司战略发展目标，培养公司现任中高层管理干部的战略思维、提高团队领导能力，提升经营管理水平，
-	                                重点强化学员的经营实践能力</div>
+	                            <li><div class="tl-ltx">${newStar.content }</div>
 	                                <div class="tl-lbt"></div>
 	                            </li>
-	                            <li><div class="tl-ltx">结合公司战略发展目标，培养公司现任中高层管理干部的战略思维、提高团队领导能力，提升经营管理水平，
-	                                重点强化学员的经营实践能力，以结合公司战略发展目标，培养公司现任中高层管理干部的战略思维、提高团队领导能力，提升经营管理水平，
-	                                重点强化学员的经营实践能力，以结合公司战略发展目标，培养公司现任中高层管理干部的战略思维、提高团队领导能力，提升经营管理水平，
-	                                重点强化学员的经营实践能力</div>
+	                            <li><div class="tl-ltx">${thBuz.content }</div>
 	                                <div class="tl-lbt"></div>
 	                            </li>
 	                        </ul>
@@ -150,34 +132,30 @@
 	                    <div class="bd-tl-sb">
 	                        <div class="sb-txt fl">
 	                            <div class="sb-txt-in">
-	                                <div class="sb-tin-t">完善的福利制度 .01</div>
-	                                <div class="sb-tin-c">社会保险、年度体检、员工宿舍、医保
-	                                    带薪假期、婚育礼金、生日派对</div>
+	                                <div class="sb-tin-t">${wages01.title }</div>
+	                                <div class="sb-tin-c">${wages01.content }</div>
 	                            </div>
 	                            <div class="sb-txt-in">
-	                                <div class="sb-tin-t">有竞争的薪酬 .02</div>
-	                                <div class="sb-tin-c">固定薪酬、年终红包、项目奖金、伯乐奖金
-	                                    专项奖励、等等</div>
+	                                <div class="sb-tin-t">${wages02.title }</div>
+	                                <div class="sb-tin-c">${wages02.content }</div>
 	                            </div>
 	                            <div class="sb-txt-in">
-	                                <div class="sb-tin-t">其他福利 .03</div>
-	                                <div class="sb-tin-c">社团活动、年度旅游、春节嘉年华、公司周年庆祝活动、免费早餐及夜宵</div>
+	                                <div class="sb-tin-t">${wages03.title }</div>
+	                                <div class="sb-tin-c">${wages03.content }</div>
 	                            </div>
 	                        </div>
 	                        <div class="sb-txt txt2 fr">
 	                            <div class="sb-txt-in">
-	                                <div class="sb-tin-t">04. 完善的福利制度</div>
-	                                <div class="sb-tin-c">社会保险、年度体检、员工宿舍、医保
-	                                    带薪假期、婚育礼金、生日派对</div>
+	                                <div class="sb-tin-t">${wages04.title }</div>
+	                                <div class="sb-tin-c">${wages04.content }</div>
 	                            </div>
 	                            <div class="sb-txt-in">
-	                                <div class="sb-tin-t">05. 有竞争的薪酬</div>
-	                                <div class="sb-tin-c">固定薪酬、年终红包、项目奖金、伯乐奖金
-	                                    专项奖励、等等</div>
+	                                <div class="sb-tin-t">${wages05.title }</div>
+	                                <div class="sb-tin-c">${wages05.content }</div>
 	                            </div>
 	                            <div class="sb-txt-in">
-	                                <div class="sb-tin-t">06. 其他福利</div>
-	                                <div class="sb-tin-c">社团活动、年度旅游、春节嘉年华、公司周年庆祝活动、免费早餐及夜宵</div>
+	                                <div class="sb-tin-t">${wages06.title }</div>
+	                                <div class="sb-tin-c">${wages06.content }</div>
 	                            </div>
 	                        </div>
 	                        <div class="clear"></div>

@@ -45,6 +45,20 @@ public class MenuController extends BaseController {
 		return "/news/detail";
 	}
 
+	@RequestMapping(value = "/content/contenttext")
+	public Object contentText(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		request.setAttribute("menuId", menuId);
+		return "/content/content-text";
+	}
+	
+	@RequestMapping(value = "/content/contenttable")
+	public Object contentTable(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		request.setAttribute("menuId", menuId);
+		return "/content/content-table";
+	}
+	
 	@RequestMapping(value = "/news/list")
 	public Object newsList(@RequestParam("menuId") int menuId, HttpServletRequest request,
 			HttpServletResponse response) {
