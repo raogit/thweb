@@ -18,6 +18,7 @@
             text-align: left;
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="${basePath }/css/web/investorstyle.css" />
 	<script src="${basePath}/js/upload/ajaxfileupload.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath}/js/timer/timer.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath}/js/utils/utils.js?ver=${ver}" type="text/javascript" ></script>
@@ -48,29 +49,123 @@
 		</form>
 	</div>
 	<div style="height:30px;border-bottom:2px solid #19a97b;"></div>
-	<div style="height:100px;width:500px; margin: 0 auto;padding-top:5px;">
-		<ul>
-			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标题:</span> <input id="title" style="width:140px;" type="text" placeholder="请输入标题..." class="textbox" /></li>
-			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标语:</span> <input id="slogan" style="width:240px;" type="text" placeholder="请输入标语..." class="textbox" /></li>
-			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">电话:</span> <input id="phone" style="width:140px;" type="text" placeholder="请输入电话..." class="textbox" /></li>
-			<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">地址:</span> <input id="address" style="width:240px;" type="text" placeholder="请输入地址..." class="textbox" /></li>
-		</ul>
-	</div>
-	<section id="editor">
-		<div style="margin-top: 30px;"> 
-			<textarea id="contentId" rows="20" cols="120"></textarea>
-		</div>
-	</section>
+	<input type="hidden" value="" id="contentId" name="contentId" />
+	 <div class="inves_InfoBox">
+	     <div class="inves_Info">
+	         <ul>
+	             <li>
+	                 <div class="inves_InfoR">公司全称：</div>
+	                 <div class="inves_InfoL"><input type="text" id="companyName" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">英文名称：</div>
+	                 <div class="inves_InfoL"><input type="text" id="companyEnName" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">注册地址：</div>
+	                 <div class="inves_InfoL"><input type="text" id="address" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">公司简称：</div>
+	                 <div class="inves_InfoL"><input type="text" id="shortName" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">法定代表人：</div>
+	                 <div class="inves_InfoL"><input type="text" id="legalPerson" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">公司董秘：</div>
+	                 <div class="inves_InfoL"><input type="text" id="secretary" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">注册资本（万元）：</div>
+	                 <div class="inves_InfoL"><input type="text" id="registered"  width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">行业种类：</div>
+	                 <div class="inves_InfoL"><input type="text" id="industry" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">邮政编码：</div>
+	                 <div class="inves_InfoL"><input type="text" id="zipCode" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li class="bornone">
+	                 <div class="inves_InfoR">公司电话：</div>
+	                 <div class="inves_InfoL"><input type="text" id="phone" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	         </ul>
+	     </div>
+	     <div class="inves_Info marL">
+	         <ul>
+	             <li>
+	                 <div class="inves_InfoR">公司传真：</div>
+	                 <div class="inves_InfoL"><input type="text" id="fax" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">发行市盈率（倍）：</div>
+	                 <div class="inves_InfoL"><input type="text" id="ipoRatio" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">公司网址：</div>
+	                 <div class="inves_InfoL"><input type="text" id="webSite" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">上市时间：</div>
+	                 <div class="inves_InfoL"><input type="text" id="marketTime" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">发行方式：</div>
+	                 <div class="inves_InfoL"><input type="text" id="releaseMode" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">主承销商：</div>
+	                 <div class="inves_InfoL"><input type="text" id="underWriter" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">招股时间：</div>
+	                 <div class="inves_InfoL"><input type="text" id="prospectusTime" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">保荐机构：</div>
+	                 <div class="inves_InfoL"><input type="text" id="sponsorInstitution" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li>
+	                 <div class="inves_InfoR">发行数量（万股）：</div>
+	                 <div class="inves_InfoL"><input type="text" id="issueNumber" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	             <li class="bornone">
+	                 <div class="inves_InfoR">发行价格（元）：</div>
+	                 <div class="inves_InfoL"><input type="text" id="issuePrice" width="300px"/></div>
+	                 <div class="clear"></div>
+	             </li>
+	         </ul>
+	     </div>
+	     <div class="clear"></div>
+	 </div>
 	<div class="btm_btn" style="margin-top: 30px;height: 30px;">
 		<input type="button" value="保存" style="width: 70px;height: 30px;background-color: #19a97b;" id="saveContent"/> 
 		<input type="button" value="清空" style="width: 70px;height: 30px;background-color: #19a97b;" id="clearContent"/>
 	</div>
 	<div class="btm_btn" style="margin-top: 30px;height: 30px;"> </div>
 
-  <script>
-      $(function(){
-          $('#edit').editable({inlineMode: false, alwaysBlank: true})
-      });
-  </script>
 </body>
 </html>

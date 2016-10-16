@@ -4,7 +4,9 @@
 package com.tianhong.controller.menu;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.menu.Menu;
@@ -55,8 +58,13 @@ public class MenuController extends BaseController {
 	@RequestMapping(value = "/content/contenttable")
 	public Object contentTable(@RequestParam("menuId") int menuId, HttpServletRequest request,
 			HttpServletResponse response) {
-		request.setAttribute("menuId", menuId);
-		return "/content/content-table";
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			map.put("menuId", menuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/content/content-table", map);
 	}
 	
 	@RequestMapping(value = "/news/list")

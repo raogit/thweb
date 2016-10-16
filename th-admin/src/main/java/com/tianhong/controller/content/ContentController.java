@@ -8,10 +8,13 @@
 package com.tianhong.controller.content;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +23,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.fastjson.JSONObject;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.content.Content;
 import com.tianhong.domain.user.User;
+import com.tianhong.model.InveInfo;
 import com.tianhong.service.content.ContentService;
 
 /**
@@ -100,5 +105,49 @@ public class ContentController extends BaseController {
 			log.error("", e);
 		}
 		return null;
+	}
+	
+	@RequestMapping(value = "/inveinfo/save")
+	@ResponseBody
+	public Object investmentcoverSave(InveInfo inveInfo, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			User user = getCurrentUser(request);
+			Content content = contentService.getByMenuId(inveInfo.getMenuId());
+			if(content == null ){
+				content = new Content();
+				content.setMenuId(inveInfo.getMenuId());
+			}
+			String json = JSONObject.toJSONString(inveInfo);
+			content.setContent(json);
+			content.setCreateTime(new Date());
+			content.setCreateId(user.getId());
+			contentService.save(content);
+			return inveInfo;
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+	
+	@RequestMapping(value = "/inveinfo/get")
+	@ResponseBody
+	public Object investmentcoverSave(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			map.put("menuId", menuId);
+			Content content = contentService.getByMenuId(menuId);
+			if(content!=null && StringUtils.isNotEmpty(content.getContent())){
+				InveInfo inveInfo = JSONObject.parseObject(content.getContent(), InveInfo.class);
+				inveInfo.setId(content.getId());
+				return inveInfo;
+			}
+			return false;
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
 	}
 }

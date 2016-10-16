@@ -13,9 +13,8 @@ jQuery(document).ready(function() {
 function init(){
 	var menuId = $("#menuId").val();
 	
-	initRich(menuId);
+	initContent(menuId);
 	initPicture(menuId);
-	initMarket();
 }
 
 function initMarket(){
@@ -38,10 +37,10 @@ function initMarket(){
         }
     });
 }
-function initRich(menuId){
+function initContent(menuId){
 	clear();
 	$.ajax({
-        url: basePath + "/content/get",
+        url: basePath + "/content/inveinfo/get",
         type: 'post',
         dataType: 'json',
         data : {
@@ -49,11 +48,31 @@ function initRich(menuId){
         },
         cache: false,
         success: function(data){
-        	if(data!=null && data!=""){
-        		$("#contentId").val(data.content);
-            	$("#id").val(data.id);
-            	$("#title").val(data.title);
-            	$("#slogan").val(data.slogan);
+        	if(data!=null && data!=""&& data!=false){
+        		debugger;
+        		$("#contentId").val(data.id);
+        		$("#menuId").val(menuId);
+        		$("#companyName").val(data.companyName);
+        		$("#companyEnName").val(data.companyEnName);
+        		$("#address").val(data.address);
+        		$("#shortName").val(data.shortName);
+        		$("#legalPerson").val(data.legalPerson);
+        		$("#secretary").val(data.secretary);
+        		$("#registered").val(data.registered);
+        		$("#industry").val(data.industry);
+        		$("#zipCode").val(data.zipCode);
+        		$("#phone").val(data.phone);
+        		$("#fax").val(data.fax);
+        		$("#ipoRatio").val(data.ipoRatio);
+        		$("#webSite").val(data.webSite);
+        		$("#marketTime").val(data.marketTime);
+        		$("#releaseMode").val(data.releaseMode);
+        		$("#underWriter").val(data.underWriter);
+        		$("#prospectusTime").val(data.prospectusTime);
+        		$("#sponsorInstitution").val(data.sponsorInstitution);
+        		$("#issueNumber").val(data.issueNumber);
+        		$("#issuePrice").val(data.issuePrice);
+        		$("#contentId").val(data.contentId);
         	}else{
         		$("#contentId").val("");
         	}
@@ -94,36 +113,64 @@ function picture(data){
 }
 function save(){
 	var menuId = $("#menuId").val();
-	var content = $("#contentId").val();
-	var title = $("#title").val();
-	var slogan = $("#slogan").val();
-	
-	var phone = $("#phone").val();
-	var address = $("#address").val();
-	if(isEmpty(content)){
-		alert("请填写内容");
-		return ;
-	}
-	var id = $("#id").val();
+	var companyName =$("#companyName").val();
+	var companyEnName =$("#companyEnName").val();
+	var address =$("#address").val();
+	var shortName =$("#shortName").val();
+	var legalPerson =$("#legalPerson").val();
+	var secretary =$("#secretary").val();
+	var registered =$("#registered").val();
+	var industry =$("#industry").val();
+	var zipCode =$("#zipCode").val();
+	var phone =$("#phone").val();
+	var fax =$("#fax").val();
+	var ipoRatio =$("#ipoRatio").val();
+	var webSite =$("#webSite").val();
+	var marketTime =$("#marketTime").val();
+	var releaseMode =$("#releaseMode").val();
+	var underWriter =$("#underWriter").val();
+	var prospectusTime =$("#prospectusTime").val();
+	var sponsorInstitution =$("#sponsorInstitution").val();
+	var issueNumber =$("#issueNumber").val();
+	var issuePrice =$("#issuePrice").val();
+	var contentId =$("#contentId").val();
+	var basePath = $("#basePath").val();
+	debugger;
 	$.ajax({
-        url: basePath + "/content/save",
+        url: basePath + "/content/inveinfo/save",
         type: 'post',
         dataType: 'json',
         data : {
-        	id : id,
-        	title : title,
-        	slogan : slogan,
-        	phone : phone,
-        	address : address,
+        	id : contentId,
         	menuId : menuId,
-        	content : content
+        	companyName :companyName,
+        	companyEnName :companyEnName,
+        	address :address,
+        	shortName :shortName,
+        	legalPerson :legalPerson,
+        	secretary :secretary,
+        	registered :registered,
+        	industry :industry,
+        	zipCode :zipCode,
+        	phone :phone,
+        	fax :fax,
+        	ipoRatio :ipoRatio,
+        	webSite :webSite,
+        	marketTime :marketTime,
+        	releaseMode :releaseMode,
+        	underWriter :underWriter,
+        	prospectusTime :prospectusTime,
+        	sponsorInstitution :sponsorInstitution,
+        	issueNumber :issueNumber,
+        	issuePrice :issuePrice
         },
         cache: false,
         success: function(data){
-        	if(data!=null&&data==true){
+        	debugger;
+        	if(data!=null&&data!=false){
         		alert("操作成功");
         	}else{
-        		alert(json.obj);
+        		alert("操作失败");
         	}
         }
     });
@@ -133,6 +180,7 @@ function clear(){
 	$("#contentId").val("");
 }
 function upload(fileId,type){
+	debugger;
 	var file = $("#fileId").val();
 	if(!file){
 		alert("请选择图片");
