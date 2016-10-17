@@ -10,6 +10,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.content.Content;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.picture.Picture;
+import com.tianhong.model.InveInfo;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.picture.PictureService;
@@ -84,7 +87,8 @@ public class InvestorController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/quotation")
-	public Object quotation(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+	public Object quotation(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(menuId);
@@ -105,6 +109,44 @@ public class InvestorController extends BaseController {
 		}
 		return new ModelAndView("/web/investor/inveIndex", model);
 	}
+
+	/**
+	 * 入口
+	 * 
+	 * @param menuId
+	 * @param request
+	 * @param response
+	 * @return
+	 */
+	@RequestMapping(value = "/basedata")
+	public Object baseData(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+			model.put("menu", subMenus.get(0));
+			Content content = contentService.getByMenuId(menuId);
+			if (content != null && StringUtils.isNotEmpty(content.getContent())) {
+				InveInfo inveInfo = JSONObject.parseObject(content.getContent(), InveInfo.class);
+				inveInfo.setId(content.getId());
+				model.put("inveInfo", inveInfo);
+			}
+
+			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());
+			model.put("pictures", pictures);
+
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/investor/inveIndex", model);
+	}
+
 	/**
 	 * 公司治理
 	 * 
