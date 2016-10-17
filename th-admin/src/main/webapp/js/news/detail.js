@@ -76,7 +76,7 @@ function picture(data){
 	var bannerpicture = $("#bannerpicture");
 	bannerpicture.empty();
 	if(data!=null && data!="" && data!=false){
-		
+		debugger;
 		for(var i=0;i<data.length;i++){
 			var picture = data[i];
 			var html;
