@@ -68,7 +68,7 @@
 								<div class="cin-CM-in"><img src="${basePath}/download/png?fileName=${product.picture }" alt="" width="150px" height="150px"></div>
 								<div class="cin-CM-nm rs-nm">
 									<p>${product.name }</p>
-									<p class="rs-p">${product.describer }</p>
+									<p class="rs-p" style="height: 43px;overflow: hidden;">${product.describer }</p>
 								</div>
 							</div>
 						</c:forEach>

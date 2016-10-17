@@ -124,13 +124,14 @@ public class InvestorController extends BaseController {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("menu", menu);
 			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
 			List<Menu> headMenus = menuService.getSubMenus(172, true);
 			model.put("headMenus", headMenus);
 
 			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
 			model.put("subMenus", subMenus);
-			model.put("menu", subMenus.get(0));
+			
 			Content content = contentService.getByMenuId(menuId);
 			if (content != null && StringUtils.isNotEmpty(content.getContent())) {
 				InveInfo inveInfo = JSONObject.parseObject(content.getContent(), InveInfo.class);
@@ -144,7 +145,7 @@ public class InvestorController extends BaseController {
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/web/investor/inveIndex", model);
+		return new ModelAndView("/web/investor/inveInfo", model);
 	}
 
 	/**

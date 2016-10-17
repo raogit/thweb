@@ -51,8 +51,8 @@
 					<div class="show_model1">
 						<c:forEach var="item" items="${brands }" begin="0" step="1" end="2" varStatus="itemStatus">
 							<div class="show_proBox">
-								<div class="show_proImg"><img src="${basePath}/download/png?fileName=${item.picture }" /></div>
-								<div class="show_proText">
+								<div class="show_proImg"><img src="${basePath}/download/png?fileName=${item.picture }" style="max-width: 260px;max-height: 155px;"/></div>
+								<div class="show_proText" style="max-height: 155px;overflow: hidden;">
 									<h3>${item.title }</h3>
 									<div class="show_proContent"><p>${item.content }</p></div>
 									<a href="${basePath}/web/investment/showdetail1?id=${item.id }&menuId=${menu.id }">了解更多</a>
@@ -65,8 +65,8 @@
 					<div class="show_model2" style="display: none">
 						<c:forEach var="item" items="${projects }" begin="0" step="1" end="2" varStatus="itemStatus">
 							<div class="show_proBox">
-								<div class="show_proImg"><img src="${basePath}/download/png?fileName=${item.picture }" /></div>
-								<div class="show_proText">
+								<div class="show_proImg"><img src="${basePath}/download/png?fileName=${item.picture }" style="max-width: 260px;max-height: 155px;"/></div>
+								<div class="show_proText" style="max-height: 155px;overflow: hidden;">
 									<h3>${item.title }</h3>
 									<div class="show_proContent"><p>${item.content }</p></div>
 									<a href="${basePath}/web/investment/showdetail2?id=${item.id }&menuId=${menu.id }">了解更多</a>

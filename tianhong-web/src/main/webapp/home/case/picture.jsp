@@ -16,7 +16,6 @@
         <c:import url="${basePath}/menu/left?leftMenuId=${leftMenuId }"></c:import>
         <div class="rt right-box">
             <div class="right-box-nav">
-               
                 <h1>${parentMenu.name }<em>/</em>${menu.name }</h1>
                 <a href="javascript:history.go(-1);" class="return ui-link">返回列表</a> 
             </div>

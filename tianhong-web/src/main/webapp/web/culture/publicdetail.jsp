@@ -74,7 +74,7 @@
                 
                 <div class="PD-cont">
                     <div class="PD-top">${history.content }</div>
-                    <div class="PD-cim"><img src="${basePath}/download/png?fileName=${history.picture }" alt=""></div>
+                    <div class="PD-cim"><img src="${basePath}/download/png?fileName=${history.picture }" alt="" style="width: 725px;height: 350px;"></div>
                 </div>
                 
             </div>
