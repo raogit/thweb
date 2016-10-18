@@ -301,8 +301,7 @@
 		is_deleted = 0
 	</select>
 
-	<select id="findPage" parameterType="com.tianhong.domain.content.Content"
-		resultMap="ResultMapWithBLOBs">
+	<select id="page" parameterType="com.tianhong.domain.content.Content" resultMap="ResultMapWithBLOBs">
 		select
 		<include refid="Base_Column_List" />
 		,
@@ -324,11 +323,9 @@
 			#{endDate,jdbcType=VARCHAR}
 		</if>
 		ORDER BY create_time desc
-		LIMIT #{start, jdbcType=INTEGER}, #{pageSize,
-		jdbcType=INTEGER}
+		LIMIT #{start, jdbcType=INTEGER}, #{pageSize, jdbcType=INTEGER}
 	</select>
-	<select id="getCount" parameterType="com.tianhong.domain.content.Content"
-		resultType="java.lang.Integer">
+	<select id="count" parameterType="com.tianhong.domain.content.Content" resultType="java.lang.Integer">
 		select
 		count(1)
 		from t_content
@@ -347,5 +344,29 @@
 			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND
 			#{endDate,jdbcType=VARCHAR}
 		</if>
+	</select>
+	
+	<select id="list" parameterType="com.tianhong.domain.content.Content" resultMap="ResultMapWithBLOBs">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from t_content
+		where is_deleted = 0
+		<if test="menuId != null and  menuId>0">
+			AND menu_id = #{menuId,jdbcType=INTEGER}
+		</if>
+		<if test="title != null and title!=''">
+			AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
+		</if>
+		<if test="source != null and source!=''">
+			AND source like CONCAT('%',#{source,jdbcType=VARCHAR},'%'
+			)
+		</if>
+		<if test="startDate != null and endDate!=null">
+			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND
+			#{endDate,jdbcType=VARCHAR}
+		</if>
+		ORDER BY create_time desc
 	</select>
 </mapper>

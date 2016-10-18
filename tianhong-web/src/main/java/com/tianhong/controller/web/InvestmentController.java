@@ -131,7 +131,7 @@ public class InvestmentController extends BaseController {
 						List<InvestmentHotline> list = new ArrayList<InvestmentHotline>();
 						Content content = new Content();
 						content.setMenuId(m.getId());
-						List<Content> contents = contentService.findPage(content);
+						List<Content> contents = contentService.list(content);
 						for (Content c : contents) {
 							InvestmentHotline hotline = JSONObject.parseObject(c.getContent(), InvestmentHotline.class);
 							hotline.setCreateTime(c.getCreateTime());
@@ -234,7 +234,7 @@ public class InvestmentController extends BaseController {
 						List<InvestmentHotline> list = new ArrayList<InvestmentHotline>();
 						Content content = new Content();
 						content.setMenuId(m.getId());
-						List<Content> contents = contentService.findPage(content);
+						List<Content> contents = contentService.list(content);
 						for (Content c : contents) {
 							InvestmentHotline hotline = JSONObject.parseObject(c.getContent(), InvestmentHotline.class);
 							hotline.setCreateTime(c.getCreateTime());

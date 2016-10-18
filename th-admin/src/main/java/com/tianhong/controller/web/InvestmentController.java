@@ -213,7 +213,7 @@ public class InvestmentController extends BaseController {
 			map.put("menuId", menuId);
 			Content content = new Content();
 			content.setMenuId(Integer.parseInt(menuId));
-			List<Content> contents = contentService.findPage(content);
+			List<Content> contents = contentService.list(content);
 			List<InvestmentHotline> list = new ArrayList<InvestmentHotline>();
 			if (!CollectionUtils.isEmpty(contents)) {
 				for (Content c : contents) {
@@ -297,7 +297,7 @@ public class InvestmentController extends BaseController {
 			map.put("menuId", menuId);
 			Content content = new Content();
 			content.setMenuId(Integer.parseInt(menuId));
-			List<Content> contents = contentService.findPage(content);
+			List<Content> contents = contentService.list(content);
 			List<InvestmentCover> list = new ArrayList<InvestmentCover>();
 			if (!CollectionUtils.isEmpty(contents)) {
 				for (Content c : contents) {

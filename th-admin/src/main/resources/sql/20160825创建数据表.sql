@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-10-17 21:44:18
+Date: 2016-10-18 21:22:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -121,7 +121,7 @@ CREATE TABLE `t_content` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_content
@@ -182,6 +182,8 @@ INSERT INTO `t_content` VALUES ('53', '241', '05. 有竞争的薪酬1', '', '', 
 INSERT INTO `t_content` VALUES ('54', '242', '06. 其他福利6', '', '', '', null, '活动、年度旅游、春节嘉年华、公司周年庆祝活动、免费早餐及夜宵', null, '2016-10-16 20:47:57', '1', null, null, '0', null, null, null);
 INSERT INTO `t_content` VALUES ('66', '201', null, null, null, null, null, '{\"address\":\"1深圳市南山区中心路（深圳湾段）3019号天虹大厦9-14楼、17-20楼\",\"companyEnName\":\"R1ainbow Department Store Co., Ltd.\",\"companyName\":\"1天虹商场股份有限公司\",\"fax\":\"0755-2365 2166\",\"industry\":\"1零售业\",\"ipoRatio\":\"46.51\",\"issueNumber\":\"5120\",\"issuePrice\":\"40\",\"legalPerson\":\"1高书林\",\"marketTime\":\"12010-06-01\",\"menuId\":201,\"phone\":\"10755-2365 1888\",\"prospectusTime\":\"2016-05-19\",\"registered\":\"5000万\",\"releaseMode\":\"1上网定价发行，网下询价发行\",\"secretary\":\"1万颖\",\"shortName\":\"1天虹商场\",\"sponsorInstitution\":\"招1商证券股份有限公司\",\"underWriter\":\"招1商证券股份有限公司\",\"webSite\":\"www.rainbow.cn\",\"zipCode\":\"1518026\"}', null, '2016-10-17 21:02:41', '1', null, null, '0', null, null, null);
 INSERT INTO `t_content` VALUES ('67', '218', null, null, null, null, null, '{\"curPage\":1,\"department\":\"外交部\",\"email\":\"fds@qq.com\",\"id\":0,\"menuId\":218,\"name\":\"万\",\"pageSize\":10,\"phone\":\"131\",\"start\":0,\"totalPage\":0,\"totalRow\":0}', null, '2016-10-17 21:17:34', '1', null, null, '0', null, null, null);
+INSERT INTO `t_content` VALUES ('69', '246', null, null, null, null, null, '{\"email\":\"wanying@rainbow.cn\",\"id\":69,\"job\":\"董事长秘书\",\"menuId\":246,\"name\":\"万 颖\",\"phone\":\"0755-0000 0001\"}', null, '2016-10-18 20:59:32', '1', null, null, '0', null, null, null);
+INSERT INTO `t_content` VALUES ('70', '246', null, null, null, null, null, '{\"email\":\"wanying2@rainbow.cn\",\"id\":70,\"job\":\"证券代理\",\"menuId\":246,\"name\":\"万银1\",\"phone\":\"0755-0000 0002\"}', null, '2016-10-18 20:59:52', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_culture`
@@ -403,7 +405,7 @@ CREATE TABLE `t_menu` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=256 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_menu
@@ -607,7 +609,7 @@ INSERT INTO `t_menu` VALUES ('203', '定期报告', 'http://www.cninfo.com.cn/cn
 INSERT INTO `t_menu` VALUES ('204', '临时公告', 'http://www.cninfo.com.cn/cninfo-new/index', '', '3', '180', '5', '1', '2016-09-19 20:34:30', '1', '2016-09-19 20:45:40', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('205', '股东回报', '/web/investor/profit.html', '/web/investor/profit', '3', '180', '6', '1', '2016-09-19 20:34:36', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('206', '宣传与保护', '/web/investor/protect.html', '/web/investor/protect', '3', '180', '7', '1', '2016-09-19 20:34:48', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('207', '互动交流', '/web/investor/contact.html', '/contact/list', '3', '180', '8', '1', '2016-09-19 20:34:54', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('207', '互动交流', '/web/investor/communication', '/contact/list', '3', '180', '8', '1', '2016-09-19 20:34:54', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('208', '天虹商学院', '/web/staff/school', '', '3', '177', '1', '1', '2016-10-08 14:31:59', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('209', '人在天虹', '/web/staff/talent', '', '3', '177', '2', '1', '2016-10-08 14:32:21', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('210', '社会招聘', 'http://szrainbowhr.hirede.com/CareerSite/Index', '', '3', '177', '3', '1', '2016-10-08 14:32:30', '1', null, null, '0', null, null, null);
@@ -645,6 +647,17 @@ INSERT INTO `t_menu` VALUES ('241', '05. 有竞争的薪酬', '', '/menu/content
 INSERT INTO `t_menu` VALUES ('242', '06. 其他福利', '', '/menu/content/contenttext', '5', '230', '6', '1', '2016-10-16 19:52:26', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('243', '场地介绍', '', '/menu/content/contenttext', '5', '223', '1', '1', '2016-10-16 19:59:25', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('244', '租赁方式', '', '/menu/content/contenttext', '5', '223', '2', '1', '2016-10-16 19:59:38', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('245', '图片', '', '/menu/news/detail', '4', '207', '1', '0', '2016-10-18 19:45:13', '1', '2016-10-18 19:45:23', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('246', '联系方式', '', '/web/investor/contact', '4', '207', '2', '0', '2016-10-18 19:45:44', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('247', '组织架构', '', '/menu/news/detail', '4', '202', '1', '1', '2016-10-18 21:16:24', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('248', '公司制度', '', '/web/investment/investmentinfo', '4', '202', '2', '1', '2016-10-18 21:18:45', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('249', '利润分配', '', '', '4', '202', '3', '1', '2016-10-18 21:19:06', '1', '2016-10-18 21:20:05', '1', '1', '', null, null);
+INSERT INTO `t_menu` VALUES ('250', '分红动态', '', '/web/culture/commonweal/index', '4', '202', '4', '1', '2016-10-18 21:19:45', '1', '2016-10-18 21:20:01', '1', '1', '', null, null);
+INSERT INTO `t_menu` VALUES ('251', '分红动态', '', '/web/culture/commonweal/index', '4', '205', '2', '1', '2016-10-18 21:20:30', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('252', '利润分配', '', '', '4', '205', '1', '1', '2016-10-18 21:20:41', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('253', '热点关注', '', '/web/culture/commonweal/index', '4', '206', '1', '1', '2016-10-18 21:21:11', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('254', '法律法规', '', '/web/culture/commonweal/index', '4', '206', '2', '1', '2016-10-18 21:21:27', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('255', '公益教育', '', '/web/culture/commonweal/index', '4', '206', '3', '1', '2016-10-18 21:21:46', '1', null, null, '0', '', null, null);
 
 -- ----------------------------
 -- Table structure for `t_news_center`
@@ -709,7 +722,7 @@ CREATE TABLE `t_picture` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=170 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_picture
@@ -798,6 +811,7 @@ INSERT INTO `t_picture` VALUES ('164', '0', '1', '', 'undefined', null, '1', '14
 INSERT INTO `t_picture` VALUES ('165', '0', '2', '', 'undefined', null, '1', '1476626185788.png', '2016-10-16 21:56:25', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('166', '184', '5', '立志将公司塑造成全', 'undefined', null, '1', '1476707852393.png', '2016-10-17 20:37:34', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('167', '184', '6', '荣誉奖项', 'undefined', null, '1', '1476711760726.png', '2016-10-17 21:42:40', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('169', '245', '2', '', 'undefined', null, '1', '1476794511034.png', '2016-10-18 20:41:51', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_recruit_interaction`

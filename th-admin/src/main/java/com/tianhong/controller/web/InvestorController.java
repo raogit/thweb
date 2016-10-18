@@ -68,6 +68,19 @@ public class InvestorController extends BaseController {
 		}
 		return new ModelAndView("/web/investment-center", map);
 	}
+	
+	@RequestMapping(value = "/contact")
+	public Object contact(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			String menuId = request.getParameter("menuId");
+			map.put("menuId", menuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/staff-info", map);
+	}
+	
 
 	@RequestMapping(value = "/protect")
 	@ResponseBody

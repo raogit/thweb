@@ -351,7 +351,7 @@ function uploadPdf(fileId){
 		alert("请选择文件");
 		return;
 	}
-	var url=basePath + "/upload/pdf";
+	var url=basePath + "/upload/pdfUtf";
 	//执行上传文件操作的函数
 	$.ajaxFileUpload({
         url:url,
@@ -366,8 +366,9 @@ function uploadPdf(fileId){
             data = data.replace("</pre>", '');
             var reqParam = data;
         	if (reqParam != "" && reqParam!=false) {
-        		$("#popPdf").html(reqParam);
-        		$("#pdfurl").val(reqParam);
+        		var json =  JSON.parse(reqParam);
+        		$("#popPdf").html(json.fileName);
+        		$("#pdfurl").val(json.fileName);
 			} else {
 				alert("上传失败");
 			}

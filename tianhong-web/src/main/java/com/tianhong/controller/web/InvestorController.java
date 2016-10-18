@@ -3,6 +3,7 @@
  */
 package com.tianhong.controller.web;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -25,6 +27,7 @@ import com.tianhong.domain.content.Content;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.picture.Picture;
 import com.tianhong.model.InveInfo;
+import com.tianhong.model.StaffInfo;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.picture.PictureService;
@@ -238,5 +241,56 @@ public class InvestorController extends BaseController {
 			log.error("", e);
 		}
 		return new ModelAndView("/web/investor/protect", model);
+	}
+	
+	
+	@RequestMapping(value = "/communication")
+	public Object communication(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
+			model.put("menu", menu);
+			model.put("parentMenu", menuService.getByPrimaryKey(menu.getParentId()));
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
+			model.put("subMenus", subMenus);
+			
+			
+			List<Menu> subs = menuService.getSubMenus(menu.getId(), false);
+			for(Menu m : subs){
+				if(m.getName().indexOf("联系方式")>-1){
+					Content content = new Content();
+					content.setMenuId(m.getId());
+					List<Content> list = contentService.list(content);
+					if(!CollectionUtils.isEmpty(list)){
+						List<StaffInfo> infos = new ArrayList<StaffInfo>();
+						for(Content con : list){
+							if (StringUtils.isNotEmpty(con.getContent())) {
+								StaffInfo info = JSONObject.parseObject(con.getContent(), StaffInfo.class);
+								info.setId(content.getId());
+								infos.add(info);
+							}
+						}
+						model.put("infos", infos);
+					}
+					break;
+				}
+			}
+			for(Menu m : subs){
+				if(m.getName().indexOf("图片")>-1){
+					List<Picture> pictures = pictureService.findByMenuId(m.getId());
+					model.put("picture", pictures.get(0));
+					break;
+				}
+			}
+			
+
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/investor/contact", model);
 	}
 }

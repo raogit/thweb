@@ -38,7 +38,9 @@ public interface ContentService {
 	List<Content> insertSelective(int menuId, String title, String content, List<String> paths, User user)
 			throws Exception;
 
-	List<Content> findPage(Content Content) throws Exception;
+	Content page(Content content) throws Exception;
 
-	int getCount(Content Content) throws Exception;
+	int count(Content content) throws Exception;
+	
+	List<Content> list(Content content) throws Exception;
 }

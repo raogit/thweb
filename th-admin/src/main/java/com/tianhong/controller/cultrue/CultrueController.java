@@ -74,14 +74,11 @@ public class CultrueController extends BaseController {
 			if (StringUtils.isNotEmpty(content.getSource())) {
 				content.setSource(content.getSource().trim());
 			}
-			List<Content> list = contentService.findPage(content);
-			int count = contentService.getCount(content);
-			content.setObj(list);
-			content.setTotalRow(count);
+			return contentService.page(content);
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return content;
+		return false;
 	}
 
 	@RequestMapping(value = "/delete")

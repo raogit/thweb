@@ -90,12 +90,16 @@ public class ContentServiceImpl implements ContentService {
 		return contentMapper.selectByPrimaryKey(id);
 	}
 
-	public List<Content> findPage(Content Content) throws Exception {
-		return contentMapper.findPage(Content);
+	public Content page(Content content) throws Exception {
+		List<Content> page = contentMapper.page(content);
+		int count = contentMapper.count(content);
+		content.setObj(page);
+		content.setTotalRow(count);
+		return content;
 	}
 
-	public int getCount(Content Content) throws Exception {
-		return contentMapper.getCount(Content);
+	public int count(Content content) throws Exception {
+		return contentMapper.count(content);
 	}
 
 	public Content save(Content content) throws Exception {
@@ -110,6 +114,10 @@ public class ContentServiceImpl implements ContentService {
 			insertSelective(content);
 		}
 		return content;
+	}
+
+	public List<Content> list(Content content) throws Exception {
+		return contentMapper.list(content);
 	}
 
 }
