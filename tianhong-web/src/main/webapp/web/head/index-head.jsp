@@ -36,14 +36,26 @@
 				<div class="header_onBlockIn">
 					<ul class="header_onList">
 						<c:forEach var="sub" items="${item.subMenus }" begin="0" step="1">
-							<c:choose>
-								<c:when test="${fn:contains(sub.link, 'http')}">  
-							   		<li><a href="${sub.link }">${sub.name }</a></li>  
-							   	</c:when>
-							   	<c:otherwise> 
-							   		<li><a href="${basePath}${sub.link }?menuId=${sub.id }">${sub.name }</a></li>
-							   	</c:otherwise>
-							</c:choose>
+							<c:if test="${item.name=='多元业务' }">
+								<c:choose>
+									<c:when test="${fn:contains(sub.link, 'http')}">  
+								   		<li><a target="_blank" href="${sub.link }">${sub.name }</a></li>  
+								   	</c:when>
+								   	<c:otherwise> 
+								   		<li><a target="_blank" href="${basePath}${sub.link }?menuId=${sub.id }">${sub.name }</a></li>
+								   	</c:otherwise>
+								</c:choose>
+							</c:if>
+							<c:if test="${item.name!='多元业务' }">
+								<c:choose>
+									<c:when test="${fn:contains(sub.link, 'http')}">  
+								   		<li><a href="${sub.link }">${sub.name }</a></li>  
+								   	</c:when>
+								   	<c:otherwise> 
+								   		<li><a href="${basePath}${sub.link }?menuId=${sub.id }">${sub.name }</a></li>
+								   	</c:otherwise>
+								</c:choose>
+							</c:if>
 						</c:forEach>
 					</ul>
 				</div>

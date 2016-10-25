@@ -39,20 +39,20 @@
 	                	<c:if test="${item.id==menu.id }">
 	                		<c:choose>
 								<c:when test="${fn:contains(item.link, 'http')}">  
-							   		<a href="${item.link }" class="nav_liBlock current">${item.name }</a>
+							   		<a target="_blank" href="${item.link }" class="nav_liBlock current">${item.name }</a>
 							   	</c:when>
 							   	<c:otherwise> 
-							   		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock current">${item.name }</a>
+							   		<a target="_blank" href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock current">${item.name }</a>
 							   	</c:otherwise>
 							</c:choose>
 	                	</c:if>
 	                	<c:if test="${item.id!=menu.id }">
 	                		<c:choose>
 								<c:when test="${fn:contains(item.link, 'http')}">  
-							   		<a href="${item.link }" class="nav_liBlock">${item.name }</a>
+							   		<a target="_blank" href="${item.link }" class="nav_liBlock">${item.name }</a>
 							   	</c:when>
 							   	<c:otherwise> 
-							   		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock">${item.name }</a>
+							   		<a target="_blank" href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock">${item.name }</a>
 							   	</c:otherwise>
 							</c:choose>
 	                	</c:if>

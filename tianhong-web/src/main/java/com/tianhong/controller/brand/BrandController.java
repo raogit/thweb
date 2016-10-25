@@ -63,7 +63,6 @@ public class BrandController {
 						break;
 					}
 				}
-
 			}
 			if (!CollectionUtils.isEmpty(subMenus)) {
 				for (Menu menu : subMenus) {
