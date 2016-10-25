@@ -29,6 +29,7 @@ import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.content.Content;
 import com.tianhong.domain.user.User;
 import com.tianhong.model.InveInfo;
+import com.tianhong.model.Profit;
 import com.tianhong.model.StaffInfo;
 import com.tianhong.service.content.ContentService;
 
@@ -107,15 +108,14 @@ public class ContentController extends BaseController {
 		}
 		return null;
 	}
-	
+
 	@RequestMapping(value = "/inveinfo/save")
 	@ResponseBody
-	public Object investmentcoverSave(InveInfo inveInfo, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object investmentcoverSave(InveInfo inveInfo, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			User user = getCurrentUser(request);
 			Content content = contentService.getByMenuId(inveInfo.getMenuId());
-			if(content == null ){
+			if (content == null) {
 				content = new Content();
 				content.setMenuId(inveInfo.getMenuId());
 			}
@@ -130,7 +130,7 @@ public class ContentController extends BaseController {
 		}
 		return false;
 	}
-	
+
 	@RequestMapping(value = "/inveinfo/get")
 	@ResponseBody
 	public Object investmentcoverSave(@RequestParam("menuId") int menuId, HttpServletRequest request,
@@ -139,7 +139,7 @@ public class ContentController extends BaseController {
 		try {
 			map.put("menuId", menuId);
 			Content content = contentService.getByMenuId(menuId);
-			if(content!=null && StringUtils.isNotEmpty(content.getContent())){
+			if (content != null && StringUtils.isNotEmpty(content.getContent())) {
 				InveInfo inveInfo = JSONObject.parseObject(content.getContent(), InveInfo.class);
 				inveInfo.setId(content.getId());
 				return inveInfo;
@@ -150,22 +150,21 @@ public class ContentController extends BaseController {
 		}
 		return false;
 	}
-	
+
 	@RequestMapping(value = "/contact/save")
 	@ResponseBody
-	public Object contactSave(StaffInfo staffInfo, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object contactSave(StaffInfo staffInfo, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			User user = getCurrentUser(request);
 			Content content = null;
-			if(staffInfo.getId()!=null && staffInfo.getId()>0){
+			if (staffInfo.getId() != null && staffInfo.getId() > 0) {
 				content = contentService.getByPrimaryKey(staffInfo.getId());
 			}
-			if(content == null ){
+			if (content == null) {
 				content = new Content();
 				content.setMenuId(staffInfo.getMenuId());
 			}
-			
+
 			String json = JSONObject.toJSONString(staffInfo);
 			content.setContent(json);
 			content.setCreateTime(new Date());
@@ -177,17 +176,16 @@ public class ContentController extends BaseController {
 		}
 		return false;
 	}
-	
+
 	@RequestMapping(value = "/contact/get")
 	@ResponseBody
-	public Object contactGet(@RequestParam("id") int id, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object contactGet(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
-			
+
 			Content content = contentService.getByPrimaryKey(id);
 			map.put("menuId", content.getMenuId());
-			if(content!=null && StringUtils.isNotEmpty(content.getContent())){
+			if (content != null && StringUtils.isNotEmpty(content.getContent())) {
 				StaffInfo info = JSONObject.parseObject(content.getContent(), StaffInfo.class);
 				info.setId(content.getId());
 				return info;
@@ -198,11 +196,10 @@ public class ContentController extends BaseController {
 		}
 		return false;
 	}
-	
+
 	@RequestMapping(value = "/page")
 	@ResponseBody
-	public Object page(Content content, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object page(Content content, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			Content con = contentService.page(content);
 			return con;
@@ -211,10 +208,10 @@ public class ContentController extends BaseController {
 		}
 		return false;
 	}
+
 	@RequestMapping(value = "/list")
 	@ResponseBody
-	public Object list(Content content, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object list(Content content, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			List<Content> list = contentService.list(content);
 			return list;
@@ -223,4 +220,51 @@ public class ContentController extends BaseController {
 		}
 		return false;
 	}
+
+	@RequestMapping(value = "/profit/save")
+	@ResponseBody
+	public Object profitSave(Profit profit, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			User user = getCurrentUser(request);
+			Content content = null;
+			if (profit.getId() != null && profit.getId() > 0) {
+				content = contentService.getByPrimaryKey(profit.getId());
+			}
+			if (content == null) {
+				content = new Content();
+				content.setMenuId(profit.getMenuId());
+			}
+
+			String json = JSONObject.toJSONString(profit);
+			content.setContent(json);
+			content.setCreateTime(new Date());
+			content.setCreateId(user.getId());
+			contentService.save(content);
+			return profit;
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/profit/get")
+	@ResponseBody
+	public Object profitGet(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+
+			Content content = contentService.getByPrimaryKey(id);
+			map.put("menuId", content.getMenuId());
+			if (content != null && StringUtils.isNotEmpty(content.getContent())) {
+				Profit info = JSONObject.parseObject(content.getContent(), Profit.class);
+				info.setId(content.getId());
+				return info;
+			}
+			return false;
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
 }
