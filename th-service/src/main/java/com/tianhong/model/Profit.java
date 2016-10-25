@@ -7,6 +7,8 @@
  */
 package com.tianhong.model;
 
+import java.util.Date;
+
 /**
  * ClassName: profit
  * 
@@ -27,6 +29,8 @@ public class Profit {
 	private String simpleProfit;// 归属于上市公司股东的净利润（元）
 	private String simpleProfitRatio;// 占合并报表中归属于上市公司股东的净利润的比率
 	private String shareTotal;// 总股本（股）
+	private Date createTime;
+	private String createTimeStr;
 
 	public Integer getId() {
 		return id;
@@ -114,6 +118,22 @@ public class Profit {
 
 	public void setShareTotal(String shareTotal) {
 		this.shareTotal = shareTotal;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public String getCreateTimeStr() {
+		return createTimeStr;
+	}
+
+	public void setCreateTimeStr(String createTimeStr) {
+		this.createTimeStr = createTimeStr;
 	}
 
 }

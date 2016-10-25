@@ -52,8 +52,8 @@
                     <span>来源：${history.backup1 }</span>
                 </div>
                 <div class="PD-cont">
-                    <div class="PD-cim">
-                        <img src="../images/img/sr_6.jpg" alt="">
+                    <div>
+                        <img src="${basePath}/download/png?fileName=${history.picture}" alt="" style="max-width: 725px;">
                     </div>
                     <div class="PD-btm">${history.content }</div>
                    <!--  <div class="sr-share"><span>分享到： </span>
