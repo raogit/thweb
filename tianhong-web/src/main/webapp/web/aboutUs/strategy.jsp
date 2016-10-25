@@ -80,7 +80,7 @@
 	                    </map>
 	                    </div>
 	                </div>
-	                <div class="RS-line">
+	                <!-- <div class="RS-line">
 	                    <p class="line line-hn"><img src="../images/img/line-hn.png"></p>
 	                    <p class="line line-hz"><img src="../images/img/line-hn.png"></p>
 	                    <p class="line line-hb"><img src="../images/img/line-hb.png"></p>
@@ -124,7 +124,7 @@
 	                    <ul class="d-in in6">
 	                        <li class="at">西南地区</li> 
 	                    </ul> 
-	                </div>
+	                </div> -->
 	            </div>
 	        </div>
 	    </div>

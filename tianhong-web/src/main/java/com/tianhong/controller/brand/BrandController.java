@@ -20,7 +20,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.domain.content.Content;
@@ -51,15 +50,20 @@ public class BrandController {
 	private ContentService contentService;
 
 	@RequestMapping(value = "/list")
-	public Object subList(HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object subList(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			List<Menu> subMenusAll = menuService.getSubMenus(132, false);
 			List<Menu> subMenus = menuService.getSubMenus(132, true);
 			if (!CollectionUtils.isEmpty(subMenusAll)) {
-				List<Picture> pictures = pictureService.findByMenuId(subMenusAll.get(0).getId());
-				model.put("pictures", pictures);
+				for (Menu menu : subMenusAll) {
+					if (menu.getName().indexOf("首图") > -1) {
+						List<Picture> pictures = pictureService.findByMenuId(menu.getId());
+						model.put("pictures", pictures);
+						break;
+					}
+				}
+
 			}
 			if (!CollectionUtils.isEmpty(subMenus)) {
 				for (Menu menu : subMenus) {

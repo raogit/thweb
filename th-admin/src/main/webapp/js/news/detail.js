@@ -81,11 +81,11 @@ function picture(data){
 			var picture = data[i];
 			var html;
 			if(i==0){
-				html = "<div class='bannerdiv' style='height: 120px;'><div style='width: 120px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><p>"+picture.title+"</p><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:right("+picture.id+");'>右移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
+				html = "<div class='bannerdiv' style='height: 180px;'><div style='width: 120px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><p style='height: 50px;padding-top: 10px; overflow: auto;'>"+picture.title+"</p><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:right("+picture.id+");'>右移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
 			}else if(i==data.length-1){
-				html = "<div class='bannerdiv' style='height: 120px;'><div style='width: 120px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><p>"+picture.title+"</p><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:left("+picture.id+");'>左移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
+				html = "<div class='bannerdiv' style='height: 180px;'><div style='width: 120px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><p style='height: 50px;padding-top: 10px; overflow: auto;'>"+picture.title+"</p><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:left("+picture.id+");'>左移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
 			}else{
-				html = "<div class='bannerdiv' style='height: 120px;'><div style='width: 120px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><p>"+picture.title+"</p><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:left("+picture.id+");'>左移</a> | <a style='color: black;' href='javascript:right("+picture.id+");'>右移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
+				html = "<div class='bannerdiv' style='height: 180px;'><div style='width: 120px;height: 70px;'><img src='"+basePath+"/download/png?fileName="+picture.path+"'/></div><p style='height: 50px;padding-top: 10px; overflow: auto;'>"+picture.title+"</p><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:left("+picture.id+");'>左移</a> | <a style='color: black;' href='javascript:right("+picture.id+");'>右移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
 			}
 			bannerpicture.append(html);
 		}

@@ -67,64 +67,64 @@
 	                    <div class="tree fr">
 	                        <div class="lane huodai">
 	                            <span><img src="${basePath}/web/images/img/nav6.png"></span>
-	                            <div class="lane-cont">
+	                            <%-- <div class="lane-cont">
 	                                <div class="lane-top"><h1>${contentLoan.title }</h1><em class="close">X</em></div>
 	                                <div class="lane-infor">${contentLoan.content }</div>
 	                                <div class="lane-link">${contentLoan.title }：<a href="${contentLoan.address }">${contentLoan.address }</a></div>
-	                            </div>
+	                            </div> --%>
 	                        </div>
 	                        <div class="lane shop">
 	                            <span><img src="${basePath}/web/images/img/nav1.png"></span>
-	                            <div class="lane-cont">
+	                            <%-- <div class="lane-cont">
 	                                 <div class="lane-top"><h1>${contentMarket.title }</h1><em class="close">X</em></div> 
 	                                 <div class="lane-infor">${contentMarket.content }</div>
 	                                 <div class="lane-link">${contentMarket.title }：<a href="${contentMarket.address }">${contentMarket.address }</a></div>
-	                            </div>
+	                            </div> --%>
 	                        </div>
 	                        <div class="lane baihuo">
 	                            <span><img src="${basePath}/web/images/img/nav2.png"></span>
-	                            <div class="lane-cont">
+	                            <%-- <div class="lane-cont">
 	                                 <div class="lane-top"><h1>${contentJun.title }</h1><em class="close">X</em></div> 
 	                                 <div class="lane-infor">${contentJun.content }</div>
 	                                 <div class="lane-link">${contentJun.title }官网：<a href="${contentJun.address }">${contentJun.address }</a></div>
-	                            </div>
+	                            </div> --%>
 	                        </div>
 	                        <div class="lane gouwu">
 	                            <span><img src="${basePath}/web/images/img/nav3.png"></span>
-	                            <div class="lane-cont">
+	                            <%-- <div class="lane-cont">
 	                                 <div class="lane-top"><h1>${contentCenter.title }</h1><em class="close">X</em></div> 
 	                                 <div class="lane-infor">${contentCenter.content }</div>
 	                                 <div class="lane-link">${contentCenter.title }：<a href="${contentCenter.address }">${contentCenter.address }</a></div>
-	                            </div>
+	                            </div> --%>
 	                        </div>
 	                        <div class="lane weiwo">
 	                            <span><img src="${basePath}/web/images/img/nav4.png"></span>
-	                            <div class="lane-cont">
+	                            <%-- <div class="lane-cont">
 	                                 <div class="lane-top"><h1>${contentWin.title }</h1><em class="close">X</em></div> 
 	                                 <div class="lane-infor">${contentWin.content }</div>
 	                                 <div class="lane-link">${contentWin.title }：<a href="${contentWin.address }">${contentWin.address }</a></div>
-	                            </div>
+	                            </div> --%>
 	                        </div>
 	                        <div class="lane hongjin">
 	                            <span><img src="${basePath}/web/images/img/nav5.png"></span>
-	                            <div class="lane-cont">
+	                            <%-- <div class="lane-cont">
 	                                 <div class="lane-top"><h1>${contentScarf.title }</h1><em class="close">X</em></div> 
 	                                 <div class="lane-infor">${contentScarf.content }</div>
 	                                 <div class="lane-link">${contentScarf.title }：<a href="${contentScarf.address }">${contentScarf.address }</a></div>
-	                            </div>
+	                            </div> --%>
 	                        </div>
 	                        <div class="lane zhuyue">
 	                            <span><img src="${basePath}/web/images/img/nav7.png"></span>
-	                            <div class="lane-cont">
+	                            <%-- <div class="lane-cont">
 	                                <div class="lane-top"><h1>${contentHome.title }</h1><em class="close">X</em></div>
 	                                <div class="lane-infor">${contentHome.content }</div>
 	                                <div class="lane-link">${contentHome.title }：<a href="${contentHome.address }">${contentHome.address }</a></div>
-	                            </div>
+	                            </div> --%>
 	                        </div>
 	                    </div> 
 	                 </div>
 	             </div>
-	             <div class="laye-cont fl">
+	             <div class="fl" style="width: 500px;margin-top: 70px;">
 	                <div class="bd-L-title">
 	                    <div class="bd-L-tch">${content.title }</div>
 	                    <div class="bd-L-tle tle2"></div>

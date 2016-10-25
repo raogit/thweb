@@ -68,8 +68,7 @@
 	<div class="bodyer">
 		<div class="common_parentBlock">
 			<div class="common_page modol_1">
-				<c:forEach var="item" items="${pictures }" begin="0" step="1"
-					end="0">
+				<c:forEach var="item" items="${pictures }" begin="0" step="1" end="0">
 					<img src="${basePath}/download/png?fileName=${item.path }">
 				</c:forEach>
 				<i></i>
