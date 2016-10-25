@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : th114
+Source Server         : localhost
 Source Server Version : 50173
-Source Host           : 192.168.163.114:3306
+Source Host           : localhost:3306
 Source Database       : tianhong
 
 Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-10-18 21:22:34
+Date: 2016-10-25 16:37:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -121,7 +121,7 @@ CREATE TABLE `t_content` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_content
@@ -184,6 +184,7 @@ INSERT INTO `t_content` VALUES ('66', '201', null, null, null, null, null, '{\"a
 INSERT INTO `t_content` VALUES ('67', '218', null, null, null, null, null, '{\"curPage\":1,\"department\":\"外交部\",\"email\":\"fds@qq.com\",\"id\":0,\"menuId\":218,\"name\":\"万\",\"pageSize\":10,\"phone\":\"131\",\"start\":0,\"totalPage\":0,\"totalRow\":0}', null, '2016-10-17 21:17:34', '1', null, null, '0', null, null, null);
 INSERT INTO `t_content` VALUES ('69', '246', null, null, null, null, null, '{\"email\":\"wanying@rainbow.cn\",\"id\":69,\"job\":\"董事长秘书\",\"menuId\":246,\"name\":\"万 颖\",\"phone\":\"0755-0000 0001\"}', null, '2016-10-18 20:59:32', '1', null, null, '0', null, null, null);
 INSERT INTO `t_content` VALUES ('70', '246', null, null, null, null, null, '{\"email\":\"wanying2@rainbow.cn\",\"id\":70,\"job\":\"证券代理\",\"menuId\":246,\"name\":\"万银1\",\"phone\":\"0755-0000 0002\"}', null, '2016-10-18 20:59:52', '1', null, null, '0', null, null, null);
+INSERT INTO `t_content` VALUES ('71', '252', null, null, null, null, null, '{\"cash\":\"440,110,000\",\"exDividendDate\":\"20160506\",\"id\":71,\"marketDate\":\"--\",\"menuId\":252,\"profitDate\":\"2015年\",\"profitPlan\":\"10派5.5元（含税）\",\"registerDate\":\"20160505\",\"shareTotal\":\"800,200,000\",\"simpleProfit\":\"1,208,412,565.12\",\"simpleProfitRatio\":\"36.42%\"}', null, '2016-10-25 10:31:32', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_culture`
@@ -405,7 +406,7 @@ CREATE TABLE `t_menu` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=256 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=259 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_menu
@@ -604,11 +605,11 @@ INSERT INTO `t_menu` VALUES ('198', '招商中心', '/web/investment/business', 
 INSERT INTO `t_menu` VALUES ('199', '展示成果', '/web/investment/show', '/web/investment/index', '3', '178', '2', '1', '2016-09-19 20:31:28', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('200', '实时行情', '/web/investor/quotation', '', '3', '180', '1', '1', '2016-09-19 20:34:06', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('201', '基本资料', '/web/investor/basedata', '/menu/content/contenttable', '3', '180', '2', '1', '2016-09-19 20:34:12', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('202', '公司治理', '/web/investor/companyManage.html', '/web/investor/companyManage', '3', '180', '3', '1', '2016-09-19 20:34:19', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('202', '公司治理', '/web/companymanager/index', '/web/investor/companyManage', '3', '180', '3', '1', '2016-09-19 20:34:19', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('203', '定期报告', 'http://www.cninfo.com.cn/cninfo-new/index', '', '3', '180', '4', '1', '2016-09-19 20:34:24', '1', '2016-09-19 20:44:51', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('204', '临时公告', 'http://www.cninfo.com.cn/cninfo-new/index', '', '3', '180', '5', '1', '2016-09-19 20:34:30', '1', '2016-09-19 20:45:40', '1', '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('205', '股东回报', '/web/investor/profit.html', '/web/investor/profit', '3', '180', '6', '1', '2016-09-19 20:34:36', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('206', '宣传与保护', '/web/investor/protect.html', '/web/investor/protect', '3', '180', '7', '1', '2016-09-19 20:34:48', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('205', '股东回报', '/web/companymanager/profit', '/web/investor/profit', '3', '180', '6', '1', '2016-09-19 20:34:36', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('206', '宣传与保护', '/web/companymanager/protect', '/web/investor/protect', '3', '180', '7', '1', '2016-09-19 20:34:48', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('207', '互动交流', '/web/investor/communication', '/contact/list', '3', '180', '8', '1', '2016-09-19 20:34:54', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('208', '天虹商学院', '/web/staff/school', '', '3', '177', '1', '1', '2016-10-08 14:31:59', '1', null, null, '0', null, null, null);
 INSERT INTO `t_menu` VALUES ('209', '人在天虹', '/web/staff/talent', '', '3', '177', '2', '1', '2016-10-08 14:32:21', '1', null, null, '0', null, null, null);
@@ -650,14 +651,17 @@ INSERT INTO `t_menu` VALUES ('244', '租赁方式', '', '/menu/content/contentte
 INSERT INTO `t_menu` VALUES ('245', '图片', '', '/menu/news/detail', '4', '207', '1', '0', '2016-10-18 19:45:13', '1', '2016-10-18 19:45:23', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('246', '联系方式', '', '/web/investor/contact', '4', '207', '2', '0', '2016-10-18 19:45:44', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('247', '组织架构', '', '/menu/news/detail', '4', '202', '1', '1', '2016-10-18 21:16:24', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('248', '公司制度', '', '/web/investment/investmentinfo', '4', '202', '2', '1', '2016-10-18 21:18:45', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('249', '利润分配', '', '', '4', '202', '3', '1', '2016-10-18 21:19:06', '1', '2016-10-18 21:20:05', '1', '1', '', null, null);
+INSERT INTO `t_menu` VALUES ('248', '公司制度', '', '/web/companymanager/system', '4', '202', '3', '1', '2016-10-18 21:18:45', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('249', '利润分配', '', '/web/partnerbonus/profit', '4', '202', '3', '1', '2016-10-18 21:19:06', '1', '2016-10-18 21:20:05', '1', '1', '', null, null);
 INSERT INTO `t_menu` VALUES ('250', '分红动态', '', '/web/culture/commonweal/index', '4', '202', '4', '1', '2016-10-18 21:19:45', '1', '2016-10-18 21:20:01', '1', '1', '', null, null);
 INSERT INTO `t_menu` VALUES ('251', '分红动态', '', '/web/culture/commonweal/index', '4', '205', '2', '1', '2016-10-18 21:20:30', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('252', '利润分配', '', '', '4', '205', '1', '1', '2016-10-18 21:20:41', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('252', '利润分配', '', '/web/partnerbonus/profit', '4', '205', '1', '1', '2016-10-18 21:20:41', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('253', '热点关注', '', '/web/culture/commonweal/index', '4', '206', '1', '1', '2016-10-18 21:21:11', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('254', '法律法规', '', '/web/culture/commonweal/index', '4', '206', '2', '1', '2016-10-18 21:21:27', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('255', '公益教育', '', '/web/culture/commonweal/index', '4', '206', '3', '1', '2016-10-18 21:21:46', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('256', '公司高管', '', '/web/companymanager/seniorexecutive', '4', '202', '2', '1', '2016-10-25 09:34:00', '1', '2016-10-25 09:38:01', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('257', '董事', '', '/web/companymanager/seniorexecutive', '5', '256', '1', '1', '2016-10-25 15:10:34', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('258', '监事', '', '/web/companymanager/seniorexecutive', '5', '256', '2', '1', '2016-10-25 15:10:44', '1', null, null, '0', '', null, null);
 
 -- ----------------------------
 -- Table structure for `t_news_center`
@@ -722,7 +726,7 @@ CREATE TABLE `t_picture` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=170 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_picture
@@ -812,6 +816,15 @@ INSERT INTO `t_picture` VALUES ('165', '0', '2', '', 'undefined', null, '1', '14
 INSERT INTO `t_picture` VALUES ('166', '184', '5', '立志将公司塑造成全', 'undefined', null, '1', '1476707852393.png', '2016-10-17 20:37:34', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('167', '184', '6', '荣誉奖项', 'undefined', null, '1', '1476711760726.png', '2016-10-17 21:42:40', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('169', '245', '2', '', 'undefined', null, '1', '1476794511034.png', '2016-10-18 20:41:51', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('170', '247', '1', '', 'undefined', null, '1', '1477359574603.png', '2016-10-25 09:39:34', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('171', '248', '1', '2016年第一版', '51CTO下载-Lucene实战(第2版)PDF高清中文版.pdf', '天虹商场：2016年3月第一版公司章程天虹商场：2016年3月第一版公司章程', '8', '', '2016-10-25 09:53:37', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('172', '248', '2', '2016年第一版1', '中文.pdf', '天虹商场：2016年3月第一版公司章程天虹商场：2016年3月第二版公司章程', '8', '', '2016-10-25 15:16:51', '1', '2016-10-25 15:17:08', '1', '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('173', '248', '3', '2016年第一版13', '中文.pdf', '2016年第一版1333333333', '8', '', '2016-10-25 15:17:25', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('174', '248', '4', '2016年第一版144444444444', '中文.pdf', '2016年第一版14444444444444', '8', '', '2016-10-25 15:17:35', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('175', '248', '5', '2016年第一版15555555555555', '中文.pdf', '2016年第一版1555555555555', '8', '', '2016-10-25 15:17:48', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('176', '248', '6', '2016年第一版166666666', '中文.pdf', '2016年第一版1666666666', '8', '', '2016-10-25 15:17:59', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('177', '248', '7', '2016年第一版177777777', '中文.pdf', '2016年第一版17777777777', '8', '', '2016-10-25 15:18:16', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('178', '248', '8', '2016年第一版18888888888888', '中文.pdf', '2016年第一版188888888888888', '8', '', '2016-10-25 15:18:27', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_recruit_interaction`
@@ -1569,7 +1582,7 @@ CREATE TABLE `t_web_develop_history` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_web_develop_history
@@ -1583,3 +1596,21 @@ INSERT INTO `t_web_develop_history` VALUES ('8', '212', '滴答滴答滴答滴�
 INSERT INTO `t_web_develop_history` VALUES ('9', '217', '111111111111111111111111111111', '1476252594736.png', '22222222222222222221111111111111222222222222222222211111111111112222222222222222222111111111111122222222222222222221111111111111222222222222222222211111111111112222222222222222222111111111111122222222222222222221111111111111222222222222222222211111111111112222222222222222222111111111111122222222222222222221111111111111222222222222222222211111111111112222222222222222222111111111111122222222222222222221111111111111222222222222222222211111111111112222222222222222222111111111111122222222222222222221111111111111222222222222222222211111111111112222222222222222222111111111111122222222222222222221111111111111', null, '2016-10-12 14:09:55', '1', null, null, '0', '222222222', null, null);
 INSERT INTO `t_web_develop_history` VALUES ('10', '182', '2015年8月17日', '', '2015年8月17日，天虹正式推出“天虹到家”业务在南山常兴天虹举行上线启动仪式，启动仪式完成之后，天虹董事总经理高书林亲自当送货员去送货。\n2015年8月19日，天虹微喔便利店第一家加盟店亿利达大厦店开业，该店位于深圳市南山区亿利达大厦B区3栋首层1007号。', '2015-08-17 00:00:00', '2016-10-14 14:00:01', '1', '2016-10-14 14:04:14', '1', '0', null, null, null);
 INSERT INTO `t_web_develop_history` VALUES ('11', '182', '2015年7月31日', '', '2015年7月31日，天虹首家跨境电商体验店在宝安天虹购物中心开业。该店面积超200平方米，店内包括母婴用品、大牌美妆用品、日系药妆店、畅销的休闲食品、奶制品、进口水果、冰海产等近千种明星商品，分为跨境商品（保税）和完税商品。', '2015-07-31 00:00:00', '2016-10-14 14:07:30', '1', null, null, '0', null, null, null);
+INSERT INTO `t_web_develop_history` VALUES ('12', '256', '刁伟程先生', '', '中国国籍，1963年6月出生，中山大学物理学学士，同济大学工商管理硕士、管理科学与工程博士，研究员级高级工程师，无境外永久居留权。', null, '2016-10-25 09:51:28', '1', null, null, '0', null, null, null);
+INSERT INTO `t_web_develop_history` VALUES ('13', '253', '内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示', '1477360648059.png', '热点关注如何培养零售人才，推动公司持续发展如何培养零售人才，推动公司持续发展如何培养零售人才，推动公司持续发展如何培养零售人才，推动公司持续发展如何培养零售人才，推动公司持续发展\n如何培养零售人才，推动公司持续发展如何培养零售人才，推动公司持续发展如何培养零售人才，推动公司持续发展如何培养零售人才，推动公司持续发展', null, '2016-10-25 09:57:28', '1', null, null, '0', '天虹商场', null, null);
+INSERT INTO `t_web_develop_history` VALUES ('14', '251', '分红动态001', '1477362728771.png', '内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示教育展电子展连接内幕交易警示', null, '2016-10-25 10:32:09', '1', null, null, '0', '', null, null);
+INSERT INTO `t_web_develop_history` VALUES ('15', '257', '刁伟程先生', '', '刁伟程中国国籍，1963年6月出生，中山大学物理学学士，同济大学工商管理硕士、管理科学与工程博士，研究员级高级工程师，无境外永久居留权。', '2016-10-25 15:11:48', '2016-10-25 15:11:18', '1', '2016-10-25 15:11:48', '1', '0', null, null, null);
+INSERT INTO `t_web_develop_history` VALUES ('16', '257', '黄俊康先生', '', '黄俊康中国国籍，1963年6月出生，中山大学物理学学士，同济大学工商管理硕士、管理科学与工程博士，研究员级高级工程师，无境外永久居留权', null, '2016-10-25 15:11:40', '1', null, null, '0', null, null, null);
+INSERT INTO `t_web_develop_history` VALUES ('17', '257', '高书林先生', '', '高书林先生中国国籍，1963年6月出生，中山大学物理学学士，同济大学工商管理硕士、管理科学与工程博士，研究员级高级工程师，无境外永久居留权', null, '2016-10-25 15:12:29', '1', null, null, '0', null, null, null);
+INSERT INTO `t_web_develop_history` VALUES ('18', '258', '仇慎谦先生', '', '仇慎谦先生中国国籍，1963年6月出生，中山大学物理学学士，同济大学工商管理硕士、管理科学与工程博士，研究员级高级工程师，无境外永久居留权', null, '2016-10-25 15:12:51', '1', null, null, '0', null, null, null);
+INSERT INTO `t_web_develop_history` VALUES ('19', '258', '黄俊康先生', '', '黄俊康先生中国国籍，1963年6月出生，中山大学物理学学士，同济大学工商管理硕士、管理科学与工程博士，研究员级高级工程师，无境外永久居留权。', null, '2016-10-25 15:13:04', '1', null, null, '0', null, null, null);
+INSERT INTO `t_web_develop_history` VALUES ('20', '258', '高书林先生', '', '高书林先生中国国籍，1963年6月出生，中山大学物理学学士，同济大学工商管理硕士、管理科学与工程博士，研究员级高级工程师，无境外永久居留权。', null, '2016-10-25 15:13:16', '1', null, null, '0', null, null, null);
+INSERT INTO `t_web_develop_history` VALUES ('21', '251', '分红动态0022222', '', '分红动态0022222222222222222', null, '2016-10-25 16:03:12', '1', null, null, '0', '', null, null);
+INSERT INTO `t_web_develop_history` VALUES ('22', '251', '分红动态003333333333', '', '分红动态003333333333333', null, '2016-10-25 16:03:19', '1', null, null, '0', '', null, null);
+INSERT INTO `t_web_develop_history` VALUES ('23', '254', '法律法规内幕交易警示教育展电子展连接内幕交易警示', '', '法律法规内幕交易警示教育展电子展连接内幕交易警示', null, '2016-10-25 16:30:26', '1', null, null, '0', '', null, null);
+INSERT INTO `t_web_develop_history` VALUES ('24', '254', '法律法规内幕交易警示教育展电子展连接内幕交易警示22', '', '法律法规内幕交易警示教育展电子展连接内幕交易警示222222', null, '2016-10-25 16:30:32', '1', null, null, '0', '', null, null);
+INSERT INTO `t_web_develop_history` VALUES ('25', '254', '法律法规内幕交易警示333333333', '', '法律法规内幕交易警示3333333333333', null, '2016-10-25 16:33:50', '1', null, null, '0', '', null, null);
+INSERT INTO `t_web_develop_history` VALUES ('26', '254', '法律法规内幕交易警示44444444444444', '', '法律法规内幕交易警示444444444444444', null, '2016-10-25 16:33:57', '1', null, null, '0', '', null, null);
+INSERT INTO `t_web_develop_history` VALUES ('27', '254', '法律法规内幕交易警示55555555555', '', '法律法规内幕交易警示55555555555555555555', null, '2016-10-25 16:34:08', '1', null, null, '0', '', null, null);
+INSERT INTO `t_web_develop_history` VALUES ('28', '254', '法律法规内幕交易警示666666666666666', '', '法律法规内幕交易警示66666666666666', null, '2016-10-25 16:34:16', '1', null, null, '0', '', null, null);
+INSERT INTO `t_web_develop_history` VALUES ('29', '254', '法律法规内幕交易警示7777777777777777', '', '7法律法规内幕交易警示77777777777777', null, '2016-10-25 16:34:24', '1', null, null, '0', '', null, null);
