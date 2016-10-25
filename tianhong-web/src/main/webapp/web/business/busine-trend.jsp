@@ -25,12 +25,26 @@
              </div>
              <div class="nav_ulBlock">
               	<c:forEach var="item" items="${subMenus }" begin="0" step="1" varStatus="itemStatus">
-	               	<c:if test="${item.id==menu.id }">
-	               		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock current">${item.name }</a>
-	               	</c:if>
-	               	<c:if test="${item.id!=menu.id }">
-	               		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock">${item.name }</a>
-	               	</c:if>
+                	<c:if test="${item.id==menu.id }">
+                		<c:choose>
+							<c:when test="${fn:contains(item.link, 'http')}">  
+						   		<a href="${item.link }" class="nav_liBlock current">${item.name }</a>
+						   	</c:when>
+						   	<c:otherwise> 
+						   		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock current">${item.name }</a>
+						   	</c:otherwise>
+						</c:choose>
+                	</c:if>
+                	<c:if test="${item.id!=menu.id }">
+                		<c:choose>
+							<c:when test="${fn:contains(item.link, 'http')}">  
+						   		<a href="${item.link }" class="nav_liBlock">${item.name }</a>
+						   	</c:when>
+						   	<c:otherwise> 
+						   		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock">${item.name }</a>
+						   	</c:otherwise>
+						</c:choose>
+                	</c:if>
 		        </c:forEach>
              </div>
         </div>
