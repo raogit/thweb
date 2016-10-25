@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-10-25 16:37:56
+Date: 2016-10-25 17:34:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -726,7 +726,7 @@ CREATE TABLE `t_picture` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=180 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_picture
@@ -825,6 +825,7 @@ INSERT INTO `t_picture` VALUES ('175', '248', '5', '2016年第一版155555555555
 INSERT INTO `t_picture` VALUES ('176', '248', '6', '2016年第一版166666666', '中文.pdf', '2016年第一版1666666666', '8', '', '2016-10-25 15:17:59', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('177', '248', '7', '2016年第一版177777777', '中文.pdf', '2016年第一版17777777777', '8', '', '2016-10-25 15:18:16', '1', null, null, '0', null, null, null);
 INSERT INTO `t_picture` VALUES ('178', '248', '8', '2016年第一版18888888888888', '中文.pdf', '2016年第一版188888888888888', '8', '', '2016-10-25 15:18:27', '1', null, null, '0', null, null, null);
+INSERT INTO `t_picture` VALUES ('179', '247', '2', '法律法规内幕交易警示教育展电子展连接内幕交易警示法律法规内幕交易警示教育展电子展连接内幕交易警示', 'undefined', null, '1', '1477385141791.png', '2016-10-25 16:45:41', '1', null, null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `t_recruit_interaction`
