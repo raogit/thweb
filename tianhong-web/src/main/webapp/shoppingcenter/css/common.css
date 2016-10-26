@@ -1,0 +1,70 @@
+/* CSS Document */
+html,body,div,span,iframe,h1,h2,h3,h4,h5,h6,pre,a,big,cite,code,del,em,img,q,s,samp,small,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,tbody,tr,th,td,canvas,footer,header,menu,nav,section,summary,time,mark,audio,video,p{border:none;margin:0;padding:0;outline:0;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,iframe{display:block;}
+fieldset,img{border:0;max-width:100%;vertical-align:middle;}
+address,caption,cite,code,dfn,em,var,i{font-weight:normal;font-style:normal;}
+ol,ul,dl{list-style:none;}
+h1,h2,h3,h4,h5,h6,button,input,select,textarea{font-size:100%;}q:before,q:after {content:'';}
+abbr,acronym{border:0;}
+input,textarea,select{outline:none}
+input:focus,textarea:focus{outline:none}ul:after,dl:after{content:"";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
+a{text-decoration:none;outline:none;}
+a:hover{outline:none;}
+*{ padding: 0; margin: 0; }
+body{font:14px/1.5 'Microsoft YaHei', Helvetica, Arial, sans-serif; font-family: 思源黑体 CN;background-color:#fafafa;color:#000;min-width:320px;-webkit-text-size-adjust:none;}
+.lt{float:left;}.rt{float:right;}
+.clear{clear:both;overflow:hidden;height:0; width: 0;padding: 0; margin:0; }
+.clfix:after{content:" ";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}* html .clfix{height:1%;}*+html .clfix{min-height:1px;}
+.both{clear:both;overflow:hidden;height:2em;}.box{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;}
+.opaci{filter:alpha(opacity=0);opacity:0;}
+.wrap{margin:0 auto;}  
+.container{ margin:0 auto; }
+.ui-lnk{transition:color .5s;-webkit-transition:color .5s;-moz-transition:color .5s;-ms-transition:color .5s;}
+.ui-lik{transition:all .5s;-webkit-transition:all .5s;-moz-transition:all .5s;-ms-transition:all .5s;}
+.fr{ float: right; }
+.fl{ float: left; }
+
+body{    position: relative;  /* overflow: hidden; */ }
+.shpping{ background:url(../images/common/bg.jpg) ; background-size: 100%; background-attachment:fixed;}
+.nav_box{ width: 220px; background: #fff;box-shadow: 1px 0 1px -1px #d6d6d6;  height: 100%; z-index: 999;   position:fixed;  top: 0; left: 0;}
+.nav_box .logo{padding-top:80px;}
+.nav_box .nav{ width: 160px; margin:20px auto;}  /*思源黑体 CN*/
+.nav_box .nav ul li{ text-align: center;  border-bottom: 1px dotted #9b9b9b;  position: relative;}
+.nav_box .nav ul li a{ color: #1c1c1c; font-size: 14px; font-family: 思源黑体 CN; }
+.nav_box .nav ul li:hover a,.nav_box .nav ul li.current a,.nav_box a.back_jt:hover {color: #e16009}
+
+
+.nav_box .back_jt{ color: #333; font-size: 12px; text-align: center;  display: block; margin-bottom:22%;margin-bottom: 10px;margin-top: 60px;}
+.nav_box .nav_btom{ width: 220px; text-align: center; color: #969696; font-size: 12px; }
+.nav_box .nav_btom p{ height: 20px; line-height: 20px; }
+.nav_box .nav_line{ width: 150px; margin: 20px auto 30px; }
+.nav_box .nav_line a{ float: left; width: 25px; height: 25px; margin-left: 10px; position: relative; }
+
+
+.nav_content {position: fixed;top:0px;height:100%;left:0px;width:0;z-index: 998;background: url(../images/common/nav__list_bg.png);width:135px;}
+.nav_InnerBlock {position: relative;height:100%;width:0px;margin-left:0px;}
+.nav_blockText {width:190px;white-space: nowrap;padding:10% 0; display: block;text-indent:-35px}
+.l_nav{ width: 135px; position:absolute; top: 0; height: 100%; left: -0px; }
+.l_nav i.hd1,.l_nav i.hd2,.l_nav i.hd3,.l_nav i.hd4,.l_nav i.hd5{position: absolute;top:303px ; right:135px; width:20px;height:25px;background:url(../images/common/nva_tb.png) no-repeat center;}
+.l_nav i.hd2{top:353px ; }
+.l_nav i.hd3{top:410px ; }
+.l_nav i.hd4{top:463px ; }
+.l_nav i.hd5{top:573px ; }
+.nav_p{ padding-top:220px;  }
+.nav_p2{ padding-top:270px;  }
+.nav_p3{ padding-top:330px;  }
+.nav_p4{ padding-top:380px;  }
+.nav_p5{ padding-top:490px;  }
+.l_nav a{padding: 8px 0;  text-align: center; color: #404040; display: block; margin: 1% 8%;height: 22px;}
+.l_nav a:hover{ border: 1px solid #999; color: #404040;height: 20px;}
+
+.bodyer {position: relative;width:100%;height: 100%;}
+.common_parentBlock {position: relative;width:100%;height: 100%;}
+.common_page {position: relative;width:100%;height: 100%;}
+
+.choose_button ,.choose_button_food{position: absolute;bottom: -440px; *bottom: -445px;right: 26px;}
+.choose_button_food{bottom: -130px;}
+.choose_button .next_page{ width: 70px; text-align: center; font-size: 26px; font-family: 思源黑体 CN; }
+
+.index_foot{ width: 100%; background: #fff; padding: 10px 0 10px 350px; position: fixed; bottom: 0;}
+.shop_bodyer {position: relative;width: 100%;margin-left: 208px;}
