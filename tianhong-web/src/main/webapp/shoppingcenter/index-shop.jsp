@@ -16,11 +16,11 @@
 		<div class="nav_content">
 			<c:if test="${fn:length(item.subMenus)>0}">
 				<div class="nav_InnerBlock">
-					<div class="l_nav nav_p${itemStatus.index+1 }" >
+					<div class="l_nav nav_p${itemStatus.index }" >
 						<c:forEach var="menu" items="${item.subMenus }" begin="0" step="1">
 							<a href="news.html?page=0">${menu.name }</a>
 						</c:forEach>
-						<i class="hd${itemStatus.index+1 }"></i>
+						<i class="hd${itemStatus.index }"></i>
 					</div>
 				</div>
 			</c:if>
@@ -33,16 +33,6 @@
 				<a href="news.html?page=1">商户优惠</a>
 				<a href="news.html?page=2">新闻资讯</a>
 				<i class="hd1"></i>
-			</div>
-		</div>
-	</div>
-	<div class="nav_content">
-		<div class="nav_InnerBlock">
-			<div class="l_nav nav_p2" >
-				<a href="ShopBrand.html">品牌索引</a>
-				<a href="ShopFloor.html">楼层索引</a>
-				<a href="specia_shop.html">特色店铺</a>
-				<i class="hd2"></i>
 			</div>
 		</div>
 	</div>

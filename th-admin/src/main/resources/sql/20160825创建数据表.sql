@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-10-26 14:45:02
+Date: 2016-10-26 16:14:26
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -667,7 +667,7 @@ INSERT INTO `t_menu` VALUES ('256', '公司高管', '', '/web/companymanager/sen
 INSERT INTO `t_menu` VALUES ('257', '董事', '', '/web/companymanager/seniorexecutive', '5', '256', '1', '1', '2016-10-25 15:10:34', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('258', '监事', '', '/web/companymanager/seniorexecutive', '5', '256', '2', '1', '2016-10-25 15:10:44', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('259', '购物中心', '', '', '1', '0', '15', '1', '2016-10-26 11:44:18', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('260', '首页', '', '', '2', '259', '1', '1', '2016-10-26 11:44:34', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('260', '首页', '/shopping/home/index', '', '2', '259', '1', '1', '2016-10-26 11:44:34', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('261', '资讯中心', '', '', '2', '259', '2', '1', '2016-10-26 11:44:49', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('262', '娱乐风尚', '', '', '2', '259', '3', '1', '2016-10-26 11:45:02', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('263', '服务中心', '', '', '2', '259', '4', '1', '2016-10-26 11:45:10', '1', null, null, '0', '', null, null);
@@ -685,8 +685,8 @@ INSERT INTO `t_menu` VALUES ('274', '泊车服务', '', '/menu/news/detail', '3'
 INSERT INTO `t_menu` VALUES ('275', '公司简介', '', '/menu/news/detail', '3', '265', '1', '1', '2016-10-26 11:48:26', '1', '2016-10-26 12:08:58', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('276', '诚聘英才', '', '', '3', '265', '2', '1', '2016-10-26 11:48:38', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('277', '联系我们', '', '/web/investor/contact', '3', '265', '3', '1', '2016-10-26 11:48:46', '1', '2016-10-26 12:11:21', '1', '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('278', '轮换图', '', '/menu/news/detail', '3', '260', '1', '1', '2016-10-26 11:54:01', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('279', '普通图', '', '/menu/news/detail', '3', '260', '2', '1', '2016-10-26 11:54:16', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('278', '轮换图', '', '/menu/news/detail', '3', '260', '1', '0', '2016-10-26 11:54:01', '1', '2016-10-26 15:42:19', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('279', '普通图', '', '/menu/news/detail', '3', '260', '2', '0', '2016-10-26 11:54:16', '1', '2016-10-26 15:42:23', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('280', '轮换图', '', '/menu/news/detail', '4', '269', '1', '1', '2016-10-26 12:01:52', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('281', '活动资讯', '', '/shopping/infocenter/index', '4', '269', '2', '1', '2016-10-26 12:02:04', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('282', '分页广告图', '', '/menu/news/detail', '4', '269', '3', '1', '2016-10-26 12:02:29', '1', null, null, '0', '', null, null);

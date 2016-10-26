@@ -3,12 +3,12 @@ $(function(){
   var i = 0;
   $(".nav_box .nav li").hover(function(){
     i = $(this).index();
-    if(i != 5){
-      $(".nav_content").eq(i-1).stop().animate({left:220},300);
-    }      
+    
+      $(".nav_content").eq(i).stop().animate({left:220},300);
+         
   },function(){
     i = $(this).index();
-    $(".nav_content").eq(i-1).stop().animate({left:30},300);
+    $(".nav_content").eq(i).stop().animate({left:30},300);
   })
   $(".nav_content").hover(function(){
     $(this).stop().animate({left:220},300);
