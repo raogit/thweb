@@ -374,7 +374,7 @@ function initTable(data){
 		var time = curentTime(item.createTime);
 		var tr = "<tr>"
 			+"<td>"+(i+1)+"</td>"
-			+"<td>"+item.type+"</td>"
+//			+"<td>"+item.type+"</td>"
 			+"<td>"+item.title+"</td>"
 			+"<td>"+item.newsTimeStr+"</td>"
 			+"<td>"+time+"</td>";

@@ -33,7 +33,7 @@
 	<script src="${basePath}/js/upload/ajaxfileupload.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath}/js/timer/timer.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath}/js/utils/utils.js?ver=${ver}" type="text/javascript" ></script>
-	<script src="${basePath}/js/web/newcenter.js?ver=${ver}" type="text/javascript" ></script>
+	<script src="${basePath}/js/shoppingcenter/info.js?ver=${ver}" type="text/javascript" ></script>
 	<script src="${basePath }/js/My97DatePicker/WdatePicker.js?ver=${ver}" type="text/javascript" ></script>
 </head>
 
@@ -69,14 +69,14 @@
 				<ul>
 					<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">标题:</span> <input id="popTitle" style="width:140px;" type="text" placeholder="请输入标题..." class="textbox" /></li>
 					<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">来源:</span> <input id="popSource" style="width:140px;" type="text" placeholder="请输入来源..." class="textbox" /></li>
-					<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">类型:</span> <select class="select" id="popType" name="popType" style="width: 120px;">
+					<!-- <li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">类型:</span> <select class="select" id="popType" name="popType" style="width: 120px;">
 						<option value="新闻头条">新闻头条</option>
 						<option value="媒体视角">媒体视角</option>
 						<option value="公司新闻">公司新闻</option>
-					</select></li>
+					</select></li> -->
 					<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">时间:</span> <input class="Wdate" type="text" id="popStartTime" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',lang:'en'})" name="startTime" style="width:160px;" /></li>
 				</ul>
-				<div id="popUpPicture">
+				<%-- <div id="popUpPicture">
 					<form action="${basePath }/upload/image" encType="multipart/form-data" method="post">
 						<input type="hidden" value="0" id="popPicture" name="picture" />
 						<ul class="ulColumn2" style="text-align: left;">
@@ -87,7 +87,7 @@
 								<img id="productpicture" alt="" src="" width="100px" height="50px" style="padding-left: 10px;"></li>
 						</ul>
 					</form>
-				</div>
+				</div> --%>
 			</div>
 			<section id="editor">
 				<div id='edit' style="margin-top: 30px;"> </div>
@@ -110,12 +110,12 @@
 		<input type="hidden" value="${menuId }" id="menuId" name="menuId" />
 		<strong style="color: grey;">标题:</strong>
 		<input id="title" type="text" class="textbox" placeholder="标题..." /> 
-		<strong style="color: grey;">类型:</strong><select class="select" id="type" name="type" onchange="changeSelect(this.value)"  style="width: 120px;">
+		<!-- <strong style="color: grey;">类型:</strong><select class="select" id="type" name="type" onchange="changeSelect(this.value)"  style="width: 120px;">
 						<option value="">请选择..</option>
 						<option value="新闻头条">新闻头条</option>
 						<option value="媒体视角">媒体视角</option>
 						<option value="公司新闻">公司新闻</option>
-					</select>
+					</select> -->
 		<strong style="color: grey;">创建时间:</strong>
 		<input class="Wdate" type="text" id="startDate" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',maxDate:'#F{$dp.$D(\'endDate\')}'})" name="startTime" style="width:160px;" />-
 		<input class="Wdate" type="text" id="endDate"  onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en',minDate:'#F{$dp.$D(\'startDate\')}'})" name="endTime" style="width:160px;"/>
@@ -131,7 +131,7 @@
 			<thead>
 				<tr>
 					<th>序号</th>
-					<th>类型</th>	
+					<!-- <th>类型</th>	 -->
 					<th>标题</th>	
 					<th>新闻时间</th>	
 					<th>创建时间</th>
