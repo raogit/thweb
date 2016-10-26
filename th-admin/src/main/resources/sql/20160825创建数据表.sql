@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-10-25 17:34:42
+Date: 2016-10-26 12:11:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -406,7 +406,7 @@ CREATE TABLE `t_menu` (
   `backup2` varchar(1024) DEFAULT NULL,
   `backup3` varchar(1024) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=259 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=293 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_menu
@@ -662,6 +662,40 @@ INSERT INTO `t_menu` VALUES ('255', '公益教育', '', '/web/culture/commonweal
 INSERT INTO `t_menu` VALUES ('256', '公司高管', '', '/web/companymanager/seniorexecutive', '4', '202', '2', '1', '2016-10-25 09:34:00', '1', '2016-10-25 09:38:01', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('257', '董事', '', '/web/companymanager/seniorexecutive', '5', '256', '1', '1', '2016-10-25 15:10:34', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('258', '监事', '', '/web/companymanager/seniorexecutive', '5', '256', '2', '1', '2016-10-25 15:10:44', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('259', '购物中心', '', '', '1', '0', '16', '1', '2016-10-26 11:44:18', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('260', '首页', '', '', '2', '259', '1', '1', '2016-10-26 11:44:34', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('261', '资讯中心', '', '', '2', '259', '2', '1', '2016-10-26 11:44:49', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('262', '娱乐风尚', '', '', '2', '259', '3', '1', '2016-10-26 11:45:02', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('263', '服务中心', '', '', '2', '259', '4', '1', '2016-10-26 11:45:10', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('264', '品牌招商', '', '', '2', '259', '5', '1', '2016-10-26 11:45:25', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('265', '关于我们', '', '', '2', '259', '6', '1', '2016-10-26 11:45:32', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('266', '促销信息', '', '/web/newscenter/index', '3', '261', '1', '1', '2016-10-26 11:45:51', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('267', '商户优惠', '', '/web/newscenter/index', '3', '261', '2', '1', '2016-10-26 11:46:02', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('268', '新闻资讯', '', '/web/newscenter/index', '3', '261', '3', '1', '2016-10-26 11:46:10', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('269', '特色美食', '', '', '3', '262', '1', '1', '2016-10-26 11:46:35', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('270', '休闲娱乐', '', '', '3', '262', '2', '1', '2016-10-26 11:46:46', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('271', '潮流风尚', '', '', '3', '262', '3', '1', '2016-10-26 11:46:57', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('272', '客服平台', '', '', '3', '263', '1', '1', '2016-10-26 11:47:17', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('273', '常见问题', '', '/web/culture/commonweal/index', '3', '263', '2', '1', '2016-10-26 11:47:28', '1', '2016-10-26 12:08:31', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('274', '泊车服务', '', '/menu/news/detail', '3', '263', '3', '1', '2016-10-26 11:47:37', '1', '2016-10-26 12:08:16', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('275', '公司简介', '', '/menu/news/detail', '3', '265', '1', '1', '2016-10-26 11:48:26', '1', '2016-10-26 12:08:58', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('276', '诚聘英才', '', '', '3', '265', '2', '1', '2016-10-26 11:48:38', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('277', '联系我们', '', '/web/investor/contact', '3', '265', '3', '1', '2016-10-26 11:48:46', '1', '2016-10-26 12:11:21', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('278', '轮换图', '', '/menu/news/detail', '3', '260', '1', '1', '2016-10-26 11:54:01', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('279', '普通图', '', '/menu/news/detail', '3', '260', '2', '1', '2016-10-26 11:54:16', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('280', '轮换图', '', '/menu/news/detail', '4', '269', '1', '1', '2016-10-26 12:01:52', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('281', '活动资讯', '', '/web/newscenter/index', '4', '269', '2', '1', '2016-10-26 12:02:04', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('282', '分页广告图', '', '/menu/news/detail', '4', '269', '3', '1', '2016-10-26 12:02:29', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('283', '轮换图', '', '/menu/news/detail', '4', '270', '1', '1', '2016-10-26 12:03:11', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('284', '活动资讯', '', '/web/newscenter/index', '4', '270', '2', '1', '2016-10-26 12:03:26', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('285', '分页广告图', '', '/menu/news/detail', '4', '270', '3', '1', '2016-10-26 12:03:37', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('286', '轮换图', '', '/menu/news/detail', '4', '271', '1', '1', '2016-10-26 12:03:59', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('287', '活动资讯', '', '/web/newscenter/index', '4', '271', '2', '1', '2016-10-26 12:04:11', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('288', '分页广告图', '', '/menu/news/detail', '4', '271', '3', '1', '2016-10-26 12:04:20', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('289', '深圳福田天虹购物中心线上客服服务', '', '/web/culture/commonweal/index', '4', '272', '1', '1', '2016-10-26 12:06:10', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('290', '深圳宝安天虹购物中心场内服务', '', '/web/culture/commonweal/index', '4', '272', '2', '1', '2016-10-26 12:06:24', '1', '2016-10-26 12:06:55', '1', '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('291', '深圳南山天虹购物中心线上客服服务', '', '/web/culture/commonweal/index', '4', '272', '3', '1', '2016-10-26 12:06:43', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('292', '常见问题', '', '/web/culture/commonweal/index', '4', '273', '1', '1', '2016-10-26 12:07:33', '1', '2016-10-26 12:08:26', '1', '1', '', null, null);
 
 -- ----------------------------
 -- Table structure for `t_news_center`
