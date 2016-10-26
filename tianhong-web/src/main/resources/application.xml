@@ -73,6 +73,9 @@
 	<mvc:resources mapping="/shopping-center/**" location="/shopping-center/" />
 	<mvc:resources mapping="/store/**" location="/store/" />
 	<mvc:resources mapping="/store/images/**" location="/store/images/" />
+	
+	<mvc:resources mapping="/shoppingcenter/**" location="/shoppingcenter/" />
+	
 	<mvc:resources mapping="/web/**" location="/web/" />
 	<mvc:resources mapping="/pdf/**" location="/pdf/" />
 	<mvc:resources mapping="/common/**" location="/common/" />

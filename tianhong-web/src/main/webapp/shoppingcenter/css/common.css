@@ -50,11 +50,12 @@ body{    position: relative;  /* overflow: hidden; */ }
 .l_nav i.hd3{top:410px ; }
 .l_nav i.hd4{top:463px ; }
 .l_nav i.hd5{top:573px ; }
-.nav_p{ padding-top:220px;  }
+.nav_p1{ padding-top:220px;  }
 .nav_p2{ padding-top:270px;  }
 .nav_p3{ padding-top:330px;  }
 .nav_p4{ padding-top:380px;  }
 .nav_p5{ padding-top:490px;  }
+.nav_p6{ padding-top:490px;  }
 .l_nav a{padding: 8px 0;  text-align: center; color: #404040; display: block; margin: 1% 8%;height: 22px;}
 .l_nav a:hover{ border: 1px solid #999; color: #404040;height: 20px;}
 

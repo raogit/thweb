@@ -171,4 +171,43 @@ public class MenuServiceImpl implements MenuService {
 		return true;
 	}
 
+	public List<Menu> getSubs(int menuId, boolean isShow) throws Exception {
+		List<Menu> menus = this.getAllMenus(isShow);
+		List<Menu> list = new ArrayList<Menu>();
+		for (Menu menu : menus) {
+			if (menu.getId().intValue() == menuId) {
+				if (!isShow) {
+					list.addAll(menu.getSubMenus());
+				} else {
+					for (Menu sub : menu.getSubMenus()) {
+						if (sub.getIsShow() != null && sub.getIsShow().byteValue() == 1) {
+							list.add(sub);
+						}
+					}
+				}
+			}
+		}
+		return list;
+	}
+
+	public List<Menu> getAllMenus(boolean isShow) throws Exception {
+		List<Menu> menus = menuMapper.selectAllMenus();
+		for (Menu menu : menus) {
+			for (Menu sub : menus) {
+				if (sub.getParentId() != null && menu.getId().intValue() == sub.getParentId().intValue()) {
+					if (isShow) {
+						if (sub.getIsShow() != null && sub.getIsShow() == 1) {
+							menu.getSubMenus().add(sub);
+						}
+					} else {
+						menu.getSubMenus().add(sub);
+					}
+				}
+			}
+			sort(menu.getSubMenus());
+		}
+		sort(menus);
+		return menus;
+	}
+
 }

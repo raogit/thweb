@@ -36,7 +36,11 @@ public interface MenuService {
 
 	List<Menu> getAllMenus() throws Exception;
 
+	List<Menu> getAllMenus(boolean isShow) throws Exception;
+
 	List<Menu> getSubMenus(int menuId, boolean show) throws Exception;
+
+	List<Menu> getSubs(int menuId, boolean isShow) throws Exception;
 
 	List<Menu> getMenusByType(int type) throws Exception;
 
