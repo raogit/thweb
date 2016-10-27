@@ -58,80 +58,55 @@ public class SpeciaFoodController {
 	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-
 			Menu menu = menuService.getByPrimaryKey(menuId);
-
 			model.put("parentMenu", menu);
 			List<Menu> headMenus = menuService.getSubs(259, true);
 			model.put("headMenus", headMenus);
 
-			List<Menu> subs = menuService.getSubs(menuId, true);
-
+			List<Menu> subs = menuService.getSubs(menuId, false);
 			for (Menu m : subs) {
+				if (m.getName().indexOf("轮换图") > -1) {
+					List<Picture> rotationPictures = pictureService.findByMenuId(m.getId());
+					model.put("rotationPictures", rotationPictures);
+					continue;
+				}
+				if (m.getName().indexOf("活动资讯") > -1) {
+					List<NewsCenter> activityInfo = newsCenterService.getList(m.getId());
+					model.put("activityInfo", activityInfo);
+					continue;
+				}
 				if (m.getName().indexOf("特色美食") > -1) {
-					model.put("menu", m);
-
-					List<Menu> foodSubs = menuService.getSubs(m.getId(), true);
-					for (Menu nu : foodSubs) {
-						if (nu.getName().indexOf("轮换图") > -1) {
-							List<Picture> foodPictures = pictureService.findByMenuId(nu.getId());
-							model.put("foodPictures", foodPictures);
-							break;
-						}
+					Picture p = new Picture();
+					p.setPageSize(4);
+					if (p.getCurPage() <= 1) {
+						p.setCurPage(1);
 					}
-					for (Menu nu : foodSubs) {
-						if (nu.getName().indexOf("活动资讯") > -1) {
-							List<NewsCenter> foodNewsCenter = newsCenterService.getList(m.getId());
-							model.put("foodNewsCenter", foodNewsCenter);
-							break;
-						}
-					}
-
-					NewsCenter newsCenter = new NewsCenter();
-					newsCenter.setPageSize(4);
-					if (newsCenter.getCurPage() <= 1) {
-						newsCenter.setCurPage(1);
-					}
-					newsCenter.setMenuId(m.getId());
-					NewsCenter promotion = newsCenterService.getPage(newsCenter);
-					model.put("promotion", promotion);
-					break;
+					p.setMenuId(m.getId());
+					Picture foodAdPictures = pictureService.getPage(p);
+					model.put("foodAdPictures", foodAdPictures);
+					continue;
 				}
-			}
-			for (Menu m : subs) {
 				if (m.getName().indexOf("休闲娱乐") > -1) {
-					List<Picture> discountPictures = pictureService.findByMenuId(m.getId());
-					model.put("discountPictures", discountPictures);
-					// List<NewsCenter> discountNewsCenter =
-					// newsCenterService.getList(m.getId());
-					// model.put("discountNewsCenter", discountNewsCenter);
-					NewsCenter newsCenter = new NewsCenter();
-					newsCenter.setPageSize(4);
-					if (newsCenter.getCurPage() <= 1) {
-						newsCenter.setCurPage(1);
+					Picture p = new Picture();
+					p.setPageSize(4);
+					if (p.getCurPage() <= 1) {
+						p.setCurPage(1);
 					}
-					newsCenter.setMenuId(m.getId());
-					NewsCenter discount = newsCenterService.getPage(newsCenter);
-					model.put("discount", discount);
-					break;
+					p.setMenuId(m.getId());
+					Picture happyAdPictures = pictureService.getPage(p);
+					model.put("happyAdPictures", happyAdPictures);
+					continue;
 				}
-			}
-			for (Menu m : subs) {
 				if (m.getName().indexOf("潮流风尚") > -1) {
-					List<Picture> infoPictures = pictureService.findByMenuId(m.getId());
-					model.put("infoPictures", infoPictures);
-					// List<NewsCenter> infoNewsCenter =
-					// newsCenterService.getList(m.getId());
-					// model.put("infoNewsCenter", infoNewsCenter);
-					NewsCenter newsCenter = new NewsCenter();
-					newsCenter.setPageSize(4);
-					if (newsCenter.getCurPage() <= 1) {
-						newsCenter.setCurPage(1);
+					Picture p = new Picture();
+					p.setPageSize(4);
+					if (p.getCurPage() <= 1) {
+						p.setCurPage(1);
 					}
-					newsCenter.setMenuId(m.getId());
-					NewsCenter info = newsCenterService.getPage(newsCenter);
-					model.put("info", info);
-					break;
+					p.setMenuId(m.getId());
+					Picture popularAdPictures = pictureService.getPage(p);
+					model.put("popularAdPictures", popularAdPictures);
+					continue;
 				}
 			}
 		} catch (Exception e) {
@@ -141,90 +116,104 @@ public class SpeciaFoodController {
 	}
 
 	@RequestMapping(value = "/food")
-	public Object food(NewsCenter newsCenter, HttpServletRequest request, HttpServletResponse response) {
+	public Object food(Picture picture, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-			newsCenter.setPageSize(4);
-			if (newsCenter.getCurPage() <= 1) {
-				newsCenter.setCurPage(1);
+			picture.setPageSize(4);
+			if (picture.getCurPage() <= 1) {
+				picture.setCurPage(1);
 			}
-			Menu menu = menuService.getByPrimaryKey(newsCenter.getMenuId());
+			Menu menu = menuService.getByPrimaryKey(picture.getMenuId());
+			model.put("parentMenu", menu);
+			List<Menu> headMenus = menuService.getSubs(259, true);
+			model.put("headMenus", headMenus);
+
+			List<Menu> subs = menuService.getSubs(menu.getParentId(), false);
+			for (Menu m : subs) {
+				if (m.getName().indexOf("轮换图") > -1) {
+					List<Picture> foodRotationPictures = pictureService.findByMenuId(m.getId());
+					model.put("foodRotationPictures", foodRotationPictures);
+					continue;
+				}
+				if (m.getName().indexOf("活动资讯") > -1) {
+					List<NewsCenter> foodNewsCenter = newsCenterService.getList(m.getId());
+					model.put("foodNewsCenter", foodNewsCenter);
+					continue;
+				}
+				if (m.getName().indexOf("特色美食") > -1) {
+					Picture p = new Picture();
+					p.setPageSize(picture.getPageSize());
+					if (picture.getMenuId().intValue() == m.getId().intValue()) {
+						p.setCurPage(picture.getCurPage());
+					}
+					if (p.getCurPage() <= 1) {
+						p.setCurPage(1);
+					}
+					p.setMenuId(m.getId());
+					Picture foodAdPictures = pictureService.getPage(p);
+					model.put("foodAdPictures", foodAdPictures);
+					continue;
+				}
+				if (m.getName().indexOf("休闲娱乐") > -1) {
+					Picture p = new Picture();
+					p.setPageSize(picture.getPageSize());
+					if (picture.getMenuId().intValue() == m.getId().intValue()) {
+						p.setCurPage(picture.getCurPage());
+					}
+					if (p.getCurPage() <= 1) {
+						p.setCurPage(1);
+					}
+					p.setMenuId(m.getId());
+					Picture happyAdPictures = pictureService.getPage(p);
+					model.put("happyAdPictures", happyAdPictures);
+					continue;
+				}
+				if (m.getName().indexOf("潮流风尚") > -1) {
+					Picture p = new Picture();
+					p.setPageSize(picture.getPageSize());
+					if (picture.getMenuId().intValue() == m.getId().intValue()) {
+						p.setCurPage(picture.getCurPage());
+					}
+					if (p.getCurPage() <= 1) {
+						p.setCurPage(1);
+					}
+					p.setMenuId(m.getId());
+					Picture popularAdPictures = pictureService.getPage(p);
+					model.put("popularAdPictures", popularAdPictures);
+					continue;
+				}
+			}
+
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/shoppingcenter/specia-food", model);
+	}
+
+	@RequestMapping(value = "/detail")
+	public Object detail(@RequestParam("menuId") int menuId, @RequestParam("id") int id, HttpServletRequest request,
+			HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			Menu menu = menuService.getByPrimaryKey(menuId);
 			Menu parentMenu = menuService.getByPrimaryKey(menu.getParentId());
 			model.put("menu", menu);
 			model.put("parentMenu", parentMenu);
 			List<Menu> headMenus = menuService.getSubs(259, true);
 			model.put("headMenus", headMenus);
 
-			List<Menu> subs = menuService.getSubs(menu.getParentId(), true);
-			model.put("subs", subs);
-			for (Menu m : subs) {
-				if (m.getName().indexOf("促销信息") > -1) {
-					List<Picture> promotionPictures = pictureService.findByMenuId(m.getId());
-					model.put("promotionPictures", promotionPictures);
-					// List<NewsCenter> promotionNewsCenter =
-					// newsCenterService.getList(m.getId());
-					// model.put("promotionNewsCenter", promotionNewsCenter);
-					NewsCenter news = new NewsCenter();
-					news.setPageSize(newsCenter.getPageSize());
-					if (newsCenter.getMenuId().intValue() == m.getId().intValue()) {
-						news.setCurPage(newsCenter.getCurPage());
-					}
-					if (news.getCurPage() <= 1) {
-						news.setCurPage(1);
-					}
-					news.setMenuId(m.getId());
-					NewsCenter promotion = newsCenterService.getPage(news);
-					model.put("promotion", promotion);
-					break;
-				}
-			}
-			for (Menu m : subs) {
-				if (m.getName().indexOf("商户优惠") > -1) {
-					List<Picture> discountPictures = pictureService.findByMenuId(m.getId());
-					model.put("discountPictures", discountPictures);
-					// List<NewsCenter> discountNewsCenter =
-					// newsCenterService.getList(m.getId());
-					// model.put("discountNewsCenter", discountNewsCenter);
-					NewsCenter news = new NewsCenter();
-					news.setPageSize(newsCenter.getPageSize());
-					if (newsCenter.getMenuId().intValue() == m.getId().intValue()) {
-						news.setCurPage(newsCenter.getCurPage());
-					}
-					if (news.getCurPage() <= 1) {
-						news.setCurPage(1);
-					}
-					news.setMenuId(m.getId());
-					NewsCenter discount = newsCenterService.getPage(news);
-					model.put("discount", discount);
-					break;
-				}
-			}
-			for (Menu m : subs) {
-				if (m.getName().indexOf("新闻资讯") > -1) {
-					List<Picture> infoPictures = pictureService.findByMenuId(m.getId());
-					model.put("infoPictures", infoPictures);
-					// List<NewsCenter> infoNewsCenter =
-					// newsCenterService.getList(m.getId());
-					// model.put("infoNewsCenter", infoNewsCenter);
-					NewsCenter news = new NewsCenter();
-					news.setPageSize(newsCenter.getPageSize());
-					if (newsCenter.getMenuId().intValue() == m.getId().intValue()) {
-						news.setCurPage(newsCenter.getCurPage());
-					}
-					if (news.getCurPage() <= 1) {
-						news.setCurPage(1);
-					}
-					news.setMenuId(m.getId());
-					newsCenter.setMenuId(m.getId());
-					NewsCenter info = newsCenterService.getPage(news);
-					model.put("info", info);
-					break;
-				}
-			}
+			NewsCenter news = newsCenterService.getByPrimaryKey(id);
+			model.put("news", news);
+			NewsCenter newsCenter = new NewsCenter();
+			newsCenter.setMenuId(menuId);
+			newsCenter.setType(news.getType());
+			List<NewsCenter> newsRelation = newsCenterService.getList(newsCenter);
+			model.put("newsRelation", newsRelation);
+
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/shoppingcenter/specia-food", model);
+		return new ModelAndView("/shoppingcenter/news-details", model);
 	}
 
 }

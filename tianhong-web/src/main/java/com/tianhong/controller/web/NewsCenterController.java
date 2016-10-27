@@ -91,6 +91,7 @@ public class NewsCenterController extends BaseController {
 			NewsCenter news = newsCenterService.getByPrimaryKey(id);
 			model.put("news", news);
 			NewsCenter newsCenter = new NewsCenter();
+			newsCenter.setMenuId(menuId);
 			newsCenter.setType(news.getType());
 			List<NewsCenter> newsRelation = newsCenterService.getList(newsCenter);
 			model.put("newsRelation", newsRelation);

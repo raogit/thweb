@@ -149,9 +149,6 @@ public class NewsController {
 				if (m.getName().indexOf("促销信息") > -1) {
 					List<Picture> promotionPictures = pictureService.findByMenuId(m.getId());
 					model.put("promotionPictures", promotionPictures);
-					// List<NewsCenter> promotionNewsCenter =
-					// newsCenterService.getList(m.getId());
-					// model.put("promotionNewsCenter", promotionNewsCenter);
 					NewsCenter news = new NewsCenter();
 					news.setPageSize(newsCenter.getPageSize());
 					if (newsCenter.getMenuId().intValue() == m.getId().intValue()) {
