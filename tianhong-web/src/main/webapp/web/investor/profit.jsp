@@ -72,7 +72,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="item" items="${profits }" begin="0" step="1" end="0" varStatus="itemStatus">
+						<c:forEach var="item" items="${profits }" begin="0" step="1" varStatus="itemStatus">
 		                	<tr>
 								<td>${item.profitDate }</td>
 								<td>${item.profitPlan }</td>
