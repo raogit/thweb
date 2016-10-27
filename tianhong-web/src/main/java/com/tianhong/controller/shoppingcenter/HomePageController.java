@@ -60,6 +60,7 @@ public class HomePageController {
 			for (Menu m : headMenus) {
 				if (m.getName().indexOf("首页") > -1) {
 					model.put("menu", m);
+					model.put("parentMenu", m);
 					List<Menu> subs = menuService.getSubMenus(m.getId(), false);
 					for (Menu e : subs) {
 						if (e.getName().indexOf("轮换图") > -1) {

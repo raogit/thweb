@@ -11,17 +11,15 @@
 </head>
 
 <body class="shpping" style="overflow:hidden;">	
-	<!-- 导航栏 -->
 	<jsp:include page="left.jsp"></jsp:include>
-	<!-- 导航栏 -->
-	
 	<div class="indexK_bodyer">
 		<div class="main_bodyer">
 			<div class="index_bodyer">
 				<div class="index_bigImgBox">
 					<div class="index_bigImg ">
-						<img src="${basePath}/images/shopping/1_02.jpg" />
-						<img src="${basePath}/images/shopping/1_021.jpg" />
+						<c:forEach var="item" items="${rotatePictures }" begin="0" step="1" varStatus="itemStatus">
+							<div><a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="855px" height="925px" /></a></div>
+						</c:forEach>
 					</div>
 					<div class="index_bigImgBtn">
 						<i></i>
@@ -31,7 +29,11 @@
 					<div class="index_right_topBox">
 						<div class="topBox1 fl">
 							 <div class="indexTopCon_1">
-								<div class="indexnewbg"><img src="${basePath}/images/shopping/1_04.jpg" /></div>
+								<div class="indexnewbg">
+									<c:forEach var="item" items="${commonPictures }" begin="0" step="1" end="0" varStatus="itemStatus">
+										<a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="468px" height="472px" /></a>
+									</c:forEach>
+								</div>
 							</div>
 							<div class="indexTopCon_2">
 								<div class="indexTopCon_new">
@@ -55,7 +57,11 @@
 						</div>
 						<div class="topBox2 fl">
 							 <div class="indexTopCon_3">
-								<div class="indexnewbg"><img src="${basePath}/images/shopping/1_06.jpg" /></div>
+								<div class="indexnewbg">
+									<c:forEach var="item" items="${commonPictures }" begin="1" step="1" end="1" varStatus="itemStatus">
+										<a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="468px" height="472px" /></a>
+									</c:forEach>
+								</div>
 							</div>
 							<div class="indexTopCon_4">
 								<div class="indexTopCon_new">
@@ -91,13 +97,17 @@
 								<div class="sj1"></div>
 							</div>
 							<div class="index_btm_pic">
-								<img src="${basePath}/images/shopping/1_26.jpg">
+								<c:forEach var="item" items="${commonPictures }" begin="2" step="1" end="2" varStatus="itemStatus">
+									<a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="435px" height="367px" /></a>
+								</c:forEach>
 							</div>
 							<div class="clear"></div>
 						</div>
 						<div class="bottomBox2">
 							<div class="index_btm_pic">
-								<img src="${basePath}/images/shopping/1_09.jpg">
+								<c:forEach var="item" items="${commonPictures }" begin="3" step="1" end="3" varStatus="itemStatus">
+									<a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="426px" height="367px" /></a>
+								</c:forEach>
 							</div>
 							<div class="index_btm_top2">
 								<div class="index_topCon">
@@ -120,7 +130,9 @@
 								<div class="sj3"></div>
 							</div>
 							<div class="index_btm_pic">
-								<img src="${basePath}/images/shopping/1_27.jpg">
+								<c:forEach var="item" items="${commonPictures }" begin="4" step="1" end="4" varStatus="itemStatus">
+									<a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="445px" height="366px" /></a>
+								</c:forEach>
 							</div>
 							<div class="clear"></div>
 						</div>
@@ -132,8 +144,12 @@
 								</div>
 								<div class="sj4"></div>
 							</div>
-							<div class="index_btmcon fl">
-								<div class=""><a href="#"><img src="${basePath}/images/shopping/1_04.jpg"></a></div>
+							<div class="index_btmcon fl" style="padding:0 0;width: 85%;">
+								<div class="">
+									<c:forEach var="item" items="${commonPictures }" begin="5" step="1" end="5" varStatus="itemStatus">
+										<a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="445px" height="431px" /></a>
+									</c:forEach>
+								</div>
 							</div>								
 						</div>
 					</div>
@@ -151,16 +167,15 @@
 	</div>
 	<script type="text/javascript">
 		$(function(){
-			var on = 0,
-				maxSize = $(".index_bigImg img").length;
+			var on = 0;
+			var imgs = $(".index_bigImg div");
+			var	maxSize = $(".index_bigImg div").length;
 			setInterval(function(){
 				on++;				
 				on %= maxSize;
-				$(".index_bigImg img").eq(on).siblings().stop(true,true).fadeOut(500);
-				$(".index_bigImg img").eq(on).stop(true,true).fadeIn(500);
+				$(".index_bigImg div").eq(on).siblings().stop(true,true).fadeOut(500);
+				$(".index_bigImg div").eq(on).stop(true,true).fadeIn(500);
 			},3500)
-
-
 		})
 	</script>
 	<script type="text/javascript" src="${basePath}/shoppingcenter/js/indexWeb.js"></script>

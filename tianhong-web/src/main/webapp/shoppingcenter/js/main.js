@@ -52,7 +52,7 @@ $(function(){
     $('.head ul li').eq(page).addClass('current').siblings().removeClass('current');
     $('.content>div').eq(page).show().siblings().hide();
   }
-  showPage();
+//  showPage();
   $('.head ul li').bind("click", function(){
      page = $(this).index();
      showPage();
