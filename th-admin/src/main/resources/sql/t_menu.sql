@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2016-10-27 21:32:04
+Date: 2016-10-27 21:33:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -293,7 +293,7 @@ INSERT INTO `t_menu` VALUES ('255', '公益教育', '', '/web/culture/commonweal
 INSERT INTO `t_menu` VALUES ('256', '公司高管', '', '/web/companymanager/seniorexecutive', '4', '202', '2', '1', '2016-10-25 09:34:00', '1', '2016-10-25 09:38:01', '1', '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('257', '董事', '', '/web/companymanager/seniorexecutive', '5', '256', '1', '1', '2016-10-25 15:10:34', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('258', '监事', '', '/web/companymanager/seniorexecutive', '5', '256', '2', '1', '2016-10-25 15:10:44', '1', null, null, '0', '', null, null);
-INSERT INTO `t_menu` VALUES ('259', '购物中心', '', '', '1', '0', '15', '1', '2016-10-26 11:44:18', '1', null, null, '0', '', null, null);
+INSERT INTO `t_menu` VALUES ('259', '购物中心', '', '', '1', '0', '15', '1', '2016-10-26 11:44:18', '1', null, null, '1', '', null, null);
 INSERT INTO `t_menu` VALUES ('260', '首页', '/shopping/home/index', '', '2', '259', '1', '1', '2016-10-26 11:44:34', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('261', '资讯中心', '/shopping/news/index', '', '2', '259', '2', '1', '2016-10-26 11:44:49', '1', null, null, '0', '', null, null);
 INSERT INTO `t_menu` VALUES ('262', '娱乐风尚', '/shopping/specia/index', '', '2', '259', '3', '1', '2016-10-26 11:45:02', '1', null, null, '0', '', null, null);
