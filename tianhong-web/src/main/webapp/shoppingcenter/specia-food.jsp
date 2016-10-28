@@ -33,9 +33,9 @@
 								</div>
 								<div class="menu">
 									<ul>
-										<li><a href="JavaScript:;" class="eat1">特色美食<i></i></a></li>
-										<li><a href="JavaScript:;" class="eat2">休闲娱乐<i></i></a></li>
-										<li><a href="JavaScript:;" class="eat3">潮流风尚<i></i></a></li>
+										<li <c:if test="${fn:contains(menu.name, '特色美食') }">class="current"</c:if>><a href="${basePath}/shopping/specia/food?menuId=269" class="eat1">特色美食<i></i></a></li>
+										<li <c:if test="${fn:contains(menu.name, '休闲娱乐') }">class="current"</c:if>><a href="${basePath}/shopping/specia/food?menuId=270" class="eat2">休闲娱乐<i></i></a></li>
+										<li <c:if test="${fn:contains(menu.name, '潮流风尚') }">class="current"</c:if>><a href="${basePath}/shopping/specia/food?menuId=271" class="eat3">潮流风尚<i></i></a></li>
 										<div class="clear"></div>
 									</ul>
 								</div>
@@ -58,18 +58,21 @@
 
 								<div class="store_Area">
 									<ul class="Dining" style="display: block;">
-										<li><a href="food_details.html"><img src="images/aa.jpg"></a></li>
+										<c:forEach var="item" items="${ads.obj }" begin="0" step="1" end="5" varStatus="itemStatus">
+											<li><a href="food_details.html"><img src="${basePath}/download/png?fileName=${item.path }"></a></li>
+										</c:forEach>
+										<!-- <li><a href="food_details.html"><img src="images/aa.jpg"></a></li>
 										<li><a href="food_details.html"><img src="images/a.jpg"></a></li>
 										<li><a href="food_details.html"><img src="images/b.jpg"></a></li>
 										<li><a href="food_details.html"><img src="images/c.jpg"></a></li>
 										<li><a href="food_details.html"><img src="images/d.jpg"></a></li>
-										<li><a href="food_details.html"><img src="images/e.jpg"></a></li>
+										<li><a href="food_details.html"><img src="images/e.jpg"></a></li> -->
 									</ul>
 									<div class="choose_button choose_button_food">
 										<div class="video_choose">
-											<a href="#" class="fl"><img src="images/common/up.png"></a>
-											<p class="fl next_page">1/6</p>
-											<a href="#" class="fl"><img src="images/common/next.png"></a>
+											<a href="${basePath}/shopping/specia/food?menuId=${menu.id }&&curPage=${ads.curPage-1}" class="fl"><img src="${basePath}/images/shopping/common/up.png"></a>
+											<p class="fl next_page">${ads.curPage}/${ads.totalPage}</p>
+											<a href="${basePath}/shopping/specia/food?menuId=${menu.id }&&curPage=${ads.curPage+1>ads.totalPage?ads.totalPage:ads.curPage+1}" class="fl"><img src="${basePath}/images/shopping/common/next.png"></a>
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -86,7 +89,7 @@
 	<script type="text/javascript">
         $(function(){
             var page = parseInt(window.location.href.split("page=")[1])?parseInt(window.location.href.split("page=")[1]):0;
-            $(".menu li").eq(page).addClass("current");
+           // $(".menu li").eq(page).addClass("current");
             $(".menu li").bind("click",function(){
                 page = $(this).index();
                 $(".menu li").eq(page).addClass("current").siblings().removeClass("current");
