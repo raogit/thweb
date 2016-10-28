@@ -59,7 +59,7 @@
 								<div class="store_Area">
 									<ul class="Dining" style="display: block;">
 										<c:forEach var="item" items="${ads.obj }" begin="0" step="1" end="5" varStatus="itemStatus">
-											<li><a href="food_details.html"><img src="${basePath}/download/png?fileName=${item.path }"></a></li>
+											<li><a href="${basePath}/shopping/specia/detail?id=${item.id }"><img src="${basePath}/download/png?fileName=${item.picture }"></a></li>
 										</c:forEach>
 										<!-- <li><a href="food_details.html"><img src="images/aa.jpg"></a></li>
 										<li><a href="food_details.html"><img src="images/a.jpg"></a></li>
@@ -70,9 +70,9 @@
 									</ul>
 									<div class="choose_button choose_button_food">
 										<div class="video_choose">
-											<a href="${basePath}/shopping/specia/food?menuId=${menu.id }&&curPage=${ads.curPage-1}" class="fl"><img src="${basePath}/images/shopping/common/up.png"></a>
+											<a href="${basePath}/shopping/specia/food?menuId=${menu.id }&curPage=${ads.curPage-1}" class="fl"><img src="${basePath}/images/shopping/common/up.png"></a>
 											<p class="fl next_page">${ads.curPage}/${ads.totalPage}</p>
-											<a href="${basePath}/shopping/specia/food?menuId=${menu.id }&&curPage=${ads.curPage+1>ads.totalPage?ads.totalPage:ads.curPage+1}" class="fl"><img src="${basePath}/images/shopping/common/next.png"></a>
+											<a href="${basePath}/shopping/specia/food?menuId=${menu.id }&curPage=${ads.curPage+1>ads.totalPage?ads.totalPage:ads.curPage+1}" class="fl"><img src="${basePath}/images/shopping/common/next.png"></a>
 											<div class="clear"></div>
 										</div>
 									</div>

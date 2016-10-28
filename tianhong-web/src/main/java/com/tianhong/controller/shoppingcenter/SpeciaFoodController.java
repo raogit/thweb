@@ -84,13 +84,23 @@ public class SpeciaFoodController {
 			for (Menu m : subs) {
 				if (m.getName().indexOf("特色美食") > -1) {
 					model.put("menu", m);
-					Picture p = new Picture();
-					p.setPageSize(6);
-					if (p.getCurPage() <= 1) {
-						p.setCurPage(1);
+					// Picture p = new Picture();
+					// p.setPageSize(6);
+					// if (p.getCurPage() <= 1) {
+					// p.setCurPage(1);
+					// }
+					// p.setMenuId(m.getId());
+					// Picture ads = pictureService.getPage(p);
+					// model.put("ads", ads);
+					// break;
+
+					NewsCenter newsCenter = new NewsCenter();
+					newsCenter.setPageSize(6);
+					if (newsCenter.getCurPage() <= 1) {
+						newsCenter.setCurPage(1);
 					}
-					p.setMenuId(m.getId());
-					Picture ads = pictureService.getPage(p);
+					newsCenter.setMenuId(m.getId());
+					NewsCenter ads = newsCenterService.getPage(newsCenter);
 					model.put("ads", ads);
 					break;
 				}
@@ -102,14 +112,14 @@ public class SpeciaFoodController {
 	}
 
 	@RequestMapping(value = "/food")
-	public Object food(Picture picture, HttpServletRequest request, HttpServletResponse response) {
+	public Object food(NewsCenter newsCenter, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-			picture.setPageSize(6);
-			if (picture.getCurPage() <= 1) {
-				picture.setCurPage(1);
+			newsCenter.setPageSize(6);
+			if (newsCenter.getCurPage() <= 1) {
+				newsCenter.setCurPage(1);
 			}
-			Menu menu = menuService.getByPrimaryKey(picture.getMenuId());
+			Menu menu = menuService.getByPrimaryKey(newsCenter.getMenuId());
 			Menu parentMenu = menuService.getByPrimaryKey(menu.getParentId());
 			model.put("menu", menu);
 			model.put("parentMenu", parentMenu);
@@ -135,17 +145,31 @@ public class SpeciaFoodController {
 				}
 			}
 			for (Menu m : subs) {
-				if (m.getId().intValue() == picture.getMenuId().intValue()) {
-					Picture p = new Picture();
-					p.setPageSize(picture.getPageSize());
-					if (picture.getMenuId().intValue() == m.getId().intValue()) {
-						p.setCurPage(picture.getCurPage());
+				if (m.getId().intValue() == newsCenter.getMenuId().intValue()) {
+					// Picture p = new Picture();
+					// p.setPageSize(picture.getPageSize());
+					// if (picture.getMenuId().intValue() ==
+					// m.getId().intValue()) {
+					// p.setCurPage(picture.getCurPage());
+					// }
+					// if (p.getCurPage() <= 1) {
+					// p.setCurPage(1);
+					// }
+					// p.setMenuId(m.getId());
+					// Picture ads = pictureService.getPage(p);
+					// model.put("ads", ads);
+					// break;
+
+					NewsCenter news = new NewsCenter();
+					news.setPageSize(newsCenter.getPageSize());
+					if (newsCenter.getMenuId().intValue() == m.getId().intValue()) {
+						news.setCurPage(newsCenter.getCurPage());
 					}
-					if (p.getCurPage() <= 1) {
-						p.setCurPage(1);
+					if (news.getCurPage() <= 1) {
+						news.setCurPage(1);
 					}
-					p.setMenuId(m.getId());
-					Picture ads = pictureService.getPage(p);
+					news.setMenuId(m.getId());
+					NewsCenter ads = newsCenterService.getPage(news);
 					model.put("ads", ads);
 					break;
 				}
@@ -157,29 +181,20 @@ public class SpeciaFoodController {
 	}
 
 	@RequestMapping(value = "/detail")
-	public Object detail(@RequestParam("menuId") int menuId, @RequestParam("id") int id, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object detail(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-			Menu menu = menuService.getByPrimaryKey(menuId);
-			Menu parentMenu = menuService.getByPrimaryKey(menu.getParentId());
-			model.put("menu", menu);
-			model.put("parentMenu", parentMenu);
+
 			List<Menu> headMenus = menuService.getSubs(259, true);
 			model.put("headMenus", headMenus);
 
 			NewsCenter news = newsCenterService.getByPrimaryKey(id);
 			model.put("news", news);
-			NewsCenter newsCenter = new NewsCenter();
-			newsCenter.setMenuId(menuId);
-			newsCenter.setType(news.getType());
-			List<NewsCenter> newsRelation = newsCenterService.getList(newsCenter);
-			model.put("newsRelation", newsRelation);
 
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/shoppingcenter/news-details", model);
+		return new ModelAndView("/shoppingcenter/food-details", model);
 	}
 
 }

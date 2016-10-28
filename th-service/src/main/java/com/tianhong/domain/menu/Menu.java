@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.tianhong.domain.content.Content;
 import com.tianhong.domain.picture.Picture;
+import com.tianhong.domain.web.DevelopHistory;
 import com.tianhong.page.Page;
 
 public class Menu extends Page {
@@ -47,6 +48,7 @@ public class Menu extends Page {
 	private List<Picture> pictures;
 
 	private Content content;
+	private List<DevelopHistory> developHistorys;
 
 	public Integer getId() {
 		return id;
@@ -212,6 +214,17 @@ public class Menu extends Page {
 
 	public void setPictures(List<Picture> pictures) {
 		this.pictures = pictures;
+	}
+
+	public List<DevelopHistory> getDevelopHistorys() {
+		if (developHistorys == null) {
+			developHistorys = new ArrayList<DevelopHistory>();
+		}
+		return developHistorys;
+	}
+
+	public void setDevelopHistorys(List<DevelopHistory> developHistory) {
+		this.developHistorys = developHistory;
 	}
 
 }
