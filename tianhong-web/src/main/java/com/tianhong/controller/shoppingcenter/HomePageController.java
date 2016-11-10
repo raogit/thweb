@@ -51,7 +51,7 @@ public class HomePageController {
 	private DevelopHistoryService developHistoryService;
 
 	@RequestMapping(value = "/index")
-	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+	public Object index(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			List<Menu> headMenus = menuService.getSubs(259, true);

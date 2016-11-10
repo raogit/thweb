@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tianhong.domain.content.Content;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.newscenter.NewsCenter;
 import com.tianhong.domain.picture.Picture;
@@ -68,31 +69,32 @@ public class AboutUsController {
 
 			List<Menu> subs = menuService.getSubs(menuId, false);
 			for (Menu m : subs) {
-				if (m.getName().indexOf("轮换图") > -1) {
-					List<Picture> rotationPictures = pictureService.findByMenuId(m.getId());
-					model.put("rotationPictures", rotationPictures);
+				if (m.getName().indexOf("公司简介") > -1) {
+					Content companyProfile = contentService.getByMenuId(m.getId());
+					model.put("companyProfile", companyProfile);
 					break;
 				}
 			}
+			
 			for (Menu m : subs) {
-				if (m.getName().indexOf("活动资讯") > -1) {
-					List<NewsCenter> activityInfo = newsCenterService.getList(m.getId());
-					model.put("activityInfo", activityInfo);
-					break;
-				}
-			}
-			for (Menu m : subs) {
-				if (m.getName().indexOf("特色美食") > -1) {
-					model.put("menu", m);
-
-					NewsCenter newsCenter = new NewsCenter();
-					newsCenter.setPageSize(6);
-					if (newsCenter.getCurPage() <= 1) {
-						newsCenter.setCurPage(1);
+				if (m.getName().indexOf("联系我们") > -1) {
+					List<Menu> subMenus = menuService.getSubs(m.getId(), false);
+					for(Menu nu : subMenus){
+						if(nu.getName().indexOf("联系方式")>-1){
+							Content c = new Content();
+							c.setMenuId(nu.getId());
+							List<Content> contactUsContents = contentService.list(c);
+							model.put("contactUsContents", contactUsContents);
+							break;
+						}
 					}
-					newsCenter.setMenuId(m.getId());
-					NewsCenter ads = newsCenterService.getPage(newsCenter);
-					model.put("ads", ads);
+					for(Menu nu : subMenus){
+						if(nu.getName().indexOf("图片")>-1){
+							List<Picture> contactUsPictures = pictureService.findByMenuId(nu.getId());
+							model.put("contactUsPictures", contactUsPictures);
+							break;
+						}
+					}
 					break;
 				}
 			}
