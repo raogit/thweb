@@ -276,6 +276,6 @@
 		<if test="title != null and title!=''">
 			AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
 		</if>
-		ORDER BY event_time
+		ORDER BY event_time,create_time
 	</select>
 </mapper>

@@ -18,81 +18,6 @@ $UrlParameter = function(_key) {
 };
 
 $(function(){
-//	var href = window.location.href;
-//	var aboutUs = new RegExp("/aboutUs/");
-//	var buss = new RegExp("/Business.html");
-//	var culture = new RegExp("/culture/");
-//	var staff = new RegExp("/staff/");
-//	var business = new RegExp("/business/");
-//	var news = new RegExp("/news/");
-//	var investor = new RegExp("/investor/");
-//	//一级导航选中
-//	if(aboutUs.test(href)){
-//		$(".header_liBlock").eq(1).addClass("current");
-//	}else if(buss.test(href)){
-//		$(".header_liBlock").eq(2).addClass("current");
-//	}else if(culture.test(href)){
-//		$(".header_liBlock").eq(3).addClass("current");
-//	}else if(staff.test(href)){
-//		$(".header_liBlock").eq(4).addClass("current");
-//	}else if(business.test(href)){
-//		$(".header_liBlock").eq(5).addClass("current");
-//	}else if(news.test(href)){
-//		$(".header_liBlock").eq(6).addClass("current");
-//	}else if(investor.test(href)){
-//		$(".header_liBlock").eq(7).addClass("current");
-//	}else{
-//		$(".header_liBlock").eq(0).addClass("current");
-//	}
-//
-//	var p = $UrlParameter("p");
-//	if(p==null||p==undefined){
-//		p=0
-//	}
-//	$(".nav_ulBlock a").eq(p).addClass("current");
-
-	////栏目内页选中
-	//var index = new RegExp("/inveIndex.html");
-	//var index = new RegExp("/BusineIndex.html");
-	//if(index.test(href)){
-	//	$(".nav_liBlock").eq(0).addClass("current");
-	//}else if(index.test(href)){
-	//	$(".nav_liBlock").eq(1).addClass("current");
-	//}
-    //
-	////栏目内页选中
-	//var index = new RegExp("/inveInfo.html");
-	//var index = new RegExp("/show.html");
-	//if(index.test(href)){
-	//	$(".nav_liBlock").eq(1).addClass("current");
-	//}else if(index.test(href)){
-	//	$(".nav_liBlock").eq(2).addClass("current");
-	//}
-    //
-	////栏目内页选中
-	//var index = new RegExp("/companyManage.html");
-	//if(index.test(href)){
-	//	$(".nav_liBlock").eq(2).addClass("current");
-	//}else if(index.test(href)){
-	//	$(".nav_liBlock").eq(3).addClass("current");
-	//}
-    //
-	////栏目内页选中
-	//var index = new RegExp("/protect.html");
-	//if(index.test(href)){
-	//	$(".nav_liBlock").eq(6).addClass("current");
-	//}else if(index.test(href)){
-	//	$(".nav_liBlock").eq(7).addClass("current");
-	//}
-	////栏目内页选中
-	//var index = new RegExp("/contact.html");
-	//if(index.test(href)){
-	//	$(".nav_liBlock").eq(7).addClass("current");
-	//}else if(index.test(href)){
-	//	$(".nav_liBlock").eq(0).addClass("current");
-	//}
-	//
-	
 	//法律法规 动态   切换
 	$('.inves_ProtFocus ul li').bind("click",function(){
 		$(this).addClass('cur').siblings().removeClass('cur');
@@ -159,6 +84,15 @@ $(function(){
 			$('#readMoreBtn2').hide(300);
 		}
 		$('#inves_SystemList2 ul').height(h);	
+	});
+	
+	$("#readMoreBtn3").bind('click', function() {
+		n++;
+		h=dheight*n;
+		if(h<allheight){
+			$('#readMoreBtn3').hide(300);
+		}
+		$('#inves_SystemList3 ul').height(h);	
 	});
 
 	//点击事件的触发  selcet 列表下拉展开

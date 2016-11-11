@@ -108,7 +108,28 @@
                                 </div>
                                 <div class="clear"></div>
                            </div>
-                           
+                           <div class="inves_executManagerBox">
+                                 <div class="inves_executManager">
+                                     <div class="inves_executManagerTit">
+                                        <span>董事</span>
+                                     </div>
+                                     <div class="inves_executManagerBox">
+                                     
+                                     	<c:forEach var="item" items="${director2s }" begin="0" step="1" end="5" varStatus="itemStatus">
+						                	<div class="inves_executTextFoot">
+	                                            <div class="inves_executFootTit">
+	                                                <h3>${item.title }</h3>
+	                                                <div class="line"></div>
+	                                            </div>
+	                                            <div class="inves_executFootCon">${item.content }</div>
+	                                            <a href="javascript:;" class="more"><img src="../images/i5.png"></a>
+	                                        </div>
+								        </c:forEach>
+                                        
+                                        <div class="clear"></div>
+                                    </div>
+                                 </div>
+                           </div>
                        </div>
                    </div>
                </div>
@@ -130,6 +151,27 @@
 				        		</c:forEach>
                            </ul>
                            <a href="javascript:;" class="more" id="readMoreBtn2"><img src="../images/i9.png"></a>
+                       </div>
+                   </div>
+               </div>
+               
+                <div class="inves_ComModel3">
+                   <div class="inves_SystemBox">
+                       <div class="inves_SystemTit">
+                           <img src="../images/i7.png">
+                       </div>
+                       <div class="inves_SystemList2" id="inves_SystemList3">
+                           <ul>
+                           		<c:forEach var="item" items="${constitutions }" begin="0" step="1" varStatus="itemStatus">
+			                		<li>
+	                                   <div class="Con1">${item.title }</div>
+	                                   <div class="Con2">${item.content }</div>
+	                                   <a href="${basePath}/download/pdf?fileName=${item.url}" class="Con3">下载</a>
+	                                   <div class="clear"></div>
+	                               	</li>
+				        		</c:forEach>
+                           </ul>
+                           <a href="javascript:;" class="more" id="readMoreBtn3"><img src="../images/i9.png"></a>
                        </div>
                    </div>
                </div>

@@ -104,6 +104,13 @@ public class CompanyManagerController extends BaseController {
 								break;
 							}
 						}
+						for (Menu mu : ms) {
+							if (mu.getName().indexOf("董事2") > -1) {
+								List<DevelopHistory> director2s = developHistoryService.getList(mu.getId());
+								model.put("director2s", director2s);
+								break;
+							}
+						}
 						break;
 					}
 				}
@@ -111,6 +118,13 @@ public class CompanyManagerController extends BaseController {
 					if (m.getName().indexOf("公司制度") > -1) {
 						List<Picture> systems = pictureService.findByMenuId(m.getId());
 						model.put("systems", systems);
+						break;
+					}
+				}
+				for (Menu m : subs) {
+					if (m.getName().indexOf("公司章程") > -1) {
+						List<Picture> constitutions = pictureService.findByMenuId(m.getId());
+						model.put("constitutions", constitutions);
 						break;
 					}
 				}
