@@ -20,14 +20,14 @@
 						<div class="About">
 							<div class="head">
 								<ul>
-									<li class="current"><a href="#" class="activity">公司简介</a></li>
+									<li><a href="#" class="activity">公司简介</a></li>
 									<li><a href="${basePath }/web/staff/index?menuId=177" class="privilege">诚聘英才</a></li>
-									<li><a href="#" class="Store">联系我们</a></li>
+									<li class="current"><a href="#" class="Store">联系我们</a></li>
 								</ul>
 								<div class="clear"></div>
 							</div>
 							<div class="content">
-								<div class="model">
+								<div class="model" style="display: none;">
 									<div class="AboutUs_con">
 										<div class="AboutUs_pic fl">
 											<c:forEach var="item" items="${companyPictures }" begin="0" step="1" end="1" varStatus="itemStatus">
@@ -43,10 +43,7 @@
 										<div class="clear"></div>
 									</div>
 								</div>
-								
-								
-								
-								<div class="model" style="display: none;">
+								<div class="model" >
 									<div class="concact_con">
 										<div class="concact_pic fl">
 											<c:forEach var="item" items="${contactUsPictures }" begin="0" step="1" end="0" varStatus="itemStatus">

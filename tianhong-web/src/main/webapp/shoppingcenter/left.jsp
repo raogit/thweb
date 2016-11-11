@@ -18,7 +18,13 @@
 							   		<a href="${item.link }" >${mu.name }</a>
 							   	</c:when>
 							   	<c:otherwise> 
-							   		<a href="${basePath}${mu.link }?menuId=${mu.id }" >${mu.name }</a>
+								   	<c:if test="${mu.id==276 }">
+								   		<a href="${basePath}${mu.link }" >${mu.name }</a>
+								   	</c:if>
+								   	<c:if test="${mu.id!=276 }">
+								   		<a href="${basePath}${mu.link }?menuId=${mu.id }" >${mu.name }</a>
+								   	</c:if>
+							   		
 							   	</c:otherwise>
 							</c:choose>
 						</c:if>
