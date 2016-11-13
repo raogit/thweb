@@ -84,7 +84,7 @@
                     </div>
                      <div class="inves_trade">
                          <h3>深圳证券交易所互动易平台</h3>
-                         <a href="http://irm.cninfo.com.cn/szse/index.html" target="_blank">点击进入</a>
+                         <a href="http://irm.cninfo.com.cn/ssessgs/S002419/index.html" target="_blank">点击进入</a>
                      </div>
                 </div>
                 <div class="clear"></div>

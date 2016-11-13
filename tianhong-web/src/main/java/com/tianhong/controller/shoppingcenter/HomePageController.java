@@ -23,9 +23,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.domain.menu.Menu;
+import com.tianhong.domain.newscenter.NewsCenter;
 import com.tianhong.domain.picture.Picture;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
+import com.tianhong.service.newscenter.NewsCenterService;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.service.web.DevelopHistoryService;
 
@@ -49,7 +51,8 @@ public class HomePageController {
 	private PictureService pictureService;
 	@Autowired
 	private DevelopHistoryService developHistoryService;
-
+	@Autowired
+	private NewsCenterService newsCenterService;
 	@RequestMapping(value = "/index")
 	public Object index(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -79,7 +82,12 @@ public class HomePageController {
 					break;
 				}
 			}
-
+			//新闻资讯
+			List<NewsCenter> promotions = newsCenterService.getList(268);
+			model.put("promotions", promotions);
+			//特色美食
+			List<NewsCenter> speciaFoods = newsCenterService.getList(296);
+			model.put("speciaFoods", speciaFoods);
 		} catch (Exception e) {
 			log.error("", e);
 		}

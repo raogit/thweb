@@ -45,13 +45,16 @@
 									</div>
 									<div class="Con_newList">
 										<ul>
+											<c:forEach var="item" items="${speciaFoods }" begin="0" step="1" end="4" varStatus="itemStatus">
+												<li><a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${item.menuId}">${item.title }</a></li>
+											</c:forEach>
+											
+											<!-- <li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
 											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
-											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
-											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
-											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
+											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li> -->
 										</ul>
 									</div>
-									<div class="index_more"><a href="#">了解更多</a></div>
+									<div class="index_more"><a href="${basePath}/shopping/specia/food?menuId=269">了解更多</a></div>
 								</div>
 							</div>
 						</div>
@@ -73,13 +76,16 @@
 									</div>
 									<div class="Con_newList">
 										<ul>
+											<c:forEach var="item" items="${promotions }" begin="0" step="1" end="4" varStatus="itemStatus">
+												<li><a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${item.menuId}">${item.title }</a></li>
+											</c:forEach>
+											<!-- <li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
 											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
 											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
-											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
-											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
+											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li> -->
 										</ul>
 									</div>
-									<div class="index_more"><a href="#">了解更多</a></div>
+									<div class="index_more"><a href="${basePath}/shopping/news/promotion?menuId=268">了解更多</a></div>
 								</div>
 							</div>
 						</div>

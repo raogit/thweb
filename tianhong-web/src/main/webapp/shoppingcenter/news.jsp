@@ -39,7 +39,7 @@
 									<ul class="activity_list">
 										<c:forEach var="item" items="${promotion.obj }" begin="0" step="1" end="3" varStatus="itemStatus">
 											<li>
-												<a href="News_details.html">
+												<a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${item.menuId}">
 													<h3>${item.title }</h3>
 													<div style="height: 44px;overflow: hidden;"><p>${item.content }</p></div>
 													<p><time>${item.newsTimeStr }</time></p>
@@ -69,7 +69,7 @@
 									<ul class="activity_list">
 										<c:forEach var="item" items="${discount.obj }" begin="0" step="1" end="3" varStatus="itemStatus">
 											<li>
-												<a href="News_details.html">
+												<a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${item.menuId}">
 													<h3>${item.title }</h3>
 													<div style="height: 44px;overflow: hidden;"><p>${item.content }</p></div>
 													<p><time>${item.newsTimeStr }</time></p>
@@ -100,7 +100,7 @@
 									<ul class="activity_list">
 										<c:forEach var="item" items="${info.obj }" begin="0" step="1" end="3" varStatus="itemStatus">
 											<li>
-												<a href="News_details.html">
+												<a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${item.menuId}">
 													<h3>${item.title }</h3>
 													<div style="height: 44px;overflow: hidden;"><p>${item.content }</p></div>
 													<p><time>${item.newsTimeStr }</time></p>
