@@ -7,4 +7,5 @@ public interface NewActivityMapper extends BaseMapper<NewActivity> {
 
 	NewActivity selectByCategoryId(Integer categoryId) throws Exception;
 
+	
 }

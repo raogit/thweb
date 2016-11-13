@@ -27,8 +27,6 @@ import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.web.DevelopHistory;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
-import com.tianhong.service.newscenter.NewsCenterService;
-import com.tianhong.service.picture.PictureService;
 import com.tianhong.service.web.DevelopHistoryService;
 
 /**
@@ -47,10 +45,6 @@ public class ServiceCenterController {
 	private MenuService menuService;
 	@Autowired
 	private ContentService contentService;
-	@Autowired
-	private NewsCenterService newsCenterService;
-	@Autowired
-	private PictureService pictureService;
 	@Autowired
 	private DevelopHistoryService developHistoryService;
 

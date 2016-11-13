@@ -25,11 +25,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.newscenter.NewsCenter;
 import com.tianhong.domain.picture.Picture;
-import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.newscenter.NewsCenterService;
 import com.tianhong.service.picture.PictureService;
-import com.tianhong.service.web.DevelopHistoryService;
 
 /**
  * ClassName: HomePageController
@@ -46,13 +44,9 @@ public class SpeciaFoodController {
 	@Autowired
 	private MenuService menuService;
 	@Autowired
-	private ContentService contentService;
-	@Autowired
 	private NewsCenterService newsCenterService;
 	@Autowired
 	private PictureService pictureService;
-	@Autowired
-	private DevelopHistoryService developHistoryService;
 
 	@RequestMapping(value = "/index")
 	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {

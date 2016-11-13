@@ -31,7 +31,6 @@ import com.tianhong.domain.picture.Picture;
 import com.tianhong.domain.web.DevelopHistory;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
-import com.tianhong.service.newscenter.NewsCenterService;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.service.web.DevelopHistoryService;
 import com.tianhong.utils.DateUtils;
@@ -56,8 +55,6 @@ public class CultureController extends BaseController {
 	private ContentService contentService;
 	@Autowired
 	private PictureService pictureService;
-	@Autowired
-	private NewsCenterService newsCenterService;
 	@Autowired
 	private DevelopHistoryService developHistoryService;
 

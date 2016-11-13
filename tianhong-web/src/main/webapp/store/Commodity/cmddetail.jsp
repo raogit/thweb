@@ -54,7 +54,7 @@
 									<div class="cin-contCM">
 								</c:if>
 									<div class="cin-CM">
-			                            <div class="cin-CM-in"><img src="${basePath}/download/png?fileName=${item.picture }" alt=""></div>
+			                            <div class="cin-CM-in"><img src="${basePath}/download/png?fileName=${item.picture }" alt="" width="150px" height="150px"></div>
 			                            <div class="cin-CM-nm"><p>${item.name }</p><p>统一价格：<em>${item.price }</em></p></div>
 			                        </div>
 								<c:if test="${(itemStatus.index+1)%4==0 }">

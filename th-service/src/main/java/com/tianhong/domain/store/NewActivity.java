@@ -30,7 +30,7 @@ public class NewActivity {
     private String content;
     
     private String categoryName;
-
+ 
     public Integer getId() {
         return id;
     }

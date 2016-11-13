@@ -41,8 +41,8 @@ public class LoginController extends BaseController {
 	@ResponseBody
 	public Object loginConfirm(User user, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			String userName = request.getParameter("userName");
-			String password = request.getParameter("password");
+			// String userName = request.getParameter("userName");
+			// String password = request.getParameter("password");
 			User u = userService.getByName(user.getUserName());
 			AssertUtils.notNull(u, "用户名不存在");
 			AssertUtils.isTrue(MD5.GetMD5Code(user.getPassword()).equals(u.getPassword()), "密码错误");
