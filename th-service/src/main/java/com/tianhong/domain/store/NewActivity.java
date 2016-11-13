@@ -28,6 +28,8 @@ public class NewActivity {
     private String backup3;
 
     private String content;
+    
+    private String categoryName;
 
     public Integer getId() {
         return id;
@@ -132,4 +134,12 @@ public class NewActivity {
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
     }
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
 }

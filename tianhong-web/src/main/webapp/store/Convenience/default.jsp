@@ -46,85 +46,26 @@
                 <div class="n-l-crumb">
                     <div class="n-l-cleft">
                         <a href="${basePath}/store/servicejoinabout/index?menuId=${menu.id }"><div class="c-home"><img src="images/n_03.png" alt=""></div></a>
-                        <a href="${basePath}/store/servicejoinabout/index?menuId=${menu.id }"><div class="c-h-in">${menu.name }<i></i></div>
-                    </a>
+                        <a href="${basePath}/store/servicejoinabout/index?menuId=${menu.id }"><div class="c-h-in">${menu.name }<i></i></div></a>
                     </div>
                     <div class="c-now">${categoryName }</div>
                 </div>
             </div>
             <div class="n-l-cont">
-                <div class="n-l-ct">${categoryName }</div>
-                <div class="n-l-line">
-                </div>
-                <div class="at-rec cv-rec">
-                    <div class="at-rec-cont clearfix">
-                        <div class="cv-cr">
-                            <div class="cv-cr-in"><img src="images/cv_07.jpg" alt=""></div>
-                            <div class="cv-cr-in"><img src="images/cv_07.jpg" alt=""></div>
-                        </div>
-                        <div class="cv-cl">
-                            <img src="images/cv_06.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="dt-rec-txt new-t">
-                        <p>
-                            <em>生活宅配</em></p>
-                        <p>
-                            客服预定。顾客将“送货地址+收货人+联系电话+到货时间”内容以电话（82769293）或微信天虹微喔小天进行下订单；
-                            客服预定。顾客将“送货地址+收货人+联系电话+到货时间”内容以电话（82769293）或微信天虹微喔小天进行下订单；
-                        </p>
-
-                    </div>
-                    <div class="cv-btn">了解更多</div>
-                    <div class="n-l-line itd-line cv-line">
-                    </div>
-                </div>
-                <div class="at-rec cv-rec">
-                    <div class="at-rec-cont clearfix">
-                        <div class="cv-cr">
-                            <div class="cv-cr-in"><img src="images/cv_07.jpg" alt=""></div>
-                            <div class="cv-cr-in"><img src="images/cv_07.jpg" alt=""></div>
-                            <div class="cv-cr-in"><img src="images/cv_07.jpg" alt=""></div>
-                            <div class="cv-cr-in"><img src="images/cv_07.jpg" alt=""></div>
-                            <div class="cv-cr-in"><img src="images/cv_07.jpg" alt=""></div>
-                            <div class="cv-cr-in"><img src="images/cv_07.jpg" alt=""></div>
-                        </div>
-                        <div class="cv-cl">
-                            <img src="images/cv_06.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="dt-rec-txt new-t">
-                        <p>
-                            <em>生活宅配</em></p>
-                        <p>
-                            客服预定。顾客将“送货地址+收货人+联系电话+到货时间”内容以电话（82769293）或微信天虹微喔小天进行下订单；
-                            客服预定。顾客将“送货地址+收货人+联系电话+到货时间”内容以电话（82769293）或微信天虹微喔小天进行下订单；
-                        </p>
-
-                    </div>
-                    <div class="cv-btn">了解更多</div>
-                    <div class="n-l-line itd-line cv-line">
-                    </div>
-                </div>
-                <div class="at-rec cv-rec">
-                    <div class="at-rec-cont clearfix">
-                        <div class="cv-cr">
-                            <div class="dt-rec-txt new-t">
-                                <p>
-                                    <em>生活宅配</em></p>
-                                <p>
-                                    客服预定。顾客将“送货地址+收货人+联系电话+到货时间”内容以电话（82769293）或微信天虹微喔小天进行下订单；
-                                    客服预定。顾客将“送货地址+收货人+联系电话+到货时间”内容以电话（82769293）或微信天虹微喔小天进行下订单；
-                                </p>
-
-                            </div>
-                            <div class="cv-btn">了解更多</div>
-                        </div>
-                        <div class="cv-cl">
-                            <img src="images/cv_06.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
+                <div class="n-l-ct">${menu.name }</div>
+                <div class="n-l-line"> </div>
+                <c:forEach var="item" items="${activitys }" begin="0" step="1" end="2" varStatus="itemStatus">
+                	<div style="padding-top: 20px;"><p><em style="color: #f08200;font-size: 20px;">${item.categoryName }</em></p></div>
+	            	<div class="at-rec cv-rec" >
+	                    <div class="at-rec-cont clearfix" style="height: 400px;overflow: hidden;"> ${item.content } </div>
+	                    <div class="cv-btn"><a href="${basePath}/store/servicejoinabout/detail?menuId=${menu.id}&categoryId=${item.id }">了解更多</a></div>
+	                    <div class="n-l-line itd-line cv-line"></div>
+	                </div>
+	            </c:forEach>
+                
+                
+                
+                
             </div>
         </div>
         <div class="n-l-btm">

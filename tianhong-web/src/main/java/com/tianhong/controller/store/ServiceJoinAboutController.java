@@ -3,6 +3,7 @@
  */
 package com.tianhong.controller.store;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,6 +64,16 @@ public class ServiceJoinAboutController extends BaseController {
 			category.setMenuId(menuId);
 			List<Category> categorys = categoryService.getList(category);
 			model.put("categorys", categorys);
+			List<NewActivity> activitys = new ArrayList<NewActivity>();
+			for(Category cate : categorys){
+				NewActivity activity = newActivityService.getByCategoryId(cate.getId());
+				if(activity!=null){
+					activity.setCategoryName(cate.getName());
+					activitys.add(activity);
+				}
+			}
+			
+			model.put("activitys", activitys);
 			try {
 				int categoryId = Integer.parseInt(request.getParameter("categoryId"));
 				if (categoryId > 0) {

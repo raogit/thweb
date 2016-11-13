@@ -3,6 +3,8 @@
  */
 package com.tianhong.service.store;
 
+import java.util.List;
+
 import com.tianhong.domain.store.NewActivity;
 import com.tianhong.domain.user.User;
 
