@@ -190,7 +190,7 @@ function upload(fileId,type){
 	var uri = $("#uri").val();
 	var title = $("#picTitle").val();
 	var picUrl = $("#url").val();
-	var url=basePath + uri+"?type="+type+"&menuId="+menuId+"&title="+title+"&url="+url;
+	var url=basePath + uri+"?type="+type+"&menuId="+menuId+"&title="+title+"&url="+picUrl;
 	//执行上传文件操作的函数
 	$.ajaxFileUpload({
         url:url,

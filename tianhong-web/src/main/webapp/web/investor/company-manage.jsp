@@ -19,8 +19,8 @@
             <div class="nav_contentBlock">
                 <div class="nav_aContent">
                     <a href="../index.html" class="nav_aBlock icon">首页</a>
-	                <a href="index.html" class="nav_aBlock icon">${parentMenu.name }</a>
-	                <a href="index.html" class="nav_aBlock">${menu.name }</a>
+	                <a href="${basePath}${parentMenu.link }?menuId=${parentMenu.id }" class="nav_aBlock icon">${parentMenu.name }</a>
+	                <a href="${basePath}${menu.link }?menuId=${menu.id }" class="nav_aBlock">${menu.name }</a>
                 </div>
                 <div class="nav_ulBlock">
                     <c:forEach var="item" items="${subMenus }" begin="0" step="1" varStatus="itemStatus">
@@ -133,7 +133,26 @@
                        </div>
                    </div>
                </div>
-               
+               <div class="inves_ComModel3">
+                   <div class="inves_SystemBox">
+                       <div class="inves_SystemTit">
+                           <img src="../images/i22.png">
+                       </div>
+                       <div class="inves_SystemList2" id="inves_SystemList3">
+                           <ul>
+                           		<c:forEach var="item" items="${constitutions }" begin="0" step="1" varStatus="itemStatus">
+			                		<li>
+	                                   <div class="Con1">${item.title }</div>
+	                                   <div class="Con2">${item.content }</div>
+	                                   <a href="${basePath}/download/pdf?fileName=${item.url}" class="Con3">下载</a>
+	                                   <div class="clear"></div>
+	                               	</li>
+				        		</c:forEach>
+                           </ul>
+                           <a href="javascript:;" class="more" id="readMoreBtn3"><img src="../images/i9.png"></a>
+                       </div>
+                   </div>
+               </div>
                <div class="inves_ComModel3">
                    <div class="inves_SystemBox">
                        <div class="inves_SystemTit">
@@ -155,26 +174,7 @@
                    </div>
                </div>
                
-                <div class="inves_ComModel3">
-                   <div class="inves_SystemBox">
-                       <div class="inves_SystemTit">
-                           <img src="../images/i7.png">
-                       </div>
-                       <div class="inves_SystemList2" id="inves_SystemList3">
-                           <ul>
-                           		<c:forEach var="item" items="${constitutions }" begin="0" step="1" varStatus="itemStatus">
-			                		<li>
-	                                   <div class="Con1">${item.title }</div>
-	                                   <div class="Con2">${item.content }</div>
-	                                   <a href="${basePath}/download/pdf?fileName=${item.url}" class="Con3">下载</a>
-	                                   <div class="clear"></div>
-	                               	</li>
-				        		</c:forEach>
-                           </ul>
-                           <a href="javascript:;" class="more" id="readMoreBtn3"><img src="../images/i9.png"></a>
-                       </div>
-                   </div>
-               </div>
+                
             </div>
          </div>
     </div>

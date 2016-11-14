@@ -18,7 +18,16 @@
 				<div class="index_bigImgBox">
 					<div class="index_bigImg ">
 						<c:forEach var="item" items="${rotatePictures }" begin="0" step="1" varStatus="itemStatus">
-							<div><a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="855px" height="925px" /></a></div>
+							<div>
+							<c:choose>
+								<c:when test="${fn:contains(item.url, 'http')}">  
+							   		<a href="${item.url }">
+							   	</c:when>
+							   	<c:otherwise> 
+								   <a href="${basePath}/${item.url }">
+							   	</c:otherwise>
+							</c:choose>
+							<img src="${basePath}/download/png?fileName=${item.path }" width="855px" height="925px" /></a></div>
 						</c:forEach>
 					</div>
 					<div class="index_bigImgBtn">
@@ -31,7 +40,14 @@
 							 <div class="indexTopCon_1">
 								<div class="indexnewbg">
 									<c:forEach var="item" items="${commonPictures }" begin="0" step="1" end="0" varStatus="itemStatus">
-										<a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="468px" height="472px" /></a>
+										<c:choose>
+											<c:when test="${fn:contains(item.url, 'http')}">  
+										   		<a href="${item.url }">
+										   	</c:when>
+										   	<c:otherwise> 
+											   <a href="${basePath}/${item.url }">
+										   	</c:otherwise>
+										</c:choose><img src="${basePath}/download/png?fileName=${item.path }" width="468px" height="472px" /></a>
 									</c:forEach>
 								</div>
 							</div>
@@ -48,10 +64,6 @@
 											<c:forEach var="item" items="${speciaFoods }" begin="0" step="1" end="4" varStatus="itemStatus">
 												<li><a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${item.menuId}">${item.title }</a></li>
 											</c:forEach>
-											
-											<!-- <li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
-											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
-											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li> -->
 										</ul>
 									</div>
 									<div class="index_more"><a href="${basePath}/shopping/specia/food?menuId=269">了解更多</a></div>
@@ -62,7 +74,14 @@
 							 <div class="indexTopCon_3">
 								<div class="indexnewbg">
 									<c:forEach var="item" items="${commonPictures }" begin="1" step="1" end="1" varStatus="itemStatus">
-										<a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="468px" height="472px" /></a>
+										<c:choose>
+											<c:when test="${fn:contains(item.url, 'http')}">  
+										   		<a href="${item.url }">
+										   	</c:when>
+										   	<c:otherwise> 
+											   <a href="${basePath}/${item.url }">
+										   	</c:otherwise>
+										</c:choose><img src="${basePath}/download/png?fileName=${item.path }" width="468px" height="472px" /></a>
 									</c:forEach>
 								</div>
 							</div>
@@ -79,10 +98,6 @@
 											<c:forEach var="item" items="${promotions }" begin="0" step="1" end="4" varStatus="itemStatus">
 												<li><a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${item.menuId}">${item.title }</a></li>
 											</c:forEach>
-											<!-- <li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
-											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
-											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li>
-											<li><a href="#">2016.05.01-2016.05.10劳动节期间，全店商铺凡在当天在虹领巾购买天虹自营商品</a></li> -->
 										</ul>
 									</div>
 									<div class="index_more"><a href="${basePath}/shopping/news/promotion?menuId=268">了解更多</a></div>
@@ -97,14 +112,21 @@
 							<div class="index_btm_top">
 								<div class="index_topCon">
 									<div class="tb1 fl"><img src="${basePath}/images/shopping/common/1_12.png"></div>									
-									<div class="link fl"><a href="#"><img src="${basePath}/images/shopping/common/1_34.png"></a></div>
+									<div class="link fl"><img src="${basePath}/images/shopping/common/1_34.png"></div>
 									<div class="clear"></div>
 								</div>
 								<div class="sj1"></div>
 							</div>
 							<div class="index_btm_pic">
 								<c:forEach var="item" items="${commonPictures }" begin="2" step="1" end="2" varStatus="itemStatus">
-									<a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="435px" height="367px" /></a>
+									<c:choose>
+										<c:when test="${fn:contains(item.url, 'http')}">  
+									   		<a href="${item.url }">
+									   	</c:when>
+									   	<c:otherwise> 
+										   <a href="${basePath}/${item.url }">
+									   	</c:otherwise>
+									</c:choose><img src="${basePath}/download/png?fileName=${item.path }" width="435px" height="367px" /></a>
 								</c:forEach>
 							</div>
 							<div class="clear"></div>
@@ -112,13 +134,20 @@
 						<div class="bottomBox2">
 							<div class="index_btm_pic">
 								<c:forEach var="item" items="${commonPictures }" begin="3" step="1" end="3" varStatus="itemStatus">
-									<a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="426px" height="367px" /></a>
+									<c:choose>
+										<c:when test="${fn:contains(item.url, 'http')}">  
+									   		<a href="${item.url }">
+									   	</c:when>
+									   	<c:otherwise> 
+										   <a href="${basePath}/${item.url }">
+									   	</c:otherwise>
+									</c:choose><img src="${basePath}/download/png?fileName=${item.path }" width="426px" height="367px" /></a>
 								</c:forEach>
 							</div>
 							<div class="index_btm_top2">
 								<div class="index_topCon">
 									<div class="tb1 fl"><img src="${basePath}/images/shopping/common/1_30-37.png"></div>
-									<div class="link2 fl"><a href="#"><img src="${basePath}/images/shopping/common/1_34.png"></a></div>
+									<div class="link2 fl"><img src="${basePath}/images/shopping/common/1_34.png"></div>
 									<div class="clear"></div>
 								</div>
 								<div class="sj2"></div>
@@ -130,14 +159,21 @@
 							<div class="index_btm_top3">
 								<div class="index_topCon">
 									<div class="tb1 fl"><img src="${basePath}/images/shopping/common/1_15.png"></div>
-									<div class="link3 fl"><a href="#"><img src="${basePath}/images/shopping/common/1_34.png"></a></div>
+									<div class="link3 fl"><img src="${basePath}/images/shopping/common/1_34.png"></div>
 									<div class="clear"></div>
 								</div>
 								<div class="sj3"></div>
 							</div>
 							<div class="index_btm_pic">
 								<c:forEach var="item" items="${commonPictures }" begin="4" step="1" end="4" varStatus="itemStatus">
-									<a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="445px" height="366px" /></a>
+									<c:choose>
+										<c:when test="${fn:contains(item.url, 'http')}">  
+									   		<a href="${item.url }">
+									   	</c:when>
+									   	<c:otherwise> 
+										   <a href="${basePath}/${item.url }">
+									   	</c:otherwise>
+									</c:choose><img src="${basePath}/download/png?fileName=${item.path }" width="445px" height="366px" /></a>
 								</c:forEach>
 							</div>
 							<div class="clear"></div>
@@ -145,15 +181,21 @@
 						<div class="bottomBox4">
 							<div class="index_btm_top4 fl">
 								<div class="index_topCon">
-									
-									<div class="link4 fl"><a href="#"><img src="${basePath}/images/shopping/common/1_34.png"></a></div>
+									<div class="link4 fl"><img src="${basePath}/images/shopping/common/1_34.png"></div>
 								</div>
 								<div class="sj4"></div>
 							</div>
 							<div class="index_btmcon fl" style="padding:0 0;width: 85%;">
 								<div class="">
 									<c:forEach var="item" items="${commonPictures }" begin="5" step="1" end="5" varStatus="itemStatus">
-										<a href="${item.url }"><img src="${basePath}/download/png?fileName=${item.path }" width="445px" height="431px" /></a>
+										<c:choose>
+											<c:when test="${fn:contains(item.url, 'http')}">  
+										   		<a href="${item.url }">
+										   	</c:when>
+										   	<c:otherwise> 
+											   <a href="${basePath}/${item.url }">
+										   	</c:otherwise>
+										</c:choose><img src="${basePath}/download/png?fileName=${item.path }" width="445px" height="431px" /></a>
 									</c:forEach>
 								</div>
 							</div>								

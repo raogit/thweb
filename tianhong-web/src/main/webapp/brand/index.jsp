@@ -45,23 +45,22 @@
 		</div>
 		<div class="header_bottomBlock">
 			<div class="complay">
-				<a href="${basePath}">集团首页</a>
+				<a href="${basePath}">公司首页</a>
 			</div>
 			<div class="clink">
-				<h1 class="linkText fl">友情链接</h1>
+				<!-- <h1 class="linkText fl">友情链接</h1>
 				<a href="#" class="sinalink fl"><img
 					src="images/common/sina.png"></a> <a href="#" class="wxlink fl"><img
 					src="images/common/winx.png">
 					<div class="wx">
 						<img src="images/6-07.jpg">
 					</div> </a>
-				<div class="clear"></div>
+				<div class="clear"></div> -->
 			</div>
 			<div class="hearder_info">
 				<p>版权所有天虹商场股份有限公司</p>
 				<p>备案号:粤ICP备11065574号-3</p>
 				<p></p>
-				<p>技术支持：牧星策划</p>
 			</div>
 		</div>
 	</div>

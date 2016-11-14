@@ -32,7 +32,7 @@
 					src="${basePath}/market/images/p_1.png" alt=""></a> <a href=""
 					class="f-c-ri fri"><img src="${basePath}/market/images/p_2.png"
 					alt=""></a>
-				<div class="fr">技术支持：牧星策划</div>
+				<div class="fr"></div>
 			</div>
 			<div class="f-c-left">
 				<a href="">友情链接</a> <span>版权所有:天虹商场股份有限公司</span> <span>备案号:粤ICP备11065574号-3</span>

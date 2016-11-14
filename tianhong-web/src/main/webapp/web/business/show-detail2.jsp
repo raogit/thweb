@@ -39,9 +39,9 @@
 	        <div class="show_contentBox">
 	            <div class="showTop">
 	                <ul>
-	                    <li class="wth"><a href="show.html?p=1">品牌展示</a></li>
+	                    <li class="wth"><a href="javascript:void(0);">品牌展示</a></li>
 	                    <li class="wth2"></li>
-	                    <li class="wth1 cur2"><a href="show2.html?p=1">项目展示</a></li>
+	                    <li class="wth1 cur2"><a href="javascript:void(0);">项目展示</a></li>
 	                </ul>
 	            </div>
 	            <div class="show_ConBox">
@@ -52,7 +52,7 @@
 								<div class="show_proImg"><img src="${basePath}/download/png?fileName=${item.picture }" /></div>
 								<div class="show_proText">
 									<h3>${item.title }</h3>
-									<div class="show_proContent"><p>${item.content }</p></div>
+									<div class="show_proContent" style="overflow: hidden;"><p>${item.content }</p></div>
 									<a href="${basePath}/web/investment/showdetail1?id=${item.id }&menuId=${menu.id }">了解更多</a>
 								</div>
 								<div class="clear"></div>

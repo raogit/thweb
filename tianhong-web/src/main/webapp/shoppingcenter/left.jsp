@@ -64,11 +64,10 @@
 		</ul>
 	</div>
 	
-	<a href="${basePath}" class="back_jt">返回集团 &gt;</a>
+	<a href="${basePath}" class="back_jt">公司首页 &gt;</a>
 	<div class="nav_btom">
-		<p>深圳市天虹置业有限公司</p>
+		<p>天虹商场股份有限公司</p>
 		<p>Copyright © 2016</p>
-		<p>技术支持：牧星策划</p>
 	</div>		
 </div>
 <!-- 导航栏 -->

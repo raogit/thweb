@@ -80,51 +80,6 @@
 	                    </map>
 	                    </div>
 	                </div>
-	                <!-- <div class="RS-line">
-	                    <p class="line line-hn"><img src="../images/img/line-hn.png"></p>
-	                    <p class="line line-hz"><img src="../images/img/line-hn.png"></p>
-	                    <p class="line line-hb"><img src="../images/img/line-hb.png"></p>
-	                    <p class="line line-db"><img src="../images/img/line-db.png"></p>
-	                    <p class="line line-xb"><img src="../images/img/line-xb.png"></p>
-	                    <p class="line line-xn"><img src="../images/img/line-xn.png"></p>
-	                </div>
-	                <div class="RS-desc">
-	                    <ul class="d-in in1">
-	                        <li class="at">深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                        <li>深圳坂田天虹</li>
-	                    </ul>
-	                    <ul class="d-in in2">
-	                        <li class="at">华中地区</li> 
-	                    </ul>
-	                    <ul class="d-in in3">
-	                        <li class="at">华北地区</li> 
-	                    </ul>
-	                    <ul class="d-in in4">
-	                        <li class="at">东北地区</li> 
-	                    </ul>
-	                    <ul class="d-in in5">
-	                        <li class="at">西北地区</li> 
-	                    </ul>
-	                    <ul class="d-in in6">
-	                        <li class="at">西南地区</li> 
-	                    </ul> 
-	                </div> -->
 	            </div>
 	        </div>
 	    </div>

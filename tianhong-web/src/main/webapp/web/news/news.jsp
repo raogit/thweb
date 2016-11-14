@@ -69,7 +69,7 @@
 	                                    <div class="news_AllLPic"><img src="${basePath}/download/png?fileName=${item.picture }" width="353px" height="185px"></div>
 	                                    <div class="news_AllLContent">
 	                                            <h5>${item.title}</h5>
-	                                            <dir style="height:70px;padding-left: 0;overflow: hidden;margin: 0 0;">${item.content }</dir>
+	                                            <dir style="height:80px;padding-left: 0;overflow: hidden;margin: 0 0;">${item.content }</dir>
 	                                            <div class="news_AllFoot">
 	                                                <h3>时间：${item.newsTimeStr }</h3>
 	                                                <a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}">查看详细>></a>

@@ -22,8 +22,8 @@
 			<div class="nav_contentBlock">
 				<div class="nav_aContent">
 					<a href="../index.html" class="nav_aBlock icon">首页</a>
-	                <a href="index.html" class="nav_aBlock icon">${parentMenu.name }</a>
-	                <a href="index.html" class="nav_aBlock">${menu.name }</a>
+	                <a href="${basePath}${parentMenu.link }?menuId=${parentMenu.id }" class="nav_aBlock icon">${parentMenu.name }</a>
+	                <a href="${basePath}${menu.link }?menuId=${menu.id }" class="nav_aBlock">${menu.name }</a>
 				</div>
 				<div class="nav_ulBlock">
 					<c:forEach var="item" items="${subMenus }" begin="0" step="1" varStatus="itemStatus">

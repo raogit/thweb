@@ -167,7 +167,7 @@
 					src="${basePath}/market/images/p_1.png" alt=""></a> <a href=""
 					class="f-c-ri fri"><img src="${basePath}/market/images/p_2.png"
 					alt=""></a>
-				<div class="fr">技术支持：牧星策划</div>
+				<div class="fr"></div>
 				<div class="f-c-wc">
 					<img src="${basePath}/market/images/p_3.png" alt="">
 				</div>

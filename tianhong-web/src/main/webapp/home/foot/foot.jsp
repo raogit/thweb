@@ -5,7 +5,7 @@
         <div class="rt Copyright">
             <a href="">深圳市天虹置业有限公司</a>
             <span>Copyright © 2016</span>
-            <a href="">技术支持：牧星策划</a>
+            
         </div>
     </div>
 </div>

@@ -19,10 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.constant.CommonConstant;
+import com.tianhong.domain.content.Content;
 import com.tianhong.domain.market.Market;
 import com.tianhong.domain.market.MarketNews;
+import com.tianhong.domain.picture.Picture;
+import com.tianhong.service.content.ContentService;
 import com.tianhong.service.market.MarketNewsService;
 import com.tianhong.service.market.MarketService;
+import com.tianhong.service.picture.PictureService;
 
 /**
  * @author Administrator
@@ -38,6 +42,12 @@ public class MarketController {
 
 	@Autowired
 	private MarketNewsService marketNewsService;
+
+	@Autowired
+	private PictureService pictureService;
+
+	@Autowired
+	private ContentService contentService;
 
 	@RequestMapping(value = "/index")
 	public Object index(HttpServletRequest request, HttpServletResponse response) {
@@ -76,4 +86,17 @@ public class MarketController {
 		return new ModelAndView("/market/introduction", model);
 	}
 
+	@RequestMapping(value = "/manage")
+	public Object manage(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			List<Picture> pictures = pictureService.findByMenuId(156);
+			Content content = contentService.getByMenuId(156);
+			model.put("pictures", pictures);
+			model.put("content", content);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/market/management", model);
+	}
 }
