@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tianhong.constant.CommonConstant;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.newscenter.NewsCenter;
@@ -24,6 +25,7 @@ import com.tianhong.domain.picture.Picture;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.newscenter.NewsCenterService;
 import com.tianhong.service.picture.PictureService;
+import com.tianhong.utils.DateUtils;
 import com.tianhong.utils.HttpClientUtils;
 
 /**
@@ -56,7 +58,9 @@ public class WebController extends BaseController {
 			NewsCenter newsCenter = new NewsCenter();
 			newsCenter.setMenuId(179);
 			List<NewsCenter> newsList = newsCenterService.getList(newsCenter);
-			model.put("news", newsList.get(0));
+			NewsCenter news = newsList.get(0);
+			news.setNewsTimeStr(DateUtils.parseString(news.getNewsTime(), CommonConstant.YYYY_MM_dd_POINT));
+			model.put("news", news);
 			String body = HttpClientUtils.httpGet("http://hq.sinajs.cn/list=sz002419");
 			log.info(body);
 			String[] shares1 = body.split("=");

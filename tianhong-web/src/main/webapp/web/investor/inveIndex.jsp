@@ -87,7 +87,7 @@
                  -->
             </div>
         </div>
-        <div id='hangqingdiv' style="margin: auto;width: 50%;">
+        <div id='hangqingdiv' style="margin: auto;width: 50%;height: 450px; overflow: hidden;">
 			<iframe scrolling="no" id="hangqing" name="hangqing" scrolling="no" onload="changeFrameHeight()" frameborder="0" src="http://js.jrj.com.cn/hq/gs/gshq.html?code=002419"   ></iframe>
 		</div>
 		

@@ -54,13 +54,13 @@
 	                    <div class="n-t-l fl">公司新闻</div>
 	                    <div class="clear"></div>
 	                </div>
-	                <a href="news/newsInfo.html" class="i-b-na">
+	                <a href="${basePath}/web/newscenter/detail?id=${news.id }&menuId=${news.menuId}" class="i-b-na">
 						<div class="n-cont">
 							<div class="n-c-r fr">
 								<div class="n-c-rt" style="width: 350px;height: 19px;overflow: hidden;">${news.title }</div>
 								<div class="n-c-rc" style="height: 52px;overflow: hidden;">${news.content }</div>
 							</div>
-							<div class="n-c-l fl">${item.newsTimeStr }</div>
+							<div class="n-c-l fl">${news.newsTimeStr }</div>
 							<div class="clear"></div>
 						</div>
 					</a>

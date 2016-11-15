@@ -40,6 +40,7 @@ public class CommonConstant {
 	public static final String YYYY_MM_dd_HH_mm_ss = "yyyy-MM-dd HH:mm:ss";
 	public static final String YYYY_MM_dd_NIAN = "yyyy年MM月dd日";
 	public static final String YYYY_MM_dd = "yyyy-MM-dd";
+	public static final String YYYY_MM_dd_POINT = "yyyy.MM.dd";
 	public static final String YYYYMMddHHmmss = "yyyyMMddHHmmss";
 	public static final String YYYYMM = "yyyyMM";
 
