@@ -102,7 +102,7 @@ public class CompanyManagerController extends BaseController {
 							}
 						}
 						for (Menu mu : ms) {
-							if (mu.getName().indexOf("董事2") > -1) {
+							if (mu.getName().indexOf("高级管理人员") > -1) {
 								List<DevelopHistory> director2s = developHistoryService.getList(mu.getId());
 								model.put("director2s", director2s);
 								break;
@@ -129,7 +129,7 @@ public class CompanyManagerController extends BaseController {
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/web/investor/company-manage", model);
+		return new ModelAndView("/web/investor/company-manage2", model);
 	}
 
 	@RequestMapping(value = "/profit")

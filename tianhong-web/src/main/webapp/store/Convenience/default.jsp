@@ -41,11 +41,11 @@
         </div>
         <div class="new-left">
             <div class="n-l-top">
-                <img src="images/n_02.jpg" alt=""></div>
+                <img src="${basePath}/images/store/n_02.jpg" alt=""></div>
             <div class="n-l-c">
                 <div class="n-l-crumb">
                     <div class="n-l-cleft">
-                        <a href="${basePath}/store/servicejoinabout/index?menuId=${menu.id }"><div class="c-home"><img src="images/n_03.png" alt=""></div></a>
+                        <a href="${basePath}/store/servicejoinabout/index?menuId=${menu.id }"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
                         <a href="${basePath}/store/servicejoinabout/index?menuId=${menu.id }"><div class="c-h-in">${menu.name }<i></i></div></a>
                     </div>
                     <div class="c-now">${categoryName }</div>
@@ -69,7 +69,7 @@
             </div>
         </div>
         <div class="n-l-btm">
-            <img src="images/n_12.png" alt="">
+            <img src="${basePath}/images/store/n_12.png" alt="">
         </div>
     </div>
 </div>

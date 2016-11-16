@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <input type="hidden" id="menuId" name="menuId" value="${menu.id }" />
 <div class="Header">
+	<div class="header_bg"></div>
     <div class="header_content">
         <a href="${basePath}" class="header_logo"><img src="../images/logo.png"></a>
         <div class="header_contentBlock">
