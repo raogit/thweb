@@ -50,7 +50,7 @@
 	        <div class="bd-cont-in">
 	            <c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
 	            	<c:if test="${itemStatus.index==0 }">
-	                	<div class="bd-cont-R3 fr" style="display:block;" id="video${item.id }">${item.path }</div>
+	                	<div class="bd-cont-R4 fr" style="display:block;" id="video${item.id }">${item.path }</div>
 	                </c:if>
                 	<c:if test="${itemStatus.index>0 }">
 	                	<div class="bd-cont-R3 fr" style="display:none;" id="video${item.id }">${item.path }</div>

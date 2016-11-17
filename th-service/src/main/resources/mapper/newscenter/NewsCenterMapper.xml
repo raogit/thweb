@@ -279,7 +279,7 @@
 		<if test="startDate != null and endDate!=null">
 			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
 		</if>
-		ORDER BY create_time
+		ORDER BY create_time desc
 		LIMIT #{start, jdbcType=INTEGER}, #{pageSize,jdbcType=INTEGER}
 	</select>
 
@@ -321,6 +321,6 @@
 		<if test="startDate != null and endDate!=null">
 			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND #{endDate,jdbcType=VARCHAR}
 		</if>
-		ORDER BY create_time
+		ORDER BY create_time desc
 	</select>
 </mapper>

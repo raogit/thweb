@@ -23,7 +23,7 @@
 									<div class="activity_title">活动讯息<i></i></div>
 									<ul class="activity_list">
 										<c:forEach var="item" items="${activityInfo }" begin="0" step="1" end="2" varStatus="itemStatus">
-											<li><a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${item.menuId}"><b>${item.title }</b><span>活动时间:08月10日-08月14日</span></a></li>
+											<li><a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${item.menuId}"><b>${item.title }</b><span></span></a></li>
 										</c:forEach>
 										<!-- <li><a href="News_details.html"><b>拿都斯里8月08日已经盛大开业啦!</b><span>活动时间:08月10日-08月14日</span></a></li>
 										<li><a href="News_details.html"><b>拿都斯里8月08日已经盛大开业啦!</b><span>活动时间:08月10日-08月14日</span></a></li>
