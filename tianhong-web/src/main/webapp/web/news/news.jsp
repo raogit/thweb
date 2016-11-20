@@ -22,7 +22,9 @@
                 <div class="news_model1">
                     <div class="news_bannerBox">
                         <div class="news_banner">
-                            <img src="../images/new4.png">
+                            <c:forEach var="item" items="${newsHeadLine }" begin="0" step="1" end="0" varStatus="itemStatus">
+			                	<img src="${basePath}/download/png?fileName=${item.picture }" style="max-width:696px;max-height:394px;" />
+					        </c:forEach>
                         </div>
                         <div class="news_bannerText">
                             <a href="javascript:;" class="news_bannerTit">五一不上班，一觉睡到自然醒，慢慢悠悠来购物</a>
@@ -66,7 +68,7 @@
                             <ul>
                             	<c:forEach var="item" items="${newsAll }" begin="0" step="1" end="2" varStatus="itemStatus">
 				                	 <li>
-	                                    <div class="news_AllLPic"><img src="${basePath}/download/png?fileName=${item.picture }" width="353px" height="185px"></div>
+	                                    <div class="news_AllLPic"><img src="${basePath}/download/png?fileName=${item.picture }" width="327px" height="185px;" /></div>
 	                                    <div class="news_AllLContent">
 	                                            <h5>${item.title}</h5>
 	                                            <dir style="height:80px;padding-left: 0;overflow: hidden;margin: 0 0;">${item.content }</dir>

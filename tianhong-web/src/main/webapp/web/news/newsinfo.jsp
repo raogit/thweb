@@ -16,9 +16,9 @@
         <div class="newsnav_content">
             <div class="newsnav_contentBlock">
                <div class="newsnav_aContent">
-                    <a href="../index.html" class="newsnav_aBlock icon">首页</a>
-                    <a href="inveIndex.html" class="newsnav_aBlock icon">新闻中心</a>
-                    <a href="inveIndex.html" class="newsnav_aBlock">新闻详情</a>
+                    <a href="${basePath}" class="newsnav_aBlock icon">首页</a>
+                    <a href="${basePath}/web/newscenter/index?menuId=179" class="newsnav_aBlock icon">新闻中心</a>
+                    
                 </div>
                 <a href="" class="newsnav_aBack" onclick="javascript:history.back(-1);">返回</a>
             </div>

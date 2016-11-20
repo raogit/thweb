@@ -54,13 +54,6 @@
                 	<c:forEach var="item" items="${historys }" begin="0" step="1" varStatus="itemStatus">
 	                	<li><a href="${basePath}/web/culture/publicdetail?menuId=${menu.id }&id=${item.id }">${item.title }</a></li>
 			        </c:forEach>
-                    <!-- <li><a href="">培养零售人才，推动公司持续发展公司持续发？</a></li>
-                    <li><a href="">培养零售人才，推动公司持续发展公司持续发？</a></li>
-                    <li><a href="">培养零售人才，推动公司持续发展公司持续发？</a></li>
-                    <li><a href="">培养零售人才，推动公司持续发展公司持续发？</a></li>
-                    <li><a href="">培养零售人才，推动公司持续发展公司持续发？</a></li>
-                    <li><a href="">培养零售人才，推动公司持续发展公司持续发？</a></li>
-                    <li><a href="">培养零售人才，推动公司持续发展公司持续发？</a></li> -->
                 </ul>
             </div>
             <div class="bd-PD-l fl">
@@ -74,7 +67,7 @@
                 
                 <div class="PD-cont">
                     <div class="PD-top">${history.content }</div>
-                    <div class="PD-cim"><img src="${basePath}/download/png?fileName=${history.picture }" alt="" style="width: 725px;height: 350px;"></div>
+                    <div class="PD-cim"><img src="${basePath}/download/png?fileName=${history.picture }" alt="" style="width: 725px;height: 487px;"></div>
                 </div>
                 
             </div>

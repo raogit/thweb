@@ -6,7 +6,14 @@
         <a href="${basePath}"><div class="h-c-back">公司首页</div></a>
         <ul class="h-c-title">
         	<c:forEach var="item" items="${subMenus }" begin="0" step="1" varStatus="itemStatus">
-	        	<li class="at"><a href="${basePath}${item.link }?menuId=${item.id }">${item.name }</a></li>
+        		<c:if test="${menu.id == item.id }">
+        			<li class="t-li t2 at"><a href="${basePath}${item.link }?menuId=${item.id }">${item.name }</a></li>
+        		</c:if>
+        		<c:if test="${menu.id != item.id }">
+        			<li class="t-li t2"><a href="${basePath}${item.link }?menuId=${item.id }">${item.name }</a></li>
+        		</c:if>
+        	
+	        	
 	        </c:forEach>
         </ul>
     </div>
