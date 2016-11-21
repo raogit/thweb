@@ -58,7 +58,7 @@
                 	<div style="padding-top: 20px;"><p><em style="color: #f08200;font-size: 20px;">${item.categoryName }</em></p></div>
 	            	<div class="at-rec cv-rec" >
 	                    <div class="at-rec-cont clearfix" style="height: 400px;overflow: hidden;"> ${item.content } </div>
-	                    <div class="cv-btn"><a href="${basePath}/store/servicejoinabout/detail?menuId=${menu.id}&categoryId=${item.id }">了解更多</a></div>
+	                    <div class="cv-btn"><a href="${basePath}/store/servicejoinabout/detail?categoryId=${item.categoryId }&menuId=${menu.id}">了解更多</a></div>
 	                    <div class="n-l-line itd-line cv-line"></div>
 	                </div>
 	            </c:forEach>

@@ -97,6 +97,6 @@ public class MarketController {
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/market/management", model);
+		return new ModelAndView("/market/management2", model);
 	}
 }

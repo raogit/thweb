@@ -18,9 +18,9 @@
 				<div style="clear: both;"></div>
 			</div>
 			<div class="header_rightBlock">
-				<div class="header_wcWb">
+				<!-- <div class="header_wcWb">
 					<a href="javascript:;" class="header_wb"></a> <a href="javascript:;" class="header_wc"></a>
-				</div>
+				</div> -->
 				<div style="clear: both;"></div>
 			</div>
 		</div>

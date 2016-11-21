@@ -7,7 +7,7 @@
          <div class="menu">
             <div class="menu-link">
                 <div class="link-box">
-                  <a href="" class="sina">新浪微博</a><a href="" class="weixin">微信</a>
+                  <a href="javascript:void(0);" class=""></a><a href="javascript:void(0);" class=""></a>
                   <a href="${basePath}" class="return">返回集团</a>
                 </div>
             </div>

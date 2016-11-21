@@ -52,6 +52,7 @@ public class NewsCenterServiceImpl implements NewsCenterService {
 			NewsCenter news = newsCenterMapper.selectByPrimaryKey(newsCenter.getId());
 			news.setType(newsCenter.getType());
 			news.setTitle(newsCenter.getTitle());
+			news.setSource(newsCenter.getSource());
 			news.setContent(newsCenter.getContent());
 			news.setPicture(newsCenter.getPicture());
 			news.setNewsTime(newsCenter.getNewsTime());

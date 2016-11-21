@@ -59,6 +59,7 @@ public class StoreController {
 	public Object index(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
+			model.put("menu", menuService.getByPrimaryKey(163));
 			List<Menu> subMenus = menuService.getSubMenus(162, true);
 			model.put("subMenus", subMenus);
 			List<Picture> pictures = pictureService.findByMenuId(subMenus.get(0).getId());

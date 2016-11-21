@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.constant.CommonConstant;
-import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.menu.Menu;
 import com.tianhong.domain.newscenter.NewsCenter;
 import com.tianhong.domain.picture.Picture;
@@ -34,7 +33,7 @@ import com.tianhong.utils.HttpClientUtils;
  */
 @Controller
 @RequestMapping(value = "/web")
-public class WebController extends BaseController {
+public class WebController {
 
 	private static final Log log = LogFactory.getLog(WebController.class);
 	@Autowired
@@ -66,7 +65,7 @@ public class WebController extends BaseController {
 			String[] shares1 = body.split("=");
 			String[] shares2 = shares1[1].split(",");
 			model.put("shares", shares2[3].substring(0, 5));
-			model.put("sharesTime", shares2[30] + ":" + shares2[31]);
+			model.put("sharesTime", shares2[30] + " " + shares2[31]);
 
 			List<Picture> pictures = pictureService.findByMenuId(173);
 			model.put("pictures", pictures);

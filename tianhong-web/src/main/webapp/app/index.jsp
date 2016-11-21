@@ -233,8 +233,8 @@
 						<img src="${basePath}/app/Images/p_17.jpg">
 					</div>
 					<div class="f-t-txt">
-						<p class="f-t-p">地址：深圳市福田区华富路天虹商业公司</p>
-						<p class="f-t-p fp2">电话：0755-8888888</p>
+						<p class="f-t-p">地址：深圳市南山区中心路（深圳湾段）3019号天虹大厦9-14楼、17-20楼</p>
+						<p class="f-t-p fp2">电话：0755-23651000 23652000</p>
 					</div>
 					<div class="f-t-wc">
 						<img src="${basePath}/app/Images/p_20.jpg"><img src="${basePath}/app/Images/p_20.jpg">
