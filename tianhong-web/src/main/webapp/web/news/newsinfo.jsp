@@ -29,7 +29,7 @@
                    <div class="newsInfo_Title">${news.title }</div>
                     <div class="newsInfo_TitleTop">
                         <h3>${news.newsTimeStr }</h3>
-                        <h3>来源：${news.source }</h3>
+                        <h3 style="width: 300px;overflow: hidden;">来源：${news.source }</h3>
                         <div class="clear"></div>
                     </div>
                     <div class="newsInfo_Content">${news.content }</div>
