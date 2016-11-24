@@ -12,8 +12,7 @@
 		request.setAttribute("basePath", basePath);
 		request.setAttribute("ver", Math.random());
 		%>
-	<link rel="shortcut icon" href="${basePath}/images/favicon.ico"
-		type="image/x-icon">
+	<link rel="shortcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
 	<input type="hidden" value="${basePath }" id="basePath" name="basePath" />
 	<input type="hidden" value="${path }" id="path" name="path" />
 	<link href="${basePath}/brand/css/common.css" rel="stylesheet"

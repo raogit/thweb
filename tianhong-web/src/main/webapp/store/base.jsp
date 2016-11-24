@@ -4,6 +4,7 @@
 	request.setAttribute("basePath", basePath);
 	request.setAttribute("ver", Math.random());
 	%>
+	<link rel="shortcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="${basePath}/store/Style/Style.css">
     <script src="${basePath}/store/Scripts/jquery-1.7.1.min.js"></script>
 	<script src="${basePath}/store/Scripts/common.js"></script>

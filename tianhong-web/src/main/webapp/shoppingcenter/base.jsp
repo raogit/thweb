@@ -4,6 +4,7 @@
 	request.setAttribute("basePath", basePath);
 	request.setAttribute("ver", Math.random());
 	%>
+	<link rel="shortcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="${basePath}/shoppingcenter/css/style.css">  <!-- 具体样式 -->
 	<link rel="stylesheet" type="text/css" href="${basePath}/shoppingcenter/css/common.css"> <!-- 公共样式 -->
     
