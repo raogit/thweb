@@ -41,7 +41,8 @@
 				                	<li>
 	                                    <a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}">
 	                                        <div class="news_TopContent">
-	                                            <h3>${fn:substring(item.title,0,20) }</h3><i style="position: relative;font-size: 6;text-align: right;">${item.newsTimeStr }</i>
+	                                            <h3>${fn:substring(item.title,0,20) }</h3>
+	                                            <%-- <i style="position: relative;font-size: 6;text-align: right;">${item.newsTimeStr }</i> --%>
 	                                            <dir style="height:50px;padding-left: 0;overflow: hidden;margin: 0 0;">${item.content }</dir>
 	                                        </div>
 	                                    </a>

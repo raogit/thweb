@@ -16,7 +16,15 @@
         <div class="cont-int clearfix">
             <ul class="c-i-img">
                 <c:forEach var="item" items="${pictures }" begin="1" step="1" end="3" varStatus="itemStatus">
-	            	 <li><a href="Join/Iwant.html"><img src="${basePath}/download/png?fileName=${item.path }" alt="" width="211px" height="90px"></a></li>
+                	<c:choose>
+						<c:when test="${fn:contains(item.url, 'http')}">  
+					   		<li><a href="${item.url}"><img src="${basePath}/download/png?fileName=${item.path }" alt="" width="211px" height="90px"></a></li>
+					   	</c:when>
+					   	<c:otherwise> 
+					   		<li><a href="${basePath}/${item.url}"><img src="${basePath}/download/png?fileName=${item.path }" alt="" width="211px" height="90px"></a></li>
+					   	</c:otherwise>
+					</c:choose>
+	            	 
 	            </c:forEach>
             </ul>
             <div class="c-i-banner">

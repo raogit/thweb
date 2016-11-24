@@ -24,8 +24,8 @@
 <body>
 	<jsp:include page="head/head.jsp"></jsp:include>
 	<div class="bodyer">
-	    <div class="titleImg_content" style="background:url(../images/b_2.jpg) no-repeat center; background-size:cover; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(../images/b_2.jpg,sizingMethod='scale');">
-	        <div class="titleImg_img"><img src="${basePath}/web/images/b_3.png"></div>
+	    <div class="titleImg_content" style="background:url(../images/b_03.jpg) no-repeat center; background-size:cover; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(../images/b_03.jpg,sizingMethod='scale');">
+	        <%-- <div class="titleImg_img"><img src="${basePath}/web/images/b_3.png"></div> --%>
 	    </div>
 	    <div class="nav_content">
 	        <div class="nav_contentBlock">

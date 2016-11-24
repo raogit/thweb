@@ -33,8 +33,8 @@
 			<div class="header_onBlockBg">
 				<c:if test="${fn:length(item.subMenus)>0}">
 					<div class="BlockBg"></div>
-				</c:if>
-				<div class="header_onBlockIn" style="margin-left: 10%;">
+				</c:if> 
+				<div class="header_onBlockIn">
 					<ul class="header_onList">
 						<c:forEach var="sub" items="${item.subMenus }" begin="0" step="1">
 							<c:if test="${item.name=='多元业务' }">
