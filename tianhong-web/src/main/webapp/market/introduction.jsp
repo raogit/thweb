@@ -22,7 +22,7 @@
 						<div class="c-in-lip">
 							<%-- <input type="text" style="float:left;width:70%" class="tsr-ip c-lip" id="searchName" name="searchName" value="${first.name }">
 							<div style="float:left;width:25%;height: 30px;" onclick="search()"> </div> --%>
-							<select id="softType" style="width:100px;height: 25px;" name="marketName" onchange="changeMarket()">
+							<select id="softType" style="width:180px;height: 25px;" name="marketName" onchange="changeMarket()">
 								<c:forEach var="item" items="${list }" begin="0" step="1" varStatus="itemStatus">
 									 <option value="${item.id }">${item.name }</option>
 								</c:forEach>
