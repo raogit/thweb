@@ -20,9 +20,9 @@ $UrlParameter = function(_key) {
 
 jQuery(document).ready(function() {
 	
-	$(".header_onBlockBg").mouseout(function(){
-		$(this).hide();
-	});
+	/*$(".header_onList").mouseout(function(){
+		$(this).parent().hide();
+	});*/
 })
 
 
