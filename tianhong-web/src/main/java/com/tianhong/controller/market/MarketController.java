@@ -53,7 +53,9 @@ public class MarketController {
 	public Object index(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-
+			Market market = new Market();
+			List<Market> markets = marketService.list(market);
+			model.put("markets", markets);
 		} catch (Exception e) {
 			log.error("", e);
 		}
@@ -68,8 +70,10 @@ public class MarketController {
 			List<Market> list = marketService.list(market);
 			Market m;
 			String name = request.getParameter("searchName");
-			if (StringUtils.isNotEmpty(name) && StringUtils.isNotEmpty(name.trim())) {
-				m = marketService.getByName(name.trim());
+			String marketName = request.getParameter("marketName");
+
+			if (StringUtils.isNotEmpty(marketName) && StringUtils.isNotEmpty(marketName.trim())) {
+				m = marketService.getByName(marketName.trim());
 			} else {
 				m = list.get(0);
 			}

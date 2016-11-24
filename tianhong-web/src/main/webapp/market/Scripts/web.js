@@ -23,7 +23,9 @@ function search(){
 	}
 	$("#formId").submit();
 }
-
+function changeMarket(){
+	$("#formId").submit();
+}
 function newDetail(id){
 	$.ajax({
         url: basePath + "/marketnews/get",

@@ -31,7 +31,7 @@ function webSize(){
 	var head = $(".Header").height();
 	var foot = $(".Footer").height();
 	var middle = $("#middle").height();
-    var sum = winH - head - foot;
+    var sum = winH - head - middle -foot;
 	$(".i-center").css({width:winW,height:sum})
 }
 
