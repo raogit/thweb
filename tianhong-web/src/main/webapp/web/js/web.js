@@ -21,11 +21,7 @@ $UrlParameter = function(_key) {
 jQuery(document).ready(function() {
 	
 	$(".header_onBlockBg").mouseout(function(){
-		var header_onBlockBgs = $(".header_onBlockBg");
-		for(var i=0;i<header_onBlockBgs.length;i++){
-			var header_onBlockBg = header_onBlockBgs[i];
-			$(header_onBlockBg).hide();
-		}
+		$(this).hide();
 	});
 })
 

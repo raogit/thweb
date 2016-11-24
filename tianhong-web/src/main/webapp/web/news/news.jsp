@@ -67,7 +67,7 @@
                     <div class="news_AllLBox">
                         <div class="news_AllL">
                             <ul>
-                            	<c:forEach var="item" items="${newsAll }" begin="0" step="1" end="2" varStatus="itemStatus">
+                            	<c:forEach var="item" items="${newsAll }" begin="0" step="1" varStatus="itemStatus">
 				                	 <li>
 	                                    <div class="news_AllLPic"><img src="${basePath}/download/png?fileName=${item.picture }" width="327px" height="185px;" /></div>
 	                                    <div class="news_AllLContent">
