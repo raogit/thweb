@@ -105,7 +105,7 @@
 	                    </div>
 	                </div>
 	                <div class="bd-sch-cin">
-	                    <div class="bd-L-tch tch2">知识管理体系</div>
+	                    <div class="bd-L-tch tch2">培养晋升</div>
 	                    <div class="bd-L-cont c3">${knowledge.content }</div>
 	                    <div class="bd-tl-list">
 	                        <ul class="bd-tl-lin">

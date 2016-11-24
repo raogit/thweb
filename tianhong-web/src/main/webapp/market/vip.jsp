@@ -17,7 +17,7 @@
 				<div class="vti-l">会员制度</div>
 				<div class="vti-r">
 					<div class="vti-rin">会员制度</div>
-					<div class="vti-rin">积分换礼</div>
+					<div class="vti-rin"><a href="http://www.tianhong.cn/jifen.html" target="_blank">积分换礼</a></div>
 				</div>
 			</div>
 		</div>

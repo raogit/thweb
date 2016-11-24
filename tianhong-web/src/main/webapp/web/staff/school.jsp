@@ -97,9 +97,9 @@
 	                <div class="bd-sch-cin">
 	                    <div class="sch-r2 fr">
 	                        <div class="bd-L-title">
-	                            <div class="bd-L-tch tch2">培训中心</div>
-	                            <div class="bd-L-ten ten4">training center</div>
-	                            <div class="bd-L-tle tle3"></div>
+	                            <div class="bd-L-tch tch2"></div>
+	                            <div class="bd-L-ten ten4"></div>
+	                           <!--  <div class="bd-L-tle tle3"></div> -->
 	                        </div>
 	                        <div class="bd-L-cont c2">${train.content }</div>
 	                    </div>
