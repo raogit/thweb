@@ -15,11 +15,9 @@
 	<link rel="shortcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
 	<input type="hidden" value="${basePath }" id="basePath" name="basePath" />
 	<input type="hidden" value="${path }" id="path" name="path" />
-	<link href="${basePath}/brand/css/common.css" rel="stylesheet"
-		type="text/css">
+	<link href="${basePath}/brand/css/common2.css" rel="stylesheet" type="text/css">
 	<!-- 具体样式 -->
-	<script src="${basePath}/brand/js/jquery-1.4.2.js"
-		type="text/javascript"></script>
+	<script src="${basePath}/brand/js/jquery-1.4.2.js" type="text/javascript"></script>
 	<!-- Jquery 库 -->
 </head>
 
