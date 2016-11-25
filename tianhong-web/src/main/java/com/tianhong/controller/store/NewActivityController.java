@@ -22,12 +22,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.category.Category;
 import com.tianhong.domain.menu.Menu;
+import com.tianhong.domain.newscenter.NewsCenter;
 import com.tianhong.domain.picture.Picture;
 import com.tianhong.domain.store.NewActivity;
 import com.tianhong.domain.store.StoreProduct;
 import com.tianhong.domain.user.User;
 import com.tianhong.service.category.CategoryService;
 import com.tianhong.service.menu.MenuService;
+import com.tianhong.service.newscenter.NewsCenterService;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.service.store.NewActivityService;
 import com.tianhong.service.store.StoreProductService;
@@ -51,6 +53,8 @@ public class NewActivityController extends BaseController {
 	private StoreProductService storeProductService;
 	@Autowired
 	private NewActivityService newActivityService;
+	@Autowired
+	private NewsCenterService newsCenterService;
 
 	@RequestMapping(value = "/index")
 	public Object index(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
@@ -69,6 +73,9 @@ public class NewActivityController extends BaseController {
 				cate.setStoreProducts(storeProducts);
 			}
 			model.put("categorys", categorys);
+
+			List<NewsCenter> recommends = newsCenterService.getList(314);
+			model.put("recommends", recommends);
 		} catch (Exception e) {
 			log.error("", e);
 		}

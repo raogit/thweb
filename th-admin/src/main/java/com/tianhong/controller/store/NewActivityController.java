@@ -48,6 +48,18 @@ public class NewActivityController extends BaseController {
 		return new ModelAndView("/store/newactivity-info", map);
 	}
 
+	@RequestMapping(value = "/recommend")
+	public Object recommend(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		try {
+			String menuId = request.getParameter("menuId");
+			map.put("menuId", menuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/store/recommend", map);
+	}
+
 	@RequestMapping(value = "/save")
 	@ResponseBody
 	public Object save(NewActivity newActivity, HttpServletRequest request, HttpServletResponse response) {

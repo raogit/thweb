@@ -38,13 +38,13 @@
 						</c:forEach>
 					</div>
 				</div>
-				<div class="n-r-nav">
+				<%-- <div class="n-r-nav">
 					<div class="n-r-top"><img src="${basePath}/images/store/n_06.png" alt=""></div>
 					<div class="n-r-new">
 						<img src="${basePath}/images/store/n_07.png" alt="">
 						<div class="n-r-nin"><img src="${basePath}/images/store/n_13.png" alt=""></div>
 					</div>
-				</div>
+				</div> --%>
 			</div>
 			<div class="new-left">
 				<div class="n-l-top">
@@ -80,26 +80,28 @@
 					<div class="a-rec">
 						<div class="a-rec-title">最新活动推荐</div>
 						<ul class="a-rec-cont">
-							<li><img src="${basePath}/${basePath}/images/store/store/a_05.jpg" alt="">
-							<div class="a-rec-t">
-									<p>五月优惠活动</p>
-									<p>截止时间：2016-05-30</p>
-								</div></li>
-							<li><img src="${basePath}/images/store/a_05.jpg" alt="">
-							<div class="a-rec-t">
-									<p>五月优惠活动</p>
-									<p>截止时间：2016-05-30</p>
-								</div></li>
-							<li><img src="${basePath}/images/store/a_05.jpg" alt="">
-							<div class="a-rec-t">
-									<p>五月优惠活动</p>
-									<p>截止时间：2016-05-30</p>
-								</div></li>
-							<li><img src="${basePath}/images/store/a_05.jpg" alt="">
-							<div class="a-rec-t">
-									<p>五月优惠活动</p>
-									<p>截止时间：2016-05-30</p>
-								</div></li>
+							<c:forEach var="item" items="${recommends }" begin="0" step="1" varStatus="itemStatus">
+								<li>
+									<div style="height:177px"><img src="${basePath}/download/png?fileName=${item.picture }" alt="" style="max-width:177px;max-height:176px;"></div>
+									<div class="a-rec-t"><p>${item.title }</p><p>截止时间：${item.newsTimeStr }</p></div>
+								</li>
+							</c:forEach>
+							<%-- <li>
+								<img src="${basePath}/${basePath}/images/store/store/a_05.jpg" alt="">
+								<div class="a-rec-t"><p>五月优惠活动</p><p>截止时间：2016-05-30</p></div>
+							</li>
+							<li>
+								<img src="${basePath}/images/store/a_05.jpg" alt="">
+								<div class="a-rec-t"><p>五月优惠活动</p><p>截止时间：2016-05-30</p></div>
+							</li>
+							<li>
+								<img src="${basePath}/images/store/a_05.jpg" alt="">
+								<div class="a-rec-t"><p>五月优惠活动</p><p>截止时间：2016-05-30</p></div>
+							</li>
+							<li>
+								<img src="${basePath}/images/store/a_05.jpg" alt="">
+								<div class="a-rec-t"><p>五月优惠活动</p><p>截止时间：2016-05-30</p></div>
+							</li> --%>
 						</ul>
 					</div>
 				</div>

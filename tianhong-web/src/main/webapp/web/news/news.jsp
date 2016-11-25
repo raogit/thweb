@@ -26,9 +26,12 @@
 			                	<img src="${basePath}/download/png?fileName=${item.picture }" style="max-width:696px;max-height:394px;" />
 					        </c:forEach>
                         </div>
-                        <div class="news_bannerText">
-                            <a href="javascript:;" class="news_bannerTit">五一不上班，一觉睡到自然醒，慢慢悠悠来购物</a>
-                        </div>
+                        <c:forEach var="item" items="${newsHeadLine }" begin="0" step="1" end="0" varStatus="itemStatus">
+			            	<div class="news_bannerText">
+	                            <a href="javascript:;" class="news_bannerTit">${item.title }</a>
+	                        </div>
+					    </c:forEach>
+                        
                         <div class="news_bannerBtn">
                             <a class="prev" href="javascript:void(0);"><img src="../images/upBtn.png"></a>
                             <a class="next" href="javascript:void(0);"><img src="../images/nextBtn.png"></a>

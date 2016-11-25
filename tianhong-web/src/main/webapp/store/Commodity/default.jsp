@@ -21,7 +21,7 @@
 							</c:forEach>
 						</div>
 					</div>
-					<div class="n-r-nav">
+					<%-- <div class="n-r-nav">
 						<div class="n-r-top">
 							<img src="${basePath}/images/store/n_06.png" alt="">
 						</div>
@@ -34,7 +34,7 @@
 						<div class="n-r-list">
 							<div class="n-r-lb"></div>
 						</div>
-					</div>
+					</div> --%>
 				</div>
 				<div class="new-left">
 					<div class="n-l-top"><img src="${basePath}/images/store/n_02.jpg" alt=""></div>

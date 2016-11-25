@@ -46,13 +46,13 @@
 				<div class="n-l-cont">
 					<div class="n-l-ct">新品上市</div>
 					<div class="n-l-line"></div>
-					<div class="at-rec cv-rec">
+					<!-- <div class="at-rec cv-rec">
 						<div class="dt-rec-txt new-t">
 							<p><em>不定期为顾客优选最新商品</em></p>
 							<p>天虹微喔便利店不断创新，为顾客提供最值得信赖的品牌及商品，解决顾客对于商品的健康和品质问题的疑虑。天虹微喔便利店强大的运营团队，对引进的新商品严格把关，做到品质最优，真正做到让顾客放心消费。
 							</p>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 			<c:forEach var="item" items="${categorys }" begin="0" step="1" varStatus="itemStatus">

@@ -20,6 +20,7 @@
 					<div class="c-in-tsr" >
 						<!-- <input type="text" style="float:left;width:65%" class="tsr-ip" placeholder="门店搜索" id="searchName" name="searchName"/> -->
 						<select id="marketName" style="width:100px;height: 25px;" name="marketName" onchange="changeMarket()">
+							<option value="">选择门店</option>
 							<c:forEach var="item" items="${markets }" begin="0" step="1" varStatus="itemStatus">
 								 <option value="${item.id }">${item.name }</option>
 							</c:forEach>
@@ -55,7 +56,11 @@
 	})
 	function changeMarket(){
 		//window.location.href = $("#basePath").val()+"/market/introduction?marketName="+$("#marketName option:selected").val();
-		window.open($("#basePath").val()+"/market/introduction?marketId="+$("#marketName option:selected").val(),"_blank");
+		var marketName = $("#marketName option:selected").val();
+		if(marketName!=null &&  marketName!=""){
+			window.open($("#basePath").val()+"/market/introduction?marketId="+$("#marketName option:selected").val(),"_blank");
+		}
+		
 	}
 	</script>
 </body>
