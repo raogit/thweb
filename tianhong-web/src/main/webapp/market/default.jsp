@@ -19,7 +19,7 @@
 				<form action="${basePath}/market/introduction" method="post" id="formId">
 					<div class="c-in-tsr" >
 						<!-- <input type="text" style="float:left;width:65%" class="tsr-ip" placeholder="门店搜索" id="searchName" name="searchName"/> -->
-						<select id="softType" style="width:100px;height: 25px;" name="marketName" onchange="changeMarket()">
+						<select id="marketName" style="width:100px;height: 25px;" name="marketName" onchange="changeMarket()">
 							<c:forEach var="item" items="${markets }" begin="0" step="1" varStatus="itemStatus">
 								 <option value="${item.id }">${item.name }</option>
 							</c:forEach>
@@ -33,10 +33,8 @@
 	<div class="footer_mk">
 		<div class="f-cont">
 			<div class="f-c-right">
-				<a href="" class="f-c-ri"><img
-					src="${basePath}/market/images/p_1.png" alt=""></a> <a href=""
-					class="f-c-ri fri"><img src="${basePath}/market/images/p_2.png"
-					alt=""></a>
+				<a href="" class="f-c-ri"><img src="${basePath}/market/images/p_1.png" alt=""></a> 
+				<a href="" class="f-c-ri fri"><img src="${basePath}/market/images/p_2.png" alt=""></a>
 				<div class="fr"></div>
 			</div>
 			<div class="f-c-left">
@@ -55,6 +53,10 @@
 			$(li).removeClass("rli5");
 		}
 	})
+	function changeMarket(){
+		//window.location.href = $("#basePath").val()+"/market/introduction?marketName="+$("#marketName option:selected").val();
+		window.open($("#basePath").val()+"/market/introduction?marketId="+$("#marketName option:selected").val(),"_blank");
+	}
 	</script>
 </body>
 </html>

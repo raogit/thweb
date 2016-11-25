@@ -22,9 +22,9 @@
 						<div class="c-in-lip">
 							<%-- <input type="text" style="float:left;width:70%" class="tsr-ip c-lip" id="searchName" name="searchName" value="${first.name }">
 							<div style="float:left;width:25%;height: 30px;" onclick="search()"> </div> --%>
-							<select id="softType" style="width:180px;height: 25px;" name="marketName" onchange="changeMarket()">
+							<select id="marketName" style="width:180px;height: 25px;" name="marketName" onchange="changeMarket()">
 								<c:forEach var="item" items="${list }" begin="0" step="1" varStatus="itemStatus">
-									 <option value="${item.id }">${item.name }</option>
+									 <option <c:if test="${item.id==first.id}">selected</c:if> value="${item.id }">${item.name }</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -239,6 +239,9 @@
 	<script type="text/javascript" src="${basePath}/market/Scripts/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="${basePath}/market/Scripts/web.js"></script>
 	<script type="text/javascript">
+	function changeMarket(){
+		window.location.href = $("#basePath").val()+"/market/introduction?marketId="+$("#marketName option:selected").val();
+	}
     $(function(){
         //显示内页
         var showInnerPage = function(_node){

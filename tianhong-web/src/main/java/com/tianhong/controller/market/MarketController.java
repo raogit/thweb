@@ -70,10 +70,10 @@ public class MarketController {
 			List<Market> list = marketService.list(market);
 			Market m;
 			String name = request.getParameter("searchName");
-			String marketName = request.getParameter("marketName");
+			String marketId = request.getParameter("marketId");
 
-			if (StringUtils.isNotEmpty(marketName) && StringUtils.isNotEmpty(marketName.trim())) {
-				m = marketService.getByName(marketName.trim());
+			if (StringUtils.isNotEmpty(marketId) && StringUtils.isNotEmpty(marketId.trim())) {
+				m = marketService.getByPrimaryKey(Integer.parseInt(marketId.trim()));
 			} else {
 				m = list.get(0);
 			}
