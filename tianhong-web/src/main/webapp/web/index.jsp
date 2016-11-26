@@ -45,7 +45,7 @@
             </div>
         </div>
     </div>
-    <div class="wrapbot">
+    <div class="wrapbot" style="z-index: 999;">
 	    <div class="i-btm" id="middle">
 	        <div class="i-btm-in">
 	            <div class="i-b-news">
@@ -72,7 +72,7 @@
 						<li><a href="${basePath}/web/culture/public?menuId=197"><img src="images/img/i_3.png" alt=""><p>天虹公益</p></a></li>
 					</ul>
 	            </div>
-	            <div class="i-b-r">
+	            <div class="i-b-r" style="width: 160px;">
 					<div class="tch">天虹商场（002419.sz）</div>
 					<div class="ten">${shares }<span>RMB</span></div>
 					<div class="time">截止${sharesTime }</div>
