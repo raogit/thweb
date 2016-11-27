@@ -80,21 +80,22 @@ function initPicture(menuId){
 function picture(data){
 	var bannerpicture = $("#bannerpicture");
 	bannerpicture.empty();
+	debugger;
 	if(data!=null && data!="" && data!=false){
-		
+		debugger;
 		for(var i=0;i<data.length;i++){
 			var picture = data[i];
 			var html;
 			if(data.length>1){
 				if(i==0){
-					html = "<div style='float: left;padding-left: 10px;'><div>"+picture.path+"</div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:right("+picture.id+");'>右移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
+					html = "<div style='float: left;padding-left: 10px;'><div><iframe frameborder='0' width='400' height='250' src="+picture.path+" allowfullscreen></iframe></div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:right("+picture.id+");'>右移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
 				}else if(i==data.length-1){
-					html = "<div style='float: left;padding-left: 10px;'><div>"+picture.path+"</div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:left("+picture.id+");'>左移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
+					html = "<div style='float: left;padding-left: 10px;'><div><iframe frameborder='0' width='400' height='250' src="+picture.path+" allowfullscreen></iframe></div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:left("+picture.id+");'>左移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
 				}else{
-					html = "<div style='float: left;padding-left: 10px;'><div>"+picture.path+"</div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:left("+picture.id+");'>左移</a> | <a style='color: black;' href='javascript:right("+picture.id+");'>右移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
+					html = "<div style='float: left;padding-left: 10px;'><div><iframe frameborder='0' width='400' height='250' src="+picture.path+" allowfullscreen></iframe></div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:left("+picture.id+");'>左移</a> | <a style='color: black;' href='javascript:right("+picture.id+");'>右移</a> | <a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
 				}
 			}else{
-				html = "<div style='float: left;padding-left: 10px;'><div>"+picture.path+"</div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
+				html = "<div style='float: left;padding-left: 10px;'><div><iframe frameborder='0' width='400' height='250' src="+picture.path+" allowfullscreen></iframe></div><div style='padding-top: 10px;text-align: center;'><a style='color: black;' href='javascript:del("+picture.id+");'>删除</a></div></div";
 			}
 			
 			bannerpicture.append(html);

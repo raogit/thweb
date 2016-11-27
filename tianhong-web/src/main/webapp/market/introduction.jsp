@@ -24,7 +24,7 @@
 							<div style="float:left;width:25%;height: 30px;" onclick="search()"> </div> --%>
 							<select id="marketName" style="width:180px;height: 25px;" name="marketName" onchange="changeMarket()">
 								<c:forEach var="item" items="${list }" begin="0" step="1" varStatus="itemStatus">
-									 <option <c:if test="${item.id==first.id}">selected</c:if> value="${item.id }">${item.name }</option>
+									 <option style="width:180px;" <c:if test="${item.id==first.id}">selected</c:if> value="${item.id }">${item.name }</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -221,10 +221,8 @@
 	<div class="footer_mk">
 		<div class="f-cont">
 			<div class="f-c-right">
-				<a href="" class="f-c-ri"><img
-					src="${basePath}/market/images/p_1.png" alt=""></a> <a href=""
-					class="f-c-ri fri"><img src="${basePath}/market/images/p_2.png"
-					alt=""></a>
+				<%-- <a href="" class="f-c-ri"><img src="${basePath}/market/images/p_1.png" alt=""></a> 
+				<a href="" class="f-c-ri fri"><img src="${basePath}/market/images/p_2.png" alt=""></a> --%>
 				<div class="fr"></div>
 				<div class="f-c-wc">
 					<img src="${basePath}/market/images/p_3.png" alt="">

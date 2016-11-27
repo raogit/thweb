@@ -420,7 +420,10 @@
 #H-slideBox .arr-next{right:-56px;}
 #H-slideBox .move-box{margin:0 auto;width:1200px;height:100%;position:relative;overflow:hidden;}
 #H-slideBox ul{width:1100%;height:100%;position:relative;}
-#H-slideBox li{width:293px;height:100%;position:relative;border-left:none;padding-bottom:0px;margin-left:8px;}
+/* #H-slideBox li{width:293px;height:100%;position:relative;border-left:none;padding-bottom:0px;margin-left:8px;} */
+
+#H-slideBox li{width:293px;height: 468px;position:relative;border-left:none;padding-bottom:0px;margin-left:8px;}
+
 #H-slideBox .H-list-li .H-img{width:275px;height:400px;float:left;margin-left:12px;display:none;}
 #H-slideBox .H-list-li .H-txt{height:280px;width:100%;position:absolute;bottom:0px;left:0px;margin-left:0px;border-left:1px solid #f17b6f;padding-bottom:20px;}
 #H-slideBox .H-list-li .H-dot{background:url(../images/img/h_2.png) no-repeat;}

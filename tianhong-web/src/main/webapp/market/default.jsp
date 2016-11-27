@@ -19,10 +19,10 @@
 				<form action="${basePath}/market/introduction" method="post" id="formId">
 					<div class="c-in-tsr" >
 						<!-- <input type="text" style="float:left;width:65%" class="tsr-ip" placeholder="门店搜索" id="searchName" name="searchName"/> -->
-						<select id="marketName" style="width:100px;height: 25px;" name="marketName" onchange="changeMarket()">
-							<option value="">选择门店</option>
+						<select id="marketName" style="width:120px;height: 25px;" name="marketName" onchange="changeMarket()">
+							<option style="width:120px;" value="">选择门店</option>
 							<c:forEach var="item" items="${markets }" begin="0" step="1" varStatus="itemStatus">
-								 <option value="${item.id }">${item.name }</option>
+								 <option style="width:120px;" value="${item.id }">${item.name }</option>
 							</c:forEach>
 						</select>
 						<div style="float:left;width:25%;height: 30px;" onclick="search()"> </div>

@@ -350,9 +350,14 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());}
 .news_AllLBox{ margin-top: 30px; }
 .news_AllL ul li{ padding: 10px; background: #fff; margin-bottom: 20px; }
 .news_AllLPic{ width: 345px; height:185px;  float: left; }
+/* .news_AllLContent{ width: 780px; float: right; padding: 20px; } */
+
+/* .news_AllLContent h5{ font-size: 20px; height: 30px; line-height: 20px;   }
+.news_AllLContent p{ color: #666; font-size: 14px; line-height: 25px; margin-top: 10px; } */
 .news_AllLContent{ width: 780px; float: right; padding: 20px; }
-.news_AllLContent h5{ font-size: 20px; height: 30px; line-height: 20px;   }
-.news_AllLContent p{ color: #666; font-size: 14px; line-height: 25px; margin-top: 10px; }
+.news_AllLContent h5{ font-size: 20px; height: 30px; line-height: 20px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;  }
+.news_AllLContent p{ color: #666; font-size: 14px;line-height: 25px; margin-top: 10px; }
+
 .news_AllFoot{ margin-top: 20px; }
 .news_AllFoot h3{  float: left; }
 .news_AllFoot a{  float: right; color: #666;}

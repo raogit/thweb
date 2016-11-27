@@ -70,7 +70,9 @@
 	                <div class="bd-V-cont"  style="height: 520px;">
 	                    <div class="moveBox" style="height: 520px;">
 	                        <c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
-				            	<div class="V-cont-in" style="background: ;"><div class="V-video">${item.path }</div></div>
+				            	<div class="V-cont-in" style="background: ;"><div class="V-video">
+				            		<iframe frameborder="0" width="640" height="500" src="${item.path }" allowfullscreen></iframe>
+								</div></div>
 					        </c:forEach>
 	                    </div> 
 	                </div>
