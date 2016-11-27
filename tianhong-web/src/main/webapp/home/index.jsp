@@ -10,7 +10,6 @@
 	<link  href="${basePath}/home/css/common.css" rel="stylesheet" type="text/css">
 	<script src="${basePath}/home/Scripts/jquery.min.js?ver=${ver}"></script>
 	<script src="${basePath}/home/Scripts/Common.js?ver=${ver}"></script>
-	<script src="${basePath}/home/Scripts/jQuery.pluges.js?ver=${ver}"></script>
 </head>
 
 <body>
@@ -25,6 +24,7 @@
           <li><a href="javascript:void(0);" style="background:url(${basePath}/images/banner.jpg) no-repeat center;background-size:cover;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='${basePath}/images/banner.jpg',sizingMethod='scale')"></a></li> 
           <li><a href="javascript:void(0);" style="background:url(${basePath}/images/banner.jpg) no-repeat center;background-size:cover;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='${basePath}/images/banner.jpg',sizingMethod='scale')"></a></li>  --%>
        </ul>
+       	<div class="botn"><span></span></div>
    </div>
    <div class="inlet-link">
        <ul>
@@ -34,10 +34,47 @@
        </ul>
    </div>
 </div>
+
 <script type="text/javascript">
+// $(function(){
+//     $(".banner").bannerSlider(); 
+// })
+//
 $(function(){
-    $(".banner").bannerSlider(); 
+  var ban=0;
+  var maxImg=$(".list li").length;
+  text="";
+  for(var i = maxImg; i>0; i--){
+    text +="<span></span>"
+  }
+    $(".botn").html(text);
+    //banner动画效果
+    var Funimg= function(){
+      $(".botn span").eq(ban).addClass("current").siblings().removeClass("current")
+      $(".list li").eq(ban).siblings().stop(true,true).fadeOut();
+      $(".list li").eq(ban).stop(true,true).fadeIn();
+    } 
+    Funimg();
+    $(".botn span").bind("mouseover",function(){
+      ban = $(this).index();
+      Funimg();
+    }) 
+    var setInt=setInterval(function(){
+        ban++;
+        ban %=maxImg;
+        Funimg();
+    },3500);
+    $(".botn span").hover(function(){
+      clearInterval(setInt);
+    },function(){
+      setInt=setInterval(function(){
+        ban++;
+        ban %=maxImg;
+        Funimg();
+       },3500);
+    })
 })
+
 </script>
 </body>
 </html>

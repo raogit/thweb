@@ -44,7 +44,7 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .cont-in{width:360px;height:135px;position:absolute;top:240px;left:260px}
 .c-in-tch{font-size:32px;color:#fee280;letter-spacing:28px;}
 .c-in-ten{font-size:18px;color:#fff;letter-spacing:4px;text-transform:uppercase;margin-top:10px}
-.c-in-tsr{width:168px;height:26px;/* background:url(../images/b_4.png) no-repeat; */margin-top:40px}
+.c-in-tsr{width:168px;height:26px;background:url(../images/b_4.png) no-repeat;margin-top:40px}
 .tsr-ip{width:95px;height:26px;line-height:26px;letter-spacing:1px;border:0;background:0;margin-left:10px;color:#fff;padding-left:30px;*padding-top:2px;padding-top:2px\9;outline: none;}
 
 .footer_mk{width:100%;height:41px;background:#3d3d3d}
@@ -57,17 +57,17 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .fri:hover~.f-c-wc{display:block}
 
 .content_it{width:100%;position:relative}
-.c-in-cont{width:100%;height:666px;overflow:hidden;position:relative;min-height: 670px;}
-.c-in-left{width:42%;height:100%;position:fixed;left:0;top: 57px; overflow: hidden;}
+.c-in-cont{width:100%;height:666px;overflow:hidden;min-height: 670px;}
+.c-in-left{width:42%;height:100%;position:absolute;left:0;overflow: hidden;}
 .c-in-lt{width:100%;height:55px;line-height:55px;float:left;background:#dba07a;position: relative;z-index: 99;}
 .c-in-lti{width:492px;float:right}
-.c-in-lip{width:215px;height:27px;/* background:url(../images/b_5.png) no-repeat; */margin-top:14px;float:left}
+.c-in-lip{width:215px;height:27px;background:url(../images/b_5.png) no-repeat;margin-top:14px;float:left}
 .c-lip{width:140px;height:27px;line-height:27px;float:left}
 .c-in-ltx{width:130px;font-size:16px;color:#fff}
 .ltx2{border-left:1px solid #fff;padding-left:30px}
 .c-in-lbi{width:100%;height:100%;display: none;}
 .c-in-lb {width:100%;height:100%;}
-.c-in-lbi img{width:100%;height:100%}
+.c-in-lbi img{width:100%;}
 .lbi2{background:#f8f2e3}
 .lbi-ym{width:205px;float:right;margin-top:20px;}
 .lbi-ymo{width:101px;float:left;position:relative;margin-right:10px;cursor:pointer;}
@@ -85,16 +85,16 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .lbi-list{width:80%;height:42px;line-height:42px;color:#767676;padding:0 20px 0 30px;float:right;margin-right:10px;margin-top: 20px;}
 .lbi-ll{width:70%;float:left;white-space: nowrap;overflow: hidden;text-overflow:ellipsis;position: relative;}
 .lbi-lr{width:20%;text-align:right;float:right}
-.c-in-right{width:58%;height:100%;position:absolute;right:0}
-.cir2{}
+.c-in-right{width:58%;height:100%;position:absolute;right:0; top:57px;}
+.cir2{background:url(../images/bg_3.jpg) no-repeat left bottom;}
 .c-in-rt{width:100%;height:55px;line-height:55px;float:right;background:#dba07a;}
 .ci-rt2{background:#c0c0c0}
 .c-in-rti{width:725px;float:left}
 .c-in-rtr{width:260px;float:right}
 .c-in-rli{float:left;margin-left:20px;color:#5b5b5b;cursor:pointer;}
 .rtr-at{color:#fff}
-.c-in-rc{width:100%;margin-top:80px;position: relative;position: relative;padding: 30px 0px;}
-.man_content {width:100%;margin-top:80px;position: relative;}
+.c-in-rc{width:100%;margin-top:80px;position: relative;padding: 30px 0px;}
+.man_content {width:100%;margin-top:55px;position: relative;}
 .c-in-rct{width:200px;margin:0 auto;text-align:center}
 .rct2{padding-top:40px;}
 .rct3{width:450px;padding-top:40px}
@@ -196,12 +196,12 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .vci-cl400{width: 400px;position: relative;float: left;}
 .vci-cr500{width: 500px;position: relative;float: right;height:430px;}
 .Golden_Card{width: 100%;height: 270px;overflow: hidden; position: relative;padding-top: 15px;}
-.Golden_Card p{padding-left: 20px;line-height: 24px; background: url(../Images/b3_6.png) no-repeat left 5px;text-align:justify;text-justify:inter-ideograph}
+.Golden_Card p{padding-left: 20px;line-height: 24px; background: url(../images/b3_6.png) no-repeat left 5px;text-align:justify;text-justify:inter-ideograph}
 
 
 
 
-/*ÐÂÎÅÄÚÒ³*/
+/*æ–°é—»å†…é¡µ*/
 .new_inner{width: 100%;position: relative;width: 673px;margin: auto;display: none;}
 .aback{width: 67px;height: 27px;background: #82b4d4;position: absolute;top: -15px;right: 54px;}
 .aback a{display: block;line-height: 27px;text-align: center;color: #fff;border-radius: 6px;z-index: 999;position: relative;}
@@ -221,6 +221,7 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .bodyer_content {position: relative;}
 .Into_navBlock {position: fixed;float: right;width:58%;top:57px;right:0px;z-index: 999;}
 .Intr .header_mk {background: #fff;}
+
 
 .infix .header_mk {position: fixed;top:0px;left:0px;z-index: 999;background: #fff;}
 .infix .c-in-cont{position: fixed;top:57px;left:0px;}

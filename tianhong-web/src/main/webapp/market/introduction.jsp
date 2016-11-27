@@ -6,7 +6,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>天虹官网</title>
-<jsp:include page="base.jsp"></jsp:include>
+	<%String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
+	request.setAttribute("path", path);
+	request.setAttribute("basePath", basePath);
+	request.setAttribute("ver", Math.random());
+	%>
+	<link rel="shortcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
+	 <link rel="stylesheet" href="${basePath}/market/style/common3.css">
+	 <input type="hidden" value="${basePath }" id="basePath" name="basePath"/>
+	<input type="hidden" value="${path }" id="path" name="path" />
 </head>
 
 <body class="Intr">

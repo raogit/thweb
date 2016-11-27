@@ -180,10 +180,10 @@
 	<div class="footer_mk">
 		<div class="f-cont">
 			<div class="f-c-right">
-				<a href="" class="f-c-ri"><img
+				<%-- <a href="" class="f-c-ri"><img
 					src="${basePath}/market/images/p_1.png" alt=""></a> <a href=""
 					class="f-c-ri fri"><img src="${basePath}/market/images/p_2.png"
-					alt=""></a>
+					alt=""></a> --%>
 				<div class="fr"></div>
 				<div class="f-c-wc">
 					<img src="${basePath}/market/images/p_3.png" alt="">
