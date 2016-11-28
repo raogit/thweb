@@ -81,68 +81,66 @@
 	</div>
 	<jsp:include page="../foot/foot.jsp"></jsp:include>
 	<script type="text/javascript">
-	(function($){
-		$.fn.listRun=function(options){
-			var defaults = {
-				speed:500,
-				liWidth:270,
-				marSize:20
-			};
-			var o=$.extend(defaults,options,{});
-			return this.each(function(){
-				var that = $(this);
-				var moveBox = $('.move-box',that);
-				var move = $('ul',that);
-				var $li = $('li',that);
-				var list = $li.length;
-				var liW = $li.width();
-				var btnPrev = $(".arr-prev",that);
-				var btnNext = $(".arr-next",that);
-				var index = 0;
-				function init(){
-					$li.each(function(g){
-						$li.eq(g).css({width:(o.liWidth+o.marSize)})
-					});
-					$li.eq(0).css({width:600}).addClass('current'); 
-					$li.eq(0).find('.H-img').fadeIn().parent().parent().siblings().find('.H-img').hide();
+		(function($){
+			$.fn.listRun=function(options){
+				var defaults = {
+					speed:500,
+					liWidth:270,
+					marSize:20
 				};
-				init();
-				
-				btnPrev.bind('click',function(){
-					$li.eq(list-1).prependTo(move);
-					move.css({marginLeft:-(o.liWidth+o.marSize)});
-					move.animate({marginLeft:0},o.speed,function(){
-						move.children().eq(0).animate({width:600},o.speed).siblings().stop().animate({width:(o.liWidth+o.marSize)},o.speed);
-						move.children().eq(0).addClass('current').siblings().removeClass('current');
-						move.children().eq(0).find('.H-img').fadeIn(); 
-					}); 
-				});
-				btnNext.bind('click',function(){
-					move.animate({marginLeft:-(o.liWidth+o.marSize)},o.speed,function(){
-						move.children().eq(0).appendTo(move);
-						move.css({marginLeft:0}); 
-						move.children().eq(0).animate({width:600},o.speed).siblings().stop().animate({width:(o.liWidth+o.marSize)},o.speed);
-						move.children().eq(0).addClass('current').siblings().removeClass('current');
-						move.children().eq(0).find('.H-img').fadeIn(); 
+				var o=$.extend(defaults,options,{});
+				return this.each(function(){
+					var that = $(this);
+					var moveBox = $('.move-box',that);
+					var move = $('ul',that);
+					var $li = $('li',that);
+					var list = $li.length;
+					var liW = $li.width();
+					var btnPrev = $(".arr-prev",that);
+					var btnNext = $(".arr-next",that);
+					var index = 0;
+					function init(){
+						$li.each(function(g){
+							$li.eq(g).css({width:(o.liWidth+o.marSize)})
+						});
+						$li.eq(0).css({width:450}).addClass('current'); 
+						$li.eq(0).find('.H-img').fadeIn().parent().parent().siblings().find('.H-img').hide();
+					};
+					init();
+					
+					btnPrev.bind('click',function(){
+						$li.eq(list-1).prependTo(move);
+						move.css({marginLeft:-(o.liWidth+o.marSize)});
+						move.animate({marginLeft:0},o.speed,function(){
+							move.children().eq(0).animate({width:450},o.speed).siblings().stop().animate({width:(o.liWidth+o.marSize)},o.speed);
+							move.children().eq(0).addClass('current').siblings().removeClass('current');
+							move.children().eq(0).find('.H-img').fadeIn(); 
+						}); 
 					});
+					btnNext.bind('click',function(){
+						move.animate({marginLeft:-(o.liWidth+o.marSize)},o.speed,function(){
+							move.children().eq(0).appendTo(move);
+							move.css({marginLeft:0}); 
+							move.children().eq(0).animate({width:450},o.speed).siblings().stop().animate({width:(o.liWidth+o.marSize)},o.speed);
+							move.children().eq(0).addClass('current').siblings().removeClass('current');
+							move.children().eq(0).find('.H-img').fadeIn(); 
+						});
+					});
+					
+					$li.bind('mouseenter',function(){
+						if(!$li.is(":animated")){
+							$(this).animate({width:450},o.speed).siblings().stop().animate({width:(o.liWidth+o.marSize)},o.speed);
+							$(this).addClass('current').siblings().removeClass('current');
+							$(this).find('.H-img').fadeIn(); 
+						}
+					})
+					 
 				});
-				
-				$li.bind('mouseenter',function(){
-					if(!$li.is(":animated")){
-						$(this).animate({width:600},o.speed).siblings().stop().animate({width:(o.liWidth+o.marSize)},o.speed);
-						$(this).addClass('current').siblings().removeClass('current');
-						$(this).find('.H-img').fadeIn(); 
-					}
-				})
-				 
-			});
-		}
-	})(jQuery);
-	$(function(){
-		$("#H-slideBox").listRun();
-	})
+			}
+		})(jQuery);
+		$(function(){
+			$("#H-slideBox").listRun();
+		})
 	</script>
-
-
 </body>
 </html>
