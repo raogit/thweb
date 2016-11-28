@@ -61,18 +61,29 @@
 										<c:forEach var="item" items="${ads.obj }" begin="0" step="1" end="5" varStatus="itemStatus">
 											<li><a href="${basePath}/shopping/specia/detail?id=${item.id }"><img src="${basePath}/download/png?fileName=${item.picture }"></a></li>
 										</c:forEach>
-										<!-- <li><a href="food_details.html"><img src="images/aa.jpg"></a></li>
-										<li><a href="food_details.html"><img src="images/a.jpg"></a></li>
-										<li><a href="food_details.html"><img src="images/b.jpg"></a></li>
-										<li><a href="food_details.html"><img src="images/c.jpg"></a></li>
-										<li><a href="food_details.html"><img src="images/d.jpg"></a></li>
-										<li><a href="food_details.html"><img src="images/e.jpg"></a></li> -->
 									</ul>
 									<div class="choose_button choose_button_food">
 										<div class="video_choose">
-											<a href="${basePath}/shopping/specia/food?menuId=${menu.id }&curPage=${ads.curPage-1}" class="fl"><img src="${basePath}/images/shopping/common/up.png"></a>
+											<c:if test="${ads.curPage>1}">
+												<a href="${basePath}/shopping/specia/food?menuId=${menu.id }&curPage=${ads.curPage-1}" class="fl">
+													<img src="${basePath}/images/shopping/common/up.png">
+												</a>
+											</c:if>
+											<c:if test="${ads.curPage<=1}">
+												<img src="${basePath}/images/shopping/common/up_gray.png" class="fl">
+											</c:if>
+											
 											<p class="fl next_page">${ads.curPage}/${ads.totalPage}</p>
-											<a href="${basePath}/shopping/specia/food?menuId=${menu.id }&curPage=${ads.curPage+1>ads.totalPage?ads.totalPage:ads.curPage+1}" class="fl"><img src="${basePath}/images/shopping/common/next.png"></a>
+											<c:if test="${ads.curPage<ads.totalPage}">
+												<a href="${basePath}/shopping/specia/food?menuId=${menu.id }&curPage=${ads.curPage+1>ads.totalPage?ads.totalPage:ads.curPage+1}" class="fl">
+													<img src="${basePath}/images/shopping/common/next.png">
+												</a>
+											</c:if>
+											<c:if test="${ads.curPage>=ads.totalPage}">
+													<img src="${basePath}/images/shopping/common/next_gray.png" class="fl">
+											</c:if>
+											
+											
 											<div class="clear"></div>
 										</div>
 									</div>

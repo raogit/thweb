@@ -50,9 +50,23 @@
 									</ul>
 									<div class="choose_button" style="text-align: right;">
 										<div class="video_choose">
-											<a href="${basePath}/shopping/news/promotion?menuId=266&curPage=${promotion.curPage-1}" class="fl"><img src="${basePath}/images/shopping/common/up.png"></a>
+											<c:if test="${promotion.curPage>1}">
+												<a href="${basePath}/shopping/news/promotion?menuId=266&curPage=${promotion.curPage-1}" class="fl">
+													<img src="${basePath}/images/shopping/common/up.png">
+												</a>
+											</c:if>
+											<c:if test="${promotion.curPage<=1}">
+													<img src="${basePath}/images/shopping/common/up_gray.png" class="fl">
+											</c:if>
 											<p class="fl next_page">${promotion.curPage}/${promotion.totalPage}</p>
-											<a href="${basePath}/shopping/news/promotion?menuId=266&curPage=${promotion.curPage+1>promotion.totalPage?promotion.totalPage:promotion.curPage+1}" class="fl"><img src="${basePath}/images/shopping/common/next.png"></a>
+											<c:if test="${promotion.curPage<promotion.totalPage}">
+												<a href="${basePath}/shopping/news/promotion?menuId=266&curPage=${promotion.curPage+1>promotion.totalPage?promotion.totalPage:promotion.curPage+1}" class="fl">
+													<img src="${basePath}/images/shopping/common/next.png">
+												</a>
+											</c:if>
+											<c:if test="${promotion.curPage>=promotion.totalPage}">
+													<img src="${basePath}/images/shopping/common/next_gray.png" class="fl">
+											</c:if>
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -80,9 +94,26 @@
 									</ul>
 									<div class="choose_button" style="text-align: right;">
 										<div class="video_choose">
-											<a href="${basePath}/shopping/news/promotion?menuId=267&curPage=${discount.curPage-1}" class="fl"><img src="${basePath}/images/shopping/common/up.png"></a>
+											<c:if test="${discount.curPage>1}">
+												<a href="${basePath}/shopping/news/promotion?menuId=267&curPage=${discount.curPage-1}" class="fl">
+													<img src="${basePath}/images/shopping/common/up.png">
+												</a>
+											</c:if>
+											<c:if test="${discount.curPage<=1}">
+												<img src="${basePath}/images/shopping/common/up_gray.png"  class="fl">
+											</c:if>
+											
 											<p class="fl next_page">${discount.curPage}/${discount.totalPage}</p>
-											<a href="${basePath}/shopping/news/promotion?menuId=267&curPage=${discount.curPage+1>discount.totalPage? discount.totalPage : discount.curPage+1}" class="fl"><img src="${basePath}/images/shopping/common/next.png"></a>
+											
+											<c:if test="${discount.curPage<discount.totalPage}">
+												<a href="${basePath}/shopping/news/promotion?menuId=267&curPage=${discount.curPage+1>discount.totalPage? discount.totalPage : discount.curPage+1}" class="fl">
+													<img src="${basePath}/images/shopping/common/next.png">
+												</a>
+											</c:if>
+											<c:if test="${discount.curPage>=discount.totalPage}">
+												<img src="${basePath}/images/shopping/common/next_gray.png" class="fl">
+											</c:if>
+											
 											<div class="clear"></div>
 										</div>
 									</div>
@@ -111,9 +142,25 @@
 									</ul>
 									<div class="choose_button" style="text-align: right;">
 										<div class="video_choose">
-											<a href="${basePath}/shopping/news/promotion?menuId=268&curPage=${info.curPage-1}" class="fl"><img src="${basePath}/images/shopping/common/up.png"></a>
+											<c:if test="${info.curPage>1}">
+												<a href="${basePath}/shopping/news/promotion?menuId=268&curPage=${info.curPage-1}" class="fl">
+													<img src="${basePath}/images/shopping/common/up.png">
+												</a>
+											</c:if>
+											<c:if test="${info.curPage<=1}">
+												<img src="${basePath}/images/shopping/common/up_gray.png" class="fl">
+											</c:if>
+											
 											<p class="fl next_page">${info.curPage}/${info.totalPage}</p>
-											<a href="${basePath}/shopping/news/promotion?menuId=268&curPage=${info.curPage+1>info.totalPage?info.totalPage:info.curPage+1}" class="fl"><img src="${basePath}/images/shopping/common/next.png"></a>
+											
+											<c:if test="${info.curPage<info.totalPage}">
+												<a href="${basePath}/shopping/news/promotion?menuId=268&curPage=${info.curPage+1>info.totalPage?info.totalPage:info.curPage+1}" class="fl">
+													<img src="${basePath}/images/shopping/common/next.png">
+												</a>
+											</c:if>
+											<c:if test="${info.curPage>=info.totalPage}">
+													<img src="${basePath}/images/shopping/common/next_gray.png" class="fl">
+											</c:if>
 											<div class="clear"></div>
 										</div>
 									</div>
