@@ -418,7 +418,7 @@
 #H-slideBox{width:1200px;height:465px;position:relative;margin-top:40px;}
 #H-slideBox .arr-prev{left:0px;}
 #H-slideBox .arr-next{right:0px;}
-#H-slideBox .move-box{margin:0 auto;width:1200px;height:100%;position:relative;overflow:hidden;}
+#H-slideBox .move-box{margin:0 auto;width:1060px;height:100%;position:relative;overflow:hidden;}
 #H-slideBox ul{width:1060px;height:100%;position:relative;margin: auto;background:url(../images/img/h_1.png) no-repeat center bottom;}
 #H-slideBox li{width:293px;height: 468px;position:relative;border-left:none;padding-bottom:0px;margin-left:8px;}
 
