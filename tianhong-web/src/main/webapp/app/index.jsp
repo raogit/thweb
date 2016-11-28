@@ -17,7 +17,7 @@
 	<link rel="shortcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
 	<input type="hidden" value="${basePath }" id="basePath" name="basePath" />
 	<input type="hidden" value="${path }" id="path" name="path" />
-	 <link rel="stylesheet" href="${basePath}/app/Style/index.css">
+	<link rel="stylesheet" href="${basePath}/app/Style/index.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 				<a href="" class="h-c-l1"><img src="${basePath}/app/Images/l1.png" alt=""></a>
 				<a href="" class="h-c-l2"><img src="${basePath}/app/Images/l2.png" alt=""></a>
 			</div>
-			<a href="${basePath}" class="h-c-back">返回天虹</a>
+			<a href="${basePath}" class="h-c-back">公司首页</a>
 			<ul class="h-c-title">
 				<%-- <c:forEach var="item" items="${subMenus }" begin="0" step="1">
 					<li>${item.name }</li>
@@ -245,9 +245,9 @@
 		<div class="f-btm">
 			<div class="f-b-cont clearfix">
 				<div class="f-b-cr">
-					<a href=""><img src="${basePath}/app/Images/p_21.png"></a> 
+					<%-- <a href=""><img src="${basePath}/app/Images/p_21.png"></a> 
 					<a href=""><img src="${basePath}/app/Images/p_22.png"></a> 
-					<a href=""><img src="${basePath}/app/Images/p_23.png"></a>
+					<a href=""><img src="${basePath}/app/Images/p_23.png"></a> --%>
 				</div>
 				<div class="f-b-cl">
 					<p>

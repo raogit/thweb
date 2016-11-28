@@ -49,7 +49,7 @@
 	                    <div class="c-now">${category.name }</div>
 	                </div>
 	            </div>
-	            <div class="n-l-cont">${activity.content }</div>
+	            <div class="n-l-cont">${fn:replace(activity.content,back,basePath)}</div>
 	            <div class="n-l-btm">
 	                <img src="${basePath}/images/store/n_12.png" alt="">
 	            </div>

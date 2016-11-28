@@ -14,7 +14,14 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.tianhong.constant.CommonConstant;
+import com.tianhong.domain.path.BasePath;
+import com.tianhong.service.path.BasePathService;
 
 /**
  * 
@@ -26,6 +33,8 @@ import org.springframework.stereotype.Component;
  */
 @Component("sessionFilter")
 public class SessionFilter implements Filter {
+
+	private static final Log log = LogFactory.getLog(SessionFilter.class);
 
 	// 忽略路径
 	private static final String[] IGNORE_URI = { "/login.jsp", "/login", "/verify/verifyCode", "/loginconfirm",
@@ -40,6 +49,9 @@ public class SessionFilter implements Filter {
 
 	}
 
+	@Autowired
+	private BasePathService basePathService;
+
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) req;
@@ -47,6 +59,16 @@ public class SessionFilter implements Filter {
 		boolean flag = false;
 		String url = request.getRequestURL().toString();
 		String path = ((HttpServletRequest) request).getServletPath();
+
+		try {
+			BasePath basePath = (BasePath) request.getSession().getAttribute(CommonConstant.PLAT_FORM_BACK);
+			if (basePath == null) {
+				basePath = basePathService.getByFlatForm(CommonConstant.PLAT_FORM_BACK);
+				request.getSession().setAttribute(CommonConstant.PLAT_FORM_BACK, basePath.getBasePath());
+			}
+		} catch (Exception e) {
+			// log.error("", e);
+		}
 
 		for (String s : IGNORE_URI) {
 			if (url.contains(s)) {
@@ -63,23 +85,6 @@ public class SessionFilter implements Filter {
 			}
 		}
 		chain.doFilter(request, response);
-		// if (request.getSession().getAttribute(UserConstant.USER) != null) {
-		// if (!flag) {
-		// response.sendRedirect(request.getScheme() + "://" +
-		// request.getServerName() + ":"
-		// + request.getServerPort() + request.getContextPath() + "/menu/menu");
-		// return;
-		// }
-		// chain.doFilter(request, response);
-		// } else {
-		// if (!flag) {
-		// response.sendRedirect(request.getScheme() + "://" +
-		// request.getServerName() + ":"
-		// + request.getServerPort() + request.getContextPath() + "/login");
-		// } else {
-		// chain.doFilter(request, response);
-		// }
-		// }
 
 	}
 

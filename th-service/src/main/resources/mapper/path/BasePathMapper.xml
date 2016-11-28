@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tianhong.dao.path.BasePathMapper">
+  <resultMap id="BaseResultMap" type="com.tianhong.domain.path.BasePath">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="base_path" jdbcType="VARCHAR" property="basePath" />
+    <result column="plat_form" jdbcType="VARCHAR" property="platForm" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, base_path, plat_form
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_base_path
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_base_path
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.tianhong.domain.path.BasePath" useGeneratedKeys="true" keyProperty="id">
+    insert into t_base_path (id, base_path, plat_form
+      )
+    values (#{id,jdbcType=INTEGER}, #{basePath,jdbcType=VARCHAR}, #{platForm,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tianhong.domain.path.BasePath" useGeneratedKeys="true" keyProperty="id">
+    insert into t_base_path
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="basePath != null">
+        base_path,
+      </if>
+      <if test="platForm != null">
+        plat_form,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="basePath != null">
+        #{basePath,jdbcType=VARCHAR},
+      </if>
+      <if test="platForm != null">
+        #{platForm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tianhong.domain.path.BasePath">
+    update t_base_path
+    <set>
+      <if test="basePath != null">
+        base_path = #{basePath,jdbcType=VARCHAR},
+      </if>
+      <if test="platForm != null">
+        plat_form = #{platForm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tianhong.domain.path.BasePath">
+    update t_base_path
+    set base_path = #{basePath,jdbcType=VARCHAR},
+      plat_form = #{platForm,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <select id="selectByFlatForm" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_base_path
+    where plat_form = #{platForm,jdbcType=VARCHAR}
+  </select>
+</mapper>

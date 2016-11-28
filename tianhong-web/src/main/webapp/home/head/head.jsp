@@ -8,7 +8,7 @@
             <div class="menu-link">
                 <div class="link-box">
                   <a href="javascript:void(0);" class=""></a><a href="javascript:void(0);" class=""></a>
-                  <a href="${basePath}" class="return">返回集团</a>
+                  <a href="${basePath}" class="return">公司首页</a>
                 </div>
             </div>
             <div class="menu-nav">

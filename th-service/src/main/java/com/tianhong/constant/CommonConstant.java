@@ -16,6 +16,9 @@ package com.tianhong.constant;
  */
 public class CommonConstant {
 
+	public static final String PLAT_FORM_FRONT = "front";
+	public static final String PLAT_FORM_BACK = "back";
+
 	public static final byte TYPE_NEWS_1 = 1;
 	public static final byte TYPE_ACTIVITY_2 = 2;
 

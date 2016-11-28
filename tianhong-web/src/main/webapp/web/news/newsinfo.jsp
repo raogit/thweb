@@ -32,7 +32,7 @@
                         <h3 style="width: 300px;overflow: hidden;">来源：${news.source }</h3>
                         <div class="clear"></div>
                     </div>
-                    <div class="newsInfo_Content">${news.content }</div>
+                    <div class="newsInfo_Content">${fn:replace(news.content,back,basePath)}</div>
                     <div class="newsInfo_fx">
                        <!--  <span>分享到：</span><img src="../images/new11.png"> -->
                     </div>

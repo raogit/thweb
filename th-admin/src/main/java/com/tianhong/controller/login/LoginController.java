@@ -13,9 +13,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tianhong.constant.CommonConstant;
 import com.tianhong.constant.UserConstant;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.user.User;
+import com.tianhong.service.path.BasePathService;
 import com.tianhong.service.user.UserService;
 import com.tianhong.utils.AssertUtils;
 import com.tianhong.utils.MD5;
@@ -31,9 +33,18 @@ public class LoginController extends BaseController {
 
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private BasePathService basePathService;
 
 	@RequestMapping(value = "/login")
 	public Object login(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String path = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+					+ request.getContextPath();
+			basePathService.saveFlatForm(CommonConstant.PLAT_FORM_BACK, path);
+		} catch (Exception e) {
+			log.error("", e);
+		}
 		return "login";
 	}
 
