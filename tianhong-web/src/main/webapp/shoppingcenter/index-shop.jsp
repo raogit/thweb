@@ -4,9 +4,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+	
+	<title>T-天虹官网</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1″/>
-	<title>T-天虹官网</title>
 	<jsp:include page="base.jsp"></jsp:include>
 </head>
 
@@ -27,7 +28,7 @@
 								   <a href="${basePath}/${item.url }">
 							   	</c:otherwise>
 							</c:choose>
-							<img src="${basePath}/download/png?fileName=${item.path }" width="855px" height="925px" /></a></div>
+							<img src="${basePath}/download/png?fileName=${item.path }" <!-- width="855px" height="925px" --> /></a></div>
 						</c:forEach>
 					</div>
 					<div class="index_bigImgBtn">
@@ -47,7 +48,7 @@
 										   	<c:otherwise> 
 											   <a href="${basePath}/${item.url }">
 										   	</c:otherwise>
-										</c:choose><img src="${basePath}/download/png?fileName=${item.path }" width="468px" height="472px" /></a>
+										</c:choose><img src="${basePath}/download/png?fileName=${item.path }" <!-- width="468px" height="472px" --> /></a>
 									</c:forEach>
 								</div>
 							</div>
@@ -81,7 +82,7 @@
 										   	<c:otherwise> 
 											   <a href="${basePath}/${item.url }">
 										   	</c:otherwise>
-										</c:choose><img src="${basePath}/download/png?fileName=${item.path }" width="468px" height="472px" /></a>
+										</c:choose><img src="${basePath}/download/png?fileName=${item.path }" <!-- width="468px" height="472px"  -->/></a>
 									</c:forEach>
 								</div>
 							</div>
@@ -126,7 +127,7 @@
 									   	<c:otherwise> 
 										   <a href="${basePath}/${item.url }">
 									   	</c:otherwise>
-									</c:choose><img src="${basePath}/download/png?fileName=${item.path }" width="435px" height="367px" /></a>
+									</c:choose><img src="${basePath}/download/png?fileName=${item.path }" <!-- width="435px" height="367px" --> /></a>
 								</c:forEach>
 							</div>
 							<div class="clear"></div>
@@ -141,7 +142,7 @@
 									   	<c:otherwise> 
 										   <a href="${basePath}/${item.url }">
 									   	</c:otherwise>
-									</c:choose><img src="${basePath}/download/png?fileName=${item.path }" width="426px" height="367px" /></a>
+									</c:choose><img src="${basePath}/download/png?fileName=${item.path }" <!-- width="426px" height="367px" --> /></a>
 								</c:forEach>
 							</div>
 							<div class="index_btm_top2">
@@ -173,7 +174,7 @@
 									   	<c:otherwise> 
 										   <a href="${basePath}/${item.url }">
 									   	</c:otherwise>
-									</c:choose><img src="${basePath}/download/png?fileName=${item.path }" width="445px" height="366px" /></a>
+									</c:choose><img src="${basePath}/download/png?fileName=${item.path }" <!-- width="445px" height="366px" --> /></a>
 								</c:forEach>
 							</div>
 							<div class="clear"></div>
@@ -195,7 +196,7 @@
 										   	<c:otherwise> 
 											   <a href="${basePath}/${item.url }">
 										   	</c:otherwise>
-										</c:choose><img src="${basePath}/download/png?fileName=${item.path }" width="445px" height="431px" /></a>
+										</c:choose><img src="${basePath}/download/png?fileName=${item.path }" <!-- width="445px" height="431px" --> /></a>
 									</c:forEach>
 								</div>
 							</div>								

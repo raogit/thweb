@@ -4,18 +4,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>天虹官网</title>
-	<%String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
-	request.setAttribute("path", path);
-	request.setAttribute("basePath", basePath);
-	request.setAttribute("ver", Math.random());
-	%>
-	<link rel="shortcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
-	 <link rel="stylesheet" href="${basePath}/market/style/common3.css">
-	 <input type="hidden" value="${basePath }" id="basePath" name="basePath"/>
-	<input type="hidden" value="${path }" id="path" name="path" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>天虹官网</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<jsp:include page="base.jsp"></jsp:include>
 </head>
 
 <body class="Intr">
