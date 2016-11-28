@@ -75,7 +75,7 @@
 							<c:forEach var="item" items="${newsList }" begin="0" step="1" end="0" varStatus="itemStatus">
 								<div class="rcc-in">
 									<div class="rcc-ir">
-										<img src="${basePath}/download/png?fileName=${item.path }" alt="" width="194px" height="209px">
+										<img src="${basePath}/download/png?fileName=${item.path }" alt="" style="width:194px" >
 									</div>
 									<div class="rcc-il">
 										<div class="rcc-ilt">${item.title }</div>

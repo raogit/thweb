@@ -49,9 +49,10 @@
 			<div class="c-in-lti2" style="width: 100%;">品质管理介绍</div>
 		</div>
 		<div class="c-in-lb">
-			<div class="c-in-lbi">
-				<img src="images/p_4.jpg" alt="">
-			</div>
+				<c:forEach var="item" items="${pictures }" begin="0" step="1" end="1" varStatus="itemStatus">
+                  		<div class="c-in-lbi" style="display:block;background:url(${basePath}/download/png?fileName=${item.path }) no-repeat;background-size:cover;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(${basePath}/download/png?fileName=${item.path },sizingMethod='scale');">
+						</div>
+		        </c:forEach>
 			<div class="c-in-lbi lbi2">
 				<div class="lbi-ym">
 					<div class="lbi-ymo">

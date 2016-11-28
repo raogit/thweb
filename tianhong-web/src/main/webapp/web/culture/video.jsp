@@ -25,7 +25,6 @@
 	<jsp:include page="../head/head.jsp"></jsp:include>
 	<div class="bodyer">
 	    <div class="titleImg_content" style="background:url(../images/b_04.jpg) no-repeat center; background-size:cover; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(../images/b_04.jpg,sizingMethod='scale');">
-	        <!-- <div class="titleImg_img"><img src="../images/b_3.png"></div> -->
 	    </div>
 	    <div class="nav_content">
 	        <div class="nav_contentBlock">
@@ -71,7 +70,7 @@
 	                    <div class="moveBox" style="height: 520px;">
 	                        <c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
 				            	<div class="V-cont-in" style="background: ;"><div class="V-video">
-				            		<iframe frameborder="0" width="640" height="500" src="${item.path }" allowfullscreen></iframe>
+				            		<iframe frameborder="0" style="width:510px; height:500px;"  src="${item.path }" allowfullscreen></iframe>
 								</div></div>
 					        </c:forEach>
 	                    </div> 

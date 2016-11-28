@@ -37,7 +37,7 @@
 			<div class="c-in-lb">
 				<div class="c-in-lbi">
 					<c:forEach var="item" items="${pictures }" begin="0" step="1" end="1" varStatus="itemStatus">
-                   		<img src="${basePath}/download/png?fileName=${item.path }" width="567px" height="670px" />
+                   		<img src="${basePath}/download/png?fileName=${item.path }" style="width:567px; height:670px" />
 			        </c:forEach>
 				</div>
 				
