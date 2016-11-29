@@ -230,7 +230,7 @@
 
 
 /*Foods_public*/
-.Foods_block{position: absolute;left: 50%;top:50%;width: 873px;height:auto;margin-left: -436px;margin-top: -325px;z-index: 9999;}
+.Foods_block{position: absolute;left: 50%;top:50%;width: 873px;height:auto;margin-left: -436px;margin-top: -325px;z-index: 1;}
 /*foods*/
 .foods{width: 889px;margin: 0 auto;background: #fff; border: 1px solid #ccc; box-sizing:content-box;}
 .foods .Nav{width: 100%;}
@@ -335,7 +335,7 @@
 .pack_seve_con .pack_seve_conBolck{ width: 100%; margin: 10px 0; }
 
 
-.drand_blocks{position: absolute;left: 50%;top:50%;width: 873px;height:auto;margin-left: -436px;margin-top: -325px;z-index: 9999;}
+.drand_blocks{position: absolute;left: 50%;top:50%;width: 873px;height:auto;margin-left: -436px;margin-top: -325px;z-index: 1;}
 .drand_mainBox{ border: 1px solid #ccc; background: #fff; }
 .drand_titleBlock {position: relative;padding:20px 30px;}
 .drand_titleText {position: relative;width: 80%;height: 43px;line-height: 40px;font-size: 26px;color: #e4007f;margin-bottom: 5px;}
