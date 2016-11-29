@@ -61,7 +61,7 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .c-in-left{width:42%;height:100%;position:absolute;left:0;overflow: hidden;}
 .c-in-lt{width:100%;height:55px;line-height:55px;float:left;background:#dba07a;position: relative;z-index: 99;}
 .c-in-lti{width:492px;float:right}
-.c-in-lip{width:215px;height:27px;/* background:url(../images/b_5.png) no-repeat; */margin-top:14px;float:left}
+.c-in-lip{width:215px;height:27px;margin-top:14px;float:left;position:relative;}
 .c-lip{width:140px;height:27px;line-height:27px;float:left}
 .c-in-ltx{width:130px;font-size:16px;color:#fff}
 .ltx2{border-left:1px solid #fff;padding-left:30px}

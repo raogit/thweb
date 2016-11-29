@@ -68,7 +68,7 @@
                     </ul>
                     <a href="javascript:;" class="more readMoreBtn"><img src="../images/i9.png"></a>
                 </div>
-                <div class="inves_ProtBox">
+                <%-- <div class="inves_ProtBox">
                     <div class="inves_ProtTit">法律法规</div>
                             <div class="inves_ProtContentBlick">
 	                            <c:forEach var="historys" items="${laws }" begin="0" step="1" varStatus="itemStatus">
@@ -95,7 +95,7 @@
 		                               <div class="clear"></div>
 		                           </div>
 						        </c:forEach>
-                            </div>
+                            </div> --%>
                     <div class="inves_ProtFocus">
                         <ul>
                        	 	<c:forEach var="historys" items="${laws }" begin="0" step="1" varStatus="itemStatus">
