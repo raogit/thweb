@@ -24,7 +24,7 @@ strong{font-weight:bold}
 /* css reset */
 .header_app{width:100%;background-color:#fff;position: fixed;top: 0px;left: 0px;z-index: 999;}
 .h-cont{width:1200px;height:43px;margin:21px auto;position:relative}
-.h-c-left{width:250px;height:43px;float: left}
+.h-c-left{width:270px;height:43px;float: left}
 .h-c-left img{float:left;display:block}
 .h-c-l1{width:197px;height:43px;float:left;display:block}
 .h-c-l2{width:43px;height:43px;float:left;display:block;margin-left:10px}
@@ -72,7 +72,7 @@ strong{font-weight:bold}
 .c-in-txt4{width:710px;margin-top:120px;text-align:center}
 .c-in-tc4{font-size:24px;margin-top:10px}
 .c-in-join{width:680px;height:126px;margin:40px auto 0}
-.j-left{width:272px;height:106px;background:url("../Images/p_15.png") no-repeat;float:left;padding:10px}
+.j-left{width:272px;height:106px;background:url("../Images/p_15.png") no-repeat;float:left;padding:10px;background-size:cover;}
 .j-left p{margin-bottom:5px;line-height:24px}
 .j-left strong{font-size:16px}
 .j-right{width:329px;height:86px;background:url("../Images/p_16.png") no-repeat;float:right;padding:20px}
