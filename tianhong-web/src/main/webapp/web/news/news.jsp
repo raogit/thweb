@@ -21,14 +21,18 @@
                 </div>
                 <div class="news_model1">
                     <div class="news_bannerBox">
-                        <div class="news_banner">
-                            <c:forEach var="item" items="${newsHeadLine }" begin="0" step="1" end="0" varStatus="itemStatus">
-			                	<img src="${basePath}/download/png?fileName=${item.picture }" style="max-width:696px;max-height:394px;" />
-					        </c:forEach>
-                        </div>
+                        
+                        <c:forEach var="item" items="${newsHeadLine }" begin="0" step="1" end="0" varStatus="itemStatus">
+                         	 <a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}">
+                         	 	<div class="news_banner">
+                         	 		<img src="${basePath}/download/png?fileName=${item.picture }" style="max-width:696px;max-height:394px;" />
+                         	 	</div>
+                         	 </a>
+				        </c:forEach>
+                        
                         <c:forEach var="item" items="${newsHeadLine }" begin="0" step="1" end="0" varStatus="itemStatus">
 			            	<div class="news_bannerText">
-	                            <a href="javascript:;" class="news_bannerTit">${item.title }</a>
+	                            <a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}" class="news_bannerTit">${item.title }</a>
 	                        </div>
 					    </c:forEach>
                         

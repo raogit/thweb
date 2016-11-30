@@ -6,6 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>天虹官网</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<%
 		String path = request.getContextPath();
 		String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -158,75 +159,25 @@
 		<div class="f-top clearfix">
 			<div class="f-t-cont">
 				<div class="f-t-cr clearfix">
-					<div class="f-t-list">
-						<div class="f-t-lt">关于天虹</div>
-						<ul class="f-t-lc">
-							<li><a href="">公司资讯</a></li>
-							<li><a href="">组织架构</a></li>
-							<li><a href="">发展历程</a></li>
-							<li><a href="">企业文化</a></li>
-							<li><a href="">企业形象</a></li>
-							<li><a href="">自由品牌</a></li>
-							<li><a href="">食品质量安全</a></li>
-							<li><a href="">社会责任</a></li>
-						</ul>
-					</div>
-					<div class="f-t-list">
-						<div class="f-t-lt">新闻资讯</div>
-						<ul class="f-t-lc">
-							<li><a href="">公司新闻</a></li>
-							<li><a href="">各地新闻</a></li>
-							<li><a href="">媒体报道</a></li>
-							<li><a href="">视频中心</a></li>
-							<li><a href="">天虹悦读</a></li>
-						</ul>
-					</div>
-					<div class="f-t-list">
-						<div class="f-t-lt">业务布局</div>
-						<ul class="f-t-lc">
-							<li><a href="">天虹商场</a></li>
-							<li><a href="">购物中心</a></li>
-							<li><a href="">君尚百货</a></li>
-							<li><a href="">微喔便利店</a></li>
-							<li><a href="">天虹置业</a></li>
-							<li><a href="">天虹金融</a></li>
-							<li><a href="">跨境电商体验店</a></li>
-							<li><a href="">天虹到家</a></li>
-							<li><a href="">虹领巾</a></li>
-							<li><a href="">天虹微商</a></li>
-						</ul>
-					</div>
-					<div class="f-t-list">
-						<div class="f-t-lt">招商采购</div>
-						<ul class="f-t-lc">
-							<li><a href="">招商中心</a></li>
-							<li><a href="">成果展示</a></li>
-							<li><a href="">招商公告</a></li>
-							<li><a href="">各业务招商</a></li>
-						</ul>
-					</div>
-					<div class="f-t-list">
-						<div class="f-t-lt">投资者关系</div>
-						<ul class="f-t-lc">
-							<li><a href="">股票信息</a></li>
-							<li><a href="">基本信息</a></li>
-							<li><a href="">定期报告</a></li>
-							<li><a href="">临时公告</a></li>
-							<li><a href="">公司治理</a></li>
-							<li><a href="">股东回报</a></li>
-							<li><a href="">宣传与保护</a></li>
-							<li><a href="">投资者互动交流</a></li>
-						</ul>
-					</div>
-					<div class="f-t-list">
-						<div class="f-t-lt">人力资源</div>
-						<ul class="f-t-lc">
-							<li><a href="">天虹商学院</a></li>
-							<li><a href="">我们在天虹</a></li>
-							<li><a href="">社会招聘</a></li>
-							<li><a href="">校园招聘</a></li>
-						</ul>
-					</div>
+					<c:forEach var="item" items="${headMenus }" begin="1" step="1" varStatus="itemStatus">
+						<c:if test="${fn:length(item.subMenus)>0 }">
+							<div class="f-t-list">
+								<div class="f-t-lt">${item.name }</div>
+								<ul class="f-t-lc">
+									<c:forEach var="menu" items="${item.subMenus }" begin="0" step="1" varStatus="itemStatus">
+										<c:choose>
+											<c:when test="${fn:contains(menu.link, 'http')}">  
+										   		<li><a target="_blank" href="${menu.link }">${menu.name }</a></li>
+										   	</c:when>
+										   	<c:otherwise> 
+										   		<li><a target="_blank" href="${basePath}${menu.link }?menuId=${menu.id }">${menu.name }</a></li>
+										   	</c:otherwise>
+										</c:choose>
+									</c:forEach>
+								</ul>
+							</div>
+						</c:if>
+					</c:forEach>
 				</div>
 				<div class="f-t-cl">
 					<div class="f-t-logo">

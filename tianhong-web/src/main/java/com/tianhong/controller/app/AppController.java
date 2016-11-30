@@ -8,6 +8,7 @@
 package com.tianhong.controller.app;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,9 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.tianhong.domain.menu.Menu;
+import com.tianhong.service.menu.MenuService;
 
 /**
  * ClassName: AppController
@@ -38,6 +43,8 @@ public class AppController {
 	// private PictureService pictureService;
 	// @Autowired
 	// private ContentService contentService;
+	@Autowired
+	private MenuService menuService;
 
 	@RequestMapping(value = "/list")
 	public Object subList(HttpServletRequest request, HttpServletResponse response) {
@@ -55,6 +62,9 @@ public class AppController {
 			// }
 			// model.put("subMenus", subMenus);
 			// model.put("menuId", menuId);
+			List<Menu> headMenus = menuService.getSubMenus(172, true);
+			model.put("headMenus", headMenus);
+			model.put("headMenus", headMenus);
 		} catch (Exception e) {
 			log.error("", e);
 		}
