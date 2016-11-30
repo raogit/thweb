@@ -63,7 +63,7 @@ public class NewActivityController extends BaseController {
 			model.put("menu", menuService.getByPrimaryKey(menuId));
 			List<Menu> subMenus = menuService.getSubMenus(162, true);
 			model.put("subMenus", subMenus);
-			List<Picture> pictures = pictureService.findByMenuId(menuId);
+			List<Picture> pictures = pictureService.findByMenuId(165);
 			model.put("pictures", pictures);
 			Category category = new Category();
 			category.setMenuId(menuId);

@@ -72,9 +72,9 @@
 							</div>
 						</div>
 						<div class="a-bn-btm">
-							<div class="a-bn-dot a-dat"></div>
-							<div class="a-bn-dot"></div>
-							<div class="a-bn-dot"></div>
+							<c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
+								<div class="a-bn-dot <c:if test="${itemStatus.index==0 }">a-dat</c:if>"></div>
+							</c:forEach>
 						</div>
 					</div>
 					<div class="n-l-line itd-line"></div>
