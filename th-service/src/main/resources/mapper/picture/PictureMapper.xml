@@ -259,7 +259,7 @@
 		<include refid="Blob_Column_List" />
 		from t_picture
 		where menu_id = #{menuId,jdbcType=INTEGER} and is_deleted = 0
-		order by sort
+		order by sort,create_time desc
 	</select>
 
 	<select id="selectMaxSort" resultType="java.lang.Byte">

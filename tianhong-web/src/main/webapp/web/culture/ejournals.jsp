@@ -62,7 +62,7 @@
 					    <div class="bd-LE-top">
 		                    <div class="bd-LE-tr fr"><img src="${basePath}/download/png?fileName=${item.path }" alt="" width="312px" height="206px"></div>
 		                    <div class="bd-LE-tl fl">
-		                        <div class="bd-LE-num">${item.createTimeStr }</div>
+		                       <%--  <div class="bd-LE-num">${item.createTimeStr }</div> --%>
 		                        <div class="bd-LE-ch">《${item.title }》</div>
 		                        <div class="bd-LE-txt">${item.content }</div>
 		                        <a target="_blank" href="${basePath}/web/culture/edetails?fileName=${item.url}" class="bd-LE-a"><div class="bd-LE-btn b2"><img src="../images/img/c_10.png" alt=""></div></a>
@@ -74,7 +74,7 @@
 	                    	<c:forEach var="item" items="${pictures }" begin="1" step="1" end="3" varStatus="itemStatus">
 				                <li>
 		                            <div class="LE-lr fr">
-		                                <div class="LE-lrt"><strong>${item.createTimeStr }</strong><span>《${item.title }》</span></div>
+		                                <div class="LE-lrt"><%-- <strong>${item.createTimeStr }</strong> --%><span>《${item.title }》</span></div>
 		                                <div class="LE-lrc">${item.content }</div>
 		                                <div class="LE-lrm"><a target="_blank" href="${basePath}/web/culture/edetails?fileName=${item.url}" class="bd-LE-a">查看更多</a></div>
 		                            </div>

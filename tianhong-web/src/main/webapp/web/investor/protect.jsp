@@ -96,7 +96,7 @@
 		                           </div>
 						        </c:forEach>
                             </div> --%>
-                    <div class="inves_ProtFocus">
+                   <%--  <div class="inves_ProtFocus">
                         <ul>
                        	 	<c:forEach var="historys" items="${laws }" begin="0" step="1" varStatus="itemStatus">
                            		<c:if test="${itemStatus.index==0 }">
@@ -108,9 +108,9 @@
 					        </c:forEach>
                         </ul>
                         <div class="clear"></div>
-                    </div>
+                    </div> --%>
                     <div class="clear"></div>
-                </div>
+                </div> 
                 <div class="inves_ProtBox inves_ProtBoxL">
                     <div class="inves_ProtTit inves_ProtTit2">公益教育</div>
                          <div class="busine_SpotContent">

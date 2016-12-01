@@ -54,7 +54,7 @@
 	            </div>
 	        </div>
 	        <div class="bd-cont-H" id="H-slideBox">
-	                <div class="bd-V-arr arr-prev fl">
+	                <div class="bd-V-arr arr-prev fl" style="cursor: pointer;">
 	                    <img src="../images/img/c_20.png">
 	                </div>
 	                <div class="move-box">
@@ -71,7 +71,7 @@
 					        </c:forEach>
 	                    </ul>
 	                </div>
-	                <div class="bd-V-arr arr-next fr">
+	                <div class="bd-V-arr arr-next fr" style="cursor: pointer;">
 	                    <img src="../images/img/c_21.png">
 	                </div>
 	        </div>
