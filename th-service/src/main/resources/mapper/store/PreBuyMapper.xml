@@ -229,7 +229,7 @@
 		<if test="name != null and name != ''">
 			AND name like CONCAT(#{name,jdbcType=VARCHAR},'%' )
 		</if>
-		ORDER BY create_time
+		ORDER BY create_time desc
 		LIMIT #{start, jdbcType=INTEGER}, #{pageSize,
 		jdbcType=INTEGER}
 	</select>
@@ -260,6 +260,6 @@
 		<if test="name != null and name != ''">
 			AND name like CONCAT(#{name,jdbcType=VARCHAR},'%' )
 		</if>
-		ORDER BY create_time
+		ORDER BY create_time desc
 	</select>
 </mapper>
