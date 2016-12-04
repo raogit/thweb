@@ -22,13 +22,6 @@
 						</c:forEach>
 					</div>
 				</div>
-				<%-- <div class="n-r-nav">
-					<div class="n-r-top"><img src="${basePath}/images/store/n_06.png" alt=""></div>
-					<div class="n-r-new">
-						<img src="${basePath}/images/store/n_07.png" alt="">
-						<div class="n-r-nin"><img src="${basePath}/images/store/n_13.png" alt=""></div>
-					</div>
-				</div> --%>
 			</div>
 			<div class="new-left">
 				<div class="n-l-top">
@@ -40,45 +33,41 @@
 							<a href="${basePath}/store/prebuy/index?menuId=${menuId}"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
 							<a href="${basePath}/store/prebuy/index?menuId=${menuId}"><div class="c-h-in">预购专区 · <i>Pre Order</i></div></a>
 						</div>
-						<div class="c-now">${categoryName }</div>
+						<div class="c-now"></div>
 					</div>
 				</div>
-				<div class="n-l-cont">
-					<div class="n-l-ct">${categoryName }</div>
-					<div class="n-l-line"></div>
-					<!-- <div class="at-rec cv-rec">
-						<div class="dt-rec-txt new-t">
-							<p><em>不定期为顾客优选最新商品</em></p>
-							<p>天虹微喔便利店不断创新，为顾客提供最值得信赖的品牌及商品，解决顾客对于商品的健康和品质问题的疑虑。天虹微喔便利店强大的运营团队，对引进的新商品严格把关，做到品质最优，真正做到让顾客放心消费。</p>
-						</div>
-					</div> -->
-				</div>
+				
 			</div>
-			<c:forEach var="item" items="${preBuyList }" begin="0" step="1" varStatus="itemStatus">
-				<c:if test="${(itemStatus.index+1)%5==0 }">
-					<div class="new-left p-left">
-				</c:if>
-					<div class="p-left-in">
-						<div class="rs-title">
-							<div class="rs-tch">${item.name }</div>
-							<div class="n-r-nin"><img src="${basePath}/images/store/n_13.png" alt="" /></div>
-						</div>
-						<div class="rs-cont">
-							<div class="rs-cin p-cin">
-								<div class="cin-CM-in">
-									<img src="${basePath}/download/png?fileName=${item.picture }" alt="" width="150px" height="150px" />
-								</div>
-								<div class="cin-CM-nm rs-nm">
-									<p>截止日期：${item.closeDate }</p>
-									<p class="rs-p">规 格：${item.weight }</p>
-									<p class="rs-p">参考价格：<em>${item.price }</em></p>
+			
+			
+			<c:forEach var="category" items="${categorys }" begin="0" step="1" varStatus="itemStatus">
+				<div class="n-l-cont">
+					<div class="">${category.name }</div>
+					<div class="n-l-line"></div>
+				</div>
+				<div class="new-left p-left">
+					<c:forEach var="item" items="${category.preBuys }" begin="0" step="1" varStatus="itemStatus">
+						<div class="p-left-in">
+							<div class="rs-title">
+								<div class="rs-tch">${item.name }</div>
+								<div class="n-r-nin"><img src="${basePath}/images/store/n_13.png" alt="" /></div>
+							</div>
+							<div class="rs-cont">
+								<div class="rs-cin p-cin">
+									<div class="cin-CM-in">
+										<img src="${basePath}/download/png?fileName=${item.picture }" alt="" width="150px" height="150px" />
+									</div>
+									<div class="cin-CM-nm rs-nm">
+										<p>截止日期：${item.closeDate }</p>
+										<p class="rs-p">规 格：${item.weight }</p>
+										<p class="rs-p">参考价格：<em>${item.price }</em></p>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				<c:if test="${(itemStatus.index+1)%5==0 }">
-					</div>
-				</c:if>
+					</c:forEach>
+					
+				</div>
 			</c:forEach>
 			
 			<div class="n-l-btm">

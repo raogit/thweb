@@ -66,7 +66,7 @@ public class NewActivityController extends BaseController {
 			List<Picture> pictures = pictureService.findByMenuId(165);
 			model.put("pictures", pictures);
 			Category category = new Category();
-			category.setMenuId(menuId);
+			category.setMenuId(165);
 			List<Category> categorys = categoryService.getList(category);
 			for (Category cate : categorys) {
 				List<StoreProduct> storeProducts = storeProductService.getList(cate.getId());
