@@ -73,7 +73,7 @@
 	                	<div class="bd-LE-top">
 		                    <div class="bd-LE-tr P-tr fr"><img src="${basePath}/download/png?fileName=${item.picture }" alt="" width="352px" height="235px"></div>
 		                    <div class="bd-LE-tl fl">
-		                        <div class="bd-LE-num n-p">公益活动</div>
+		                        <!-- <div class="bd-LE-num n-p">公益活动</div> -->
 		                        <div class="bd-LE-ch ch-p">项目名称：${item.title }</div>
 		                        <div class="bd-LE-txt">${item.content }</div>
 		                        <a href="${basePath}/web/culture/publicdetail?menuId=${menu.id }&id=${item.id }" class="bd-LE-a"><div class="bd-LE-btn b2"><img src="../images/img/c_10.png" alt=""></div></a>

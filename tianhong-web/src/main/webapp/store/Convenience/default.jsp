@@ -49,7 +49,7 @@
                         <a href="${basePath}/store/servicejoinabout/index?menuId=${menu.id }"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
                         <a href="${basePath}/store/servicejoinabout/index?menuId=${menu.id }"><div class="c-h-in">${menu.name }<i></i></div></a>
                     </div>
-                    <div class="c-now">${categoryName }</div>
+                    <div class="c-now"><%-- ${categoryName } --%></div>
                 </div>
             </div>
             <div class="n-l-cont">

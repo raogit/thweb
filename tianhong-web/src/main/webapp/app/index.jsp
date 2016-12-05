@@ -25,8 +25,8 @@
 	<div class="header_app">
 		<div class="h-cont">
 			<div class="h-c-left">
-				<a href="" class="h-c-l1"><img src="${basePath}/app/Images/l1.png" alt=""></a>
-				<a href="" class="h-c-l2"><img src="${basePath}/app/Images/l2.png" alt=""></a>
+				<a href="${basePath}" class="h-c-l1"><img src="${basePath}/app/Images/l1.png" alt=""></a>
+				<a href="${basePath}" class="h-c-l2"><img src="${basePath}/app/Images/l2.png" alt=""></a>
 			</div>
 			<a href="${basePath}" class="h-c-back">公司首页</a>
 			<ul class="h-c-title">

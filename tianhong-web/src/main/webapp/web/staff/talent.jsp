@@ -39,7 +39,7 @@
 		                	<c:if test="${item.id==menu.id }">
 		                		<c:choose>
 									<c:when test="${fn:contains(item.link, 'http')}">  
-								   		<a href="${item.link }" class="nav_liBlock current">${item.name }</a>
+								   		<a href="${item.link }" target="_blank" class="nav_liBlock current">${item.name }</a>
 								   	</c:when>
 								   	<c:otherwise> 
 								   		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock current">${item.name }</a>
@@ -49,7 +49,7 @@
 		                	<c:if test="${item.id!=menu.id }">
 			                	<c:choose>
 									<c:when test="${fn:contains(item.link, 'http')}">  
-								   		<a href="${item.link }" class="nav_liBlock">${item.name }</a>
+								   		<a href="${item.link }"  target="_blank" class="nav_liBlock">${item.name }</a>
 								   	</c:when>
 								   	<c:otherwise> 
 								   		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock">${item.name }</a>
@@ -73,13 +73,13 @@
 	                <div class="bd-sch-cin">
 	                    <div class="bd-tl-cin">
 	                        <div class="sch-r2 fr">
-	                        <div class="bd-L-title">
-	                            <div class="bd-L-tch tch2">培训中心</div>
-	                            <div class="bd-L-ten ten4"></div>
-<!-- 	                            <div class="bd-L-tle tle3"></div> -->
-	                        </div>
-	                        <div class="bd-L-cont c2">${trainingCenter1.content }</div>
-	                    </div>
+		                        <!-- <div class="bd-L-title">
+		                            <div class="bd-L-tch tch2">培训中心</div>
+		                            <div class="bd-L-ten ten4"></div>
+		                            <div class="bd-L-tle tle3"></div>
+		                        </div> -->
+		                        <div class="bd-L-cont c2">${trainingCenter1.content }</div>
+		                    </div>
 	                        <div class="sch-l2 fl">
 	                            <div class="sch-l2-in">
 	                                <img src="../images/img/s_12.jpg" alt="">

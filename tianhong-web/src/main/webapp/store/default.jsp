@@ -42,7 +42,7 @@
             </div>
             <ul class="c-i-nright">
             	<c:forEach var="item" items="${newProductList }" begin="0" step="1" end="4" varStatus="itemStatus">
-	            	 <li><img src="${basePath}/download/png?fileName=${item.picture }" alt=""  width="60px" height="60px"><p>${item.name }</p></li>
+	            	 <li><img src="${basePath}/download/png?fileName=${item.picture }" alt=""  width="60px" height="60px"><p style="padding-bottom:5px;">${item.name }</p></li>
 	            </c:forEach>
             </ul>
         </div>
