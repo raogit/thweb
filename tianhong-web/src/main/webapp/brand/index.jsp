@@ -86,7 +86,7 @@
 							</div>
 							<div class="clear"></div>
 						</div>
-						<div class="newCon_content">${item.content.content }</div>
+						<div class="newCon_content">${fn:replace(item.content.content,back,basePath)}</div>
 						<div class="newCon_contentPic">
 							<c:forEach var="picture" items="${item.pictures }" begin="1"
 								step="1" end="3">
@@ -119,8 +119,8 @@
 				$(".bodyer").css({"width":bWidth});
 				b1 = $(".common_page").eq(1).offset().top - 300;
 				b2 = $(".common_page").eq(2).offset().top - 300;
-				b3 = $(".common_page").eq(3).offset().top - 300;
-				b4 = $(".common_page").eq(4).offset().top - 300;
+				/* b3 = $(".common_page").eq(3).offset().top - 300;
+				b4 = $(".common_page").eq(4).offset().top - 300; */
 			}
 			resize();
 			$(window).resize(function(){

@@ -59,12 +59,26 @@
 					</div>
 				</div>
 				<div class="bd-cont-A">
-					<div class="bd-V-arr arr-prev fl" style="cursor: pointer;">
+					<div class="bd-V-arr arr-prev fl" style="cursor: pointer;z-index: 199;">
 						<img src="../images/img/c_20.png">
 					</div>
 					<div class="runBox list">
 						<ul class="bd-A-list">
 							<c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
+			                	<li class="A-list-li">
+									<div class="bd-A-line">
+										<div class="A-dot"></div>
+										<div class="A-line"></div>
+									</div>
+									<div class="bd-A-cont">
+										<div class="A-img">
+											<img src="${basePath}/download/png?fileName=${item.path }" width="242px" height="156px">
+										</div>
+										<div class="A-txt">${item.title }</div>
+									</div>
+								</li>
+					        </c:forEach>
+					        <c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
 			                	<li class="A-list-li">
 									<div class="bd-A-line">
 										<div class="A-dot"></div>

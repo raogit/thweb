@@ -73,11 +73,11 @@
 	                <div class="bd-sch-cin">
 	                    <div class="bd-tl-cin">
 	                        <div class="sch-r2 fr">
-		                        <!-- <div class="bd-L-title">
-		                            <div class="bd-L-tch tch2">培训中心</div>
+		                        <div class="bd-L-title">
+		                            <div class="bd-L-tch tch2">人才理念</div>
 		                            <div class="bd-L-ten ten4"></div>
 		                            <div class="bd-L-tle tle3"></div>
-		                        </div> -->
+		                        </div>
 		                        <div class="bd-L-cont c2">${trainingCenter1.content }</div>
 		                    </div>
 	                        <div class="sch-l2 fl">
@@ -107,7 +107,7 @@
 	                <div class="bd-sch-cin">
 	                    <div class="bd-L-tch tch2">培养晋升</div>
 	                    <div class="bd-L-cont c3">天虹内部90%以上的中层管理人员来自内部选拔，我们始终相信严谨的管理体系培养出的人才，更能够适应公司的战略发展。</div>
-	                    <div class="bd-L-cont c3"><img alt="" src="${basePath}/web/images/up.png" style="width:557px;height:308px;"></div>
+	                    <div class="bd-L-cont c3" style="text-align: center;"><img alt="" src="${basePath}/web/images/up.png" style="width:557px;height:308px;"></div>
 	                    <div class="bd-L-cont c3">${knowledge.content }</div>
 	                    <div class="bd-tl-list">
 	                        <ul class="bd-tl-lin">
