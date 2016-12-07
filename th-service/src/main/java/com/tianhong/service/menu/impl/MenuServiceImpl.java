@@ -124,7 +124,7 @@ public class MenuServiceImpl implements MenuService {
 	}
 
 	public List<Menu> getSubMenus(int menuId, boolean show) throws Exception {
-		List<Menu> menus = this.getAllMenus();
+		List<Menu> menus = this.getAllMenus(show);
 		List<Menu> list = new ArrayList<Menu>();
 		for (Menu menu : menus) {
 			if (menu.getId().intValue() == menuId) {
