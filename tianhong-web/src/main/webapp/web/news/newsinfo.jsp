@@ -20,7 +20,7 @@
                     <a href="${basePath}/web/newscenter/index?menuId=179" class="newsnav_aBlock icon">新闻中心</a>
                     
                 </div>
-                <a href="${basePath}/web/newscenter/index?menuId=179" class="newsnav_aBack">返回</a>
+                <a href="javascript:void(0);" onclick="javascript:history.back(-1);" class="newsnav_aBack">返回</a>
             </div>
         </div>
         <div class="news_content">

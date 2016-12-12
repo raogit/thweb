@@ -36,7 +36,7 @@
 	</div>
 </c:forEach>
 <div class="nav_box">
-	<div class="logo"><img src="${basePath}/images/shopping/common/logo.png"></div>
+	<div class="logo"><a href="${basePath}"><img src="${basePath}/images/shopping/common/logo.png"></a></div>
 	<div class="nav">
 		<ul>
 			<c:forEach var="item" items="${headMenus }" begin="0" step="1" varStatus="itemStatus">

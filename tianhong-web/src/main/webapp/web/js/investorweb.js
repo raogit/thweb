@@ -239,4 +239,10 @@ $(function(){
 		tOn = $(this).index();
 		showBlock();
 	})
+	 $(".header_onBlockBg").bind("mouseover",function(){
+		$(this).show();
+	})
+	$(".header_onBlockBg").bind("mouseout",function(){
+		$(this).hide();
+	})
 })
