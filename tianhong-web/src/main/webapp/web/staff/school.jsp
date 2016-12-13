@@ -119,13 +119,13 @@
 	                                    <div class="inr-cin">
 	                                        <div class="inr-ct">E-learnning系统</div>
 	                                        <div class="inr-cc">${learnning.content }</div>
-	                                        <div class="inr-btn"><a href="${learnning.address }">点击进入</a></div>
+	                                        <div class="inr-btn"><a href="${learnning.address }" target="_blank">点击进入</a></div>
 	                                    </div>
 	                                    <div class="inr-line"></div>
 	                                    <div class="inr-cin cin2">
 	                                        <div class="inr-ct">KMS系统</div>
 	                                        <div class="inr-cc">${kms.content }</div>
-	                                        <div class="inr-btn"><a href="${kms.address }">点击进入</a></div>
+	                                        <div class="inr-btn"><a href="${kms.address }" target="_blank">点击进入</a></div>
 	                                    </div>
 	                                </div>
 	
@@ -135,7 +135,7 @@
 	                                <div class="inr-cont">
 	                                    <p>${innovate.content }</p>
 	                                </div>
-	                                <div class="inr-btn b2"><a href="${innovate.address }">参与报名</a></div>
+	                                <div class="inr-btn b2"><a href="${innovate.address }" target="_blank">参与报名</a></div>
 	                            </div>
 	                        </div>
 	                        <div class="bd-sch-inl fl">
