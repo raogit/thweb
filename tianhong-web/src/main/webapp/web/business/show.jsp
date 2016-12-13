@@ -51,7 +51,7 @@
 								<div class="show_proImg"><img src="${basePath}/download/png?fileName=${item.picture }" style="max-width: 260px;max-height: 155px;"/></div>
 								<div class="show_proText" style="max-height: 155px;overflow: hidden;">
 									<h3>${item.title }</h3>
-									<div class="show_proContent" style="overflow: hidden;"><p>${item.content }</p></div>
+									<div class="show_proContent" style="overflow: hidden;"><p>${fn:replace(item.content,back,basePath)}</p></div>
 									<a href="${basePath}/web/investment/showdetail1?id=${item.id }&menuId=${menu.id }">了解更多</a>
 								</div>
 								<div class="clear"></div>
@@ -65,7 +65,7 @@
 								<div class="show_proImg"><img src="${basePath}/download/png?fileName=${item.picture }" style="max-width: 260px;max-height: 155px;"/></div>
 								<div class="show_proText" style="max-height: 155px;overflow: hidden;">
 									<h3>${item.title }</h3>
-									<div class="show_proContent" style="overflow: hidden;"><p>${item.content }</p></div>
+									<div class="show_proContent" style="overflow: hidden;"><p>${fn:replace(item.content,back,basePath)}</p></div>
 									<a href="${basePath}/web/investment/showdetail2?id=${item.id }&menuId=${menu.id }">了解更多</a>
 								</div>
 								<div class="clear"></div>

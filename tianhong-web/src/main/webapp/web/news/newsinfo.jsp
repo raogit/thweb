@@ -26,7 +26,7 @@
         <div class="news_content">
             <div class="news_contentBox">
                <div class="newsInfo_Rcon">
-                   <div class="newsInfo_Title">${news.title }</div>
+                   <div  style="color:#e9a171;"  class="newsInfo_Title">${news.title }</div>
                     <div class="newsInfo_TitleTop">
                         <h3>${news.newsTimeStr }</h3>
                         <h3 style="width: 300px;overflow: hidden;">来源：${news.source }</h3>

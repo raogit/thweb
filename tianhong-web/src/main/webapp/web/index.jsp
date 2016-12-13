@@ -77,7 +77,7 @@
 	            <div class="i-b-mid">
 	                <ul class="i-b-ul">
 						<li><a href="${basePath}/app/list"><img src="images/img/i_1.png" alt=""><p>天虹APP下载</p></a></li>
-						<li><a href="${basePath}/web/culture/ejournals?menuId=195"><img src="images/img/i_2.png" alt=""><p>天虹期刊</p></a></li>
+						<li><a href="${basePath}/web/culture/ejournals?menuId=195"><img src="images/img/i_2.png" alt=""><p>《天虹》</p></a></li>
 						<li><a href="${basePath}/web/culture/public?menuId=197"><img src="images/img/i_3.png" alt=""><p>天虹公益</p></a></li>
 					</ul>
 	            </div>

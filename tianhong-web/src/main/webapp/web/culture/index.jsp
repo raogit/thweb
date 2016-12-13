@@ -53,9 +53,9 @@
 				        </c:forEach></div>
 	            <div class="bd-cont-L LC fl">
 	                <div class="bd-L-title">
-	                    <div class="bd-L-tch">${content.title }</div>
-	                    <div class="bd-L-tle"></div>
-	                    <div class="bd-L-ten">${content.slogan }</div>
+	                    <div style="color:#e9a171;" class="bd-L-tch">${content.title }</div>
+	                    <div style="background:#e9a171;" class="bd-L-tle"></div>
+	                    <div style="color:#e9a171;" class="bd-L-ten">${content.slogan }</div>
 	                </div>
 	                <ul class="bd-L-cult">
 	                    <li><img src="../images/img/c_1.png">企 业 使 命</li>

@@ -52,7 +52,7 @@
 								<div class="show_proImg"><img src="${basePath}/download/png?fileName=${item.picture }" /></div>
 								<div class="show_proText">
 									<h3>${item.title }</h3>
-									<div class="show_proContent" style="overflow: hidden;"><p>${item.content }</p></div>
+									<div class="show_proContent" style="overflow: hidden;"><p>${fn:replace(item.content,back,basePath)}</p></div>
 									<a href="${basePath}/web/investment/showdetail1?id=${item.id }&menuId=${menu.id }">了解更多</a>
 								</div>
 								<div class="clear"></div>
@@ -62,7 +62,7 @@
 	                <div class="show_model2">
 	                 <div class="show_dtBox">
 	                    <h3>${detail.title }</h3>
-	                    <div class="show_dtContent">${detail.content }</div>
+	                    <div class="show_dtContent">${fn:replace(detail.content,back,basePath)}</div>
 	                </div>
 	                </div>
 	            </div>

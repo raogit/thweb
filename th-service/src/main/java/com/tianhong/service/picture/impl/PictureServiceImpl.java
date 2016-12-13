@@ -62,8 +62,7 @@ public class PictureServiceImpl implements PictureService {
 
 	}
 
-	public Picture insertSelective(int menuId, String title, String url, byte pictureType, String path, User user)
-			throws Exception {
+	public Picture insertSelective(int menuId, String title, String url, byte pictureType, String path, User user) throws Exception {
 		byte sort = pictureMapper.selectMaxSort(menuId, pictureType);
 		Picture picture = new Picture();
 		picture.setMenuId(menuId);
@@ -171,6 +170,16 @@ public class PictureServiceImpl implements PictureService {
 
 	public List<Picture> getList(Picture picture) throws Exception {
 		List<Picture> list = pictureMapper.list(picture);
+		if (!CollectionUtils.isEmpty(list)) {
+			for (Picture pic : list) {
+				pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+			}
+		}
+		return list;
+	}
+
+	public List<Picture> findEjournalsByMenuId(Integer menuId) throws Exception {
+		List<Picture> list = pictureMapper.findEjournalsByMenuId(menuId);
 		if (!CollectionUtils.isEmpty(list)) {
 			for (Picture pic : list) {
 				pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));

@@ -49,8 +49,8 @@
 	    <div class="bd-cont cont-H">
 	        <div class="bd-cont-in">
 	            <div class="bd-titleH">
-	                <div class="bd-tH-num">1984-2015</div>
-	                <div class="bd-tH-ch">天虹公司发展历程</div>
+	                <div style="font-size: 40px;color: #e9a171;" class="bd-tH-num">1984-2015</div>
+	                <div style="color: #e9a171;" class="bd-tH-ch">天虹公司发展历程</div>
 	            </div>
 	        </div>
 	        <div class="bd-cont-H" id="H-slideBox">
@@ -65,7 +65,7 @@
 		                                <div class="H-dot"></div>
 		                                <div class="H-img"><img src="${basePath}/download/png?fileName=${item.picture }" width="275px" height="400px" /></div>
 		                                <div class="H-txt-c">${item.content }</div>
-		                                <div class="H-txt-t">${fn:substring(item.eventTimeStr,0,5) }</div>
+		                                <div style="font-size: 32px;" class="H-txt-t">${fn:substring(item.eventTimeStr,0,5) }</div>
 		                            </div>
 		                        </li>
 					        </c:forEach>

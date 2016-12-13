@@ -49,9 +49,9 @@
 	        <div class="bd-cont-in">
 	            <div class="bd-cont-L fl LB">
 	                <div class="bd-L-title">
-	                    <div class="bd-L-tch">视频中心</div>
-	                    <div class="bd-L-tle"></div>
-	                    <div class="bd-L-ten">Video Center</div>
+	                    <div style="color:#e9a171;" class="bd-L-tch">视频中心</div>
+	                    <div style="background:#e9a171;" class="bd-L-tle"></div>
+	                    <div style="color:#e9a171;" class="bd-L-ten">Video Center</div>
 	                </div>
 	            </div>
 	            <div class="bd-cont-V fl" id="vide-slide">

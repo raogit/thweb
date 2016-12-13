@@ -25,10 +25,11 @@ public interface PictureService {
 
 	Picture insertSelective(Picture picture) throws Exception;
 
-	Picture insertSelective(int menuId, String title, String url, byte pictureType, String path, User user)
-			throws Exception;
+	Picture insertSelective(int menuId, String title, String url, byte pictureType, String path, User user) throws Exception;
 
 	Picture getByPrimaryKey(Integer id) throws Exception;
+
+	List<Picture> findEjournalsByMenuId(Integer menuId) throws Exception;
 
 	List<Picture> findByMenuId(Integer menuId) throws Exception;
 

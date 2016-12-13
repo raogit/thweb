@@ -71,7 +71,7 @@
 					</c:forEach>
 	                <div class="bd-LE-btm">
 	                    <ul class="bd-LE-list">
-	                    	<c:forEach var="item" items="${pictures }" begin="1" step="1" end="3" varStatus="itemStatus">
+	                    	<c:forEach var="item" items="${pictures }" begin="1" step="1" end="4" varStatus="itemStatus">
 				                <li>
 		                            <div class="LE-lr fr">
 		                                <div class="LE-lrt"><%-- <strong>${item.createTimeStr }</strong> --%><span>《${item.title }》</span></div>

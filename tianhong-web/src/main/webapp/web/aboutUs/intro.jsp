@@ -55,9 +55,9 @@
 	            </div>
 	            <div class="bd-cont-L fl">
 	                <div class="bd-L-title">
-	                    <div class="bd-L-tch">${content.title }</div>
-	                    <div class="bd-L-tle"></div>
-	                    <div class="bd-L-ten">${content.slogan }</div>
+	                    <div style="font-size:28px;color: #e9a171;" class="bd-L-tch">${content.title }</div>
+	                    <div style="background: #e9a171;" class="bd-L-tle"></div>
+	                    <div style="font-size:20px;color: #e9a171;" class="bd-L-ten">${content.slogan }</div>
 	                </div>
 	                <div class="bd-L-cont">${content.content }</div>
 	            </div>

@@ -69,14 +69,7 @@
                     <div>
                         <img src="${basePath}/download/png?fileName=${history.picture}" alt="" style="max-width: 725px;">
                     </div>
-                    <div class="PD-btm">${history.content }</div>
-                   <!--  <div class="sr-share"><span>分享到： </span>
-                        <a href="javascript:;"><img src="../images/img/sr_1.png" alt=""></a>
-                        <a href="javascript:;"><img src="../images/img/sr_2.png" alt=""></a>
-                        <a href="javascript:;"><img src="../images/img/sr_3.png" alt=""></a>
-                        <a href="javascript:;"><img src="../images/img/sr_4.png" alt=""></a>
-                        <a href="javascript:;"><img src="../images/img/sr_5.png" alt=""></a>
-                    </div> -->
+                    <div class="PD-btm">${fn:replace(history.content,back,basePath)}</div>
                 </div>
             </div>
             <div class="clear"></div>

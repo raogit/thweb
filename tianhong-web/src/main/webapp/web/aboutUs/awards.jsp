@@ -53,8 +53,8 @@
 			<div class="bd-cont-in inA">
 				<div class="bd-cont-L LS fl">
 					<div class="bd-L-title">
-						<div class="bd-L-tch">荣誉奖项</div>
-						<div class="bd-L-tle"></div>
+						<div style="color:#e9a171;" class="bd-L-tch">荣誉奖项</div>
+						<div style="background:#e9a171;" class="bd-L-tle"></div>
 						<div class="bd-L-ten ten3">“有效益扩张”和“可持续发展”的原则，立志将公司塑造成全国一流的零售企业，与顾客分享生活之美。</div>
 					</div>
 				</div>
@@ -74,7 +74,7 @@
 										<div class="A-img">
 											<img src="${basePath}/download/png?fileName=${item.path }" width="242px" height="156px">
 										</div>
-										<div class="A-txt">${item.title }</div>
+										<div style="color:#e9a171;" class="A-txt">${item.title }</div>
 									</div>
 								</li>
 					        </c:forEach>
@@ -88,7 +88,7 @@
 										<div class="A-img">
 											<img src="${basePath}/download/png?fileName=${item.path }" width="242px" height="156px">
 										</div>
-										<div class="A-txt">${item.title }</div>
+										<div style="color:#e9a171;" class="A-txt">${item.title }</div>
 									</div>
 								</li>
 					        </c:forEach>

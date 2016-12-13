@@ -11,6 +11,8 @@ public interface PictureMapper extends BaseMapper<Picture> {
 
 	int updateByPrimaryKeyWithBLOBs(Picture record);
 
+	List<Picture> findEjournalsByMenuId(Integer menuId) throws Exception;
+
 	List<Picture> findByMenuId(Integer menuId) throws Exception;
 
 	byte selectMaxSort(@Param("menuId") int menuId, @Param("pictureType") byte pictureType) throws Exception;
