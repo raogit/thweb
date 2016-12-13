@@ -25,7 +25,8 @@ public interface PictureService {
 
 	Picture insertSelective(Picture picture) throws Exception;
 
-	Picture insertSelective(int menuId, String title, String url, byte pictureType, String path, User user) throws Exception;
+	Picture insertSelective(int menuId, String title, String url, byte pictureType, String path, User user)
+			throws Exception;
 
 	Picture getByPrimaryKey(Integer id) throws Exception;
 
@@ -42,6 +43,8 @@ public interface PictureService {
 	List<Picture> delete(int id, String path) throws Exception;
 
 	Picture getPage(Picture picture) throws Exception;
+
+	Picture getPageEjournals(Picture picture) throws Exception;
 
 	List<Picture> getList(Picture picture) throws Exception;
 }

@@ -111,6 +111,17 @@ public class PictureController extends BaseController {
 		return false;
 	}
 
+	@RequestMapping(value = "/pageejournals")
+	@ResponseBody
+	public Object Ejournals(Picture picture, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return pictureService.getPageEjournals(picture);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
 	@RequestMapping(value = "/list")
 	@ResponseBody
 	public Object list(Picture picture, HttpServletRequest request, HttpServletResponse response) {

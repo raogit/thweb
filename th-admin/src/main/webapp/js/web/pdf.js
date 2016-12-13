@@ -160,7 +160,7 @@ function tableData(pageNum){
 	var endDate = $("#endDate").val();	
 	var menuId = $("#menuId").val();	
 	$.ajax({
-        url: basePath + "/picture/page",
+        url: basePath + "/picture/pageejournals",
         type: 'post',
         dataType: 'json',
         data : {
