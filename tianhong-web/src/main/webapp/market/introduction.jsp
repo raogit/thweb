@@ -59,10 +59,10 @@
 						</div>
 						<div class="c-rct-title">${first.name }</div>
 						<div class="c-rct-line"></div>
-						<div class="c-rct-ch">门店介绍</div>
+						<div style="color: rgb(139, 123, 112);" class="c-rct-ch">门店介绍</div>
 						<div class="c-rct-en">Shop introduction</div>
 					</div>
-					<div class="c-in-rcc">${first.introduce }</div>
+					<div style="color: rgb(139, 123, 112);" class="c-in-rcc">${first.introduce }</div>
 					<!-- <div class="c-in-rar"><img src="${basePath}/market/images/p_6.png" alt=""></div> -->
 				</div>
 				<div class="c-in-rc">

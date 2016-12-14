@@ -50,9 +50,9 @@
         <div class="bd-cont-in cinE">
             <div class="bd-PD-r fr">
                 <div class="PD-rt">相关链接</div>
-                <ul class="PD-rlt">
+                <ul class="PD-rltd">
                 	<c:forEach var="item" items="${historys }" begin="0" step="1" varStatus="itemStatus">
-	                	<li><a href="${basePath}/web/culture/publicdetail?menuId=${menu.id }&id=${item.id }">${item.title }</a></li>
+	                	<li><a style="color:#333333;" href="${basePath}/web/culture/publicdetail?menuId=${menu.id }&id=${item.id }">${item.title }</a></li>
 			        </c:forEach>
                 </ul>
             </div>

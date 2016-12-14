@@ -56,7 +56,7 @@ public class Market extends Page {
 	}
 
 	public void setName(String name) {
-		this.name = name == null ? null : name.trim();
+		this.name = name == null ? null : name;
 	}
 
 	public String getArea() {
@@ -136,7 +136,7 @@ public class Market extends Page {
 	}
 
 	public void setBackup2(String backup2) {
-		this.backup2 = backup2 == null ? null : backup2.trim();
+		this.backup2 = backup2 == null ? null : backup2;
 	}
 
 	public String getBackup3() {
@@ -152,6 +152,6 @@ public class Market extends Page {
 	}
 
 	public void setIntroduce(String introduce) {
-		this.introduce = introduce == null ? null : introduce.trim();
+		this.introduce = introduce == null ? null : introduce;
 	}
 }

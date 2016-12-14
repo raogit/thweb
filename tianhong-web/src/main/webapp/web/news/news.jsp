@@ -61,7 +61,7 @@
                 </div>
                 <div class="news_model2">
                     <div class="news_AllBox">
-                        <h3>全部新闻</h3>
+                        <h3 style="color:#e9a171;border-bottom:2px solid #e9a171;">全部新闻</h3>
                         <div class="news_AllTopLIst">
                             <ul>
                                 <!-- <li>媒体视角</li>
