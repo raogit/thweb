@@ -23,7 +23,7 @@
 				<div class="c-in-min">
 					<div class="c-in-rct rct3">
 						<div class="c-rct-en c-r-en2">${content.slogan }</div>
-						<div class="c-rct-ch">${content.title }</div>
+						<div style="font-style:normal;" class="c-rct-ch">${content.title }</div>
 					</div>
 					<div class="c-in-rcc">${content.content }</div>
 				</div>

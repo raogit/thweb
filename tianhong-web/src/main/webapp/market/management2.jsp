@@ -37,9 +37,9 @@
 			<div class="c-in-min">
 				<div class="c-in-rct rct3">
 					<div class="c-rct-en c-r-en2">${content.slogan }</div>
-					<div class="c-rct-ch">${content.title }</div>
+					<div style="font-style:normal;color:#e9a171;" class="c-rct-ch">${content.title }</div>
 				</div>
-				<div class="c-in-rcc">${fn:replace(content.content,back,basePath)}</div>
+				<div style="color:rgb(139, 123, 112);" class="c-in-rcc">${fn:replace(content.content,back,basePath)}</div>
 			</div>
 		</div>
 		<div class="clear"></div>

@@ -126,9 +126,9 @@
 	             </div>
 	             <div class="fl" style="width: 500px;margin-top: 70px;">
 	                <div class="bd-L-title">
-	                    <div class="bd-L-tch">${content.title }</div>
-	                    <div class="bd-L-tle tle2"></div>
-	                    <div class="bd-L-ten ten2">${content.slogan }</div>
+	                    <div style="color:#e9a171;" class="bd-L-tch">${content.title }</div>
+	                    <div style="background:#e9a171;" class="bd-L-tle tle2"></div>
+	                    <div style="color:#e9a171;" class="bd-L-ten ten2">${content.slogan }</div>
 	                </div>
 	                <div class="bd-L-cont">${content.content }</div> 
 	            </div>

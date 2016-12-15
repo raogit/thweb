@@ -57,7 +57,7 @@
                 </ul>
             </div>
             <div class="bd-PD-l fl">
-                <div class="PD-lt">公益活动：${history.title } </div>
+                <div style="color: #333333;" class="PD-lt">${history.title } </div>
                 <div class="PD-ltb">
                     <span>${history.createTimeStr }</span>
                     <span>来源：${history.backup1 }</span>

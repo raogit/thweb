@@ -40,8 +40,8 @@
                <div class="busine_model1">
                    <div class="busine_shoCon">
                        <div class="busine_shoTit">
-                           <h3>职能简介</h3>
-                           <h5>Business School Profile</h5>
+                           <h3 style="color:#e9a171;">职能简介</h3>
+                           <h5 style="color:#e9a171;">Business School Profile</h5>
                            <div style="background: #e9a171;" class="line"></div>
                        </div>
                        <div class="busine_shoCom">${job.content }</div>

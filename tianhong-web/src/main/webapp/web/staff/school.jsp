@@ -80,9 +80,9 @@
 	                    </div>
 	                    <div class="sch-l fl">
 	                        <div class="bd-L-title">
-	                            <div class="bd-L-tch tch2">商学院简介</div>
-	                            <div class="bd-L-ten ten4">Business School Profile</div>
-	                            <div class="bd-L-tle tle3"></div>
+	                            <div  style="color:#e9a171;" class="bd-L-tch tch2">商学院简介</div>
+	                            <div  style="color:#e9a171;" class="bd-L-ten ten4">Business School Profile</div>
+	                            <div  style="background:#e9a171;" class="bd-L-tle tle3"></div>
 	                        </div>
 	                        <div class="bd-L-cont c2">${buz.content }</div>
 	                        <ul class="bd-sch-list">

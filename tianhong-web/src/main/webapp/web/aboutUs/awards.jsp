@@ -55,7 +55,7 @@
 					<div class="bd-L-title">
 						<div style="color:#e9a171;" class="bd-L-tch">荣誉奖项</div>
 						<div style="background:#e9a171;" class="bd-L-tle"></div>
-						<div class="bd-L-ten ten3">“有效益扩张”和“可持续发展”的原则，立志将公司塑造成全国一流的零售企业，与顾客分享生活之美。</div>
+						<div style="color:#8b7b70;" class="bd-L-ten ten3">天虹通过不断变革和创新走出了自己的道路，在关注市场变化的同时，更关注顾客需求。自1984年成立至今，天虹在全国零售业界取得了瞩目的成绩。</div>
 					</div>
 				</div>
 				<div class="bd-cont-A">
