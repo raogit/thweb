@@ -26,7 +26,7 @@
 	</div>
 	<div class="item-list">
 		<ul>
-			<c:forEach var="item" items="${contents }" begin="0" step="1" end="2"  varStatus="itemStatus">
+			<c:forEach var="item" items="${contents }" begin="0" step="1"  varStatus="itemStatus">
 				<li><a href="${basePath}${item.menu.link }?menuId=${item.menu.id}&leftMenuId=${leftMenuId }&item=${itemStatus.index }&p=0">
 					<div class="img-box">
 						<c:forEach var="pic" items="${item.pictures }" begin="0" step="1" end="0" varStatus="status">
@@ -41,7 +41,7 @@
 				</a></li>
 			</c:forEach>
 		</ul>
-		<div class="btnButton"><span class="curr">0</span><span>1</span></div>
+		<div class="btnButton"><c:if test="${fn:length(contents)>1*3}"><span class="curr">0</span><span>1</span></c:if></div>
 	</div>
 </div>
 <script type="text/javascript">

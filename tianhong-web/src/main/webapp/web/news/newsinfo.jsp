@@ -42,7 +42,7 @@
                    <div class="newsInfo_List">
                        <ul>
                        		<c:forEach var="item" items="${newsRelation }" begin="0" step="1" end="4" varStatus="itemStatus">
-			                	<li><a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}">${fn:substring(item.title,0,20) }</a></li>
+			                	<li><a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}">${item.title }</a></li>
 					        </c:forEach>
                        </ul>
                    </div>
