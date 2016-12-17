@@ -16,6 +16,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.constant.CommonConstant;
@@ -27,6 +28,7 @@ import com.tianhong.service.content.ContentService;
 import com.tianhong.service.market.MarketNewsService;
 import com.tianhong.service.market.MarketService;
 import com.tianhong.service.picture.PictureService;
+import com.tianhong.utils.DateUtils;
 
 /**
  * @author Administrator
@@ -88,6 +90,21 @@ public class MarketController {
 			log.error("", e);
 		}
 		return new ModelAndView("/market/introduction", model);
+	}
+
+	@RequestMapping(value = "/shopnews")
+	@ResponseBody
+	public Object shopNews(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			int id = Integer.parseInt(request.getParameter("id"));
+			MarketNews marketNews = marketNewsService.getByPrimaryKey(id);
+			marketNews.setCreateTimeStr(
+					DateUtils.parseString(marketNews.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
+			return marketNews;
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
 	}
 
 	@RequestMapping(value = "/manage")

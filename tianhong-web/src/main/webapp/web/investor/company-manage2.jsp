@@ -144,34 +144,34 @@
          </div>
     </div>
     <div class="bg_colorBlock"></div>
-<jsp:include page="../foot/foot.jsp"></jsp:include>
-<script type="text/javascript" src="${basePath}/web/js/jquery.mCustomScrollbar.js"></script>
-<script type="text/javascript">
-	$(function(){
-		var on = 0;
-        //显示人物简介
-		$(".inves_executTextFoot").bind("click",function(){
-			on = $(this).index();
-			$(this).parents(".inves_parentBlock").find(".inves_executTextFoot").eq(on).find(".text_content").css({"height":"424px"});
-			$(".bg_colorBlock").css({"display":"block"});
+	<jsp:include page="../foot/foot.jsp"></jsp:include>
+	<script type="text/javascript" src="${basePath}/web/js/jquery.mCustomScrollbar.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var on = 0;
+	        //显示人物简介
+			$(".inves_executTextFoot").bind("click",function(){
+				on = $(this).index();
+				$(this).parents(".inves_parentBlock").find(".inves_executTextFoot").eq(on).find(".text_content").css({"height":"424px"});
+				$(".bg_colorBlock").css({"display":"block"});
+			})
+	        //关闭人物简介
+	        $(".text_close").bind("click",function(e){
+	            e.stopPropagation();
+	            $(".bg_colorBlock").css({"display":"none"});
+	            $(".text_content").css({"height":"0"});
+	        })
+	        //同级人物简介
+	        $(".text_button").bind("click",function(e){
+	            e.stopPropagation();
+	            on++;
+	            on %= $(this).parents(".inves_parentBlock").find(".inves_executTextFoot").length;
+	            $(this).parents(".inves_parentBlock").find(".inves_executTextFoot").eq(on).siblings().find(".text_content").css({"height":"0"});
+	            $(this).parents(".inves_parentBlock").find(".inves_executTextFoot").eq(on).find(".text_content").css({"height":"424px"});
+	        })
+	        $(".text_textBlock").mCustomScrollbar();
 		})
-        //关闭人物简介
-        $(".text_close").bind("click",function(e){
-            e.stopPropagation();
-            $(".bg_colorBlock").css({"display":"none"});
-            $(".text_content").css({"height":"0"});
-        })
-        //同级人物简介
-        $(".text_button").bind("click",function(e){
-            e.stopPropagation();
-            on++;
-            on %= $(this).parents(".inves_parentBlock").find(".inves_executTextFoot").length;
-            $(this).parents(".inves_parentBlock").find(".inves_executTextFoot").eq(on).siblings().find(".text_content").css({"height":"0"});
-            $(this).parents(".inves_parentBlock").find(".inves_executTextFoot").eq(on).find(".text_content").css({"height":"424px"});
-        })
-        $(".text_textBlock").mCustomScrollbar();
-	})
-</script>
+	</script>
 		
 	
 </body>

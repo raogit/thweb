@@ -71,6 +71,8 @@ $(function(){
 		$('.inves_Spot ul,.inves_SystemList ul,.inves_SystemList2 ul').height(h);	
 	});
 
+	
+	
 	//更多点击
 	var liHeight=$('#inves_SystemList2 ul').height();
 	var count=$('#inves_SystemList2 ul').length;

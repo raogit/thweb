@@ -73,7 +73,7 @@
                     </div>
                     <div class="news_AllLBox">
                         <div class="news_AllL">
-                            <ul>
+                            <ul style="height:670;overflow: hidden;">
                             	<c:forEach var="item" items="${newsAll }" begin="0" step="1" varStatus="itemStatus">
 				                	 <li>
 	                                    <div class="news_AllLPic"><img src="${basePath}/download/png?fileName=${item.picture }" width="327px" height="185px;" /></div>
@@ -90,6 +90,11 @@
 	                                </li>
 						        </c:forEach>
                             </ul>
+                            <input value="${fn:length(newsAll) }" type="hidden" id="itemLength"/>
+                            <div style="height:50px;background-color:#e1dede;" id="readMoreBtn13">
+                            	<a href="javascript:;" class="more"><img src="../images/i9.png"></a>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -97,6 +102,25 @@
          </div>
     </div>
 	<jsp:include page="../foot/foot.jsp"></jsp:include>
-
+	<script type="text/javascript">
+	jQuery(document).ready(function() {
+		var uls = $(".news_AllL ul");
+		var lis = $(".news_AllL ul li");
+		var ulHeight = $(uls[0]).height();
+		var liHeight = $(lis[0]).height()+40;
+		var count=lis.length;
+		var dheight=liHeight - 50;
+		var allheight=$(".news_AllL").height();
+		var n=1;
+		var size = $("#itemLength").val();
+		$("#readMoreBtn13").bind('click', function() {
+			debugger;
+			h = n*3+3<size ? ulHeight+n*liHeight*3 : liHeight*size;
+			$('.news_AllL ul').height(h);	
+			n++;
+		});
+	})
+	
+	</script>
 </body>
 </html>

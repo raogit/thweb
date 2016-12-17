@@ -8,6 +8,30 @@
 	<title>天虹官网</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<jsp:include page="base.jsp"></jsp:include>
+	<script type="text/javascript">
+		 function shopNews(id){
+	     	var basePath = $("#basePath").val();
+	     	$.ajax({
+	         	url: $("#basePath").val() + "/market/shopnews",
+	             type: 'POST',
+	             dataType: 'json',
+	             data : {id:id},
+	             timeout: 30000,
+	             cache: false,     
+	             success: function(data){
+	             	if(data!=null && data!=false){
+						$("#newDetailTitle").html(data.title);	
+						$("#newDetailContent").html(data.content);	
+						$("#newDetailPicture").attr("src",data.path);	
+						$("#newsDetailTime").html(data.createTimeStr);	
+	             	}else{
+	             		alert("cache refresh failed.");
+	             	}
+	             }
+	         });
+	         showInnerPage($(this));
+	     }
+	</script>
 </head>
 
 <body class="Intr">
@@ -63,7 +87,6 @@
 						<div class="c-rct-en">Shop introduction</div>
 					</div>
 					<div style="color: rgb(139, 123, 112);" class="c-in-rcc">${first.introduce }</div>
-					<!-- <div class="c-in-rar"><img src="${basePath}/market/images/p_6.png" alt=""></div> -->
 				</div>
 				<div class="c-in-rc">
 					<div class="Into_pageBlock">
@@ -77,11 +100,11 @@
 									<div class="rcc-ir">
 										<img src="${basePath}/download/png?fileName=${item.path }" alt="" style="width:194px" >
 									</div>
+									<input value="${item.id }" type="hidden"/>
 									<div class="rcc-il">
 										<div class="rcc-ilt">${item.title }</div>
 										<div class="rcc-ilc" style="height:66px;overflow: hidden;">${item.content }</div>
-										<a href="javascript:;" class="rcc-btn">Learn more<img
-											src="${basePath}/market/images/p_8.png" alt="" class="rcc-br"></a>
+										<a href="javascript:void(0);" class="rcc-btn">Learn more<img src="${basePath}/market/images/p_8.png" alt="" class="rcc-br"></a>
 										<div class="rcc-line"></div>
 										<div class="rcc-time">${item.createTimeStr }</div>
 									</div>
@@ -102,6 +125,7 @@
 										<div class="rcc-ilc ilc2" style="height:22px;overflow: hidden;">${item.content }</div>
 									</div>
 								</a> 
+								<input value="${item.id }" type="hidden"/>
 							</c:forEach>
 <!-- 							<div class="rcc-more">更多新闻</div> -->
 						</div>
@@ -114,9 +138,9 @@
 						<div class="new_inmain">
 							<h2 id="newDetailTitle"></h2>
 							<div id="newDetailContent"></div>
-							<p><img id="newDetailPicture" src="" height="270px" width="670px" /></p>
+							<p><img id="newDetailPicture" src="" width="670px" /></p>
 							<div class="shar_main">
-								<div class="share_left" id="newsDetailTime">0000-00-00</div>
+								<div class="share_left" id="newsDetailTime"></div>
 								<div class="share_con">
 									<div class="bshare-custom icon-medium">
 										<a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博"
@@ -148,13 +172,12 @@
 							<div class="c-rct-en">Shop event</div>
 						</div>
 						<div class="c-in-rcc">
-							
-							
 							<c:forEach var="item" items="${activityList }" begin="0" step="1" end="2" varStatus="itemStatus">
 								<div class="rcc-in3" onclick="activityDetail(${item.id})">
 									<div class="rcc-imgL">
 										<img src="${basePath}/download/png?fileName=${item.path }" alt="">
 									</div>
+									<input value="${item.id }" type="hidden"/>
 									<div class="rcc-imgR rcR2">
 										<div class="rcc-Rm">
 											<div class="rcc-Rmc">
@@ -164,13 +187,10 @@
 										</div>
 									</div>
 								</div>
-							
 							</c:forEach>
 <!-- 							<div class="rcc-more">更多活动</div> -->
 							<div class="rcc-btm">
-								<p>
-									顾客专线：<strong>${first.backup1 }</strong>
-								</p>
+								<p>顾客专线：<strong>${first.backup1 }</strong></p>
 								<p>地 址：${first.backup2 }</p>
 							</div>
 						</div>
@@ -182,13 +202,7 @@
 						</div>
 						<div class="new_inmain">
 							<h2 id="activityDetailTitle">兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华</h2>
-							<div id="activityDetailContent">
-								<p>&nbsp; &nbsp; &nbsp; &nbsp;
-									厦门汇腾天虹于2003年9月12日开业，是天虹在全国开设的第9家分店，也是天虹在东南区的第一家分店。位于嘉禾路323号，北临仙岳路，南与湖滨北路交汇，商场核心商圈辐射江头、松柏等高档商圈。</p>
-								<p>汇腾天虹“百货+超市”的经营模式将为厦门市民带来全新的一站式购物体验，经营品类主要包括：化妆品、鞋类、超市、服装、皮具箱包、钟表首饰、儿童用品、床上用品、体育用品、摄像器材等商品。</p>
-							
-							</div>
-							
+							<div id="activityDetailContent"></div>
 							<p>
 								<img id="activityDetailPicture" src="${basePath}/market/images/inner.jpg" height="270px" width="670px" />
 							</p>
@@ -256,9 +270,54 @@
             var scrollValut = _node.parents(".c-in-rc").offset().top - 150;
             $("html,body").stop().animate({scrollTop:scrollValut},0);
         }        
-        $(".rcc-in,.rcc-in2,.rcc-in3").bind("click",function(){
+        $(".rcc-in2").bind("click",function(){
             showInnerPage($(this));
         })
+        
+         $(".rcc-in3").bind("click",function(){
+        	 var obj = this;
+ 			var newId = $(obj).find("input[type='hidden']").val();
+         	$.ajax({
+ 	         	url: $("#basePath").val() + "/market/shopnews",
+ 	             type: 'POST',
+ 	             dataType: 'json',
+ 	             data : {id : newId},
+ 	             timeout: 30000,
+ 	             cache: false,     
+ 	             success: function(data){
+ 	             	if(data!=null && data!=false){
+ 						$("#activityDetailTitle").html(data.title);	
+ 						$("#activityDetailContent").html(data.content);	
+ 						$("#activityDetailPicture").attr("src",data.path);	
+ 						$("#activityDetailTime").html(data.createTimeStr);	
+ 	             	}
+ 	             }
+ 	         });
+            showInnerPage($(this));
+        })
+       
+        $(".rcc-in").bind("click",function(){
+        	var obj = this;
+			var newId = $(obj).find("input[type='hidden']").val();
+        	$.ajax({
+	         	url: $("#basePath").val() + "/market/shopnews",
+	             type: 'POST',
+	             dataType: 'json',
+	             data : {id : newId},
+	             timeout: 30000,
+	             cache: false,     
+	             success: function(data){
+	             	if(data!=null && data!=false){
+						$("#newDetailTitle").html(data.title);	
+						$("#newDetailContent").html(data.content);	
+						$("#newDetailPicture").attr("src",data.path);	
+						$("#newsDetailTime").html(data.createTimeStr);	
+	             	}
+	             }
+	         });
+	         showInnerPage($(this));
+        })
+        
         $(".aback").bind("click",function(){
             hideInnerPage($(this));
         })
