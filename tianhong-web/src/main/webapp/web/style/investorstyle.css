@@ -489,7 +489,15 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());}
 .header_onBus{width:800px;height:50px;line-height:50px;position:absolute;left:435px;}
 .header_onBus li{width:80px;color:#fff;text-align:center;float:left;margin-left:10px}
 .header_onBus li a{color:#fff}
-
+.wid-1{}
+.wid-2{}
+.wid-3{}
+.wid-4{}
+.wid-5{}
+.wid-6{}
+.wid-7{}
+.wid-8{}
+.wid-9{}
 
 .i_clk{width:430px;height:44px;position:absolute;right:90px;bottom:170px;z-index:999}
 .i_clk li{width:44px;height:44px;float:left;margin-left:25px}
