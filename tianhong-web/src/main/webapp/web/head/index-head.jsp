@@ -49,7 +49,7 @@
 							<c:if test="${item.name!='多元业务' }">
 								<c:choose>
 									<c:when test="${fn:contains(sub.link, 'http')}">  
-								   		<li><a href="${sub.link }">${sub.name }</a></li>  
+								   		<li><a  target="_blank" href="${sub.link }">${sub.name }</a></li>  
 								   	</c:when>
 								   	<c:otherwise> 
 								   		<li><a href="${basePath}${sub.link }?menuId=${sub.id }">${sub.name }</a></li>
