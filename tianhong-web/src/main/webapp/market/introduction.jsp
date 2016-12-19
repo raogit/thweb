@@ -8,30 +8,6 @@
 	<title>天虹官网</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<jsp:include page="base.jsp"></jsp:include>
-	<script type="text/javascript">
-		 function shopNews(id){
-	     	var basePath = $("#basePath").val();
-	     	$.ajax({
-	         	url: $("#basePath").val() + "/market/shopnews",
-	             type: 'POST',
-	             dataType: 'json',
-	             data : {id:id},
-	             timeout: 30000,
-	             cache: false,     
-	             success: function(data){
-	             	if(data!=null && data!=false){
-						$("#newDetailTitle").html(data.title);	
-						$("#newDetailContent").html(data.content);	
-						$("#newDetailPicture").attr("src",data.path);	
-						$("#newsDetailTime").html(data.createTimeStr);	
-	             	}else{
-	             		alert("cache refresh failed.");
-	             	}
-	             }
-	         });
-	         showInnerPage($(this));
-	     }
-	</script>
 </head>
 
 <body class="Intr">
@@ -86,7 +62,7 @@
 						<div style="color: rgb(139, 123, 112);" class="c-rct-ch">门店介绍</div>
 						<div class="c-rct-en">Shop introduction</div>
 					</div>
-					<div style="color: rgb(139, 123, 112);" class="c-in-rcc">${first.introduce }</div>
+					<div style="color: rgb(139, 123, 112);white-space: pre-wrap;" class="c-in-rcc">${first.introduce }</div>
 				</div>
 				<div class="c-in-rc">
 					<div class="Into_pageBlock">
@@ -138,7 +114,7 @@
 						<div class="new_inmain">
 							<h2 id="newDetailTitle"></h2>
 							<div id="newDetailContent"></div>
-							<p><img id="newDetailPicture" src="" width="670px" /></p>
+							<p><img id="newDetailPicture" src="" style="max-width: 670px;"/></p>
 							<div class="shar_main">
 								<div class="share_left" id="newsDetailTime"></div>
 								<div class="share_con">
@@ -149,12 +125,10 @@
 											class="bshare-qqmb"></a><a title="分享到网易微博"
 											class="bshare-neteasemb"></a><a title="更多平台"
 											class="bshare-more bshare-more-icon more-style-addthis"></a><span
-											class="BSHARE_COUNT bshare-share-count">0</span>
+											class="BSHARE_COUNT bshare-share-count"></span>
 									</div>
-									<script type="text/javascript" charset="utf-8"
-										src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
-									<script type="text/javascript" charset="utf-8"
-										src="http://static.bshare.cn/b/bshareC0.js"></script>
+									<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+									<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
 								</div>
 							</div>
 						</div>
@@ -204,7 +178,7 @@
 							<h2 id="activityDetailTitle">兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华</h2>
 							<div id="activityDetailContent"></div>
 							<p>
-								<img id="activityDetailPicture" src="${basePath}/market/images/inner.jpg" height="270px" width="670px" />
+								<img id="activityDetailPicture" src="${basePath}/market/images/inner.jpg" style="max-width: 670px;" />
 							</p>
 							<div class="shar_main">
 								<div class="share_left" id="activityDetailTime">0000-00-00</div>
@@ -216,12 +190,10 @@
 											class="bshare-qqmb"></a><a title="分享到网易微博"
 											class="bshare-neteasemb"></a><a title="更多平台"
 											class="bshare-more bshare-more-icon more-style-addthis"></a><span
-											class="BSHARE_COUNT bshare-share-count">0</span>
+											class="BSHARE_COUNT bshare-share-count"></span>
 									</div>
-									<script type="text/javascript" charset="utf-8"
-										src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
-									<script type="text/javascript" charset="utf-8"
-										src="http://static.bshare.cn/b/bshareC0.js"></script>
+									<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
+									<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
 								</div>
 							</div>
 						</div>
@@ -277,6 +249,10 @@
          $(".rcc-in3").bind("click",function(){
         	 var obj = this;
  			var newId = $(obj).find("input[type='hidden']").val();
+ 			$("#activityDetailTitle").html("");	
+			$("#activityDetailContent").html("");	
+			$("#activityDetailPicture").attr("src","");	
+			$("#activityDetailTime").html("");	
          	$.ajax({
  	         	url: $("#basePath").val() + "/market/shopnews",
  	             type: 'POST',
@@ -299,6 +275,10 @@
         $(".rcc-in").bind("click",function(){
         	var obj = this;
 			var newId = $(obj).find("input[type='hidden']").val();
+			$("#newDetailTitle").html("");	
+			$("#newDetailContent").html("");	
+			$("#newDetailPicture").attr("src","");	
+			$("#newsDetailTime").html("");	
         	$.ajax({
 	         	url: $("#basePath").val() + "/market/shopnews",
 	             type: 'POST',

@@ -23,10 +23,12 @@ import com.tianhong.constant.CommonConstant;
 import com.tianhong.domain.content.Content;
 import com.tianhong.domain.market.Market;
 import com.tianhong.domain.market.MarketNews;
+import com.tianhong.domain.path.BasePath;
 import com.tianhong.domain.picture.Picture;
 import com.tianhong.service.content.ContentService;
 import com.tianhong.service.market.MarketNewsService;
 import com.tianhong.service.market.MarketService;
+import com.tianhong.service.path.BasePathService;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.utils.DateUtils;
 
@@ -41,7 +43,8 @@ public class MarketController {
 
 	@Autowired
 	private MarketService marketService;
-
+	@Autowired
+	private BasePathService basePathService;
 	@Autowired
 	private MarketNewsService marketNewsService;
 
@@ -96,10 +99,22 @@ public class MarketController {
 	@ResponseBody
 	public Object shopNews(HttpServletRequest request, HttpServletResponse response) {
 		try {
+			String back = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
+			String basePath = (String) request.getSession().getAttribute(CommonConstant.PLAT_FORM_BACK);
+			if (basePath == null) {
+				BasePath base = basePathService.getByFlatForm(CommonConstant.PLAT_FORM_BACK);
+				request.getSession().setAttribute(CommonConstant.PLAT_FORM_BACK, base.getBasePath());
+			}
 			int id = Integer.parseInt(request.getParameter("id"));
 			MarketNews marketNews = marketNewsService.getByPrimaryKey(id);
-			marketNews.setCreateTimeStr(
-					DateUtils.parseString(marketNews.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
+			if (marketNews != null) {
+				marketNews.setCreateTimeStr(DateUtils.parseString(marketNews.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
+				if (StringUtils.isNotEmpty(back) && StringUtils.isNotEmpty(basePath)) {
+					String content = marketNews.getContent().replaceAll(basePath, back);
+					marketNews.setContent(marketNews.getContent().replaceAll(basePath, back));
+				}
+			}
+
 			return marketNews;
 		} catch (Exception e) {
 			log.error("", e);

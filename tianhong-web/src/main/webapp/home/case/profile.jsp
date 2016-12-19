@@ -18,7 +18,7 @@
         <div class="rt right-box">
             <div class="right-box-nav">
                 <h1>${parentMenu.name }<em>/</em>${menu.name }</h1>
-                <a href="javascript:history.go(-1);" class="return ui-link">返回列表</a> 
+                <a href="javascript:history.go(-1);" class="return ui-link">返回</a> 
             </div>
             <div class="right-infor">
                 <div class="profile-img lt">

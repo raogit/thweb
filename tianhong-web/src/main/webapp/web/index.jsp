@@ -44,10 +44,10 @@
 			            <ul class="i_clk" style="bottom: 70px;">
 			               	<li class="i_cli a1"><a href="${basePath}/market/index" title="天虹商场"></a></li>
 			               	<li class="i_cli a6"><a href="${basePath}/app/list" title="虹领巾"></a></li>
-							<li class="i_cli a2"><a href="https://f.tianhong.cn/" title="天虹金融"></a></li>
-							<li class="i_cli a3"><a href="http://www.dreams-on.com/" title="君尚百货"></a></li>
+			               	<li class="i_cli a3"><a href="http://www.dreams-on.com/" title="君尚百货"></a></li>
+			               	<li class="i_cli a5"><a href="${basePath}/shopping/home/index" title="购物中心"></a></li>
 							<li class="i_cli a4"><a href="${basePath}/store/index" title="微喔便利店"></a></li>
-							<li class="i_cli a5"><a href="${basePath}/shopping/home/index" title="购物中心"></a></li>
+							<li class="i_cli a2"><a href="https://f.tianhong.cn/" title="天虹金融"></a></li>
 			            </ul>
 		            </div>
                 </div>

@@ -55,7 +55,7 @@
 					<div class="bd-L-title">
 						<div style="color:#e9a171;" class="bd-L-tch">荣誉奖项</div>
 						<div style="background:#e9a171;" class="bd-L-tle"></div>
-						<div style="color:#8b7b70;" class="bd-L-ten ten3">天虹通过不断变革和创新走出了自己的道路，在关注市场变化的同时，更关注顾客需求。自1984年成立至今，天虹在全国零售业界取得了瞩目的成绩。</div>
+						<div style="color:#e9a171;" class="bd-L-ten ten3">天虹通过不断变革和创新走出了自己的道路，在关注市场变化的同时，更关注顾客需求。自1984年成立至今，天虹在全国零售业界取得了瞩目的成绩。</div>
 					</div>
 				</div>
 				<div class="bd-cont-A">
@@ -74,21 +74,7 @@
 										<div class="A-img">
 											<img src="${basePath}/download/png?fileName=${item.path }" width="242px" height="156px">
 										</div>
-										<div style="color:#e9a171;" class="A-txt">${item.title }</div>
-									</div>
-								</li>
-					        </c:forEach>
-					        <c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
-			                	<li class="A-list-li">
-									<div class="bd-A-line">
-										<div class="A-dot"></div>
-										<div class="A-line"></div>
-									</div>
-									<div class="bd-A-cont">
-										<div class="A-img">
-											<img src="${basePath}/download/png?fileName=${item.path }" width="242px" height="156px">
-										</div>
-										<div style="color:#e9a171;" class="A-txt">${item.title }</div>
+										<div style="color:#8b7b70;" class="A-txt">${item.title }</div>
 									</div>
 								</li>
 					        </c:forEach>

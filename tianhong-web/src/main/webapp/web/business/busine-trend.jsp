@@ -69,7 +69,7 @@
                     <div>
                         <img src="${basePath}/download/png?fileName=${history.picture}" alt="" style="max-width: 725px;">
                     </div>
-                    <div class="PD-btm">${fn:replace(history.content,back,basePath)}</div>
+                    <div class="PD-btm" style="white-space:pre-wrap;">${fn:replace(history.content,back,basePath)}</div>
                 </div>
             </div>
             <div class="clear"></div>

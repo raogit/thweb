@@ -482,7 +482,7 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());}
 .header_onBlockBg{width:100%;height:auto;position:relative;z-index:999;display:none}
 .BlockBg{width:100%;height:50px;background:#000;opacity:0.3;filter:Alpha(opacity=30)}
 .header_onBlockIn{width:1200px;height:50px;position:absolute;top:0}
-.header_onList{width:auto;height:50px;line-height:50px;position:absolute;right:400px}
+.header_onList{width:auto;height:50px;line-height:50px;position:absolute;right:148px}
 .header_onList li{width:80px;color:#fff;text-align:center;float:left;margin-left:10px}
 .header_onList li a{color:#fff}
 

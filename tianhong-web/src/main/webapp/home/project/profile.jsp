@@ -64,7 +64,7 @@
         <div class="rt right-box">
             <div class="right-box-nav">
                 <h1>联发广场<em>/</em>项目简介</h1>
-                <a href="javascript:history.go(-1);" class="return ui-link">返回列表</a> 
+                <a href="javascript:history.go(-1);" class="return ui-link">返回</a> 
             </div>
             <div class="right-infor">
                 <div class="profile-img lt"><img src="${basePath}/home/images/img/img10.jpg" /></div>
