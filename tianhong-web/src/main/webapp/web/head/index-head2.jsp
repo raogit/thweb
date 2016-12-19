@@ -35,7 +35,7 @@
 					<div class="BlockBg"></div>
 				</c:if> 
 				<div class="header_onBlockIn">
-					<ul class="${item.backup3 } wid-1 wid-2">
+					<ul class="${item.backup3 }">
 						<c:forEach var="sub" items="${item.subMenus }" begin="0" step="1">
 							<c:if test="${item.name=='多元业务' }">
 								<c:choose>
