@@ -114,7 +114,7 @@
 						<div class="new_inmain">
 							<h2 id="newDetailTitle"></h2>
 							<div id="newDetailContent"></div>
-							<p><img id="newDetailPicture" src="" style="max-width: 670px;"/></p>
+							<!-- <p><img id="newDetailPicture" src="" style="max-width: 670px;"/></p> -->
 							<div class="shar_main">
 								<div class="share_left" id="newsDetailTime"></div>
 								<div class="share_con">
@@ -124,8 +124,8 @@
 											class="bshare-renren"></a><a title="分享到腾讯微博"
 											class="bshare-qqmb"></a><a title="分享到网易微博"
 											class="bshare-neteasemb"></a><a title="更多平台"
-											class="bshare-more bshare-more-icon more-style-addthis"></a><span
-											class="BSHARE_COUNT bshare-share-count"></span>
+											class="bshare-more bshare-more-icon more-style-addthis"></a><!-- <span
+											class="BSHARE_COUNT bshare-share-count"></span> -->
 									</div>
 									<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
 									<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
@@ -177,9 +177,9 @@
 						<div class="new_inmain">
 							<h2 id="activityDetailTitle">兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华</h2>
 							<div id="activityDetailContent"></div>
-							<p>
+							<%-- <p>
 								<img id="activityDetailPicture" src="${basePath}/market/images/inner.jpg" style="max-width: 670px;" />
-							</p>
+							</p> --%>
 							<div class="shar_main">
 								<div class="share_left" id="activityDetailTime">0000-00-00</div>
 								<div class="share_con">
@@ -189,8 +189,8 @@
 											class="bshare-renren"></a><a title="分享到腾讯微博"
 											class="bshare-qqmb"></a><a title="分享到网易微博"
 											class="bshare-neteasemb"></a><a title="更多平台"
-											class="bshare-more bshare-more-icon more-style-addthis"></a><span
-											class="BSHARE_COUNT bshare-share-count"></span>
+											class="bshare-more bshare-more-icon more-style-addthis"></a><!-- <span
+											class="BSHARE_COUNT bshare-share-count"></span> -->
 									</div>
 									<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
 									<script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
@@ -249,12 +249,13 @@
          $(".rcc-in3").bind("click",function(){
         	 var obj = this;
  			var newId = $(obj).find("input[type='hidden']").val();
+ 			var base = $("#basePath").val();
  			$("#activityDetailTitle").html("");	
 			$("#activityDetailContent").html("");	
 			$("#activityDetailPicture").attr("src","");	
 			$("#activityDetailTime").html("");	
          	$.ajax({
- 	         	url: $("#basePath").val() + "/market/shopnews",
+ 	         	url: base + "/market/shopnews",
  	             type: 'POST',
  	             dataType: 'json',
  	             data : {id : newId},
@@ -264,7 +265,7 @@
  	             	if(data!=null && data!=false){
  						$("#activityDetailTitle").html(data.title);	
  						$("#activityDetailContent").html(data.content);	
- 						$("#activityDetailPicture").attr("src",data.path);	
+ 						//$("#activityDetailPicture").attr("src",base+"/download/png?fileName="+data.path);	
  						$("#activityDetailTime").html(data.createTimeStr);	
  	             	}
  	             }
@@ -273,6 +274,7 @@
         })
        
         $(".rcc-in").bind("click",function(){
+			var base = $("#basePath").val();
         	var obj = this;
 			var newId = $(obj).find("input[type='hidden']").val();
 			$("#newDetailTitle").html("");	
@@ -280,7 +282,7 @@
 			$("#newDetailPicture").attr("src","");	
 			$("#newsDetailTime").html("");	
         	$.ajax({
-	         	url: $("#basePath").val() + "/market/shopnews",
+	         	url: base + "/market/shopnews",
 	             type: 'POST',
 	             dataType: 'json',
 	             data : {id : newId},
@@ -290,7 +292,7 @@
 	             	if(data!=null && data!=false){
 						$("#newDetailTitle").html(data.title);	
 						$("#newDetailContent").html(data.content);	
-						$("#newDetailPicture").attr("src",data.path);	
+						//$("#newDetailPicture").attr("src",base+"/download/png?fileName="+data.path);	
 						$("#newsDetailTime").html(data.createTimeStr);	
 	             	}
 	             }

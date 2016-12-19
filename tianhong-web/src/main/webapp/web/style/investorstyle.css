@@ -493,10 +493,10 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());}
 .wid-2{}
 .wid-3{}
 .wid-4{}
-.wid-5{}
-.wid-6{}
+.wid-5{left:50%;}
+.wid-6{left:60%;}
 .wid-7{}
-.wid-8{}
+.wid-8{left:30%;}
 .wid-9{}
 
 .i_clk{width:430px;height:44px;position:absolute;right:90px;bottom:170px;z-index:999}

@@ -50,10 +50,10 @@ $(".nav_liBlock").bind("click",function(){
 })
 
 $(function(){
-	$(".header_onList").eq(1).css({"right":"-60px"});
+	/*$(".header_onList").eq(1).css({"right":"-60px"});
 	$(".header_onList").eq(2).css({"right":"-150px"});
 	$(".header_onList").eq(3).css({"right":"-240px"});
-	$(".header_onList").eq(4).css({"right":"-320px"});
+	$(".header_onList").eq(4).css({"right":"-320px"});*/
 
 	var tOn=0;
 	function showBlock(){
