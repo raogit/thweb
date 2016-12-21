@@ -15,15 +15,14 @@
 
 	<div class="c-in-cont">
 		<div class="c-in-right"></div>
-		<div class="c-in-left" 
-			style="background:url(${basePath}/download/png?fileName=${first.busUrl }) no-repeat;background-size:cover;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(${basePath}/download/png?fileName=${first.busUrl },sizingMethod='scale');">
+		<div class="c-in-left">
 			<div class="c-in-lt">
 				<div class="c-in-lti">
 					<form action="${basePath}/market/introduction" method="post" id="formId">
 						<div class="c-in-lip">
 							<%-- <input type="text" style="float:left;width:70%" class="tsr-ip c-lip" id="searchName" name="searchName" value="${first.name }">
 							<div style="float:left;width:25%;height: 30px;" onclick="search()"> </div> --%>
-							<select id="marketName" style="width:180px;height: 25px;position:absolute;top:0;left:0;" name="marketName" onchange="changeMarket()">
+							<select id="marketName" style="width:180px;height: 25px;position:absolute;top:14px;left:15px;" name="marketName" onchange="changeMarket()">
 								<c:forEach var="item" items="${list }" begin="0" step="1" varStatus="itemStatus">
 									 <option style="width:180px;" <c:if test="${item.id==first.id}">selected</c:if> value="${item.id }">${item.name }</option>
 								</c:forEach>
@@ -33,7 +32,7 @@
 					<div class="c-in-ltx fr">${first.name }</div>
 				</div>
 			</div>
-			<!-- <img src="${basePath}/market/images/p_4.jpg" alt=""> -->
+			<img src="${basePath}/download/png?fileName=${first.busUrl }" alt="">
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -73,10 +72,6 @@
 						<div class="c-in-rcc">
 							<c:forEach var="item" items="${newsList }" begin="0" step="1" end="0" varStatus="itemStatus">
 								<div class="rcc-in">
-									<div class="rcc-ir">
-										<img src="${basePath}/download/png?fileName=${item.path }" alt="" style="width:194px" >
-									</div>
-									<input value="${item.id }" type="hidden"/>
 									<div class="rcc-il">
 										<div class="rcc-ilt">${item.title }</div>
 										<div class="rcc-ilc" style="height:66px;overflow: hidden;">${item.content }</div>
@@ -84,6 +79,11 @@
 										<div class="rcc-line"></div>
 										<div class="rcc-time">${item.createTimeStr }</div>
 									</div>
+									<div class="rcc-ir">
+										<img src="${basePath}/download/png?fileName=${item.path }" alt="" style="max-width:194px" >
+									</div>
+									<input value="${item.id }" type="hidden"/>
+									
 								</div>
 							</c:forEach>
 							

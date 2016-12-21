@@ -167,7 +167,7 @@
 				var img = imgs[i];
 				var p = $(img).parent();
 				var textAlign = p.css("text-align");
-				p.css("text-align","center");
+				//p.css("text-align","center");
 			}
 		});
 	</script>
