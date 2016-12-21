@@ -65,46 +65,49 @@
 				</div>
 				<div class="c-in-rc">
 					<div class="Into_pageBlock">
-						<div class="c-in-rct">
-							<div class="c-rct-ch">门店新闻</div>
-							<div class="c-rct-en">Shop news</div>
-						</div>
-						<div class="c-in-rcc">
-							<c:forEach var="item" items="${newsList }" begin="0" step="1" end="0" varStatus="itemStatus">
-								<div class="rcc-in">
-									<div class="rcc-il">
-										<div class="rcc-ilt">${item.title }</div>
-										<div class="rcc-ilc" style="height:66px;overflow: hidden;">${item.content }</div>
-										<a href="javascript:void(0);" class="rcc-btn">Learn more<img src="${basePath}/market/images/p_8.png" alt="" class="rcc-br"></a>
-										<div class="rcc-line"></div>
-										<div class="rcc-time">${item.createTimeStr }</div>
-									</div>
-									<div class="rcc-ir">
-										<img src="${basePath}/download/png?fileName=${item.path }" alt="" style="max-width:194px" >
-									</div>
-									<input value="${item.id }" type="hidden"/>
-									
-								</div>
-							</c:forEach>
-							
-							<c:forEach var="item" items="${newsList }" begin="1" step="1" end="2" varStatus="itemStatus">
-								<a href="javascript:newDetail(${item.id });" class="rcc-in rci2">
-									<div class="rcc-ir2 clearfix">
-										<div class="rcc-ird">${fn:substring(item.createTimeStr,8,10)}</div>
-										<div class="rcc-irr">
-											<div class="rcc-irm">${fn:substring(item.createTimeStr,5,7)}</div>
-											<div class="rcc-iry">${fn:substring(item.createTimeStr,0,4)}</div>
+						<c:if test="${fn:length(newsList)>0 }">
+							<div class="c-in-rct">
+								<div class="c-rct-ch">门店新闻</div>
+								<div class="c-rct-en">Shop news</div>
+							</div>
+							<div class="c-in-rcc">
+								<c:forEach var="item" items="${newsList }" begin="0" step="1" end="0" varStatus="itemStatus">
+									<div class="rcc-in">
+										<div class="rcc-il">
+											<div class="rcc-ilt">${item.title }</div>
+											<div class="rcc-ilc" style="height:66px;overflow: hidden;">${item.content }</div>
+											<a href="javascript:void(0);" class="rcc-btn">Learn more<img src="${basePath}/market/images/p_8.png" alt="" class="rcc-br"></a>
+											<div class="rcc-line"></div>
+											<div class="rcc-time">${item.createTimeStr }</div>
 										</div>
+										<div class="rcc-ir">
+											<img src="${basePath}/download/png?fileName=${item.path }" alt="" style="max-width:194px" >
+										</div>
+										<input value="${item.id }" type="hidden"/>
+										
 									</div>
-									<div class="rcc-il ril2">
-										<div class="rcc-ilt ilt2">${item.title }</div>
-										<div class="rcc-ilc ilc2" style="height:22px;overflow: hidden;">${item.content }</div>
-									</div>
-								</a> 
-								<input value="${item.id }" type="hidden"/>
-							</c:forEach>
-<!-- 							<div class="rcc-more">更多新闻</div> -->
-						</div>
+								</c:forEach>
+								
+								<c:forEach var="item" items="${newsList }" begin="1" step="1" end="2" varStatus="itemStatus">
+									<a href="javascript:newDetail(${item.id });" class="rcc-in rci2">
+										<div class="rcc-ir2 clearfix">
+											<div class="rcc-ird">${fn:substring(item.createTimeStr,8,10)}</div>
+											<div class="rcc-irr">
+												<div class="rcc-irm">${fn:substring(item.createTimeStr,5,7)}</div>
+												<div class="rcc-iry">${fn:substring(item.createTimeStr,0,4)}</div>
+											</div>
+										</div>
+										<div class="rcc-il ril2">
+											<div class="rcc-ilt ilt2">${item.title }</div>
+											<div class="rcc-ilc ilc2" style="height:22px;overflow: hidden;">${item.content }</div>
+										</div>
+									</a> 
+									<input value="${item.id }" type="hidden"/>
+								</c:forEach>
+	<!-- 							<div class="rcc-more">更多新闻</div> -->
+							</div>
+						</c:if>
+						
 					</div>
 					<!-- 新闻内页 -->
 					<div class="new_inner">
@@ -140,11 +143,14 @@
 				</div>
 				<div class="c-in-rc">
 					<div class="Into_pageBlock">
-						<!-- 门店活动 -->
-						<div class="c-in-rct">
-							<div class="c-rct-ch">门店活动</div>
-							<div class="c-rct-en">Shop event</div>
-						</div>
+						<c:if test="${fn:length(newsList)>0 }">
+							<!-- 门店活动 -->
+							<div class="c-in-rct">
+								<div class="c-rct-ch">门店活动</div>
+								<div class="c-rct-en">Shop event</div>
+							</div>
+						</c:if>
+						
 						<div class="c-in-rcc">
 							<c:forEach var="item" items="${activityList }" begin="0" step="1" end="2" varStatus="itemStatus">
 								<div class="rcc-in3" onclick="activityDetail(${item.id})">
@@ -163,9 +169,10 @@
 								</div>
 							</c:forEach>
 <!-- 							<div class="rcc-more">更多活动</div> -->
-							<div class="rcc-btm">
-								<p>顾客专线：<strong>${first.backup1 }</strong></p>
-								<p>地 址：${first.backup2 }</p>
+							<div class="rcc-btm" style="text-align:left;padding-left:10%;">
+								<c:if test="${!empty first.backup1 }"><p>顾客专线：${first.backup1 }</p></c:if>
+								<c:if test="${!empty first.backup2 }"><p>地&nbsp;&nbsp;&nbsp;&nbsp;址：${first.backup2 }</p></c:if>
+								<c:if test="${!empty first.backup3 }"><p>营业时间：${first.backup3 }</p></c:if>
 							</div>
 						</div>
 					</div>

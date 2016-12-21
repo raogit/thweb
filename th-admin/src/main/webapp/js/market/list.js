@@ -150,6 +150,8 @@ function addOrEdituser(){
 	var introduce = $("#popIntroduce").val();
 	var phone = $("#popPhone").val();
 	var address = $("#popAddress").val();
+	var busTime = $("#popBusTime").val();
+	
 	if(isEmpty(name)){
 		alert("请输入门店名");
 		return ;
@@ -165,7 +167,8 @@ function addOrEdituser(){
         	name : name,
         	introduce : introduce,
         	backup1 : phone,
-        	backup2 : address
+        	backup2 : address,
+        	backup3 : busTime
         },
         cache: false,
         success: function(data){

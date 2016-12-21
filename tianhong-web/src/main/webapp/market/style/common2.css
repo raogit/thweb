@@ -4,7 +4,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 body{ font-family:'Microsoft Yahei',Arial,Simsun;font-size:14px;color:#333}
 table {border-collapse:collapse; border-spacing:0;}
 fieldset,img {border:0;}
-address,caption,cite,code,dfn,em,strong,th,var {font-weight: normal;font-style: normal;}
+/* address,caption,cite,code,dfn,em,strong,th,var {font-weight: normal;font-style: normal;} */
 ol,ul {list-style:none;}
 caption,th {text-align:left;}
 h1,h2,h3,h4,h5,h6 {font-weight:normal;font-size:100%;}
@@ -213,9 +213,9 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .share_con{width: auto;position: relative;float: right;margin-right: 15px;}
 .share_left{float: right;position: relative;}
 
-.Intr .header_mk {position: fixed;top:0px;left:0px;z-index: 999;}
-.Intr .c-in-cont {position: fixed;top:57px;left:0px;}
-.Intr .footer_mk {position: fixed;bottom:0px;left:0px;}
+.Intr .header_mk {position:fixed;top:0px;left:0px;z-index:999;}
+.Intr .c-in-cont {position:fixed;top:57px;left:0px;}
+.Intr .footer_mk {position:fixed;bottom:0px;left:0px;z-index:999;}
 .Into_content {position: relative;width:100%;padding-top: 57px;}
 .Into_contentBlock {position: relative;width:58%;float: right;overflow: hidden;padding-bottom: 120px;}
 .bodyer_content {position: relative;}

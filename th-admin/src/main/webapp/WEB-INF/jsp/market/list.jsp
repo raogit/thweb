@@ -44,10 +44,11 @@
 			<input type="hidden" value="0" id="popMarketId" />
 			<div class="pop_cont_input">
 				<ul>
-					<li><span style="width:70px;text-align: right;" class="ttl">门店名字:</span> <input id="popName" style="width:140px;" type="text" placeholder="请输入门店名..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">门店名字:</span> <input id="popName" style="width:140px;" type="text"  class="textbox" /></li>
 					<li><span style="width:70px;text-align: right;" class="ttl">门店介绍:</span> <textarea id="popIntroduce" rows="10" cols="40"></textarea></li>
-					<li><span style="width:70px;text-align: right;" class="ttl">电话:</span><input id="popPhone"  style="width:140px;" type="text" placeholder="请填写link..." class="textbox" /></li>
-					<li><span style="width:70px;text-align: right;" class="ttl">地址:</span><input id="popAddress"  style="width:140px;" type="text" placeholder="请填写url..." class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">电话:</span><input id="popPhone"  style="width:140px;" type="text"  class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">地址:</span><input id="popAddress"  style="width:140px;" type="text"  class="textbox" /></li>
+					<li><span style="width:70px;text-align: right;" class="ttl">营业时间:</span><input id="popBusTime"  style="width:140px;" type="text"  class="textbox" /></li>
 				</ul>
 				<div id="popUpPicture">
 					<form action="${basePath }/upload/marketpicture" encType="multipart/form-data" method="post">

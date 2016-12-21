@@ -74,7 +74,7 @@
 										<div class="A-img">
 											<img src="${basePath}/download/png?fileName=${item.path }" width="242px" height="156px">
 										</div>
-										<div style="color:#8b7b70;" class="A-txt">${item.title }</div>
+										<div class="A-txt">${item.title }</div>
 									</div>
 								</li>
 					        </c:forEach>

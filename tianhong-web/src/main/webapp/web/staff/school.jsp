@@ -96,11 +96,11 @@
 	                </div>
 	                <div class="bd-sch-cin">
 	                    <div class="sch-r2 fr">
-	                        <div class="bd-L-title">
+	                        <!-- <div class="bd-L-title">
 	                            <div class="bd-L-tch tch2"></div>
 	                            <div class="bd-L-ten ten4"></div>
-	                           <!--  <div class="bd-L-tle tle3"></div> -->
-	                        </div>
+	                            <div class="bd-L-tle tle3"></div>
+	                        </div> -->
 	                        <div class="bd-L-cont c2">${train.content }</div>
 	                    </div>
 	                    <div class="sch-l2 fl">
@@ -114,26 +114,26 @@
 	                    <div class="bd-sch-inn">
 	                        <div class="bd-sch-inr fr">
 	                            <div class="inr-in">
-	                                <div class="inr-t">知识管理体系</div>
+	                                <div style="color:#e9a171;" class="inr-t">知识管理体系</div>
 	                                <div class="inr-cont">
 	                                    <div class="inr-cin">
-	                                        <div class="inr-ct">E-learnning系统</div>
-	                                        <div class="inr-cc">${learnning.content }</div>
+	                                        <div style="color:#e9a171;" class="inr-ct">E-learnning系统</div>
+	                                        <div style="color:rgb(139, 123, 112);" class="inr-cc">${learnning.content }</div>
 	                                        <%-- <div class="inr-btn"><a href="${learnning.address }" target="_blank">点击进入</a></div> --%>
 	                                    </div>
 	                                    <div class="inr-line"></div>
 	                                    <div class="inr-cin cin2">
-	                                        <div class="inr-ct">KMS系统</div>
-	                                        <div class="inr-cc">${kms.content }</div>
+	                                        <div style="color:#e9a171;" class="inr-ct">KMS系统</div>
+	                                        <div style="color:rgb(139, 123, 112);" class="inr-cc">${kms.content }</div>
 	                                        <%-- <div class="inr-btn"><a href="${kms.address }" target="_blank">点击进入</a></div> --%>
 	                                    </div>
 	                                </div>
 	
 	                            </div>
 	                            <div class="inr-in in2">
-	                                <div class="inr-t t2">创新大赛</div>
+	                                <div style="color:#e9a171;" class="inr-t t2">创新大赛</div>
 	                                <div class="inr-cont">
-	                                    <p>${innovate.content }</p>
+	                                    <p style="color:rgb(139, 123, 112);">${innovate.content }</p>
 	                                </div>
 	                                <%-- <div class="inr-btn b2"><a href="${innovate.address }" target="_blank">参与报名</a></div> --%>
 	                            </div>
@@ -150,11 +150,11 @@
 	                </div>
 	                <div class="bd-sch-cin">
 	                    <div class="bd-sch-mba">
-                            <div class="mba-r fr">${tongJiMba.content }</div>
+                            <div style="color:rgb(139, 123, 112);" class="mba-r fr">${tongJiMba.content }</div>
 	                        <div class="mba-l fl">
 	                            <div class="mba-lt">
-	                                <div class="ten">MBA project</div>
-	                                <div class="tch">同济大学MBA项目</div>
+	                                <div style="color:#e9a171;" class="ten">MBA project</div>
+	                                <div style="color:#e9a171;" class="tch">同济大学MBA项目</div>
 	                            </div>
 	                        </div>
 	                        <div class="clear"></div>
@@ -168,15 +168,15 @@
 	                        </div>
 	                        <div class="map-cont">
 	                            <div class="map-cin">
-	                                <div class="map-ct">场地介绍</div>
-	                                <div class="map-line"></div>
-	                                <div class="map-cc">${introduction.content }</div>
+	                                <div style="color:#e9a171;" class="map-ct">场地介绍</div>
+	                                <div style="background-color:#e9a171;" class="map-line"></div>
+	                                <div style="color:rgb(139, 123, 112);" class="map-cc">${introduction.content }</div>
 	                            </div>
 	                            <div class="map-cin">
-	                                <div class="map-ct">租赁方式</div>
-	                                <div class="map-line"></div>
-	                                <div class="map-cc">
-	                                    <p>${leaseMode.content }</p>
+	                                <div style="color:#e9a171;" class="map-ct">租赁方式</div>
+	                                <div style="background-color:#e9a171;" class="map-line"></div>
+	                                <div style="color:rgb(139, 123, 112);" class="map-cc">
+	                                    <p style="color:rgb(139, 123, 112);">${leaseMode.content }</p>
 	                                </div>
 	                            </div>
 	                        </div>

@@ -44,7 +44,7 @@
                            <h5 style="color:#e9a171;">Business School Profile</h5>
                            <div style="background: #e9a171;" class="line"></div>
                        </div>
-                       <div class="busine_shoCom">${job.content }</div>
+                       <div style="color:rgb(139, 123, 112);" class="busine_shoCom">${job.content }</div>
                    </div>
                    <div class="busine_shoImg">
                        <img src="../images/bs4.jpg">
@@ -52,51 +52,51 @@
                    <div class="clear"></div>
                </div>
                <div class="busine_ProtectTitle">
-                    <h3>招商流程</h3>
-                    <h5>Profit distribution</h5>
+                    <h3 style="color:#e9a171;" >招商流程</h3>
+                    <h5 style="color:#e9a171;" >Profit distribution</h5>
                </div>
                <div class="busine_Top">
                    <ul>
                        <li class="wth1">
                            <a href="javascript:;" class="cur">
                            <i class="bg1"></i>
-                           <h3>招商咨询</h3>
+                           <h3 style="color:#e9a171;">招商咨询</h3>
                            </a>
                        </li>
                        <li  class="wth2">
                            <a href="javascript:;">
                            <i></i>
-                           <h3>参与招标</h3>
+                           <h3 style="color:#e9a171;">参与招标</h3>
                            </a>
                        </li>
                        <li  class="wth3">
                            <a href="javascript:;">
                            <i></i>
-                           <h3>中标详谈</h3>
+                           <h3 style="color:#e9a171;">中标详谈</h3>
                            </a>
                        </li>
                        <li  class="wth4">
                            <a href="javascript:;">
                            <i></i>
-                           <h3>录用</h3>
+                           <h3 style="color:#e9a171;">录用</h3>
                            </a>
                        </li>
                        <li  class="wth5">
                            <a href="javascript:;">
                            <i></i>
-                           <h3>中标详谈</h3>
+                           <h3 style="color:#e9a171;">中标详谈</h3>
                            </a>
                        </li>
                        <li  class="wth6">
                            <a href="javascript:;">
                            <i></i>
-                           <h3>中标详谈</h3>
+                           <h3 style="color:#e9a171;">中标详谈</h3>
                            </a>
                        </li>
                        <li  class="wth7">
                            <a href="javascript:;">
                            <i></i>
-                           <h3>招商成功</h3>
+                           <h3 style="color:#e9a171;">招商成功</h3>
                            </a>
                        </li>
                        <div class="clear"></div>
@@ -105,7 +105,7 @@
                </div>
                <div class="busine_model2">
                   <div class="busine_newBox">
-                       <div class="busine_newTit">招商信息</div>
+                       <div class="busine_newTit" style="color:#e9a171;">招商信息</div>
                        <div class="busine_newTop">
                            <ul>
                                 <li>
@@ -159,7 +159,7 @@
                     	<div class="clear"></div>
                   </div>
                   <div class="busine_newBox">
-                       <div class="busine_newTit busine_newTit2">招商动态</div>
+                       <div class="busine_newTit busine_newTit2" style="color:#e9a171;">招商动态</div>
                        <div class="busine_SpotContent">
                        		 <c:forEach var="historys" items="${historyList }" begin="0" step="1" varStatus="itemStatus">
                            		<c:if test="${itemStatus.index==0 }">
