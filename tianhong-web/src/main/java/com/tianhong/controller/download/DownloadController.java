@@ -37,6 +37,7 @@ public class DownloadController {
 			try {
 				FileToolUtils.downLoad(response, path + fileName, false);
 			} catch (Exception e) {
+				log.error("图片下载出错:", e);
 			}
 		} catch (Exception e) {
 			log.error("", e);
