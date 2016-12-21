@@ -71,6 +71,13 @@ public class MarketController {
 	public Object introduction(HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
+			String back = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+					+ request.getContextPath() + "/";
+			String basePath = (String) request.getSession().getAttribute(CommonConstant.PLAT_FORM_BACK);
+			if (basePath == null) {
+				BasePath base = basePathService.getByFlatForm(CommonConstant.PLAT_FORM_BACK);
+				request.getSession().setAttribute(CommonConstant.PLAT_FORM_BACK, base.getBasePath());
+			}
 			Market market = new Market();
 			List<Market> list = marketService.list(market);
 			Market m;
@@ -86,7 +93,24 @@ public class MarketController {
 			model.put("first", m);
 
 			List<MarketNews> newsList = marketNewsService.list(m.getId(), CommonConstant.TYPE_NEWS_1);
+			for (MarketNews marketNew : newsList) {
+				marketNew.setCreateTimeStr(
+						DateUtils.parseString(marketNew.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
+				if (StringUtils.isNotEmpty(back) && StringUtils.isNotEmpty(basePath)) {
+					String content = marketNew.getContent().replaceAll(basePath, back);
+					marketNew.setContent(content);
+				}
+			}
 			List<MarketNews> activityList = marketNewsService.list(m.getId(), CommonConstant.TYPE_ACTIVITY_2);
+			for (MarketNews marketNew : activityList) {
+				marketNew.setCreateTimeStr(
+						DateUtils.parseString(marketNew.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
+				if (StringUtils.isNotEmpty(back) && StringUtils.isNotEmpty(basePath)) {
+					String content = marketNew.getContent().replaceAll(basePath, back);
+					marketNew.setContent(content);
+				}
+			}
+
 			model.put("newsList", newsList);
 			model.put("activityList", activityList);
 		} catch (Exception e) {
@@ -99,7 +123,8 @@ public class MarketController {
 	@ResponseBody
 	public Object shopNews(HttpServletRequest request, HttpServletResponse response) {
 		try {
-			String back = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
+			String back = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+					+ request.getContextPath() + "/";
 			String basePath = (String) request.getSession().getAttribute(CommonConstant.PLAT_FORM_BACK);
 			if (basePath == null) {
 				BasePath base = basePathService.getByFlatForm(CommonConstant.PLAT_FORM_BACK);
@@ -108,7 +133,8 @@ public class MarketController {
 			int id = Integer.parseInt(request.getParameter("id"));
 			MarketNews marketNews = marketNewsService.getByPrimaryKey(id);
 			if (marketNews != null) {
-				marketNews.setCreateTimeStr(DateUtils.parseString(marketNews.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
+				marketNews.setCreateTimeStr(
+						DateUtils.parseString(marketNews.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
 				if (StringUtils.isNotEmpty(back) && StringUtils.isNotEmpty(basePath)) {
 					String content = marketNews.getContent().replaceAll(basePath, back);
 					marketNews.setContent(marketNews.getContent().replaceAll(basePath, back));

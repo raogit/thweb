@@ -5,6 +5,10 @@
 	request.setAttribute("ver", Math.random());
 	%>
 	<link rel="shortcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
+	<link href="${basePath}/css/richtext/froala_page.css" rel="stylesheet" type="text/css">
+	<link href="${basePath}/css/richtext/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="${basePath}/css/richtext/froala_editor.css" rel="stylesheet" type="text/css">
+	
 	<link href="${basePath}/web/style/animate.min.css" rel="stylesheet" type="text/css" />
     <link href="${basePath}/web/style/style.css" rel="stylesheet" type="text/css" />
     <link href="${basePath}/web/style/common.css" rel="stylesheet" type="text/css" />

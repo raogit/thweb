@@ -1,13 +1,11 @@
 var reg = new RegExp("^http://");
 $(document).ready(function () {
-	debugger;
 	$.ajax({
         url: basePath + "/menu/list",
         type: 'GET',
         dataType: 'json',
         cache: false,
         success: function(data){
-        	debugger;
         	var json = eval(data);
         	if(data!=null&&data!=""){
             	initMenu(data);
@@ -35,10 +33,10 @@ function initMenu(obj){
 			if(menu.subMenus!=null && menu.subMenus.length>0){
 				a.href="javascript:void(0);";
 			}else{
-				debugger;
+				
 				a.target="myFrame";
 				if(menu.url==null || menu.url==""){
-					debugger;
+					
 					a.href="javascript:void(0);";
 				}else if(menu.url!=null && reg.test(menu.url)){
 					a.href=menu.url+"?menuId="+menu.id;
@@ -68,7 +66,7 @@ function subMenu(obj,id,array){
 				}else{
 					a.target="myFrame";
 					if(menu.url==null || menu.url==""){
-						debugger;
+						
 						a.href="javascript:void(0);";
 					}else if(menu.url!=null && reg.test(menu.url)){
 						a.href=menu.url+"?menuId="+menu.id;

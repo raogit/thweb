@@ -66,8 +66,8 @@
                 
                 
                 <div class="PD-cont">
-                    <div class="PD-top">${history.content }</div>
-                    <div class="PD-cim" style="text-align: center;"><img src="${basePath}/download/png?fileName=${history.picture }" alt="" style="width: 600px;height: 400px;"></div>
+                    <div class="PD-top" style="white-space:pre-wrap;color:#444444;">${history.content }</div>
+                    <div class="PD-cim" style="text-align:center;"><img src="${basePath}/download/png?fileName=${history.picture }" alt="" style="width: 600px;height: 400px;"></div>
                 </div>
                 
             </div>

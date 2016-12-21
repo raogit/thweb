@@ -50,7 +50,7 @@
 	                                        <div class="news_TopContent">
 	                                            <h3>${fn:substring(item.title,0,20) }</h3>
 	                                            <%-- <i style="position: relative;font-size: 6;text-align: right;">${item.newsTimeStr }</i> --%>
-	                                            <dir style="height:50px;padding-left: 0;overflow: hidden;margin: 0 0;">${fn:replace(item.content,back,basePath)}</dir>
+	                                            <div class="froala-element" style="height:50px;padding-left: 0;overflow: hidden;margin: 0 0;">${fn:replace(item.content,back,basePath)}</div>
 	                                        </div>
 	                                    </a>
 	                                </li>
@@ -79,7 +79,7 @@
 	                                    <div class="news_AllLPic"><img src="${basePath}/download/png?fileName=${item.picture }" width="327px" height="185px;" /></div>
 	                                    <div class="news_AllLContent">
 	                                            <h5>${item.title}</h5>
-	                                            <a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}" target="_blank"><dir style="height:80px;padding-left: 0;overflow: hidden;margin: 0 0;">${fn:replace(item.content,back,basePath)}</dir></a>
+	                                            <a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}" target="_blank"><div class="froala-element" style="height:80px;padding-left: 0;overflow: hidden;margin: 0 0;">${fn:replace(item.content,back,basePath)}</div></a>
 	                                            <div class="news_AllFoot">
 	                                                <h3>时间：${item.newsTimeStr }</h3>
 	                                                <a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}" target="_blank">查看详细>></a>

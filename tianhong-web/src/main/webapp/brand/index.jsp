@@ -16,6 +16,10 @@
 	<link rel="shortcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
 	<input type="hidden" value="${basePath }" id="basePath" name="basePath" />
 	<input type="hidden" value="${path }" id="path" name="path" />
+	<link href="${basePath}/css/richtext/froala_page.css" rel="stylesheet" type="text/css">
+	<link href="${basePath}/css/richtext/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="${basePath}/css/richtext/froala_editor.css" rel="stylesheet" type="text/css">
+	
 	<link href="${basePath}/brand/css/common2.css" rel="stylesheet" type="text/css">
 	<!-- 具体样式 -->
 	<script src="${basePath}/brand/js/jquery-1.4.2.js" type="text/javascript"></script>
@@ -86,7 +90,7 @@
 							</div>
 							<div class="clear"></div>
 						</div>
-						<div class="newCon_content">${fn:replace(item.content.content,back,basePath)}</div>
+						<div class="froala-element newCon_content">${fn:replace(item.content.content,back,basePath)}</div>
 						<div class="newCon_contentPic">
 							<c:forEach var="picture" items="${item.pictures }" begin="1"
 								step="1" end="3">
@@ -157,5 +161,14 @@
 				$(".wx").stop(true,true).fadeOut("300");
 			});
 	});
+		jQuery(document).ready(function() {
+			var imgs  = $(".fr-fin");
+			for(var i=0;i<imgs.length;i++){
+				var img = imgs[i];
+				var p = $(img).parent();
+				var textAlign = p.css("text-align");
+				p.css("text-align","center");
+			}
+		});
 	</script>
 </html>

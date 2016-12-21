@@ -66,7 +66,7 @@
 	                <a href="${basePath}/web/newscenter/detail?id=${news.id }&menuId=${news.menuId}" class="i-b-na">
 						<div class="n-cont">
 							<div class="n-c-r fr">
-								<div class="n-c-rt" style="height: 19px;overflow: hidden;">${news.title }</div>
+								<div class="n-c-rt" style="height: 19px;overflow: hidden;color:#C8771B;">${news.title }</div>
 								<div class="n-c-rc" style="height: 52px;overflow: hidden;">${news.content }</div>
 							</div>
 							<div class="n-c-l fl">${news.newsTimeStr }</div>

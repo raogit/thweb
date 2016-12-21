@@ -19,7 +19,7 @@ function sub(){
 //		jQuery(form).submit();
 //		var a = document.getElementById("formId");
 //		document.getElementById("formId").submit();
-		debugger;
+		
 		$.ajax({
 	        url: basePath + "/loginconfirm",
 	        type: 'post',
@@ -30,7 +30,7 @@ function sub(){
 	        dataType: 'json',
 	        cache: false,
 	        success: function(data){
-	        	debugger;
+	        	
 	        	if(data!=null&&data!=false){
 	        		location.replace(basePath+"/menu/menu");   
 	        	}else{

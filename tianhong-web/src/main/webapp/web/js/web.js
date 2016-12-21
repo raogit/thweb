@@ -19,10 +19,13 @@ $UrlParameter = function(_key) {
 };
 
 jQuery(document).ready(function() {
-	
-	/*$(".header_onList").mouseout(function(){
-		$(this).parent().hide();
-	});*/
+	var imgs  = $(".fr-fin");
+	for(var i=0;i<imgs.length;i++){
+		var img = imgs[i];
+		var p = $(img).parent();
+		var textAlign = p.css("text-align");
+		p.css("text-align","center");
+	}
 })
 
 

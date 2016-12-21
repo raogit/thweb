@@ -58,7 +58,7 @@
                 <c:forEach var="item" items="${activitys }" begin="0" step="1" end="2" varStatus="itemStatus">
                 	<div style="padding-top: 20px;"><p><em style="color: #f08200;font-size: 20px;">${item.categoryName }</em></p></div>
 	            	<div class="at-rec cv-rec" >
-	                    <div class="at-rec-cont clearfix" style="height: 400px;overflow: hidden;">${fn:replace(item.content,back,basePath)}</div>
+	                    <div class="froala-element at-rec-cont clearfix" style="height: 400px;overflow: hidden;">${fn:replace(item.content,back,basePath)}</div>
 	                    <div class="cv-btn"><a href="${basePath}/store/servicejoinabout/detail?categoryId=${item.categoryId }&menuId=${menu.id}">了解更多</a></div>
 	                    <div class="n-l-line itd-line cv-line"></div>
 	                </div>

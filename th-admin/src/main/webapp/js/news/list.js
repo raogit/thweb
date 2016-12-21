@@ -12,6 +12,9 @@ function save(){
 	var menuId = $("#menuId").val();
 	var title = $("#poptitle").val();
 	var source = $("#popsource").val();
+	debugger;
+	var content = $("#contentId");
+	var imgs = content.find("img");
 	var content = $("#contentId").html();
 	var id = $("#id").val();
 	if(isEmpty(content)){
@@ -26,6 +29,8 @@ function save(){
 		alert("请填写标题");
 		return ;
 	}
+	debugger;
+	return;
 	$.ajax({
         url: basePath + "/content/save",
         type: 'post',

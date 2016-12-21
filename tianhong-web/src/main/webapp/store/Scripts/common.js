@@ -11,5 +11,12 @@ jQuery(document).ready(function() {
 	    $(".h-c-title li").eq(5).css({"border-bottom":"4px solid #40ddf9"});
 	    $(".h-c-title li").eq(6).css({"border-bottom":"4px solid #0098fe"});
 	    $(".h-c-title li").eq(7).css({"border-bottom":"4px solid #ff42c3"});
-	})
+	});
+	var imgs  = $(".fr-fin");
+	for(var i=0;i<imgs.length;i++){
+		var img = imgs[i];
+		var p = $(img).parent();
+		var textAlign = p.css("text-align");
+		p.css("text-align","center");
+	}
 })

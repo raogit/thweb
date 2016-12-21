@@ -16,6 +16,9 @@
 <link rel="stylesheet" href="${basePath}/market/style/common2.css">
 <input type="hidden" value="${basePath }" id="basePath" name="basePath" />
 <input type="hidden" value="${path }" id="path" name="path" />
+<link href="${basePath}/css/richtext/froala_page.css" rel="stylesheet" type="text/css">
+	<link href="${basePath}/css/richtext/font-awesome.css" rel="stylesheet" type="text/css">
+	<link href="${basePath}/css/richtext/froala_editor.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="Intr">
@@ -39,7 +42,7 @@
 					<div class="c-rct-en c-r-en2">${content.slogan }</div>
 					<div style="font-style:normal;color:#e9a171;" class="c-rct-ch">${content.title }</div>
 				</div>
-				<div style="color:rgb(139, 123, 112);" class="c-in-rcc">${fn:replace(content.content,back,basePath)}</div>
+				<div style="color:rgb(139, 123, 112);" class="froala-element c-in-rcc">${fn:replace(content.content,back,basePath)}</div>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -164,6 +167,15 @@
             })
             $(".lbi-list li:even").addClass("even");
         })
+        jQuery(document).ready(function() {
+			var imgs  = $(".fr-fin");
+			for(var i=0;i<imgs.length;i++){
+				var img = imgs[i];
+				var p = $(img).parent();
+				var textAlign = p.css("text-align");
+				p.css("text-align","center");
+			}
+		});
     </script>
 	</div>
 </body>

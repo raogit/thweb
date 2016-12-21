@@ -1,3 +1,12 @@
+jQuery(document).ready(function() {
+	var imgs  = $(".fr-fin");
+	for(var i=0;i<imgs.length;i++){
+		var img = imgs[i];
+		var p = $(img).parent();
+		var textAlign = p.css("text-align");
+		p.css("text-align","center");
+	}
+});
 $(function(){	
 	//二级导航
   var i = 0;
