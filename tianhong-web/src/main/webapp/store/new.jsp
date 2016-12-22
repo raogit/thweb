@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>天虹官网</title>
+<title>微喔便利店-天虹商场|官方网站，分享生活之美</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 <jsp:include page="base.jsp"></jsp:include>
 </head>
@@ -39,7 +39,7 @@
 				<div class="n-l-c">
 					<div class="n-l-crumb">
 						<div class="n-l-cleft n-l-cl2">
-							<a href="Default.html"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
+							<a href="${basePath }/store/index?menuId=163"><div class="c-home"><img src="${basePath}/images/store/n_03.png" alt=""></div></a>
 						</div>
 						<div class="c-h-in">新品上市 · <i>New arrivals</i></div>
 					</div>
@@ -86,8 +86,8 @@
 		<div class="f-cont">
 			<div class="f-c-right">
 				<div class="r-left">
-					<a href="Problem.html" class="f-r-a">常见问题</a> | <a
-						href="Contact.html" class="f-r-a">联系我们</a>
+					<!-- <a href="Problem.html" class="f-r-a">常见问题</a> | <a
+						href="Contact.html" class="f-r-a">联系我们</a> -->
 				</div>
 				<div class="r-right"></div>
 			</div>

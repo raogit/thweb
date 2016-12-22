@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>天虹商场</title>
+	<title>天虹商场|官方网站，分享生活之美</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<jsp:include page="../base.jsp"></jsp:include>
 	<style type="text/css">

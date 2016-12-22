@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>天虹官网</title>
+	<title>微喔便利店-天虹商场|官方网站，分享生活之美</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<jsp:include page="../base.jsp"></jsp:include>
 	<script src="${basePath}/store/Scripts/swipe.js"></script>
@@ -24,6 +24,14 @@
 	.imgBlock img {
 		width: 100%;
 	}
+	.banner-all{width:752px;height:auto;position:relative;}
+	.banner-block{width:752px;height:350px;padding-bottom:30px;position:relative;overflow: hidden;}
+	.banner-block .banner-ul{width: 99999px;position:relative;}
+	.banner-ul li{width: 752px;height: 350px;float: left;position: relative;}
+	.banner-ul li img{width: 100%;}
+	.block-dot{width: auto;position: absolute;bottom: 0px;left:50%;}
+	.block-dot span{display:inline-block; float: left; width: 8px;height: 8px;margin: 0 3px; background: url(../../../images/store/a_02.png) no-repeat center;cursor: pointer;}
+	.block-dot span.current{background: url(../../../images/store/a_03.png) center no-repeat;cursor: pointer;}
 	</style>
 </head>
 <body>
@@ -63,7 +71,7 @@
 				<div class="n-l-cont">
 					<div class="n-l-ct">最新活动</div>
 					<div class="n-l-line"></div>
-					<div class="a-banner">
+					<%-- <div class="a-banner">
 						<div id="swipe">
 							<div>
 								<c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
@@ -76,7 +84,22 @@
 								<div class="a-bn-dot <c:if test="${itemStatus.index==0 }">a-dat</c:if>"></div>
 							</c:forEach>
 						</div>
-					</div>
+					</div> --%>
+					<div class="banner-all">
+	                    <div class="banner-block">
+	                        <ul class="banner-ul">
+	                        	<c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
+									<li><img style="height:350px;" src="${basePath}/download/png?fileName=${item.path }" /></li>
+								</c:forEach>
+	                        </ul>
+	                    </div>
+	                    <div class="block-dot">
+	                    	<c:forEach var="item" items="${pictures }" begin="0" step="1" varStatus="itemStatus">
+								<span></span>
+							</c:forEach>
+	                        
+	                    </div>
+	                </div>
 					<div class="n-l-line itd-line"></div>
 					<div class="a-rec">
 						<div class="a-rec-title">最新活动推荐</div>
@@ -87,22 +110,6 @@
 									<div class="a-rec-t"><p>${item.title }</p><p>截止时间：${item.newsTimeStr }</p></div>
 								</li>
 							</c:forEach>
-							<%-- <li>
-								<img src="${basePath}/${basePath}/images/store/store/a_05.jpg" alt="">
-								<div class="a-rec-t"><p>五月优惠活动</p><p>截止时间：2016-05-30</p></div>
-							</li>
-							<li>
-								<img src="${basePath}/images/store/a_05.jpg" alt="">
-								<div class="a-rec-t"><p>五月优惠活动</p><p>截止时间：2016-05-30</p></div>
-							</li>
-							<li>
-								<img src="${basePath}/images/store/a_05.jpg" alt="">
-								<div class="a-rec-t"><p>五月优惠活动</p><p>截止时间：2016-05-30</p></div>
-							</li>
-							<li>
-								<img src="${basePath}/images/store/a_05.jpg" alt="">
-								<div class="a-rec-t"><p>五月优惠活动</p><p>截止时间：2016-05-30</p></div>
-							</li> --%>
 						</ul>
 					</div>
 				</div>
@@ -119,6 +126,41 @@
 	            var n = swipeOb.getPos();
 	        }});
 	    })
+	    $(function(){
+			var ban=0;
+		    var maxImg=$(".banner-block li").length;
+		    text="";
+		    for(var i=maxImg;i>0;i--){
+		        text +="<span></span>"
+		    }
+		    $(".block-dot").html(text);//将遍历到的span写在ban-block块上
+		    //banner动画效果
+		    var blockFun=function(){
+		        var marginValue = -ban * 752;
+		        $(".block-dot span").eq(ban).addClass("current").siblings().removeClass("current")
+		        $(".banner-ul").stop().animate({marginLeft:marginValue});
+		    }
+		    blockFun();
+		    //根据索引值进行判断当前图片
+		    $(".block-dot span").bind("mouseover",function(){
+		        ban = $(this).index();
+		        blockFun();
+		    })
+		    var setInt=setInterval(function(){
+		        ban++;
+		        ban %=maxImg;
+		        blockFun(); 
+		    },3500)
+		    $(".block-dot").hover(function(){
+		        clearInterval(setInt);
+		    },function(){
+		        setInt=setInterval(function(){
+		            ban++;
+		            ban%=maxImg;
+		            blockFun(); 
+		        },3500)
+		    })
+		})
 	</script>
 
 </body>

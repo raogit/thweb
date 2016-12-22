@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>天虹官网</title>
+	<title>天虹门店-天虹商场|官方网站，分享生活之美</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<jsp:include page="base.jsp"></jsp:include>
 </head>
@@ -39,7 +39,7 @@
 				<div class="fr"></div>
 			</div>
 			<div class="f-c-left">
-				<a href="">友情链接</a> <span>版权所有:天虹商场股份有限公司</span> <span>备案号:粤ICP备11065574号-3</span>
+				<!-- <a href="">友情链接</a> --> <span>版权所有:天虹商场股份有限公司</span> <span>备案号:粤ICP备11065574号-3</span>
 			</div>
 		</div>
 		<div class="clear"></div>

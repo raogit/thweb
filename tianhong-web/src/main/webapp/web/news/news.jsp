@@ -5,9 +5,14 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-    <title>天虹商场</title>
+    <title>天虹商场|官方网站，分享生活之美</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<jsp:include page="../base.jsp"></jsp:include>
+	<style type="text/css">
+	
+		.news_AllLContent h5:hover{color:#f17b6f;}
+		.news_content2 p:hover{color:#f17b6f;}
+	</style>
 </head>
 
 <body>
@@ -46,11 +51,13 @@
                             <ul>
 	                            <c:forEach var="item" items="${newsHeadLine }" begin="0" step="1" end="2" varStatus="itemStatus">
 				                	<li>
-	                                    <a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}">
+	                                    <a  target="_blank" href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}">
 	                                        <div class="news_TopContent">
 	                                            <h3>${fn:substring(item.title,0,20) }</h3>
-	                                            <%-- <i style="position: relative;font-size: 6;text-align: right;">${item.newsTimeStr }</i> --%>
-	                                            <div class="froala-element" style="height:50px;padding-left: 0;overflow: hidden;margin: 0 0;">${fn:replace(item.content,back,basePath)}</div>
+	                                            <%-- <div class="froala-element" style="height:50px;padding-left: 0;overflow: hidden;margin: 0 0;">${fn:replace(item.content,back,basePath)}</div> --%>
+	                                            <div class="news_content2" style="color:rgb(139, 123, 112);height:56px;padding-left: 0;overflow: hidden;margin: 0 0;">
+	                                            <p><c:if test="${empty item.backup1}">${fn:replace(item.content,back,basePath)}</c:if><c:if test="${!empty item.backup1}"> ${item.backup1}</c:if></p>
+	                                            </div>
 	                                        </div>
 	                                    </a>
 	                                </li>
@@ -78,13 +85,18 @@
 				                	 <li>
 	                                    <div class="news_AllLPic"><img src="${basePath}/download/png?fileName=${item.picture }" width="327px" height="185px;" /></div>
 	                                    <div class="news_AllLContent">
-	                                            <h5>${item.title}</h5>
-	                                            <a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}" target="_blank"><div class="froala-element" style="height:80px;padding-left: 0;overflow: hidden;margin: 0 0;">${fn:replace(item.content,back,basePath)}</div></a>
-	                                            <div class="news_AllFoot">
-	                                                <h3>时间：${item.newsTimeStr }</h3>
-	                                                <a href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}" target="_blank">查看详细>></a>
-	                                                <div class="clear"></div>
-	                                            </div>
+                                            <h5>${item.title}</h5>
+                                            <a target="_blank" href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}" target="_blank">
+                                            	<div class="news_content2" style="color:rgb(139, 123, 112);height:56px;padding-left: 0;overflow: hidden;margin: 0 0;">
+                                            		<p><c:if test="${empty item.backup1}">${fn:replace(item.content,back,basePath)}</c:if>
+                                            		<c:if test="${!empty item.backup1}"> ${item.backup1}</c:if></p>
+                                            	</div>
+                                            </a>
+                                            <div class="news_AllFoot">
+                                                <h3>时间：${item.newsTimeStr }</h3>
+                                                <a target="_blank" href="${basePath}/web/newscenter/detail?id=${item.id }&menuId=${menuId}" target="_blank">查看详细>></a>
+                                                <div class="clear"></div>
+                                            </div>
 	                                    </div>
 	                                    <div class="clear"></div>
 	                                </li>
@@ -92,7 +104,7 @@
                             </ul>
                             <input value="${fn:length(newsAll) }" type="hidden" id="itemLength"/>
                             <div style="height:50px;background-color:#e1dede;" id="readMoreBtn13">
-                            	<a href="javascript:;" class="more"><img src="../images/i9.png"></a>
+                            	<a target="_blank" href="javascript:void(0);" class="more"><img src="../images/i9.png"></a>
                             </div>
                             
                         </div>

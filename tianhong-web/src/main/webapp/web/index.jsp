@@ -5,7 +5,7 @@
 <html> 
 <head>
 	<meta charset="UTF-8">
-	<title>天虹商场</title>
+	<title>天虹商场|官方网站，分享生活之美</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<jsp:include page="base.jsp"></jsp:include>
 	
@@ -26,7 +26,7 @@
 							 <li>
 								<c:choose>
 									<c:when test="${fn:contains(item.url, 'http')}">  
-								   		<a href="${item.url }">
+								   		<a target="_blank" href="${item.url }">
 			                            	<div class="index_image" style="background:url(${basePath}/download/png?fileName=${item.path }) no-repeat center; background-size:cover; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(${basePath}/download/png?fileName=${item.path },sizingMethod='scale');"></div>
 			                            </a>
 								   	</c:when>
@@ -66,8 +66,9 @@
 	                <a href="${basePath}/web/newscenter/detail?id=${news.id }&menuId=${news.menuId}" class="i-b-na">
 						<div class="n-cont">
 							<div class="n-c-r fr">
-								<div class="n-c-rt" style="height: 19px;overflow: hidden;color:#C8771B;">${news.title }</div>
-								<div class="n-c-rc" style="height: 52px;overflow: hidden;">${news.content }</div>
+								<div class="n-c-rt" style="height: 19px;overflow: hidden;color:#444444;font-weight:600;">${news.title }</div>
+								<div class="n-c-rc" style="height: 52px;overflow: hidden;"><c:if test="${empty news.backup1}">${fn:replace(news.content,back,basePath)}</c:if>
+	                                            <c:if test="${!empty news.backup1}"> ${news.backup1}</c:if></div>
 							</div>
 							<div class="n-c-l fl">${news.newsTimeStr }</div>
 							<div class="clear"></div>

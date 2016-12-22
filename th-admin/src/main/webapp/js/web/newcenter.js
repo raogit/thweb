@@ -65,6 +65,7 @@ function save(){
 	var id = $("#popNewsId").val();
 	var title = $("#popTitle").val();
 	var content = $("#contentId").html();
+	var contentText = $("#contentId").text();
 	var startTime = $("#popStartTime").val();
 	var menuId = $("#menuId").val();
 	var type = $("#popType").val();
@@ -86,6 +87,7 @@ function save(){
         	title : title,
         	source : source,
         	content : content,
+        	backup1 : contentText,
         	picture : picture,
         	newsTimeStr : startTime,
         

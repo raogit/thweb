@@ -153,7 +153,7 @@
 .bd-PD-r{width:380px;}
 .PD-rt{width:320px;height:36px;line-height:36px;font-size:18px;color:#f17b6f;background:url(../images/img/c_32.png) no-repeat left center;margin:10px 30px;padding-left:30px}
 .PD-rlt{width:100%;border:1px solid #e5e5e5;border-left:0;border-right:0;}
-.PD-rlt li{width:320px;height:38px;line-height:38px;color:#808080;border-bottom:1px solid #e5e5e5;background:url(../images/img/c_31.png) no-repeat 10px center;margin:0 30px;padding-left:30px}
+.PD-rlt li{width:320px;height:38px;line-height:38px;color:#808080;border-bottom:1px solid #e5e5e5;background:url(../images/img/c_31.png) no-repeat 10px center;margin:0 30px;padding-left:30px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .PD-rlt li a{color:#808080}
 
 .PD-rltd li{width:320px;line-height:25px;color:#808080;border-bottom:1px solid #e5e5e5;background:url(../images/img/c_31.png) no-repeat 10px center;margin:0 30px;padding-left:30px}

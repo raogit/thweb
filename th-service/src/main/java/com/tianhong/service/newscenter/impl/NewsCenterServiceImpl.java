@@ -54,6 +54,7 @@ public class NewsCenterServiceImpl implements NewsCenterService {
 			news.setTitle(newsCenter.getTitle());
 			news.setSource(newsCenter.getSource());
 			news.setContent(newsCenter.getContent());
+			news.setBackup1(newsCenter.getBackup1());
 			news.setPicture(newsCenter.getPicture());
 			news.setNewsTime(newsCenter.getNewsTime());
 			news.setUpdateId(user.getId());

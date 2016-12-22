@@ -179,6 +179,20 @@ $(function(){
 	})
 })
 
+function popEmpty(){
+	$("#popCarrier").val("");
+	$("#popLegal").val("");
+	$("#popAddress").val("");
+	$("#popEstablishTime").val("");
+	$("#popMoney").val("");
+	$("#popContactName").val("");
+	$("#popJob").val("");
+	$("#popPhone").val("");
+	$("#popEmail").val("");
+	$("#popBuz").val("");
+	$("#popAchievement").val("");
+	$("#basePath").val("");
+}
 
 function saveInvestMentCover(){
 	var menuId = $("#coverMenuId").val();
@@ -186,7 +200,6 @@ function saveInvestMentCover(){
 	var legal = $("#popLegal").val();
 	var address = $("#popAddress").val();
 	var establishTime = $("#popEstablishTime").val();
-	
 	var money = $("#popMoney").val();
 	var contactName = $("#popContactName").val();
 	var job = $("#popJob").val();
@@ -195,7 +208,6 @@ function saveInvestMentCover(){
 	var buz = $("#popBuz").val();
 	var achievement = $("#popAchievement").val();
 	var basePath = $("#basePath").val();
-	debugger;
 	$.ajax({			 
         url: basePath + "/web/investment/investmentcover/save",
         type: 'post',
@@ -218,6 +230,8 @@ function saveInvestMentCover(){
         success: function(data){
         	if(data!=null&&data!=false){
         		alert("操作成功");
+        		 $("#pop-up").fadeOut();
+        		 popEmpty();
         	}else{
         		alert("操作失败");
         	}

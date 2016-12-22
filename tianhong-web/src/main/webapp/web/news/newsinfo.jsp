@@ -5,10 +5,14 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-    <title>天虹商场</title>
+    <title>天虹商场|官方网站，分享生活之美</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<jsp:include page="../base.jsp"></jsp:include>
-	
+	<style type="text/css">
+		a:hover{ 
+			color:red;
+		}
+	</style>
 </head>
 
 <body>
@@ -21,7 +25,7 @@
                     <a href="${basePath}/web/newscenter/index?menuId=179" class="newsnav_aBlock icon">新闻中心</a>
                     
                 </div>
-                <a href="javascript:void(0);" onclick="javascript:history.back(-1);" class="newsnav_aBack">返回</a>
+                <!-- <a href="javascript:void(0);" onclick="javascript:history.back(-1);" class="newsnav_aBack">返回</a> -->
             </div>
         </div>
         <div class="news_content">
@@ -33,7 +37,7 @@
                         <h3 style="width: 300px;overflow: hidden;">来源：${news.source }</h3>
                         <div class="clear"></div>
                     </div>
-                    <div class="froala-element newsInfo_Content">${fn:replace(news.content,back,basePath)}</div>
+                    <div class="froala-element newsInfo_Content" style="color:#666666;">${fn:replace(news.content,back,basePath)}</div>
                     <div class="newsInfo_fx">
                        <!--  <span>分享到：</span><img src="../images/new11.png"> -->
                     </div>

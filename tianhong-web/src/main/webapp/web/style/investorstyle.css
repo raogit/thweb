@@ -338,7 +338,7 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());}
 .news_TopContent h3{ color: #333333; font-size: 22px; height: 50px; line-height: 50px; }
 .news_TopContent p{ color: #8c8c8c;line-height: 25px; }
 .news_TopContent i{ color: #8c8c8c; font-style:normal; position: absolute; right: 0; bottom: 6px; }
-.news_TopList ul li p:hover{ color:#f17b6f }
+
 .news_TopList  .clearall{ border-bottom: 0; margin-bottom: 0; }
 
 .news_model2{ width: 1200px; margin-top: 40px; }
@@ -385,7 +385,7 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());}
 .newsInfoListTop{ height: 50px; line-height: 50px; font-size: 18px; color: #f17b6f; border-bottom: 1px solid #e6e6e6; background: url(../images/new9.png) no-repeat 10px center ; text-indent: 50px;  }
 .newsInfo_List{ width: 350px; margin: auto; padding-bottom: 20px; }
 .newsInfo_List ul li{width: 350px; height: 40px; line-height: 40px; border-bottom: 1px solid #e6e6e6; background: url(../images/new10.png)  no-repeat left center;  text-indent:20px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-.newsInfo_List ul li a{ color: #666; }
+/* .newsInfo_List ul li a{ color: #666; } */
 
 .social_content{width: 100%; height: auto;   padding: 70px 0;  }
 .social_contentBox{ width: 1200px; margin: auto; }
@@ -493,8 +493,8 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());}
 .wid-2{}
 .wid-3{}
 .wid-4{}
-.wid-5{left:50%;}
-.wid-6{left:60%;}
+.wid-5{left:50%;width:400px;}
+.wid-6{left:60%;width:400px;}
 .wid-7{}
 .wid-8{left:30%;}
 .wid-9{}
@@ -534,3 +534,13 @@ a{text-decoration:none; outline:none; blr:expression(this.onFocus=this.blur());}
 .post_text ._tline{width: 30px;height: 1px;background: #808080;margin-bottom: 10px;}
 .post_linp{width: auto;position: relative;}
 .post_linp p{font-size: 14px;color: #666;line-height: 30px;}
+
+
+
+/* .news_TopContent h3:hover{color:#f17b6f;}
+.news_content2:hover{color:#f17b6f;}
+.news_content2 p:hover{color:#f17b6f;} */
+.news_TopList ul li:hover a h3,.news_TopList ul li:hover a .news_content2 p{color:#f17b6f;}
+.newsInfo_List ul li a{color:#666;}
+.newsInfo_List ul li:hover a{color:#f17b6f;}
+.news_AllL ul li:hover .news_AllLContent h5 .news_AllL ul li:hover .news_AllLContent .news_content2 p{color:#f17b6f;}

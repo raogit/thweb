@@ -6,7 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>T-天虹官网</title>
+	<title>购物中心-天虹商场|官方网站，分享生活之美</title>
 	<jsp:include page="base.jsp"></jsp:include>
 </head>
 
@@ -77,7 +77,7 @@
 	                        		<span class="font_c">泊车服务</span>&nbsp;&nbsp;<span class="font_c2">Parking service</span>
 	                        	</div>
 	                        	<div class="serve_concentBox">
-	                        		<div class="pack_seve_con">${parking.content }</div>	                        		
+	                        		<div class="pack_seve_con">${fn:replace(parking.content,back,basePath)}</div>	                        		
 	                        		<div class="clear"></div>
 	                        	</div>
 	                        </div>

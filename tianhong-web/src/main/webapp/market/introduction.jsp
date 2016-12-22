@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>天虹官网</title>
+	<title>天虹门店-天虹商场|官方网站，分享生活之美</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<jsp:include page="base.jsp"></jsp:include>
 </head>
@@ -15,7 +15,8 @@
 
 	<div class="c-in-cont">
 		<div class="c-in-right"></div>
-		<div class="c-in-left">
+		<div class="c-in-left" 
+			style="background:url(${basePath}/download/png?fileName=${first.busUrl }) no-repeat;background-size:100% auto;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(${basePath}/download/png?fileName=${first.busUrl },sizingMethod='scale');">
 			<div class="c-in-lt">
 				<div class="c-in-lti">
 					<form action="${basePath}/market/introduction" method="post" id="formId">
@@ -32,7 +33,7 @@
 					<div class="c-in-ltx fr">${first.name }</div>
 				</div>
 			</div>
-			<img src="${basePath}/download/png?fileName=${first.busUrl }" alt="">
+<%-- 			<img src="${basePath}/download/png?fileName=${first.busUrl }" alt=""> --%>
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -223,7 +224,7 @@
 				</div>
 			</div>
 			<div class="f-c-left">
-				<a href="">友情链接</a> <span>版权所有:天虹商场股份有限公司</span> <span>备案号:粤ICP备11065574号-3</span>
+				<!-- <a href="">友情链接</a> --> <span>版权所有:天虹商场股份有限公司</span> <span>备案号:粤ICP备11065574号-3</span>
 			</div>
 		</div>
 		<div class="clear"></div>

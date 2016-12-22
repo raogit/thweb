@@ -4,19 +4,20 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>天虹官网</title>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<%String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
-	request.setAttribute("path", path);
-	request.setAttribute("basePath", basePath);
-	request.setAttribute("ver", Math.random());
-	%>
-<link rel="stylesheet" href="${basePath}/market/style/common2.css">
-<input type="hidden" value="${basePath }" id="basePath" name="basePath" />
-<input type="hidden" value="${path }" id="path" name="path" />
-<link href="${basePath}/css/richtext/froala_page.css" rel="stylesheet" type="text/css">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>天虹门店-天虹商场|官方网站，分享生活之美</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<%String path = request.getContextPath();
+		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path;
+		request.setAttribute("path", path);
+		request.setAttribute("basePath", basePath);
+		request.setAttribute("ver", Math.random());
+		%>
+	<link rel="shortcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="${basePath}/market/style/common2.css">
+	<input type="hidden" value="${basePath }" id="basePath" name="basePath" />
+	<input type="hidden" value="${path }" id="path" name="path" />
+	<link href="${basePath}/css/richtext/froala_page.css" rel="stylesheet" type="text/css">
 	<link href="${basePath}/css/richtext/font-awesome.css" rel="stylesheet" type="text/css">
 	<link href="${basePath}/css/richtext/froala_editor.css" rel="stylesheet" type="text/css">
 </head>
@@ -52,73 +53,11 @@
 			<div class="c-in-lti2" style="width: 100%;">品质管理介绍</div>
 		</div>
 		<div class="c-in-lb">
-			<c:forEach var="item" items="${pictures }" begin="0" step="1" end="1" varStatus="itemStatus">
-            	<div class="c-in-lbi" style="display:block;background:url(${basePath}/download/png?fileName=${item.path }) no-repeat;background-size:cover;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(${basePath}/download/png?fileName=${item.path },sizingMethod='scale');"></div>
+			<c:forEach var="item" items="${pictures }" begin="0" step="1" end="0" varStatus="itemStatus">
+            	<div class="c-in-lbi">
+            		<img src="${basePath}/images/pz-01.png" alt="">
+            	</div>
 	        </c:forEach>
-			<div class="c-in-lbi lbi2">
-				<div class="lbi-ym">
-					<div class="lbi-ymo">
-						<div class="lbi-ymi">
-							<span>12</span>年
-						</div>
-						<ul class="lbi-yul">
-							<div class="lbi_parent">
-								<li>2016</li>
-								<li>2015</li>
-							</div>
-						</ul>
-					</div>
-					<div class="lbi-ymo ymo2">
-						<div class="lbi-ymi ymi2">
-							<span>12</span>月
-						</div>
-						<ul class="lbi-yul yul2">
-							<div class="lbi_parent">
-								<li>12</li>
-								<li>11</li>
-							</div>
-						</ul>
-					</div>
-				</div>
-				<ul class="lbi-list">
-					<li><div class="lbi-lr">2016.6</div>
-						<div class="lbi-ll">2016年6月天虹集团员工检查报告表</div>
-						<div style="clear: both;"></div></li>
-					<li><div class="lbi-lr">2016.6</div>
-						<div class="lbi-ll">2016年6月天虹集团员工检查报告表</div>
-						<div style="clear: both;"></div></li>
-					<li><div class="lbi-lr">2016.6</div>
-						<div class="lbi-ll">2016年6月天虹集团员工检查报告表</div>
-						<div style="clear: both;"></div></li>
-					<li><div class="lbi-lr">2016.6</div>
-						<div class="lbi-ll">2016年6月天虹集团员工检查报告表</div>
-						<div style="clear: both;"></div></li>
-					<li><div class="lbi-lr">2016.6</div>
-						<div class="lbi-ll">2016年6月天虹集团员工检查报告表</div>
-						<div style="clear: both;"></div></li>
-					<li><div class="lbi-lr">2016.6</div>
-						<div class="lbi-ll">2016年6月天虹集团员工检查报告表</div>
-						<div style="clear: both;"></div></li>
-					<li><div class="lbi-lr">2016.6</div>
-						<div class="lbi-ll">2016年6月天虹集团员工检查报告表</div>
-						<div style="clear: both;"></div></li>
-					<li><div class="lbi-lr">2016.6</div>
-						<div class="lbi-ll">2016年6月天虹集团员工检查报告表</div>
-						<div style="clear: both;"></div></li>
-					<li><div class="lbi-lr">2016.6</div>
-						<div class="lbi-ll">2016年6月天虹集团员工检查报告表</div>
-						<div style="clear: both;"></div></li>
-					<li><div class="lbi-lr">2016.6</div>
-						<div class="lbi-ll">2016年6月天虹集团员工检查报告表</div>
-						<div style="clear: both;"></div></li>
-					<li><div class="lbi-lr">2016.6</div>
-						<div class="lbi-ll">2016年6月天虹集团员工检查报告表</div>
-						<div style="clear: both;"></div></li>
-					<li><div class="lbi-lr">2016.6</div>
-						<div class="lbi-ll">2016年6月天虹集团员工检查报告表</div>
-						<div style="clear: both;"></div></li>
-				</ul>
-			</div>
 		</div>
 	</div>
 	<div class="footer_mk">
@@ -130,7 +69,7 @@
 				</div>
 			</div>
 			<div class="f-c-left">
-				<a href="">友情链接</a> <span>版权所有:天虹商场股份有限公司</span> <span>备案号:粤ICP备11065574号-3</span>
+				<!-- <a href="">友情链接</a> --> <span>版权所有:天虹商场股份有限公司</span> <span>备案号:粤ICP备11065574号-3</span>
 			</div>
 		</div>
 		<div class="clear"></div>

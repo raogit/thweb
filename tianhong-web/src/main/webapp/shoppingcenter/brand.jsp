@@ -6,7 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>T-天虹官网</title>
+	<title>购物中心-天虹商场|官方网站，分享生活之美</title>
 	<jsp:include page="base.jsp"></jsp:include>
 </head>
 

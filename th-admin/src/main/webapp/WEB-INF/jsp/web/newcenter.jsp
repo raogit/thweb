@@ -71,7 +71,6 @@
 					<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">来源:</span> <input id="popSource" style="width:140px;" type="text" placeholder="请输入来源..." class="textbox" /></li>
 					<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">类型:</span> <select class="select" id="popType" name="popType" style="width: 120px;">
 						<option value="新闻头条">新闻头条</option>
-						<option value="媒体视角">媒体视角</option>
 						<option value="公司新闻">公司新闻</option>
 					</select></li>
 					<li style="text-align: left;"><span style="width:70px;text-align: left;" class="ttl">时间:</span> <input class="Wdate" type="text" id="popStartTime" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd',lang:'en'})" name="startTime" style="width:160px;" /></li>
@@ -113,7 +112,6 @@
 		<strong style="color: grey;">类型:</strong><select class="select" id="type" name="type" onchange="changeSelect(this.value)"  style="width: 120px;">
 						<option value="">请选择..</option>
 						<option value="新闻头条">新闻头条</option>
-						<option value="媒体视角">媒体视角</option>
 						<option value="公司新闻">公司新闻</option>
 					</select>
 		<strong style="color: grey;">创建时间:</strong>

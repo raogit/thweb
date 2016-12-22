@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>天虹商场</title>
+	<title>天虹商场|官方网站，分享生活之美</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<jsp:include page="../base.jsp"></jsp:include>
 </head>
@@ -13,22 +13,29 @@
 <body>
 	<jsp:include page="../head/head.jsp"></jsp:include>
 	<div class="bodyer">
-    <div class="titleImg_content" style="background:url(../images/b_02.jpg) no-repeat center; background-size:cover; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(../images/b_02.jpg,sizingMethod='scale');">
-            <!-- <div class="titleImg_img"><img src="../images/bs8.png"></div> -->
-        </div>
+	<c:if test="${parentMenu.id==180 }">
+    	<div class="titleImg_content" style="background:url(../images/i_bg1.jpg) no-repeat center; background-size:cover; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(../images/i_bg1.jpg,sizingMethod='scale');">
+    		<div class="titleImg_img">
+				<img src="../images/i_bg2.png">
+			</div>
+    	</div>
+    </c:if>
+    <c:if test="${parentMenu.id!=180 }">
+    	<div class="titleImg_content" style="background:url(../images/b_02.jpg) no-repeat center; background-size:cover; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(../images/b_02.jpg,sizingMethod='scale');"></div>
+    </c:if>
     <div class="nav_content">
         <div class="nav_contentBlock">
 			<div class="nav_aContent">
                   <a href="${basePath}" class="nav_aBlock icon">首页</a>
-                  <a href="javascript:void(0);" class="nav_aBlock icon">${parentMenu.name }</a>
-                  <a href="javascript:void(0);" class="nav_aBlock">${menu.name }</a>
+                  <a href="${basePath}${parentMenu.link }?menuId=${parentMenu.id }" class="nav_aBlock icon">${parentMenu.name }</a>
+                  <a href="${basePath}${menu.link }?menuId=${menu.id }" class="nav_aBlock">${menu.name }</a>
              </div>
              <div class="nav_ulBlock">
               	<c:forEach var="item" items="${subMenus }" begin="0" step="1" varStatus="itemStatus">
                 	<c:if test="${item.id==menu.id }">
                 		<c:choose>
 							<c:when test="${fn:contains(item.link, 'http')}">  
-						   		<a href="${item.link }" class="nav_liBlock current">${item.name }</a>
+						   		<a target="_blank" href="${item.link }" class="nav_liBlock current">${item.name }</a>
 						   	</c:when>
 						   	<c:otherwise> 
 						   		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock current">${item.name }</a>
@@ -38,7 +45,7 @@
                 	<c:if test="${item.id!=menu.id }">
                 		<c:choose>
 							<c:when test="${fn:contains(item.link, 'http')}">  
-						   		<a href="${item.link }" class="nav_liBlock">${item.name }</a>
+						   		<a target="_blank" href="${item.link }" class="nav_liBlock">${item.name }</a>
 						   	</c:when>
 						   	<c:otherwise> 
 						   		<a href="${basePath}${item.link }?menuId=${item.id }" class="nav_liBlock">${item.name }</a>

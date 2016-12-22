@@ -5,7 +5,7 @@
 <html>
 <head>
 	
-	<title>天虹官网</title>
+	<title>微喔便利店-天虹商场|官方网站，分享生活之美</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<jsp:include page="base.jsp"></jsp:include>

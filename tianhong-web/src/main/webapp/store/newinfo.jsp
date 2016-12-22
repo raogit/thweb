@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>天虹官网</title>
+	<title>微喔便利店-天虹商场|官方网站，分享生活之美</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<jsp:include page="base.jsp"></jsp:include>
 </head>
@@ -39,8 +39,8 @@
 	            <div class="n-l-c">
 	                <div class="n-l-crumb">
 	                    <div class="n-l-cleft">
-	                        <a href="Default.aspx"><div class="c-home"><img src="${basePath }/images/store/n_03.png" alt=""></div></a>
-	                        <a href="Default.aspx"><div class="c-h-in">首页 · <i>Home</i></div></a>
+	                        <a href="${basePath }/store/index?menuId=163"><div class="c-home"><img src="${basePath }/images/store/n_03.png" alt=""></div></a>
+	                        <a href="${basePath }/store/index?menuId=163"><div class="c-h-in">首页 · <i>Home</i></div></a>
 	                    </div>
 	                    <div class="c-now">最新消息</div>
 	                </div>
@@ -52,7 +52,7 @@
 	                <c:forEach var="item" items="${news.obj }" begin="0" step="1" end="3" varStatus="itemStatus">
 		            	<div class="n-l-cin">
 		                    <div class="cin-title"><div class="cin-tt">${item.title }</div><div class="cin-td">[${fn:substring(item.startTimeStr,0,11) }-${fn:substring(item.endTimeStr,0,11) }]</div></div>
-		                    <div class="cin-cont">${item.content }</div>
+		                    <div class="cin-cont">${fn:replace(item.content,back,basePath)}</div>
 		                </div>
 		            </c:forEach>
 	            </div>
