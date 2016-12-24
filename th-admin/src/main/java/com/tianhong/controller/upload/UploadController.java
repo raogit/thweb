@@ -113,7 +113,8 @@ public class UploadController extends BaseController {
 		try {
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			User user = getCurrentUser(request);
-			String url = request.getParameter("url");
+			String queryString = request.getQueryString();
+			String url = queryString.substring(queryString.indexOf("url") + 4, queryString.length());
 			int menuId = Integer.parseInt(request.getParameter("menuId"));
 			byte type = Byte.parseByte(request.getParameter("type"));
 			request.setCharacterEncoding(CommonConstant.UTF_8);
@@ -135,7 +136,8 @@ public class UploadController extends BaseController {
 		try {
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			User user = getCurrentUser(request);
-			String url = request.getParameter("url");
+			String queryString = request.getQueryString();
+			String url = queryString.substring(queryString.indexOf("url") + 4, queryString.length());
 			int menuId = Integer.parseInt(request.getParameter("menuId"));
 			byte type = Byte.parseByte(request.getParameter("type"));
 			request.setCharacterEncoding(CommonConstant.UTF_8);

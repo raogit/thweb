@@ -60,7 +60,7 @@
 					<form action="${basePath }/upload/picture" encType="multipart/form-data" method="post">
 						<ul class="ulColumn2" style="text-align: left;">
 							<li>
-								<span class="item_name" style="width: 120px;">上传图片：</span><input type="file" id="fileId" name="fileId"/> 
+								<span class="item_name" style="width: 120px;">1上传图片：</span><input type="file" id="fileId" name="fileId"/> 
 							</li>
 							<li>
 								<span class="item_name" style="width: 120px;">图片名称：</span><input type="text" id="picTitle" name="picTitle"/> 

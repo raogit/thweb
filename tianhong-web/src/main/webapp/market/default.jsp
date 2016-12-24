@@ -40,7 +40,7 @@
 			</div>
 			<div class="f-c-left">
 				<!-- <a href="">友情链接</a> --> <span>版权所有:天虹商场股份有限公司</span> <span>备案号:粤ICP备11065574号-3</span>
-			</div>
+			</div> 
 		</div>
 		<div class="clear"></div>
 	</div>

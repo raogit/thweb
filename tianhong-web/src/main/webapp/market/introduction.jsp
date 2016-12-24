@@ -76,7 +76,7 @@
 									<div class="rcc-in">
 										<div class="rcc-il">
 											<div class="rcc-ilt">${item.title }</div>
-											<div class="rcc-ilc" style="height:66px;overflow: hidden;">${item.content }</div>
+											<div class="rcc-ilc" style="height:66px;overflow: hidden;">${item.backup1 }</div>
 											<a href="javascript:void(0);" class="rcc-btn">Learn more<img src="${basePath}/market/images/p_8.png" alt="" class="rcc-br"></a>
 											<div class="rcc-line"></div>
 											<div class="rcc-time">${item.createTimeStr }</div>
@@ -100,7 +100,7 @@
 										</div>
 										<div class="rcc-il ril2">
 											<div class="rcc-ilt ilt2">${item.title }</div>
-											<div class="rcc-ilc ilc2" style="height:22px;overflow: hidden;">${item.content }</div>
+											<div class="rcc-ilc ilc2" style="height:22px;overflow: hidden;">${item.backup1 }</div>
 										</div>
 									</a> 
 									<input value="${item.id }" type="hidden"/>
@@ -144,7 +144,7 @@
 				</div>
 				<div class="c-in-rc">
 					<div class="Into_pageBlock">
-						<c:if test="${fn:length(newsList)>0 }">
+						<c:if test="${fn:length(activityList)>0 }">
 							<!-- 门店活动 -->
 							<div class="c-in-rct">
 								<div class="c-rct-ch">门店活动</div>
@@ -164,7 +164,7 @@
 											<div class="rcc-Rmc">
 												<p>${item.title }</p>
 											</div>
-											<div class="rcc-Rmb" style="height:110px;overflow: hidden;">${item.content }</div>
+											<div class="rcc-Rmb" style="height:110px;overflow: hidden;">${item.backup1 }</div>
 										</div>
 									</div>
 								</div>

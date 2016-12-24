@@ -67,6 +67,7 @@ public class ContentController extends BaseController {
 					con.setPhone(content.getPhone());
 					con.setAddress(content.getAddress());
 					con.setContent(content.getContent());
+					con.setBackup1(content.getBackup1());
 					con.setUpdateId(user.getId());
 					con.setUpdateTime(new Date());
 					contentService.updateByPrimaryKeySelective(con);

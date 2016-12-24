@@ -165,6 +165,7 @@ function addOrEdituser(){
 	var marketId = $("#marketId").val();
 	var marketNewsId = $("#marketNewsId").val();
 	var content = $("#contentId").html();
+	var contentText = $("#contentId").text();
 	var title = $("#title").val();
 	var type = $("#type").val();
 	if(isEmpty(content)){
@@ -180,6 +181,7 @@ function addOrEdituser(){
         	type : type,
         	title : title,
         	marketId : marketId,
+        	backup1 : contentText,
         	content : content
         },
         cache: false,

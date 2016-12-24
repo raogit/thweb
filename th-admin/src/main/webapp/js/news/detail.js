@@ -93,8 +93,10 @@ function picture(data){
 	
 }
 function save(){
+	debugger;
 	var menuId = $("#menuId").val();
 	var content = $("#contentId").html();
+	var contentText = $("#contentId").text();
 	var title = $("#title").val();
 	var slogan = $("#slogan").val();
 	
@@ -116,6 +118,7 @@ function save(){
         	phone : phone,
         	address : address,
         	menuId : menuId,
+        	backup1 : contentText,
         	content : content
         },
         cache: false,
