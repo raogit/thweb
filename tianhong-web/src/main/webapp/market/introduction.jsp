@@ -154,22 +154,21 @@
 						
 						<div class="c-in-rcc">
 							<c:forEach var="item" items="${activityList }" begin="0" step="1" end="2" varStatus="itemStatus">
-								<div class="rcc-in3" onclick="activityDetail(${item.id})">
-									<div class="rcc-imgL">
-										<img src="${basePath}/download/png?fileName=${item.path }" alt="">
-									</div>
-									<input value="${item.id }" type="hidden"/>
-									<div class="rcc-imgR rcR2">
-										<div class="rcc-Rm">
-											<div class="rcc-Rmc">
-												<p>${item.title }</p>
-											</div>
-											<div class="rcc-Rmb" style="height:110px;overflow: hidden;">${item.backup1 }</div>
+								<a href="javascript:activityDetail(${item.id});" class="rcc-in rci2">
+									<div class="rcc-ir2 clearfix">
+										<div class="rcc-ird">${fn:substring(item.createTimeStr,8,10)}</div>
+										<div class="rcc-irr">
+											<div class="rcc-irm">${fn:substring(item.createTimeStr,5,7)}</div>
+											<div class="rcc-iry">${fn:substring(item.createTimeStr,0,4)}</div>
 										</div>
 									</div>
-								</div>
+									<div class="rcc-il ril2">
+										<div class="rcc-ilt ilt2">${item.title }</div>
+										<div class="rcc-ilc ilc2" style="height:22px;overflow: hidden;">${item.backup1 }</div>
+									</div>
+								</a> 
+									
 							</c:forEach>
-<!-- 							<div class="rcc-more">更多活动</div> -->
 							<div class="rcc-btm" style="text-align:left;padding-left:10%;">
 								<c:if test="${!empty first.backup1 }"><p>顾客专线：${first.backup1 }</p></c:if>
 								<c:if test="${!empty first.backup2 }"><p>地&nbsp;&nbsp;&nbsp;&nbsp;址：${first.backup2 }</p></c:if>
@@ -183,13 +182,10 @@
 							<a href="javascript:;">返回</a>
 						</div>
 						<div class="new_inmain">
-							<h2 id="activityDetailTitle">兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华</h2>
+							<h2 id="activityDetailTitle"></h2>
 							<div id="activityDetailContent"></div>
-							<%-- <p>
-								<img id="activityDetailPicture" src="${basePath}/market/images/inner.jpg" style="max-width: 670px;" />
-							</p> --%>
 							<div class="shar_main">
-								<div class="share_left" id="activityDetailTime">0000-00-00</div>
+								<div class="share_left" id="activityDetailTime"></div>
 								<div class="share_con">
 									<div class="bshare-custom icon-medium">
 										<a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博"
@@ -216,8 +212,6 @@
 	<div class="footer_mk">
 		<div class="f-cont">
 			<div class="f-c-right">
-				<%-- <a href="" class="f-c-ri"><img src="${basePath}/market/images/p_1.png" alt=""></a> 
-				<a href="" class="f-c-ri fri"><img src="${basePath}/market/images/p_2.png" alt=""></a> --%>
 				<div class="fr"></div>
 				<div class="f-c-wc">
 					<img src="${basePath}/market/images/p_3.png" alt="">

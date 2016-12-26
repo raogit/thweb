@@ -55,7 +55,7 @@
 	                                        <div class="news_TopContent">
 	                                            <h3>${fn:substring(item.title,0,20) }</h3>
 	                                            <%-- <div class="froala-element" style="height:50px;padding-left: 0;overflow: hidden;margin: 0 0;">${fn:replace(item.content,back,basePath)}</div> --%>
-	                                            <div class="news_content2" style="color:rgb(139, 123, 112);height:56px;padding-left: 0;overflow: hidden;margin: 0 0;">
+	                                            <div class="news_content2" style="color:rgb(139, 123, 112);height:52px;padding-left: 0;overflow: hidden;margin: 0 0;">
 	                                            <p><c:if test="${empty item.backup1}">${fn:replace(item.content,back,basePath)}</c:if><c:if test="${!empty item.backup1}"> ${item.backup1}</c:if></p>
 	                                            </div>
 	                                        </div>
@@ -104,7 +104,7 @@
                             </ul>
                             <input value="${fn:length(newsAll) }" type="hidden" id="itemLength"/>
                             <div style="height:50px;background-color:#e1dede;" id="readMoreBtn13">
-                            	<a target="_blank" href="javascript:void(0);" class="more"><img src="../images/i9.png"></a>
+                            	<a href="javascript:void(0);" class="more"><img src="../images/i9.png"></a>
                             </div>
                             
                         </div>
