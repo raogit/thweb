@@ -22,7 +22,7 @@
 .indexTopCon_new .Con_newTitle .title_cn{width: 100%; text-align: left;  font-size: 32px; overflow: hidden;}
 .indexTopCon_new .Con_newList ul li{ padding: 4% 0; width: 98%;overflow:hidden; white-space:nowrap; text-overflow:ellipsis; color: #fff; border-bottom: 1px dotted #fff; }
 .indexTopCon_new .Con_newList ul li a{ color: #fff; }
-.indexTopCon_new .index_more{ margin-top: 5%; background: url(../images/common/1_07-11.png) no-repeat  left center; padding: 3% 0 3% 8%;}
+.indexTopCon_new .index_more{background: url(../images/common/1_07-11.png) no-repeat  left center; padding: 15px 0 10px 8%;}
 .indexTopCon_new .index_more a{ color: #fff; }
 
 .index_right_topBox .topBox2{ width: 50%;background: #4f5962;}
@@ -40,7 +40,7 @@
 .indexTopCon_new .Con_newTitle .title_cn{width: 100%; text-align: left;  font-size: 32px; overflow: hidden;}
 .indexTopCon_new .Con_newTitle .title_line{ height: 4px; width: 15%; background: #fff; margin-top:  5%; margin-bottom: 5%;  *margin-top: 1%; *margin-bottom: 1%; }
 .indexTopCon_new .Con_newList ul li a{ color: #fff; }
-.indexTopCon_new .index_more{ margin-top: 5%; background: url(../images/common/1_07-11.png) no-repeat  left center; padding: 3% 0 3% 8%;}
+.indexTopCon_new .index_more{background: url(../images/common/1_07-11.png) no-repeat  left center; padding: 15px 0 10px 8%;}
 .indexTopCon_new .index_more a{ color: #fff; }
 .indexTopCon_new .index_more a:hover,.indexTopCon_new .Con_newList ul li a:hover{ color: #e99155 }
 
