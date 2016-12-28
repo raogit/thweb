@@ -67,7 +67,7 @@
 						<div class="n-cont">
 							<div class="n-c-r fr">
 								<div class="n-c-rt" style="height: 19px;overflow: hidden;color:#444444;font-weight:600;">${news.title }</div>
-								<div class="n-c-rc" style="height: 52px;overflow: hidden;"><c:if test="${empty news.backup1}">${fn:replace(news.content,back,basePath)}</c:if>
+								<div class="n-c-rc" style="height: 52px;overflow: hidden;color:#666666;"><c:if test="${empty news.backup1}">${fn:replace(news.content,back,basePath)}</c:if>
 	                                            <c:if test="${!empty news.backup1}"> ${news.backup1}</c:if></div>
 							</div>
 							<div class="n-c-l fl">${news.newsTimeStr }</div>
