@@ -15,14 +15,11 @@
 
 	<div class="c-in-cont">
 		<div class="c-in-right"></div>
-		<div class="c-in-left" 
-			style="background:url(${basePath}/download/png?fileName=${first.busUrl }) no-repeat;background-size:100% auto;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(${basePath}/download/png?fileName=${first.busUrl },sizingMethod='scale');">
+		<div class="c-in-left">
 			<div class="c-in-lt">
 				<div class="c-in-lti">
 					<form action="${basePath}/market/introduction" method="post" id="formId">
 						<div class="c-in-lip">
-							<%-- <input type="text" style="float:left;width:70%" class="tsr-ip c-lip" id="searchName" name="searchName" value="${first.name }">
-							<div style="float:left;width:25%;height: 30px;" onclick="search()"> </div> --%>
 							<select id="marketName" style="width:180px;height: 25px;position:absolute;top:14px;left:15px;" name="marketName" onchange="changeMarket()">
 								<c:forEach var="item" items="${list }" begin="0" step="1" varStatus="itemStatus">
 									 <option style="width:180px;" <c:if test="${item.id==first.id}">selected</c:if> value="${item.id }">${item.name }</option>
@@ -33,7 +30,14 @@
 					<div class="c-in-ltx fr">${first.name }</div>
 				</div>
 			</div>
-<%-- 			<img src="${basePath}/download/png?fileName=${first.busUrl }" alt=""> --%>
+			<div class="img_p16">
+		       <!-- 多图节点（以下的图片都是写滤镜的，注意有四个图片路径） -->
+		       <div class="bigImg_content">
+		          <div class="bigImg_contentBlock" style="background:url(${basePath}/download/png?fileName=${first.busUrl }) no-repeat center; background-size:cover; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(${basePath}/download/png?fileName=${first.busUrl },sizingMethod='scale');"></div>
+		          <div class="bigImg_contentBlock" style="background:url(${basePath}/download/png?fileName=${first.busUrl }) no-repeat center; background-size:cover; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(${basePath}/download/png?fileName=${first.busUrl },sizingMethod='scale');"></div>
+		       </div>
+		       <!-- 多图节点 -->
+		    </div>
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -323,8 +327,31 @@
                 $(".c-in-rli").eq(2).addClass("rtr-at").siblings().removeClass("rtr-at");              
             }
         })
+        
+        /* 多图逻辑 */
+        var bWidth = $(window).width()*0.42;
+        var bHeight = $(window).height() - 153;
+        function bigImgBlock(){
+        	bWidth = $(window).width()*0.42;
+        	bHeight = $(window).height() - 153;
+        	$(".bigImg_content").css({"height":bHeight});
+        	console.log(bWidth/bHeight)
+        	if(bWidth/bHeight < 0.82){
+        		$(".bigImg_contentBlock").eq(0).css({"display":"none"});
+        		$(".bigImg_contentBlock").eq(1).css({"display":"block"});
+        	}else{
+        		$(".bigImg_contentBlock").eq(1).css({"display":"none"});
+        		$(".bigImg_contentBlock").eq(0).css({"display":"block"});
+        	}
+        }
+        bigImgBlock();
+        $(window).resize(function(){
+        	bigImgBlock();
+        })
+        /* 多图逻辑 */
 
     })
+    
 </script>
 </body>
 </html>
