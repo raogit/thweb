@@ -57,6 +57,17 @@ public class HistoryController extends BaseController {
 		return new ModelAndView("/web/history", model);
 	}
 
+	@RequestMapping(value = "/awards")
+	public Object awards(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> model = new HashMap<String, Object>();
+		try {
+			model.put("menuId", menuId);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return new ModelAndView("/web/awards", model);
+	}
+
 	@RequestMapping(value = "/page")
 	@ResponseBody
 	public Object page(DevelopHistory developHistory, HttpServletRequest request, HttpServletResponse response) {

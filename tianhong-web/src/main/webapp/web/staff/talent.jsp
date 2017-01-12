@@ -74,7 +74,7 @@
 	                    <div class="bd-tl-cin">
 	                        <div class="sch-r2 fr">
 		                        <div class="bd-L-title">
-		                            <div class="bd-L-tch tch2" style="color:#e9a171;">人才理念</div>
+		                            <div class="bd-L-tch tch2" style="font-size:32px;color:#e8a171;">人才理念</div>
 		                            <div class="bd-L-ten ten4"></div>
 		                            <div class="bd-L-tle tle3" style="background-color:#e9a171;"></div>
 		                        </div>
@@ -89,7 +89,7 @@
 	                    </div>
 	                </div>
 	                <div class="bd-sch-cin">
-	                    <div class="bd-L-tch tch2" style="color:#e9a171;">培养晋升</div>
+	                    <div class="bd-L-tch tch2" style="font-size:32px;color:#e8a171;">培养晋升</div>
 	                    <div class="bd-L-cont c3">天虹内部90%以上的中层管理人员来自内部选拔，我们始终相信严谨的管理体系培养出的人才，更能够适应公司的战略发展。</div>
 	                    <div class="bd-L-cont c3" style="text-align: center;"><img alt="" src="${basePath}/web/images/up.png" style="width:557px;height:308px;"></div>
 	                    <div class="bd-L-cont c3">${knowledge.content }</div>

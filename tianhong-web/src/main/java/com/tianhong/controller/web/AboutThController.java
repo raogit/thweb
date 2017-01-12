@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tianhong.constant.CommonConstant;
 import com.tianhong.controller.base.BaseController;
 import com.tianhong.domain.content.Content;
 import com.tianhong.domain.menu.Menu;
@@ -27,6 +28,7 @@ import com.tianhong.service.content.ContentService;
 import com.tianhong.service.menu.MenuService;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.service.web.DevelopHistoryService;
+import com.tianhong.utils.DateUtils;
 
 /**
  * @author Administrator
@@ -108,7 +110,7 @@ public class AboutThController extends BaseController {
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/web/aboutUs/history", model);
+		return new ModelAndView("/web2/aboutUs/history", model);
 	}
 
 	@RequestMapping(value = "/strategy")
@@ -144,10 +146,18 @@ public class AboutThController extends BaseController {
 			model.put("subMenus", subMenus);
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("pictures", pictures);
+			List<DevelopHistory> historys = developHistoryService.getList(menuId);
+			for (DevelopHistory his : historys) {
+				try {
+					his.setEventTimeStr(DateUtils.parseString(his.getEventTime(), CommonConstant.YYYY_MM_dd));
+				} catch (Exception e) {
+				}
+			}
+			model.put("historys", historys);
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/web/aboutUs/awards", model);
+		return new ModelAndView("/web2/aboutUs/awards", model);
 	}
 
 	@RequestMapping(value = "/brand")

@@ -19,16 +19,12 @@
                 <div style="clear:both;"></div>
             </div>
             <div class="header_rightBlock">
-                <!-- <div class="header_wcWb">
-                    <a href="javascript:;" class="header_wb"></a>
-                    <a href="javascript:;" class="header_wc"></a>
-                </div> -->
                 <div style="clear:both;"></div>
             </div>
         </div>
         <div style="clear:both;"></div>
     </div>
-    <div class="header_onBlock" style="top:0px">
+    <div class="header_onBlock">
 		<div class="header_onBlockBg"></div>
 		<c:forEach var="item" items="${headMenus }" begin="1" step="1" varStatus="itemStatus">
 			<div class="header_onBlockBg">
