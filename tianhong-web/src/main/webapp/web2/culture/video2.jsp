@@ -70,6 +70,7 @@
 	                </div>
 	            </div>    
 	            <div class="video_foot">
+	            
 	            	<c:forEach var="item" items="${pictures }" begin="5" step="1" end="7" varStatus="itemStatus">
 		            	<div class="vider_fblock">
 		                    <a href="javascript:;" class="video_fblock_img">
@@ -79,7 +80,9 @@
 		                    </a>
 		                    <div class="video_fblock_text"><span>${item.title }</span><em>TIME：${item.createTimeStr }</em></div>
 		                </div>
+	            	
 	            	</c:forEach>
+	            
 	            </div>
 	            <div style="clear:both"></div>
 	        </div> 
@@ -88,7 +91,7 @@
 	    <div class="cen_box">
 	        <div class="video_play">
 	            <a href="javascript:void(0);" class="play_back"><img src="../images/news/box3.jpg"></a>
-	            <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="1200px" height="625px"  data-setup="{}" src=""></video>
+	            <iframe id="frame1" name="myFrame" src="" width="100%" height="100%" frameborder="no" border="0" scrolling=no> </iframe> 
 	        </div>
 	    </div>
 	</div>
@@ -106,7 +109,7 @@
 	    </div>
 	</div>
 	<script type="text/javascript">
-	var basePath = $("#basePath").val();
+		var basePath = $("#basePath").val();
 	    $(".video_left_img").bind("mouseover",function(){
 	        $(".playing").stop(true,true).fadeIn();   
 	    })
@@ -116,25 +119,30 @@
 	    $(".video_left_img").bind("click",function(){
 	        $(".cen_box").stop(true,true).fadeIn(); 
 	        var videoName = $(this).find(".videoName")[0];
-	        debugger;
-	        $("#example_video_1").attr("src",basePath+"/web/culture/edetails?fileName="+$(videoName).val());
-	        $("#example_video_1_html5_api").attr("src",basePath+"/download/pdf?fileName="+$(videoName).val());
+	        $("#frame1").attr("src",basePath+"/web/video/load?fileName="+$(videoName).val());
 	    })
 	    $(".video_ablock_img").bind("click",function(){
-	        $(".cen_box").stop(true,true).fadeIn();  
+	        $(".cen_box").stop(true,true).fadeIn(); 
 	        var videoName = $(this).find(".videoName")[0];
-	        $("#example_video_1").attr("src",basePath+"/download/pdf?fileName="+$(videoName).val());
+	        $("#frame1").attr("src",basePath+"/web/video/load?fileName="+$(videoName).val());
 	    })
 	    $(".video_fblock_img").bind("click",function(){
-	        $(".cen_box").stop(true,true).fadeIn();  
+	        $(".cen_box").stop(true,true).fadeIn(); 
 	        var videoName = $(this).find(".videoName")[0];
-	        $("#example_video_1").attr("src",basePath+"/download/pdf?fileName="+$(videoName).val());
+	        $("#frame1").attr("src",basePath+"/web/video/load?fileName="+$(videoName).val());
 	    })
 	    $(".play_back").bind("click",function(){
-	        $(".cen_box").stop(true,true).css({"display":"none"}); 
-	        $("#example_video_1").attr("src","");
-	        
+	        $(".cen_box").stop(true,true).css({"display":"none"});  
 	    })
+	    
+	    // 右边4个
+	    $(".video_ablock_img").bind("mouseover",function(){
+	        $(this).find(".playing1").stop(true,true).fadeIn();   
+	    })
+	    $(".video_ablock_img").bind("mouseout",function(){
+	        $(this).find(".playing1").stop(true,true).css({"display":"none"});  
+	    })
+	
 	    var on = 0;
 	    var maxImg=$(".Bomb_conten .Bomb_box").length;
 	    var playFun= function(){
@@ -148,8 +156,13 @@
 	        $(".Bomb_box").stop(true,true).css({"display":"none"});  
 	    })
 	
-	    
-	   
+	    // 底部3个
+	    $(".video_fblock_img").bind("mouseover",function(){
+	        $(this).find(".playing2").stop(true,true).fadeIn();   
+	    })
+	    $(".video_fblock_img").bind("mouseout",function(){
+	        $(this).find(".playing2").stop(true,true).css({"display":"none"});  
+	    })
 	    var nk = 0;
 	    var playFun2= function(){
 	            $(".Bomb_main .B_box").eq(nk).stop(true,true).fadeIn().siblings().stop(true, true).fadeOut();

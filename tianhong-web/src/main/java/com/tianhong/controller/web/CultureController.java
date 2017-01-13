@@ -164,7 +164,7 @@ public class CultureController extends BaseController {
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/web/culture/video", model);
+		return new ModelAndView("/web2/culture/video2", model);
 	}
 
 	@RequestMapping(value = "/public")

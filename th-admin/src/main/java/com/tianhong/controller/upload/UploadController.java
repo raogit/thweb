@@ -60,14 +60,12 @@ public class UploadController extends BaseController {
 
 	@RequestMapping(value = "/file")
 	@ResponseBody
-	public Object file(@RequestParam("fileId") MultipartFile[] file, @RequestParam("menuId") int menuId,
-			HttpServletRequest request, ModelMap model) {
+	public Object file(@RequestParam("fileId") MultipartFile[] file, @RequestParam("menuId") int menuId, HttpServletRequest request, ModelMap model) {
 		try {
 			User user = getCurrentUser(request);
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					CommonConstant.UPLOAD_FILE_PATH);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_FILE_PATH);
 			List<String> paths = new ArrayList<String>();
 			for (MultipartFile f : file) {
 				String fileName = FileToolUtils.saveFile(f, path);
@@ -89,12 +87,10 @@ public class UploadController extends BaseController {
 		try {
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					CommonConstant.UPLOAD_IMG_PATH);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_IMG_PATH);
 			String fileName = FileToolUtils.saveImage(file[0], path);
 
-			String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-					+ request.getContextPath();
+			String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
 			log.info("上传图片路径:" + path + fileName);
 			json.put("link", url + "/download/png?fileName=" + fileName);
 			return json;
@@ -108,8 +104,7 @@ public class UploadController extends BaseController {
 
 	@RequestMapping(value = "/picture")
 	@ResponseBody
-	public Object picture(@RequestParam("fileId") MultipartFile[] file, @RequestParam("title") String title,
-			HttpServletRequest request, ModelMap model) {
+	public Object picture(@RequestParam("fileId") MultipartFile[] file, @RequestParam("title") String title, HttpServletRequest request, ModelMap model) {
 		try {
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			User user = getCurrentUser(request);
@@ -118,8 +113,7 @@ public class UploadController extends BaseController {
 			int menuId = Integer.parseInt(request.getParameter("menuId"));
 			byte type = Byte.parseByte(request.getParameter("type"));
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					CommonConstant.UPLOAD_IMG_PATH);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_IMG_PATH);
 			String fileName = FileToolUtils.saveImage(file[0], path);
 			pictureService.insertSelective(menuId, title, url, type, fileName, user);
 			return true;
@@ -131,8 +125,7 @@ public class UploadController extends BaseController {
 
 	@RequestMapping(value = "/filepic")
 	@ResponseBody
-	public Object filePicId(@RequestParam("filePicId") MultipartFile[] file, @RequestParam("title") String title,
-			HttpServletRequest request, ModelMap model) {
+	public Object filePicId(@RequestParam("filePicId") MultipartFile[] file, @RequestParam("title") String title, HttpServletRequest request, ModelMap model) {
 		try {
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			User user = getCurrentUser(request);
@@ -141,8 +134,7 @@ public class UploadController extends BaseController {
 			int menuId = Integer.parseInt(request.getParameter("menuId"));
 			byte type = Byte.parseByte(request.getParameter("type"));
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					CommonConstant.UPLOAD_IMG_PATH);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_IMG_PATH);
 			String fileName = FileToolUtils.saveImage(file[0], path);
 			pictureService.insertSelective(menuId, title, url, type, fileName, user);
 			return true;
@@ -154,16 +146,15 @@ public class UploadController extends BaseController {
 
 	@RequestMapping(value = "/marketnews/picture")
 	@ResponseBody
-	public Object marketNewsPicture(@RequestParam("fileId") MultipartFile[] file,
-			@RequestParam("marketNewsId") int marketNewsId, HttpServletRequest request, ModelMap model) {
+	public Object marketNewsPicture(@RequestParam("fileId") MultipartFile[] file, @RequestParam("marketNewsId") int marketNewsId, HttpServletRequest request,
+			ModelMap model) {
 		try {
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			User user = getCurrentUser(request);
 			int marketId = Integer.parseInt(request.getParameter("marketId"));
 			byte type = Byte.parseByte(request.getParameter("type"));
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					CommonConstant.UPLOAD_IMG_PATH);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_IMG_PATH);
 			String fileName = FileToolUtils.saveImage(file[0], path);
 			return marketNewsService.saveOrUpdate(marketNewsId, marketId, path, fileName, type, user);
 		} catch (Exception e) {
@@ -175,13 +166,12 @@ public class UploadController extends BaseController {
 
 	@RequestMapping(value = "/marketpicture")
 	@ResponseBody
-	public Object marketPicture(@RequestParam("fileId") MultipartFile[] file, @RequestParam("marketId") int marketId,
-			HttpServletRequest request, ModelMap model) {
+	public Object marketPicture(@RequestParam("fileId") MultipartFile[] file, @RequestParam("marketId") int marketId, HttpServletRequest request,
+			ModelMap model) {
 		try {
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					CommonConstant.UPLOAD_IMG_PATH);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_IMG_PATH);
 			String fileName = FileToolUtils.saveImage(file[0], path);
 			Market market = marketService.getByPrimaryKey(marketId);
 			if (market != null) {
@@ -204,8 +194,7 @@ public class UploadController extends BaseController {
 		try {
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					CommonConstant.UPLOAD_IMG_PATH);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_IMG_PATH);
 			String fileName = FileToolUtils.saveImage(file[0], path);
 			return fileName;
 		} catch (Exception e) {
@@ -216,13 +205,11 @@ public class UploadController extends BaseController {
 
 	@RequestMapping(value = "/filePicId")
 	@ResponseBody
-	public Object filePicId(@RequestParam("filePicId") MultipartFile[] file, HttpServletRequest request,
-			ModelMap model) {
+	public Object filePicId(@RequestParam("filePicId") MultipartFile[] file, HttpServletRequest request, ModelMap model) {
 		try {
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					CommonConstant.UPLOAD_IMG_PATH);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_IMG_PATH);
 			String fileName = FileToolUtils.saveImage(file[0], path);
 			return fileName;
 		} catch (Exception e) {
@@ -238,12 +225,27 @@ public class UploadController extends BaseController {
 			AssertUtils.isTrue(file != null && file.length > 0, "文件不存在");
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					CommonConstant.UPLOAD_FILE_PATH);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_FILE_PATH);
 			// String path =
 			// request.getSession().getServletContext().getRealPath("/") +
 			// "/pdf";
 
+			String fileName = FileToolUtils.saveFile(file[0], path);
+			return fileName;
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/video")
+	@ResponseBody
+	public Object video(@RequestParam("filePdfId") MultipartFile[] file, HttpServletRequest request, ModelMap model) {
+		try {
+			AssertUtils.isTrue(file != null && file.length > 0, "文件不存在");
+			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
+			request.setCharacterEncoding(CommonConstant.UTF_8);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_FILE_PATH);
 			String fileName = FileToolUtils.saveFile(file[0], path);
 			return fileName;
 		} catch (Exception e) {
@@ -259,8 +261,7 @@ public class UploadController extends BaseController {
 			AssertUtils.isTrue(file != null && file.length > 0, "文件不存在");
 			AssertUtils.isTrue(file[0].getSize() > 0, "文件不能为空");
 			request.setCharacterEncoding(CommonConstant.UTF_8);
-			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					CommonConstant.UPLOAD_FILE_PATH);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_FILE_PATH);
 			// String path =
 			// request.getSession().getServletContext().getRealPath("/") +
 			// "/pdf";

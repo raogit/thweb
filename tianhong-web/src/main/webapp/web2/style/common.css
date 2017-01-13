@@ -70,7 +70,7 @@
 .bd-L-Tra li{width:205px;height:42px;line-height:42px;font-size:16px;color:#8b7b70;border-bottom:1px solid #dbdbdb;
     background:url(../images/img/c_5.png) no-repeat left center;padding-left:35px}
 .bd-Tra-video{width:667px;height:314px;margin:8px 7px 0}
-iframe{width:667px;height:314px;}
+/* iframe{width:667px;height:314px;} */
 .bd-cont-RE{width:305px;height:396px;position:absolute;right:40px;top:50px;color:#fff;text-align:center}
 .bd-cont-RE2{width:319px;height:439px}
 .bd-cont-RE .bd-RE{width:155px;height:100px;position:absolute;top:140px;left:50%;margin-left:-77px}
@@ -548,7 +548,7 @@ iframe{width:667px;height:314px;}
 /*弹框内容*/
 .cen_box{width: 100%;height: 100%; position: fixed;top: 0;left: 0;background:url(../images/news/box1.png) repeat;z-index: 1;display: none;}
 .cen_box .video_play{width: 1200px;height: 686px;position: absolute;left: 50%;top: 50%;margin-left: -600px;margin-top: -343px;}
-.cen_box .video_play .play_back{width: 60px;height: 61px;position: relative;float: right;}
+.cen_box .video_play .play_back{width: 60px;height: 61px;position: relative;float: right;z-index:9999;}
 .cen_box .video_play .play_back img{width: 100%;}
 
 .Bomb_conten{width: auto;height: auto;}

@@ -15,6 +15,7 @@
     
 	<input type="hidden" value="${basePath }" id="basePath" name="basePath"/>
 	<input type="hidden" value="${path }" id="path" name="path" />
+	<input type="hidden" value="${ver }" id="ver" name="ver" />
 	
 	
 	 <link href="${basePath}/web2/style/style.css" rel="stylesheet" type="text/css" />

@@ -67,7 +67,7 @@ public class CultureController extends BaseController {
 		} catch (Exception e) {
 			log.error("", e);
 		}
-		return new ModelAndView("/web/video", map);
+		return new ModelAndView("/web/video2", map);
 	}
 
 	@RequestMapping(value = "/trailer/index")
