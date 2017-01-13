@@ -10,9 +10,6 @@
 	<jsp:include page="base.jsp"></jsp:include>
 </head>
 
-
-	
-
 <body class="Intr">
 	<jsp:include page="head.jsp"></jsp:include>
 	<div class="inn_main">
@@ -47,13 +44,13 @@
 	    <div class="inn_content">
 	        <div class="inn_lay_conomg">
 	            <div class="inn_lay_con1">
-	                <img src="Images/in1.jpg">
+	                <img src="${basePath}/market2/Images/in1.jpg">
 	            </div>
 	        </div>    
 	        <div class="inn_layda" style="background:#fdf3ed;">
 	            <div class="inn_lay_con2">
 	                <div class="inn_top">
-	                    <h2><img src="Images/in2.png"></h2>
+	                    <h2><img src="${basePath}/market2/Images/in2.png"></h2>
 	                    <span>厦门汇腾天虹</span>
 	                </div>
 	            </div>
@@ -81,14 +78,14 @@
 	                            <p>1、买满480元送抗皱精粹霜5g+透明雨伞；2、买满720元送时光锁中样3件+时尚拎包</p>
 	                        </div>
 	                        <div class="inn_new_more">
-	                            <a href="javascript:;"><img src="Images/more1.jpg"></a>
+	                            <a href="javascript:;"><img src="${basePath}/market2/Images/more1.jpg"></a>
 	                        </div> 
 	                        <div class="inn_new_date">
 	                            <span>2016.10.22</span>
 	                        </div>   
 	                    </div>
 	                    <div class="inn_news_right">
-	                        <img src="Images/p_7.jpg">
+	                        <img src="${basePath}/market2/Images/p_7.jpg">
 	                    </div>
 	                    <div class="clear"></div>
 	                </div>

@@ -89,12 +89,12 @@
 	<div class="Footer">
 	    <div class="footer_content">
 	        <div class="footer_text">Copyright © 2016 版权所有 天虹商场股份有限公司     粤ICP备11065574号-3 </div>
-	        <div class="footer_ulBlock">
+	        <!-- <div class="footer_ulBlock">
 	            <a href="javascript:void(0);" class="footer_map"></a>
 	            <div class="footer_map"></div>
 	            <div class="footer_friendship"></div>
 	            <div class="clear"></div>
-	        </div>
+	        </div> -->
 	    </div>
 	</div>
 </body>

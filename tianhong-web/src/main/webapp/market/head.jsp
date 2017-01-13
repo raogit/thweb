@@ -2,15 +2,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <div class="header_mk">
-    <div class="h-cont clearfix">
-        <ul class="h-c-right">
-            <li class="h-c-rli rli5"><a href="${basePath}/market/introduction">门店介绍</a></li>
-            <li class="h-c-rli rli2 rli5"><a href="${basePath}/market/manage">品质管理</a></li>
-            <li class="h-c-rli rli3 rli5"><a href="${basePath}/market/vip.jsp">会员专区</a></li>
-            <li class="h-c-rli rli4 rli5"><a href="${basePath}">公司首页</a></li>
-        </ul>
+    <div class="navs">
         <a href="${basePath}" class="h-c-left">
-            <img src="${basePath}/market/images/logo2.png" alt="">
+            <img src="${basePath}/market2/Images/inlogo.png" alt="">
         </a>
-    </div>
+        <div class="nav-block">
+            <ul>
+                <li><a href="${basePath}/market/introduction">门店介绍</a></li>
+                <li><a href="${basePath}/market/manage">品质管理</a></li>
+                <li><a href="${basePath}/market/vip.jsp">会员专区</a></li>
+                <li><a href="${basePath}">公司首页</a></li>
+            </ul>
+        </div>
+    </div>    
 </div>

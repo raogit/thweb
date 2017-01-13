@@ -25,7 +25,7 @@
 	
 <body>
 	<jsp:include page="../head/head.jsp"></jsp:include>
-	<div class="bodyer">
+	<div class="bodyer" style="min-height:90%;">
 	    <div class="titleImg_content" style="background:url(../images/b_2.jpg) no-repeat center; background-size:cover; filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(../images/b_2.jpg,sizingMethod='scale');">
 	        <div class="titleImg_img"><img src="../images/b_3.png"></div>
 	    </div>
@@ -89,12 +89,12 @@
 	<div class="Footer">
 	    <div class="footer_content">
 	        <div class="footer_text">Copyright © 2016 版权所有 天虹商场股份有限公司     粤ICP备11065574号-3 </div>
-	        <div class="footer_ulBlock">
+	        <!-- <div class="footer_ulBlock">
 	            <a href="javascript:void(0);" class="footer_map"></a>
 	            <div class="footer_map"></div>
 	            <div class="footer_friendship"></div>
 	            <div class="clear"></div>
-	        </div>
+	        </div> -->
 	    </div>
 	</div>
 	<script type="text/javascript">

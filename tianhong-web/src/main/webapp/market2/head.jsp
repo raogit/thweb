@@ -4,7 +4,7 @@
 <div class="header_mk">
     <div class="navs">
         <a href="Default.html" class="h-c-left">
-            <img src="${basePath}/market2/images/inlogo.png" alt="">
+            <img src="${basePath}/market2/Images/inlogo.png" alt="">
         </a>
         <div class="nav-block">
             <ul>

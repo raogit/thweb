@@ -15,35 +15,28 @@
 	    <div class="header_mk">
 	        <div class="navs">
 		        <a href="Default.html" class="h-c-left">
-		            <img src="images/logo.png" alt="">
+		            <img src="${basePath}/market2/Images/logo.png" alt="">
 		        </a>
 		        <div class="nav-block">
 		            <ul>
-		                <li><a href="Introduction.html">门店介绍</a></li>
-		                <li><a href="Management.html">品质管理</a></li>
-		                <li><a href="Vip.html">会员专区</a></li>
-		                <li><a href="Default.html">公司首页</a></li>
+		                <li><a href="${basePath}/market/introduction">门店介绍</a></li>
+		                <li><a href="${basePath}/market/manage">品质管理</a></li>
+		                <li><a href="${basePath}/market/vip.jsp">会员专区</a></li>
+		                <li><a href="${basePath}">公司首页</a></li>
 		            </ul>
 		        </div>
 		    </div>    
 	    </div>
 	    <div class="content_mk">
 	        <div class="cont-in">
-	            <div class="c-in-tch"><img src="images/share1.png"></div>
+	            <div class="c-in-tch"><img src="${basePath}/market2/Images/share1.png"></div>
 	            <div class="store-shop">
 	                <div class="store-list">
 	                    <h2>门店选择</h2>
 	                    <div class="store-ul">
-		            		<a href="javascript:;">东门天虹</a>
-		            		<a href="javascript:;">福民天虹</a>
-		            		<a href="javascript:;">后海天虹</a>
-		            		<a href="javascript:;">国贸天虹</a>
-		            		<a href="javascript:;">西丽天虹</a>
-		            		<a href="javascript:;">龙新天虹</a>
-		            		<a href="javascript:;">观澜天虹</a>
-		            		<a href="javascript:;">布吉天虹</a>
-		            		<a href="javascript:;">前海天虹</a>
-		            		<a href="javascript:;">沙井天虹</a>
+	                    	<c:forEach var="item" items="${markets }" begin="0" step="1" varStatus="itemStatus">
+								 <a target="_blank" href="${basePath}/market/introduction?marketId=${item.id }">${item.name }</a>
+							</c:forEach>
 		                </div>
 	                </div>
 	                
