@@ -199,7 +199,7 @@ function initTable(data){
 			+"<td>"+(i+1)+"</td>"
 			+"<td>"+item.title+"</td>"
 			+"<td>"+item.path+"</td>"
-			+"<td>"+item.url+"</td>"
+			+"<td>"+item.content+"</td>"
 			+"<td>"+time+"</td>";
 		var operation = "<td style='text-align: center;'><a href='javascript:edit("+item.id+")' class='inner_btn'>编辑</a><a href='javascript:deleteObj("+item.id+")' class='inner_btn'>删除</a></td>"
 		var end_tr = "</tr>";

@@ -60,6 +60,10 @@
 							<span style="width: 70px; text-align: right;" class="ttl">标题:</span>
 							<input id="popTitle" style="width: 140px;" type="text" placeholder="请输入标题..." class="textbox" />
 						</li>
+						<li>
+							<span style="width: 70px; text-align: right;" class="ttl">视频iframe:</span>
+							<textarea id="popContent" rows="10" cols="50"></textarea>
+						</li>
 					</ul>
 					<div id="popUpPicture">
 						<form action="${basePath }/upload/image" encType="multipart/form-data" method="post">
@@ -111,7 +115,7 @@
 						<th>序号</th>
 						<th>标题</th>
 						<th>图片</th>
-						<th>文件</th>
+						<th>iframe</th>
 						<th>创建时间</th>
 						<th>操作</th>
 					</tr>
