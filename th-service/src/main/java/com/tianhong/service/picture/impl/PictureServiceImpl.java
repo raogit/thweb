@@ -202,4 +202,15 @@ public class PictureServiceImpl implements PictureService {
 		return picture;
 	}
 
+	public List<Picture> findEjournalsListByMenuId(Integer menuId) throws Exception {
+		Picture p = new Picture();
+		p.setMenuId(menuId);
+		List<Picture> list = pictureMapper.pageEjournalsList(p);
+		if (!CollectionUtils.isEmpty(list)) {
+			for (Picture pic : list) {
+				pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+			}
+		}
+		return list;
+	}
 }

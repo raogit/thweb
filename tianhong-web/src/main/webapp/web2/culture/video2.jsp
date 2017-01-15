@@ -50,7 +50,7 @@
 		                    <a href="javascript:;" class="video_left_img">
 		                        <img src="${basePath}/download/png?fileName=${item.path }" style="max-width:550px;max-height:346px;">
 		                        <div class="playing"><img src="../images/news/ho8.png"></div>
-		                        <input type="hidden" value="${item.url }" class="videoName"/>
+		                        <input type="hidden" value="${item.id }" class="videoName"/>
 		                    </a>
 		                    <div class="video_left_text"><span>${item.title }</span><em>TIME：${item.createTimeStr }</em></div>
 		                </div>
@@ -62,7 +62,7 @@
 		                        <a href="javascript:;" class="video_ablock_img">
 		                            <img src="${basePath}/download/png?fileName=${item.path }"  style="max-width:270px;max-height:150px;">
 		                            <div  class="playing1"><img src="../images/news/ho8.png"></div>
-		                            <input type="hidden" value="${item.url }" class="videoName"/>
+		                            <input type="hidden" value="${item.id }" class="videoName"/>
 		                        </a>
 		                        <div class="video_ablock_text"><span>${item.title }</span><em>TIME：${item.createTimeStr }</em></div>
 		                    </div>
@@ -76,7 +76,7 @@
 		                    <a href="javascript:;" class="video_fblock_img">
 		                        <img src="${basePath}/download/png?fileName=${item.path }"  style="max-width:364px;max-height:210px;">
 		                        <div class="playing2"><img src="../images/news/ho8.png"></div>
-		                        <input type="hidden" value="${item.url }" class="videoName"/>
+		                        <input type="hidden" value="${item.id }" class="videoName"/>
 		                    </a>
 		                    <div class="video_fblock_text"><span>${item.title }</span><em>TIME：${item.createTimeStr }</em></div>
 		                </div>
@@ -91,7 +91,8 @@
 	    <div class="cen_box">
 	        <div class="video_play">
 	            <a href="javascript:void(0);" class="play_back"><img src="../images/news/box3.jpg"></a>
-	            <iframe id="frame1" name="myFrame" src="" width="100%" height="100%" frameborder="no" border="0" scrolling=no> </iframe> 
+	            <div id="frame1" style="text-align:center;padding-top:5%;"></div>
+	            
 	        </div>
 	    </div>
 	</div>
@@ -109,7 +110,25 @@
 	    </div>
 	</div>
 	<script type="text/javascript">
+		
 		var basePath = $("#basePath").val();
+		function getVideoIframe(id){
+			$.ajax({
+	         	url: basePath + "/web/culture/videodetail",
+	             type: 'POST',
+	             dataType: 'json',
+	             data : {id : id},
+	             timeout: 30000,
+	             cache: false,     
+	             success: function(data){
+	             	if(data!=null && data!=false){
+	             		$("#frame1").html(data.content);
+	             	}
+	             }
+	         });
+		}
+		
+		
 	    $(".video_left_img").bind("mouseover",function(){
 	        $(".playing").stop(true,true).fadeIn();   
 	    })
@@ -119,17 +138,18 @@
 	    $(".video_left_img").bind("click",function(){
 	        $(".cen_box").stop(true,true).fadeIn(); 
 	        var videoName = $(this).find(".videoName")[0];
-	        $("#frame1").attr("src",basePath+"/web/video/load?fileName="+$(videoName).val());
+	        getVideoIframe($(videoName).val());
 	    })
 	    $(".video_ablock_img").bind("click",function(){
 	        $(".cen_box").stop(true,true).fadeIn(); 
 	        var videoName = $(this).find(".videoName")[0];
-	        $("#frame1").attr("src",basePath+"/web/video/load?fileName="+$(videoName).val());
+	        getVideoIframe($(videoName).val());
+	       
 	    })
 	    $(".video_fblock_img").bind("click",function(){
 	        $(".cen_box").stop(true,true).fadeIn(); 
 	        var videoName = $(this).find(".videoName")[0];
-	        $("#frame1").attr("src",basePath+"/web/video/load?fileName="+$(videoName).val());
+	        getVideoIframe($(videoName).val());
 	    })
 	    $(".play_back").bind("click",function(){
 	        $(".cen_box").stop(true,true).css({"display":"none"});  

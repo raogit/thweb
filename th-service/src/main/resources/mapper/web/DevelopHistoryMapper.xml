@@ -238,7 +238,7 @@
 		<if test="title != null and title!=''">
 			AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
 		</if>
-		ORDER BY event_time desc,create_time desc
+		ORDER BY event_time ${orderBy},create_time ${orderBy}
 		LIMIT #{start, jdbcType=INTEGER}, #{pageSize,jdbcType=INTEGER}
 	</select>
 
@@ -276,6 +276,6 @@
 		<if test="title != null and title!=''">
 			AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
 		</if>
-		ORDER BY event_time desc,create_time desc
+		ORDER BY event_time ${orderBy},create_time ${orderBy}
 	</select>
 </mapper>

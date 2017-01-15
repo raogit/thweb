@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tianhong.constant.CommonConstant;
@@ -102,7 +103,8 @@ public class CultureController extends BaseController {
 	}
 
 	@RequestMapping(value = "/trailer")
-	public Object trailer(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+	public Object trailer(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(menuId);
@@ -124,7 +126,8 @@ public class CultureController extends BaseController {
 	}
 
 	@RequestMapping(value = "/ejournals")
-	public Object ejournals(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+	public Object ejournals(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(menuId);
@@ -159,7 +162,7 @@ public class CultureController extends BaseController {
 			model.put("menu", menu);
 			Content content = contentService.getByMenuId(subMenus.get(0).getId());
 			model.put("content", content);
-			List<Picture> pictures = pictureService.findByMenuId(menuId);
+			List<Picture> pictures = pictureService.findEjournalsListByMenuId(menuId);
 			model.put("pictures", pictures);
 		} catch (Exception e) {
 			log.error("", e);
@@ -168,7 +171,8 @@ public class CultureController extends BaseController {
 	}
 
 	@RequestMapping(value = "/public")
-	public Object publicPage(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
+	public Object publicPage(@RequestParam("menuId") int menuId, HttpServletRequest request,
+			HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(menuId);
@@ -217,7 +221,8 @@ public class CultureController extends BaseController {
 	}
 
 	@RequestMapping(value = "/publicdetail")
-	public Object publicDetail(@RequestParam("menuId") int menuId, @RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
+	public Object publicDetail(@RequestParam("menuId") int menuId, @RequestParam("id") int id,
+			HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(menuId);
@@ -258,12 +263,26 @@ public class CultureController extends BaseController {
 		try {
 			String fileName = request.getParameter("fileName");
 			model.put("fileName", fileName);
-			String pathFrom = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_FILE_PATH);
-			String pathTarget = request.getSession().getServletContext().getRealPath("/") + CommonConstant.UPLOAD_PDF_PATH;
+			String pathFrom = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
+					CommonConstant.UPLOAD_FILE_PATH);
+			String pathTarget = request.getSession().getServletContext().getRealPath("/")
+					+ CommonConstant.UPLOAD_PDF_PATH;
 			FileToolUtils.copyFile(pathFrom + "/" + fileName, pathTarget + "/" + fileName);
 		} catch (Exception e) {
 			log.error("", e);
 		}
 		return new ModelAndView("/web/culture/edetails", model);
+	}
+
+	@RequestMapping(value = "/videodetail")
+	@ResponseBody
+	public Object videoDetail(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			int id = Integer.parseInt(request.getParameter("id"));
+			return pictureService.getByPrimaryKey(id);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return null;
 	}
 }

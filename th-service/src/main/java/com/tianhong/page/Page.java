@@ -7,6 +7,8 @@
  */
 package com.tianhong.page;
 
+import com.tianhong.constant.CommonConstant;
+
 /**
  * ClassName: Page
  * 
@@ -21,10 +23,18 @@ public class Page {
 	private int totalRow; // 共多少行
 	private int start;// 当前页起始行
 	private int totalPage; // 共多少页
-
+	private String orderBy = CommonConstant.ORDER_BY_DESC;
 	private Object obj;
 	private String startDate;
 	private String endDate;
+
+	public String getOrderBy() {
+		return orderBy;
+	}
+
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
+	}
 
 	public int getCurPage() {
 		return curPage;

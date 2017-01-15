@@ -13,6 +13,8 @@ public interface PictureMapper extends BaseMapper<Picture> {
 
 	List<Picture> pageEjournals(Picture picture) throws Exception;
 
+	List<Picture> pageEjournalsList(Picture picture) throws Exception;
+
 	List<Picture> findEjournalsByMenuId(Integer menuId) throws Exception;
 
 	List<Picture> findByMenuId(Integer menuId) throws Exception;

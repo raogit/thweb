@@ -32,6 +32,8 @@ public interface PictureService {
 
 	List<Picture> findEjournalsByMenuId(Integer menuId) throws Exception;
 
+	List<Picture> findEjournalsListByMenuId(Integer menuId) throws Exception;
+
 	List<Picture> findByMenuId(Integer menuId) throws Exception;
 
 	int updateByPrimaryKeySelective(Picture picture) throws Exception;

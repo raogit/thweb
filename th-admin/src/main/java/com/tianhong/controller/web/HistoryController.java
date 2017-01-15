@@ -72,6 +72,7 @@ public class HistoryController extends BaseController {
 	@ResponseBody
 	public Object page(DevelopHistory developHistory, HttpServletRequest request, HttpServletResponse response) {
 		try {
+			developHistory.setOrderBy(CommonConstant.ORDER_BY_ASC);
 			return developHistoryService.getPage(developHistory);
 		} catch (Exception e) {
 			log.error("", e);

@@ -16,6 +16,9 @@ package com.tianhong.constant;
  */
 public class CommonConstant {
 
+	public static final String ORDER_BY_ASC = "ASC";
+	public static final String ORDER_BY_DESC = "DESC";
+
 	public static final String PLAT_FORM_FRONT = "front";
 	public static final String PLAT_FORM_BACK = "back";
 

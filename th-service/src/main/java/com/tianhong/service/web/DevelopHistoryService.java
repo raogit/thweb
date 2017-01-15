@@ -35,4 +35,6 @@ public interface DevelopHistoryService {
 	List<DevelopHistory> getList(DevelopHistory developHistory) throws Exception;
 
 	List<DevelopHistory> getList(int menuId) throws Exception;
+
+	List<DevelopHistory> getListAwards(int menuId) throws Exception;
 }

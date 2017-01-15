@@ -67,7 +67,7 @@
 	                
 		                <c:forEach var="item" items="${historys }" begin="0" step="1" varStatus="itemStatus">
 							<li>
-		                        <span class="honor_on1">${fn:substring(item.eventTimeStr,0,5) }</span>
+		                        <span class="honor_on1">${item.eventTimeStr }</span>
 		                        <span class="honor_on2">${item.title }</span>
 		                        <span class="honor_on3">
 		                            <a href="javascript:;" class="ing_a"></a>

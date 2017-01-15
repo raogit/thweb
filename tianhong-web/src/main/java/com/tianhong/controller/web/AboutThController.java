@@ -105,7 +105,7 @@ public class AboutThController extends BaseController {
 			List<Menu> subMenus = menuService.getSubMenus(menu.getParentId(), true);
 			model.put("subMenus", subMenus);
 
-			List<DevelopHistory> historys = developHistoryService.getList(menuId);
+			List<DevelopHistory> historys = developHistoryService.getListAwards(menuId);
 			model.put("historys", historys);
 		} catch (Exception e) {
 			log.error("", e);
@@ -146,7 +146,7 @@ public class AboutThController extends BaseController {
 			model.put("subMenus", subMenus);
 			List<Picture> pictures = pictureService.findByMenuId(menuId);
 			model.put("pictures", pictures);
-			List<DevelopHistory> historys = developHistoryService.getList(menuId);
+			List<DevelopHistory> historys = developHistoryService.getListAwards(menuId);
 			for (DevelopHistory his : historys) {
 				try {
 					his.setEventTimeStr(DateUtils.parseString(his.getEventTime(), CommonConstant.YYYY_MM_dd));

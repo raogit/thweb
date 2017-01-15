@@ -123,4 +123,25 @@ public class DevelopHistoryServiceImpl implements DevelopHistoryService {
 		return list;
 	}
 
+	public List<DevelopHistory> getListAwards(int menuId) throws Exception {
+		DevelopHistory developHistory = new DevelopHistory();
+		developHistory.setMenuId(menuId);
+		developHistory.setOrderBy(CommonConstant.ORDER_BY_ASC);
+		List<DevelopHistory> list = developHistoryMapper.list(developHistory);
+		if (!CollectionUtils.isEmpty(list)) {
+			for (DevelopHistory his : list) {
+				try {
+					his.setEventTimeStr(DateUtils.parseString(his.getEventTime(), CommonConstant.YYYY_MM_dd_NIAN));
+				} catch (Exception e) {
+				}
+				try {
+					his.setCreateTimeStr(DateUtils.parseString(his.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+				} catch (Exception e) {
+				}
+
+			}
+		}
+		return list;
+	}
+
 }

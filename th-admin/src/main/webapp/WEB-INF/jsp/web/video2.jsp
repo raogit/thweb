@@ -73,14 +73,14 @@
 								<input type="button" class="link_btn" onclick="uploadImg('fileId')" value="上传" />
 									<img id="popPictureImg" alt="" src="" width="100px" height="50px" style="padding-left: 10px;"></li>
 							</ul>
-							<ul class="ulColumn2" style="text-align: left;">
+							<!-- <ul class="ulColumn2" style="text-align: left;">
 								<li><span class="item_name" style="width: 120px;">上传视频：</span><input
 									type="file" id="filePdfId" name="filePdfId" /></li>
 								<li><span class="item_name" style="width: 120px;"></span> 
 								<input type="button" class="link_btn" onclick="uploadPdf('filePdfId')" value="上传" />
 									<label id="popPdf" ></label>
-									<!-- <img id="popPictureImg" alt="" src="" width="100px" height="50px" style="padding-left: 10px;"> --></li>
-							</ul>
+									<img id="popPictureImg" alt="" src="" width="100px" height="50px" style="padding-left: 10px;"></li>
+							</ul> -->
 						</form>
 					</div>
 				</div>
@@ -112,12 +112,12 @@
 			<table class="table" id="userlist">
 				<thead>
 					<tr>
-						<th>序号</th>
-						<th>标题</th>
-						<th>图片</th>
-						<th>iframe</th>
-						<th>创建时间</th>
-						<th>操作</th>
+						<th style="width:5%;">序号</th>
+						<th style="width:10%;">标题</th>
+						<th style="width:5%;">图片</th>
+						<th style="width:50%;">iframe</th>
+						<th style="width:10%;">创建时间</th>
+						<th style="width:20%;">操作</th>
 					</tr>
 				</thead>
 				<tbody>
