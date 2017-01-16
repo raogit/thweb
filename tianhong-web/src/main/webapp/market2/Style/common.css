@@ -47,12 +47,15 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .inn_lay_conomg{width: 100%;position: relative;background: #fdf3ed;}
 .inn_lay_con1{width: 1049px;height: 547px;overflow: hidden;margin: auto;}
 .inn_main{width: 100%;position: relative;}
-.inn_store{width: 100%;position: relative;height: 58px;background: #dba07a;}
+
+.inn_store{width: 100%;position: relative;height: 58px;background: #dba07a;padding-top: 58px;}
 .inn_store .inn_block{width: 1200px;margin: auto;height: auto;padding: 17px 0 15px 0;}
 .inn_block .inn_shop{margin-top: 0;float: left;}
 .list_inb{float: right;margin-right: 10px;position: relative;}
 .list_inb ul li{float: left;margin-left: 22px;cursor: pointer;color: #333;}
 .list_inb ul li:hover,.list_inb ul li.current{color: #fff;}
+.inn_shop{background:none;outline: none;}
+
 
 .inn_content{width: 100%;position: relative;padding-bottom: 41px;}
 .inn_content .inn_layda{width: 100%;position: relative;height: auto;overflow: hidden;}
@@ -68,7 +71,7 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .inn_lay_con3 .inn_lay_text{margin: 20px 0 0 0;position: relative;width: 100%;}
 .inn_lay_text p{line-height: 28px;font-size: 14px;}
 
-.inn_news{width: 918px;height: auto;position: relative;padding: 10px;border:solid 1px #dcdcdc;margin: 25px 0 15px 0;}
+.inn_news{width: 918px;cursor: pointer; height: auto;position: relative;padding: 10px;border:solid 1px #dcdcdc;margin: 25px 0 15px 0;}
 .inn_news_left{width: 654px;float: left;padding: 10px 35px 0px 35px;position: relative;}
 .inn_new_block{position: relative;width: 100%;}
 .inn_new_block h4{font-size: 18px;color: #07a2de;line-height: 30px;padding-bottom: 4px;}
@@ -78,6 +81,9 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .inn_new_date span{padding-left: 26px;height: 20px;display: block; background:url(../Images/in3.png) no-repeat left;line-height: 20px;color: #21ace1;}
 .inn_news_right{width: 194px;float: left;height: 209px;}
 .inn_news_right img{width: 100%;}
+
+.inn_newsVe{width: 918px;cursor: pointer; height: auto;position: relative;padding: 10px;border:solid 1px #dcdcdc;margin: 25px 0 15px 0;}
+
 
 .inn_bd{position: relative;width: 654px; padding: 10px 35px 11px 35px;float: left;}
 .inn_bd h4{font-size: 18px;color: #dba07a;line-height: 30px;}
@@ -105,11 +111,7 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 
 .footer_mk{width:100%;height:41px;background:#3d3d3d}
 .f-cont{width:1200px;height:41px;line-height:41px;margin:0 auto;color:#fff}
-.f-c-left{
-	width:550px;
-	float:left;
-	text-align: center;
-}
+.f-c-left{width:550px;float:left}
 .f-c-left a,.f-c-left span{color:#fff;margin-right:20px}
 .f-c-right{width:210px;float:right;position:relative}
 .f-c-ri{width:25px;height:25px;margin-right:12px;margin-top:8px;display:block;float:left}
@@ -281,3 +283,39 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .bodyer_content {position: relative;}
 .Into_navBlock {position: fixed;float: right;width:58%;top:57px;right:0px;z-index: 999;}
 .Intr .header_mk {background: #fff;}
+
+/*新闻内页*/
+.inlay_top{width: 100%;position: relative;}
+.inn_Eject{position: relative;width: 940px; margin:0px auto 41px;padding-top: 41px;display: none;}
+.inn_Ejcon{width: 100%;position: relative;}
+.inn_ejtext{width: 100%;position: relative;padding-bottom: 10px;border-bottom: 1px #cccccc solid;}
+.inn_ejtext h2{width: 100%;position: relative;font-size: 18px;color: #07a2de;text-align: center;padding-bottom: 30px;}
+.inn_ejtext p{width: 100%;position: relative;font-size: 15px;color: #595757;text-indent: 2rem;line-height: 24px;padding-bottom: 10px;}
+.inn_ejtext img{width: 100%;position: relative;padding: 20px 0;}
+.inn_share{width: 100%;position: relative;padding: 10px 0;}
+.inn_share .inn_date{width: 86%;margin-left: 20px; float: left;text-align: right;}
+.share{float: left;width: 10%;text-align: right;}
+.inn_date{width: 100%;position: relative;}
+.inn_date p{float: left;margin-right: 40px;width: 87%;color: #959595;font-size: 14px;}
+.inn_date span{float: left;}
+.in_back{width: 100%;position: absolute;right: 0;top: 40px; width: 67px;height: 27px;background: #82b4d4;text-align: center;line-height: 27px;color: #fff;font-size: 14px;display: block;border-radius: 5px;}
+.in_backVe{width: 100%;position: absolute;right: 0;top: 40px; width: 67px;height: 27px;background: #82b4d4;text-align: center;line-height: 27px;color: #fff;font-size: 14px;display: block;border-radius: 5px;}
+
+
+/*门店内页*/
+.inlay_topVe{width: 100%;position: relative;}
+.inn_EjectVe{position: relative;width: 940px; margin:0px auto 41px;padding-top: 41px;display: none;}
+.inn_Ejcon{width: 100%;position: relative;}
+.inn_ejtext{width: 100%;position: relative;padding-bottom: 10px;border-bottom: 1px #cccccc solid;}
+.inn_ejtext h2{width: 100%;position: relative;font-size: 18px;color: #07a2de;text-align: center;padding-bottom: 30px;}
+.inn_ejtext p{width: 100%;position: relative;font-size: 15px;color: #595757;text-indent: 2rem;line-height: 24px;padding-bottom: 10px;}
+.inn_ejtext img{width: 100%;position: relative;padding: 20px 0;}
+.inn_share{width: 100%;position: relative;padding: 10px 0;}
+.inn_share .inn_date{width: 86%;margin-left: 20px; float: left;text-align: right;}
+.share{float: left;width: 10%;text-align: right;}
+.inn_date{width: 100%;position: relative;}
+.inn_date p{float: left;margin-right: 40px;width: 87%;color: #959595;font-size: 14px;}
+.inn_date span{float: left;}
+.in_back{width: 100%;position: absolute;right: 0;top: 40px; width: 67px;height: 27px;background: #82b4d4;text-align: center;line-height: 27px;color: #fff;font-size: 14px;display: block;border-radius: 5px;}
+
+
