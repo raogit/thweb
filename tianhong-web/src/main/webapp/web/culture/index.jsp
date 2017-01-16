@@ -55,7 +55,7 @@
 	                <div class="bd-L-title">
 	                    <div style="color:#e9a171;" class="bd-L-tch">${content.title }</div>
 	                    <div style="background:#e9a171;" class="bd-L-tle"></div>
-	                    <div style="color:#f17b6f;font-size:26px;margin-top:15px;text-transform:uppercase;" class="bd-L-ten">${content.slogan }</div>
+	                    <div style="color:#e8a171;font-size:26px;margin-top:15px;text-transform:uppercase;" class="bd-L-ten">${content.slogan }</div>
 	                </div>
 	                <ul class="bd-L-cult">
 	                    <li><img src="../images/img/c_1.png">企 业 使 命</li>

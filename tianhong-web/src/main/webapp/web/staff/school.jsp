@@ -81,7 +81,7 @@
 	                    <div class="sch-l fl">
 	                        <div class="bd-L-title">
 	                            <div  style="font-size:32px;color:#e8a171;" class="bd-L-tch tch2">商学院简介</div>
-	                            <div  style="color: #f17b6f;font-size: 26px;margin-top: 15px;text-transform: uppercase;" class="bd-L-ten ten4">Business School Profile</div>
+	                            <div  style="color:#e8a171;font-size:26px;margin-top:15px;text-transform:uppercase;" class="bd-L-ten ten4">Business School Profile</div>
 	                            <div  style="background:#e9a171;" class="bd-L-tle tle3"></div>
 	                        </div>
 	                        <div class="bd-L-cont c2">${buz.content }</div>

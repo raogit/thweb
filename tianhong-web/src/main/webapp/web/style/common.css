@@ -22,7 +22,7 @@
 .bd-cont-L.LT{width:423px}
 .bd-L-title{width:100%;height:120px;color:#e84137}
 .bd-L-tch{font-size:32px;letter-spacing:2px}
-.bd-L-tch.tch2{color:#f17b6f;letter-spacing:4px;font-weight:bold}
+.bd-L-tch.tch2{color:#f17b6f;letter-spacing:4px;/* font-weight:bold */}
 .bd-L-tch.tch3{color:#fff;letter-spacing:4px;font-weight:bold}
 .bd-L-tle{width:35px;height:1px;background:#e84137;margin:20px 0}
 .bd-L-tle.tle2{background:#8b7b70}
