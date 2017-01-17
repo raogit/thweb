@@ -38,7 +38,7 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .c-in-tch{font-size:32px;color:#fee280;letter-spacing:28px;}
 .c-in-ten{font-size:18px;color:#fff;letter-spacing:4px;text-transform:uppercase;margin-top:10px}
 .store-shop{width:129px;height:26px;margin-top:40px;background:url(../Images/b_4.png) no-repeat;}
-.store-list{width: 109px;height: 26px;padding-left: 20px;cursor: pointer;position: relative;}
+.store-list{height:26px;padding-left:20px;cursor:pointer;position:relative;}
 .store-list h2{line-height: 26px;}
 .store-ul{width: 100px;height: auto;position: absolute;top: 26px;left: 0; background:url(../Images/bgs.png) repeat;display: none;}
 .store-ul a{width: 109px;padding-left: 20px; height: 28px;line-height: 28px;display: block;color: #333;}
@@ -48,7 +48,7 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .inn_lay_con1{width: 1049px;height: 547px;overflow: hidden;margin: auto;}
 .inn_main{width: 100%;position: relative;}
 
-.inn_store{width: 100%;position: relative;height: 58px;background: #dba07a;padding-top: 58px;}
+.inn_store{width: 100%;position: fixed;height: 58px;background: #dba07a;left: 0; top: 58px;z-index: 99;}
 .inn_store .inn_block{width: 1200px;margin: auto;height: auto;padding: 17px 0 15px 0;}
 .inn_block .inn_shop{margin-top: 0;float: left;}
 .list_inb{float: right;margin-right: 10px;position: relative;}
@@ -60,12 +60,12 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .inn_content{width: 100%;position: relative;padding-bottom: 41px;}
 .inn_content .inn_layda{width: 100%;position: relative;height: auto;overflow: hidden;}
 .inn_layda .inn_lay_con1{width: 1049px;margin: auto;position: relative;}
-.inn_lay_con2{width: 940px;position: relative;margin:40px auto 0;}
+.inn_lay_con2{width: 940px;position: relative;margin:158px auto 0;}
 .inn_lay_con2 .inn_top{width: 100%;position: relative;text-align: center;}
 .inn_top h2{width: 126px;height: 61px;margin: auto;}
 .inn_top span{width: 126px; padding: 8px 0 10px 0;margin:10px auto 10px;display: block;border-top:solid 1px #ded6d2;border-bottom:solid 1px #ded6d2;font-size: 16px;color: #010101;}
 
-.inn_lay_con3{position: relative;width: 940px;margin: 0px auto 41px;padding-top: 41px;}
+.inn_lay_con3{position: relative;width: 940px;margin: 0px auto 41px;padding-top: 138px;}
 .inn_lay_con3 h2{font-size: 18px;color: #010101;padding: 0px 0 5px 0; font-style:oblique;text-align: center;}
 .inn_lay_con3 h3{font-size: 14px;color: #010101; font-style:oblique;text-align: center;}
 .inn_lay_con3 .inn_lay_text{margin: 20px 0 0 0;position: relative;width: 100%;}

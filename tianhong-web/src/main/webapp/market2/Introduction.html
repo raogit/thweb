@@ -258,7 +258,7 @@
         var on = 0,
             blockTop = 0;
         var scrollBlock = function(){
-            blockTop = $(".inn_layda").eq(on).offset().top;
+            blockTop = $(".inn_layda").eq(on).offset().top - 10;
             $("html,body").stop().animate({scrollTop:blockTop});
         } 
         $(".list_inb ul li").bind("click",function(){
