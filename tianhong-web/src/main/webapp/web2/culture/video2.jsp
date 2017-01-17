@@ -70,8 +70,7 @@
 	                </div>
 	            </div>    
 	            <div class="video_foot">
-	            
-	            	<c:forEach var="item" items="${pictures }" begin="5" step="1" end="7" varStatus="itemStatus">
+	            	<c:forEach var="item" items="${pictures }" begin="5" step="1" varStatus="itemStatus">
 		            	<div class="vider_fblock">
 		                    <a href="javascript:;" class="video_fblock_img">
 		                        <img src="${basePath}/download/png?fileName=${item.path }"  style="max-width:364px;max-height:210px;">
@@ -80,9 +79,7 @@
 		                    </a>
 		                    <div class="video_fblock_text"><span>${item.title }</span><em>TIME：${item.createTimeStr }</em></div>
 		                </div>
-	            	
 	            	</c:forEach>
-	            
 	            </div>
 	            <div style="clear:both"></div>
 	        </div> 

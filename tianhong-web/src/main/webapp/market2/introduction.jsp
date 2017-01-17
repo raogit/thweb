@@ -54,12 +54,13 @@
 	        <div class="inn_layda news_content">
 	            <div class="inn_lay_con3">
 	            	<c:if test="${fn:length(newsList)>0 }">
+	            		<input value="${fn:length(newsList) }" type="hidden" id="newsSize"/>
 						<div class="inlay_top">
 			                <h2>门店新闻</h2>
 			                <h3>SHOP NEWS</h3>
-		                    <div class="inn_parentNews">
+		                    <div class="inn_parentNews" style="height:520px;overflow:hidden;">
 		                    	<c:forEach var="item" items="${newsList }" begin="0" step="1" end="0" varStatus="itemStatus">
-									<div class="inn_news">
+									<div class="inn_news bigNewsDetail">
 			    	                    <div class="inn_news_left">
 			    	                        <div class="inn_new_block">
 			    	                            <h4>${item.title }</h4>
@@ -73,15 +74,14 @@
 			    	                        </div>   
 			    	                    </div>
 			    	                    <div class="inn_news_right">
-			    	                        <img src="${basePath}/download/png?fileName=${item.path }" style="max-width:194px;">
+			    	                        <img src="${basePath}/download/png?fileName=${item.path }" style="max-width:194px;max-height:209px;">
 			    	                    </div>
 			    	                    <div class="clear"></div>
 			    	                    <input value="${item.id }" type="hidden"/>
 			    	                </div>
-									
 								</c:forEach>
 		    	               <c:forEach var="item" items="${newsList }" begin="1" step="1" varStatus="itemStatus">
-									<div class="inn_news">
+									<div class="inn_news minNewsDetail">
 			    	                    <div class="inn_bd">
 			    	                        <h4>${item.title }</h4>
 			    	                        <p style="overflow: hidden;height:22px;">${item.backup1 }</p>
@@ -97,12 +97,14 @@
 			    	                    <div class="clear"></div>
 			    	                    <input value="${item.id }" type="hidden"/>
 			    	                </div>
-									
 								</c:forEach>
 		                    </div>
-			                <div class="more_news">
-			                    <a href="javascript:void(0);">更多新闻</a>
-			                </div>
+		                    <c:if test="${fn:length(newsList)>3 }">
+			                    <div class="more_news">
+				                    <a href="javascript:void(0);" id="moreNewsClick">更多新闻</a>
+				                </div>
+		                    </c:if>
+			                
 			            </div> 
 					</c:if>
 	            
@@ -110,7 +112,7 @@
 		            <div class="inn_Eject">
 		            	<div class="inn_Ejcon">
 		            	    <div class="inn_ejtext">
-			            		<h2 id="newDetailTitle">兰芝“父亲节”特别优惠 欧珀莱美丽嘉年华</h2>
+			            		<h2 id="newDetailTitle"></h2>
 			            		<div id="newDetailContent"></div>
 			            	</div>
 			            	<div class="inn_share">
@@ -129,11 +131,12 @@
 	            <div class="inn_lay_con3">
 	                <div class="inlay_topVe">
 	                	<c:if test="${fn:length(activityList)>0 }">
+	                		<input value="${fn:length(activityList) }" type="hidden" id="activitySize"/>
 							<h2>门店活动</h2>
 		                	<h3>STORE EVENTS</h3>
 						</c:if>
-	                    <div class="inn_parentNewsVe">
-	                    	<c:forEach var="item" items="${activityList }" begin="0" step="1" end="2" varStatus="itemStatus">
+	                    <div class="inn_parentNewsVe" style="height:400px;overflow: hidden;">
+	                    	<c:forEach var="item" items="${activityList }" begin="0" step="1" varStatus="itemStatus">
 								<div class="inn_newsVe">
 		    	                    <div class="inn_bd">
 		    	                        <h4>${item.title }</h4>
@@ -152,9 +155,9 @@
 		    	                </div>
 							</c:forEach>
 	                    </div>
-	                    <c:if test="${fn:length(activityList)>0 }">
+	                    <c:if test="${fn:length(activityList)>3 }">
 							 <div class="more_newsVs">
-			                    <a href="javascript:void(0);">更多新闻</a>
+			                    <a href="javascript:void(0);" id="moreActivityClick">更多活动</a>
 			                </div>
 						</c:if>
 		               
@@ -307,33 +310,67 @@
 	        $(".in_backVe").bind("click",function(){
 	        	hideIn();
 	        })
-	
+			var newsSize = $("#newsSize").val();
+	        var activitySize = $("#activitySize").val();
 	        function IntoNewsBlock(){
-	            $(".inn_news:gt(3)").css({"display":"none"});
-	            $(".inn_news:lt(3)").css({"display":"block"});
+	            //$(".inn_news:gt(3)").css({"display":"none"});
+	            $(".inn_news:lt("+newsSize+")").css({"display":"block"});
 	            $(".more_news").stop(true,true).fadeIn(); 
 	        }
 	        function IntoNewsVsBlock(){
-	            $(".inn_newsVe:gt(3)").css({"display":"none"});
-	            $(".inn_newsVe:lt(3)").css({"display":"block"});
+	            //$(".inn_newsVe:gt(3)").css({"display":"none"});
+	            $(".inn_newsVe:lt("+activitySize+")").css({"display":"block"});
 	            $(".more_newsVs").stop(true,true).fadeIn();
 	        }        
 	        IntoNewsBlock();
 	        IntoNewsVsBlock();
+	        
+	        var bigNewsDetail = $(".bigNewsDetail");
+			var minNewsDetail = $(".minNewsDetail");
+			var bigNewsHeight = $(bigNewsDetail).height()+40;
+			var a = $(minNewsDetail).height();
+			var minNewsHeight = $(minNewsDetail).height()+40;
+			var n=1;
 	        $(".more_news").bind("click",function(){
-	            IntoNewsVsBlock();
-	            var blockTop = parseInt($(".news_content").offset().top) - 58;
-	            $("html,body").stop().animate({scrollTop:blockTop});
-	            $(".inn_news").css({"display":"block"});
-	            $(".more_news").stop(true,true).fadeOut();            
+	            //IntoNewsVsBlock();
+	            //var blockTop = parseInt($(".news_content").offset().top) - 58;
+	            //$("html,body").stop().animate({scrollTop:blockTop});
+	            //$(".inn_news").css({"display":"block"});
+	            if(newsSize>3){
+	            	var h;
+	            	if((n+1)*2<Number(newsSize)){
+	            		h = 520 + n*2 * 130;
+	            	}else{
+	            		h = 520 + (newsSize-3) * 130;
+	            		$("#moreNewsClick").text("无更多新闻");
+	            	}
+	 				$('.inn_parentNews').height(h);	
+	 				n++;
+	            }
 	        })
+	        
+			var innNewsVe = $(".inn_newsVe");
+			var innNewsVeHeight = $(innNewsVe).height()+40;
+			var a = $(minNewsDetail).height();
+			var minNewsHeight = $(minNewsDetail).height()+40;
+			var nn=1;
 	        $(".more_newsVs").bind("click",function(){
-	            IntoNewsBlock();
-	            $(".inn_newsVe").css({"display":"block"});
-	            var blockTop = parseInt($(".news_contentactive").offset().top) - 58;
-	            $("html,body").stop().animate({scrollTop:blockTop});
-	            $(".more_newsVs").stop(true,true).fadeOut();
-	            
+	            //IntoNewsBlock();
+	            //$(".inn_newsVe").css({"display":"block"});
+	            //var blockTop = parseInt($(".news_contentactive").offset().top) - 58;
+	            //$("html,body").stop().animate({scrollTop:blockTop});
+	            //$(".more_newsVs").stop(true,true).fadeOut();
+	        	 if(activitySize>3){
+	        		 var h;
+		            	if((nn+1)*2<Number(activitySize)){
+		            		h = 400 + nn*2 * 128;
+		            	}else{
+		            		h = 400 + (activitySize-3) * 128;
+		            		$("#moreActivityClick").text("无更多活动");
+		            	}
+		 				$('.inn_parentNewsVe').height(h);	
+		 				nn++; 
+	        	 }
 	        })
 	
 	    })

@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <div class="header_mk">
     <div class="navs">
-        <a href="Default.html" class="h-c-left">
+        <a href="${basePath}" class="h-c-left">
             <img src="${basePath}/market2/Images/inlogo.png" alt="">
         </a>
         <div class="nav-block">

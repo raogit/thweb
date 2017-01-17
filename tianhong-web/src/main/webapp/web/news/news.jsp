@@ -126,7 +126,6 @@
 		var n=1;
 		var size = $("#itemLength").val();
 		$("#readMoreBtn13").bind('click', function() {
-			debugger;
 			h = n*3+3<size ? ulHeight+n*liHeight*3 : liHeight*size;
 			$('.news_AllL ul').height(h);	
 			n++;
