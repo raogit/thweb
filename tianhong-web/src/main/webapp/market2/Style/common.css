@@ -38,7 +38,7 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .c-in-tch{font-size:32px;color:#fee280;letter-spacing:28px;}
 .c-in-ten{font-size:18px;color:#fff;letter-spacing:4px;text-transform:uppercase;margin-top:10px}
 .store-shop{width:129px;height:26px;margin-top:40px;background:url(../Images/b_4.png) no-repeat;}
-.store-list{height:26px;padding-left:20px;cursor:pointer;position:relative;}
+.store-list{width: 109px;height: 26px;padding-left: 20px;cursor: pointer;position: relative;}
 .store-list h2{line-height: 26px;}
 .store-ul{width: 100px;height: auto;position: absolute;top: 26px;left: 0; background:url(../Images/bgs.png) repeat;display: none;}
 .store-ul a{width: 109px;padding-left: 20px; height: 28px;line-height: 28px;display: block;color: #333;}
@@ -99,7 +99,8 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .inn_moon p{font-size: 20px;color: #fff;}
 .more_news{width: 100%;position: relative;height: 37px;background: #dba07a;margin-top: 20px;}
 .more_news a{display: block;text-align: center;line-height: 37px;font-size: 14px;color: #fff;}
-
+.more_newsVs{width: 100%;position: relative;height: 37px;background: #dba07a;margin-top: 20px;}
+.more_newsVs a{display: block;text-align: center;line-height: 37px;font-size: 14px;color: #fff;}
 .inn_iphone{width: 100%;position: relative;text-align: center;margin: 30px 0 50px 0;}
 .inn_iphone h3{font-size: 14px;color: #000000;line-height: 30px;}
 .inn_iphone p{font-size: 14px;color: #000000;line-height: 24px;}
@@ -317,5 +318,5 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .inn_date p{float: left;margin-right: 40px;width: 87%;color: #959595;font-size: 14px;}
 .inn_date span{float: left;}
 .in_back{width: 100%;position: absolute;right: 0;top: 40px; width: 67px;height: 27px;background: #82b4d4;text-align: center;line-height: 27px;color: #fff;font-size: 14px;display: block;border-radius: 5px;}
-
-
+.inn_parentNews,.inn_parentNewsVe {position: relative;width:100%;}
+.inn_news,.inn_newsVe {display: none;}
