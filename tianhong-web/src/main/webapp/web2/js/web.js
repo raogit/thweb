@@ -33,7 +33,7 @@ $(function(){
 	}else if(buss.test(href)){
 		$(".header_liBlock").eq(2).addClass("current");
 	}else if(culture.test(href)){
-		$(".header_liBlock").eq(3).addClass("current");
+//		$(".header_liBlock").eq(3).addClass("current");
 	}else if(staff.test(href)){
 		$(".header_liBlock").eq(4).addClass("current");
 	}else if(business.test(href)){
