@@ -68,10 +68,10 @@
 		                <c:forEach var="item" items="${historys }" begin="0" step="1" varStatus="itemStatus">
 							<li>
 		                        <span class="honor_on1">${item.eventTimeStr }</span>
-		                        <span class="honor_on2" style="line-height:22px;height:66px;">${item.title }</span>
+		                        <span class="honor_on2" style="line-height:22px;">${item.title }</span>
 		                        <%-- <div class="honor_on2" style="float:left;line-height:22px;width: 380px;font-size:16px;color:#4c4c4c;">${item.title }</div> --%>
 		                        <span class="honor_on3">
-		                            <a href="javascript:;" class="ing_a"></a>
+		                            <a href="javascript:void(0);" class="ing_a"></a>
 		                            <div class="Popup_img">
 		                                <img src="${basePath}/download/png?fileName=${item.picture }" style="max-width:255px;">
 		                                <em></em>
@@ -113,7 +113,14 @@
 	$("..honor_main ul li .honor_on3").bind("mouseout",function(){
 	    $(this).find(".Popup_img").stop(true,true).css({"display":"none"});  
 	})
-	
+	jQuery(document).ready(function() {
+		var honorOn2s = $(".honor_on2");
+		for(var i=0;i<honorOn2s.length;i++){
+			var honor = honorOn2s[i];
+			var honorHeight = $(honor).height();
+			$(honor).css("padding-top",(66-honorHeight)/2+"px");
+		}
+	});
 	</script>
 </body>
 </html>
