@@ -68,7 +68,8 @@
 		                <c:forEach var="item" items="${historys }" begin="0" step="1" varStatus="itemStatus">
 							<li>
 		                        <span class="honor_on1">${item.eventTimeStr }</span>
-		                        <span class="honor_on2" style="text-overflow:ellipsis;height:30px;white-space:nowrap;overflow:hidden;">${item.title }</span>
+		                        <span class="honor_on2" style="line-height:22px;height:66px;">${item.title }</span>
+		                        <%-- <div class="honor_on2" style="float:left;line-height:22px;width: 380px;font-size:16px;color:#4c4c4c;">${item.title }</div> --%>
 		                        <span class="honor_on3">
 		                            <a href="javascript:;" class="ing_a"></a>
 		                            <div class="Popup_img">

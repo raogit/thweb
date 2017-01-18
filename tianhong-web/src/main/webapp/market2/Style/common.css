@@ -37,11 +37,11 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .cont-in{width:360px;height:135px;position:absolute;top:80px;left:0px}
 .c-in-tch{font-size:32px;color:#fee280;letter-spacing:28px;}
 .c-in-ten{font-size:18px;color:#fff;letter-spacing:4px;text-transform:uppercase;margin-top:10px}
-.store-shop{width:129px;height:26px;margin-top:40px;background:url(../Images/b_4.png) no-repeat;}
-.store-list{width: 109px;height: 26px;padding-left: 20px;cursor: pointer;position: relative;}
+.store-shop{width:180px;height:26px;margin-top:40px;background:url(../Images/b_4.png) no-repeat;}
+.store-list{width:180px;height: 26px;padding-left: 20px;cursor: pointer;position: relative;}
 .store-list h2{line-height: 26px;}
-.store-ul{width: 100px;height: auto;position: absolute;top: 26px;left: 0; background:url(../Images/bgs.png) repeat;display: none;}
-.store-ul a{width: 109px;padding-left: 20px; height: 28px;line-height: 28px;display: block;color: #333;}
+.store-ul{width:180px;height:auto;position:absolute;top:26px;left:0;background:url(../Images/bgs.png) repeat;display:none;height:300px;overflow-y:scroll;overflow-x:hidden;}
+.store-ul a{width: 170px;padding-left: 20px; height: 28px;line-height: 28px;display: block;color: #333;}
 .store-ul a:hover,.store-ul a.current{color: #c16a04;}
 
 .inn_lay_conomg{width: 100%;position: relative;background: #fdf3ed;}
