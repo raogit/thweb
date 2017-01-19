@@ -230,7 +230,7 @@
 			debugger;
 			var bottomBox2Height = $(".bottomBox2").height();
 			var indexBtmTop2Height = $("#lifeSock").height();
-			$('#lifeSockPic').height(bottomBox2Height - indexBtmTop2Height-20);	
+			$('#lifeSockPic').height(bottomBox2Height - indexBtmTop2Height);	
 		});
 	</script>
 	<script type="text/javascript" src="${basePath}/shoppingcenter/js/indexWeb.js"></script>
