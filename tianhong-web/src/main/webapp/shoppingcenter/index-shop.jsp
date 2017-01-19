@@ -133,7 +133,7 @@
 							<div class="clear"></div>
 						</div>
 						<div class="bottomBox2">
-							<div class="index_btm_pic" style="height:36%;">
+							<div class="index_btm_pic" id="lifeSockPic">
 								<c:forEach var="item" items="${commonPictures }" begin="3" step="1" end="3" varStatus="itemStatus">
 									<c:choose>
 										<c:when test="${fn:contains(item.url, 'http')}">  
@@ -145,7 +145,7 @@
 									</c:choose><img src="${basePath}/download/png?fileName=${item.path }" /></a>
 								</c:forEach>
 							</div>
-							<div class="index_btm_top2" >
+							<div class="index_btm_top2" id="lifeSock">
 								<div class="index_topCon">
 									<div class="tb1 fl"><img src="${basePath}/images/shopping/common/1_30-37.png"></div>
 									<div class="link2 fl"><img src="${basePath}/images/shopping/common/1_34.png"></div>
@@ -226,6 +226,12 @@
 				$(".index_bigImg div").eq(on).stop(true,true).fadeIn(500);
 			},3500)
 		})
+		jQuery(document).ready(function() {
+			debugger;
+			var bottomBox2Height = $(".bottomBox2").height();
+			var indexBtmTop2Height = $("#lifeSock").height();
+			$('#lifeSockPic').height(bottomBox2Height - indexBtmTop2Height-20);	
+		});
 	</script>
 	<script type="text/javascript" src="${basePath}/shoppingcenter/js/indexWeb.js"></script>
 	
