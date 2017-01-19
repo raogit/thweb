@@ -480,7 +480,7 @@
 .old_img img{width: 100%;height: 100%;}
 
 .old_list{width: 992px;float: left; min-height: 132px; position: relative;}
-.old_list h2{width: 929px;padding-left: 63px;  font-size: 30px;color: #666666;background:url(../images/news/h5.png) no-repeat left center;}
+.old_list h2{width: 929px;padding-left: 63px;  font-size:24px;color: #666666;background:url(../images/news/h5.png) no-repeat left center;}
 .old_text{width: 100%;position: relative;padding-top: 15px; padding-left: 63px;}
 .old_text p{font-size: 14px;color: #666666;line-height: 24px;}
 

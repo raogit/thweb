@@ -119,4 +119,26 @@ public class UserController extends BaseController {
 		return null;
 	}
 
+	@RequestMapping(value = "/updatepass")
+	@ResponseBody
+	public Object updatePass(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			String pass = request.getParameter("password");
+			User user = this.getCurrentUser(request);
+			if (StringUtils.isNotEmpty(pass)) {
+				user.setPassword(MD5.GetMD5Code(pass));
+			}
+			user.setUpdateId(getCurrentUser(request).getId());
+			return userService.updateUser(user);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return null;
+	}
+
+	@RequestMapping(value = "/setting")
+	public Object logout(HttpServletRequest request, HttpServletResponse response) {
+		return "/user/setting";
+
+	}
 }

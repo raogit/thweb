@@ -112,7 +112,7 @@
 						<div class="bottomBox">
 							<div class="index_btm_top">
 								<div class="index_topCon">
-									<div class="tb1 fl"><img src="${basePath}/images/shopping/common/1_12.png"></div>									
+									<div class="tb1 fl"><img src="${basePath}/images/shopping/common/1_12.png"></div>	
 									<div class="link fl"><img src="${basePath}/images/shopping/common/1_34.png"></div>
 									<div class="clear"></div>
 								</div>
@@ -133,7 +133,7 @@
 							<div class="clear"></div>
 						</div>
 						<div class="bottomBox2">
-							<div class="index_btm_pic">
+							<div class="index_btm_pic" style="height:36%;">
 								<c:forEach var="item" items="${commonPictures }" begin="3" step="1" end="3" varStatus="itemStatus">
 									<c:choose>
 										<c:when test="${fn:contains(item.url, 'http')}">  
@@ -145,7 +145,7 @@
 									</c:choose><img src="${basePath}/download/png?fileName=${item.path }" /></a>
 								</c:forEach>
 							</div>
-							<div class="index_btm_top2">
+							<div class="index_btm_top2" >
 								<div class="index_topCon">
 									<div class="tb1 fl"><img src="${basePath}/images/shopping/common/1_30-37.png"></div>
 									<div class="link2 fl"><img src="${basePath}/images/shopping/common/1_34.png"></div>
