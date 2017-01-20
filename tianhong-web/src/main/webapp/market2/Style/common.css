@@ -60,12 +60,12 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .inn_content{width: 100%;position: relative;padding-bottom: 41px;}
 .inn_content .inn_layda{width: 100%;position: relative;height: auto;overflow: hidden;}
 .inn_layda .inn_lay_con1{width: 1049px;margin: auto;position: relative;}
-.inn_lay_con2{width: 940px;position: relative;margin:158px auto 0;}
+.inn_lay_con2{width: 940px;position: relative;margin:58px auto 0;}
 .inn_lay_con2 .inn_top{width: 100%;position: relative;text-align: center;}
 .inn_top h2{width: 126px;height: 61px;margin: auto;}
 .inn_top span{width: 126px; padding: 8px 0 10px 0;margin:10px auto 10px;display: block;border-top:solid 1px #ded6d2;border-bottom:solid 1px #ded6d2;font-size: 16px;color: #010101;}
 
-.inn_lay_con3{position: relative;width: 940px;margin: 0px auto 41px;padding-top: 138px;}
+.inn_lay_con3{position: relative;width: 940px;margin: 0px auto 41px;padding-top:38px;}
 .inn_lay_con3 h2{font-size: 18px;color: #010101;padding: 0px 0 5px 0; font-style:oblique;text-align: center;}
 .inn_lay_con3 h3{font-size: 14px;color: #010101; font-style:oblique;text-align: center;}
 .inn_lay_con3 .inn_lay_text{margin: 20px 0 0 0;position: relative;width: 100%;}

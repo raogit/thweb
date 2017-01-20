@@ -116,7 +116,6 @@
 									<div class="link fl"><img src="${basePath}/images/shopping/common/1_34.png"></div>
 									<div class="clear"></div>
 								</div>
-								<div class="sj1"></div>
 							</div>
 							<div class="index_btm_pic">
 								<c:forEach var="item" items="${commonPictures }" begin="2" step="1" end="2" varStatus="itemStatus">
@@ -133,6 +132,13 @@
 							<div class="clear"></div>
 						</div>
 						<div class="bottomBox2">
+							<div class="index_btm_top2" id="lifeSock">
+								<div class="index_topCon">
+									<div class="tb1 fl"><img src="${basePath}/images/shopping/common/1_30-37.png"></div>
+									<div class="link2 fl"><img src="${basePath}/images/shopping/common/1_34.png"></div>
+									<div class="clear"></div>
+								</div>
+							</div>
 							<div class="index_btm_pic" id="lifeSockPic">
 								<c:forEach var="item" items="${commonPictures }" begin="3" step="1" end="3" varStatus="itemStatus">
 									<c:choose>
@@ -145,15 +151,6 @@
 									</c:choose><img src="${basePath}/download/png?fileName=${item.path }" /></a>
 								</c:forEach>
 							</div>
-							<div class="index_btm_top2" id="lifeSock">
-								<div class="index_topCon">
-									<div class="tb1 fl"><img src="${basePath}/images/shopping/common/1_30-37.png"></div>
-									<div class="link2 fl"><img src="${basePath}/images/shopping/common/1_34.png"></div>
-									<div class="clear"></div>
-								</div>
-								<div class="sj2"></div>
-							</div>
-							
 							<div class="clear"></div>
 						</div>
 						<div class="bottomBox3">
@@ -163,7 +160,6 @@
 									<div class="link3 fl"><img src="${basePath}/images/shopping/common/1_34.png"></div>
 									<div class="clear"></div>
 								</div>
-								<div class="sj3"></div>
 							</div>
 							<div class="index_btm_pic">
 								<c:forEach var="item" items="${commonPictures }" begin="4" step="1" end="4" varStatus="itemStatus">
@@ -209,10 +205,10 @@
 			
 			<div class="clear"></div>			
 		</div>
-		<div class="index_foot">
-				天虹购物中心&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				让城市生活更美好&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				畅想欢乐时光的生活中心</div>
+	<div class="index_foot">
+			天虹购物中心&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			让城市生活更美好&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			畅想欢乐时光的生活中心</div>
 	</div>
 	<script type="text/javascript">
 		$(function(){
@@ -227,10 +223,10 @@
 			},3500)
 		})
 		jQuery(document).ready(function() {
-			debugger;
-			var bottomBox2Height = $(".bottomBox2").height();
-			var indexBtmTop2Height = $("#lifeSock").height();
-			$('#lifeSockPic').height(bottomBox2Height - indexBtmTop2Height);	
+			
+			//var bottomBox2Height = $(".bottomBox2").height();
+			//var indexBtmTop2Height = $("#lifeSock").height();
+			//$('#lifeSockPic').height(bottomBox2Height - indexBtmTop2Height-26);	
 		});
 	</script>
 	<script type="text/javascript" src="${basePath}/shoppingcenter/js/indexWeb.js"></script>

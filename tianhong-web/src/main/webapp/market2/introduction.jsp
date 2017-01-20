@@ -51,40 +51,94 @@
 	                <div style="white-space: pre-wrap;" class="inn_lay_text">${first.introduce }</div>
 	            </div>
 	        </div>
-	        <div class="inn_layda news_content">
+	        <c:if test="${fn:length(newsList)>0 }">
+		        <div class="inn_layda news_content">
+		            <div class="inn_lay_con3">
+		            		<input value="${fn:length(newsList) }" type="hidden" id="newsSize"/>
+							<div class="inlay_top">
+				                <h2>门店新闻</h2>
+				                <h3>SHOP NEWS</h3>
+			                    <div class="inn_parentNews" id="newsListId" style="height:520px;overflow:hidden;">
+			                    	<c:forEach var="item" items="${newsList }" begin="0" step="1" end="0" varStatus="itemStatus">
+										<div class="inn_news bigNewsDetail">
+				    	                    <div class="inn_news_left">
+				    	                        <div class="inn_new_block">
+				    	                            <h4>${item.title }</h4>
+				    	                            <div class="rcc-ilc" style="height:44px;overflow: hidden;">${item.backup1 }</div>
+				    	                        </div>
+				    	                        <div class="inn_new_more">
+				    	                            <a href="javascript:void(0);"><img src="${basePath}/market2/Images/more1.jpg"></a>
+				    	                        </div> 
+				    	                        <div class="inn_new_date">
+				    	                            <span>${item.createTimeStr }</span>
+				    	                        </div>   
+				    	                    </div>
+				    	                    <div class="inn_news_right">
+				    	                        <img src="${basePath}/download/png?fileName=${item.path }" style="max-width:194px;max-height:209px;">
+				    	                    </div>
+				    	                    <div class="clear"></div>
+				    	                    <input value="${item.id }" type="hidden"/>
+				    	                </div>
+									</c:forEach>
+			    	               <c:forEach var="item" items="${newsList }" begin="1" step="1" varStatus="itemStatus">
+										<div class="inn_news minNewsDetail">
+				    	                    <div class="inn_bd">
+				    	                        <h4>${item.title }</h4>
+				    	                        <p style="overflow: hidden;height:22px;">${item.backup1 }</p>
+				    	                    </div>
+				    	                    <div class="inn_bdimg">
+				    	                        <div class="inn_day">${fn:substring(item.createTimeStr,8,10)}</div>
+				    	                        <div class="inn_moon">
+				    	                            <span>${fn:substring(item.createTimeStr,5,7)}</span>
+				    	                            <p>${fn:substring(item.createTimeStr,0,4)}</p>
+				    	                        </div>
+				    	                        <div class="clear"></div>
+				    	                    </div>
+				    	                    <div class="clear"></div>
+				    	                    <input value="${item.id }" type="hidden"/>
+				    	                </div>
+									</c:forEach>
+			                    </div>
+			                    <c:if test="${fn:length(newsList)>3 }">
+				                    <div class="more_news">
+					                    <a href="javascript:void(0);" id="moreNewsClick">更多新闻</a>
+					                </div>
+			                    </c:if>
+				                
+				            </div> 
+		                
+			            <div class="inn_Eject">
+			            	<div class="inn_Ejcon">
+			            	    <div class="inn_ejtext">
+				            		<h2 id="newDetailTitle"></h2>
+				            		<div id="newDetailContent"></div>
+				            	</div>
+				            	<div class="inn_share">
+					            	<div class="inn_date"><p id="newsDetailTime"></p><span>分享到：</span><div class="clear"></div></div>
+					            	<div class="share">
+				    	    			<div class="bshare-custom"><div class="bsPromo bsPromo2"></div><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到微信" class="bshare-weixin" href="javascript:void(0);"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+				    	    		</div>
+				    	    		 <div class="clear"></div>
+				    	    	</div>		
+			            	</div>
+			            	<a href="javascript:void(0);" class="in_back">返回</a>
+			            </div>   
+		            </div>
+		        </div>
+	        </c:if>
+	        <div class="inn_layda news_contentactive" style="background:#fdf3ed;">
 	            <div class="inn_lay_con3">
-	            	<c:if test="${fn:length(newsList)>0 }">
-	            		<input value="${fn:length(newsList) }" type="hidden" id="newsSize"/>
-						<div class="inlay_top">
-			                <h2>门店新闻</h2>
-			                <h3>SHOP NEWS</h3>
-		                    <div class="inn_parentNews" style="height:520px;overflow:hidden;">
-		                    	<c:forEach var="item" items="${newsList }" begin="0" step="1" end="0" varStatus="itemStatus">
-									<div class="inn_news bigNewsDetail">
-			    	                    <div class="inn_news_left">
-			    	                        <div class="inn_new_block">
-			    	                            <h4>${item.title }</h4>
-			    	                            <div class="rcc-ilc" style="height:44px;overflow: hidden;">${item.backup1 }</div>
-			    	                        </div>
-			    	                        <div class="inn_new_more">
-			    	                            <a href="javascript:void(0);"><img src="${basePath}/market2/Images/more1.jpg"></a>
-			    	                        </div> 
-			    	                        <div class="inn_new_date">
-			    	                            <span>${item.createTimeStr }</span>
-			    	                        </div>   
-			    	                    </div>
-			    	                    <div class="inn_news_right">
-			    	                        <img src="${basePath}/download/png?fileName=${item.path }" style="max-width:194px;max-height:209px;">
-			    	                    </div>
-			    	                    <div class="clear"></div>
-			    	                    <input value="${item.id }" type="hidden"/>
-			    	                </div>
-								</c:forEach>
-		    	               <c:forEach var="item" items="${newsList }" begin="1" step="1" varStatus="itemStatus">
-									<div class="inn_news minNewsDetail">
+	                <div class="inlay_topVe">
+	                	<c:if test="${fn:length(activityList)>0 }">
+	                		<input value="${fn:length(activityList) }" type="hidden" id="activitySize"/>
+							<h2>门店活动</h2>
+		                	<h3>STORE EVENTS</h3>
+		                	<div class="inn_parentNewsVe" id="activityListId"  style="height:400px;overflow: hidden;">
+		                    	<c:forEach var="item" items="${activityList }" begin="0" step="1" varStatus="itemStatus">
+									<div class="inn_newsVe">
 			    	                    <div class="inn_bd">
 			    	                        <h4>${item.title }</h4>
-			    	                        <p style="overflow: hidden;height:22px;">${item.backup1 }</p>
+			    	                        <p style="height:22px;overflow: hidden;">${item.backup1 }</p>
 			    	                    </div>
 			    	                    <div class="inn_bdimg">
 			    	                        <div class="inn_day">${fn:substring(item.createTimeStr,8,10)}</div>
@@ -99,62 +153,7 @@
 			    	                </div>
 								</c:forEach>
 		                    </div>
-		                    <c:if test="${fn:length(newsList)>3 }">
-			                    <div class="more_news">
-				                    <a href="javascript:void(0);" id="moreNewsClick">更多新闻</a>
-				                </div>
-		                    </c:if>
-			                
-			            </div> 
-					</c:if>
-	            
-	                
-		            <div class="inn_Eject">
-		            	<div class="inn_Ejcon">
-		            	    <div class="inn_ejtext">
-			            		<h2 id="newDetailTitle"></h2>
-			            		<div id="newDetailContent"></div>
-			            	</div>
-			            	<div class="inn_share">
-				            	<div class="inn_date"><p id="newsDetailTime"></p><span>分享到：</span><div class="clear"></div></div>
-				            	<div class="share">
-			    	    			<div class="bshare-custom"><div class="bsPromo bsPromo2"></div><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到微信" class="bshare-weixin" href="javascript:void(0);"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
-			    	    		</div>
-			    	    		 <div class="clear"></div>
-			    	    	</div>		
-		            	</div>
-		            	<a href="javascript:void(0);" class="in_back">返回</a>
-		            </div>   
-	            </div>
-	        </div>
-	        <div class="inn_layda news_contentactive" style="background:#fdf3ed;">
-	            <div class="inn_lay_con3">
-	                <div class="inlay_topVe">
-	                	<c:if test="${fn:length(activityList)>0 }">
-	                		<input value="${fn:length(activityList) }" type="hidden" id="activitySize"/>
-							<h2>门店活动</h2>
-		                	<h3>STORE EVENTS</h3>
 						</c:if>
-	                    <div class="inn_parentNewsVe" style="height:400px;overflow: hidden;">
-	                    	<c:forEach var="item" items="${activityList }" begin="0" step="1" varStatus="itemStatus">
-								<div class="inn_newsVe">
-		    	                    <div class="inn_bd">
-		    	                        <h4>${item.title }</h4>
-		    	                        <p style="height:22px;overflow: hidden;">${item.backup1 }</p>
-		    	                    </div>
-		    	                    <div class="inn_bdimg">
-		    	                        <div class="inn_day">${fn:substring(item.createTimeStr,8,10)}</div>
-		    	                        <div class="inn_moon">
-		    	                            <span>${fn:substring(item.createTimeStr,5,7)}</span>
-		    	                            <p>${fn:substring(item.createTimeStr,0,4)}</p>
-		    	                        </div>
-		    	                        <div class="clear"></div>
-		    	                    </div>
-		    	                    <div class="clear"></div>
-		    	                    <input value="${item.id }" type="hidden"/>
-		    	                </div>
-							</c:forEach>
-	                    </div>
 	                    <c:if test="${fn:length(activityList)>3 }">
 							 <div class="more_newsVs">
 			                    <a href="javascript:void(0);" id="moreActivityClick">更多活动</a>
@@ -360,6 +359,7 @@
 	            //var blockTop = parseInt($(".news_contentactive").offset().top) - 58;
 	            //$("html,body").stop().animate({scrollTop:blockTop});
 	            //$(".more_newsVs").stop(true,true).fadeOut();
+	           
 	        	 if(activitySize>3){
 	        		 var h;
 		            	if((nn+1)*2<Number(activitySize)){
@@ -372,6 +372,20 @@
 		 				nn++; 
 	        	 }
 	        })
+	        jQuery(document).ready(function() {
+	        	 if(newsSize==2){
+	        		 $('#newsListId').height(400);	
+	        	 }else if(activitySize==1){
+	        		 $('#newsListId').height(270);	
+	        		 
+	        	 }
+	        	 if(activitySize==2){
+	        		 $('#activityListId').height(300);	
+	        	 }else if(activitySize==1){
+	        		 $('#activityListId').height(200);	
+	        		 
+	        	 }
+			});
 	
 	    })
 	</script>
