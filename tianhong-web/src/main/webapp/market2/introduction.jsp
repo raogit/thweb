@@ -375,7 +375,7 @@
 	        jQuery(document).ready(function() {
 	        	 if(newsSize==2){
 	        		 $('#newsListId').height(400);	
-	        	 }else if(activitySize==1){
+	        	 }else if(newsSize==1){
 	        		 $('#newsListId').height(270);	
 	        		 
 	        	 }
