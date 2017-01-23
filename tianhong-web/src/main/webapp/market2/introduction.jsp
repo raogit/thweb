@@ -109,9 +109,9 @@
 		                
 			            <div class="inn_Eject">
 			            	<div class="inn_Ejcon">
-			            	    <div class="inn_ejtext">
+			            	    <div class="inn_ejtext2">
 				            		<h2 id="newDetailTitle"></h2>
-				            		<div id="newDetailContent"></div>
+				            		<div class="froala-element" id="newDetailContent"></div>
 				            	</div>
 				            	<div class="inn_share">
 					            	<div class="inn_date"><p id="newsDetailTime"></p><span>分享到：</span><div class="clear"></div></div>
@@ -168,9 +168,9 @@
 		            </div>
 		            <div class="inn_EjectVe">
 		            	<div class="inn_Ejcon">
-		            	    <div class="inn_ejtext">
+		            	    <div class="inn_ejtext2">
 			            		<h2 id="activityDetailTitle"></h2>
-			            		<div id="activityDetailContent"></div>
+			            		<div  class="froala-element" id="activityDetailContent"></div>
 			            	</div>
 			            	<div class="inn_share">
 				            	<div class="inn_date"><p id="activityDetailTime"></p><span>分享到：</span><div class="clear"></div></div>

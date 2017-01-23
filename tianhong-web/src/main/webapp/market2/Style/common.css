@@ -276,7 +276,7 @@ body {min-height: 768px;overflow-x: hidden;min-width:1024px;}
 .share_con{width: auto;position: relative;float: right;margin-right: 15px;}
 .share_left{float: right;position: relative;}
 
-.Intr .footer_mk {position: fixed;bottom:0px;left:0px;}
+.Intr .footer_mk {position: fixed;bottom:0px;left:0px;z-index:999;}
 .Intr .header_mk {position: fixed;top:0px;left:0px;z-index: 999;}
 .Intr .c-in-cont {position: fixed;top:57px;left:0px;}
 .Into_content {position: relative;width:100%;padding-top: 57px;z-index: 99;}
