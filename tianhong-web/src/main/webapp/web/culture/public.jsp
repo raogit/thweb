@@ -48,7 +48,7 @@
 	    </div>
 	    <div class="bd-cont cont-C">
 	        <div class="bd-cont-in cinE">
-		        <c:forEach var="item" items="${duties }" begin="0" step="1" end="1" varStatus="itemStatus">
+		        <c:forEach var="item" items="${duties }" begin="0" step="1" end="0" varStatus="itemStatus">
 			       	<div class="bd-cont-RE RE2 fr" style="background:url(${basePath}/download/png?fileName=${item.path }) no-repeat">
 		                <div class="bd-Pho">
 		                </div>

@@ -74,7 +74,7 @@
 .bd-cont-RE{width:305px;height:396px;position:absolute;right:40px;top:50px;color:#fff;text-align:center}
 .bd-cont-RE2{width:319px;height:439px}
 .bd-cont-RE .bd-RE{width:155px;height:100px;position:absolute;top:140px;left:50%;margin-left:-77px}
-.bd-cont-RE .bd-RE.RE2{top:200px}
+.bd-cont-RE .bd-RE.RE2{top:200px;z-index:999;}
 .bd-cont-RE .RE-in{width:155px;height:44px;margin-bottom:8px}
 .bd-cont-RE .bd-RE a{width:155px;height:44px;display:block;margin-top:10px;}
 .bd-Ptx{width:319px;height:439px;position:absolute;top:0;left:0;display:none;z-index:99}
@@ -156,7 +156,7 @@
 .PD-rlt li{width:320px;height:38px;line-height:38px;color:#808080;border-bottom:1px solid #e5e5e5;background:url(../images/img/c_31.png) no-repeat 10px center;margin:0 30px;padding-left:30px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .PD-rlt li a{color:#808080}
 
-.PD-rltd li{width:320px;line-height:25px;color:#808080;border-bottom:1px solid #e5e5e5;background:url(../images/img/c_31.png) no-repeat 10px center;margin:0 30px;padding-left:30px}
+.PD-rltd li{width:320px;height:40px;line-height:40px;text-indent:20px;color:#808080;border-bottom:1px solid #e5e5e5;background:url(../images/img/c_31.png) no-repeat 10px center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .PD-rltd li a{color:#808080}
 
 .PD-ltb-r{color:#333;background:url(../images/img/c_33.png) no-repeat left center;padding-left:30px;display:inline-block;float:right}
