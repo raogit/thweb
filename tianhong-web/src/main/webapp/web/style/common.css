@@ -18,8 +18,8 @@
 .bd-cont-L{width:675px;position:relative}
 .bd-cont-L.LB{width:180px}
 .bd-cont-L.LS{width:352px;height:700px;position:relative;z-index:99}
-.bd-cont-L.LC{width:498px}
-.bd-cont-L.LT{width:423px}
+.bd-cont-L.LC{width:498px;}
+.bd-cont-L.LT{width:423px;min-width:1200px;}
 .bd-L-title{width:100%;height:120px;color:#e84137}
 .bd-L-tch{font-size:32px;letter-spacing:2px}
 .bd-L-tch.tch2{color:#f17b6f;letter-spacing:4px;/* font-weight:bold */}
@@ -314,7 +314,7 @@
 .sr-l-tab{width:100%}
 .sr-l-tab tr{border-top:1px solid #e5e5e5}
 .sr-l-tab tr td{width:25%;text-align:center;color:#808080;height:48px;border-right:1px solid #e5e5e5}
-.i-center{width:100%;height:100%;position:relative;overflow: hidden;background: #ccc;}
+.i-center{width:100%;height:100%;position:relative;overflow:hidden;background:#ccc;min-width:1200px;}
 .i-bg{width:100%;height:100%;position:relative;}
 .i-bg img{width:100%}
 .i-c-l{width:178px;height:120px;position:absolute;top:30%;left:20%}
@@ -459,7 +459,7 @@
 .banner .ban_ul li{position: relative;width: 100%;display: block;height: 100%;}
 .banner .ban_ul li a{display: block;width: 100%;height: 100%;}
 
-.wrapbot{width: 100%;position: fixed;bottom: 0;left: 0;}
+.wrapbot{width:100%;position:absolute;bottom:0;left:0;min-width:1200px;}
 
 .v-text-all{position: relative;width: 100%;height: 97px;margin-top: 60px;}
 .index_image {position: relative;width:100%;height: 100%;}
