@@ -96,23 +96,24 @@
 	<script src="${basePath}/web/js/client.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function(){
-	        if(client.system.iphone||client.system.ipad||client.system.ipod||client.system.android||client.system.nokiaN||client.system.winMobile){
-	            $(".wrapper").css({"height":"568px"});
-	            $(".i-center").css({"height":"568px"});
-	            $(".wrapbot").addClass("current");
-	        }else{
-	    		var wHeight = $(window).height();
-	    		var resize = function(){
-	    			wHeight = $(window).height();
-	    			var h = wHeight-210;
+			var wHeight = $(window).height();
+			var resize = function(){
+	            if(client.system.iphone||client.system.ipad||client.system.ipod||client.system.android||client.system.nokiaN||client.system.winMobile){
+	            	$(".wrapper").css({"height":"568px"});
+		            $(".i-center").css({"height":"568px"});
+		            $(".wrapbot").addClass("current");
+	            }else{
+	                wHeight = $(window).height();
+	                var h = wHeight-210;
 	    			$(".wrapper").css({"height":h+"px"});
-	    		}
-	    		resize();
-	    		$(window).resize(function(){
-	    			resize();
-	    		})
-	        }
+	            }	
+			}
+			resize();
+			$(window).resize(function(){
+				resize();
+			})
 		})
 	</script>
+	
 </body>
 </html>
