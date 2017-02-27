@@ -460,7 +460,8 @@
 .banner .ban_ul li a{display: block;width: 100%;height: 100%;}
 
 .wrapbot{width:100%;position:absolute;bottom:0;left:0;min-width:1200px;}
-
+ .wrapbot.current{position: relative;}
+ 
 .v-text-all{position: relative;width: 100%;height: 97px;margin-top: 60px;}
 .index_image {position: relative;width:100%;height: 100%;}
 
