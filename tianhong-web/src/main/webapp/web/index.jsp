@@ -93,17 +93,22 @@
 	    <jsp:include page="foot/index-foot.jsp"></jsp:include>
 	</div>  
 	<script src="${basePath}/web/js/banner.js" type="text/javascript"></script>
+	<script src="${basePath}/web/js/client.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(function(){
-			var wHeight = $(window).height();
-			var resize = function(){
-				wHeight = $(window).height();
-				$(".wrapper").css({"height":wHeight-210});
-			}
-			resize();
-			$(window).resize(function(){
-				resize();
-			})
+	        if(client.system.iphone||client.system.ipad||client.system.ipod||client.system.android||client.system.nokiaN||client.system.winMobile){
+	            $(".wrapper").css({"height":568});
+	        }else{
+	    		var wHeight = $(window).height();
+	    		var resize = function(){
+	    			wHeight = $(window).height();
+	    			$(".wrapper").css({"height":wHeight-210});
+	    		}
+	    		resize();
+	    		$(window).resize(function(){
+	    			resize();
+	    		})
+	        }
 		})
 	</script>
 </body>
