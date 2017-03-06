@@ -62,8 +62,17 @@ public class PictureServiceImpl implements PictureService {
 
 	}
 
-	public Picture insertSelective(int menuId, String title, String url, byte pictureType, String path, User user)
-			throws Exception {
+	public List<Picture> findInvestmentByMenuId(Integer menuId) throws Exception {
+		List<Picture> list = pictureMapper.findInvestmentByMenuId(menuId);
+		if (!CollectionUtils.isEmpty(list)) {
+			for (Picture pic : list) {
+				pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+			}
+		}
+		return list;
+	}
+
+	public Picture insertSelective(int menuId, String title, String url, byte pictureType, String path, User user) throws Exception {
 		byte sort = pictureMapper.selectMaxSort(menuId, pictureType);
 		Picture picture = new Picture();
 		picture.setMenuId(menuId);
@@ -213,4 +222,5 @@ public class PictureServiceImpl implements PictureService {
 		}
 		return list;
 	}
+
 }

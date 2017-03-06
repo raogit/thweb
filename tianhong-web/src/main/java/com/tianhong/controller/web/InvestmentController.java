@@ -135,8 +135,7 @@ public class InvestmentController extends BaseController {
 						for (Content c : contents) {
 							InvestmentHotline hotline = JSONObject.parseObject(c.getContent(), InvestmentHotline.class);
 							hotline.setCreateTime(c.getCreateTime());
-							hotline.setCreateTimeStr(
-									DateUtils.parseString(c.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
+							hotline.setCreateTimeStr(DateUtils.parseString(c.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
 							hotline.setId(c.getId());
 							list.add(hotline);
 						}
@@ -162,8 +161,7 @@ public class InvestmentController extends BaseController {
 	}
 
 	@RequestMapping(value = "/business")
-	public Object business(@RequestParam("menuId") int menuId, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object business(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 
@@ -211,7 +209,7 @@ public class InvestmentController extends BaseController {
 				}
 				for (Menu m : subs) {
 					if (m.getName().indexOf("招商动态") > -1) {
-						List<DevelopHistory> historys = developHistoryService.getList(m.getId());
+						List<DevelopHistory> historys = developHistoryService.getInvestmentList(m.getId());
 						List<List<DevelopHistory>> historyList = new ArrayList<List<DevelopHistory>>();
 						if (historys.size() > 5) {
 							for (int i = 0; i < historys.size(); i += 5) {
@@ -238,8 +236,7 @@ public class InvestmentController extends BaseController {
 						for (Content c : contents) {
 							InvestmentHotline hotline = JSONObject.parseObject(c.getContent(), InvestmentHotline.class);
 							hotline.setCreateTime(c.getCreateTime());
-							hotline.setCreateTimeStr(
-									DateUtils.parseString(c.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
+							hotline.setCreateTimeStr(DateUtils.parseString(c.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
 							hotline.setId(c.getId());
 							list.add(hotline);
 						}
@@ -262,8 +259,7 @@ public class InvestmentController extends BaseController {
 	}
 
 	@RequestMapping(value = "/businetrend")
-	public Object busineTrend(@RequestParam("menuId") int menuId, @RequestParam("id") int id,
-			HttpServletRequest request, HttpServletResponse response) {
+	public Object busineTrend(@RequestParam("menuId") int menuId, @RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu me = menuService.getByPrimaryKey(menuId);
@@ -315,8 +311,7 @@ public class InvestmentController extends BaseController {
 	}
 
 	@RequestMapping(value = "/showdetail1")
-	public Object showDetail1(@RequestParam("menuId") int menuId, @RequestParam("id") int id,
-			HttpServletRequest request, HttpServletResponse response) {
+	public Object showDetail1(@RequestParam("menuId") int menuId, @RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(menuId);
@@ -346,8 +341,7 @@ public class InvestmentController extends BaseController {
 	}
 
 	@RequestMapping(value = "/showdetail2")
-	public Object showDetail2(@RequestParam("menuId") int menuId, @RequestParam("id") int id,
-			HttpServletRequest request, HttpServletResponse response) {
+	public Object showDetail2(@RequestParam("menuId") int menuId, @RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(menuId);
@@ -378,8 +372,7 @@ public class InvestmentController extends BaseController {
 
 	@RequestMapping(value = "/investmentcover/save")
 	@ResponseBody
-	public Object investmentcoverSave(InvestmentCover investmentCover, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object investmentcoverSave(InvestmentCover investmentCover, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		try {
 			User user = getCurrentUser(request);
