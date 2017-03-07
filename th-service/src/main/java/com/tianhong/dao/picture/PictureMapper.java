@@ -23,4 +23,6 @@ public interface PictureMapper extends BaseMapper<Picture> {
 
 	byte selectMaxSort(@Param("menuId") int menuId, @Param("pictureType") byte pictureType) throws Exception;
 
+	List<Picture> findinvestmentPage(Picture picture) throws Exception;
+
 }

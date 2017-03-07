@@ -46,8 +46,7 @@ public class HistoryController extends BaseController {
 	private DevelopHistoryService developHistoryService;
 
 	@RequestMapping(value = "/index")
-	public Object history(@RequestParam("menuId") int menuId, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object history(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			model.put("menuId", menuId);
@@ -80,6 +79,18 @@ public class HistoryController extends BaseController {
 		return false;
 	}
 
+	@RequestMapping(value = "/commomWealPage")
+	@ResponseBody
+	public Object commomWealPage(DevelopHistory developHistory, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			developHistory.setOrderBy(CommonConstant.DESC);
+			return developHistoryService.getPage(developHistory);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
 	@RequestMapping(value = "/list")
 	@ResponseBody
 	public Object list(DevelopHistory developHistory, HttpServletRequest request, HttpServletResponse response) {
@@ -97,8 +108,7 @@ public class HistoryController extends BaseController {
 		try {
 			User user = getCurrentUser(request);
 			try {
-				developHistory
-						.setEventTime(DateUtils.parseDate(developHistory.getEventTimeStr(), CommonConstant.YYYY_MM_dd));
+				developHistory.setEventTime(DateUtils.parseDate(developHistory.getEventTimeStr(), CommonConstant.YYYY_MM_dd));
 			} catch (Exception e) {
 			}
 

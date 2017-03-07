@@ -84,7 +84,7 @@ public class InvestmentController extends BaseController {
 				}
 				for (Menu m : subs) {
 					if (m.getName().indexOf("招商信息") > -1) {
-						List<Picture> infos = pictureService.findByMenuId(m.getId());
+						List<Picture> infos = pictureService.findInvestmentByMenuId(m.getId());
 						for (Picture pic : infos) {
 							pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd));
 						}
@@ -108,7 +108,7 @@ public class InvestmentController extends BaseController {
 				}
 				for (Menu m : subs) {
 					if (m.getName().indexOf("招商动态") > -1) {
-						List<DevelopHistory> historys = developHistoryService.getList(m.getId());
+						List<DevelopHistory> historys = developHistoryService.getInvestmentList(m.getId());
 						List<List<DevelopHistory>> historyList = new ArrayList<List<DevelopHistory>>();
 						if (historys.size() > 5) {
 							for (int i = 0; i < historys.size(); i += 5) {
@@ -185,7 +185,7 @@ public class InvestmentController extends BaseController {
 				}
 				for (Menu m : subs) {
 					if (m.getName().indexOf("招商信息") > -1) {
-						List<Picture> infos = pictureService.findByMenuId(m.getId());
+						List<Picture> infos = pictureService.findInvestmentByMenuId(m.getId());
 						for (Picture pic : infos) {
 							pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd));
 						}

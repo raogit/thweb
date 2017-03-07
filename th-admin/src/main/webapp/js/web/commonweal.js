@@ -161,7 +161,7 @@ function tableData(pageNum){
 	var endDate = $("#endDate").val();	
 	var menuId = $("#menuId").val();	
 	$.ajax({
-        url: basePath + "/web/about/history/page",
+        url: basePath + "/web/about/history/commomWealPage",
         type: 'post',
         dataType: 'json',
         data : {

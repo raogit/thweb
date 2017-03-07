@@ -43,8 +43,7 @@ public class PictureController extends BaseController {
 
 	@RequestMapping(value = "/listbymenuid")
 	@ResponseBody
-	public Object listbymenuid(@RequestParam("menuId") int menuId, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object listbymenuid(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			return pictureService.findByMenuId(menuId);
 		} catch (Exception e) {
@@ -79,8 +78,7 @@ public class PictureController extends BaseController {
 	@ResponseBody
 	public Object delete(@RequestParam("id") int id, HttpServletRequest request, HttpServletResponse response) {
 		try {
-			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"),
-					CommonConstant.UPLOAD_IMG_PATH);
+			String path = FileToolUtils.getPathMkdir(request.getSession().getServletContext().getRealPath("/"), CommonConstant.UPLOAD_IMG_PATH);
 			return pictureService.delete(id, path);
 		} catch (Exception e) {
 			log.error("", e);
@@ -105,6 +103,17 @@ public class PictureController extends BaseController {
 	public Object page(Picture picture, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			return pictureService.getPage(picture);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
+	@RequestMapping(value = "/investmentPage")
+	@ResponseBody
+	public Object investmentPage(Picture picture, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return pictureService.getinvestmentPage(picture);
 		} catch (Exception e) {
 			log.error("", e);
 		}

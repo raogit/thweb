@@ -178,6 +178,19 @@ public class PictureServiceImpl implements PictureService {
 		return picture;
 	}
 
+	public Picture getinvestmentPage(Picture picture) throws Exception {
+		List<Picture> page = pictureMapper.findinvestmentPage(picture);
+		if (!CollectionUtils.isEmpty(page)) {
+			for (Picture pic : page) {
+				pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+			}
+		}
+		int count = pictureMapper.count(picture);
+		picture.setObj(page);
+		picture.setTotalRow(count);
+		return picture;
+	}
+
 	public List<Picture> getList(Picture picture) throws Exception {
 		List<Picture> list = pictureMapper.list(picture);
 		if (!CollectionUtils.isEmpty(list)) {

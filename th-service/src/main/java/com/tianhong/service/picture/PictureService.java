@@ -47,6 +47,8 @@ public interface PictureService {
 
 	Picture getPage(Picture picture) throws Exception;
 
+	Picture getinvestmentPage(Picture picture) throws Exception;
+
 	Picture getPageEjournals(Picture picture) throws Exception;
 
 	List<Picture> getList(Picture picture) throws Exception;
