@@ -99,6 +99,27 @@ public class DevelopHistoryServiceImpl implements DevelopHistoryService {
 		return developHistory;
 	}
 
+	public DevelopHistory getCommomWealPage(DevelopHistory developHistory) throws Exception {
+		List<DevelopHistory> page = developHistoryMapper.findCommomWealPage(developHistory);
+		if (!CollectionUtils.isEmpty(page)) {
+			for (DevelopHistory his : page) {
+				try {
+					his.setEventTimeStr(DateUtils.parseString(his.getEventTime(), CommonConstant.YYYY_MM_dd));
+				} catch (Exception e) {
+				}
+				try {
+					his.setCreateTimeStr(DateUtils.parseString(his.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+				} catch (Exception e) {
+				}
+
+			}
+		}
+		int count = developHistoryMapper.count(developHistory);
+		developHistory.setObj(page);
+		developHistory.setTotalRow(count);
+		return developHistory;
+	}
+
 	public List<DevelopHistory> getList(DevelopHistory developHistory) throws Exception {
 		return developHistoryMapper.list(developHistory);
 	}

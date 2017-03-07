@@ -241,6 +241,27 @@
 		ORDER BY event_time ${orderBy},create_time ${orderBy}
 		LIMIT #{start, jdbcType=INTEGER}, #{pageSize,jdbcType=INTEGER}
 	</select>
+	
+	<select id="findCommomWealPage" parameterType="com.tianhong.domain.web.DevelopHistory" resultMap="ResultMapWithBLOBs">
+		select
+			<include refid="Base_Column_List" />
+			,
+			<include refid="Blob_Column_List" />
+		from t_web_develop_history
+		where is_deleted = 0
+		<if test="menuId != null and menuId&gt;0">
+			AND menu_id = #{menuId,jdbcType=INTEGER}
+		</if>
+		<if test="startDate != null and endDate!=null">
+			AND create_time BETWEEN #{startDate,jdbcType=VARCHAR} AND
+			#{endDate,jdbcType=VARCHAR}
+		</if>
+		<if test="title != null and title!=''">
+			AND title like CONCAT('%',#{title,jdbcType=VARCHAR},'%' )
+		</if>
+		ORDER BY create_time desc
+		LIMIT #{start, jdbcType=INTEGER}, #{pageSize,jdbcType=INTEGER}
+	</select>
 
 	<select id="count" parameterType="com.tianhong.domain.web.DevelopHistory" resultType="java.lang.Integer">
 		select

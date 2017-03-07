@@ -101,7 +101,7 @@ function del(id){
 function deleteObj(id){
 	if(confirm("刪除将无法恢复?")){
 		$.ajax({
-	        url: basePath + "/web/about/history/delete",
+			url: basePath + "/picture/delete",
 	        type: 'post',
 	        dataType: 'json',
 	        data : {

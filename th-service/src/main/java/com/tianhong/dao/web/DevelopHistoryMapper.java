@@ -11,4 +11,6 @@ public interface DevelopHistoryMapper extends BaseMapper<DevelopHistory> {
 
 	List<DevelopHistory> findInvestmentList(DevelopHistory developHistory) throws Exception;
 
+	List<DevelopHistory> findCommomWealPage(DevelopHistory developHistory) throws Exception;
+
 }

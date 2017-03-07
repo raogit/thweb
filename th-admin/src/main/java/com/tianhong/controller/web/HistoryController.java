@@ -84,7 +84,7 @@ public class HistoryController extends BaseController {
 	public Object commomWealPage(DevelopHistory developHistory, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			developHistory.setOrderBy(CommonConstant.DESC);
-			return developHistoryService.getPage(developHistory);
+			return developHistoryService.getCommomWealPage(developHistory);
 		} catch (Exception e) {
 			log.error("", e);
 		}

@@ -32,6 +32,8 @@ public interface DevelopHistoryService {
 
 	DevelopHistory getPage(DevelopHistory developHistory) throws Exception;
 
+	DevelopHistory getCommomWealPage(DevelopHistory developHistory) throws Exception;
+
 	List<DevelopHistory> getList(DevelopHistory developHistory) throws Exception;
 
 	List<DevelopHistory> getList(int menuId) throws Exception;
