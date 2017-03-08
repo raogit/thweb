@@ -195,16 +195,11 @@
 		</div>
 		<div class="f-btm">
 			<div class="f-b-cont clearfix">
-				<div class="f-b-cr">
-					<%-- <a href=""><img src="${basePath}/app/Images/p_21.png"></a> 
-					<a href=""><img src="${basePath}/app/Images/p_22.png"></a> 
-					<a href=""><img src="${basePath}/app/Images/p_23.png"></a> --%>
-				</div>
+				<div class="f-b-cr" style="width:200px;color:#fff;">客服热线   4008-295-295</div>
 				<div class="f-b-cl">
 					<p>
 						Copyright © 2015 版权所有 天虹商场股份有限公司 <span>粤ICP备11065574号-3</span>
 					</p>
-					
 				</div>
 			</div>
 		</div>

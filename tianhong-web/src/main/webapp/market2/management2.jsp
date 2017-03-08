@@ -133,20 +133,7 @@
 	            </div>
 	        </div>
 	</div>
-	<div class="footer_mk">
-	    <div class="f-cont">
-	        <div class="f-c-right">
-	            <a href="" class="f-c-ri"><img src="${basePath}/market2/images/p_1.png" alt=""></a>
-	            <a href="" class="f-c-ri fri"><img src="${basePath}/market2/images/p_2.png" alt=""></a>
-	            <div class="fr"></div>
-	            <div class="f-c-wc"><img src="${basePath}/market2/images/p_3.png" alt=""></div>
-	        </div>
-	        <div class="f-c-left">
-	            <a href=""></a>
-	            <span>版权所有:天虹商场股份有限公司</span>
-	            <span>备案号:粤ICP备11065574号-3</span>
-	        </div>
-	    </div>
+	<jsp:include page="foot.jsp"></jsp:include>
 	    <div class="clear"></div>
 	    <script type="text/javascript" src="${basePath}/market2/Scripts/jquery-1.7.1.min.js"></script>
 	    <script type="text/javascript" src="${basePath}/market2/Scripts/web.js"></script>
@@ -182,6 +169,5 @@
 	            $(".lbi-list li:even").addClass("even");
 	        })
 	    </script>
-	</div>
 </body>
 </html>

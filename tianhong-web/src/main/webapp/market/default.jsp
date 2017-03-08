@@ -31,19 +31,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer_mk">
-		<div class="f-cont">
-			<div class="f-c-right">
-				<%-- <a href="" class="f-c-ri"><img src="${basePath}/market/images/p_1.png" alt=""></a> 
-				<a href="" class="f-c-ri fri"><img src="${basePath}/market/images/p_2.png" alt=""></a> --%>
-				<div class="fr"></div>
-			</div>
-			<div class="f-c-left">
-				<!-- <a href="">友情链接</a> --> <span>版权所有:天虹商场股份有限公司</span> <span>备案号:粤ICP备11065574号-3</span>
-			</div> 
-		</div>
-		<div class="clear"></div>
-	</div>
+	<jsp:include page="foot.jsp"></jsp:include>
 	<script type="text/javascript" src="${basePath}/market/Scripts/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="${basePath}/market/Scripts/web.js"></script>
 	<script type="text/javascript">
