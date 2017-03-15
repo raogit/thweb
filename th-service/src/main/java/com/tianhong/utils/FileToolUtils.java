@@ -96,6 +96,7 @@ public class FileToolUtils extends FileUtils {
 	}
 
 	public static boolean deleteFile(String path) throws Exception {
+		log.info("删除文件路径1:" + path);
 		boolean flag = false;
 		File file = new File(path);
 		// 路径为文件且不为空则进行删除
@@ -110,10 +111,8 @@ public class FileToolUtils extends FileUtils {
 						flag = deleteFile(f.getPath());
 						AssertUtils.isTrue(flag, "文件删除失败:" + f.getPath());
 					}
-					flag = deleteFile(file.getPath());
-					AssertUtils.isTrue(flag, "文件删除失败:" + file.getPath());
 				} else {
-					flag = file.delete();
+					// flag = file.delete();
 					AssertUtils.isTrue(flag, "文件删除失败:" + file.getPath());
 				}
 			}
@@ -122,6 +121,7 @@ public class FileToolUtils extends FileUtils {
 	}
 
 	public static boolean deleteFile(File file) throws Exception {
+		log.info("删除文件路径2:" + file.getPath());
 		boolean flag = false;
 		// 路径为文件且不为空则进行删除
 		if (file.exists()) {
@@ -135,10 +135,8 @@ public class FileToolUtils extends FileUtils {
 						flag = deleteFile(f);
 						AssertUtils.isTrue(flag, "文件删除失败:" + f.getPath());
 					}
-					flag = deleteFile(file);
-					AssertUtils.isTrue(flag, "文件删除失败:" + file.getPath());
 				} else {
-					flag = file.delete();
+					// flag = file.delete();
 					AssertUtils.isTrue(flag, "文件删除失败:" + file.getPath());
 				}
 			}
@@ -218,8 +216,7 @@ public class FileToolUtils extends FileUtils {
 			String filename = file.getName();
 			response.reset();
 			// 设置response的Header
-			response.addHeader("Content-Disposition",
-					"attachment;filename=" + java.net.URLEncoder.encode(filename, "UTF-8"));
+			response.addHeader("Content-Disposition", "attachment;filename=" + java.net.URLEncoder.encode(filename, "UTF-8"));
 			response.addHeader("Content-Length", "" + file.length());
 			response.setContentType("application/csv;charset=UTF-8");
 			response.setContentType("multipart/form-data");
