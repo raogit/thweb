@@ -15,7 +15,7 @@
 	<script src="${basePath }/js/user/jquery.mCustomScrollbar.concat.min.js?ver=${ver}" type="text/javascript"></script>
 	<script src="${basePath }/js/timer/timer.js?ver=${ver}" type="text/javascript"></script>
 	<script src="${basePath }/js/utils/utils.js?ver=${ver}" type="text/javascript"></script>
-	<script src="${basePath }/js/web/investment-info.js?ver=${ver}" type="text/javascript"></script>
+	<script src="${basePath }/js/web/company-system.js?ver=${ver}" type="text/javascript"></script>
 	<script src="${basePath}/js/jQuery/jquery-2.1.4.min.js?ver=${ver}" type="text/javascript"></script>
 	<script src="${basePath}/js/richtext/froala_editor.min.js"></script>
 	<script src="${basePath}/js/richtext/tables.min.js"></script>

@@ -109,6 +109,17 @@ public class PictureController extends BaseController {
 		return false;
 	}
 
+	@RequestMapping(value = "/systemPage")
+	@ResponseBody
+	public Object systemPage(Picture picture, HttpServletRequest request, HttpServletResponse response) {
+		try {
+			return pictureService.getSystemPage(picture);
+		} catch (Exception e) {
+			log.error("", e);
+		}
+		return false;
+	}
+
 	@RequestMapping(value = "/investmentPage")
 	@ResponseBody
 	public Object investmentPage(Picture picture, HttpServletRequest request, HttpServletResponse response) {

@@ -35,6 +35,8 @@ public interface PictureService {
 
 	List<Picture> findByMenuId(Integer menuId) throws Exception;
 
+	List<Picture> findSystemByMenuId(Integer menuId) throws Exception;
+
 	List<Picture> findInvestmentByMenuId(Integer menuId) throws Exception;
 
 	int updateByPrimaryKeySelective(Picture picture) throws Exception;
@@ -46,6 +48,8 @@ public interface PictureService {
 	List<Picture> delete(int id, String path) throws Exception;
 
 	Picture getPage(Picture picture) throws Exception;
+
+	Picture getSystemPage(Picture picture) throws Exception;
 
 	Picture getinvestmentPage(Picture picture) throws Exception;
 

@@ -19,10 +19,14 @@ public interface PictureMapper extends BaseMapper<Picture> {
 
 	List<Picture> findByMenuId(Integer menuId) throws Exception;
 
+	List<Picture> findSystemByMenuId(Integer menuId) throws Exception;
+
 	List<Picture> findInvestmentByMenuId(Integer menuId) throws Exception;
 
 	byte selectMaxSort(@Param("menuId") int menuId, @Param("pictureType") byte pictureType) throws Exception;
 
 	List<Picture> findinvestmentPage(Picture picture) throws Exception;
+
+	List<Picture> systemPage(Picture picture) throws Exception;
 
 }

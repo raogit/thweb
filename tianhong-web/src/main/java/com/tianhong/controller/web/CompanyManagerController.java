@@ -61,8 +61,7 @@ public class CompanyManagerController extends BaseController {
 	private DevelopHistoryService developHistoryService;
 
 	@RequestMapping(value = "/index")
-	public Object seniorExecutive(@RequestParam("menuId") int menuId, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object seniorExecutive(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(menuId);
@@ -113,14 +112,14 @@ public class CompanyManagerController extends BaseController {
 				}
 				for (Menu m : subs) {
 					if (m.getName().indexOf("公司制度") > -1) {
-						List<Picture> systems = pictureService.findByMenuId(m.getId());
+						List<Picture> systems = pictureService.findSystemByMenuId(m.getId());
 						model.put("systems", systems);
 						break;
 					}
 				}
 				for (Menu m : subs) {
 					if (m.getName().indexOf("公司章程") > -1) {
-						List<Picture> constitutions = pictureService.findByMenuId(m.getId());
+						List<Picture> constitutions = pictureService.findSystemByMenuId(m.getId());
 						model.put("constitutions", constitutions);
 						break;
 					}
@@ -156,8 +155,7 @@ public class CompanyManagerController extends BaseController {
 						for (Content c : contents) {
 							Profit profit = JSONObject.parseObject(c.getContent(), Profit.class);
 							profit.setCreateTime(c.getCreateTime());
-							profit.setCreateTimeStr(
-									DateUtils.parseString(c.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
+							profit.setCreateTimeStr(DateUtils.parseString(c.getCreateTime(), CommonConstant.YYYY_MM_dd_HH_mm_ss));
 							profit.setId(c.getId());
 							list.add(profit);
 						}
@@ -181,8 +179,7 @@ public class CompanyManagerController extends BaseController {
 	}
 
 	@RequestMapping(value = "/protect")
-	public Object protect(@RequestParam("menuId") int menuId, HttpServletRequest request,
-			HttpServletResponse response) {
+	public Object protect(@RequestParam("menuId") int menuId, HttpServletRequest request, HttpServletResponse response) {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
 			Menu menu = menuService.getByPrimaryKey(menuId);

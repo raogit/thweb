@@ -22,7 +22,6 @@ import com.tianhong.domain.user.User;
 import com.tianhong.service.picture.PictureService;
 import com.tianhong.utils.AssertUtils;
 import com.tianhong.utils.DateUtils;
-import com.tianhong.utils.FileToolUtils;
 
 /**
  * ClassName: PictureServiceImpl
@@ -53,6 +52,17 @@ public class PictureServiceImpl implements PictureService {
 
 	public List<Picture> findByMenuId(Integer menuId) throws Exception {
 		List<Picture> list = pictureMapper.findByMenuId(menuId);
+		if (!CollectionUtils.isEmpty(list)) {
+			for (Picture pic : list) {
+				pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+			}
+		}
+		return list;
+
+	}
+
+	public List<Picture> findSystemByMenuId(Integer menuId) throws Exception {
+		List<Picture> list = pictureMapper.findSystemByMenuId(menuId);
 		if (!CollectionUtils.isEmpty(list)) {
 			for (Picture pic : list) {
 				pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
@@ -137,7 +147,6 @@ public class PictureServiceImpl implements PictureService {
 	public List<Picture> delete(int id, String path) throws Exception {
 		Picture picture = pictureMapper.selectByPrimaryKey(id);
 
-		FileToolUtils.deleteFile(path + picture.getPath());
 		AssertUtils.notNull(picture, "对应的图片不存在");
 		List<Picture> pictures = pictureMapper.findByMenuId(picture.getMenuId());
 		pictureMapper.deleteByPrimaryKey(picture.getId());
@@ -167,6 +176,19 @@ public class PictureServiceImpl implements PictureService {
 
 	public Picture getPage(Picture picture) throws Exception {
 		List<Picture> page = pictureMapper.page(picture);
+		if (!CollectionUtils.isEmpty(page)) {
+			for (Picture pic : page) {
+				pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
+			}
+		}
+		int count = pictureMapper.count(picture);
+		picture.setObj(page);
+		picture.setTotalRow(count);
+		return picture;
+	}
+
+	public Picture getSystemPage(Picture picture) throws Exception {
+		List<Picture> page = pictureMapper.systemPage(picture);
 		if (!CollectionUtils.isEmpty(page)) {
 			for (Picture pic : page) {
 				pic.setCreateTimeStr(DateUtils.parseString(pic.getCreateTime(), CommonConstant.YYYY_MM_dd_NIAN));
