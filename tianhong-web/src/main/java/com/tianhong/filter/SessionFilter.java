@@ -35,7 +35,7 @@ import com.tianhong.service.path.BasePathService;
  * 
  * @Description: 描述
  * @author raowenxing
- * @date 2016-4-21 下午6:59:21
+ * @date 2016-4-21 下午6:59:21df
  */
 @Component("sessionFilter")
 public class SessionFilter implements Filter {
@@ -44,7 +44,7 @@ public class SessionFilter implements Filter {
 
 	// 忽略路径
 	private static final String[] IGNORE_URI = { "/login.jsp", "/login", "/verify/verifyCode", "/loginconfirm",
-			"/logout", "/activex/DongleOCX.exe" };
+			"/logout", "/activex/DongleOCX.exe", "/web/b2b/client.exe" };
 
 	// 忽略后缀
 	private static final String[] SUFFIXS = { ".js", ".css", ".cur", ".jpg", ".gif", ".png", ".ico", ".swf", ".cab",
