@@ -39,20 +39,18 @@ public class SessionFilter implements Filter {
 
 	private static final Log log = LogFactory.getLog(SessionFilter.class);
 	// 忽略路径
-	private static final String[] IGNORE_URI = { "/login.jsp", "/login", "/verify/verifyCode", "/loginconfirm",
-			"/logout", "/activex/DongleOCX.exe" };
+	private static final String[] IGNORE_URI = { "/login.jsp", "/login", "/verify/verifyCode", "/loginconfirm", "/logout", "/activex/DongleOCX.exe" };
 
 	// 忽略后缀
-	private static final String[] SUFFIXS = { ".js", ".css", ".cur", ".jpg", ".gif", ".png", ".ico", ".swf", ".cab",
-			".cvs", "xl", ".html" };
+	private static final String[] SUFFIXS = { ".js", ".css", ".cur", ".jpg", ".gif", ".png", ".ico", ".swf", ".cab", ".cvs", "xl", ".html", ".ppt", ".rar",
+			".zip", ".pdf", ".xls", ".doc", ".txt", ".xlsx", ".xml" };
 
 	public void init(FilterConfig filterConfig) throws ServletException {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
-			throws IOException, ServletException {
+	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
@@ -63,8 +61,7 @@ public class SessionFilter implements Filter {
 		if (path.indexOf("passwd") > -1) {
 			String ip = request.getRemoteAddr();
 			log.info("ip:" + ip + ",path:" + path);
-			response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-					+ request.getContextPath() + "/login");
+			response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/login");
 		} else {
 			for (String s : IGNORE_URI) {
 				if (url.contains(s)) {
@@ -80,8 +77,7 @@ public class SessionFilter implements Filter {
 					}
 				}
 			}
-			WebApplicationContext wc = WebApplicationContextUtils
-					.getRequiredWebApplicationContext(request.getSession().getServletContext());
+			WebApplicationContext wc = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getSession().getServletContext());
 			RequestMappingHandlerMapping rmhp = wc.getBean(RequestMappingHandlerMapping.class);
 			Map<RequestMappingInfo, HandlerMethod> map = rmhp.getHandlerMethods();
 			boolean existUrl = false;
@@ -103,8 +99,8 @@ public class SessionFilter implements Filter {
 				// }
 				if (!flag) {
 					if (!existUrl) {
-						response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":"
-								+ request.getServerPort() + request.getContextPath() + "/login");
+						response.sendRedirect(
+								request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/login");
 					} else {
 						chain.doFilter(request, response);
 					}
@@ -113,8 +109,8 @@ public class SessionFilter implements Filter {
 				}
 			} else {
 				if (!flag) {
-					response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":"
-							+ request.getServerPort() + request.getContextPath() + "/login");
+					response.sendRedirect(
+							request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/login");
 				} else {
 					chain.doFilter(request, response);
 				}

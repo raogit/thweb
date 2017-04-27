@@ -43,12 +43,12 @@ public class SessionFilter implements Filter {
 	private static final Log log = LogFactory.getLog(SessionFilter.class);
 
 	// 忽略路径
-	private static final String[] IGNORE_URI = { "/login.jsp", "/login", "/verify/verifyCode", "/loginconfirm",
-			"/logout", "/activex/DongleOCX.exe", "/web/b2b/client.exe" };
+	private static final String[] IGNORE_URI = { "/login.jsp", "/login", "/verify/verifyCode", "/loginconfirm", "/logout", "/activex/DongleOCX.exe",
+			"/web/b2b/client.exe" };
 
 	// 忽略后缀
-	private static final String[] SUFFIXS = { ".js", ".css", ".cur", ".jpg", ".gif", ".png", ".ico", ".swf", ".cab",
-			".cvs", "xl", ".html" };
+	private static final String[] SUFFIXS = { ".js", ".css", ".cur", ".jpg", ".gif", ".png", ".ico", ".swf", ".cab", ".cvs", "xl", ".html", ".ppt", ".rar",
+			".zip", ".pdf", ".xls", ".doc", ".txt", ".xlsx", ".xml" };
 
 	public void init(FilterConfig filterConfig) throws ServletException {
 		// TODO Auto-generated method stub
@@ -58,8 +58,7 @@ public class SessionFilter implements Filter {
 	@Autowired
 	private BasePathService basePathService;
 
-	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
-			throws IOException, ServletException {
+	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
 		boolean flag = false;
@@ -68,8 +67,8 @@ public class SessionFilter implements Filter {
 		if (path.indexOf("passwd") > -1) {
 			String ip = request.getRemoteAddr();
 			log.info("ip:" + ip + ",path:" + path);
-			response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-					+ request.getContextPath() + "/web/index");
+			response.sendRedirect(
+					request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/web/index");
 		} else {
 			try {
 				String basePath = (String) request.getSession().getAttribute(CommonConstant.PLAT_FORM_BACK);
@@ -95,8 +94,7 @@ public class SessionFilter implements Filter {
 					}
 				}
 			}
-			WebApplicationContext wc = WebApplicationContextUtils
-					.getRequiredWebApplicationContext(request.getSession().getServletContext());
+			WebApplicationContext wc = WebApplicationContextUtils.getRequiredWebApplicationContext(request.getSession().getServletContext());
 			RequestMappingHandlerMapping rmhp = wc.getBean(RequestMappingHandlerMapping.class);
 			Map<RequestMappingInfo, HandlerMethod> map = rmhp.getHandlerMethods();
 			boolean existUrl = false;
@@ -109,8 +107,8 @@ public class SessionFilter implements Filter {
 			}
 			if (!flag) {
 				if (!existUrl) {
-					response.sendRedirect(request.getScheme() + "://" + request.getServerName() + ":"
-							+ request.getServerPort() + request.getContextPath() + "/web/index");
+					response.sendRedirect(
+							request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/web/index");
 				} else {
 					chain.doFilter(request, response);
 				}
